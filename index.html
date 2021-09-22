@@ -1,0 +1,2462 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--meta-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--title-->
+        <title>C# Documentation</title>
+
+        <!--css-->
+        <link rel="stylesheet" href="css/style.css">
+
+    </head>
+
+    <body>
+        <!-- project requirement - nav element with a corresponding id="navbar" -->
+        <nav id="navbar">
+            <!-- project requirement - navbar should contain one header element with text describing topic of technical documentation -->
+            <!-- project requirement - header element in navbar must come before any link elements -->
+            <header><h1>C# Guide</h1></header>
+            <ul>
+                <!-- project requirement - navbar contains link elements with class of nav-link, one for every element with class main-section -->
+                <!-- project requirement - each nav-link element should contain text corresponding header text in each section -->
+                <!-- project requirement - clicking nav-link element navigates page to the corresponding main-doc section -->
+                <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+                <li><a class="nav-link" href="#C_Sharp_Language">C Sharp Language</a></li>
+                <li><a class="nav-link" href="#IDE_-_Integrated_Development_Environment">IDE - Integrated Development Environment</a></li>
+                <li><a class="nav-link" href="#Create_a_Hello_World_Project">Create a Hello World Project</a></li>
+                <li><a class="nav-link" href="#Code_Syntax">Code Syntax</a></li>
+                <li><a class="nav-link" href="#Comments_and_Task_Lists">Comments and Task Lists</a></li>
+                <li><a class="nav-link" href="#Variables,_Constants,_Types_and_Literals">Variables, Constants, Types and Literals</a></li>
+                <li><a class="nav-link" href="#Characters_and_Strings">Characters and Strings</a></li>
+                <li><a class="nav-link" href="#Expressions_and_Operators">Expressions and Operators</a></li>
+                <li><a class="nav-link" href="#Decision_Making_Statements">Decision Making Statements</a></li>
+                <li><a class="nav-link" href="#Iteration_Statements">Iteration Statements</a></li>
+                <li><a class="nav-link" href="#Arrays_and_Data_Structures">Arrays and Data Structures</a></li>
+                <li><a class="nav-link" href="#Enumerators">Enumerators</a></li>
+                <li><a class="nav-link" href="#Classes">Classes</a></li>
+                <li><a class="nav-link" href="#Namespaces_and_References">Namespaces and References</a></li>
+                <li><a class="nav-link" href="#Scope_and_Access_Modifiers">Scope and Access Modifiers</a></li>
+                <li><a class="nav-link" href="#Object-oriented_Programming_(OOP)">Object-oriented Programming (OOP)</a></li>
+                <li><a class="nav-link" href="#Keywords">Keywords</a></li>
+                <li><a class="nav-link" href="#Specifications">Specifications</a></li>
+                <li><a class="nav-link" href="#References">References</a></li>
+            </ul>
+        </nav>
+        <!-- project requirement - main element with id="main-doc" -->
+        <main id="main-doc">
+            <!-- project requirement - several section elements, each with a class of main-section. There should be a minimum of 5 -->
+            <!-- project requirement - section with class of main-section, id corresponds to header text, spaces replaced with underscores -->
+
+            <!-- Completed -->
+            <!-- Introduction - Section 1 -->
+            <section class="main-section" id="Introduction">
+                <header><h2>Introduction</h2></header>
+                <!-- project requirement -  first element in each .main-section is a header element which contains text that describes the topic -->
+                    <article>
+                        <!-- project requirement - .main-section elements should contain at least 10 p elements total, not each -->
+                        <p>The purpose of this guide is to give the reader a few of the basics of C#, so that they may quickly get a taste
+                            of what is required to write a program in C#. What this is not is a step by step guide into computer programming.
+                            Whilst someone with no programming skills may get some benefit from this guide it is aimed at those who may have learnt
+                            the basics in another language and want to see what C# has to offer.</p>
+
+                        <p>So what do you need to know. Firstly, developing an application in almost any programming language will require
+                            some basic maths skills, such as, logical thinking, basic algebra, knowing the difference between integers and floating
+                            point numbers, etc. You should also know how to install and upgrade software and operating systems on a computer and
+                            have an internet connection. It would also be useful to know some of the basics of how a computer works such as CPU's, memory,
+                            etc and that they use binary mathematics and what that is.</p>
+
+                        <p>Lastly and perhaps most importantly you should have skills in theory of mind and empathy, what the user thinks and how
+                            do they feel when they use your application. These should be a constant consideration as you write your code. For example, whilst you may
+                            consider entering a letter in a numeric only calculator invalid, a user may do so by accident producing an error that could
+                            have been avoided by disallowing the entry in the first place. If you then cause a pop up message that tells them they got
+                            it wrong when ever a letter is pressed, this will quickly lead to frustration and your program will quickly end up in the recycle bin.
+                        </p>
+                    </article>
+            </section>
+
+            <!-- Completed -->
+            <!-- C# Language - Section 2 -->
+            <section class="main-section" id="C_Sharp_Language">
+                <header><h2>C Sharp Language</h2></header>
+                <a class="back-to-top" href="#">Back to top</a>
+                <article>
+                    <p><i>Note: The correct title for this section is <b>C# Language</b> but has been changed due to technical limitations</i></p>
+                    <p>C# is a high level computer language created and maintained by Microsoft for the purpose of developing computer programs.
+                        A computer uses binary, the language of ones and zeros. To put it at its simplest all a computer can do is like a light switch
+                        turn things on or off, albeit at billions of times a second. For any person trying to write in ones and zeros, this soon becomes
+                        an impossible task. A high level programming language is a type of shorthand that is human readable making it easier for a developer to
+                        read and write code. The reference documentation for C# can be found at
+                        <a href="https://docs.microsoft.com/en-us/dotnet/csharp">Microsoft&nbsp;Docs</a>.</p>
+                </article>
+            </section>
+
+<!-- TODO -->
+            <!-- IDE - Integrated Development Environment - Section 3 -->
+            <section class="main-section" id="IDE_-_Integrated_Development_Environment">
+                <header><h2>IDE - Integrated Development Environment</h2></header>
+                <a class="back-to-top" href="#">Back to top</a>
+                <article>
+                    <p>An IDE is an application that contains various tools that assist the developer to write, run and test a program. The
+                        IDE used in this guide is
+                        <a href="https://visualstudio.microsoft.com/" rel="external nofollow noopener noreferrer" target="_blank">
+                        Microsoft's Visual Studio 2019</a>. While Visual Studio has many tools, the three most important are the:</p>
+                    <ul>
+                        <!-- project requirement -.main-section elements should contain at least 5 li items total, not each -->
+                        <li>Code editor</li>
+                        <li>Compiler</li>
+                        <li>Debugger</li>
+                    </ul>
+                    <p>The code editor, like a word processor, provides many tools that help in writing code. These include indication of
+                        syntax errors shown with a <u class="syntax">red wavy underline</u> that may prevent the program from running,
+                        code auto completion, called IntelliSense in Visual Studio, that provides suggestions with documentation and formatting tools
+                        that help keep the code consistent with coding conventions.</p>
+
+                    <p>The compiler is used by C# to convert the code the developer writes into the language the computer requires and using
+                        it is known as building the program. On completion, the compiler will report if the result was successful or
+                        produce a list of errors that must be corrected before the code can be run.</p>
+
+                    <p>The debugger aids the developer in finding errors in the code. Not every program will be written perfectly first time
+                        and the errors that prevent it from functioning correctly are known as bugs. If we were just to write, compile and
+                        run the program, then we would not have much to go on as to where a bug may exist. The debugger allows us to step
+                        through the code one line at a time to find the problem. This is known as running the program with the debugger
+                        attached.</p>
+
+                    <p>At the time of this writing the there are three versions of Visual Studio 2019.</p>
+                    <ul>
+                        <li>Community</li>
+                        <li>Professional</li>
+                        <li>Enterprise</li>
+                    </ul>
+                    <p>All examples in this document can be created and run on the community version which can be downloaded and installed
+                        free from the <a href="https://visualstudio.microsoft.com/" rel="external nofollow noopener noreferrer" target="_blank">
+                        Visual Studio</a> web page. For the remainder of this document Visual Studio will be referred to as the IDE.</p>
+
+                        <!-- TODO: To be removed -->
+                    <p><em>Note:</em> Whilst the code editor in Visual Studio provides color coding for different elements of the code only
+                        the red wavy line used to indicate syntax errors will be shown in this guide.</p>
+                </article>
+            </section>
+
+            <!-- Completed -->
+            <!-- Create a Hello World Project - Section 4 -->
+            <section class="main-section" id="Create_a_Hello_World_Project">
+                <header><h2>Create a Hello World Project</h2></header>
+                <a class="back-to-top" href="#">Back to top</a>
+                <article>
+                    <p>This guide assumes that the IDE has already been installed, updated and is set to its default settings xxx.</p>
+                    <ol>
+                        <li>Start the IDE then click <b>Create a new project</b>.</li>
+                        <li> On the <b>Create&nbsp;a&nbsp;new&nbsp;project</b> page in the search box at the top type
+                            <b>'console&nbsp;core'</b>.</li>
+                        <li>
+                            A project template titled <b>Console&nbsp;Application</b> should appear at the top of the list. It
+                            has an icon that looks like a document with C# in the top right corner. Select the
+                            <b>Console&nbsp;Application</b> then choose <b>Next</b>. (Hint: if <b>Console&nbsp;Application</b>
+                            is not at the top, click <b>Clear all</b> and search again)
+                        </li>
+                        <li>On the <b>Configure&nbsp;your&nbsp;new&nbsp;project</b> page type <b>'HelloWorld'</b>
+                            in the <b>Project&nbsp;name</b> box. Leave the <b>Location</b> and <b>Solution&nbsp;name</b> as filled in by the
+                            IDE and choose <b>Next</b>.</li>
+                        <li>In the <b>Additional&nbsp;information</b> page make sure <b>.NET5.0(Current)</b> is selected in the dropdown selector
+                            then choose <b>Create</b></li>
+                    </ol>
+
+                    <p>The main window of the IDE opens with <i>Solution Explorer</i> open on the right and the code editor on the left.
+                        The <i>Program.cs</i> code file should be open in the code editor with the code as in <b>Listing 1.1</b>. Not
+                        shown here are the line numbers in the left column visible in the code editor. These are not part of the program and
+                        are purely for reference.</p>
+
+                    <p id="Listing_4_1" class="listing">Listing 4.1 &nbsp; Hello World</p>
+<!-- Warning, pre and code tags require html to be formatted here which makes it look like crap in the code editor! -->
+<pre><code><span class="keyword">using</span> System;
+
+<span class="keyword">namespace</span> HelloWorld
+{
+    <span class="keyword">class</span> <span class="type">Program</span>
+    {
+        <span class="keyword">static void</span> <span class="method">Main</span>(<span class="keyword">string</span>[] <span class="args">args</span>)
+        {
+            <span class="type">Console</span>.<span class="method">WriteLine</span>(<span class="string">"Hello World!"</span>);
+        }
+    }
+}
+</code></pre>
+
+                    Press <kbd>F5</kbd>.
+
+
+                    <p>The console, a <i>command window</i> in Windows, opens displaying the words <b>'Hello World!'</b>. Congratulations,
+                        you have now created and run your first C# program. The remainder of the text tells us our program finished but the
+                        IDE has kept the console open so that we can see the result. <b>Press</b> any key to close the console.</p>
+
+                    <p>By pressing <kbd>F5</kbd> the compiler built then ran the program with the debugger attached. The program starts with the
+                        method called <code>static void Main(string[] args)</code>. This is known as the <b>entry point</b> and there are
+                        several rules it must follow which can be found in
+                        (<a href="Code_Syntax">Code&nbsp;Syntax</a>).</p>
+
+                    <p>Following <code>static void Main(string[] args)</code> is a pair of curly brackets <code>{ }</code>. The program
+                        executes all the statements it finds within these. Here there is only one,
+                        <code>Console.WriteLine("Hello World!");</code>. This tells the computer to write a line followed by a carriage
+                        return to the <i>command window</i> and that the text to be written is located within the round brackets
+                        <code>( )</code>, which in this case is <span class="nowrap"><b>'Hello World!'</b></span>. As there are no further
+                        lines in our code before the closing bracket <code>}</code>, the program exits. At this point the window of a program
+                        would normally close but the IDE has an option to keep console application windows open so that you can see the results.
+                        This option is turned on by default.</p>
+                </article>
+            </section>
+
+            <!-- Completed -->
+            <!-- Code Syntax - Section 5 -->
+            <section class="main-section" id="Code_Syntax">
+                <header><h2>Code Syntax</h2></header>
+                <a class="back-to-top" href="#">Back to top</a>
+                <article>
+                    <p>Some of the terms that will be mentioned in this section have not yet been covered and links are provided to their
+                        details, so consider this as a reference to come back to as you become more familiar with them.</p>
+
+                    <p>C# consists of text and symbols each of which tells the compiler how to convert our code into a program. The
+                        <b>syntax</b> is the set of rules that governs how our code must be put together, i.e. which word or symbol goes
+                        where. Together these words and symbols are combined to form statements, declarations and directives that are the
+                        instructions used to create a C# program. For someone with no experience in C#, reading a list of rules and
+                        specifications is likely to lead to more confusion than understanding, so the best way forward is to dive into some
+                        examples and see what's going on.</p>
+
+                    <p>The following illustrates examples both valid and invalid syntax</p>
+
+<pre><code><span class="comment">// This is a comment</span>
+
+<span class="comment">// using directive</span>
+using System;
+
+<span class="comment">// namespace declaration</span>
+    namespace MyProgram
+    {
+        <span class="comment">// class declaration</span>
+        public class MyClass
+        {
+            <span class="comment">// Constructor declaration with empty code block</span>
+            MyClass() {  }
+
+            <span class="comment">// Method declaration</span>
+            static void Main(string[] args)
+            {
+                <span class="comment">// Single statement</span>
+                Console.WriteLine("Hello World!");
+
+                <span class="comment">// Single statements, declaring and assigning variables</span>
+                int k;
+                k = 0;
+                int j = 0;
+
+                <span class="comment">// while statement with code block</span>
+                while (true)
+                {
+                    k = 1;
+                    break;
+                    <span class="comment">// Unreachable code</span>
+                    j = 2;
+                }
+
+                <span class="comment">// These two 'if' statements are equivalent</span>
+                if (a)
+                {
+                    x = 1;
+                }
+
+                if (a)
+                    x = 1; <span class="comment"></span>// Embedded statement
+
+                if (a)
+                    <u class="syntax">var y = 1;</u> <span class="comment">// Invalid, embedded statement cannot be a declaration</span>
+
+                <span class="comment">// The  Console.WriteLine("Hello World!"); from above rearranged</span>
+                Console
+                    .
+                        WriteLine
+
+                    ("Hello World")
+                                    ;  <span class="comment">// The semicolon here determines the end of the statement</span>
+
+                <span class="comment">// Invalid statement, can't put space in keyword</span>
+                <u class="syntax">Con</u> <u class="syntax">sole</u>.WriteLine ("Hello World") ;
+
+                <span class="comment">// Invalid statement, can't put line break in keyword</span>
+                <u class="syntax">Con</u>
+                    <u class="syntax">sole</u>.WriteLine ("Hello World") ;
+
+                <span class="comment">// Invalid string statement, can't put line break in regular string</span>
+                Console.WriteLine("<u class="syntax">Hello</u>
+                                    <u class="syntax">World!</u>");
+
+                <span class="comment">// OK string statement, can put line break in verbatim string</span>
+                Console.WriteLine(@"Hello
+    World!");
+                <span class="comment">// This produces</span>
+                <span class="comment">// Hello</span>
+                <span class="comment">// World</span>
+            }
+        }
+    }
+
+</code></pre>
+                    <p>First a quick look at the structure of the code which we'll go to into detail throughout this guide. In general
+                        a program takes the form of a list of instructions with one per line, though C# allows for an instruction to
+                        span multiple lines if required. C# also allows for multiple instructions to be enclosed within a pair of curly
+                        brackets (<i>also known as braces</i>) called a <b>code block</b>. A code block can be empty or it can contain
+                        any combination of statements, declarations, directives, comments and other code blocks. Each instruction,
+                        depending on its type, must be followed by either a code block, a semicolon <code>;</code> or a carriage
+                        return. The compiler ignores comments and whitespace other than as separators for words and symbols.</p>
+
+                    <p>There are varying conventions on how to format code. The one used throughout this guide is to place code blocks
+                        directly under the beginning of the instruction they belong to and indent everything within them. The IDE has
+                        tools to aid with code formatting styles such as this.</p>
+
+                    <p>A statement is the part of the code that becomes the instructions in the program that tells the computer what to
+                        do. A declaration tells the compiler that a new object is to exist and become part of the program. In some cases
+                        a declaration can also be a statement. A directive is an instruction for the compiler that while not directly
+                        part of our program will effect how our program will be built and run.</p>
+
+                    <p>In the example above, the first line is a <b>comment</b>. The two forward slashes <code>//</code> at the beginning
+                        indicates that this is a single line comment. Details on comment syntax and its use is in
+                    (<a href="#Comments_and_Task_Lists">Comments and Task Lists</a>).</p>
+
+                    <p>The line <code>using System;</code> is a using directive and must always end with a semicolon <code>;</code>. The
+                        first word <code>using</code> is a reserved word called a <i>keyword</i> in C#. Keywords are directly used by the
+                        compiler as instructions. A list of all keywords can be found in
+                        (<a href="#Keywords">Keywords</a>). The next word <code>System</code> is an <i>identifier</i>.
+                        Identifiers are used to name types (class, interface, struct, delegate, record or enum) members, variables, or
+                        namespaces.
+                    </p>
+
+                    <p>The rules for identifiers are</p>
+                    <ul>
+                        <li>Identifiers must begin with a letter or the <code>_</code> character</li>
+                        <li>Identifiers can only contain letters, numbers or the <code>_</code> character</li>
+                        <li>Identifiers shouldn't contain two or more consecutive <code>_</code> characters as these are reserved for
+                            compiler generated identifiers</li>
+                        <li>Identifiers are case sensitive</li>
+                        <li>Identifiers can only be declared once within the same scope</li>
+                        <li>A keyword can't be used as an identifier</li>
+                    </ul>
+                    <p>By being case sensitive it is valid for two identifiers to differ by case only, e.g.
+                        <code><b>n</b>ame</code> and <code><b>N</b>ame</code> are two different identifiers.</p>
+
+                    <p>More recently C# has introduced the discard variable which is used when the output of an expression is not required. This
+                        is an advanced subject that won't be discussed in this guide but is mentioned here for completeness. The identifier for
+                        the discard variable is the <code>_</code> character by itself. Unlike other variables, multiple discard variable identifiers
+                        can be declared within the same scope.
+                    </p>
+
+                    <p><code>namespace MyProgram</code> is a namespace declaration. Namespaces are used to organize objects into logical
+                        groups. Details of the <code>using</code> directive and namespaces are in
+                        (<a href="#Namespaces_and_References">Namespaces and References</a>).</p>
+
+                    <p>Following the namespace declaration is an opening curly bracket <code>{</code> which is the beginning of a code block
+                        and its closing bracket <code>}</code> is the last line in the example. All code blocks must have an opening and
+                        closing bracket. Nested within this code block is a class as declared by <code>public class MyClass</code> and its
+                        associated code block. Nested within this is a constructor declaration <code>MyClass() { }</code> , a method
+                        declaration <code>static void Main(string[] args)</code> and their code blocks. Details on <b>constructors</b> and
+                        <b>methods</b> are in (<a href="#Classes_and_Objects">Classes and Objects</a>).</p>
+
+                    <p>There are two main ways in which a program can be compiled for use. The first is as a class library to be used by
+                        other applications and the second as an application that can be started directly. For the latter the program must
+                        have an entry point method and as mentioned in
+                        (<a href="Create_a_Hello_World_Project">Create a Hello World Project</a>), for C# it is the method
+                        <code>static void Main(string[] args)</code> . There are several rules that it must follow but the main ones that
+                        concern us are</p>
+                        <ul>
+                            <li>There can only be one <code>static void Main(string[] args)</code> method within the program</li>
+                            <li>It must have the <code> static </code> keyword </li>
+                        </ul>
+                    <p><code>Console.WriteLine("Hello World!");</code> , a single line statement, is the first in the
+                        <code>public void MyMethod()</code> code block. In this context, the dot <code>.</code> between <code>Console</code> and
+                        <code>WriteLine ("Hello World")</code> is called the Member access operator. It allows access to a member, here a
+                        method called <code>WriteLine</code> in a class called <code>Console</code>. The round brackets <code>( )</code>
+                        allow parameters to be passed into the method, here the string literal <code>"Hello World!"</code>. All single line
+                        statements must end with a semicolon <code>;</code> . Following are three further examples of single line
+                        statements showing how variables can be declared and assigned, details of which are in
+                        (<a href="#Variables,_Constants,_Types_and_Literals">Variables, Constants, Types and Literals</a>)
+                     </p>
+
+                    <p> The <code>while (true)</code> statement also called a while loop, together with the curly brackets and enclosed code
+                        form a code block. No semicolon is required after the closing curly bracket. Within the code block is an assignment
+                        statement, a <code>break</code> statement which causes the program to leave the while loop and another assignment
+                        statement. As the the second assignment statement follows the <code>break</code> statement, it can't be executed and
+                        is known as unreachable code. This won't prevent the program from being built or run but will cause a warning in the
+                        IDE and should be rectified. Details on while loops can be found in
+                        (<a href="#Iteration_Statements">Iteration Statements</a>).
+                    </p>
+
+                    <p>Next are two <code>if</code> statements. Details on if statements can be found in
+                        (<a href="#Decision_Making_Statements">Decision Making Statements </a>). Some statements allow for
+                        a single statement known as an embedded statement, such as <code>x = 1;</code> in the example, to be placed directly
+                        after it without the need for curly brackets. Together they form a compound statement. In the example the two
+                        <code>if</code> statements are equivalent. An embedded statement cannot be a declaration or labelled statement so
+                        the following example is invalid.</p>
+
+                    <p>As mentioned above, but for a few exceptions, the compiler ignores line breaks, tabs and whitespace, so a
+                        statement does not need to be on a single line. <code>Console.WriteLine ("Hello World");</code> can be rearranged to
+                        produce the following valid code example. It's the semicolon here that instructs the compiler where the end of the statement
+                        is. Keywords and identifiers can't contain whitespace or line breaks so the following two examples are invalid.
+                        For the remainder of this guide, <b>statement</b> will refer to a statement that ends with a semicolon, even
+                        if that statement spans multiple lines.</p>
+
+
+                    <p>Regular string literals such as "Hello World!" can't contain line breaks so the first string statement example is
+                        invalid. Verbatim string literals, prefixed with an <code>@</code> symbol, as in the second example can contain line
+                        breaks and produces the result as shown. Details on strings can be found in
+                        (<a href="#Characters_and_Strings">Characters and Strings</a>)</p>
+                </article>
+            </section>
+
+            <!-- Completed -->
+            <!-- Comments and Task Lists - Section 6 -->
+            <section class="main-section" id="Comments_and_Task_Lists">
+                <header><h2>Comments and Task Lists</h2></header>
+                <a class="back-to-top" href="#">Back to top</a>
+                <article>
+                    <p>Comments have several purposes, they provide information to developers as to what the code does and can also aid in
+                        debugging. Comments are ignored by the compiler when building the application.</p>
+
+                    <p>Following are some examples of comments.</p>
+
+
+<pre><code>static void Main(string[] args)
+{
+    <span class="comment">// This is a single line comment</span>
+    int i = 1; <span class="comment">// This starts after the statement</span>
+
+    <span class="comment">/*</span>
+    <span class="comment">this is</span>
+        <span class="comment">a multiline comment</span>
+    <span class="comment">*/</span>
+
+    <span class="comment">// this is a better way</span>
+    <span class="comment">// to do a multiline comment</span>
+
+    <span class="comment">// Program execution can be temporarily changed in</span>
+    <span class="comment">// order to debug and determine where a fault may lie.</span>
+    <span class="comment">// The following statement will be ignored when the program runs</span>
+    <span class="comment">// suspectedError++;</span>
+
+    <span class="comment">// See the description in the main text on how to comment out</span>
+    <span class="comment">// multiple lines of code such as the following 3 lines</span>
+    Console.WriteLine("Hello World!");
+    Console.WriteLine("Hello World!");
+    Console.WriteLine("Hello World!");
+
+    <span class="comment">// TODO: This comment will be added to the tasks list</span>
+}
+</code></pre>
+                    <p>Comments can be in two forms. Single line comments start with <code>//</code> and extend to the end of the line.
+                        Delimited comments start with <code>*/</code> end with <code>*/</code> and can span multiple lines. For technical
+                        reasons that won't be detailed here it is preferred to use multiple single line rather than delimited comments and
+                        the IDE has tools that assist with this. To comment out multiple lines, first select all the lines by placing the
+                        cursor in front of the first statement, then while pressing the <kbd>Ctrl</kbd> key, drag the mouse diagonally down
+                        to the end of the last statement. Then while still pressing <kbd>Ctrl</kbd> press and release <kbd>K</kbd> then
+                        press <kbd>C</kbd> to comment out the selected lines. To uncomment, again with all lines selected, press
+                        <kbd>Ctrl</kbd> + <kbd>K</kbd> then while still pressing <kbd>Ctrl</kbd> release <kbd>K</kbd> then
+                        press <kbd>U</kbd>.</p>
+
+                    <p>The last comment in the example <code>// TODO: A task list comment</code> is interpreted by the IDE as a task to be
+                        added to the Task List. There are four predefined task tokens, <code>HACK</code>, <code>TODO</code>,
+                        <code>UNDONE</code> and <code>UnresolvedMergeConflict</code>. As well custom tokens can also be added. Task tokens
+                        are not case sensitive. To see the task list,  in the menu click View-&gt;Task List.</p>
+                </article>
+            </section>
+
+<!-- TODO rewrite -->
+            <!-- Variables, Constants, Types and Literals - Section 7 -->
+            <section class="main-section" id="Variables,_Constants,_Types_and_Literals">
+                <header><h2>Variables, Constants, Types and Literals</h2></header>
+                <a class="back-to-top" href="#">Back to top</a>
+                <article>
+                    <p>Variables are used to represent data in memory using a symbolic name. Every variable has a <b>type</b> that
+                        determines what type of data can be stored and a <b>value</b> which is the actual data. C# is a strongly typed
+                        language which means the variable's type must be declared before it can be used and cannot be changed later. The
+                        compiler then checks if the value stored in the variable is of the correct type and will tell us if it is wrong.
+                        A constant is similar to a variable, except it must be assigned a value when declared and that value cannot be
+                        changed. A literal is the representation in the code we write for the data we assign to a variable.</p>
+
+                    <p>C# has two basic categories of variables, the <b>value type</b> and the <b>reference type</b>, into which all variables
+                        are grouped. A <b>value type</b> stores its own data where as a <b>reference type</b> stores the address to where its data
+                        is located. You can think of these as a house and a contact in an address book. The <b>value type</b> is like the house
+                        which has an address and physically stores its own contents where as the <b>reference type</b> is like the contact that
+                        only stores the address to where the house is located. A variable can only be declared once within the same scope, details
+                        of which are in (<a href="#Scope">Scope</a>). C# has a number of built-in types of which each has
+                        a dedicated keyword.</p>
+
+                    <p>C# allocates memory based on the smallest size unit of an 8 bit byte. For efficiency reasons, each <b>value type</b> uses a
+                        fixed number of bytes. In the case of an <b>int</b> that size is 4 bytes or 32 bits. When we use the
+                        statement<code>int i = 1;</code> we are telling the compiler to reserve a 4 byte section of memory, that its address will be
+                        referred to by the variable with the identifier <b>i</b> and to store the value 1 in it. But for a few exceptions, operations
+                        on one value type variable cannot affect the data of another. A <b>value type</b> variable cannot be changed to refer to data
+                        in another memory location.</p>
+
+                        <p></p>
+
+                    <p>Following is a list of the built-in <b>value types</b> in C# with the keywords shown in bold.</p>
+                    <ul>
+                        <li>Boolean: <b>bool</b></li>
+                        <li>Signed integer: <b>sbyte, short, int, long</b></li>
+                        <li>Unsigned integer: <b>byte, ushort, uint, ulong</b></li>
+                        <li>Binary floating-point: <b>float, double</b></li>
+                        <li>Decimal floating-point: <b>decimal</b></li>
+                        <li>Unicode characters: <b>char</b></li>
+                        <li>User-defined type of form enum E {...}</li>
+                        <li>User-defined type of form struct S {...}</li>
+                        <li>Nullable value type: Extension of all other value types with a null value</li>
+                    </ul>
+                    <p>A <b>reference type</b> variable can be changed to refer to a different location in memory providing it is of the same
+                        type. Also, the size of a <b>reference type</b> can change. A <b>reference type</b> variable can only refer to one location at a
+                        time but 2 <b>reference type</b> variables can refer to the same location. The result is that changing the contents of one will
+                        affect the contents of the other.</p>
+
+                    <p>Following is a list of the built-in <b>reference types</b> in C#.</p>
+                    <ul>
+                        <li><b>object</b></li>
+                        <li><b>string</b></li>
+                        <li><b>dynamic</b></li>
+                    </ul>
+                    <p>Additionally, you can declare your own <b>reference type</b> with one of the following keywords.</p>
+                    <ul>
+                        <li><b>class</b></li>
+                        <li><b>interface</b></li>
+                        <li><b>delegate</b></li>
+                        <li><b>record</b></li>
+                    </ul>
+                    <p>Lets now expand on our Hello World project</p>
+
+                    <p id="Listing_7_1" class="listing">Listing 7.1 &nbsp; Declaration and assignment</p>
+<pre><code>using System;
+
+    namespace HelloWorld
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                // First declare an integer i then assign the value 1 to it
+                int i;
+                i = 1;
+
+                // Both declare and assign 2.4 to double variable j
+                double j = 2.4;
+
+                // Evaluate the expression i + 3 right and assign it to k
+                int k = i + 3;
+
+                // Declare a double type constant pi
+                // and assigns it the value 3.1415
+                const double pi = 3.1415;
+
+                // In the following the 'var' keyword tells the compiler to
+                // select the type dependent on the operand being assigned
+
+                // 3 is interpreted as an integer and assigned to integer variable n
+                var n = 3;
+
+                // 3.0 is interpreted as a double and assigned to double variable d
+                var d = 3.0;
+
+                // The sum of the two integers i and n is evaluated
+                // and the resultant integer 4 is assigned to x
+                var x = i + n;
+
+                // The sum of the integer i and the double d is evaluated
+                // and the resultant double 4.0 is assigned to y
+                var y = i + d;
+
+                // Writes the value of variables i, j and k to the console
+                Console.WriteLine(i);
+                Console.WriteLine(j);
+                Console.WriteLine(k);
+
+                // Writes the value of const double pi to the console
+                Console.WriteLine(pi);
+
+                // Writes the value of variables n, d, x and y to the console
+                // Note - d and y will be written as 3 and 4 respectively as
+                // Console.WriteLine does not include the fractional part
+                // if it is zero
+                Console.WriteLine(n);
+                Console.WriteLine(d);
+                Console.WriteLine(x);
+                Console.WriteLine(y);
+
+                // Determines the type of variables n, d, x and y
+                // and writes it to the console
+                Console.WriteLine(n.GetType());
+                Console.WriteLine(d.GetType());
+                Console.WriteLine(x.GetType());
+                Console.WriteLine(y.GetType());
+
+                // This prints the following result to the console window
+
+                // 1
+                // 2.4
+                // 4
+                // 3.1415
+                // 3
+                // 3
+                // 4
+                // 4
+                // System.Int32
+                // System.Double
+                // System.Int32
+                // System.Double
+            }
+        }
+</code></pre>
+                    <p>In <b>Listing 4.1</b> the first statement <code>int i;</code> declares the variable <code>i</code> to be a type of
+                        integer and then in <code>i = 1;</code> the <code>=</code> operator assigns the literal value 1 to it. In
+                        <code>double j = 2.4</code> both the floating point type double <code>j</code> is declared and the value 2.4 is assigned to it.
+                        In <code>int k = i + 3;</code> first the operand <code>i + 3</code> is evaluated then the
+                        resultant value 4 is assigned to k. In <code>const double pi = 3.1415;</code> the constant pi is declared as a type
+                        double and is assigned the value 3.1415.</p>
+
+                    <p>All the previous statements are examples of explicit declarations where we tell the editor what the variable's type
+                        is before it is used. In addition, C# also allows the the variables to be implicitly declared through the use of the
+                        <b>var</b> keyword which tells the compiler to determine the type of the variable to store based on the operand on the
+                        right side of the <code>=</code> operator. In the statement <code>var n = 3;</code> the compiler interprets the 3 as
+                        an integer and based on its size assigns <code>n</code> a type of <code>int</code> and the value 3.  In
+                        <code>var d = 3.0</code> 3.0 is interpreted as a floating point number and <code>d</code> is assigned a type of
+                        <code>double</code> with a value <code>3.0</code> . With <code>var x = i + n;</code> summing an int with an int results in an int
+                        so x will be an int. In <code>var y = i + d;</code>summing an int with a double will result in a double so y is a double. As can be
+                        seen care must be taken when using <code>var</code> for as it is easy to end up with a type that was not expected.  It should also
+                        be mentioned that there is much debate as to the use of the <code>var</code> keyword which will be left for the reader to research.</p>
+
+                    <p>The next eight <code>Console.WriteLine</code> statements write the values of i, j, k, pi, n, d, x and y to the console. Note that
+                        <code>Console.WriteLine</code> truncates a number if the fractional part is zero so d and y are written as 3 and 4 respectively.
+                        The four statements that
+                        follow introduce the <code>GetType()</code> method. As the name suggests this method gets the type of the variable
+                        supplied. <code>Console.WriteLine</code> then writes these to the console. When run, the program will write the result as shown
+                        in the example to the console. For <b>n</b> and <b>x</b> this will be <code>System.Int32</code> and for <b>d</b> and <b>y</b>
+                        <code>System.Double</code> where <code>System</code> is a <a href="#Namespaces_and_References">namespace</a>.
+                        C# has a number of keywords for commonly used types,  in this case <b>int</b> and <b>double</b> being the keywords for System.Int32 and
+                        System.Double (note the capital 'D') respectively . Both can be used in code but in general the keyword is favoured by most.
+                        (See above for a list of all builtin type keywords)
+                    </p>
+
+                    <p id="Listing_7_2" class="listing">Listing 7.2 &nbsp; Declaration and assignment syntax errors</p>
+<pre><code>using System;
+
+    namespace HelloWorld
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                // A red wavy line under parts of the following statements
+                // indicate that a syntax error is present. When the mouse
+                // is placed over the line a message will pop up with
+                // details of the error. The message has been included
+                // as a comment above each example
+
+                // The name 'p' does not exist in the current context
+                <u class="syntax">p</u> = 1;
+
+                int i = 1;
+
+                // A local variable or function 'i' is already defined in this scope
+                int <u class="syntax">i</u> = 2;
+
+                // Cannot use variable 'b' before it is declared
+                <u class="syntax">b</u> = 1;
+                int b;
+
+                int j;
+                int k;
+
+                // Use of unassigned local variable 'k'
+                j = i + <u class="syntax">k</u>;
+
+                // The next four statements would creates an implicit conversion
+                // that would result in the fractional part of the double
+                // being lost which is not allowed and so produce a syntax error
+
+                double d = 0;
+
+                // Cannot implicitly convert type 'double' to 'int'.
+                // An explicit conversion exists (Are you missing a cast?)
+                i = <u class="syntax">d</u>;
+
+                // Cannot implicitly convert type 'double' to 'int'.
+                // An explicit conversion exists (Are you missing a cast?)
+                i = <u class="syntax">3.0</u>;
+
+                d = i + 3;
+
+                // Cannot implicitly convert type 'double' to 'int'.
+                // An explicit conversion exists (Are you missing a cast?)
+                b = <u class="syntax">i + d</u>;
+
+                var x = i + d;
+
+                // Cannot implicitly convert type 'double' to 'int'.
+                // An explicit conversion exists (Are you missing a cast?)
+                b = <u class="syntax">i + x</u>;
+
+                // This is allowed as there is no loss of information
+                d = i;
+
+                const double pi = 3.1415;
+
+                // The left-hand side of an assignment must be a variable, property or indexer
+                <u class="syntax">pi</u> = 4;
+
+                // The expression assigned to 'area' must be constant
+                const double area = <u class="syntax">i * 3 * 3</u>;
+
+                bool t = true;
+
+                // Operator '+' cannot be applied to operands of type 'int' and 'bool'
+                b = <u class="syntax">i + t</u>;
+            }
+        }
+</code></pre>
+                    <p><b>Listing 4.2</b> shows examples of the syntax errors that can occur when declaring and assigning variables and that will prevent the application
+                        from being compiled. The editor identifies these errors and notifies us by placing a <u class="syntax">red wavy underline</u> under the part of the
+                        statement that is causing them. By moving the the mouse over the line a message will popup detailing the error. Some errors can be quite cryptic so
+                        following are a few examples and an explanation of what they mean.
+                    </p>
+
+                    <p><b>The name 'p' does not exist in the current context</b> - Before a variable can be used it must first be declared either explicitly with
+                        the use of a type followed by an identifier <code>int p;</code> or implicitly by use of the <b>var</b> keyword <code>var p = 0;</code></p>
+
+                    <p><b>A local variable or function 'i' is already defined in this scope</b> - Only one unique instance of a variable can exist within a
+                        <a href="#Scope">scope</a>. As <code>int i = 1;</code> has already declared variable <b>i</b> the next statement
+                        <code>int <u class="syntax">i</u> = 2;</code> is evaluated by the editor as an attempt to declare a second variable <b>i</b> resulting in the error.</p>
+
+                    <p><b>Cannot use variable 'b' before it is declared</b> - C# executes statements in the order they appear in the code from top down. In this case
+                        <code><u class="syntax">b</u> = 1;</code> has been written above <code>int b;</code>. Reversing the order of these two statements will resolve this error.
+                    </p>
+
+                    <p><b>Use of unassigned local variable 'k'</b> - C# requires variables declared within a local <a href="#Scope">scope</a>
+                        to be assigned a value before they can be used. Here <code>int k;</code> declares that a variable <b>k</b> of type <b>int</b> but does not
+                        assign it a value. When declaring a variable, a value can simultaneously be assigned to it through the used
+                        of the <b>=</b> operator as in <code>int k = 1;</code>. Alternatively a variable can be assigned a value after being declared and before
+                        being used such as adding <code>k = 1;</code> after <code>int k;</code> and before <code>j = i + <u class="syntax">k</u>;</code> C# also has has the
+                        <b>default</b> keyword which allows any variable to be assigned its default value such as <code>int k = default;</code>. In this case <b>k</b>
+                        would have a value of 0. Note that it is only variables on the right side of the <b>=</b> operator that need to have a value assigned so the
+                        use of the <b>j</b> which is declared but not assigned a value on the left side is valid.</p>
+
+                    <!-- TODO fix this   VVVVV -->
+
+
+                        <p><b>Cannot implicitly convert type 'double' to 'int'. An explicit conversion exists (Are you missing a cast?)</b> - In all these cases an attempt
+                        is being made to assign a variable of type <b>int</b> a value of type <b>double</b>. C# does not allow the assignment of a value to a variable
+                        that could unwittingly result in a conversion that produces a loss of information. By assigning a floating point <b>double</b> to an <b>int</b>,
+                        the fractional part after the decimal point could be lost. As can be seen from the examples it may not be obvious at first that a conversion is
+                        occurring. With <code>i = <u class="syntax">d</u>;</code> an attempt is being made to assign the value in d which was declared a double to i which
+                        was declared an int. With <code>i = <u class="syntax">3.0</u>;</code> the variable i which was declared as an int is being assigned the literal 3.0
+                        which is interpreted as a double by the editor. With <code>b = <u class="syntax">i + d</u>;</code> as i is an int and d a double the result of
+                        i + d is first evaluated by the editor to be a double so assigning this to b produces the error. With <code>b = <u class="syntax">i + x</u>;</code>
+                        in the previous statement <code>var x = i + d;</code> again evaluated by the editor to be a double and is allowed to be assigned to x through the
+                        use of the <b>var keyword</b>. This results in i + x also being interpreted as a double so assigning it to the int b produces the error. With
+                        <code>d = i;</code> there is no possibility of information loss from an int to a double so this is allowed.</p>
+
+
+
+
+
+
+                        <p>This is significant as declarations and assignments are most likely made in another part of the code or even someone else's code. With
+                        <code>i = <u class="syntax">3.0</u>;</code> the double literal 3.0 is being assigned to the int i. When an int and a double are summed the result
+                        will always be a double even if the double value contains With <code>k = <u class="syntax">i + j</u>;</code> the result of int i + double j.
+                        Assigning an <b>int</b> value to a <b>double</b> also results in a conversion but is allowed as there is no fractional information to lose. C# has
+                        a number of explicit methods that allow for a conversion that results in information loss as will be discussed shortly.</p>
+
+                    <p><b>The left-hand side of an assignment must be a variable, property or indexer</b> - Here <b>pi</b> is a <b>constant</b> and as its value can't be
+                        changed this error is the result.</p>
+
+                    <p><b>The expression assigned to 'area' must be constant</b> - As <b>area</b> has been declared a <b>const</b> the use of the variable <b>i</b> in
+                        <code>i * 3 * 3</code> produces this error.</p>
+
+                    <p><b>Operator '+' cannot be applied to operands of type 'int' and 'bool'</b> - </p>
+
+
+
+                    <!-- TODO fix this ^^^^^ -->
+
+
+
+
+
+
+
+
+
+
+                    <p>For built in types C# has a number of different ways conversions can be achieved. A value can be cast by placing the desired
+                        type in brackets followed by the variable or literal to be converted. From the examples <code>i = (int)3.9</code> converts the floating point literal
+                        <b>3.9</b> is converted to an <b>int</b> with the value being truncated to 3 and assigned to <b>int i</b>. </p>
+
+
+
+
+
+                        <p>When the program is run the values 1, 2 and 4 written to the console.</p>
+
+                        <p id="Listing_7_3" class="listing">Listing 7.3 &nbsp; Casting and conversions</p>
+<pre><code>public void Method()
+{
+                // This casts the double type 3.9 to an int with a value of 3
+                // A cast to an int truncates the value so 3.9 becomes 3
+
+                int i;
+                double d = 3.9;
+
+                // This casts the double d with a value of 3.9 to int i
+                // The cast truncates the value so 3.9 becomes 3
+                // The value in d remains unaffected
+                i = (int)d;
+
+                Console.WriteLine(i);
+                Console.WriteLine(d);
+
+                // This converts the double d with a value of 3.9 to int i
+                // Here the value in i is rounded up to 4
+                i = Convert.ToInt32(d);
+                Console.WriteLine(i);
+
+                // When the value is half way between to integers the
+                // value is rounded to the nearest even integer so
+                // 3.5 is rounded up to 4 and 4.5 down to 4
+                // Here the value in i is rounded up to 4
+
+                i = Convert.ToInt32(3.5);
+                Console.WriteLine(i);
+
+                i = Convert.ToInt32(4.5);
+                Console.WriteLine(i);
+
+                // The math class provides a number of math functions
+                // one of which is Math.Round. The default rounding here
+                // is the same as for Convert.ToInt32. The result is
+                // a double so a cast to an int is also required
+
+                i = (int)Math.Round(3.5);
+                Console.WriteLine(i);
+
+                i = (int)Math.Round(4.5);
+                Console.WriteLine(i);
+
+                // Math.Round with option to always round down
+                // this time 3.5 becomes 3
+
+                i = (int)Math.Round(3.5, MidpointRounding.ToZero);
+                Console.WriteLine(i);
+
+                // The above statements will produce the following
+                // on the console when this is run
+
+                // 3
+                // 3.9
+                // 4
+                // 4
+                // 4
+                // 4
+                // 4
+                // 3
+}
+</code></pre>
+
+
+
+                    <p>To perform an explicit conversion from between types, use the cast expression <code>(T)E</code>. If no conversion
+                        exists from <b>E</b> to <b>T</b> a compile error will occur. At runtime a conversion may also not occur and
+                        throw an exception.</p>
+<pre><code>// conversion from double to int results in truncation
+int number = (int) 7 / 2; // number has value of 3
+
+// compile error: cannot convert type 'int' to 'string'
+string s = (string)number;
+
+
+
+</code></pre>
+
+                    <p>To summarize</p>
+                    <ul>
+                        <li>A variable must be declared with a type before it can be used</li>
+                        <li>A local variable can only be declared once within the same scope</li>
+                        <li>A local variable must be assigned a value before it can be used</li>
+                        <li>A variable's type cannot be changed</li>
+                        <li>A constant must be assigned a value when declared</li>
+                        <li>A constant's type and value cannot be changed</li>
+                    </ul>
+                </article>
+            </section>
+
+            <!-- Completed -->
+            <!-- Characters and Strings - Section 8 -->
+            <section class="main-section" id="Characters_and_Strings">
+                <header><h2>Characters and Strings</h2></header>
+                <a class="back-to-top" href="#">Back to top</a>
+                <article>
+                    <p>Character literals consists of a single character in a pair of single quotes, <code>'a'</code>.</p>
+
+                    <p>A character consists of one of:</p>
+                    <ul>
+                        <li>Single character</li>
+                        <li>Simple escape sequence</li>
+                        <li>Unicode escape sequence</li>
+                        <li>Hexadecimal escape sequence</li>
+                    </ul>
+
+                    <p>String literals can be in two forms, regular and verbatim. Each can contain zero or more characters enclosed in a
+                        pair of double quotes.
+                    </p>
+
+                    <p>Regular string literals can contain escaped characters as per above and will be interpreted as such. They can't span
+                        multiple lines so to split a statement with a long string literal across two lines, each part of the string on each
+                        line must first be enclosed in a pair of double quotes. The <code>+</code> concatenation operator is then placed at
+                        the end of each line to join the separated strings into one.
+                    </p>
+
+                    <p>Verbatim string literals are prefixed with the <code>@</code> character. Any escaped character will be interpreted
+                        verbatim except <code>'\"'</code> which will be interpreted as one double quote. Verbatim string literals can
+                        span multiple lines.
+                    </p>
+                    <p>Following are some examples of strings.</p>
+<pre><code>var a = "Regular string";
+var b = @"Verbatim string";
+var c = "Regular string with an escaped \t tab";
+var d = @"Verbatim string with an escaped \t tab";
+var e = "Sally said to say \"Hi\" to you";
+var f = @"Sally said to say ""Hi"" to you";
+var g = "\\\\server\\folder\\file.exe";
+var h = @"\\server\folder\file.exe";
+var i = "Regular Hello " + // This line concatenated with the next
+            "world";       // strings on both lines are enclosed in " "
+var j = @"Verbatim Hello
+            world";
+
+// Compile error: Can't split regular string across two lines
+var k = "<u class="syntax">Hello</u>
+<u class="syntax">world</u>";
+
+// Output
+Regular string
+Verbatim string
+Regular string with an escaped   tab
+Verbatim string with an escaped \t tab
+Sally said to say "Hi" to you
+Sally said to say "Hi" to you
+\\server\folder\file.exe
+\\server\folder\file.exe
+Hello world
+Hello
+            world
+
+</code></pre>
+                </article>
+            </section>
+
+            <!-- Completed -->
+            <!-- Expressions and Operators - Section 9 -->
+            <section class="main-section" id="Expressions_and_Operators">
+                <header><h2>Expressions and Operators</h2></header>
+                <a class="back-to-top" href="#">Back to top</a>
+                <article>
+                    <p>An expression is a collection of operands and operators that together can be evaluated and assigned to
+                        a variable. If the evaluation is invalid the result won't be assigned and the variable's value will remain
+                        unchanged. This may also result in an exception that can end the program. Following are examples of expressions.</p>
+                    <h3>Expression example</h3>
+                    <p>Here <b>1</b> and <b>2</b> are operands and <b>+</b> is the operator</p>
+<pre><code>int i = 1 + 2;
+</code></pre>
+                    <p>Following is a list of expressions that demonstrates the result of the operators. The examples are shown
+                        in order of arithmetic precedence. Parentheses <code>( )</code> can be used to change the order.</p>
+
+                    <h3>Assignment operator</h3>
+<pre><code><span class="comment">// assignment operator: =</span>
+<span class="comment">// assigns literal value 1 to int type variable a</span>
+int a = 1;
+</code></pre>
+
+                    <h3>Equality operators</h3>
+<pre><code>int a = 1;
+int b = 1;
+
+<span class="comment">// equality operator: ==</span>
+<span class="comment">// evaluates if two value types are equal</span>
+<span class="comment">// c has value true</span>
+int c = a == b;
+
+<span class="comment">// inequality operator: !=</span>
+<span class="comment">// evaluates if two value types are not equal</span>
+<span class="comment">// c has value false</span>
+int c = a != b;
+</code></pre>
+
+                    <h3>Comparison operators</h3>
+<pre><code>int a = 1;
+int b = 2;
+
+<span class="comment">// less than operator: &lt;</span>
+<span class="comment">// evaluates if the left operand is less than the right</span>
+<span class="comment">// v has value true</span>
+var v = a &lt; b;
+
+<span class="comment">// greater than operator: &gt;</span>
+<span class="comment">// evaluates if the left operand is greater than right</span>
+<span class="comment">// v has value false</span>
+var v = a &gt; b;
+
+<span class="comment">// less than or equal to operator: &lt;=</span>
+<span class="comment">// evaluates if the left operand is less than or equal to the right</span>
+<span class="comment">// v has value true</span>
+var v = a &lt;= b;
+
+<span class="comment">// greater than or equal to operator: &gt;=</span>
+<span class="comment">// evaluates if the left operand is greater than or equal to the right</span>
+<span class="comment">// v has value false</span>
+var v = a &gt;= b;
+</code></pre>
+
+                    <h3>Arithmetic operators</h3>
+<pre><code>int a = 3;
+int b = 3;
+int c = 3;
+int d = 3;
+
+<span class="comment">// postfix increment operator: x++</span>
+<span class="comment">// after assigning a's value to e adds 1 to a</span>
+<span class="comment">// a has value 4, e has value 3</span>
+var e = a++;
+
+<span class="comment">// postfix decrement operator: x--</span>
+<span class="comment">// after assigning b's value to f subtracts 1 from b</span>
+<span class="comment">// b has value 2, f has value 3</span>
+var f = b--;
+
+<span class="comment">// prefix increment operator: ++x</span>
+<span class="comment">// adds 1 to c then assigns c's value to g</span>
+<span class="comment">// c has value 4, g has value 4</span>
+var g = ++c;
+
+<span class="comment">// prefix decrement operator: --x</span>
+<span class="comment">// subtracts 1 from d then assigns d's value to h</span>
+<span class="comment">// d has value 2, h has value 2</span>
+var h = --d;
+
+<span class="comment">// unary minus operator: -</span>
+<span class="comment">// sign of -2 is changed and i has value 2</span>
+var i = - -2;
+
+<span class="comment">// multiplication operator: *</span>
+<span class="comment">// multiplies 3 by 2</span>
+<span class="comment">// j has value 6</span>
+var j = 3 * 2;
+
+<span class="comment">// The division operator rounds towards 0 when both operators are integers</span>
+
+<span class="comment">// division operator: /</span>
+<span class="comment">// divides 3 by 2</span>
+<span class="comment">// k has value 1</span>
+var k = 3 / 2;
+
+<span class="comment">// division operator: /</span>
+<span class="comment">// divides 3 by 2</span>
+<span class="comment">// l has value -1</span>
+var l = -3 / 2;
+
+<span class="comment">// division operator: /</span>
+<span class="comment">// divides 3 by double 2</span>
+<span class="comment">// m has value 1.5</span>
+var m = 3 / 2d;
+
+<span class="comment">// remainder operator, also called the modulus operator: %</span>
+<span class="comment">// returns the remainder after dividing 3 by 2</span>
+<span class="comment">// n has value 1</span>
+var n = 3 % 2;
+
+<span class="comment">// addition operator: +</span>
+<span class="comment">// adds 2 to 3</span>
+<span class="comment">// o has value 5</span>
+var o = 3 + 2;
+
+<span class="comment">// subtraction operator: -</span>
+<span class="comment">// subtracts 2 from 3</span>
+<span class="comment">// p has value 1</span>
+var p = 3 – 2;
+</code></pre>
+
+                    <h3>Boolean logic operators</h3>
+<pre><code>bool a = true;
+bool b = false
+
+<span class="comment">// negation operator: !</span>
+<span class="comment">// inverts the boolean value</span>
+<span class="comment">// c has value false</span>
+var c = !a;
+<span class="comment">// c has value true</span>
+var c = !b;
+
+<span class="comment">// and operator: &</span>
+<span class="comment">// returns true only if both operands are true</span>
+<span class="comment">// c has value true</span>
+var c = a & a;
+<span class="comment">// c has value false</span>
+var c = a & b;
+<span class="comment">// c has value false</span>
+var c = b & a;
+<span class="comment">// c has value false</span>
+var c = b & b;
+
+<span class="comment">// exclusive or operator: ^</span>
+<span class="comment">// returns true if only one operand is true</span>
+<span class="comment">// c has value false</span>
+var c = a ^ a;
+<span class="comment">// c has value true</span>
+var c = a ^ b;
+<span class="comment">// c has value true</span>
+var c = b ^ a;
+<span class="comment">// c has value false</span>
+var c = b ^ b;
+
+<span class="comment">// or operator: |</span>
+<span class="comment">// returns true if either operand is true</span>
+<span class="comment">// c has value true</span>
+var c = a | a;
+<span class="comment">// c has value true</span>
+var c = a | b;
+<span class="comment">// c has value true</span>
+var c = b | a;
+<span class="comment">// c has value false</span>
+var c = b | b;
+</code></pre>
+
+                    <h3>Compound assignment</h3>
+
+<p>An expression using an operator <code>op</code> in the form <code>x op= y</code> is equivalent to
+<code>x = x op y</code></p>
+<pre><code>int a = 6;
+
+<span class="comment">// compound operator: +=</span>
+<span class="comment">// adds 1 to a's current value 6 and assigns it back to a</span>
+<span class="comment">// a has value 7</span>
+a += 1;
+
+<span class="comment">// compound operator: -=</span>
+<span class="comment">// subtracts 1 from a's current value 6 and assigns it back to a</span>
+<span class="comment">// a has value 5</span>
+a -= 1;
+
+<span class="comment">// compound operator: *=</span>
+<span class="comment">// multiplies a's current value 6 by 2 and assigns it back to a</span>
+<span class="comment">// a has value 12</span>
+a *= 2;
+
+<span class="comment">// compound operator: /=</span>
+<span class="comment">// divides a's current value 6 by 2 and assigns it back to a</span>
+<span class="comment">// a has value 3</span>
+a /= 2;
+
+bool b = true;
+
+<span class="comment">// compound operator: &=</span>
+<span class="comment">// evaluates a logical 'and' with b's current value assigns it back to b</span>
+<span class="comment">// b has value false</span>
+b &= false;
+
+<span class="comment">// compound operator: |=</span>
+<span class="comment">// evaluates a logical 'or' with b's current value assigns it back to b</span>
+<span class="comment">// b has value true</span>
+b |= true;
+
+<span class="comment">// compound operator: ^=</span>
+<span class="comment">// evaluates an exclusive or with b's current value assigns it back to b</span>
+<span class="comment">// b has value true</span>
+b  ^= false;
+</code></pre>
+
+                    <h3>Conditional operator ?:</h3>
+
+                    <p>The conditional operator <code>?:</code>, also known as the ternary conditional operator takes the form <code>x = predicate ? a : b</code>. If the predicate is true then the
+                        expression returns <b>a</b> else it returns <b>b</b>. Both <b>a</b> and <b>b</b> must be of the same type.
+                        The conditional operator can also be used as a shorthand way to replace combined <code>if</code> and
+                        <code>else</code> statements. Conditional statements can be nested though doing so can make the code hard to read.</p>
+<pre><code>int x = 1;
+
+// y has value 'Yes'
+var y = x == 1 ? "Yes" : "No";
+
+// y has value 'No'
+var y = x == 2 ? "Yes" : "No";
+</code></pre>
+
+                    <h3>Conditional and operator &&</h3>
+
+                    <p>In the expression <code>x = a && b</code> <b>x</b> is true if both <b>a</b> and <b>b</b> are true otherwise
+                        <b>x</b> is false. If <b>a</b> is false <b>b</b> is not evaluated. This is useful in a situation where, if
+                        <b>a</b> is false evaluating <b>b</b> would produce an invalid condition that could result in an exception.</p>
+
+<pre><code>int a = 1;
+int b = 1;
+int c = 0;
+
+// x has value true
+var x = a == 1 && b == 1;
+
+// x has value false
+var x = c == 1 && b == 1;
+
+// c != 0 is false so a == b / c is not evaluated
+// which prevents a divide by 0 exception
+// x has value false
+var x != c > 0 && a == b / c;
+</code></pre>
+
+                    <h3>Conditional or operator ||</h3>
+
+                    <p>In the expression <code>x = a || b</code>, <b>x</b> is true if either <b>a</b> or <b>b</b> are true otherwise
+                        <b>x</b> is false. If <b>a</b> is true <b>b</b> is not evaluated. This is useful in a situation where, if
+                        <b>a</b> is true evaluating <b>b</b> would produce an invalid condition that could result in an exception.</p>
+
+<pre><code>int a = 1;
+int b = 1;
+int c = 0;
+
+// x has value true
+var x = a == 1 || b == 0;
+
+// x has value false
+var x = c == 1 || c == 1;
+
+// c == 0 is true so a == b / c is not evaluated
+// which prevents a divide by 0 exception
+// x has value true
+var x = c == 0 || a == b / c;
+</code></pre>
+
+                    <h3>The null-coalescing operator ??</h3>
+                    <p>The null-coalescing operator <code>??</code> returns the left-hand operand if it not null otherwise it evaluates the right-hand
+                    expression and returns the result</p>
+
+<pre><code>int? a = null;
+// x has value 2
+var x = a ?? 2;
+
+int? b = 1;
+// y has value 1
+var y = b ?? 2;
+</code></pre>
+
+                    <h3>The null-coalescing assignment operator ??=</h3>
+                        <p>The null-coalescing assignment operator <code>??=</code> evaluates and assigns the-right hand expression to the left-hand variable
+                        only if the variable is null</p>
+
+<pre><code>int? a = null;
+// a has value 2
+a ??= 2;
+
+int? b = 1;
+// b has value 1
+b ??= 2;
+</code></pre>
+                    <!-- TODO: => operator description and examples -->
+                    <h3>The =&gt; operator</h3>
+
+                </article>
+            </section>
+
+            <!-- Completed -->
+            <!-- Decision Making Statements - Section 10 -->
+            <section class="main-section" id="Decision_Making_Statements">
+                <header><h2>Decision Making Statements</h2></header>
+                <a class="back-to-top" href="#">Back to top</a>
+                <article>
+
+                    <h3>if and else statements</h3>
+
+                    <p>The if and else statements allow the program execution to branch in one of two directions based on a condition.</p>
+<pre><code>static void Main(string[] args)
+{
+    int a = 1;
+    if (a == 1)
+    {
+        var result = "a equals 1";
+    }
+    else
+    {
+        var result = "a does not equal 1";
+    }
+}
+</code></pre>
+
+                    <h3>switch statement</h3>
+
+                    <p>The switch statement allows for program execution to branch in one of multiple directions based on a condition.</p>
+<pre><code>static void HowManyIsA(int a)
+{
+    switch (a)
+    {
+        case 0:
+            Console.WriteLine("none");
+            break;
+        case 1:
+            Console.WriteLine("one");
+            break;
+        default:
+            Console.WriteLine("many");
+            break;
+    }
+}
+</code></pre>
+                </article>
+            </section>
+
+            <!-- Completed -->
+            <!-- Iteration Statements - Section 11 -->
+            <section class="main-section" id="Iteration_Statements">
+                <header><h2>Iteration Statements</h2></header>
+                <a class="back-to-top" href="#">Back to top</a>
+                <article>
+                    <p>Iteration statements, also known as loop statements, allow the execution of a code block to be repeated until an exit
+                        condition is met.</p>
+
+                    <h3>while statement</h3>
+
+                    <p>The while statement iterates until a condition is met. If the condition already exists, program execution won't enter
+                        the <b>while</b> loop.</p>
+<pre><code>static void Main(string[] args)
+{
+    int i = 0;
+    while (i &lt; 10)
+    {
+        Console.Write(i);
+        i++;
+    }
+    <span class="comment">// Result:</span>
+    <span class="comment">// 0123456789</span>
+}
+</code></pre>
+
+                    <h3>do statement</h3>
+
+                    <p>The do statement iterates until a condition is met. At least one iteration of the <b>do</b> loop is guaranteed to
+                        be executed before testing for the condition.</p>
+<pre><code>static void Main(string[] args)
+{
+    do
+    {
+        s = Console.Readline();
+        Console.WriteLine(s);
+    } while (!string.IsNullOrEmpty(s));
+    <span class="comment">// Repeats text until enter is pressed after not writing text</span>
+}
+</code></pre>
+
+                    <h3>for statement</h3>
+
+                    <p>The for statement iterates a set number of times based on an exit condition.</p>
+<pre><code>static void Main(string[] args)
+{
+    for (int i = 0; i &lt; 10; i ++)
+    {
+        <span class="comment">// for loop moves to next iteration if i is 5</span>
+        if (i == 5)
+            continue;
+        Console.Write(i); <span class="comment">// does not write 5</span>
+    }
+    <span class="comment">// Result:</span>
+    <span class="comment">// 012346789</span>
+}
+</code></pre>
+
+                    <h3>foreach statement</h3>
+
+                    <p>The foreach statement iterates through all members of a collection.</p>
+<pre><code>static void Main(string[] args)
+{
+    string s = "Hello world!";
+    foreach (char c in s)
+    {
+        Console.Write(c + " ");
+    }
+    <span class="comment">// Result:</span>
+    <span class="comment">// H e l l o  w o r l d !</span>
+}
+</code></pre>
+                </article>
+            </section>
+
+<!-- TODO -->
+            <!-- Arrays - Section 12 -->
+            <section class="main-section" id="Arrays_and_Data_Structures">
+                <header><h2>Arrays and Data Structures</h2></header>
+                <a class="back-to-top" href="#">Back to top</a>
+                <article>
+                    <p>Arrays and data structures allow multiple variables to be stored together which allows them to be handled and manipulated more efficiently</p>
+                    <h3>array</h3>
+                    <p>An array allows multiple variables of the same type to be stored together. They can be single-dimensional, multi-dimensional or jagged. An
+                        array is like a box with separate compartments in which only on item can be stored in each one. A single-dimensional array is like  one row
+                        of compartments. A multidimensional array can contain rows, columns or more up to a maximum of 32 dimensions. A jagged array would be like
+                        storing a box within each compartments where each box could be of different dimensions and size. A jagged array is sometimes called an array
+                        of arrays. In addition to the examples shown here C# also provides the <b>Array</b> class which provides a set of methods for manipulating
+                        arrays, information of which can be found in the <a href="#References">C# reference documentation</a>.</p>
+                    <h3>declaring, creating and initializing arrays</h3>
+                    <p>The number of dimensions and elements or <b>length</b> of an array must be defined when the array is created and can't be changed. An array can
+                        be recreated by using the new keyword which deletes and replaces the existing array <em>and its data</em>
+                        with a new one. There
+                        are a number of different ways in which to create an array which can also include initializing the element values. If not initialized the default
+                        value for the elements in a single-dimensional or multi-dimensional array will be 0 for numeric types and null for reference types. As a jagged
+                        array stores other arrays the default type is null. Following are examples of how arrays can be initialized.
+                    </p>
+
+<pre><code>static void Main(string[] args)
+    {
+
+        <span class="comment">// Declare an array of type 'string' with the name stringArray</span>
+        <span class="comment">// stringArray will be null</span>
+        string[] stringArray;
+
+        <span class="comment">// Declare an array of type 'int' with the name arr1</span>
+        <span class="comment">// arr1 will be null</span>
+        int[] arr1;
+
+        <span class="comment">// Create a new array arr1 with 5 elements</span>
+        <span class="comment">// Each element will have the default value 0</span>
+        arr1 = new int[5];
+
+        <span class="comment">// Create a new array arr1 of length 6</span>
+        <span class="comment">// Each element will have the default value 0</span>
+        <span class="comment">// The previous array with 5 elements and their</span>
+        <span class="comment">// values are deleted from memory</span>
+        arr1 = new int[6];
+
+        <span class="comment">// Declare and create an array of length 7.</span>
+        <span class="comment">// Each element will have the default value of 0</span>
+        int[] arr2 = new int[7];
+
+        <span class="comment">// Declare, create and initialize an array of length 2.</span>
+        <span class="comment">// Elements at indexes 0 and 1 will have the values 3 and 4 respectively</span>
+        int[] arr3 = new int[2] { 3, 4 };
+
+        <span class="comment">// Another syntax to declare, create and initialize an array of length 2.</span>
+        <span class="comment">// Elements at indexes 0 and 1 will have the values 8 and 9 respectively</span>
+        int[] arr4 = new[] { 8, 9 };
+
+        <span class="comment">// Yet another syntax to declare, create and initialize an array of length 2.</span>
+        <span class="comment">// Elements at indexes 0 and 1 will have the values 10 and 11 respectively</span>
+        int[] arr5 = { 10, 11 };
+
+        <span class="comment">// var can be used in place of int[] in the syntax of</span>
+        <span class="comment">// arr2, arr3 and arr4 but not arr5</span>
+
+        <span class="comment">// Declare and create an array of length 7.</span>
+        <span class="comment">// Each element will have the default value of 0</span>
+        var arr6 = new int[7];
+
+        <span class="comment">// Declare, create and initialize an array of length 2.</span>
+        <span class="comment">// Elements at indexes 0 and 1 will have the values 3 and 4 respectively</span>
+        var arr7 = new int[2] { 3, 4 };
+
+        <span class="comment">// Another syntax to declare, create and initialize an array of length 2.</span>
+        <span class="comment">// Elements at indexes 0 and 1 will have the values 8 and 9 respectively</span>
+        var arr8 = new[] { 8, 9 };
+
+        <span class="comment">// Cannot initialize an implicitly-typed variable with an array initializer</span>
+        var <u class="syntax">arr9 = { 11, 12 }</u>;
+
+        <span class="comment">// Declare, create and initialize an array of type 'string'</span>
+        <span class="comment">// called with a length of 3</span>
+        string[] arr10 = new string[3] { "red", "green", "blue" };
+
+        <span class="comment">// Several ways to declare an empty array. The array will not be null</span>
+        <span class="comment">// but will not be able to store any elements. An empty array has</span>
+        <span class="comment">// very little uses and most can now replaced by newer data structure types</span>
+        int[] emptyArray1 = { };
+        int[] emptyArray2 = new int[] { };
+        int[] emptyArray3 = new int[0];
+        int[] emptyArray4 = Array.Empty &lt;int&gt; ();
+
+        <span class="comment">// Declare a multi-dimensional array with 2 dimensions</span>
+        int[,] arr11;
+
+        <span class="comment">// Create a 2 dimensional array of length 4 in the first</span>
+        <span class="comment">// and length 2 in the second. You can think of this as having</span>
+        <span class="comment">// 4 rows and 2 columns</span>
+        arr11 = new int[4, 2];
+
+        <span class="comment">// Create and initialize a 2 dimensional array</span>
+        arr11 = new int[4, 2] { { 1, 2 }, { 3, 4 },
+                                { 5, 6 }, { 7, 8 } };
+
+        <span class="comment">// Create and initialize a 2 dimensional array</span>
+        <span class="comment">// Here the lengths are inferred from</span>
+        <span class="comment">// from the block inside the curly brackets</span>
+        arr11 = new int[,] { { 1, 2 }, { 3, 4 }, { 5, 6 }, { 7, 8 } };
+
+        <span class="comment">// Declare, create and initialize a 2 dimensional string array</span>
+        string[,] arr12 = new string[3, 2] { { "red", "cyan" },
+                                            { "green", "magenta" },
+                                            { "blue", "yellow" } };
+
+        <span class="comment">// Declare, create and initialize a 3 dimensional 'int' array</span>
+        <span class="comment">// This will create an array with dimensions [2, 2, 3]</span>
+        int[,,] arr13 = new int[,,] { { { 1, 2, 3 }, { 4, 5, 6 } },
+                                    { { 7, 8, 9 }, { 10, 11, 12 } } };
+
+        <span class="comment">// Declares and crates a jagged array. The first array</span>
+        <span class="comment">// is a single-dimensional array with 3 elements</span>
+        <span class="comment">// each of which is a 2 dimensional array</span>
+        int[][,] arr14 = new int[3][,];
+
+        <span class="comment">// Each single-dimensional element of arr13 must also</span>
+        <span class="comment">// be created before it can be used</span>
+        arr14[0] = new int[1, 2];
+        arr14[1] = new int[2, 3];
+        arr14[2] = new int[4, 5];
+
+        <span class="comment">// An array within a jagged array can also be initialized</span>
+        arr14[1] = new int[2, 3] { { 1 , 2, 3 }, { 4, 5, 6 } };
+
+        <span class="comment">// Yet another syntax for initializing a jagged array</span>
+        int[][] arr16 =
+        {
+            new int[] {1, 2, 3, 4},
+            new int[] {5, 6, 7},
+            new int[] {8, 9}
+        };
+    }
+</code></pre>
+
+                    <h3>accessing arrays</h3>
+                    <p>Arrays are normally zero index based so the elements in a dimension of length n will be accessed by index values of 0 through n-1.
+                        Whilst is is possible to create an array that is not zero based its use is very uncommon and is beyond the scope of this document.</p>
+
+<pre><code>static void Main(string[] args)
+    {
+        // Each element in array is accessed using an 'int' type
+        // index which is zero based. For an array of length 3
+        // the index values for the elements are 0, 1 and 2.
+        // To obtain and element specify the index  within
+        // square brackets
+        string[] colors = { "red", "green", "blue" };
+        Console.WriteLine(colors[0]);
+        Console.WriteLine(colors[1]);
+        Console.WriteLine(colors[2]);
+        Console.WriteLine();
+
+        // To assign a value to an element use the assignment operator '='
+        colors[0] = "cyan";
+        colors[1] = "magenta";
+        colors[2] = "yellow";
+
+        // The total number of elements of an array can be found by using
+        // the Length property 'array.Length'.
+        Console.WriteLine("colors has {0} elements\r\n", colors.Length);
+
+        // Attempting to access an array with an index value less than 0
+        // or more than the length - 1 will result in an
+        // IndexOutOfRange exception and the program will stop
+        // Uncomment the following line will demonstrate this error
+        // Console.WriteLine(colors[3]);
+
+        // As the array indexes
+        // are 0 based the elements can be accessed using a 'for' loop
+        for (int i = 0; i &lt; colors.Length; i++)
+        {
+            Console.WriteLine(colors[i]);
+        }
+        Console.WriteLine();
+
+        // Additionally the elements can be accessed using a 'foreach' loop
+        foreach (var color in colors)
+        {
+            Console.WriteLine(color);
+        }
+        Console.WriteLine();
+
+        // Accessing the elements within a multi-dimensional array
+        // is similar to a single-dimensional array using one
+        // 'int' type index for each dimension
+        int[,] numbers = new int[3, 2] { { 1, 2 }, { 3, 4 }, { 5, 6 } };
+        Console.WriteLine(numbers[0, 0]);
+        Console.WriteLine(numbers[0, 1]);
+        Console.WriteLine(numbers[1, 0]);
+        Console.WriteLine(numbers[1, 1]);
+        Console.WriteLine(numbers[2, 0]);
+        Console.WriteLine(numbers[2, 1]);
+        Console.WriteLine();
+
+        // Assigning values to elements in a multi-dimensional
+        // is also similar to a single-dimensional array using one
+        // 'int' type index for each dimension
+        numbers[0, 0] = 6;
+        numbers[0, 1] = 5;
+        numbers[1, 0] = 4;
+        numbers[1, 1] = 3;
+        numbers[2, 0] = 2;
+        numbers[2, 1] = 1;
+
+        // Looping through a multi-dimensional array can be
+        // done using nested for loops, one for each dimension
+        // To obtain the length for a given dimension the
+        // GetLength() is used 'array.GetLength(dimensionIndex)'
+        for (int i = 0; i &lt; numbers.GetLength(0); i++)
+        {
+            for (int j = 0; j &lt; numbers.GetLength(1); j++)
+            {
+                Console.WriteLine(numbers[i, j]);
+            }
+        }
+        Console.WriteLine();
+
+        // The foreach loop can also be used for multi-dimensional arrays
+        // however nested for loops allow you traverse an array in any
+        // order you require
+        foreach (var number in numbers)
+        {
+            Console.WriteLine(number);
+        }
+        Console.WriteLine();
+
+        // The number of dimensions of an array
+        // can be found using the Rank property 'array.Rank'.
+        Console.WriteLine("numbers has {0} dimensions\r\n", numbers.Rank);
+        var total =  1;
+        for (int i = 0; i &lt; numbers.Rank; i++)
+        {
+            Console.WriteLine("numbers[{0}] has {1} elements", i, numbers.GetLength(i));
+            total *= numbers.GetLength(i);
+        }
+        Console.WriteLine("Numbers has a total {0} of elements which is the same as Numbers.Length: {1}\r\n", total, numbers.Length);
+
+        // Accessing a jagged array is similar to a multi-dimensional
+        // This prints 7 to the console which is the third element [2]
+        // of the second array [1] of jaggedArray
+        int[][] jaggedArray =
+        {
+            new int[] {1, 2, 3, 4},
+            new int[] {5, 6, 7},
+            new int[] {8, 9}
+        };
+        Console.WriteLine("{0}\r\n", jaggedArray[1][2]);
+
+        // Assigning values is also similar to multi-dimensional arrays
+        // This assigns 42 to the third element [2] of the second array [1]
+        // then prints it to the console
+        jaggedArray[1][2] = 42;
+        Console.WriteLine("{0}\r\n", jaggedArray[1][2]);
+
+        // This demonstrates looping though a jagged array with for loops
+        for (int i = 0; i &lt; jaggedArray.Length; i++)
+        {
+            Console.Write("The values in array{0} are: ", i);
+            for (int j = 0; j &lt; jaggedArray[i].Length; j++)
+            {
+                Console.Write(" {0}",jaggedArray[i][j]);
+            }
+            Console.WriteLine();
+        }
+        Console.WriteLine();
+
+        // Looping through a jagged array with a foreach loop is a bit more
+        // complicated as a first loop is required to get the arrays and a
+        // second to get the actual values
+        foreach (var arr in jaggedArray)
+        {
+            foreach (var i in arr)
+            {
+                Console.WriteLine(i.ToString());
+            }
+        }
+        Console.WriteLine();
+
+        // This demonstrates the types that are stored in a jagged array
+        // The first line prints Int32[] where the brackets indicate
+        // that it is an array of type 'int' whereas the second prints
+        // Int32 without brackets indicating the actual type stored in
+        // each array is an 'int'
+        Console.WriteLine(jaggedArray[0].GetType().Name);
+        Console.WriteLine(jaggedArray[0][0].GetType().Name);
+    }
+
+    // The example prints the following to the console
+
+    //red
+    //green
+    //blue
+
+    //colors has 3 elements
+
+    //cyan
+    //magenta
+    //yellow
+
+    //cyan
+    //magenta
+    //yellow
+
+    //1
+    //2
+    //3
+    //4
+    //5
+    //6
+
+    //6
+    //5
+    //4
+    //3
+    //2
+    //1
+
+    //6
+    //5
+    //4
+    //3
+    //2
+    //1
+
+    //numbers has 2 dimensions
+
+    //numbers[0] has 3 elements
+    //numbers[1] has 2 elements
+    //Numbers has a total 6 of elements which is the same as Numbers.Length: 6
+
+    //7
+
+    //42
+
+    //The values in array0 are:  1 2 3 4
+    //The values in array1 are:  5 6 42
+    //The values in array2 are:  8 9
+
+    //1
+    //2
+    //3
+    //4
+    //5
+    //6
+    //42
+    //8
+    //9
+
+    //Int32[]
+    //Int32
+</code></pre>
+
+                    <h3>collections</h3>
+                    <p>C# provides a number of data structures grouped under the category of collections. They provide common functionality
+                        such as to add, remove and modify either individual elements or a range of elements within the collection.
+                    </p>
+                    <p>There are two main types of collections, generic an non-generic. Generic collections take in a type parameter making them
+                        type safe at compile time allowing IntelliSense to indicate syntax errors. Non-generic collections store
+                        items as type <b>object</b> which requires casting when accessing the data within them. Because of this non-generic collections are
+                        less commonly used today and are mostly found in legacy code.</p>
+                    <p>Following is a list of some common collections but only examples of <b>List&lt;T&gt;</b> and <b>Dictionary&lt;TKey, TValue&gt;</b>
+                        will be discussed in this article.</p>
+                    <ul>
+                        <li><b>List&lt;T&gt;</b> - A collection of items stored by index</li>
+                        <li><b>Dictionary&lt;TKey, TValue&gt;</b> - Used to store items as key/value pairs</li>
+                        <li><b>Queue&lt;T&gt;</b> - Items are accessed first in first out (FIFO)</li>
+                        <li><b>Stack&lt;T&gt;</b> - Items are accessed last in first out (LIFO)</li>
+                        <li><b>LinkedList&lt;T&gt;</b> - Items are accessed sequentially</li>
+                        <li><b>ObservableCollection&lt;T&gt;</b> - Provides notification through events when items are added or removed</li>
+                        <li><b>SortedList&lt;TKey, TValue&gt;</b> - A sorted collection</li>
+                        <li><b>HashSet&lt;T&gt;</b> - A set for mathematical functions</li>
+                        <li><b>SortedSet&lt;T&gt;</b> - A set for mathematical functions</li>
+                    </ul>
+
+                    <h3>List&lt;T&gt;</h3>
+                    <p>A strongly typed generic collection of objects accessed by index. Methods include add, remove, sort, search, clear.</p>
+
+<pre><code>static void Main(string[] args)
+    {
+
+
+    }
+</code></pre>
+
+                    <h3>Dictionary&lt;TKey, TValue&gt;</h3>
+                    <!-- TODO -->
+                    <p>A strongly typed generic collection of keys and values accessed by key. Methods include add, remove, search, clear.</p>
+
+<pre><code>static void Main(string[] args)
+    {
+
+
+    }
+</code></pre>
+
+                </article>
+            </section>
+
+<!-- TODO -->
+            <!-- Classes - Section 15 -->
+            <section class="main-section" id="Classes">
+                <header><h2>Classes</h2></header>
+                <a class="back-to-top" href="#">Back to top</a>
+                <article>
+                    <p>C# is an Object-oriented programming language (OOP) and creates objects through the use of classes which can contain
+                        fields, properties, methods, indexers, events and constructors.</p>
+
+                        <ul>
+                            <li>A field is a variable or a constant used to store data about an object. A field can be accessed from anywhere within the class.
+                                By changing a fields accessability from the default private it can be accessed directly by code external to the class, however
+                                this is usually done through a property or a method which has the advantage of data validation and performing other tasks
+                                dependant on its value.</li>
+
+                            <li>A property is a way of allowing code external to a class to access its fields. It has a setter for writing a value to a
+                                field and a getter for reading the value. The value keyword is used to define the value to be assigned.</li>
+
+                            <li>A method provides of way of performing procedures. This could be reading a file, calculating a value, writing to the screen.
+                                A method return a value and have values passed in. When not returning a value the return type must use the void keyword.
+                                Methods can be overloaded by defining a different number or different types of parameters to be passed in. When a method
+                                has overloads Visual Studio will show there is more than one version of the method to choose from.
+                            </li>
+
+                            <li>An indexer allows an object to be indexed like an array. They are is similar to a property but take an index value to
+                                set or get a specific instance. The this keyword is used to define an indexer and the value keyword is used to
+                                define the value to be assigned</li>
+
+                            <li>An event is a way of communicating with other objects that the state of the class instance has changed. The event
+                                defines which type of event handler must be used by other objects to respond to the event. The event passes on
+                                object that created the event and an EventArgs that can contain additional information about the event.</li>
+
+                            <li>A constructor is used to create an instance of the class at runtime. Its syntax is similar to a method but it does not
+                                return a value so no return type is to be specified. The name of the the constructor is the same as that of the class.
+                                As with methods constructors can be overloaded. If a constructor is not specified the compiler will create a constructor
+                                with an empty code block at runtime with which to create the class instance.
+                            </li>
+                        </ul>
+
+
+
+                    <p>The following example defines a Square class with fields, properties, methods and events. The Program class creates 3
+                        instances of the Square class and adds the Square_AreaChanged event handler to the Square_AreaChanged event of both the
+                        square2 and square3 instances. After writing the initial area values to the console it then changes the Width property
+                        directly on the square2 instance and Height on square3 through the SetHeight method. This triggers the AreaChanged
+                        event in each which then calls the Square_AreaChanged event handler which in turn writes the updated values to the console.
+                    </p>
+
+<pre><code>using System;
+
+namespace ClassExample
+{
+    class Square
+    {
+        // Declare 2 fields a constant to initialize the width and a
+        // variable to use as a backing field for the Width property
+        const int DEFAULT_VALUE = 1;
+        int mWidth;
+
+        // A constructor that sets the Height and Width to the default value internally
+        // The name and height must be set
+        public Square(string name)
+        {
+            Name = name;
+            Height = DEFAULT_VALUE;
+            Width = DEFAULT_VALUE;
+        }
+
+        // A constructor that allows the Width to optionally be set
+        // if a value is not provided it is set to the default value
+        // The name and height must be set
+        public Square(string name, int height, int width = DEFAULT_VALUE)
+        {
+            Name = name;
+            Height = height;
+            Width = width;
+        }
+
+        // An event that fires when the are changes
+        // This uses the Expression-bodied member syntax
+        public event EventHandler AreaChanged = (sender, e) => { };
+
+        // The name property has a private setter
+        // It can only be set from within the class
+        // This is an Auto Property as the compiler
+        // automatically creates a hidden private
+        // backing field
+        public string Name { get; private set; }
+
+        // The Height property can be set both inside
+        // and from outside the class but does not trigger
+        // the AreaChanged event. This is also an
+        // Auto Property
+        public int Height { get; set; }
+
+        // The Width property can be set both inside
+        // and from outside the class and triggers
+        // the AreaChanged event by calling the
+        // OnAreaChanged method
+        public int Width
+        {
+            get => mWidth;
+            set
+            {
+                if (mWidth == value)
+                    return;
+                mWidth = value;
+                OnAreaChanged();
+            }
+        }
+
+        // The SetHeight method changes the height and
+        // triggers the area changed event by calling the
+        // OnAreaChanged method. This method's return
+        // type is set to void which means that it does
+        // not return a value. It accepts a parameter
+        // of type int called height
+        public void SetHeight(int height)
+        {
+            Height = height;
+            OnAreaChanged();
+        }
+
+        // The GetArea method calculates the area from the
+        // Height and Width values and returns the result
+        // as an int
+        public int GetArea()
+        {
+            return Height * Width;
+        }
+
+        // This the expression-bodied member syntax for the GetArea method
+        // and performs the same function. It is useful when only one line
+        // of code is to be entered within the curly braces
+        public int GetArea2() => Height * Width;
+
+        // An overloaded GetArea2 method. When selecting this method
+        // IntelliSense will show there are two versions of this
+        // method to choose from
+        public int GetArea2(int doesNothing) => Height * Width;
+
+        // The OnAreaChanged method first checks if an event handler exists
+        // and if so calls the event through the invoke command passing on
+        // the arguments in this case this class instance by using the this
+        // keyword and an empty EventArgs
+        // This method also uses Expression-bodied member syntax
+        private void OnAreaChanged() => AreaChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Three squares are created using the new keyword and alternative
+            // constructors
+            Square square1 = new("Square 1");
+            Square square2 = new("Square 2", 5);
+            Square square3 = new("Square 3", 5, 10);
+            // The Square_AreaChanged event handler is added to both the
+            // square2 and square3 AreaChanged events
+            square2.AreaChanged += Square_AreaChanged;
+            square3.AreaChanged += Square_AreaChanged;
+            // The initial area values are written to the console
+            Console.WriteLine("{0} area is {1}", square1.Name, square1.GetArea().ToString());
+            Console.WriteLine("{0} area is {1}", square2.Name, square2.GetArea().ToString());
+            Console.WriteLine("{0} area is {1}", square3.Name, square3.GetArea().ToString());
+            // Changing the width triggers the square2 AreaChanged event
+            square2.Width = 3;
+            // Changing the height triggers the square3 AreaChanged event
+            square3.SetHeight(10);
+
+        }
+
+        // This is the Square_AreaChanged event handler which has been added to both the
+        // square1 and square2 AreaChanged events
+        private static void Square_AreaChanged(object sender, EventArgs e)
+        {
+            var square = sender as Square;
+            Console.WriteLine("{0} area changed and is now {1}", square.Name, square.GetArea().ToString());
+        }
+    }
+}
+
+// The example writes the following to the console
+// Square 1 area is 1
+// Square 2 area is 5
+// Square 3 area is 50
+// Square 2 area changed and is now 15
+// Square 3 area changed and is now 100
+
+</code></pre>
+
+<p>The following example defines a string collection which uses an indexer to index instances of itself. The Program class
+    creates a new StringCollection instance, assigns the string "Hello World" to the instance at index 0 in the collection, then
+    retrieves the same and finally writes its value to the console.
+</p>
+
+<pre><code>using System;
+
+namespace ClassExample
+{
+    class StringCollection
+    {
+        private string[] strings = new string[10];
+
+        public string this[int i]
+        {
+            get => strings[i];
+            set => strings[i] = value;
+        }
+    }
+
+    class Program
+    {
+        static void Main()
+        {
+            StringCollection stringCollection = new();
+            stringCollection[0] = "Hello world";
+            Console.WriteLine(stringCollection[0]);
+        }
+    }
+
+}
+
+</code></pre>
+
+
+                </article>
+            </section>
+
+<!-- TODO -->
+            <!-- Namespaces and references - Section 16 -->
+            <section class="main-section" id="Namespaces_and_References">
+                <header><h2>Namespaces and references</h2></header>
+                <a class="back-to-top" href="#">Back to top</a>
+                <article>
+                    <p>Lorem</p>
+
+                </article>
+            </section>
+
+<!-- TODO -->
+            <!-- Scope and Access Modifiers - Section 17 -->
+            <section class="main-section" id="Scope_and_Access_Modifiers">
+                <header><h2>Scope and Access Modifiers</h2></header>
+                <a class="back-to-top" href="#">Back to top</a>
+                <article>
+                    <p>Scope is the accessability of a variable within a class, method or code block. In computer science this is known as encapsulation. A variable in a code block can't be accessed
+                        from outside the code block. A variable from in a method can't be accessed from within  a class but can be accessed from a method. A
+                        variable in a class can be accessed both in a method and a code block. A variable at the
+                    </p>
+
+                    <ul>
+                        <li>item</li>
+                        <li>item</li>
+                        <li>item</li>
+                        <li>item</li>
+                    </ul>
+                    <pre><code>code
+                        code
+                        </code></pre>
+                </article>
+            </section>
+
+<!-- TODO -->
+            <!-- Object-oriented Programming - Section 18 -->
+            <section class="main-section" id="Object-oriented_Programming">
+                <header><h2>Object-oriented Programming</h2></header>
+                <a class="back-to-top" href="#">Back to top</a>
+                <article>
+                    <p>Object-oriented programming (OOP) is a programming paradigm used extensively throughout C#. It encompasses a number of
+                        concepts that provide the developer a structured process for writing a program. This is particularly important for large
+                        applications that may be maintained by multiple teams of developers. The idea here is that instead of having one massive
+                        length of code that does everything it is instead broken down into objects that each have a narrowly defined responsibility.
+                        In C# these objects are combined to create a project and multiple projects are combined to create an assembly.
+                    </p>
+                    <h3>Object</h3>
+
+                    <p>In computer science an object combines data and methods to represent everyday things such as a number, a spreadsheet, a person or
+                        even something less tangible such as the relationship between a parts name and its quantity in a database. Three techniques
+                        employed by C# with objects are:</p>
+                        <ul>
+                            <li>Properties - a particular state of an object such as color, the number of columns, what a thing is made of</li>
+                            <li>Methods - something you can do to an object such as read, write, add numbers</li>
+                            <li>Events - something that an object does in response to changes to its properties and methods that other objects in turn can respond to</li>
+                        </ul>
+
+                    <p>Take for example a tap object. It could have an IsTurnedOn property that could be set to true or false and a method called TurnOnTap which sets
+                        IsTurnedOn to true and triggers an event called TurnedOnHasChanged. Another object, for example a person could call the TurnOnTap method and
+                        by listening out for the TurnedOnHasChanged event, when it occurs check the IsTurnedOn property of the tap and if it is true, respond by
+                        filling a kettle.
+                    <p>C# uses classes to define an object and properties, methods and events are some of available elements known as class members.</p>
+
+                    <h3>Encapsulation</h3>
+                    <p>With OOP the data and methods of an object are protected from direct manipulation. This means that code external to a class need not be concerned with
+                        the data it contains or how a method works, only that by using it will provide the expected result. Take for example the posting of a letter. Provided
+                        that you give it the correct address and a stamp, once you place it in the mail box you expect it to arrive at the recipient. You should not be
+                        concerned with the details of the method (how it will be delivered) or the internal data (the name of the person doing the delivery). In order to
+                        decide which class members are made available externally to an object C# provides access modifier keywords such as <code>public</code> and <code>private</code>.
+                    </p>
+                    <h3>Inheritance</h3>
+                    <p>Many things in life have many similarities. For example a cat and a dog are animals. They both have 4 legs and a tail but whereas a cat meows a dog barks.
+                        Rather than create a separate class for each with that include legs and a tail we can first create an animal class that has the legs and tail properties.
+                        Then the cat and dog classes each inherit from the animal class with the cat adding a meow method and the dog adding a bark method. To see how this is
+                        achieved in code, see the section
+
+
+                    </p>
+                    <h3>Abstraction</h3>
+                    <p></p>
+
+                    <h3>Polymorphism</h3>
+                    <p></p>
+                </article>
+            </section>
+
+<!-- TODO -->
+            <!-- Keywords - Section 19 -->
+            <section class="main-section" id="Keywords">
+                <header><h2>Keywords</h2></header>
+                <a class="back-to-top" href="#">Back to top</a>
+                <article>
+                    <p>Keywords are words reserved for use by the compiler and cannot be used as identifiers unless prefixed with<code>@</code>.
+                        It is advisable not to do so as there is the possibility of introducing errors.</p>
+                    <h3>C# Reserved keywords</h3>
+                    <p>These are keywords that are reserved throughout any part of a C# program</p>
+                    <div class="four-column">
+                        <!-- Column 1 -->
+                        <div>
+                            <a class="keyword-link" href="#Keywords">abstract</a>
+                            <a class="keyword-link" href="#Keywords">as</a>
+                            <a class="keyword-link" href="#Keywords">base</a>
+                            <a class="keyword-link" href="#Keywords">bool</a>
+                            <a class="keyword-link" href="#Keywords">break</a>
+                            <a class="keyword-link" href="#Keywords">byte</a>
+                            <a class="keyword-link" href="#Keywords">case</a>
+                            <a class="keyword-link" href="#Keywords">catch</a>
+                            <a class="keyword-link" href="#Keywords">char</a>
+                            <a class="keyword-link" href="#Keywords">checked</a>
+                            <a class="keyword-link" href="#Keywords">class</a>
+                            <a class="keyword-link" href="#Keywords">const</a>
+                            <a class="keyword-link" href="#Keywords">continue</a>
+                            <a class="keyword-link" href="#Keywords">decimal</a>
+                            <a class="keyword-link" href="#Keywords">default</a>
+                            <a class="keyword-link" href="#Keywords">delegate</a>
+                            <a class="keyword-link" href="#Keywords">do</a>
+                            <a class="keyword-link" href="#Keywords">double</a>
+                            <a class="keyword-link" href="#Keywords">else</a>
+                            <a class="keyword-link" href="#Keywords">enum</a>
+                        </div>
+                        <!-- Column 2 -->
+                        <div>
+                            <a class="keyword-link" href="#Keywords">event</a>
+                            <a class="keyword-link" href="#Keywords">explicit</a>
+                            <a class="keyword-link" href="#Keywords">extern</a>
+                            <a class="keyword-link" href="#Keywords">FALSE</a>
+                            <a class="keyword-link" href="#Keywords">finally</a>
+                            <a class="keyword-link" href="#Keywords">fixed</a>
+                            <a class="keyword-link" href="#Keywords">float</a>
+                            <a class="keyword-link" href="#Keywords">for</a>
+                            <a class="keyword-link" href="#Keywords">foreach</a>
+                            <a class="keyword-link" href="#Keywords">goto</a>
+                            <a class="keyword-link" href="#Keywords">if</a>
+                            <a class="keyword-link" href="#Keywords">implicit</a>
+                            <a class="keyword-link" href="#Keywords">in</a>
+                            <a class="keyword-link" href="#Keywords">int</a>
+                            <a class="keyword-link" href="#Keywords">interface</a>
+                            <a class="keyword-link" href="#Keywords">internal</a>
+                            <a class="keyword-link" href="#Keywords">is</a>
+                            <a class="keyword-link" href="#Keywords">lock</a>
+                            <a class="keyword-link" href="#Keywords">long</a>
+                        </div>
+                        <!-- Column 3 -->
+                        <div>
+                            <a class="keyword-link" href="#Keywords">namespace</a>
+                            <a class="keyword-link" href="#Keywords">new</a>
+                            <a class="keyword-link" href="#Keywords">null</a>
+                            <a class="keyword-link" href="#Keywords">object</a>
+                            <a class="keyword-link" href="#Keywords">operator</a>
+                            <a class="keyword-link" href="#Keywords">out</a>
+                            <a class="keyword-link" href="#Keywords">override</a>
+                            <a class="keyword-link" href="#Keywords">params</a>
+                            <a class="keyword-link" href="#Keywords">private</a>
+                            <a class="keyword-link" href="#Keywords">protected</a>
+                            <a class="keyword-link" href="#Keywords">public</a>
+                            <a class="keyword-link" href="#Keywords">readonly</a>
+                            <a class="keyword-link" href="#Keywords">ref</a>
+                            <a class="keyword-link" href="#Keywords">return</a>
+                            <a class="keyword-link" href="#Keywords">sbyte</a>
+                            <a class="keyword-link" href="#Keywords">sealed</a>
+                            <a class="keyword-link" href="#Keywords">short</a>
+                            <a class="keyword-link" href="#Keywords">sizeof</a>
+                            <a class="keyword-link" href="#Keywords">stackalloc</a>
+                        </div>
+                        <!-- Column 4 -->
+                        <div>
+                            <a class="keyword-link" href="#Keywords">static</a>
+                            <a class="keyword-link" href="#Keywords">string</a>
+                            <a class="keyword-link" href="#Keywords">struct</a>
+                            <a class="keyword-link" href="#Keywords">switch</a>
+                            <a class="keyword-link" href="#Keywords">this</a>
+                            <a class="keyword-link" href="#Keywords">throw</a>
+                            <a class="keyword-link" href="#Keywords">TRUE</a>
+                            <a class="keyword-link" href="#Keywords">try</a>
+                            <a class="keyword-link" href="#Keywords">typeof</a>
+                            <a class="keyword-link" href="#Keywords">uint</a>
+                            <a class="keyword-link" href="#Keywords">ulong</a>
+                            <a class="keyword-link" href="#Keywords">unchecked</a>
+                            <a class="keyword-link" href="#Keywords">unsafe</a>
+                            <a class="keyword-link" href="#Keywords">ushort</a>
+                            <a class="keyword-link" href="#Keywords">using</a>
+                            <a class="keyword-link" href="#Keywords">virtual</a>
+                            <a class="keyword-link" href="#Keywords">void</a>
+                            <a class="keyword-link" href="#Keywords">volatile</a>
+                            <a class="keyword-link" href="#Keywords">while</a>
+                        </div>
+                    </div>
+                    <h3>Contextual keywords</h3>
+                    <p>These are keywords that are reserved in only limited context within the program.
+
+                    </p>
+                    <div class="four-column">
+                        <!-- Column 1 -->
+                        <div>
+                            <a class="keyword-link" href="#Keywords">add</a>
+                            <a class="keyword-link" href="#Keywords">and</a>
+                            <a class="keyword-link" href="#Keywords">alias</a>
+                            <a class="keyword-link" href="#Keywords">ascending</a>
+                            <a class="keyword-link" href="#Keywords">async</a>
+                            <a class="keyword-link" href="#Keywords">await</a>
+                            <a class="keyword-link" href="#Keywords">by</a>
+                            <a class="keyword-link" href="#Keywords">descending</a>
+                            <a class="keyword-link" href="#Keywords">dynamic</a>
+                            <a class="keyword-link" href="#Keywords">equals</a>
+                            <a class="keyword-link" href="#Keywords">from</a>
+                        </div>
+                        <!-- Column 2 -->
+                        <div>
+                            <a class="keyword-link" href="#Keywords">get</a>
+                            <a class="keyword-link" href="#Keywords">global</a>
+                            <a class="keyword-link" href="#Keywords">group</a>
+                            <a class="keyword-link" href="#Keywords">init</a>
+                            <a class="keyword-link" href="#Keywords">into</a>
+                            <a class="keyword-link" href="#Keywords">join</a>
+                            <a class="keyword-link" href="#Keywords">let</a>
+                            <a class="keyword-link" href="#Keywords">managed (function pointer calling convention)</a>
+                            <a class="keyword-link" href="#Keywords">nameof</a>
+                            <a class="keyword-link" href="#Keywords">nint</a>
+                            <a class="keyword-link" href="#Keywords">not</a>
+                        </div>
+                        <!-- Column 3 -->
+                        <div>
+                            <a class="keyword-link" href="#Keywords">notnull</a>
+                            <a class="keyword-link" href="#Keywords">nuint</a>
+                            <a class="keyword-link" href="#Keywords">on</a>
+                            <a class="keyword-link" href="#Keywords">or</a>
+                            <a class="keyword-link" href="#Keywords">orderby</a>
+                            <a class="keyword-link" href="#Keywords">partial (type)</a>
+                            <a class="keyword-link" href="#Keywords">partial (method)</a>
+                            <a class="keyword-link" href="#Keywords">record</a>
+                            <a class="keyword-link" href="#Keywords">remove</a>
+                            <a class="keyword-link" href="#Keywords">select</a>
+                        </div>
+                        <!-- Column 4 -->
+                        <div>
+                            <a class="keyword-link" href="#Keywords">set</a>
+                            <a class="keyword-link" href="#Keywords">unmanaged (function pointer calling convention)</a>
+                            <a class="keyword-link" href="#Keywords">unmanaged (generic type constraint)</a>
+                            <a class="keyword-link" href="#Keywords">value</a>
+                            <a class="keyword-link" href="#Keywords">var</a>
+                            <a class="keyword-link" href="#Keywords">when (filter condition)</a>
+                            <a class="keyword-link" href="#Keywords">where (generic type constraint)</a>
+                            <a class="keyword-link" href="#Keywords">where (query clause)</a>
+                            <a class="keyword-link" href="#Keywords">with</a>
+                            <a class="keyword-link" href="#Keywords">yield</a>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Completed -->
+            <!-- Specifications - Section 20 -->
+            <section class="main-section" id="Specifications">
+                <header><h2>Specifications</h2></header>
+                <a class="back-to-top" href="#">Back to top</a>
+                <article>
+                    <h3>Variable types, range and size</h3>
+
+                    <p>Value types</p>
+                    <ul>
+                        <li>Boolean: <b>bool</b></li>
+                        <li>Signed integer: <b>sbyte, short, int, long</b></li>
+                        <li>Unsigned integer: <b>byte, ushort, uint, ulong</b></li>
+                        <li>IEEE binary floating-point: <b>float, double</b></li>
+                        <li>Decimal floating-point: <b>decimal</b></li>
+                        <li>Unicode characters: <b>char</b></li>
+                        <li>User-defined type of form enum E {...}</li>
+                        <li>User defined type of form struct S {...}</li>
+                        <li>Nullable value type: Extension of all other value types with a null value</li>
+                    </ul>
+                    <p>Reference types</p>
+                    <ul>
+                        <li>Class types</li>
+                        <li>Ultimate base class of all other types: <b>object</b></li>
+                        <li>Unicode strings: <b>string</b></li>
+                        <li>User defined type of form class C {...}</li>
+                        <li>User defined type of form interface I {...}</li>
+                        <li>Array types: Single dimensional int[], multi-dimensional int[,]</li>
+                        <li>User-defined type of form delegate int D(...)</li>
+                    </ul>
+                    <p>Simple type range and size</p>
+                    <ul>
+                        <li><span><b>bool</b> :</span> false, true (1 byte, 8 bits)</li>
+                        <li><b>sbyte</b> : -128 to 127 (1 byte, 8 bits)</li>
+                        <li><b>short</b> : -32,768 to 32,767 (2 bytes, 16 bits)</li>
+                        <li><b>int</b> : -2,147,438,648 to 2,147,483,647 (4 bytes, 32 bits)</li>
+                        <li><b>long</b> : -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 (8 byte, 64 bits)</li>
+                        <li><b>byte</b> : 0 to 255 (1 byte, 8 bits)</li>
+                        <li><b>ushort</b> : -128 to 127 (2 byte, 16 bits)</li>
+                        <li><b>uint</b> : 0 to 65,535 (4 byte, 32 bits)</li>
+                        <li><b>ulong</b> : 0 to 18,446,744,073,709,551,615 (8 byte, 64 bits)</li>
+                        <li><b>float</b> : ±1.5 x 10-45 to ±3.4 x 1038, 7-digit precision (4 byte, 32 bits)</li>
+                        <li><b>double</b> : ±5.0 x 10-324 to ±1.7 x 10308, 15-digit precision (8 byte, 64 bits)</li>
+                        <li><b>decimal</b> : ±1.0 x 10-28 to  ±7.9 x 1028, 28-bit precision (16 byte, 128 bits)</li>
+                    </ul>
+
+                    <p>The default value for all integer and floating-point types is 0.</p>
+
+                <p>A literal is interpreted by the compiler both by the way it is written and the context
+                    in which it is used. A compile error will result if a literal is outside the range for
+                    the type it is being assigned to.</p>
+
+                <p>In the following</p>
+<!-- Line space at bottom of code block is to prevent vertical scroll bar due to underline -->
+<pre><code>byte b = 25; <span class="comment">// This is OK</span>
+<u class="syntax">byte b = 311;</u> <span class="comment">// Compile error: Value '311' cannot be converted to a 'byte'.</span>
+
+</code></pre>
+                <p>Literals are interpreted as follows.</p>
+                <p class="no-bottom-margin">Boolean literal, one of:</p>
+                <p><b>true &emsp; false</b></p>
+<pre><code>bool test = true;
+bool test = false;
+</code></pre>
+                <p>Integer literals consist of combinations of the following.</p>
+                <p class="no-bottom-margin">decimal digits:</p>
+                <p><b>0 1 2 3 4 5 6 7 8 9</b></p>
+                <p class="no-bottom-margin">hex digits:</p>
+                <p><b>0 1 2 3 4 5 6 7 8 9 A B C D E F a b c d e f</b></p>
+                <p class="no-bottom-margin">unsigned, long and unsigned long identification suffix, one of:</p>
+                <p><b>U  u  L  l  UL  Ul  uL  ul  LU  Lu  lU  lu</b></p>
+                <p class="no-bottom-margin">sign prefix, one of:</p>
+                <p><b>+ -</b></p>
+                <p class="no-bottom-margin">hexadecimal identification prefix, one of:</p>
+                <p><b>0x hex-digits&emsp;0X hex-digits</b></p>
+                <p>Integer literals type are interpreted in the following order</p>
+                <ul>
+                    <li>No suffix : <b>int, uint, long, ulong</b></li>
+                    <li>Suffixed with <b>U</b> or <b>u</b> : <b>uint, ulong</b></li>
+                    <li>Suffixed with <b>L</b> or <b>l</b> : <b>long, ulong</b></li>
+                    <li>Suffixed by <b>UL, Ul, uL, ul, LU, Lu, lU, lu</b> : <b>ulong</b></li>
+                </ul>
+                <p>Some examples of usage</p>
+<pre><code>var a = 1; <span class="comment">// int</span>
+var b = -2147483648; <span class="comment">// int</span>
+var c = 2147483648; <span class="comment">// uint</span>
+var d = -9223372036854775808; <span class="comment">// long</span>
+var e = 9223372036854775808; <span class="comment">// ulong</span>
+var f = 4294967295u; <span class="comment">// uint</span>
+var g = 4294967296u; <span class="comment">// ulong</span>
+var h = -1L; <span class="comment">// long</span>
+var j = 9223372036854775807L; <span class="comment">// long</span>
+var k = 9223372036854775808L; <span class="comment">// ulong</span>
+var l = 1UL; <span class="comment">// ulong</span>
+var hex = 0xF81A; <span class="comment">// int</span>
+</code></pre>
+                <p>A value outside of the range of the ulong type results in a compile error</p>
+<pre><code>var tooBig = 18446744073709551616; <span class="comment">// compile error: Integral constant too large</span>
+</code></pre>
+                <p>Real literals consist of combinations of the following:</p>
+                <p class="no-bottom-margin">decimal digits:</p>
+                <p><b>0 1 2 3 4 5 6 7 8 9</b></p>
+                <p class="no-bottom-margin">exponent part, one of:</p>
+                <p><b>e sign decimal digits &emsp; E sign decimal digits</b></p>
+                <p class="no-bottom-margin">sign prefix, one of:</p>
+                <p><b>+ -</b></p>
+                <p class="no-bottom-margin">real type suffix, one of:</p>
+                <p><b>F  f  D  d  M  m</b></p>
+                <p>Real literals are interpreted as follows</p>
+                <ul>
+                    <li>No suffix : <b>double</b></li>
+                    <li>Suffixed with <b>F</b> or <b>f</b> : <b>float</b></li>
+                    <li>Suffixed with <b>D</b> or <b>d</b> : <b>double</b></li>
+                    <li>Suffixed with <b>M</b> or <b>m</b> : <b>decimal</b></li>
+                </ul>
+                <p><em>Note:</em> As per integer literals above a literal digit that is a whole number will be interpreted as an integer</p>
+<pre><code>var i = 1; <span class="comment">// int</span>
+</code></pre>
+                <p>Literals interpreted as real numbers</p>
+<pre><code>var a = 1.0; <span class="comment">//double</span>
+var b = 2.3; <span class="comment">// double</span>
+var c = 3e9; <span class="comment">// double</span>
+var d = -2.1e-3; <span class="comment">// double</span>
+var e = 1f; <span class="comment">// float</span>
+var f = 2.3f; <span class="comment">// float</span>
+var g = 3e9f; <span class="comment">// float</span>
+var h = -2.1e-3f; <span class="comment">// float</span>
+var j = 1d; <span class="comment">// double</span>
+var k = 2.3d; <span class="comment">// double</span>
+var l = 3e9d; <span class="comment">// double</span>
+var m = -2.1e-3d; <span class="comment">// double</span>
+var n = 1m; <span class="comment">// decimal</span>
+var o = 2.3m; <span class="comment">// decimal</span>
+var p = 3e9m; <span class="comment">// decimal</span>
+var q = -2.1e-3m; <span class="comment">// decimal</span>
+</code></pre>
+                <h3>Character specifications</h3>
+                <p>Single character, one of:</p>
+                <p>any character except <code>'</code> <b>(U+0027)</b>, <code>\</code> <b>(U+005C)</b> or line character</p>
+                <p>Simple escape character, one of:</p>
+                <ul>
+                    <li><b>\'</b>&emsp; Single quote</li>
+                    <li><b>\"</b>&emsp; Double quote</li>
+                    <li><b>\\</b>&emsp; Backslash</li>
+                    <li><b>\0</b>&emsp; Null</li>
+                    <li><b>\a</b>&emsp; Alert</li>
+                    <li><b>\b</b>&emsp; Backspace</li>
+                    <li><b>\f</b>&emsp; Form feed</li>
+                    <li><b>\n</b>&emsp; New line</li>
+                    <li><b>\r</b>&emsp; Carriage return</li>
+                    <li><b>\t</b>&emsp; Horizontal tab</li>
+                    <li><b>\v</b>&emsp; Vertical tab</li>
+                </ul>
+                <p class="no-bottom-margin">Unicode escape character, one of:</p>
+                <p><b>\u0000</b> to <b>\uFFFF</b></p>
+                <p class="no-bottom-margin">hexadecimal escape character:</p>
+                <p><b>\x</b>&emsp; <em>Note:</em> Due to possible confusion with Unicode characters it is not recommended to
+                    use <b>\x</b></p>
+                <p>The default value is the NUL character \u0000</p>
+                <p>Character literal examples</p>
+<pre><code>var a = 'a' <span class="comment">\\ the <b>a</b> character</span>
+var b = '\\' <span class="comment">\\ the <b>\</b> character</span>
+var c = '\u0123' <span class="comment">\\ the <b>g</b> character</span>
+</code></pre>
+                </article>
+            </section>
+
+            <!-- Completed -->
+            <!-- References - Section 21 -->
+            <section class="main-section" id="References">
+                <header><h2>References</h2></header>
+                <a class="back-to-top" href="#">Back to top</a>
+                <article>
+                    <p>
+                        <a href="https://docs.microsoft.com/en-us/dotnet/csharp/"
+                         rel="external nofollow noopener noreferrer" target="_blank">Microsoft C# reference documentation</a>
+                    </p>
+                    <p>
+                        <a href="https://www.ecma-international.org/wp-content/uploads/ECMA-334_5th_edition_december_2017.pdf"
+                         rel="external nofollow noopener noreferrer" target="_blank">ECMA-334 C# Language Specification</a>
+                    </p>
+                </article>
+            </section>
+        </main>
+
+<!-- TODO -->
+        <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+    </body>
+</html>
