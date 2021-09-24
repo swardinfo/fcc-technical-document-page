@@ -972,7 +972,7 @@ Hello
                 </article>
             </section>
 
-            <!-- Completed -->
+<!-- TODO rewrite => operator -->
             <!-- Expressions and Operators - Section -->
             <section class="main-section" id="Expressions_and_Operators">
                 <header><h2>Expressions and Operators</h2></header>
@@ -1277,6 +1277,8 @@ b ??= 2;
 </code></pre>
                     <!-- TODO: => operator description and examples -->
                     <h3>The =&gt; operator</h3>
+                    <p>The <code>=&gt;</code> operator has two uses, as a Lambda declaration operator as part of a Lambda Expression and as a separator between
+                        a member name and its implementation.</p>
 
                 </article>
             </section>
@@ -1397,6 +1399,7 @@ b ??= 2;
     }
     <span class="comment">// Result:</span>
     <span class="comment">// H e l l o  w o r l d !</span>
+
 }
 </code></pre>
                 </article>
@@ -1783,12 +1786,13 @@ b ??= 2;
                     </ul>
 
                     <h3>List&lt;T&gt;</h3>
-                    <p>A <b>List&lt;T&gt;</b> is a strongly typed generic collection of objects accessed by index. Methods include add, remove, sort, search, clear.
-                        Of particular interest is the <b>Capacity</b> property. When writing a program there is always the consideration of memory usage versus
+                    <p>A <b>List&lt;T&gt;</b> is a strongly typed generic collection of objects accessed by index. Iy provides a number of members such as the methods
+                        providing useful add, remove, sort, search, clear that we can take advantage of.
+                        Of particular interest is the <b>List&lt;T&gt;.Capacity</b> property. When writing a program there is always the consideration of memory usage versus
                         performance. When an
                         object is created memory must be assigned for the object to reside in. If the amount is too large then it would limit what is
                         available to other applications. Too small and performance may be degraded with excessive reading and writing to memory. A
-                        <b>List&lt;T&gt;</b> uses an array to store the data in which has a length of 0 when the list is first created. As we have seen an array is
+                        <b>List&lt;T&gt;</b> uses an array to store the data which initially has a length of 0 when the list is first created. As we have seen an array is
                         immutable so if the number of items we wish to add exceeds the size of the underlying array, a new
                         array with a larger length is created, the data from the old one is copied to the new one and then the old one is deleted. <b>Capacity</b>
                         is effectively the the current size of the underlying array and the <b>List&lt;T&gt;.Count</b> property is the number of items that have been added.
