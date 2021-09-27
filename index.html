@@ -25,7 +25,7 @@
                 <!-- project requirement - clicking nav-link element navigates page to the corresponding main-doc section -->
                 <li><a class="nav-link" href="#Introduction">Introduction</a></li>
                 <li><a class="nav-link" href="#C_Sharp_Language">C Sharp Language</a></li>
-                <li><a class="nav-link" href="Dot_NET">Dot Net</a></li>
+
                 <li><a class="nav-link" href="#IDE_-_Integrated_Development_Environment">IDE - Integrated Development Environment</a></li>
                 <li><a class="nav-link" href="#Create_a_Hello_World_Project">Create a Hello World Project</a></li>
                 <li><a class="nav-link" href="#Code_Syntax">Code Syntax</a></li>
@@ -38,9 +38,12 @@
                 <li><a class="nav-link" href="#Arrays_and_Data_Structures">Arrays and Data Structures</a></li>
                 <li><a class="nav-link" href="#Enumerators">Enumerators</a></li>
                 <li><a class="nav-link" href="#Classes">Classes</a></li>
-                <li><a class="nav-link" href="#Namespaces_and_References">Namespaces and References</a></li>
+                <li><a class="nav-link" href="#Interfaces">Interfaces</a></li>
+                <li><a class="nav-link" href="#Anonymous_function_expressions">Anonymous function expressions</a></li>
+                <li><a class="nav-link" href="#References_and_Namespaces">References and Namespaces</a></li>
                 <li><a class="nav-link" href="#Scope_and_Access_Modifiers">Scope and Access Modifiers</a></li>
-                <li><a class="nav-link" href="#Object-oriented_Programming_(OOP)">Object-oriented Programming (OOP)</a></li>
+                <li><a class="nav-link" href="#Object-oriented_Programming">Object-oriented Programming</a></li>
+                <li><a class="nav-link" href="#Dot_NET">Dot Net</a></li>
                 <li><a class="nav-link" href="#Keywords">Keywords</a></li>
                 <li><a class="nav-link" href="#Specifications">Specifications</a></li>
                 <li><a class="nav-link" href="#References">References</a></li>
@@ -91,19 +94,6 @@
                         turn things on or off, albeit at billions of times a second. For any person trying to write in ones and zeros, this soon becomes
                         an impossible task. A high level programming language is a type of shorthand that is human readable making it easier for a developer to
                         read and write code. The reference documentation for C# can be found at
-                        <a href="https://docs.microsoft.com/en-us/dotnet/csharp">Microsoft&nbsp;Docs</a>.</p>
-                </article>
-            </section>
-
-<!-- TODO -->
-            <!-- .NET - Section 2 -->
-            <section class="main-section" id="Dot_NET">
-                <header><h2>Dot NET</h2></header>
-                <a class="back-to-top" href="#">Back to top</a>
-                <article>
-                    <p><i>Note: The correct title for this section is <b>.NET</b> but has been changed due to technical limitations</i></p>
-                    <p>.NET is an open-source cross platform software framework. It provides a number of class libraries that provide many of the basic computer
-                        functionality such as
                         <a href="https://docs.microsoft.com/en-us/dotnet/csharp">Microsoft&nbsp;Docs</a>.</p>
                 </article>
             </section>
@@ -1193,8 +1183,8 @@ b  ^= false;
 
                     <h3>Conditional operator ?:</h3>
 
-                    <p>The conditional operator <code>?:</code>, also known as the ternary conditional operator takes the form <code>x = predicate ? a : b</code>. If the predicate is true then the
-                        expression returns <b>a</b> else it returns <b>b</b>. Both <b>a</b> and <b>b</b> must be of the same type.
+                    <p>The conditional operator <code>?:</code>, also known as the ternary conditional operator takes the form <code>x = predicate ? a : b</code>.
+                        If the predicate is true then the expression returns <b>a</b> else it returns <b>b</b>. Both <b>a</b> and <b>b</b> must be of the same type.
                         The conditional operator can also be used as a shorthand way to replace combined <code>if</code> and
                         <code>else</code> statements. Conditional statements can be nested though doing so can make the code hard to read.</p>
 <pre><code>int x = 1;
@@ -1275,10 +1265,24 @@ int? b = 1;
 // b has value 1
 b ??= 2;
 </code></pre>
-                    <!-- TODO: => operator description and examples -->
-                    <h3>The =&gt; operator</h3>
-                    <p>The <code>=&gt;</code> operator has two uses, as a Lambda declaration operator as part of a Lambda Expression and as a separator between
-                        a member name and its implementation.</p>
+                    <h3>The Lambda and Expression body definition operator =&gt;</h3>
+                    <p>The <code>=&gt;</code> operator has two uses, as part of a <b>Lambda Expression</b> or an <b>Expression-bodied member</b> definition.</p>
+<!-- TODO: => add link to anonymous function -->
+                    <p>A <b>Lambda expression</b> is comprised of a set of input parameters which are then passed into the body in the form of either an expression or
+                        a statement block. They are used to create an Anonymous function. In this case the <code>=&gt;</code> operator is used to separate
+                        the input parameters from the body. See Anonymous function expressions.</p>
+                    <p>An <b>Expression-bodied member</b> definition provides a shorthand method of writing the body of a member. In this case the <code>=&gt;</code>
+                        operator is used to separate the name of the member and its body. Supported members are:</p>
+                    <ul>
+                        <li>Method</li>
+                        <li>Read-only property</li>
+                        <li>Property</li>
+                        <li>Constructor</li>
+                        <li>Finalizer</li>
+                        <li>Indexer</li>
+                    </ul>
+<!-- TODO: => add link to classes -->
+                    <p>Information on Expression-bodied member can be found in Classes</p>
 
                 </article>
             </section>
@@ -1803,12 +1807,283 @@ b ??= 2;
                         ourselves. Care must be taken though as setting the size below the current <b>Count</b> will produce an <b>ArgumentOutOfRangeException</b>
                         and setting it to high an <b>OutOfMemoryException</b>.
                     </p>
+<!-- TODO add link to anonymous functions -->
+                    <p>Note: The Find method uses an anonymous expression details of which are in Anonymous expression functions</p>
 
 <pre><code>static void Main(string[] args)
+{
+    // This example assumes that the directive
+    // 'using System.Collections.Generic;'
+    // has been added to the top of the file. This allows
+    // List&lt;T&gt; to be used without having to write
+    // the full namespace each time as in
+    // 'System.Collections.Generic.List&lt;T&gt;'
+    // (See Namespaces and references)
+
+    // Create a new list
+    List&lt;string&gt; animals = new();
+
+    // 'Capacity' is the amount of memory space reserved for
+    // a list to expand into as items are added. For a new list
+    // with no items the capacity is initially set to 0
+    var capacity = animals.Capacity;
+    Console.WriteLine("After creating the list the initial capacity is: {0}", capacity);
+
+    // The Add method adds a type T item to the end of a list
+    animals.Add("dog");
+    animals.Add("cat");
+
+    // The 'Count' property is the number of items the list, here 2.
+    // and Capacity has been increased to either the same as Count
+    // or more to allow for expansion of the list. As this value is
+    // optimized by the compiler we can't be certain what it will be
+    // To save on writing extra lines animals.Count and animals.Capacity
+    // properties have been in-lined within the Console.WriteLine() method
+    Console.WriteLine("Count after items added: {0}", animals.Count);
+    Console.WriteLine("Capacity after items added: {0}", animals.Capacity);
+
+    // Capacity can be set ahead of time to improve performance.
+    // Here the capacity is set to 100
+    // Note: Setting the capacity smaller than Count will result
+    // in an ArgumentOutOfRangeException and setting it too
+    // high can result in an OutOfMemoryException
+    animals.Capacity = 100;
+    Console.WriteLine("Capacity after animals.Capacity = 100: {0}", animals.Capacity);
+
+    // Extra memory assigned either by us or by the compiler can be
+    // removed by using 'TrimExcess'.
+    // This sets Capacity to the same value as the Count property
+    animals.TrimExcess();
+    Console.WriteLine("Count after animals.TrimExcess(): {0}", animals.Count);
+    Console.WriteLine("Capacity after animals.TrimExcess(): {0}", animals.Capacity);
+
+    // As the List was declared to be of type 'string' and 50 is an 'int'
+    // uncommenting the following results in the syntax error
+    // Argument 1:cannot convert from 'int' to 'string'
+    // animals.Add(50);
+
+    // A 'foreach' loop can be used to loop through a list
+    Console.WriteLine("\r\nforeach (var item in animals)");
+    foreach (var item in animals) { Console.Write(item + " "); }
+
+    // When using a foreach loop the list can't be modified.
+    // Uncommenting the following will result in
+    // System.InvalidOperationException: 'Collection was modified;
+    // enumeration operation may not execute.'
+    //foreach (string item in animals)
+    //{
+    //    if (item == "cat")
+    //        animals.Remove(item);
+    //}
+
+    // Another syntax allows a list to be created and
+    // have items added to it simultaneously
+    List&lt;string&gt; birds = new()
     {
+        "lizard",
+        "emu",
+    };
 
+    // 'AddRange' allows items of the same type from another
+    // collection or array to be added to the end of a list.
+    animals.AddRange(birds);
+    Console.WriteLine("\r\n\r\nanimals.AddRange(birds) : Add list 'birds' to 'animals'");
+    foreach (var item in animals) { Console.Write(item + " "); }
 
+    // 'AddRange' can also add items from an array
+    var fish = new[]
+    {
+        "salmon",
+        "carp"
+    };
+    animals.AddRange(fish);
+    Console.WriteLine("\r\n\r\nanimals.AddRange(fish) : Add array 'fish' to 'animals'");
+    foreach (var item in animals) { Console.Write(item + " "); }
+
+    // Items within the list can be accessed by using the zero based index of type 'int'
+    // This prints 'lizard' to the console, changes 'lizard' to 'duck' then prints
+    // 'duck' to the console
+    Console.WriteLine("\r\n\r\nThe third item is a {0}", animals[2]);
+    animals[2] = "duck";
+    Console.WriteLine("\r\nThe third item has changed to a {0}", animals[2]);
+
+    // Loop through the list with a for loop using index '[i]' and the 'Count' property
+    Console.WriteLine("\r\nfor (int i = 0; i &lt; animals.Count; i++)");
+    for (int i = 0; i &lt; animals.Count; i++)
+    {
+        Console.Write(animals[i] + " ");
     }
+
+    // IndexOf returns the index of the first occurrence of a specific item
+    // This prints the position if the first 'salmon' in the list
+    // As the index is 0 bound 1 must be added to the returned value
+    var index = animals.IndexOf("salmon");
+    Console.WriteLine("\r\n\r\nanimals.IndexOf(\"salmon\") : 'salmon' is at position {0} in the list", index + 1);
+    foreach (var item in animals) { Console.Write(item + " "); }
+
+    // Contains returns true if a list contains a specific item
+    var hasAnEmu = animals.Contains("emu") ? "has an 'emu'" : "does NOT have an 'emu'";
+    Console.WriteLine("\r\n\r\nanimals.Contains(\"emu\") : animals {0}\r\n", hasAnEmu);
+
+    // The 'Find' method returns the first item that
+    // matches the conditions specified by the
+    // predicate in the anonymous expression.
+    // (See Anonymous function expressions)
+    // A predicate is a function that can
+    // be evaluated as true or false. If the
+    // predicate is true the item is returned,
+    // if not the default value for type T is returned.
+    var animal = animals.Find(item =&gt; item == "turtle");
+
+    // The default value for a string is null so we can use the null-coalescing operator '??'
+    // (See Expressions and Operators) As there is no 'turtle' in the list
+    // 'Item not found' is printed to the Console
+    Console.WriteLine("animals.Find(item =&gt; item == \"turtle\") : {0})", animal ?? "Item not found");
+
+    List&lt;int&gt; numbers = new()
+    {
+        1,
+        2
+    };
+
+    // As the numbers list does not contain
+    // a '3' this returns the default value 0
+    var number = numbers.Find(n =&gt; n == 3);
+    Console.WriteLine("numbers.Find(n =&gt; n == 3) : There is no '3' so the value returned is {0}", number);
+
+    // 'FindAll' returns a 'List&lt;T&gt;' of all items that match the conditions
+    // of the predicate. If none are found an empty list is returned
+    // Note: the name of the parameter passed into the an anonymous
+    // expression can be anything. Here the letter 'a' was used
+    var animalsThatStartWithD = animals.FindAll(a =&gt; a.StartsWith("d"));
+    Console.WriteLine("\r\nanimals.FindAll(a =&gt; a.StartsWith(\"d\"))");
+    foreach (var item in animalsThatStartWithD) { Console.Write(item + " "); }
+
+    // 'Insert' inserts an item at a specific index
+    // This inserts 'shark' at the current index of 'salmon'
+    // All items after and including salmon are moved after 'shark'
+    animals.Insert(index, "shark");
+    Console.WriteLine("\r\n\r\nanimals.Insert(position, \"shark\") : 'shark' was inserted before 'salmon'");
+    foreach (var item in animals) { Console.Write(item + " "); }
+
+    // 'RemoveAt' removes an at a specified index
+    // The following removes the previously inserted 'shark'
+    var animalToRemove = animals[index];
+    animals.RemoveAt(index);
+    Console.WriteLine("\r\n\r\nanimals.RemoveAt(2) : '{0}' was removed", animalToRemove);
+    foreach (var item in animals) { Console.Write(item + " "); }
+
+    // 'Remove' removes the first occurrence of a specific item
+    // It returns false if the removal was unsuccessful or the item wasn't found
+    var removed = animals.Remove("salmon") ? "'salmon' was removed" : "'salmon' was NOT removed";
+    Console.WriteLine("\r\n\r\nanimals.Remove(\"salmon\") : {0}", removed);
+    foreach (var item in animals) { Console.Write(item + " "); }
+
+    var food = new[]
+    {
+        "apple",
+        "banana"
+    };
+
+    // 'InsertRange' inserts a a List or an array of items of the same type at a specified
+    // index. The following inserts the array 'food' at the current index of 'salmon'
+    animals.InsertRange(2, food);
+    Console.WriteLine("\r\n\r\nanimals.InsertRange(2, food) : 'apple' and 'banana' were added");
+    foreach (var item in animals) { Console.Write(item + " "); }
+
+    // 'RemoveRange' removes a specified number of items starting at a specified index.
+    // The following removes 2 items starting at index 2 effectively removing
+    // the previously inserted 'food' array
+    animals.RemoveRange(2, 2);
+    Console.WriteLine("\r\n\r\nanimals.RemoveRange(2, 2) : 'apple' and 'banana' were removed");
+    foreach (var item in animals) { Console.Write(item + " "); }
+
+    // 'RemoveAll' removes all items that  match the conditions
+    // of the predicate. The following removes 'dog' and 'duck'
+    animals.RemoveAll(a =&gt; a.StartsWith("d"));
+    Console.WriteLine("\r\n\r\nanimals.RemoveAll(a =&gt; a.StartsWith(\"d\")) : 'dog' and 'duck' were removed");
+    foreach (var item in animals) { Console.Write(item + " "); }
+
+    // 'Sort' sorts the list based on the comparer argument
+    // passed in. If none is supplied then the default
+    // comparer is used. The following alphabetically sorts the list
+    animals.Sort();
+    Console.WriteLine("\r\n\r\nanimals.Sort() : the list is alphabetically");
+    foreach (var item in animals) { Console.Write(item + " "); }
+
+    // 'Reverse' reverses the order of the list
+    animals.Reverse();
+    Console.WriteLine("\r\n\r\nanimals.Reverse() : the list has been reversed");
+    foreach (var item in animals) { Console.Write(item + " "); }
+
+    // 'Clear' removes all items from the list
+    animals.Clear();
+    Console.WriteLine("\r\n\r\nanimals.Clear() :");
+    Console.WriteLine("There are {0} items in the list", animals.Count);
+    Console.WriteLine();
+}
+// The following is printed in the console
+// After creating the list the initial capacity is: 0
+// Count after items added: 2
+// Capacity after items added: 4
+// Capacity after animals.Capacity = 100: 100
+// Count after animals.TrimExcess(): 2
+// Capacity after animals.TrimExcess(): 2
+
+// foreach (var item in animals)
+// dog cat
+
+// animals.AddRange(birds) : Add list 'birds' to 'animals'
+// dog cat lizard emu
+
+// animals.AddRange(fish) : Add array 'fish' to 'animals'
+// dog cat lizard emu salmon carp
+
+// The third item is a lizard
+
+// The third item has changed to a duck
+
+// for (int i = 0; i&lt;animals.Count; i++)
+// dog cat duck emu salmon carp
+
+// animals.IndexOf("salmon") : 'salmon' is at position 5 in the list
+// dog cat duck emu salmon carp
+
+// animals.Contains("emu") : animals has an 'emu'
+
+// animals.Find(item =&gt; item == "turtle") : Item not found)
+// numbers.Find(n =&gt; n == 3) : There is no '3' so the value returned is 0
+
+// animals.FindAll(a =&gt; a.StartsWith("d"))
+// dog duck
+
+// animals.Insert(position, "shark") : 'shark' was inserted before 'salmon'
+// dog cat duck emu shark salmon carp
+
+// animals.RemoveAt(2) : 'shark' was removed
+// dog cat duck emu salmon carp
+
+// animals.Remove("salmon") : 'salmon' was removed
+// dog cat duck emu carp
+
+// animals.InsertRange(2, food) : 'apple' and 'banana' were added
+// dog cat apple banana duck emu carp
+
+// animals.RemoveRange(2, 2) : 'apple' and 'banana' were removed
+// dog cat duck emu carp
+
+// animals.RemoveAll(a =&gt; a.StartsWith("d")) : 'dog' and 'duck' were removed
+// cat emu carp
+
+// animals.Sort() : the list is alphabetically
+// carp cat emu
+
+// animals.Reverse() : the list has been reversed
+// emu cat carp
+
+// animals.Clear() :
+// There are 0 items in the list
+}
 </code></pre>
 
                     <h3>Dictionary&lt;TKey, TValue&gt;</h3>
@@ -1822,6 +2097,26 @@ b ??= 2;
     }
 </code></pre>
 
+                </article>
+            </section>
+
+            <!-- Enumerators - Section -->
+            <section class="main-section" id="Enumerators">
+                <header><h2>Enumerators</h2></header>
+                <a class="back-to-top" href="#">Back to top</a>
+                <article>
+                    <p>The keyword <code>enum</code> is used to declare an enumerator which provides a list of named constants. The code
+                        editor allows us to use these names to assign the underlying constant values to variables. We can define the type
+                        and value of each constant or allow the editor to assign them for us. The default type for the value is an integer
+                        and the list is zero based. The following example shows how to declare and use an enumerator using the defaults.</p>
+<pre><code>enum Day { Sun, Mon, Tue, Wed, Thu, Fri, Sat }
+int day = Day.Tue;
+Console.WriteLine("Day is {0}", day); // Output: Day is Tue
+Console.WriteLine("day's value {0}", (int)Day.Sun); // Output: day's value 0
+
+<span class="comment">// month is long type</span>
+enum Month: long { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec }
+</code></pre>
                 </article>
             </section>
 
@@ -2056,13 +2351,207 @@ namespace ClassExample
             </section>
 
 <!-- TODO -->
-            <!-- Namespaces and references - Section -->
-            <section class="main-section" id="Namespaces_and_References">
-                <header><h2>Namespaces and references</h2></header>
+            <!-- Interfaces - Section -->
+            <section class="main-section" id="Interfaces">
+                <header><h2>Interfaces</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
                     <p>Lorem</p>
 
+                </article>
+            </section>
+
+<!-- TODO -->
+            <!-- Delegates, Actions and Functions - Section -->
+            <section class="main-section" id="Anonymous_function_expressions">
+                <header><h2>Anonymous function expressions</h2></header>
+                <a class="back-to-top" href="#">Back to top</a>
+                <article>
+                    <p>Lorem</p>
+
+
+<pre><code>// Example of an an anonymous function
+    // with an expression body
+    // prints 27 to the console
+    Func&lt;int, int&gt; volume = x =&gt; x * x * x;
+    Console.WriteLine(volume(3));
+
+    // Example of an an anonymous function
+    // with a statement block
+    // prints 50.2654824 to the console
+    Action&lt;int&gt; printArea = r =&gt;
+    {
+        const double pi = 3.14159265;
+        var area = pi * r * r;
+        Console.WriteLine(area);
+    };
+    printArea(4);
+    </code></pre>
+
+                </article>
+            </section>
+
+<!-- TODO -->
+            <!-- Namespaces and references - Section -->
+            <section class="main-section" id="References_and_Namespaces">
+                <header><h2>References and Namespaces</h2></header>
+                <a class="back-to-top" href="#">Back to top</a>
+                <article>
+
+                    <h3>References</h3>
+                    <p>An application can be made up of multiple sources of code including that which you write. In Visual Studio an application is called a
+                        <b>Solution</b> and can be viewed in the <b>Solution Explorer</b> window which can be accessed via the <b>Solution Explorer</b> tab
+                        on the right side of the application.  If the tab is not visible, click on <b>View</b> then <b>Solution Explorer</b> in the menu. Here you
+                        will see the name of your solution and the projects contained within it. Under each project are code files which can be arranged in folders
+                         along with . These can contain Frameworks such as the current
+                        .Net 5.0, applications and libraries.  called projects which together form an application
+                        solution. To use such code a reference to it must be added.
+                        In <b>Visual Studio</b> this is done through the <b>Solution Explorer</b>  Under each project you will find any folders and files associated
+                         with it and also a node called <b>Dependencies</b>. Expanding the Dependencies node will reveal several more nodes. If any references have
+                         been added a node will be present called Projects under which you will find the referenced code. To add a reference right click on any
+
+
+
+
+
+
+
+
+                         The Frameworks node
+                         contains the frameworks that have been added by Visual Studio when the solution was created. For a console application created with a
+                         .Net 5.0 target framework. Expanding the Framework node reveals that this is called Microsoft.NETCore.APP and expanding this node reveals
+                         the libraries that are included by default.
+
+                    </p>
+
+                    <h3>Namespaces</h3>
+                    <p>C# requires that each object within a particular scope be unique and namespaces do this by organizing the code into a tree structure
+                        similar to that of the file system on a computer. For example in order to have 2 files called MyFile.txt on a computer you may put one
+                        in a folder called RootFolder\MyFiles1 and the other in RootFolder\MyFiles2. Namespaces are the same except that the root namespace is
+                        normally the name of a project and the backslashes are replaced with a dot. A sublevel namespace is known as a nested namespace</p>
+
+                    <h3>namespace</h3>
+                    <p>The <code>namespace</code> keyword followed by a code block is used to declare objects belonging to a particular <b>namespace</b>. Objects can then
+                        be identified in code by using their <b>fully qualified</b> names in the form <code>MyNamespace.MyObject</code>. <b>IntelliSense</b> uses
+                        namespaces to assist you by providing suggestions as you type. After typing the root namespace then pressing <kbd>.</kbd>, all the objects and
+                        nested namespaces within it
+                        will appear
+                        in the suggestion box. If one of the nested namespaces is selected, the <kbd>.</kbd> can again be pressed to find all objects and nested namespaces
+                        within it and the process can be repeated until no nested namespaces remain.</p>
+
+<pre><code>// A using directive can be placed at
+at the top of the file
+namespace MyProject
+{
+    class SomeClass  { }
+
+    enum SomeEnum { sun, mon, tue, wed, thu, fri, sat }
+
+    interface ISomeInterFace { }
+}
+
+// Declare an object in a sublevel namespace
+namespace MyProject.DataModels
+{
+    class Person { }
+
+    class Employer { }
+
+    class Job { }
+}
+
+// An alternate way to declare in a
+// sublevel using a nested namespace
+namespace MyProject
+{
+    namespace Animals
+    {
+        class Dog { }
+
+        class Cat { }
+    }
+}
+
+namespace AnotherNamespace
+{
+    class AnotherClass
+    {
+        public void Example()
+        {
+            // Objects identified by using their
+            // fully qualified names
+            MyProject.MyClass myClass = new();
+            MyProject.MyEnum myEnum = MyProject.MyEnum.Mon;
+            MyProject.Animals.Cat cat = new();
+            MyProject.DataModels.Person person = new();
+        }
+    }
+}
+</code></pre>
+
+                    <p>When adding a new class using the default class template, Visual Studio automatically puts it within a namespace based on the folder in
+                        the project in which the class is added. If you want to use the root namespace instead and want to avoid editing the namespace, add the
+                        new class to the root project then move the file to your desired folder. The following shows the code generated by adding a class called
+                        <b>MainViewModel</b> to a folder called <b>ViewModels</b> in a project called <b>MyCompany</b>.
+                    </p>
+
+<pre><code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MyCompany.ViewModels
+{
+    class MainViewModel
+    {
+    }
+}
+</code></pre>
+                    <h3>using</h3>
+
+                    <p>Identifying every object by its <b>fully qualified</b> name soon becomes cumbersome and makes the code hard to read. The <code>using</code>
+                        directive makes all objects and nested namespaces within a namespace available for use. This is also known as importing. The name of just
+                        the objects name can then be used within the code.</p>
+                    <p>If you know the name of the object you want to add to your code but don't know its namespace, Visual Studio provides a shortcut for this.
+                        After typing the object's full name and with the cursor touching it, for example <code>List</code>, press <kbd>Ctrl</kbd> + <kbd>.</kbd>
+                        and IntelliSense will suggest the correct using directive to use, most likely at the top of the list. Click on the suggestion and it will
+                        added to the code. Please note that the full name name must be entered with the correct case. Also, the project must have a reference
+                        to the library containing object. (See below)</p>
+                    <p>To remove unused <b>using</b> directives, right click anywhere in the code editor and click <b>Remove and Sort Usings</b>.</p>
+                    <p> The following assumes that the first example in this section already exists.</p>
+
+<pre><code>using MyProject.Animals;
+using MyProject.DataModels;
+
+namespace SomeNamespace
+{
+    class SomeClass
+    {
+        Cat cat = new();
+        Person person = new();
+    }
+}
+</code></pre>
+                    <h3>Aliases</h3>
+
+                    <p>The <code>using</code> can also be used to create an alias for a namespace or object. The following assumes that the first example in this
+                        section already exists.</p>
+
+<pre><code>using Project = MyProject;
+using Employment = MyProject.DataModels;
+using MyDog = MyProject.Animals.Dog;
+
+namespace SomeNamespace
+{
+    class SomeClass
+    {
+        Project.Animals.Dog dog = new();
+        Employment.Employer employer = new();
+        MyDog myDog = new();
+    }
+}
+    </code></pre>
                 </article>
             </section>
 
@@ -2072,17 +2561,86 @@ namespace ClassExample
                 <header><h2>Scope and Access Modifiers</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
-                    <p>Scope is the accessability of a variable within a class, method or code block. In computer science this is known as encapsulation. A variable in a code block can't be accessed
-                        from outside the code block. A variable from in a method can't be accessed from within  a class but can be accessed from a method. A
-                        variable in a class can be accessed both in a method and a code block. A variable at the
+                    <h3>Scope</h3>
+                    <p>Scope is the accessibility of a variable from one part of the code to another. In C# this is arranged like the layers of an onion where
+                        variables on the outer layers can be accessed from those within but not vise versa. In computer science this is known as encapsulation.
+                        From the most accessible inner layer to the least the layers are class or struct &gt; method, property or indexer &gt; nested code block.</p>
+
+                    <p>A variable within the code block of a method, property or indexer can only be directly accessed by code or nested code blocks that comes
+                        after that declaration and only within the same method, property or indexer. A variable declared within a nested code block such as an
+                        if statement or a loop can only be directly accessed by other code or other nested code blocks within the same code block and only after
+                        it is declared.  A variable within a method, property or indexer or one of its nested code blocks is called a local variable. Local variables
+                        can be explicitly declared <code>int x = 1;</code> or implicitly declared using the <code>var</code> keyword <code>var x = 1;</code>
+                        A local variables accessibility cannot be changed with an access modifier.</p>
+
+                    <p>A variable declared inside a class or struct but outside any method or property is called a field and is a member of the class. A field can be
+                        directly accessed within any method, property or indexer and any nested code blocks they contain and within any nested class or struct,
+                        irrespective of the location of the field's declaration. By convention fields are declared at the top of a class before any other code.
+                        A field can only be explicitly declared. A field can be made readonly and its accessibility level can be changed with the use of an
+                        access modifier, (See Access modifiers below).</p>
+
+<!-- TODO scope code example -->
+<pre><code>
+
+</code></pre>
+                    <h3>Access modifiers</h3>
+                    <p> Accessibility level defines whether a type or type's member can be used by other code within your assembly or other assemblies.
+                        Each type or member has a default access level which can be modified by the use of access modifier keywords. A local variable's
+                        accessibility is always restricted to scope in which it is contained and can't can't be modified. Except for <code>protected internal</code>
+                        and <code>private protected</code> only one access modifier can be applied to a type or a member. For information about accessibility
+                        of the accessors for a property or indexer see Classes.
+                        Following is the list of access modifier keywords and the access level provided by them.
                     </p>
 
                     <ul>
-                        <li>item</li>
-                        <li>item</li>
-                        <li>item</li>
-                        <li>item</li>
+                        <li><b>public</b> - any code in the same assembly or another assembly that references it
+                        </li>
+                        <li><b>protected internal</b> - any code in the same assembly or in a derived class in another assembly
+                        </li>
+                        <li><b>protected</b> - in the same class or a derived class in the same or another assembly
+                        </li>
+                        <li><b>internal</b> - any code in the same assembly only
+                        </li>
+                        <li><b>private protected</b> - in the same class or a derived class in the same assembly only
+                        </li>
+                        <li><b>private</b> - only in the same class
+                        </li>
                     </ul>
+
+                    <p>Types declared directly within a namespace (i.e. not nested), can only be declared public or internal where internal is the default level. The
+                        following types can be be declared in a namespace <code>class</code>, <code>struct</code>, <code>interface</code>, <code>delegate</code>,
+                        <code>record</code> and <code>enumerator</code>. </p>
+
+                    <p>Types and members nested within other types can be declared with the following access modifiers in a struct can only be declared
+                        public, internal or private. The default level is private. The access level of a property or indexer must be less restrictive than its get and
+                        set accessors.
+
+                        Access level of a nested member or type can be no more than its containing type.
+                    </p>
+
+                    <ul>
+                        <li><b>class or record</b> - <code>public</code>, <code>protected internal</code>, <code>protected</code>,
+                            <code>internal</code>, <code>private protected</code>, <code>private(default)</code></li>
+                        <li><b>interface</b> - <code>(default)</code>, <code>protected internal</code>, <code>protected</code>,
+                            <code>internal</code>, <code>private protected</code>, <code>private</code></li>
+                        <li><b>class or record</b> - <code>public</code>, <code>protected internal</code>, <code>protected</code>,
+                            <code>internal</code>, <code>private protected</code>, <code>private(default)</code></li>
+                        <li><b>class or record</b> - <code>public</code>, <code>protected internal</code>, <code>protected</code>,
+                            <code>internal</code>, <code>private protected</code>, <code>private(default)</code></li>
+                        <li><b>class or record</b> - <code>public</code>, <code>protected internal</code>, <code>protected</code>,
+                            <code>internal</code>, <code>private protected</code>, <code>private(default)</code></li>
+                        <li><b>class or record</b> - <code>public</code>, <code>protected internal</code>, <code>protected</code>,
+                            <code>internal</code>, <code>private protected</code>, <code>private(default)</code></li>
+                        <li><b>interface</b> - public(default), protected internal, protected, internal, private protected, private*</li>
+                        <li><b>Class or record</b> - public, protected internal, protected, internal, private protected, private(default)</li>
+                        <li><b>Class or record</b> - public, protected internal, protected, internal, private protected, private(default)</li>
+                        <li><b>Class or record</b> - public, protected internal, protected, internal, private protected, private(default)</li>
+                        <li><b>Class or record</b> - public, protected internal, protected, internal, private protected, private(default)</li>
+
+                    </ul>
+
+
+
                     <pre><code>code
                         code
                         </code></pre>
@@ -2138,6 +2696,19 @@ namespace ClassExample
 
                     <h3>Polymorphism</h3>
                     <p></p>
+                </article>
+            </section>
+
+<!-- TODO -->
+            <!-- .NET - Section -->
+            <section class="main-section" id="Dot_NET">
+                <header><h2>Dot NET</h2></header>
+                <a class="back-to-top" href="#">Back to top</a>
+                <article>
+                    <p><i>Note: The correct title for this section is <b>.NET</b> but has been changed due to technical limitations</i></p>
+                    <p>.NET is an open-source cross platform software framework. It provides a number of class libraries that provide many of the basic computer
+                        functionality such as
+                        <a href="https://docs.microsoft.com/en-us/dotnet/csharp">Microsoft&nbsp;Docs</a>.</p>
                 </article>
             </section>
 
