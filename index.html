@@ -479,6 +479,13 @@ using System;
                 <header><h2>Variables, Constants, Types and Literals</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
+<!-- TODO include this paragraph somewhere -->
+                    <p>
+                        Local variables
+                        can be explicitly declared <code>int x = 1;</code> or implicitly declared using the <code>var</code> keyword <code>var x = 1;</code>
+                        A local variables accessibility cannot be changed with an access modifier.
+                    </p>
+
                     <p>Variables are used to represent data in memory using a symbolic name. Every variable has a <b>type</b> that
                         determines what type of data can be stored and a <b>value</b> which is the actual data. C# is a strongly typed
                         language which means the variable's type must be declared before it can be used and cannot be changed later. The
@@ -2562,88 +2569,73 @@ namespace SomeNamespace
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
                     <h3>Scope</h3>
-                    <p>Scope is the accessibility of a variable from one part of the code to another. In C# this is arranged like the layers of an onion where
-                        variables on the outer layers can be accessed from those within but not vise versa. In computer science this is known as encapsulation.
-                        From the most accessible inner layer to the least the layers are class or struct &gt; method, property or indexer &gt; nested code block.</p>
+                    <p>Scope is the accessibility of a variable from one part of the code to another. In C# scope is arranged like the layers of an onion.
+                        In computer science this is known as encapsulation and inner scopes that are contained within outer scopes are said to be nested.
+                        Variables in an outer scope can be accessed from those within but not vise versa.</p>
+<!-- TODO variable links-->
+                    <p>A <b>local variable</b> is a variable declared in a method, property or indexer or one of its nested code blocks. The variable is only
+                         accessible after it has been declared and only within the same code block or a nested code block. A local variable within the same block or a
+                         nested code block cannot be declared with the same name.</p>
 
-                    <p>A variable within the code block of a method, property or indexer can only be directly accessed by code or nested code blocks that comes
-                        after that declaration and only within the same method, property or indexer. A variable declared within a nested code block such as an
-                        if statement or a loop can only be directly accessed by other code or other nested code blocks within the same code block and only after
-                        it is declared.  A variable within a method, property or indexer or one of its nested code blocks is called a local variable. Local variables
-                        can be explicitly declared <code>int x = 1;</code> or implicitly declared using the <code>var</code> keyword <code>var x = 1;</code>
-                        A local variables accessibility cannot be changed with an access modifier.</p>
+                    <p>A variable declared inside a class, struct or record type but outside any member is called a field and is also a member of that type.
+                        A field can be directly accessed by any of the type's methods, properties or indexers and any nested code blocks they contain, irrespective
+                        of the location of the field's declaration. By convention fields are normally declared at the top of a class before any other code. A field
+                        can be modified to be readonly and its accessibility level can be changed with the use of an access modifier, (See Access modifiers below).
+                        </p>
+                    <p>A local variable in the same container (enclosing type) as a field can be declared with the same name and any type. When
+                        this is done the field is said to be hidden by the local variable. In this case, to then access the field the <code>this</code> name qualifier this must be
+                        used. For example if in a class a field <code>int someName</code> exists and in a method <code>string someName;</code> to access the field
+                        you would use <code>var x = this.someName</code>.</p>
 
-                    <p>A variable declared inside a class or struct but outside any method or property is called a field and is a member of the class. A field can be
-                        directly accessed within any method, property or indexer and any nested code blocks they contain and within any nested class or struct,
-                        irrespective of the location of the field's declaration. By convention fields are declared at the top of a class before any other code.
-                        A field can only be explicitly declared. A field can be made readonly and its accessibility level can be changed with the use of an
-                        access modifier, (See Access modifiers below).</p>
-
+                    <p>Following are examples of scope.</p>
 <!-- TODO scope code example -->
 <pre><code>
 
 </code></pre>
                     <h3>Access modifiers</h3>
-                    <p> Accessibility level defines whether a type or type's member can be used by other code within your assembly or other assemblies.
-                        Each type or member has a default access level which can be modified by the use of access modifier keywords. A local variable's
-                        accessibility is always restricted to scope in which it is contained and can't can't be modified. Except for <code>protected internal</code>
+                    <p> Accessibility level defines where a type or type's members can be used by other code within your assembly or other assemblies.
+                        Each type or member has a default access level which, depending on the context, can be changed by either the access level of the
+                        container modified by the use of access modifier keywords. A local variable's
+                        accessibility is always restricted to scope in which it is contained and cannot be modified. Except for <code>protected internal</code>
                         and <code>private protected</code> only one access modifier can be applied to a type or a member. For information about accessibility
                         of the accessors for a property or indexer see Classes.
                         Following is the list of access modifier keywords and the access level provided by them.
                     </p>
 
                     <ul>
-                        <li><b>public</b> - any code in the same assembly or another assembly that references it
-                        </li>
-                        <li><b>protected internal</b> - any code in the same assembly or in a derived class in another assembly
-                        </li>
-                        <li><b>protected</b> - in the same class or a derived class in the same or another assembly
-                        </li>
-                        <li><b>internal</b> - any code in the same assembly only
-                        </li>
-                        <li><b>private protected</b> - in the same class or a derived class in the same assembly only
-                        </li>
-                        <li><b>private</b> - only in the same class
-                        </li>
+                        <li><b>public</b> - the same assembly or another assembly that references it</li>
+                        <li><b>protected internal</b> - the same assembly or in a derived class in another assembly</li>
+                        <li><b>protected</b> - the same class or a derived class in the same or another assembly</li>
+                        <li><b>internal</b> - the same assembly only</li>
+                        <li><b>private protected</b> - the same class or a derived class in the same assembly only</li>
+                        <li><b>private</b> - the same class only</li>
                     </ul>
 
                     <p>Types declared directly within a namespace (i.e. not nested), can only be declared public or internal where internal is the default level. The
                         following types can be be declared in a namespace <code>class</code>, <code>struct</code>, <code>interface</code>, <code>delegate</code>,
-                        <code>record</code> and <code>enumerator</code>. </p>
+                        <code>record</code> and <code>enum</code>.</p>
 
-                    <p>Types and members nested within other types can be declared with the following access modifiers in a struct can only be declared
-                        public, internal or private. The default level is private. The access level of a property or indexer must be less restrictive than its get and
-                        set accessors.
-
-                        Access level of a nested member or type can be no more than its containing type.
-                    </p>
+                    <p>The following list shows containing types, which access modifiers can be applied to the members and nested types within them and their
+                        default access level.</p>
 
                     <ul>
                         <li><b>class or record</b> - <code>public</code>, <code>protected internal</code>, <code>protected</code>,
                             <code>internal</code>, <code>private protected</code>, <code>private(default)</code></li>
-                        <li><b>interface</b> - <code>(default)</code>, <code>protected internal</code>, <code>protected</code>,
-                            <code>internal</code>, <code>private protected</code>, <code>private</code></li>
-                        <li><b>class or record</b> - <code>public</code>, <code>protected internal</code>, <code>protected</code>,
-                            <code>internal</code>, <code>private protected</code>, <code>private(default)</code></li>
-                        <li><b>class or record</b> - <code>public</code>, <code>protected internal</code>, <code>protected</code>,
-                            <code>internal</code>, <code>private protected</code>, <code>private(default)</code></li>
-                        <li><b>class or record</b> - <code>public</code>, <code>protected internal</code>, <code>protected</code>,
-                            <code>internal</code>, <code>private protected</code>, <code>private(default)</code></li>
-                        <li><b>class or record</b> - <code>public</code>, <code>protected internal</code>, <code>protected</code>,
-                            <code>internal</code>, <code>private protected</code>, <code>private(default)</code></li>
-                        <li><b>interface</b> - public(default), protected internal, protected, internal, private protected, private*</li>
-                        <li><b>Class or record</b> - public, protected internal, protected, internal, private protected, private(default)</li>
-                        <li><b>Class or record</b> - public, protected internal, protected, internal, private protected, private(default)</li>
-                        <li><b>Class or record</b> - public, protected internal, protected, internal, private protected, private(default)</li>
-                        <li><b>Class or record</b> - public, protected internal, protected, internal, private protected, private(default)</li>
-
+                        <li><b>interface</b> - <code>public (default)</code>, <code>protected internal</code>, <code>protected</code>,
+                            <code>internal</code>, <code>private protected</code>, <code>private</code>*</li>
+                        <li><b>struct</b> - <code>public</code>, <code>internal</code>, <code>private(default)</code></li>
                     </ul>
 
+                    <p>Enum members do not have any declared accessibility. An enum member's accessibility  is determined by the accessibility of the
+                        enum type container and access modifiers cannot be applied to them.</p>
+
+                    <p>The following example demonstrates various accessibility scenarios. </p>
 
 
-                    <pre><code>code
-                        code
-                        </code></pre>
+
+<pre><code>code
+code
+</code></pre>
                 </article>
             </section>
 
