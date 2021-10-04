@@ -25,7 +25,7 @@
                 <!-- project requirement - clicking nav-link element navigates page to the corresponding main-doc section -->
                 <li><a class="nav-link" href="#Introduction">Introduction</a></li>
                 <li><a class="nav-link" href="#C_Sharp_Language">C Sharp Language</a></li>
-
+                <li><a class="nav-link" href="#Dot_NET">Dot Net</a></li>
                 <li><a class="nav-link" href="#IDE_-_Integrated_Development_Environment">IDE - Integrated Development Environment</a></li>
                 <li><a class="nav-link" href="#Create_a_Hello_World_Project">Create a Hello World Project</a></li>
                 <li><a class="nav-link" href="#Code_Syntax">Code Syntax</a></li>
@@ -43,7 +43,6 @@
                 <li><a class="nav-link" href="#References_and_Namespaces">References and Namespaces</a></li>
                 <li><a class="nav-link" href="#Scope_and_Access_Modifiers">Scope and Access Modifiers</a></li>
                 <li><a class="nav-link" href="#Object-oriented_Programming">Object-oriented Programming</a></li>
-                <li><a class="nav-link" href="#Dot_NET">Dot Net</a></li>
                 <li><a class="nav-link" href="#Keywords">Keywords</a></li>
                 <li><a class="nav-link" href="#Specifications">Specifications</a></li>
                 <li><a class="nav-link" href="#References">References</a></li>
@@ -93,12 +92,29 @@
                         A computer uses binary, the language of ones and zeros. To put it at its simplest all a computer can do is like a light switch
                         turn things on or off, albeit at billions of times a second. For any person trying to write in ones and zeros, this soon becomes
                         an impossible task. A high level programming language is a type of shorthand that is human readable making it easier for a developer to
-                        read and write code. The reference documentation for C# can be found at
+                        read and write code. The reference documentation for C# and .NET can be found at
                         <a href="https://docs.microsoft.com/en-us/dotnet/csharp">Microsoft&nbsp;Docs</a>.</p>
                 </article>
             </section>
 
-<!-- TODO -->
+            <!-- .NET - Section -->
+            <section class="main-section" id="Dot_NET">
+                <header><h2>Dot NET</h2></header>
+                <a class="back-to-top" href="#">Back to top</a>
+                <article>
+                    <p><i>Note: The correct title for this section is <b>.NET</b> but has been changed due to technical limitations</i></p>
+                    <p>.NET includes a large quantity of prebuilt code in the form of class libraries that provide many of the basic functions such as File I/O,
+                        network access, collections, user UI, etc, so that we don't have to start from scratch and write our own. It is open-source, cross platform
+                        and made by Microsoft. When a console, Winforms or WPF application is created the .NET framework is added by default and is accessed
+                        through the System namespace.</p>
+
+                    <p>.NET also provides the <b>Common Language Runtime</b>(CLR) which through services provides the space within which our program can run. Often
+                        it is referred to as merely runtime. At the time of this writing the current version is .Net 5.0. The reference documentation for C# and .NET
+                        can be found at <a href="https://docs.microsoft.com/en-us/dotnet/csharp">Microsoft&nbsp;Docs</a>.</p>
+                </article>
+            </section>
+
+<!-- TODO create C# program to format code sections-->
             <!-- IDE - Integrated Development Environment - Section -->
             <section class="main-section" id="IDE_-_Integrated_Development_Environment">
                 <header><h2>IDE - Integrated Development Environment</h2></header>
@@ -1416,18 +1432,20 @@ b ??= 2;
                 </article>
             </section>
 
-<!-- TODO -->
+<!-- TODO -- add cross links -->
             <!-- Arrays - Section -->
             <section class="main-section" id="Arrays_and_Data_Structures">
                 <header><h2>Arrays and Data Structures</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
-                    <p>Arrays and data structures allow multiple variables to be stored together which allows them to be handled and manipulated more efficiently</p>
+                    <p>Arrays and data structures store multiple variables together in ways that allows them to be handled and manipulated more efficiently.</p>
                     <h3>array</h3>
-                    <p>An array allows multiple variables of the same type to be stored together. They can be single-dimensional, multi-dimensional or jagged. An
-                        array is like a box with separate compartments in which only on item can be stored in each one. A single-dimensional array is like  one row
-                        of compartments. A multidimensional array can contain rows, columns or more up to a maximum of 32 dimensions. A jagged array would be like
-                        storing a box within each compartments where each box could be of different dimensions and size. A jagged array is sometimes called an array
+                    <p>An array is like a box with separate compartments in which only one item called an <b>element</b> can be stored in each. They can be single-dimensional,
+                        multi-dimensional
+                        or jagged and all items must be of the same type. A single-dimensional array is like  one row
+                        of compartments. A multidimensional array can contain rows, columns or more up to a maximum of 32 dimensions. A jagged array is like
+                        storing a separate box within each compartment of the first where each one could have its own set of dimensions with different sizes. A jagged
+                        array is sometimes called an array
                         of arrays. In addition to the examples shown here C# also provides the <b>Array</b> class which provides a set of methods for manipulating
                         arrays, information of which can be found in the <a href="#References">C# reference documentation</a>.</p>
                     <h3>declaring, creating and initializing arrays</h3>
@@ -1436,7 +1454,7 @@ b ??= 2;
                         with a new one. There
                         are a number of different ways in which to create an array which can also include initializing the element values. If not initialized the default
                         value for the elements in a single-dimensional or multi-dimensional array will be 0 for numeric types and null for reference types. As a jagged
-                        array stores other arrays the default type is null. Following are examples of how arrays can be initialized.
+                        array stores other arrays the default type is always null. Following are examples of how arrays can be initialized.
                     </p>
 
 <pre><code>static void Main(string[] args)
@@ -1559,7 +1577,7 @@ b ??= 2;
 
                     <h3>accessing arrays</h3>
                     <p>Arrays are normally zero index based so the elements in a dimension of length n will be accessed by index values of 0 through n-1.
-                        Whilst is is possible to create an array that is not zero based its use is very uncommon and is beyond the scope of this document.</p>
+                        Whilst it is possible to create an array that is not zero based its use is very uncommon and is beyond the scope of this document.</p>
 
 <pre><code>static void Main(string[] args)
     {
@@ -1775,14 +1793,14 @@ b ??= 2;
 </code></pre>
 
                     <h3>collections</h3>
-                    <p>C# provides a number of data structures grouped under the category of collections. They provide common functionality
-                        such as to add, remove and modify either individual elements or a range of elements within the collection.
+                    <p>.NET provides a number of data structures grouped under the category of collections. They provide common functionality
+                        such as to add, remove and modify either individual elements or a range of elements.
                     </p>
                     <p>There are two main types of collections, generic an non-generic. Generic collections take in a type parameter making them
-                        type safe at compile time allowing IntelliSense to indicate syntax errors. Non-generic collections store
+                        type safe at compile time which allows IntelliSense to indicate syntax errors. Non-generic collections store
                         items as type <b>object</b> which requires casting when accessing the data within them. Because of this non-generic collections are
                         less commonly used today and are mostly found in legacy code.</p>
-                    <p>Following is a list of some common collections but only examples of <b>List&lt;T&gt;</b> and <b>Dictionary&lt;TKey, TValue&gt;</b>
+                    <p>Following is a list of some common collection types but only examples of <b>List&lt;T&gt;</b> and <b>Dictionary&lt;TKey, TValue&gt;</b>
                         will be discussed in this article.</p>
                     <ul>
                         <li><b>List&lt;T&gt;</b> - A collection of items stored by index</li>
@@ -1793,26 +1811,14 @@ b ??= 2;
                         <li><b>ObservableCollection&lt;T&gt;</b> - Provides notification through events when items are added or removed</li>
                         <li><b>SortedList&lt;TKey, TValue&gt;</b> - A sorted collection</li>
                         <li><b>HashSet&lt;T&gt;</b> - A set for mathematical functions</li>
-                        <li><b>SortedSet&lt;T&gt;</b> - A set for mathematical functions</li>
+                        <li><b>SortedSet&lt;T&gt;</b> - A sorted set for mathematical functions</li>
                     </ul>
 
                     <h3>List&lt;T&gt;</h3>
-                    <p>A <b>List&lt;T&gt;</b> is a strongly typed generic collection of objects accessed by index. Iy provides a number of members such as the methods
-                        providing useful add, remove, sort, search, clear that we can take advantage of.
-                        Of particular interest is the <b>List&lt;T&gt;.Capacity</b> property. When writing a program there is always the consideration of memory usage versus
-                        performance. When an
-                        object is created memory must be assigned for the object to reside in. If the amount is too large then it would limit what is
-                        available to other applications. Too small and performance may be degraded with excessive reading and writing to memory. A
-                        <b>List&lt;T&gt;</b> uses an array to store the data which initially has a length of 0 when the list is first created. As we have seen an array is
-                        immutable so if the number of items we wish to add exceeds the size of the underlying array, a new
-                        array with a larger length is created, the data from the old one is copied to the new one and then the old one is deleted. <b>Capacity</b>
-                        is effectively the the current size of the underlying array and the <b>List&lt;T&gt;.Count</b> property is the number of items that have been added.
-                        <b>Capacity</b> will always be more than or equal to <b>Count</b>.</p>
+                    <p>A <b>List&lt;T&gt;</b> is a strongly typed generic collection of objects accessed by an <b>int</b> type <b>index</b>. Unlike an array, a list does not
+                        have a fixed size and as such does not have to be defined when it is created. It provides a number of useful methods for manipulating its data
+                        such as add, remove, sort, find and clear.
 
-                    <p>With that said, even though changing capacity does take some time, C# is very good at optimizing performance so for the most part we can leave it to do its job.
-                        However, if we do know ahead of time that that we will require a large list and what size it will be we can aid the compiler by setting the capacity
-                        ourselves. Care must be taken though as setting the size below the current <b>Count</b> will produce an <b>ArgumentOutOfRangeException</b>
-                        and setting it to high an <b>OutOfMemoryException</b>.
                     </p>
 <!-- TODO add link to anonymous functions -->
                     <p>Note: The Find method uses an anonymous expression details of which are in Anonymous expression functions</p>
@@ -1820,286 +1826,299 @@ b ??= 2;
 <pre><code>static void Main(string[] args)
 {
     // This example assumes that the directive
-    // 'using System.Collections.Generic;'
-    // has been added to the top of the file. This allows
-    // List&lt;T&gt; to be used without having to write
-    // the full namespace each time as in
-    // 'System.Collections.Generic.List&lt;T&gt;'
-    // (See Namespaces and references)
+            // 'using System.Collections.Generic;'
+            // has been added to the top of the file. This allows
+            // List&lt;T&gt; to be used without having to write
+            // the full namespace each time as in
+            // 'System.Collections.Generic.List&lt;T&gt;'
+            // (See Namespaces and references)
 
-    // Create a new list
-    List&lt;string&gt; animals = new();
+            // Create a list of strings
+            List&lt;string&gt; animals = new();
 
-    // 'Capacity' is the amount of memory space reserved for
-    // a list to expand into as items are added. For a new list
-    // with no items the capacity is initially set to 0
-    var capacity = animals.Capacity;
-    Console.WriteLine("After creating the list the initial capacity is: {0}", capacity);
+            // Add items to the list
+            animals.Add("dog");
+            animals.Add("cat");
+            animals.Add("lizard");
+            animals.Add("ball");
+            animals.Add("emu");
+            animals.Add("emu");
+            animals.Add("boat");
+            animals.Add("salmon");
 
-    // The Add method adds a type T item to the end of a list
-    animals.Add("dog");
-    animals.Add("cat");
+            // Use a foreach loop to print the items to the console
+            Console.WriteLine("A list of animals");
+            foreach (var item in animals) { Console.Write(item + " "); }
 
-    // The 'Count' property is the number of items the list, here 2.
-    // and Capacity has been increased to either the same as Count
-    // or more to allow for expansion of the list. As this value is
-    // optimized by the compiler we can't be certain what it will be
-    // To save on writing extra lines animals.Count and animals.Capacity
-    // properties have been in-lined within the Console.WriteLine() method
-    Console.WriteLine("Count after items added: {0}", animals.Count);
-    Console.WriteLine("Capacity after items added: {0}", animals.Capacity);
+            // The 'Find' method returns the first item that
+            // matches the conditions specified by the
+            // predicate in the anonymous expression.
+            // (See Anonymous function expressions)
+            // If not the default value for type T is returned.
+            // 'Remove' removes the specified item
+            // This searches for 'boat' and if found removes it
+            // from the list
+            var notAnAnimal = animals.Find(item =&gt; item == "boat");
+            if (notAnAnimal != null)
+                animals.Remove(notAnAnimal);
+            Console.WriteLine("\r\n\r\nFind 'boat' then remove it");
+            foreach (var item in animals) { Console.Write(item + " "); }
 
-    // Capacity can be set ahead of time to improve performance.
-    // Here the capacity is set to 100
-    // Note: Setting the capacity smaller than Count will result
-    // in an ArgumentOutOfRangeException and setting it too
-    // high can result in an OutOfMemoryException
-    animals.Capacity = 100;
-    Console.WriteLine("Capacity after animals.Capacity = 100: {0}", animals.Capacity);
+            // Create a variable to store the index value
+            int index = 0;
 
-    // Extra memory assigned either by us or by the compiler can be
-    // removed by using 'TrimExcess'.
-    // This sets Capacity to the same value as the Count property
-    animals.TrimExcess();
-    Console.WriteLine("Count after animals.TrimExcess(): {0}", animals.Count);
-    Console.WriteLine("Capacity after animals.TrimExcess(): {0}", animals.Capacity);
+            // 'Contains' returns true is the list contains the item
+            // 'IndexOf' returns the index of an item if found
+            // or -1 if not. This first confirms the list has 'lizard'
+            // then changes 'lizard' to 'duck'
+            if (animals.Contains("lizard"))
+            {
+                index = animals.IndexOf("lizard");
+                animals[index] = "duck";
+            }
+            Console.WriteLine("\r\n\r\nIf list has 'lizard' replace it with 'duck'");
+            foreach (var item in animals) { Console.Write(item + " "); }
 
-    // As the List was declared to be of type 'string' and 50 is an 'int'
-    // uncommenting the following results in the syntax error
-    // Argument 1:cannot convert from 'int' to 'string'
-    // animals.Add(50);
+            // 'Insert' inserts an item at a specific index
+            // This inserts 'shark' at the current index of 'duck'
+            // as found from the previous example. All items after
+            // and including 'duck' are moved after 'shark'
+            animals.Insert(index, "shark");
+            Console.WriteLine("\r\n\r\nInsert 'shark' before 'duck'");
+            foreach (var item in animals) { Console.Write(item + " "); }
 
-    // A 'foreach' loop can be used to loop through a list
-    Console.WriteLine("\r\nforeach (var item in animals)");
-    foreach (var item in animals) { Console.Write(item + " "); }
+            // 'RemoveAt' removes an at a specified index
+            // The following removes 'ball'
+            index = animals.IndexOf("ball");
+            if (index != 0)
+                animals.RemoveAt(index);
+            Console.WriteLine("\r\n\r\nRemove 'ball'");
+            foreach (var item in animals) { Console.Write(item + " "); }
 
-    // When using a foreach loop the list can't be modified.
-    // Uncommenting the following will result in
-    // System.InvalidOperationException: 'Collection was modified;
-    // enumeration operation may not execute.'
-    //foreach (string item in animals)
-    //{
-    //    if (item == "cat")
-    //        animals.Remove(item);
-    //}
+            // 'Remove' removes the first occurrence of a specific item
+            // It returns false if the removal was unsuccessful or the
+            // item wasn't found. The following removes the first 'emu'
+            // then prints the updated list to the console
+            var removed = animals.Remove("emu") ? "'emu' was removed" : "'emu' was NOT removed";
+            Console.WriteLine("\r\n\r\n{0}", removed);
+            foreach (var item in animals) { Console.Write(item + " "); }
 
-    // Another syntax allows a list to be created and
-    // have items added to it simultaneously
-    List&lt;string&gt; birds = new()
-    {
-        "lizard",
-        "emu",
-    };
+            // 'Sort' sorts the list based on the comparer argument
+            // passed in. If none is supplied then the default
+            // comparer is used. The following alphabetically sorts the list
+            animals.Sort();
+            Console.WriteLine("\r\n\r\nSort the list");
+            foreach (var item in animals) { Console.Write(item + " "); }
 
-    // 'AddRange' allows items of the same type from another
-    // collection or array to be added to the end of a list.
-    animals.AddRange(birds);
-    Console.WriteLine("\r\n\r\nanimals.AddRange(birds) : Add list 'birds' to 'animals'");
-    foreach (var item in animals) { Console.Write(item + " "); }
+            // 'Reverse' reverses the order of the list
+            animals.Reverse();
+            Console.WriteLine("\r\n\r\nThe list has been reversed");
+            foreach (var item in animals) { Console.Write(item + " "); }
 
-    // 'AddRange' can also add items from an array
-    var fish = new[]
-    {
-        "salmon",
-        "carp"
-    };
-    animals.AddRange(fish);
-    Console.WriteLine("\r\n\r\nanimals.AddRange(fish) : Add array 'fish' to 'animals'");
-    foreach (var item in animals) { Console.Write(item + " "); }
+            // 'Clear' removes all items from the list
+            // The 'Count' property is the number of items the list.
+            animals.Clear();
+            Console.WriteLine("\r\n\r\nClear the list");
+            Console.WriteLine("There are {0} items in the list", animals.Count);
+            Console.WriteLine();
+        }
+        // The following is printed in the console
+        //A list of animals
+        //dog cat lizard ball emu emu boat salmon
 
-    // Items within the list can be accessed by using the zero based index of type 'int'
-    // This prints 'lizard' to the console, changes 'lizard' to 'duck' then prints
-    // 'duck' to the console
-    Console.WriteLine("\r\n\r\nThe third item is a {0}", animals[2]);
-    animals[2] = "duck";
-    Console.WriteLine("\r\nThe third item has changed to a {0}", animals[2]);
+        //Find 'boat' then remove it
+        //dog cat lizard ball emu emu salmon
 
-    // Loop through the list with a for loop using index '[i]' and the 'Count' property
-    Console.WriteLine("\r\nfor (int i = 0; i &lt; animals.Count; i++)");
-    for (int i = 0; i &lt; animals.Count; i++)
-    {
-        Console.Write(animals[i] + " ");
-    }
+        //If list has 'lizard' replace it with 'duck'
+        //dog cat duck ball emu emu salmon
 
-    // IndexOf returns the index of the first occurrence of a specific item
-    // This prints the position if the first 'salmon' in the list
-    // As the index is 0 bound 1 must be added to the returned value
-    var index = animals.IndexOf("salmon");
-    Console.WriteLine("\r\n\r\nanimals.IndexOf(\"salmon\") : 'salmon' is at position {0} in the list", index + 1);
-    foreach (var item in animals) { Console.Write(item + " "); }
+        //Insert 'shark' before 'duck'
+        //dog cat shark duck ball emu emu salmon
 
-    // Contains returns true if a list contains a specific item
-    var hasAnEmu = animals.Contains("emu") ? "has an 'emu'" : "does NOT have an 'emu'";
-    Console.WriteLine("\r\n\r\nanimals.Contains(\"emu\") : animals {0}\r\n", hasAnEmu);
+        //Remove 'ball'
+        //dog cat shark duck emu emu salmon
 
-    // The 'Find' method returns the first item that
-    // matches the conditions specified by the
-    // predicate in the anonymous expression.
-    // (See Anonymous function expressions)
-    // A predicate is a function that can
-    // be evaluated as true or false. If the
-    // predicate is true the item is returned,
-    // if not the default value for type T is returned.
-    var animal = animals.Find(item =&gt; item == "turtle");
+        //'emu' was removed
+        //dog cat shark duck emu salmon
 
-    // The default value for a string is null so we can use the null-coalescing operator '??'
-    // (See Expressions and Operators) As there is no 'turtle' in the list
-    // 'Item not found' is printed to the Console
-    Console.WriteLine("animals.Find(item =&gt; item == \"turtle\") : {0})", animal ?? "Item not found");
+        //Sort the list
+        //cat dog duck emu salmon shark
 
-    List&lt;int&gt; numbers = new()
-    {
-        1,
-        2
-    };
+        //The list has been reversed
+        //shark salmon emu duck dog cat
 
-    // As the numbers list does not contain
-    // a '3' this returns the default value 0
-    var number = numbers.Find(n =&gt; n == 3);
-    Console.WriteLine("numbers.Find(n =&gt; n == 3) : There is no '3' so the value returned is {0}", number);
-
-    // 'FindAll' returns a 'List&lt;T&gt;' of all items that match the conditions
-    // of the predicate. If none are found an empty list is returned
-    // Note: the name of the parameter passed into the an anonymous
-    // expression can be anything. Here the letter 'a' was used
-    var animalsThatStartWithD = animals.FindAll(a =&gt; a.StartsWith("d"));
-    Console.WriteLine("\r\nanimals.FindAll(a =&gt; a.StartsWith(\"d\"))");
-    foreach (var item in animalsThatStartWithD) { Console.Write(item + " "); }
-
-    // 'Insert' inserts an item at a specific index
-    // This inserts 'shark' at the current index of 'salmon'
-    // All items after and including salmon are moved after 'shark'
-    animals.Insert(index, "shark");
-    Console.WriteLine("\r\n\r\nanimals.Insert(position, \"shark\") : 'shark' was inserted before 'salmon'");
-    foreach (var item in animals) { Console.Write(item + " "); }
-
-    // 'RemoveAt' removes an at a specified index
-    // The following removes the previously inserted 'shark'
-    var animalToRemove = animals[index];
-    animals.RemoveAt(index);
-    Console.WriteLine("\r\n\r\nanimals.RemoveAt(2) : '{0}' was removed", animalToRemove);
-    foreach (var item in animals) { Console.Write(item + " "); }
-
-    // 'Remove' removes the first occurrence of a specific item
-    // It returns false if the removal was unsuccessful or the item wasn't found
-    var removed = animals.Remove("salmon") ? "'salmon' was removed" : "'salmon' was NOT removed";
-    Console.WriteLine("\r\n\r\nanimals.Remove(\"salmon\") : {0}", removed);
-    foreach (var item in animals) { Console.Write(item + " "); }
-
-    var food = new[]
-    {
-        "apple",
-        "banana"
-    };
-
-    // 'InsertRange' inserts a a List or an array of items of the same type at a specified
-    // index. The following inserts the array 'food' at the current index of 'salmon'
-    animals.InsertRange(2, food);
-    Console.WriteLine("\r\n\r\nanimals.InsertRange(2, food) : 'apple' and 'banana' were added");
-    foreach (var item in animals) { Console.Write(item + " "); }
-
-    // 'RemoveRange' removes a specified number of items starting at a specified index.
-    // The following removes 2 items starting at index 2 effectively removing
-    // the previously inserted 'food' array
-    animals.RemoveRange(2, 2);
-    Console.WriteLine("\r\n\r\nanimals.RemoveRange(2, 2) : 'apple' and 'banana' were removed");
-    foreach (var item in animals) { Console.Write(item + " "); }
-
-    // 'RemoveAll' removes all items that  match the conditions
-    // of the predicate. The following removes 'dog' and 'duck'
-    animals.RemoveAll(a =&gt; a.StartsWith("d"));
-    Console.WriteLine("\r\n\r\nanimals.RemoveAll(a =&gt; a.StartsWith(\"d\")) : 'dog' and 'duck' were removed");
-    foreach (var item in animals) { Console.Write(item + " "); }
-
-    // 'Sort' sorts the list based on the comparer argument
-    // passed in. If none is supplied then the default
-    // comparer is used. The following alphabetically sorts the list
-    animals.Sort();
-    Console.WriteLine("\r\n\r\nanimals.Sort() : the list is alphabetically");
-    foreach (var item in animals) { Console.Write(item + " "); }
-
-    // 'Reverse' reverses the order of the list
-    animals.Reverse();
-    Console.WriteLine("\r\n\r\nanimals.Reverse() : the list has been reversed");
-    foreach (var item in animals) { Console.Write(item + " "); }
-
-    // 'Clear' removes all items from the list
-    animals.Clear();
-    Console.WriteLine("\r\n\r\nanimals.Clear() :");
-    Console.WriteLine("There are {0} items in the list", animals.Count);
-    Console.WriteLine();
-}
-// The following is printed in the console
-// After creating the list the initial capacity is: 0
-// Count after items added: 2
-// Capacity after items added: 4
-// Capacity after animals.Capacity = 100: 100
-// Count after animals.TrimExcess(): 2
-// Capacity after animals.TrimExcess(): 2
-
-// foreach (var item in animals)
-// dog cat
-
-// animals.AddRange(birds) : Add list 'birds' to 'animals'
-// dog cat lizard emu
-
-// animals.AddRange(fish) : Add array 'fish' to 'animals'
-// dog cat lizard emu salmon carp
-
-// The third item is a lizard
-
-// The third item has changed to a duck
-
-// for (int i = 0; i&lt;animals.Count; i++)
-// dog cat duck emu salmon carp
-
-// animals.IndexOf("salmon") : 'salmon' is at position 5 in the list
-// dog cat duck emu salmon carp
-
-// animals.Contains("emu") : animals has an 'emu'
-
-// animals.Find(item =&gt; item == "turtle") : Item not found)
-// numbers.Find(n =&gt; n == 3) : There is no '3' so the value returned is 0
-
-// animals.FindAll(a =&gt; a.StartsWith("d"))
-// dog duck
-
-// animals.Insert(position, "shark") : 'shark' was inserted before 'salmon'
-// dog cat duck emu shark salmon carp
-
-// animals.RemoveAt(2) : 'shark' was removed
-// dog cat duck emu salmon carp
-
-// animals.Remove("salmon") : 'salmon' was removed
-// dog cat duck emu carp
-
-// animals.InsertRange(2, food) : 'apple' and 'banana' were added
-// dog cat apple banana duck emu carp
-
-// animals.RemoveRange(2, 2) : 'apple' and 'banana' were removed
-// dog cat duck emu carp
-
-// animals.RemoveAll(a =&gt; a.StartsWith("d")) : 'dog' and 'duck' were removed
-// cat emu carp
-
-// animals.Sort() : the list is alphabetically
-// carp cat emu
-
-// animals.Reverse() : the list has been reversed
-// emu cat carp
-
-// animals.Clear() :
-// There are 0 items in the list
+        //Clear the list
+        //There are 0 items in the list
 }
 </code></pre>
 
                     <h3>Dictionary&lt;TKey, TValue&gt;</h3>
                     <!-- TODO -->
-                    <p>A strongly typed generic collection of keys and values accessed by key. Methods include add, remove, search, clear.</p>
+                    <p>A <b>Dictionary&lt;TKey, TValue&gt;</b> is a strongly typed generic collection of <b>KeyValuePair&lt;TKey, TValue&gt;</b> accessed by a <b>key</b>
+                        index.  Like a
+                        List, a Dictionary does not have a fixed size and as such does not have to be defined when it is created. Methods include add,
+                        remove, contains, clear.</p>
 
 <pre><code>static void Main(string[] args)
     {
+        // This example assumes that the directive
+        // 'using System.Collections.Generic;'
+        // has been added to the top of the file. This allows
+        // List&lt;T&gt; to be used without having to write
+        // the full namespace each time as in
+        // 'System.Collections.Generic.Dictionary&lt;TKey, TValue&gt;'
+        // (See Namespaces and references)
 
+        // Create a list of strings
+        Dictionary&lt;string, int&gt; fruit = new();
+
+        // Add some items
+        fruit.Add("Oranges", 6);
+        fruit.Add("Pears", 4);
+        fruit.Add("Apples", 8);
+        fruit.Add("Bananas", 7);
+        fruit.Add("Lemons", 3);
+        fruit.Add("Peaches", 6);
+        fruit.Add("Plums", 6);
+
+        // 'Count' returns the number of items in a Dictionary
+        Console.WriteLine("There are {0} fruit items\r\n",
+                    fruit.Count);
+
+        // To use a Dictionary in a foreach loop use
+        // KeyValuePair&lt;TKey, TValue&gt;. The types must be the same
+        // as that used in the declaration of the dictionary
+        foreach (KeyValuePair&lt;string, int&gt; item in fruit)
+            Console.Write("{0} : {1}\r\n", item.Key, item.Value);
+
+        // Each item must have a unique 'key'
+        // Uncommenting the following results in
+        // System.ArgumentException: System.ArgumentException:
+        // 'An item with the same key has already been added.
+        // Key: Plums' when the program is run
+        //fruit.Add("Plums", 3);
+
+        // 'TryAdd' unlike 'Add' won't result in an
+        // exception but will return false if the
+        // item could not be added.
+        var added = fruit.TryAdd("Plums", 3) ?
+            "'Another Plums entry' was added" :
+            "'Another Plums entry' could NOT be added";
+        Console.WriteLine("\r\n\r\n{0}", added);
+
+        // 'Keys' returns a 'KeyCollection' of all the keys
+        // in the Dictionary and will have the same type that
+        // was used when declaring it
+        var keys = fruit.Keys;
+        Console.WriteLine("\r\nWe have the following fruit");
+        foreach (var key in keys)
+            Console.Write(key + " ");
+
+        // 'Values' returns a 'ValueCollection' of all the values
+        // in the Dictionary and will have the same type that
+        // was used when declaring it
+        var values = fruit.Values;
+
+        int total = 0;
+        foreach (var value in values)
+            total += value;
+        Console.WriteLine("\r\n\r\nThere is a total of {0} fruit",
+                            total);
+
+        // Individual items can be accessed using the 'Key' index
+        Console.WriteLine("\r\nThere are {0} 'Pears'", fruit["Pears"]);
+        fruit["Pears"] = 3;
+        Console.WriteLine("\r\nThere are now {0} 'Pears'", fruit["Pears"]);
+
+        // The 'Key' index must exist to access an item. Uncommenting the
+        // following will result in the exception
+        // System.Collections.Generic.KeyNotFoundException:
+        // 'The given key 'Mangoes' was not present in the dictionary.'
+        // var mangoes = fruit["Mangoes"];
+
+        // 'TryAdd' unlike accessing a Dictionary with the 'Key' index
+        // won't result in an exception but will return false if the
+        // Key does not exist. If found result will be the value for
+        // the item. If not found result will be the type's default value
+        if (fruit.TryGetValue("Mangoes", out var result))
+        {
+            Console.WriteLine("\r\nThere are {0} 'Mangoes'", result);
+        }
+        else
+        {
+            Console.WriteLine("\r\nThere is no 'Mangoes' item in 'fruit'");
+        }
+
+        // 'ContainsKey' returns true if the Dictionary contains
+        // the specified 'Key'
+        if (fruit.ContainsKey("Bananas"))
+        {
+            Console.WriteLine("\r\nThere are {0} 'Bananas'", fruit["Bananas"]);
+        }
+        else
+        {
+            Console.WriteLine("\r\nThere are no 'Bananas' item in fruit");
+        }
+
+        // 'ContainsValue' returns true if the Dictionary contains
+        // the specified 'Value'
+        if (fruit.ContainsValue(6))
+        {
+            Console.WriteLine("\r\nThere is at least 1 item with the value '6'");
+        }
+        else
+        {
+            Console.WriteLine("\r\nThere are no items with the value '6'");
+        }
+
+        // 'Remove' removes the specified 'Key' from the Dictionary
+        fruit.Remove("Oranges");
+        if (fruit.ContainsKey("Oranges"))
+        {
+            Console.WriteLine("\r\nThere are {0} 'Oranges'", fruit["Oranges"]);
+        }
+        else
+        {
+            Console.WriteLine("\r\nThere is no longer an 'Oranges' item in fruit");
+        }
+
+        // 'Clear' removes all KeyValuePair&lt;TKey, TValue&gt; items from
+        // the Dictionary
+        fruit.Clear();
+        Console.WriteLine("\r\nThere are {0} fruit items\r\n", fruit.Count);
+    }
+    // The following is printed in the console
+    //There are 7 fruit items
+
+    //Oranges : 6
+    //Pears : 4
+    //Apples : 8
+    //Bananas : 7
+    //Lemons : 3
+    //Peaches : 6
+    //Plums : 6
+
+
+    //'Another Plums entry' could NOT be added
+
+    //We have the following fruit
+    //Oranges Pears Apples Bananas Lemons Peaches Plums
+
+    //There is a total of 40 fruit
+
+    //There are 4 'Pears'
+
+    //There are now 3 'Pears'
+
+    //There is no 'Mangoes' item in 'fruit'
+
+    //There are 7 'Bananas'
+
+    //There is at least 1 item with the value '6'
+
+    //There is no longer an 'Oranges' item in fruit
+
+    //There are 0 fruit items
 
     }
 </code></pre>
@@ -2133,40 +2152,65 @@ enum Month: long { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec }
                 <header><h2>Classes</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
-                    <p>C# is an Object-oriented programming language (OOP) and creates objects through the use of classes which can contain
-                        fields, properties, methods, indexers, events and constructors.</p>
+                    <p>C# is an Object-oriented programming language (OOP) and creates objects through the use of classes which can contain fields, properties,
+                        methods, indexers, events, constructors and finalizers. Collectively these are called <b>class members</b> and accessibility to
+                        them from code external to the class or application assembly can be controlled through the use of access modifier keywords. The default
+                        access is private which means only code within the class can access them.</p>
 
-                        <ul>
-                            <li>A field is a variable or a constant used to store data about an object. A field can be accessed from anywhere within the class.
-                                By changing a fields accessability from the default private it can be accessed directly by code external to the class, however
-                                this is usually done through a property or a method which has the advantage of data validation and performing other tasks
-                                dependant on its value.</li>
+                    <h3>Fields</h3>
 
-                            <li>A property is a way of allowing code external to a class to access its fields. It has a setter for writing a value to a
-                                field and a getter for reading the value. The value keyword is used to define the value to be assigned.</li>
+                    <p>A <b>field</b> is a variable or a constant used to store data about an object. A field can be accessed from anywhere within the class.
+                        A field's access is normally left as private and access to it is achieved through the use of a property or method.
+                        This has the advantage of allowing for data validation and performing other tasks before changing its value. A variable field can also
+                        be made readonly through the use of the <code>readonly</code> keyword. The field can then only be changed from within the classes
+                        constructor when the object is created. A constant field must have its value set when it is declared.</p>
 
-                            <li>A method provides of way of performing procedures. This could be reading a file, calculating a value, writing to the screen.
-                                A method return a value and have values passed in. When not returning a value the return type must use the void keyword.
-                                Methods can be overloaded by defining a different number or different types of parameters to be passed in. When a method
-                                has overloads Visual Studio will show there is more than one version of the method to choose from.
-                            </li>
+                    <h3>Properties</h3>
 
-                            <li>An indexer allows an object to be indexed like an array. They are is similar to a property but take an index value to
-                                set or get a specific instance. The this keyword is used to define an indexer and the value keyword is used to
-                                define the value to be assigned</li>
+                    <p>A <b>property</b> is a way of allowing code external to a class to access its fields. It can use the <code>set</code> keyword to define a
+                        <b>setter</b> for writing a value to a field and the <code>get</code> keyword for defining a <b>getter</b> for reading the value from a field.
+                        A property can be made read/write by using both <code>set</code> and <code>get</code>, readonly by only using <code>get</code> and write
+                        only by only using <code>set</code> though the latter is an extremely rare situation. Within <code>set</code> the <code>value</code>
+                        keyword is used to hold the value passed in. An alternative to <code>set</code> is <code>init</code> which can only be called by the
+                        constructor or an object-initializer. Collectively <code>set</code>, <code>init</code> and <code>get</code> are called <b>accessors</b>.</p>
 
-                            <li>An event is a way of communicating with other objects that the state of the class instance has changed. The event
-                                defines which type of event handler must be used by other objects to respond to the event. The event passes on
-                                object that created the event and an EventArgs that can contain additional information about the event.</li>
+                    <p> The default access for accessors is that of the property but can be changed changed through the use of access modifiers provided that the
+                        property is read/write, only one of the accessors has the access modifier applied to it and that it provides more restricted access than
+                        that of the property container.</p>
 
-                            <li>A constructor is used to create an instance of the class at runtime. Its syntax is similar to a method but it does not
-                                return a value so no return type is to be specified. The name of the the constructor is the same as that of the class.
-                                As with methods constructors can be overloaded. If a constructor is not specified the compiler will create a constructor
-                                with an empty code block at runtime with which to create the class instance.
-                            </li>
-                        </ul>
+                    <h3>Method</h3>
 
+                    <p>A <b>method</b> provides of way of performing procedures. This could be reading a file, calculating a value, writing to the screen, etc.
+                        A method can return a value and have values passed in. When not returning a value the return type must use the void keyword.
+                        Methods can be overloaded by defining a different number of, or different types of parameters to be passed in. When a method
+                        has overloads <b>IntelliSense</b> will show there are more than one version of the method to choose from.</p>
 
+                    <h3>Events</h3>
+
+                    <p>An <b>event</b> is a way for the class to communicate with itself or other objects that the state of the class instance has changed. The event
+                        defines which type of method known as an event handler must be used respond to the event. The event usually passes the
+                        object that created the event and an EventArgs that can contain additional information about the event to the event handler. The return
+                        type for an event handler is almost always void so if information is to be passed back from the event handler, variables can be included
+                        in the EventArgs that can be changed within the event handler.</p>
+
+                    <h3>Indexers</h3>
+
+                    <p>An <b>indexer</b> allows an object to be indexed like an array. It is similar to a property but also takes an index value to
+                        set or get a specific instance. In place of an identifier the <code>this</code> keyword is used to define an indexer. The same rules as
+                        as those for read/write and accessibility of properties also apply to indexers.</p>
+
+                    <h3>Constructors</h3>
+
+                    <p>A <b>constructor</b> is called when an instance of the class is created and is used to initialize the state of its members.
+                        Its syntax is similar to a method but it does not return a value so no return type is to be specified. The name of the the
+                        constructor is the same as that of the class. As with methods constructors can be overloaded. If a constructor is not specified
+                        the compiler will create a constructor with an empty code block at runtime with which to create the instance. To create an
+                        instance of a class the <code>new</code> keyword is used</p>
+
+                    <h3>Finalizers</h3>
+
+                    <p>A <b>finalizer</b> is used to perform any cleanup of the class when it is no longer in use. The compiler adds a default finalizer to
+                        each instance of a class that is created so it would be a rare requirement to add one ourselves.</p>
 
                     <p>The following example defines a Square class with fields, properties, methods and events. The Program class creates 3
                         instances of the Square class and adds the Square_AreaChanged event handler to the Square_AreaChanged event of both the
@@ -2205,9 +2249,9 @@ namespace ClassExample
             Width = width;
         }
 
-        // An event that fires when the are changes
+        // An event that fires when there are changes
         // This uses the Expression-bodied member syntax
-        public event EventHandler AreaChanged = (sender, e) => { };
+        public event EventHandler AreaChanged = (sender, e) =&gt; { };
 
         // The name property has a private setter
         // It can only be set from within the class
@@ -2216,19 +2260,19 @@ namespace ClassExample
         // backing field
         public string Name { get; private set; }
 
-        // The Height property can be set both inside
+        // The Height property can be set both from inside
         // and from outside the class but does not trigger
         // the AreaChanged event. This is also an
         // Auto Property
         public int Height { get; set; }
 
-        // The Width property can be set both inside
+        // The Width property can be set both from inside
         // and from outside the class and triggers
         // the AreaChanged event by calling the
         // OnAreaChanged method
         public int Width
         {
-            get => mWidth;
+            get =&gt; mWidth;
             set
             {
                 if (mWidth == value)
@@ -2258,22 +2302,22 @@ namespace ClassExample
             return Height * Width;
         }
 
-        // This the expression-bodied member syntax for the GetArea method
+        // This is the expression-bodied member syntax for the GetArea method
         // and performs the same function. It is useful when only one line
         // of code is to be entered within the curly braces
-        public int GetArea2() => Height * Width;
+        public int GetArea2() =&gt; Height * Width;
 
         // An overloaded GetArea2 method. When selecting this method
         // IntelliSense will show there are two versions of this
         // method to choose from
-        public int GetArea2(int doesNothing) => Height * Width;
+        public int GetArea2(int doesNothing) =&gt; Height * Width;
 
         // The OnAreaChanged method first checks if an event handler exists
         // and if so calls the event through the invoke command passing on
         // the arguments in this case this class instance by using the this
         // keyword and an empty EventArgs
         // This method also uses Expression-bodied member syntax
-        private void OnAreaChanged() => AreaChanged?.Invoke(this, EventArgs.Empty);
+        private void OnAreaChanged() =&gt; AreaChanged?.Invoke(this, EventArgs.Empty);
     }
 
     class Program
@@ -2334,8 +2378,8 @@ namespace ClassExample
 
         public string this[int i]
         {
-            get => strings[i];
-            set => strings[i] = value;
+            get =&gt; strings[i];
+            set =&gt; strings[i] = value;
         }
     }
 
@@ -2348,10 +2392,23 @@ namespace ClassExample
             Console.WriteLine(stringCollection[0]);
         }
     }
-
 }
-
 </code></pre>
+
+                    <h3>Static classes and static members</h3>
+
+                    <p>So far the majority of the examples we have looked at involve creating an instance of a class by using the <code>new</code> keyword. This
+                        allows for multiple instances of a class to be created each with its own initialized state which can be set either by arguments passed in
+                        through an instance constructor or an an object-initializer. Creating an instance of a class in this way is known as instantiation.</p>
+
+                    <p>In addition we can make a class static by using the <code>static</code> keyword. Here the class cannot be instantiated. Instead it is
+                        created automatically during runtime and only one instance of it exists. As a static class is not assigned an identifier to access its
+                        members the class name is used.</p>
+
+                    <p>Class members can also be made static through use of the <code>static</code> keyword. As with a static class static members are created
+                        automatically during runtime are accessed using the class name, not the instance identifier. All members within a static class must also
+                        be static. To initialize a static variable a static constructor must be used which cannot have values passed in. Static methods are
+                        useful when they are to perform a quick function such as squaring a number and don't have to store or retrieve data from within the class.</p>
 
 
                 </article>
@@ -2594,10 +2651,10 @@ namespace SomeNamespace
 </code></pre>
                     <h3>Access modifiers</h3>
                     <p> Accessibility level defines where a type or type's members can be used by other code within your assembly or other assemblies.
-                        Each type or member has a default access level which, depending on the context, can be changed by either the access level of the
-                        container modified by the use of access modifier keywords. A local variable's
-                        accessibility is always restricted to scope in which it is contained and cannot be modified. Except for <code>protected internal</code>
-                        and <code>private protected</code> only one access modifier can be applied to a type or a member. For information about accessibility
+                        Each type or member has a default access level which, depending on the context, can be changed either by the access level of the
+                        container or by the use of an access modifier keyword. A local variable's
+                        accessibility is always restricted to the scope in which it is contained and cannot be modified. Except for <code>protected internal</code>
+                        and <code>private protected</code> only one access modifier keyword can be applied to a type or a member. For information about accessibility
                         of the accessors for a property or indexer see Classes.
                         Following is the list of access modifier keywords and the access level provided by them.
                     </p>
@@ -2688,19 +2745,6 @@ code
 
                     <h3>Polymorphism</h3>
                     <p></p>
-                </article>
-            </section>
-
-<!-- TODO -->
-            <!-- .NET - Section -->
-            <section class="main-section" id="Dot_NET">
-                <header><h2>Dot NET</h2></header>
-                <a class="back-to-top" href="#">Back to top</a>
-                <article>
-                    <p><i>Note: The correct title for this section is <b>.NET</b> but has been changed due to technical limitations</i></p>
-                    <p>.NET is an open-source cross platform software framework. It provides a number of class libraries that provide many of the basic computer
-                        functionality such as
-                        <a href="https://docs.microsoft.com/en-us/dotnet/csharp">Microsoft&nbsp;Docs</a>.</p>
                 </article>
             </section>
 
