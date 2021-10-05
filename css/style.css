@@ -257,6 +257,12 @@ u.syntax::after {
 /* project requirement - technical Documentation page should use at least one media query */
 @media only screen and (min-width: 800px) {
 
+
+    body {
+        /* make vertical scroll bar always visible */
+        overflow-y:scroll;
+    }
+
     /* project requirement - on desktop navbar should be on left side of screen and always visible */
     #navbar{
         position: fixed;
