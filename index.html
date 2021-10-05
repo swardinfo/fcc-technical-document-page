@@ -97,20 +97,22 @@
                 </article>
             </section>
 
+<!-- TODO rewrite-->
             <!-- .NET - Section -->
             <section class="main-section" id="Dot_NET">
                 <header><h2>Dot NET</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
                     <p><i>Note: The correct title for this section is <b>.NET</b> but has been changed due to technical limitations</i></p>
-                    <p>.NET includes a large quantity of prebuilt code in the form of class libraries that provide many of the basic functions such as File I/O,
-                        network access, collections, user UI, etc, so that we don't have to start from scratch and write our own. It is open-source, cross platform
-                        and made by Microsoft. When a console, Winforms or WPF application is created the .NET framework is added by default and is accessed
-                        through the System namespace.</p>
+                    <p>.NET is an open-source, cross platform framework created and maintained by Microsoft. It provides the <b>Common Language Runtime</b>(CLR) which
+                        will run our code and other services such as memory management, debugging, garbage collection, etc, to make our job of writing code easier.
+                        Simply <b>'during runtime'</b> is often used to refer the time in which the code is running.</p>
 
-                    <p>.NET also provides the <b>Common Language Runtime</b>(CLR) which through services provides the space within which our program can run. Often
-                        it is referred to as merely runtime. At the time of this writing the current version is .Net 5.0. The reference documentation for C# and .NET
-                        can be found at <a href="https://docs.microsoft.com/en-us/dotnet/csharp">Microsoft&nbsp;Docs</a>.</p>
+                    <p>.NET also provides a large quantity of pre written code we can use that provides many of the basic functions such as file I/O, network
+                        access, collections, user interfaces, etc, so we don't have to write our own. Whenever a console, Winforms or WPF application is created
+                        the .NET framework is added by default and can be accessed through the System namespace. At the time of this writing the current version
+                        is .Net 5.0. The reference documentation for C# and .NET can be found at
+                        <a href="https://docs.microsoft.com/en-us/dotnet/csharp">Microsoft&nbsp;Docs</a>.</p>
                 </article>
             </section>
 
@@ -2399,18 +2401,28 @@ namespace ClassExample
 
                     <p>So far the majority of the examples we have looked at involve creating an instance of a class by using the <code>new</code> keyword. This
                         allows for multiple instances of a class to be created each with its own initialized state which can be set either by arguments passed in
-                        through an instance constructor or an an object-initializer. Creating an instance of a class in this way is known as instantiation.</p>
+                        through an instance constructor or with an object-initializer. Creating an instance of a class in this way is known as instantiation.</p>
 
-                    <p>In addition we can make a class static by using the <code>static</code> keyword. Here the class cannot be instantiated. Instead it is
+                    <p>In addition we can make a class static by adding the <code>static</code> keyword to the class definition. Here the class cannot be instantiated.
+                        Instead it is
                         created automatically during runtime and only one instance of it exists. As a static class is not assigned an identifier to access its
-                        members the class name is used.</p>
+                        members, instead the class name is used. For a class called <code>MyClass</code> with a method called <code>MyMethod</code> you would
+                        use <code>MyClass.MyMethod</code>.</p>
 
                     <p>Class members can also be made static through use of the <code>static</code> keyword. As with a static class static members are created
-                        automatically during runtime are accessed using the class name, not the instance identifier. All members within a static class must also
-                        be static. To initialize a static variable a static constructor must be used which cannot have values passed in. Static methods are
-                        useful when they are to perform a quick function such as squaring a number and don't have to store or retrieve data from within the class.</p>
+                        automatically during runtime and are accessed using the class name. All members within a static class must always be
+                        be static. To initialize a static variable a static constructor must be used which cannot have values passed in. Within a class static
+                        members can only access other static members. A static method can useful when it is to perform a simple functions that don't have to store
+                        or retrieve data from within the class for example, squaring a number. As the method is created as soon as the program is running it can be
+                        shared from multiple locations throughout the programs code without the necessity to create a new class instance every time.</p>
 
+<pre><code>using System;
 
+namespace ClassExample
+{
+
+}
+    </code></pre>
                 </article>
             </section>
 
