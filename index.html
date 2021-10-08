@@ -108,7 +108,7 @@
                         Simply <b>'during runtime'</b> is often used to refer the time in which the code is running.</p>
 
                     <p>.NET also provides a large quantity of pre written code we can use that provides many of the basic functions such as file I/O, network
-                        access, collections, user interfaces, etc, so we don't have to write our own. Whenever a console, Winforms or WPF application is created
+                        access, collections, user interfaces, etc, so we don't have to write our own. Whenever a console, WinForms or WPF application is created
                         the .NET framework is added by default and can be accessed through the System namespace. At the time of this writing the current version
                         is .Net 5.0. The reference documentation for C# and .NET can be found at
                         <a href="https://docs.microsoft.com/en-us/dotnet/csharp">Microsoft&nbsp;Docs</a>.</p>
@@ -1130,13 +1130,13 @@ var c = !b;
 <span class="comment">// and operator: &</span>
 <span class="comment">// returns true only if both operands are true</span>
 <span class="comment">// c has value true</span>
-var c = a & a;
+var c = a &amp; a;
 <span class="comment">// c has value false</span>
-var c = a & b;
+var c = a &amp; b;
 <span class="comment">// c has value false</span>
-var c = b & a;
+var c = b &amp; a;
 <span class="comment">// c has value false</span>
-var c = b & b;
+var c = b &amp; b;
 
 <span class="comment">// exclusive or operator: ^</span>
 <span class="comment">// returns true if only one operand is true</span>
@@ -1239,7 +1239,7 @@ var x = c == 1 && b == 1;
 // c != 0 is false so a == b / c is not evaluated
 // which prevents a divide by 0 exception
 // x has value false
-var x != c > 0 && a == b / c;
+var x != c &gt; 0 && a == b / c;
 </code></pre>
 
                     <h3>Conditional or operator ||</h3>
@@ -2766,7 +2766,7 @@ code
                     <p>Take for example a tap object. It could have an IsTurnedOn property that could be set to true or false and a method called TurnOnTap which sets
                         IsTurnedOn to true and triggers an event called TurnedOnHasChanged. Another object, for example a person could call the TurnOnTap method and
                         by listening out for the TurnedOnHasChanged event, when it occurs check the IsTurnedOn property of the tap and if it is true, respond by
-                        filling a kettle.
+                        filling a kettle.</p>
                     <p>C# uses classes to define an object and properties, methods and events are some of available elements known as class members.</p>
 
                     <h3>Encapsulation</h3>
