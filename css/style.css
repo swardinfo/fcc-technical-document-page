@@ -16,6 +16,7 @@
     --code-color: #000;
     --code-comment-color: #008000;
     --code-keyword-color: #0000FF;
+    --code-control-keyword-color: #8F08C4;
     --code-type-color: #2F788D;
     --code-method-color: #74531F;
     --code-args-color: #1F377F;
@@ -32,7 +33,7 @@
     --code-method-color: #D7D7A6;
     --code-args-color: #569CD6;
     --code-string-color: #B98975; */
-    /* --code-font-family: 'ubuntu-mono', 'Courier New', Courier, monospace; */
+    --code-font-family: 'ubuntu-mono', 'Courier New', Courier, monospace;
     /* --code-font-family: font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     --code-font-weight: normal; */
 }
@@ -204,6 +205,10 @@ pre {
 
 .keyword {
     color: var(--code-keyword-color);
+}
+
+.control-keyword {
+    color: var(--code-control-keyword-color);
 }
 
 .type {

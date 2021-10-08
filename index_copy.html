@@ -37,7 +37,7 @@
                 <li><a class="nav-link" href="#Iteration_Statements">Iteration Statements</a></li>
                 <li><a class="nav-link" href="#Arrays_and_Data_Structures">Arrays and Data Structures</a></li>
                 <li><a class="nav-link" href="#Enumerators">Enumerators</a></li>
-                <li><a class="nav-link" href="#Classes_and_Structures">Classes and Structures</a></li>
+                <li><a class="nav-link" href="#Classes">Classes</a></li>
                 <li><a class="nav-link" href="#Interfaces">Interfaces</a></li>
                 <li><a class="nav-link" href="#Anonymous_function_expressions">Anonymous function expressions</a></li>
                 <li><a class="nav-link" href="#References_and_Namespaces">References and Namespaces</a></li>
@@ -2149,22 +2149,21 @@ enum Month: long { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec }
 
 <!-- TODO -->
             <!-- Classes - Section -->
-            <section class="main-section" id="Classes_and_Structures">
-                <header><h2>Classes and Structures</h2></header>
+            <section class="main-section" id="Classes">
+                <header><h2>Classes</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
-                    <p>C# is an Object-oriented programming language (OOP). The main way a developer will create an object is through the use of classes. A class
-                        is a reference type that can contain fields, properties, methods, indexers, events, constructors, finalizers and other nested types. Collectively
-                        these are called
-                        <b>class members</b> and accessibility to them from code external to the class or application assembly can be controlled through the use of
-                        access modifier keywords. The default access is private which means only code within the class can access them.</p>
+                    <p>C# is an Object-oriented programming language (OOP) and creates objects through the use of classes which can contain fields, properties,
+                        methods, indexers, events, constructors and finalizers. Collectively these are called <b>class members</b> and accessibility to
+                        them from code external to the class or application assembly can be controlled through the use of access modifier keywords. The default
+                        access is private which means only code within the class can access them.</p>
 
                     <h3>Fields</h3>
 
                     <p>A <b>field</b> is a variable or a constant used to store data about an object. A field can be accessed from anywhere within the class.
                         A field's access is normally left as private and access to it is achieved through the use of a property or method.
                         This has the advantage of allowing for data validation and performing other tasks before changing its value. A variable field can also
-                        be made readonly through the use of the <code>readonly</code> keyword and can then only be set from within the class
+                        be made readonly through the use of the <code>readonly</code> keyword. The field can then only be changed from within the classes
                         constructor when the object is created. A constant field must have its value set when it is declared.</p>
 
                     <h3>Properties</h3>
@@ -2172,39 +2171,24 @@ enum Month: long { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec }
                     <p>A <b>property</b> is a way of allowing code external to a class to access its fields. It can use the <code>set</code> keyword to define a
                         <b>setter</b> for writing a value to a field and the <code>get</code> keyword for defining a <b>getter</b> for reading the value from a field.
                         A property can be made read/write by using both <code>set</code> and <code>get</code>, readonly by only using <code>get</code> and write
-                        only by only using <code>set</code> though the latter is an extremely rare situation. With <code>set</code> the <code>value</code>
+                        only by only using <code>set</code> though the latter is an extremely rare situation. Within <code>set</code> the <code>value</code>
                         keyword is used to hold the value passed in. An alternative to <code>set</code> is <code>init</code> which can only be called by the
-                        constructor or an object-initializer. Collectively <code>set</code>, <code>init</code> and <code>get</code> are called <b>accessors</b>. As
-                        with all class members, the default access level for a property is private but as the most common use is to access them from outside a class
-                        they will usually have an access modifier applied.</p>
+                        constructor or an object-initializer. Collectively <code>set</code>, <code>init</code> and <code>get</code> are called <b>accessors</b>.</p>
 
-                    <p> The default access for accessors is that of the property but can be changed changed through the use of access modifiers provided that</p>
-                        <ul>
-                            <li>the property is read/write</li>
-                            <li>only one of the accessors has the access modifier applied</li>
-                            <li>the access modifier is more restrictive than the property container</li>
-                        </ul>
-
-                    <p>A property can take two basic forms, manually-implemented and auto-implemented. With a manually-implemented property a separate field known
-                        as a backing field must be created. Each accessor must have its own code block with appropriate expressions to read and write to and from
-                        the backing field. This has the advantage allowing extra logic to perform other tasks such as validation within the property. With an
-                        auto-implemented property accessors are defined without an implementation code block and no backing field is required. During runtime the
-                        compiler creates a private backing field that can only be accessed through the property. An advantage of an auto-implemented is that it can
-                        be initialized through the declaration like so <code>public int MyProperty { get; set; } = 1;</code>. For a read/write property either both
-                        accessors must be manually-implemented or auto-implemented.
-                    </p>
+                    <p> The default access for accessors is that of the property but can be changed changed through the use of access modifiers provided that the
+                        property is read/write, only one of the accessors has the access modifier applied to it and that it provides more restricted access than
+                        that of the property container.</p>
 
                     <h3>Method</h3>
 
-                    <p>A <b>method</b> provides a way of doing things. This could be reading a file, calculating a value, writing to the screen, etc.
-                        A method can receive and return values. When not returning a value the return type must use the void keyword.
+                    <p>A <b>method</b> provides of way of performing procedures. This could be reading a file, calculating a value, writing to the screen, etc.
+                        A method can return a value and have values passed in. When not returning a value the return type must use the void keyword.
                         Methods can be overloaded by defining a different number of, or different types of parameters to be passed in. When a method
                         has overloads <b>IntelliSense</b> will show there are more than one version of the method to choose from.</p>
 
                     <h3>Events</h3>
 
-                    <p>An <b>event</b> is a way for the class to communicate with other objects or other parts within itself that the state of the class instance
-                        has changed. The event
+                    <p>An <b>event</b> is a way for the class to communicate with itself or other objects that the state of the class instance has changed. The event
                         defines which type of method known as an event handler must be used respond to the event. The event usually passes the
                         object that created the event and an EventArgs that can contain additional information about the event to the event handler. The return
                         type for an event handler is almost always void so if information is to be passed back from the event handler, variables can be included
@@ -2240,146 +2224,148 @@ enum Month: long { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec }
 
 namespace ClassExample
 {
-    class Square
+    <span class="keyword">class</span> Square
     {
-        // Declare 2 fields a constant to initialize the width and a
-        // variable to use as a backing field for the Width property
-        const int DEFAULT_VALUE = 1;
-        int mWidth;
+        <span class="comment">// Declare 2 fields a constant to initialize the width and a</span>
+        <span class="comment">// variable to use as a backing field for the Width property</span>
+        <span class="keyword">const</span> <span class="keyword">int</span> DEFAULT_VALUE = 1;
+        <span class="keyword">int</span> mWidth;
 
-        // A constructor that sets the Height
-        // and Width to the default value internally
-        // The name and height must be set
-        public Square(string name)
+        <span class="comment">// A constructor that sets the Height and Width to the default value internally</span>
+        <span class="comment">// The name and height must be set</span>
+        <span class="keyword">public</span> Square(string name)
         {
             Name = name;
             Height = DEFAULT_VALUE;
             Width = DEFAULT_VALUE;
         }
 
-        // A constructor that allows the Width to optionally be set
-        // if a value is not provided it is set to the default value
-        // The name and height must be set
-        public Square(string name, int height, int width = DEFAULT_VALUE)
+        <span class="comment">// A constructor that allows the Width to optionally be set</span>
+        <span class="comment">// if a value is not provided it is set to the default value</span>
+        <span class="comment">// The name and height must be set</span>
+        <span class="keyword">public</span> Square(string name, <span class="keyword">int</span> height, <span class="keyword">int</span> width = DEFAULT_VALUE)
         {
             Name = name;
             Height = height;
             Width = width;
         }
 
-        // An event that fires when there are changes
-        // This uses the Expression-bodied member syntax
-        public event EventHandler AreaChanged = (sender, e) =&gt; { };
+        <span class="comment">// An event that fires when there are changes</span>
+        <span class="comment">// This uses the Expression-bodied member syntax</span>
+        <span class="keyword">public</span> <span class="keyword">event</span> EventHandler AreaChanged = (sender, e) =&gt; { };
 
-        // The name property has a private setter
-        // It can only be set from within the class
-        // This is an Auto Property as the compiler
-        // automatically creates a hidden private
-        // backing field
-        public string Name { get; private set; }
+        <span class="comment">// The name property has a private setter</span>
+        <span class="comment">// It can only be set from within the class</span>
+        <span class="comment">// This is an Auto Property as the compiler</span>
+        <span class="comment">// automatically creates a hidden private</span>
+        <span class="comment">// backing field</span>
+        <span class="keyword">public</span> <span class="keyword">string</span> Name { get; <span class="keyword">private</span> set; }
 
-        // The Height property can be set both from inside
-        // and from outside the class but does not trigger
-        // the AreaChanged event. This is also an
-        // Auto Property
-        public int Height { get; set; }
+        <span class="comment">// The Height property can be set both from inside</span>
+        <span class="comment">// and from outside the class but does not trigger</span>
+        <span class="comment">// the AreaChanged event. This is also an</span>
+        <span class="comment">// Auto Property</span>
+        <span class="keyword">public</span> <span class="keyword">int</span> Height { get; set; }
 
-        // The Width property can be set both from inside
-        // and from outside the class and triggers
-        // the AreaChanged event by calling the
-        // OnAreaChanged method
-        public int Width
+        <span class="comment">// The Width property can be set both from inside</span>
+        <span class="comment">// and from outside the class and triggers</span>
+        <span class="comment">// the AreaChanged event by calling the</span>
+        <span class="comment">// OnAreaChanged method</span>
+        <span class="keyword">public</span> <span class="keyword">int</span> Width
         {
-            get =&gt; mWidth;
+            <span class="keyword">get</span> =&gt; mWidth;
             set
             {
-                if (mWidth == value)
+                <span class="control-keyword">if</span> (mWidth == value)
                     return;
                 mWidth = value;
                 OnAreaChanged();
             }
         }
 
-        // The SetHeight method changes the height and
-        // triggers the area changed event by calling the
-        // OnAreaChanged method. This method's return
-        // type is set to void which means that it does
-        // not return a value. It accepts a parameter
-        // of type int called height
-        public void SetHeight(int height)
+        <span class="comment">// The SetHeight method changes the height and</span>
+        <span class="comment">// triggers the area changed event by calling the</span>
+        <span class="comment">// OnAreaChanged method. This method's return</span>
+        <span class="comment">// type is set to void which means that it does</span>
+        <span class="comment">// not return a value. It accepts a parameter</span>
+        <span class="comment">// of type int called height</span>
+        <span class="keyword">public</span> <span class="keyword">void</span> SetHeight(int height)
         {
             Height = height;
             OnAreaChanged();
         }
 
-        // The GetArea method calculates the area from the
-        // Height and Width values and returns the result
-        // as an int
-        public int GetArea()
+        <span class="comment">// The GetArea method calculates the area from the</span>
+        <span class="comment">// Height and Width values and returns the result</span>
+        <span class="comment">// as an int</span>
+        <span class="keyword">public</span> <span class="keyword">int</span> GetArea()
         {
-            return Height * Width;
+            <span class="control-keyword">return</span> Height * Width;
         }
 
-        // This is the expression-bodied member syntax for the GetArea method
-        // and performs the same function. It is useful when only one line
-        // of code is to be entered within the curly braces
-        public int GetArea2() =&gt; Height * Width;
+        <span class="comment">// This is the expression-bodied member syntax for the GetArea method</span>
+        <span class="comment">// and performs the same function. It is useful when only one line</span>
+        <span class="comment">// of code is to be entered within the curly braces</span>
+        <span class="keyword">public</span> <span class="keyword">int</span> GetArea2() =&gt; Height * Width;
 
-        // An overloaded GetArea2 method. When selecting this method
-        // IntelliSense will show there are two versions of this
-        // method to choose from
-        public int GetArea2(int doesNothing) =&gt; Height * Width;
+        <span class="comment">// An overloaded GetArea2 method. When selecting this method</span>
+        <span class="comment">// IntelliSense will show there are two versions of this</span>
+        <span class="comment">// method to choose from</span>
+        <span class="keyword">public</span> <span class="keyword">int</span> GetArea2(<span class="keyword">int</span> doesNothing) =&gt; Height * Width;
 
-        // The OnAreaChanged method first checks if an event handler exists
-        // and if so calls the event through the invoke command passing on
-        // the arguments in this case this class instance by using the this
-        // keyword and an empty EventArgs
-        // This method also uses Expression-bodied member syntax
-        private void OnAreaChanged() =&gt; AreaChanged?.Invoke(this, EventArgs.Empty);
+        <span class="comment">// The OnAreaChanged method first checks if an event handler exists</span>
+        <span class="comment">// and if so calls the event through the invoke command passing on</span>
+        <span class="comment">// the arguments in this case this class instance by using the this</span>
+        <span class="comment">// keyword and an empty EventArgs</span>
+        <span class="comment">// This method also uses Expression-bodied member syntax</span>
+        <span class="keyword">private</span> <span class="keyword">void</span> OnAreaChanged() =&gt; AreaChanged?.Invoke(this, EventArgs.Empty);
     }
 
-    class Program
+    <span class="keyword">class</span> Program
     {
-        static void Main(string[] args)
+        <span class="keyword">static</span> <span class="keyword">void</span> Main(string[] args)
         {
-            // Three squares are created using the new keyword and alternative
-            // constructors
+            <span class="comment">// Three squares are created using the new keyword and alternative</span>
+            <span class="comment">// constructors</span>
             Square square1 = new("Square 1");
             Square square2 = new("Square 2", 5);
             Square square3 = new("Square 3", 5, 10);
-            // The Square_AreaChanged event handler is added to both the
-            // square2 and square3 AreaChanged events
+            <span class="comment">// The Square_AreaChanged event handler is added to both the</span>
+            <span class="comment">// square2 and square3 AreaChanged events</span>
             square2.AreaChanged += Square_AreaChanged;
             square3.AreaChanged += Square_AreaChanged;
-            // The initial area values are written to the console
-            Console.WriteLine("{0} area is {1}", square1.Name, square1.GetArea().ToString());
-            Console.WriteLine("{0} area is {1}", square2.Name, square2.GetArea().ToString());
-            Console.WriteLine("{0} area is {1}", square3.Name, square3.GetArea().ToString());
-            // Changing the width triggers the square2 AreaChanged event
+            <span class="comment">// The initial area values are written to the console</span>
+            Console.WriteLine("{0} area <span class="keyword">is</span> {1}", square1.Name, square1.GetArea().ToString());
+            Console.WriteLine("{0} area <span class="keyword">is</span> {1}", square2.Name, square2.GetArea().ToString());
+            Console.WriteLine("{0} area <span class="keyword">is</span> {1}", square3.Name, square3.GetArea().ToString());
+            <span class="comment">// Changing the width triggers the square2 AreaChanged event</span>
             square2.Width = 3;
-            // Changing the height triggers the square3 AreaChanged event
+            <span class="comment">// Changing the height triggers the square3 AreaChanged event</span>
             square3.SetHeight(10);
 
         }
 
-        // This is the Square_AreaChanged event handler which has been added to both the
-        // square1 and square2 AreaChanged events
-        private static void Square_AreaChanged(object sender, EventArgs e)
+        <span class="comment">// This is the Square_AreaChanged event handler which has been added to both the</span>
+        <span class="comment">// square1 and square2 AreaChanged events</span>
+        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> Square_AreaChanged(object sender, EventArgs e)
         {
-            var square = sender as Square;
-            Console.WriteLine("{0} area changed and is now {1}", square.Name, square.GetArea().ToString());
+            <span class="keyword">var</span> square = sender <span class="keyword">as</span> Square;
+            Console.WriteLine("{0} area changed <span class="keyword">and</span> <span class="keyword">is</span> now {1}", square.Name, square.GetArea().ToString());
         }
     }
 }
 
-// The example writes the following to the console
-// Square 1 area is 1
-// Square 2 area is 5
-// Square 3 area is 50
-// Square 2 area changed and is now 15
-// Square 3 area changed and is now 100
+<span class="comment">// The example writes the following to the console</span>
+<span class="comment">// Square 1 area is 1</span>
+<span class="comment">// Square 2 area is 5</span>
+<span class="comment">// Square 3 area is 50</span>
+<span class="comment">// Square 2 area changed and is now 15</span>
+<span class="comment">// Square 3 area changed and is now 100</span>
 
 </code></pre>
+
+
+
 
 <p>The following example defines a string collection which uses an indexer to index instances of itself. The Program class
     creates a new StringCollection instance, assigns the string "Hello World" to the instance at index 0 in the collection, then
@@ -2422,16 +2408,14 @@ namespace ClassExample
                     <p>In addition we can make a class static by adding the <code>static</code> keyword to the class definition. Here the class cannot be instantiated.
                         Instead it is
                         created automatically during runtime and only one instance of it exists. As a static class is not assigned an identifier to access its
-                        members, instead the class name is used. For a class called <code>MyClass</code> with a method called <code>MyMethod</code> to access the method
-                        you would use <code>MyClass.MyMethod</code>.</p>
+                        members, instead the class name is used. For a class called <code>MyClass</code> with a method called <code>MyMethod</code> you would
+                        use <code>MyClass.MyMethod</code>.</p>
 
-                    <p>Class members can also either instance or made static through use of the <code>static</code> keyword. As with a static class static members are
-                        created
+                    <p>Class members can also be made static through use of the <code>static</code> keyword. As with a static class static members are created
                         automatically during runtime and are accessed using the class name. All members within a static class must always be
-                        be static while members in an instance class there can be both instance and static members. To initialize a static field a static constructor
-                        must be used which cannot have values passed in. Within a class static
-                        members can only access other static members. A static method can be useful when it is to perform simple functions that don't have to store
-                        or retrieve data from within the class, for example squaring a number. As the method is created as soon as the program is running it can be
+                        be static. To initialize a static variable a static constructor must be used which cannot have values passed in. Within a class static
+                        members can only access other static members. A static method can useful when it is to perform a simple functions that don't have to store
+                        or retrieve data from within the class for example, squaring a number. As the method is created as soon as the program is running it can be
                         shared from multiple locations throughout the programs code without the necessity to create a new class instance every time.</p>
 
 <pre><code>using System;
@@ -2440,10 +2424,6 @@ namespace ClassExample
 {
 
 }
-
-                    <h3>Structures (struct)</h3>
-
-                    <p>A structure usually referred to by its keyword <b>struct</b> is similar to a class with the following main differences.</p>
     </code></pre>
                 </article>
             </section>
@@ -2454,17 +2434,7 @@ namespace ClassExample
                 <header><h2>Interfaces</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
-                    <p>"An interface is a contract" has to be one of the worst explanations as to what an interface is, yet it still persists throughout much of the
-                        literature you may find on line, including that of the Microsoft's own C# reference. So what is an interface.</p>
-
-                    <p>Take a computer manufacturer. They can't anticipate every printer, keyboard, mouse, etc, that will be plugged into their devices. To allow for this
-                        the industry as a whole has a set of specifications for which various devices must adhere to, so that they are compatible. For a keyboard for example
-                        this
-                        may be the the signals it must produces when a key is pressed. The computer manufacturer doesn't have to specify or even know what happens inside
-                        the keyboard to achieve this and the the keyboard manufacturer is free to design it as they like. An interface works on a similar basis by defining
-                        which members a class or struct will have without saying how they are to be implemented. It does this by defining just the member's signature.</p>
-
-                    <p></p>
+                    <p>Lorem</p>
 
                 </article>
             </section>
