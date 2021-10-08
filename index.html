@@ -2444,6 +2444,18 @@ namespace ClassExample
                     <h3>Structures (struct)</h3>
 
                     <p>A structure usually referred to by its keyword <b>struct</b> is similar to a class with the following main differences.</p>
+
+                    <ul>
+                        <li>A struct is a value type</li>
+                        <li>The static, abstract and sealed modifiers cannot be applied to a struct</li>
+                        <li>The readonly modifier can be applied to a struct</li>
+                        <li>An instance field or property in a struct can't be initialized when a struct is declared.</li>
+                        <li>A constructor in a struct must initialize all instance fields</li>
+                        <li>A struct cannot have a parameterless constructor</li>
+                        <li>A struct cannot have a finalizer</li>
+                        <li>A struct can't inherit or be inherited by a another class or struct</li>
+                    </ul>
+
     </code></pre>
                 </article>
             </section>
@@ -2760,27 +2772,28 @@ code
                         <ul>
                             <li>Properties - a particular state of an object such as color, the number of columns, what a thing is made of</li>
                             <li>Methods - something you can do to an object such as read, write, add numbers</li>
-                            <li>Events - something that an object does in response to changes to its properties and methods that other objects in turn can respond to</li>
+                            <li>Events - a way of communicating to other objects that its state has changed</li>
                         </ul>
 
                     <p>Take for example a tap object. It could have an IsTurnedOn property that could be set to true or false and a method called TurnOnTap which sets
                         IsTurnedOn to true and triggers an event called TurnedOnHasChanged. Another object, for example a person could call the TurnOnTap method and
                         by listening out for the TurnedOnHasChanged event, when it occurs check the IsTurnedOn property of the tap and if it is true, respond by
                         filling a kettle.</p>
-                    <p>C# uses classes to define an object and properties, methods and events are some of available elements known as class members.</p>
+                    <p>C# uses classes or structs to define an object.</p>
 
                     <h3>Encapsulation</h3>
-                    <p>With OOP the data and methods of an object are protected from direct manipulation. This means that code external to a class need not be concerned with
-                        the data it contains or how a method works, only that by using it will provide the expected result. Take for example the posting of a letter. Provided
-                        that you give it the correct address and a stamp, once you place it in the mail box you expect it to arrive at the recipient. You should not be
-                        concerned with the details of the method (how it will be delivered) or the internal data (the name of the person doing the delivery). In order to
-                        decide which class members are made available externally to an object C# provides access modifier keywords such as <code>public</code> and <code>private</code>.
+                    <p>With OOP the data and methods of an object are protected from direct manipulation. This means that code external to a class need not be concerned
+                        with the data it contains or how a method works, only that by using it, it will provide the expected result. Take for example the posting of a
+                        letter. Provided that you give it the correct address and a stamp, once you place it in the mail box you expect it to arrive at the recipient.
+                        You should not be concerned with the details of the method (how it will be delivered) or the internal data (the name of the person doing the
+                        delivery). In order to decide which class members are made available externally to an object C# provides access modifier keywords such as
+                        <code>public</code> and <code>private</code>.
                     </p>
                     <h3>Inheritance</h3>
-                    <p>Many things in life have many similarities. For example a cat and a dog are animals. They both have 4 legs and a tail but whereas a cat meows a dog barks.
-                        Rather than create a separate class for each with that include legs and a tail we can first create an animal class that has the legs and tail properties.
-                        Then the cat and dog classes each inherit from the animal class with the cat adding a meow method and the dog adding a bark method. To see how this is
-                        achieved in code, see the section
+                    <p>Many things in life have many similarities. For example a cat and a dog are both animals. They both have 4 legs and a tail but whereas a cat
+                        meows a dog barks. Rather than create a separate class for each with that include legs and a tail we can first create an animal class that
+                        has the legs and tail properties. Then the cat and dog classes each inherit from the animal class with the cat adding a meow method and the
+                        dog adding a bark method. To see how this is achieved in code, see the section
 
 
                     </p>
