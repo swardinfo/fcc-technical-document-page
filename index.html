@@ -2441,9 +2441,14 @@ namespace ClassExample
 
 }
 
+
+
+    </code></pre>
+
+
                     <h3>Structures (struct)</h3>
 
-                    <p>A structure usually referred to by its keyword <b>struct</b> is similar to a class with the following main differences.</p>
+                    <p>A <b>structure</b> usually referred to by its keyword <code>struct</code> is similar to a class with the following main differences.</p>
 
                     <ul>
                         <li>A struct is a value type</li>
@@ -2455,8 +2460,6 @@ namespace ClassExample
                         <li>A struct cannot have a finalizer</li>
                         <li>A struct can't inherit or be inherited by a another class or struct</li>
                     </ul>
-
-    </code></pre>
                 </article>
             </section>
 
@@ -2752,56 +2755,106 @@ code
                 </article>
             </section>
 
-<!-- TODO -->
             <!-- Object-oriented Programming - Section -->
             <section class="main-section" id="Object-oriented_Programming">
                 <header><h2>Object-oriented Programming</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
+
                     <p>Object-oriented programming (OOP) is a programming paradigm used extensively throughout C#. It encompasses a number of
                         concepts that provide the developer a structured process for writing a program. This is particularly important for large
-                        applications that may be maintained by multiple teams of developers. The idea here is that instead of having one massive
-                        length of code that does everything it is instead broken down into objects that each have a narrowly defined responsibility.
-                        In C# these objects are combined to create a project and multiple projects are combined to create an assembly.
+                        applications that may be maintained by multiple teams of developers. Instead of having one massive
+                        length of code that does everything, it is instead broken down into objects that each have a narrowly defined responsibility.
+                        C# uses a sort of template in the form of either a Class or Struct to define an object and each specific object is known as a type.
+                        Objects are combined to create a project and multiple projects are combined to create an assembly that becomes the application.
                     </p>
+
+                    <p> Major principles of OOP include:</p>
+
+                    <ul>
+                        <li>Object</li>
+                        <li>Encapsulation</li>
+                        <li>Inheritance</li>
+                        <li>Abstraction</li>
+                        <li>Polymorphism</li>
+                    </ul>
+
                     <h3>Object</h3>
 
-                    <p>In computer science an object combines data and methods to represent everyday things such as a number, a spreadsheet, a person or
-                        even something less tangible such as the relationship between a parts name and its quantity in a database. Three techniques
-                        employed by C# with objects are:</p>
-                        <ul>
-                            <li>Properties - a particular state of an object such as color, the number of columns, what a thing is made of</li>
-                            <li>Methods - something you can do to an object such as read, write, add numbers</li>
-                            <li>Events - a way of communicating to other objects that its state has changed</li>
-                        </ul>
+                    <p>An object combines data and methods to represent everyday things such as a number, a spreadsheet, a person or
+                        even something less tangible such as the relationship between a part's name and its quantity in a database. During runtime multiple objects
+                        based on the same type can be created each with its own own internal state. This allows different versions (instances) of an object to exist. For
+                        example two number type objects could be created, one with a value of 5 and another with 7. Three techniques employed by C# to define an
+                        object are:</p>
 
-                    <p>Take for example a tap object. It could have an IsTurnedOn property that could be set to true or false and a method called TurnOnTap which sets
-                        IsTurnedOn to true and triggers an event called TurnedOnHasChanged. Another object, for example a person could call the TurnOnTap method and
-                        by listening out for the TurnedOnHasChanged event, when it occurs check the IsTurnedOn property of the tap and if it is true, respond by
-                        filling a kettle.</p>
-                    <p>C# uses classes or structs to define an object.</p>
+                    <ul>
+                        <li>Properties - a particular state of an object such as color, the number of columns, what a thing is made of.</li>
+                        <li>Methods - something an object can do such as add numbers, manipulate text, etc. Methods can take in and return modified data.</li>
+                        <li>Events - a way of communicating to other objects that its state has changed.</li>
+                    </ul>
+
+                    <p>Take for example a light. It could have a 'Light Is On' property, a 'Turn Light On' method and a 'Light Has Turned' On event. A person object
+                        could then check the 'Light Is On' property and if it's off (false), use the 'Turn Light On' method to turn the light on. The method would then
+                        set 'Light Is On' to true and then trigger the 'Light Has Turned On' event. A second person object could be watching out for the event and when
+                        it happens it would know to run its own 'Read Book' method.
+                    </p>
 
                     <h3>Encapsulation</h3>
-                    <p>With OOP the data and methods of an object are protected from direct manipulation. This means that code external to a class need not be concerned
-                        with the data it contains or how a method works, only that by using it, it will provide the expected result. Take for example the posting of a
-                        letter. Provided that you give it the correct address and a stamp, once you place it in the mail box you expect it to arrive at the recipient.
-                        You should not be concerned with the details of the method (how it will be delivered) or the internal data (the name of the person doing the
-                        delivery). In order to decide which class members are made available externally to an object C# provides access modifier keywords such as
-                        <code>public</code> and <code>private</code>.
+
+                    <p>Encapsulation protects the data and methods used to define the internal state of an object from direct manipulation.
+                        This way code external to an object need not be concerned with the data it contains or how a method works, only that by using it, it will provide
+                        the expected result. Take for example the posting of a letter. Provided that you give it the correct address and a stamp, once you place it in
+                        the mail box you expect it to arrive at the recipient. You need not be concerned with the details of the method (how it will be delivered) or
+                        the internal data (the name of the person doing the delivery). With this the creator of the object is free to change the internal workings of
+                        an object without affecting those using it, as long as it continues to do what it says on the box. In order to decide which object members are
+                        made available externally to an object, C# provides access modifier keywords such as <code>public</code> and <code>private</code>.
                     </p>
+
                     <h3>Inheritance</h3>
-                    <p>Many things in life have many similarities. For example a cat and a dog are both animals. They both have 4 legs and a tail but whereas a cat
-                        meows a dog barks. Rather than create a separate class for each with that include legs and a tail we can first create an animal class that
-                        has the legs and tail properties. Then the cat and dog classes each inherit from the animal class with the cat adding a meow method and the
-                        dog adding a bark method. To see how this is achieved in code, see the section
 
+                    <p>Many things in life have similarities. For example a car and a motorbike both have an engine, wheels and brakes but where as a motorbike has
+                        handle bars a car has a steering wheel. This makes it difficult to use one object to represent both but rather than create two objects duplicating
+                        much of the same functionality we can use the concept of inheritance. Here, first an parent object containing all the common traits is created
+                        then separate child objects based on the parent are created, each adding just their own differences. Using the previous example we
+                        could create a vehicle object that has the engine, brakes and wheels properties then from that create a motorbike object that adds handle bars
+                        and a car object that adds a steering wheel. By having a common inherited wheels property the number of wheels can be set at runtime to 2
+                        for a motorbike and 4 for car or even 3 if it is a three-wheeler.</p>
 
+                    <p>Other names for parent are ancestor or superclass and for child, descendant or subclass. Just to be different, C# calls a parent a
+                        base class and a child a derived class which is specifically mentioned here as C# provides the <code>base</code> keyword to access
+                        an base from a derived class. Also note that structs can neither inherit or be inherited by another class or struct.
                     </p>
+
                     <h3>Abstraction</h3>
-                    <p></p>
+
+                    <p>Abstraction is the process of determining and extracting from a complex problem just the information we require tyo define a solution. For example
+                        what does it take to eat food. Here we need to ask an expert in this case lets consider what a child would say. They'd probably say something
+                        like, you  put food in your mouth chew it then swallow. That's it. Now of course the human body is an extremely complex organism, to actually
+                        eat food the brain has to send signals to the jaw muscles to chew the food, then to the tongue to swallow it. From there it goes into the stomach
+                        where it is mixed with acid, then into the small intestine ... But for the purposes of survival all the user has to be concerned with is
+                        food, mouth, chew, swallow. Of course had we omitted the chew step then the choke method may have kicked in resulting in a premature end to our
+                        program. It is important then to extract exactly what is required, no less, no more and this is an essential design step before the first line
+                        of code is even written.</p>
+
+                    <p>Another term you may come across is abstraction layers which is the dividing of a problem into the various layers of complexity. Take for instance
+                        what is involved in writing and running an application. As mentioned in the C Sharp Language section all a computer knows is ones and zeroes but
+                        even that is not the lowest level. If we go further we get down to the quantum level where the state of electrons are controlled by transistors.
+                        This is the hardware abstraction layer limited mainly to the manufacturer. Above the ones and zeroes, or binary abstraction layer, is the assembly
+                        language which is a set of instructions in a pseudo human language provided by hardware manufacturers as to what the hardware does. This is
+                        the language used by by those creating the compiler that translates the C# language we write into the binary language amd ultimately into the
+                        quantum state of the hardware. This does not mean that someone writing in C# is completely separated from the other layers. For example as you
+                        use the code editor the the compiler is constantly interpreting what you write and if it can't, it will warn you that there is a syntax
+                        error.</p>
 
                     <h3>Polymorphism</h3>
-                    <p></p>
+
+                    <p>Polymorphism is the ability to substitute any child object for its parent and the members they contain. Using the inheritance example, we want to
+                        make sure that we can steer our vehicle so we provide a steer method. This presents a problem as we can't be sure whether the consumer is going
+                        to buy a car or a motorbike. The car has a steering wheel property that has to be set whereas the motor bike has handle bars. Polymorphism allows
+                        us to substitute what the steer method does in the child object. If we then have a purchasing object, that has a buy method that can take in
+                        a vehicle object and when it is called, we can substitute the vehicle parent object for either car or motorbike child object. This way whichever
+                        is provided will have the correct steer method.
+                    </p>
                 </article>
             </section>
 
