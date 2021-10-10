@@ -196,7 +196,7 @@ pre {
     background-color: var(--code-bg-color);
     border-radius: 3px;
     text-align: left;
-    padding: 0, 3px;
+    padding: 0 3px;
 }
 
 .comment {
