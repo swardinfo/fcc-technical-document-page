@@ -79,15 +79,15 @@ i, em {
 }
 
 h1 {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: normal;
 }
 
 h2 {
-    font-size: 24px;
+    font-size: 20px;
 }
 
-h3, .listing  {
+h3, h4, .listing  {
     font-size: 16px;
     font-weight: bold;
     margin-top: 20px;
@@ -288,6 +288,10 @@ u.syntax::after {
         border: 1px solid #ccc;
     }
 
+    .nav-link {
+        font-size: 14px;
+    }
+
     #main-doc {
         margin-top: 30px;
     }
@@ -349,15 +353,11 @@ u.syntax::after {
 
     h1 {
         /* font-family: 'Segoe UI', Tahoma, Verdana, sans-serif; */
-        font-size: 28px;
-        font-weight: normal;
+        /* font-size: 28px;
+        font-weight: normal; */
     }
 
-    h2 {
+    /* h2 {
         font-size: 24px;
-    }
-
-    .nav-link {
-        font-size: 16px;
-    }
+    } */
 }
