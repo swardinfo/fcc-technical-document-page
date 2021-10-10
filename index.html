@@ -36,8 +36,7 @@
                 <li><a class="nav-link" href="#Iteration_Statements">Iteration Statements</a></li>
                 <li><a class="nav-link" href="#Arrays_and_Data_Structures">Arrays and Data Structures</a></li>
                 <li><a class="nav-link" href="#Enumerators">Enumerators</a></li>
-                <li><a class="nav-link" href="#Classes,_Structs_and_Inheritance">Classes, Structs and Inheritance</a></li>
-                <li><a class="nav-link" href="#Interfaces">Interfaces</a></li>
+                <li><a class="nav-link" href="#Classes,_Structs,_Interfaces_and_Inheritance">Classes, Structs, Interfaces and Inheritance</a></li>
                 <li><a class="nav-link" href="#Anonymous_function_expressions">Anonymous function expressions</a></li>
                 <li><a class="nav-link" href="#References_and_Namespaces">References and Namespaces</a></li>
                 <li><a class="nav-link" href="#Scope_and_Access_Modifiers">Scope and Access Modifiers</a></li>
@@ -2145,8 +2144,8 @@ enum Month: long { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec }
 
 <!-- TODO -->
             <!-- Classes - Section -->
-            <section class="main-section" id="Classes,_Structs_and_Inheritance">
-                <header><h2>Classes, Structs and Inheritance</h2></header>
+            <section class="main-section" id="Classes,_Structs,_Interfaces_and_Inheritance">
+                <header><h2>Classes, Structs, Interfaces and Inheritance</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
                     <p>C# is an Object-oriented programming language (OOP). The main way a developer will create an object is through the use of classes. A class
@@ -2157,7 +2156,7 @@ enum Month: long { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec }
 
                     <h3>Fields</h3>
 
-                    <p>A <b>field</b> is a variable or a constant used to store data about an object. A field can be accessed from anywhere within the class.
+                    <p>A field is a variable or a constant used to store data about an object. A field can be accessed from anywhere within the class.
                         A field's access is normally left as private and access to it is achieved through the use of a property or method.
                         This has the advantage of allowing for data validation and performing other tasks before changing its value. A variable field can also
                         be made readonly through the use of the <code>readonly</code> keyword and can then only be set from within the class
@@ -2165,7 +2164,7 @@ enum Month: long { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec }
 
                     <h3>Properties</h3>
 
-                    <p>A <b>property</b> is a way of allowing code external to a class to access its fields. It can use the <code>set</code> keyword to define a
+                    <p>A property is a way of allowing code external to a class to access its fields. It can use the <code>set</code> keyword to define a
                         <b>setter</b> for writing a value to a field and the <code>get</code> keyword for defining a <b>getter</b> for reading the value from a field.
                         A property can be made read/write by using both <code>set</code> and <code>get</code>, readonly by only using <code>get</code> and write
                         only by only using <code>set</code> though the latter is an extremely rare situation. With <code>set</code> the <code>value</code>
@@ -2192,14 +2191,14 @@ enum Month: long { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec }
 
                     <h3>Method</h3>
 
-                    <p>A <b>method</b> provides a way of doing things. This could be reading a file, calculating a value, writing to the screen, etc.
+                    <p>A method provides a way of doing things. This could be reading a file, calculating a value, writing to the screen, etc.
                         A method can receive and return values. When not returning a value the return type must use the void keyword.
                         Methods can be overloaded by defining a different number of, or different types of parameters to be passed in. When a method
                         has overloads <b>IntelliSense</b> will show there are more than one version of the method to choose from.</p>
 
                     <h3>Events</h3>
 
-                    <p>An <b>event</b> is a way for the class to communicate with other objects or other parts within itself that the state of the class instance
+                    <p>An event is a way for the class to communicate with other objects or other parts within itself that the state of the class instance
                         has changed. The event
                         defines which type of method known as an event handler must be used respond to the event. The event usually passes the
                         object that created the event and an EventArgs that can contain additional information about the event to the event handler. The return
@@ -2208,13 +2207,13 @@ enum Month: long { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec }
 
                     <h3>Indexers</h3>
 
-                    <p>An <b>indexer</b> allows an object to be indexed like an array. It is similar to a property but also takes an index value to
+                    <p>An indexer allows an object to be indexed like an array. It is similar to a property but also takes an index value to
                         set or get a specific instance. In place of an identifier the <code>this</code> keyword is used to define an indexer. The same rules as
                         as those for read/write and accessibility of properties also apply to indexers.</p>
 
                     <h3>Constructors</h3>
 
-                    <p>A <b>constructor</b> is called when an instance of the class is created and is used to initialize the state of its members.
+                    <p>A constructor is called when an instance of the class is created and is used to initialize the state of its members.
                         Its syntax is similar to a method but it does not return a value so no return type is to be specified. The name of the the
                         constructor is the same as that of the class. As with methods constructors can be overloaded. If a constructor is not specified
                         the compiler will create a constructor with an empty code block at runtime with which to create the instance. To create an
@@ -2222,7 +2221,7 @@ enum Month: long { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec }
 
                     <h3>Finalizers</h3>
 
-                    <p>A <b>finalizer</b> is used to perform any cleanup of the class when it is no longer in use. The compiler adds a default finalizer to
+                    <p>A finalizer is used to perform any cleanup of the class when it is no longer in use. The compiler adds a default finalizer to
                         each instance of a class that is created so it would be a rare requirement to add one ourselves.</p>
 
                     <p>The following example defines a Square class with fields, properties, methods and events. The Program class creates 3
@@ -2417,18 +2416,19 @@ namespace ClassExample
 
                     <p>In addition we can make a class static by adding the <code>static</code> keyword to the class definition. Here the class cannot be instantiated.
                         Instead it is
-                        created automatically during runtime and only one instance of it exists. As a static class is not assigned an identifier to access its
-                        members, instead the class name is used. For a class called <code>MyClass</code> with a method called <code>MyMethod</code> to access the method
+                        created automatically during runtime and only one instance of it exists. As a static class is not assigned an identifier, to access its
+                        members the class name is used instead. For a class called <code>MyClass</code> with a method called <code>MyMethod</code> to access the method
                         you would use <code>MyClass.MyMethod</code>.</p>
 
-                    <p>Class members can also either instance or made static through use of the <code>static</code> keyword. As with a static class static members are
-                        created
+                    <p>Class members can also be either instance types or made static through use of the <code>static</code> keyword. As with a static class static
+                        members are created
                         automatically during runtime and are accessed using the class name. All members within a static class must always be
                         be static while members in an instance class there can be both instance and static members. To initialize a static field a static constructor
-                        must be used which cannot have values passed in. Within a class static
+                        must be used which cannot have values passed in. Within a class, static
                         members can only access other static members. A static method can be useful when it is to perform simple functions that don't have to store
-                        or retrieve data from within the class, for example squaring a number. As the method is created as soon as the program is running it can be
-                        shared from multiple locations throughout the programs code without the necessity to create a new class instance every time.</p>
+                        or retrieve data from within the class, for example squaring a number. As the method is created as soon as the program is
+                        running it can be shared from multiple locations throughout the programs code without the necessity to create a new class instance every time.
+                        The .NET <code>System.Math</code> class which contains numerous small math functions is an example of a static class.</p>
 
 <pre><code>using System;
 
@@ -2456,31 +2456,21 @@ namespace ClassExample
                         <li>A struct cannot have a finalizer</li>
                         <li>A struct can't inherit or be inherited by a another class or struct</li>
                     </ul>
-                </article>
-            </section>
 
-<!-- TODO -->
-            <!-- Interfaces - Section -->
-            <section class="main-section" id="Interfaces">
-                <header><h2>Interfaces</h2></header>
-                <a class="back-to-top" href="#">Back to top</a>
-                <article>
+
+                    <h3>Interfaces</h3>
+
                     <p>"An interface is a contract" has to be one of the worst explanations as to what an interface is, yet it still persists throughout much of the
-                        literature you may find on line, including that of the Microsoft's own C# reference. So what is an interface.</p>
+                        literature you may find on line, including that of Microsoft's own C# reference. So what is an interface.</p>
 
                     <p>Take a computer manufacturer. They can't anticipate every printer, keyboard, mouse, etc, that will be plugged into their devices. To allow for this,
                         the industry as a whole has a set of specifications for which various devices must adhere to so that they are compatible. For a keyboard for example
-                        this may be the the signals it must produces when a key is pressed, but it is not the computer manufacturer's job to tell the keyboard manufacturer
+                        this may be the signals it must produce when a key is pressed, but it is not the computer manufacturer's job to tell the keyboard manufacturer
                         how to achieve this. In this way the keyboard manufacturer is free to design it as they like. An interface works on a similar basis by defining
                         which members a class or struct will have without saying how they are to be implemented. In C# this achieved within an interface by only declaring
                         the signature of a member.</p>
 
                     <p></p>
-
-<pre><code>
-
-</code></pre>
-
                 </article>
             </section>
 
