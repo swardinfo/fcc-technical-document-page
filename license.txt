@@ -17,10 +17,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-Third party licenses
-
-Cow-23123-640x360.mp4 original -> Cow - 23123.mp4
-https://pixabay.com/videos/cow-animal-farm-milk-pasture-23123/
-Copyright MSVoy
-Pixabay license https://pixabay.com/service/terms/#license
