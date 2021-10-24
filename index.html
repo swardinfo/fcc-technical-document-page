@@ -97,8 +97,8 @@
                     <h3>.NET</h3>
 
                     <p>.NET is an open-source, cross platform framework created and maintained by Microsoft. It provides the <b>Common Language Runtime</b>(CLR) which
-                        will run our code and other services such as memory management, debugging, garbage collection, etc, to make our job of writing code easier.
-                        Simply <b>'during runtime'</b> is often used to refer the time in which the code is running.</p>
+                        will run our code and other services such as memory management, debugging, garbage collection, etc, making our job of writing code easier.
+                        The phrase <b>'during runtime'</b>, is often used to refer the time in which the code is running.</p>
 
                     <p>.NET also provides a large quantity of pre written code we can use that provides many of the basic functions such as file I/O, network
                         access, collections, user interfaces, etc, so we don't have to write our own. Whenever a console, WinForms or WPF application is created
@@ -2148,13 +2148,20 @@ enum Month: long { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec }
                 <header><h2>Classes, Structs, Interfaces and Inheritance</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
-                    <p>C# is an Object-oriented programming language (OOP). The main way a developer will create an object is through the use of classes. A class
-                        is a reference type that can contain fields, properties, methods, indexers, events, constructors, finalizers and other nested types. Collectively
-                        these are called
-                        <b>class members</b> and accessibility to them from code external to the class or application assembly can be controlled through the use of
-                        access modifier keywords. The default access is private which means only code within the class can access them.</p>
+                    <p>C# is an Object-oriented programming language (OOP) and objects can be created using reference types such as classes, structures (struct),
+                        interfaces and records.</p>
 
-                    <h3>Fields</h3>
+                    <h3>Classes</h3>
+
+                    <p>The main way a developer will create an object is through the use of classes. A class
+                    is a reference type that can contain fields, properties, methods, indexers, events, constructors, finalizers and other nested types. Collectively
+                    these are called <b>class members</b>. Accessibility to classes from code outside of the assembly and to class members both from outside the
+                    assembly and from other objects within the assembly is controlled through the use of access modifier keywords. When no access modifier is
+                    applied the default access for a class is
+                    <code>internal</code> which means it can only be accessed from within the assembly and for class members the default access is <code>private</code>
+                    which means only code within the same class can access them.</p>
+
+                    <h4>Fields</h4>
 
                     <p>A field is a variable or a constant used to store data about an object. A field can be accessed from anywhere within the class.
                         A field's access is normally left as private and access to it is achieved through the use of a property or method.
@@ -2162,7 +2169,7 @@ enum Month: long { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec }
                         be made readonly through the use of the <code>readonly</code> keyword and can then only be set from within the class
                         constructor when the object is created. A constant field must have its value set when it is declared.</p>
 
-                    <h3>Properties</h3>
+                    <h4>Properties</h4>
 
                     <p>A property is a way of allowing code external to a class to access its fields. It can use the <code>set</code> keyword to define a
                         <b>setter</b> for writing a value to a field and the <code>get</code> keyword for defining a <b>getter</b> for reading the value from a field.
@@ -2189,14 +2196,14 @@ enum Month: long { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec }
                         accessors must be manually-implemented or auto-implemented.
                     </p>
 
-                    <h3>Method</h3>
+                    <h4>Method</h4>
 
                     <p>A method provides a way of doing things. This could be reading a file, calculating a value, writing to the screen, etc.
                         A method can receive and return values. When not returning a value the return type must use the void keyword.
                         Methods can be overloaded by defining a different number of, or different types of parameters to be passed in. When a method
                         has overloads <b>IntelliSense</b> will show there are more than one version of the method to choose from.</p>
 
-                    <h3>Events</h3>
+                    <h4>Events</h4>
 
                     <p>An event is a way for the class to communicate with other objects or other parts within itself that the state of the class instance
                         has changed. The event
@@ -2205,13 +2212,13 @@ enum Month: long { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec }
                         type for an event handler is almost always void so if information is to be passed back from the event handler, variables can be included
                         in the EventArgs that can be changed within the event handler.</p>
 
-                    <h3>Indexers</h3>
+                    <h4>Indexers</h4>
 
                     <p>An indexer allows an object to be indexed like an array. It is similar to a property but also takes an index value to
                         set or get a specific instance. In place of an identifier the <code>this</code> keyword is used to define an indexer. The same rules as
                         as those for read/write and accessibility of properties also apply to indexers.</p>
 
-                    <h3>Constructors</h3>
+                    <h4>Constructors</h4>
 
                     <p>A constructor is called when an instance of the class is created and is used to initialize the state of its members.
                         Its syntax is similar to a method but it does not return a value so no return type is to be specified. The name of the the
@@ -2219,7 +2226,7 @@ enum Month: long { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec }
                         the compiler will create a constructor with an empty code block at runtime with which to create the instance. To create an
                         instance of a class the <code>new</code> keyword is used</p>
 
-                    <h3>Finalizers</h3>
+                    <h4>Finalizers</h4>
 
                     <p>A finalizer is used to perform any cleanup of the class when it is no longer in use. The compiler adds a default finalizer to
                         each instance of a class that is created so it would be a rare requirement to add one ourselves.</p>
@@ -2383,7 +2390,7 @@ namespace ClassExample
 
 <pre><code>using System;
 
-namespace ClassExample
+namespace IndexExample
 {
     class StringCollection
     {
@@ -2414,31 +2421,199 @@ namespace ClassExample
                         allows for multiple instances of a class to be created each with its own initialized state which can be set either by arguments passed in
                         through an instance constructor or with an object-initializer. Creating an instance of a class in this way is known as instantiation.</p>
 
-                    <p>In addition we can make a class static by adding the <code>static</code> keyword to the class definition. Here the class cannot be instantiated.
+                    <p>In addition we can make a class static by applying the <code>static</code> keyword to the class definition. Here the class cannot be instantiated.
                         Instead it is
                         created automatically during runtime and only one instance of it exists. As a static class is not assigned an identifier, to access its
                         members the class name is used instead. For a class called <code>MyClass</code> with a method called <code>MyMethod</code> to access the method
                         you would use <code>MyClass.MyMethod</code>.</p>
 
-                    <p>Class members can also be either instance types or made static through use of the <code>static</code> keyword. As with a static class static
+                    <p>Class members can also be either instance types or made static through use of the <code>static</code> keyword. Note that members within a static
+                        class must always be be static whilst members in an instance class can be either instance or static. As with a static class static
                         members are created
-                        automatically during runtime and are accessed using the class name. All members within a static class must always be
-                        be static while members in an instance class there can be both instance and static members. To initialize a static field a static constructor
+                        automatically during runtime and are accessed using the class name.  To initialize a static field a static constructor
                         must be used which cannot have values passed in. Within a class, static
-                        members can only access other static members. A static method can be useful when it is to perform simple functions that don't have to store
+                        members can only access other static members.</p>
+
+                    <p>A static method can be useful when it is to perform simple functions that don't have to store
                         or retrieve data from within the class, for example squaring a number. As the method is created as soon as the program is
                         running it can be shared from multiple locations throughout the programs code without the necessity to create a new class instance every time.
                         The .NET <code>System.Math</code> class which contains numerous small math functions is an example of a static class.</p>
 
+                    <p>It is important to note that whereas each instance of an object carries has its own copy of an instance member static members are shared by all
+                        code in an assembly. If a static filed or property's value is changed in one instance of its containing class then the value will be changed
+                        for all instances</p>
+
+                    <p>In the following example, <code>InstanceClass</code> contains both instance and static, fields and methods. Whilst <code>InstanceMethod</code> can
+                        access both <code>instanceField</code> and <code>staticField</code>, <code>StaticMethod</code> can only access <code>staticField</code>.</p>
+
+                    <p> Next <code>MyClass</code> contains an instance property <code>InstanceProperty</code> and a static property <code>StaticProperty</code>.
+                        <code>MyClass</code> also contains methods that can separately set and get the property values. The static property is first set without
+                        an instance of <code>MyClass</code> through the use of <code>MyClass.StaticProperty</code>. Next 2 instances of <code>MyClass</code>,
+                        <code>myClass1</code> and <code>myClass2</code> are created and when the values of the properties are displayed we see that
+                        <code>InstanceProperty</code> has the value 0 and the <code>StaticProperty</code> the value 1. Next <code>myClass1</code> is used to change
+                        the value of the instance property to 2 and the static property to 3. When the properties of both instances are again displayed we see that
+                        only the instance property in <code>myClass1</code> has changed whereas the the static property in both now has the value 3. This shows us that
+                        each instance has its own copy of <code>InstanceProperty</code> whereas both share <code>StaticProperty</code>.</p>
+
+                    <p>Lastly we have the static class <code>MyMathFunctions</code> which has the static method <code>SquareNumber</code> which is called directly
+                        using <code>MyMathFunction.SquareNumber</code> to display the square of 3.</p>
+
 <pre><code>using System;
 
-namespace ClassExample
+namespace StaticExample
 {
+    public class InstanceClass
+    {
+        int instanceField;
+        static int staticField;
 
+        public void InstanceMethod(int value)
+        {
+            // An instance method can access both
+            // static and instance
+            staticField = value;
+            instanceField = value;
+        }
+
+        public static void StaticMethod(int value)
+        {
+            staticField = value;
+
+            // A static method cannot access an instance field
+            // IntelliSense won't even show an option to select
+            // instanceVariable and using it here results in an error.
+            // Uncommenting the following results in the error
+            // An object is required for the non-static field
+            // method or property 'Program.InstanceClass.instanceVariable'
+
+            //instanceVariable = value;
+        }
+    }
+
+    // MyClass requires an instance to be created
+    // before any instance members within it can be used
+    // Static members can be used without an instance
+    public class MyClass
+    {
+        public int InstanceProperty { get; set; }
+
+        public static int StaticProperty { get; set; }
+
+        public int GetInstanceProperty()
+        {
+            return InstanceProperty;
+        }
+
+        public void SetInstanceProperty(int value)
+        {
+            InstanceProperty = value;
+        }
+
+        public int GetStaticProperty()
+        {
+            return StaticProperty;
+        }
+
+        public void SetStaticProperty(int value)
+        {
+            StaticProperty = value;
+        }
+    }
+
+    // A static class cannot be instantiated
+    // and can only contain static members
+    public static class MyMathFunctions
+    {
+        public static int SquareNumber(int value)
+        {
+            return value * value;
+        }
+
+        // Uncommenting the following results in the error
+        // 'InstanceMethod': cannot declare
+        // instance members in a static class
+        //public void InstanceMethod() { }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Set MyClass.StaticProperty
+            MyClass.StaticProperty = 1;
+
+            // An instance of a class must be created to use an instance member.
+            // Uncommenting the following results in the error
+            // An object reference is required for the non-static
+            // field, method or property 'Program.MyClass.InstanceProperty'
+            //MyClass.InstanceProperty = 1;
+
+            // Create a first instance of MyClass
+            MyClass myClass1 = new();
+
+            // Create a second instance of MyClass
+            MyClass myClass2 = new();
+
+            // Display the initial values of the instance and
+            // static properties in instanceClass1 and instanceClass2
+            // Both instance values will be 0 as they were set when the
+            // instance was created. The static property is shared by all
+            // instances and was set to 1 by MyClass.StaticProperty = 1; above
+            Console.WriteLine("Display initial static and instance property");
+            Console.WriteLine("values of the two instances of MyClass\r\n");
+            Console.WriteLine("myClass1 InstanceProperty: {0}", myClass1.GetInstanceProperty());
+            Console.WriteLine("myClass2 InstanceProperty: {0}", myClass2.GetInstanceProperty());
+            Console.WriteLine("myClass1 StaticProperty: {0}", myClass1.GetStaticProperty());
+            Console.WriteLine("myClass2 StaticProperty: {0}", myClass2.GetStaticProperty());
+
+            // Change the instance and static properties in myClassInstance2
+            Console.WriteLine("\r\nThe instance and static properties are changed in myClassInstance2");
+
+
+            // Each instance of MyClass has there own instance of
+            // InstanceProperty so only myClassInstance1's is changed
+            //
+            myClass1.SetInstanceProperty(2);
+
+            // Both instances of MyClass share StaticProperty
+            // so changing the value in myClassInstance1 changes
+            // it for both
+            myClass1.SetStaticProperty(3);
+            Console.WriteLine("values of the two instances of MyClass are now\r\n");
+            Console.WriteLine("myClass1 InstanceProperty: {0}", myClass1.GetInstanceProperty());
+            Console.WriteLine("myClass2 InstanceProperty: {0}", myClass2.GetInstanceProperty());
+            Console.WriteLine("myClass1 StaticProperty: {0}", myClass1.GetStaticProperty());
+            Console.WriteLine("myClass2 StaticProperty: {0}", myClass2.GetStaticProperty());
+
+            // The MyMathFunctions.Square method can be called
+            // without creating an instance of MyMathFunctions
+            Console.WriteLine("\r\nThe square of {0} is {1}", 3, MyMathFunctions.SquareNumber(3));
+
+            // A static class cannot be instantiated
+            // Uncommenting the following results in the error
+            // Cannot declare a variable of static type 'Program.MyMathFunctions'
+            //MyMathFunctions staticClass;
+        }
+    }
 }
 
+// The example writes the following to the console
 
+// Display initial static and instance property
+// values of the two instances of MyClass
 
+// myClass1 InstanceProperty: 0
+// myClass2 InstanceProperty: 0
+// myClass1 StaticProperty: 1
+// myClass2 StaticProperty: 1
+
+// The instance and static properties are changed in myClassInstance2
+// values of the two instances of MyClass are now
+
+// myClass1 InstanceProperty: 2
+// myClass2 InstanceProperty: 0
+// myClass1 StaticProperty: 3
+// myClass2 StaticProperty: 3
     </code></pre>
 
 
@@ -2452,10 +2627,138 @@ namespace ClassExample
                         <li>The readonly modifier can be applied to a struct</li>
                         <li>An instance field or property in a struct can't be initialized when a struct is declared.</li>
                         <li>A constructor in a struct must initialize all instance fields</li>
-                        <li>A struct cannot have a parameterless constructor</li>
+                        <li>A struct cannot have a parameterless constructor (Note: will be allowed beginning with C# 10.0) </li>
                         <li>A struct cannot have a finalizer</li>
                         <li>A struct can't inherit or be inherited by a another class or struct</li>
                     </ul>
+
+                    <p>A struct is normally used to create a basic data type with little or no functionality. Within C# <code>int</code>, <code>double</code>,
+                        <code>char</code> and <code>bool</code> are all examples of structs. As a struct is a value type so all instance fields it contains must be
+                        assigned
+                        a value before it can be used. Although we can't create a parameterless constructor in a struct, the compiler creates one which sets all instance
+                        fields to their default values. We can then use this when instantiating a struct with the <code>new</code> keyword. If all instance fields in a
+                        struct are accessible then a struct can be instantiated
+                        without using the <code>new</code> keyword. For example an integer can be assigned the value 0 either by <code>int x = new();</code> or
+                        <code>int x = 0;</code>.
+                    </p>
+
+                    <p>The following example declares a struct called <code>Box</code> with <code>Width</code>, <code>Height</code> and <code>Depth</code> fields and
+                        a method called <code>GetVolume</code>. It demonstrates several ways to declare and assign values to a struct and then writes the values to the
+                        console.</p>
+
+<pre><code>using System;
+
+    namespace StructExample
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                // Create a new box then set its field values
+                Box box1 = new();
+                box1.Width = 1;
+                box1.Height = 2;
+                box1.Depth = 3;
+
+                // Create a box and set its field values in the constructor
+                Box box2 = new(2, 3, 4);
+
+                // Create a box using an alternate constructor
+                Box box3 = new(2);
+
+                // Create a box and set its field values with an object-initializer
+                Box box4 = new()
+                {
+                    Width = 4,
+                    Height = 5,
+                    Depth = 6
+                };
+
+                Console.WriteLine("Box1 Width: {0}, Height: {1}, Length: {2}, Volume: {3}", box1.Width, box1.Height, box1.Depth, box1.GetVolume());
+                Console.WriteLine("Box2 Width: {0}, Height: {1}, Length: {2}, Volume: {3}", box2.Width, box2.Height, box2.Depth, box2.GetVolume());
+                Console.WriteLine("Box3 Width: {0}, Height: {1}, Length: {2}, Volume: {3}", box3.Width, box3.Height, box3.Depth, box3.GetVolume());
+                Console.WriteLine("Box4 Width: {0}, Height: {1}, Length: {2}, Volume: {3}", box4.Width, box4.Height, box4.Depth, box4.GetVolume());
+
+
+                // If all instance fields are accessible a struct can
+                // be instantiated without the new keyword but instance fields
+                // must be set before it can be used
+                Box box5;
+
+                // Uncommenting the following results in the error
+                // Use of unassigned variable 'box5'
+                //var v = box5.GetVolume();
+
+                box5.Width = 5;
+                box5.Height = 6;
+                box5.Depth = 7;
+
+                Console.WriteLine("Box4 Width: {0}, Height: {1}, Length: {2}, Volume: {3}", box5.Width, box5.Height, box5.Depth, box5.GetVolume());
+
+                // Although we can't create a parameterless constructor
+                // the compiler always creates one that assigns all instance
+                // fields their default values. When displayed box6 will
+                // have all fields set to 0 resulting in a volume of 0
+                Box box6 = new();
+
+                Console.WriteLine("Box6 Width: {0}, Height: {1}, Length: {2}, Volume: {3}", box6.Width, box6.Height, box6.Depth, box6.GetVolume());
+            }
+        }
+
+        public struct Box
+        {
+            public Box(int width, int height, int depth)
+            {
+                Width = width;
+                Height = height;
+                Depth = depth;
+            }
+
+            // A struct cannot contain a parameterless constructor
+            // Uncommenting the following results in the error
+            // Structs cannot contain explicit parameterless constructors
+            //public Box() { }
+
+            // A structs constructor must assign values to all instance fields
+            // Uncommenting the following results in the following error
+            // Field 'Box.Depth' must be fully assigned
+            // before control is returned to the caller
+            //public Box(double width)
+            //{
+            //    Width = width;
+            //    Height = 1;
+            //}
+
+            // This is OK as all instance fields have been assigned a value
+            public Box(int width)
+            {
+                Width = width;
+                Height = 1;
+                Depth = 1;
+            }
+
+            public int Width;
+
+            public int Height;
+
+            public int Depth;
+
+            public int GetVolume()
+            {
+                return Width * Height * Depth;
+            }
+        }
+    }
+
+    // The example writes the following to the console
+
+    // Box1 Width: 1, Height: 2, Length: 3, Volume: 6
+    // Box2 Width: 2, Height: 3, Length: 4, Volume: 24
+    // Box3 Width: 2, Height: 1, Length: 1, Volume: 2
+    // Box4 Width: 4, Height: 5, Length: 6, Volume: 120
+    // Box4 Width: 5, Height: 6, Length: 7, Volume: 210
+    // Box6 Width: 0, Height: 0, Length: 0, Volume: 0
+    </code></pre>
 
 
                     <h3>Interfaces</h3>
@@ -2505,7 +2808,7 @@ namespace ClassExample
             </section>
 
 <!-- TODO -->
-            <!-- Namespaces and references - Section -->
+            <!-- References and Namespaces - Section -->
             <section class="main-section" id="References_and_Namespaces">
                 <header><h2>References and Namespaces</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
@@ -2623,7 +2926,7 @@ namespace MyCompany.ViewModels
 </code></pre>
                     <h3>using</h3>
 
-                    <p>Identifying every object by its <b>fully qualified</b> name soon becomes cumbersome and makes the code hard to read. The <code>using</code>
+                    <p>Identifying every object by its <b>fully qualified</b> name soon becomes cumbersome and can make the code hard to read. The <code>using</code>
                         directive makes all objects and nested namespaces within a namespace available for use. This is also known as importing. The name of just
                         the objects name can then be used within the code.</p>
                     <p>If you know the name of the object you want to add to your code but don't know its namespace, Visual Studio provides a shortcut for this.
@@ -3205,7 +3508,6 @@ var c = '\u0123' <span class="comment">\\ the <b>g</b> character</span>
                         <p>The website may hyperlink to and integrate websites and services run by others. Stephen Ward does not make any warranty about services
                             run by others, or content they may provide. Use of services run by others may be governed by other terms between you and the one
                             running the service.</p>
-
                 </article>
             </section>
 
