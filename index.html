@@ -2763,10 +2763,34 @@ namespace StaticExample
 
                     <h3>Inheritance</h3>
 
-                    <p>Inheritance is one of the main concepts in Object Oriented Programming. It allows us to create a base class with common features that derived
-                        classes can inherit and expand upon. C# only allows single inheritance, that is a derived class can only inherit from one base class but it
-                        does allow for continued where a base class can be inherited by a second which it turn can inherited by a third and so on.
+                    <p>Inheritance is one of the main concepts in Object Oriented Programming. It allows us to create a parent class with common features that child
+                        classes can inherit and expand upon. In C# a parent class is called a base class and a child a derived class. C# only allows single inheritance,
+                        that is a derived class can only inherit from one base class but it does allow for multiple generations which means a base class can be inherited
+                        by a second which it turn can inherited by a third and so on. This means that members that are in the base class will be available in each
+                        generation of derived classes with the following exceptions.
                     </p>
+
+                    <ul>
+                        <li>Static constructors</li>
+                        <li>Instance constructors</li>
+                        <li>Finalizers</li>
+                    </ul>
+
+                    <p>Note that although constructors and finalizers cannot be inherited those in the base class are still called after the derived constructor is called
+                        but before the code within its body is run. Whilst all other members are available in derived classes their visibility is dependent on the Scope
+                        rules. Apart from classes only interfaces can be inherited.</p>
+
+
+
+
+
+                    <p>The implementation of a member in a derived class can overridden provided that the member in the base class is marked with the <code>virtual</code>
+                        keyword. To do so the member in the derived class must be marked with the <code>override</code> keyword. Base class members are not virtual by
+                        default and attempting to override a member not marked as virtual results in an error.</p>
+
+                    <p>A base class and its members can also me marked with the <code>abstract</code> keyword. When inherited the derived class must override
+                        all abstract members. An abstract member cannot declare a n implementation and any class that contains an abstract member must be declared also be
+                        marked with the <code>abstract</code> keyword.</p>
 
 
                     <h3>Interfaces</h3>
@@ -2833,6 +2857,9 @@ namespace StaticExample
                         In <b>Visual Studio</b> this is done through the <b>Solution Explorer</b>  Under each project you will find any folders and files associated
                          with it and also a node called <b>Dependencies</b>. Expanding the Dependencies node will reveal several more nodes. If any references have
                          been added a node will be present called Projects under which you will find the referenced code. To add a reference right click on any
+
+
+
 
 
 
@@ -3025,7 +3052,7 @@ namespace SomeNamespace
                         <li><b>protected</b> - the same class or a derived class in the same or another assembly</li>
                         <li><b>internal</b> - the same assembly only</li>
                         <li><b>private protected</b> - the same class or a derived class in the same assembly only</li>
-                        <li><b>private</b> - the same class only</li>
+                        <li><b>private</b> - the same class or a derived class nested within a base class only</li>
                     </ul>
 
                     <p>Types declared directly within a namespace (i.e. not nested), can only be declared public or internal where internal is the default level. The
