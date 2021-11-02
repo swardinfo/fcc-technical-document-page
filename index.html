@@ -14,6 +14,7 @@
     </head>
 
     <body>
+        <!-- SECTION Main menu -->
         <!-- project requirement - nav element with a corresponding id="navbar" -->
         <nav id="navbar">
             <!-- project requirement - navbar should contain one header element with text describing topic of technical documentation -->
@@ -46,22 +47,23 @@
                 <li><a class="nav-link" href="#Disclaimer">Disclaimer</a></li>
             </ul>
         </nav>
+        <!-- !SECTION -->
+
         <!-- project requirement - main element with id="main-doc" -->
         <main id="main-doc">
             <!-- project requirement - several section elements, each with a class of main-section. There should be a minimum of 5 -->
             <!-- project requirement - section with class of main-section, id corresponds to header text, spaces replaced with underscores -->
 
             <!-- Completed -->
-            <!-- Introduction - Section -->
+            <!-- SECTION Introduction -->
             <section class="main-section" id="Introduction">
                 <header><h2>Introduction</h2></header>
                 <!-- project requirement -  first element in each .main-section is a header element which contains text that describes the topic -->
                     <article>
                         <!-- project requirement - .main-section elements should contain at least 10 p elements total, not each -->
-                        <p>The purpose of this guide is to give the reader a few of the basics of C#, so that they may quickly get a taste
-                            of what is required to write a program in C#. What this is not is a step by step guide into computer programming.
-                            Whilst someone with no programming skills may get some benefit from this guide it is aimed at those who may have learnt
-                            the basics in another language and want to see what C# has to offer.</p>
+                        <p>The purpose of this guide is to give you an idea of what C# is about and what it provides for writing an application. What this is not is a
+                            step by step guide into computer programming. Whilst someone with no programming skills may get some benefit, this guide it is aimed at
+                            those who have experience with other languages and want to see what C# has to offer.</p>
 
                         <p>So what do you need to know. Firstly, developing an application in almost any programming language will require
                             some basic maths skills, such as, logical thinking, basic algebra, knowing the difference between integers and floating
@@ -69,17 +71,17 @@
                             have an internet connection. It would also be useful to know some of the basics of how a computer works such as CPU's, memory,
                             etc and that they use binary mathematics and what that is.</p>
 
-                        <p>Lastly and perhaps most importantly you should have skills in theory of mind and empathy, what the user thinks and how
-                            do they feel when they use your application. These should be a constant consideration as you write your code. For example, whilst you may
-                            consider entering a letter in a numeric only calculator invalid, a user may do so by accident producing an error that could
-                            have been avoided by disallowing the entry in the first place. If you then cause a pop up message that tells them they got
-                            it wrong when ever a letter is pressed, this will quickly lead to frustration and your program will quickly end up in the recycle bin.
+                        <p>Lastly and perhaps most importantly you should have skills in theory of mind and empathy i.e. what the user maybe thinking and how they
+                            feel. These should be a constant consideration as you create your application. For example, entering a letter in a
+                            program when a number is required may be invalid. Having a popup error message with each wrong keystroke that then needs to be cancelled will
+                            quickly lead to frustration and your program ending up in the trash.
                         </p>
                     </article>
             </section>
+            <!-- !SECTION -->
 
             <!-- Completed -->
-            <!-- C# Language - Section -->
+            <!-- SECTION C# Language -->
             <section class="main-section" id="C_Sharp_and_Dot_NET">
                 <header><h2>C Sharp and Dot NET</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
@@ -98,7 +100,7 @@
 
                     <p>.NET is an open-source, cross platform framework created and maintained by Microsoft. It provides the <b>Common Language Runtime</b>(CLR) which
                         will run our code and other services such as memory management, debugging, garbage collection, etc, making our job of writing code easier.
-                        The phrase <b>'during runtime'</b>, is often used to refer the time in which the code is running.</p>
+                        The phrase <b>'during runtime'</b>, is often used to refer to the time in which the code is running.</p>
 
                     <p>.NET also provides a large quantity of pre written code we can use that provides many of the basic functions such as file I/O, network
                         access, collections, user interfaces, etc, so we don't have to write our own. Whenever a console, WinForms or WPF application is created
@@ -109,9 +111,10 @@
 
                 </article>
             </section>
+            <!-- !SECTION -->
 
 <!-- TODO create C# program to format code sections-->
-            <!-- IDE - Integrated Development Environment - Section -->
+            <!-- SECTION IDE - Integrated Development Environment -->
             <section class="main-section" id="Integrated_Development_Environment">
                 <header><h2>Integrated Development Environment</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
@@ -156,9 +159,10 @@
                         the red wavy line used to indicate syntax errors will be shown in this guide.</p>
                 </article>
             </section>
+            <!-- !SECTION -->
 
             <!-- Completed -->
-            <!-- Create a Hello World Project - Section -->
+            <!-- SECTION Create a Hello World Project -->
             <section class="main-section" id="Create_a_Hello_World_Project">
                 <header><h2>Create a Hello World Project</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
@@ -224,9 +228,10 @@
                         This option is turned on by default.</p>
                 </article>
             </section>
+            <!-- !SECTION -->
 
             <!-- Completed -->
-            <!-- Code Syntax - Section -->
+            <!-- SECTION Code Syntax -->
             <section class="main-section" id="Code_Syntax">
                 <header><h2>Code Syntax</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
@@ -428,9 +433,11 @@ using System;
                         (<a href="#Characters_and_Strings">Characters and Strings</a>)</p>
                 </article>
             </section>
+            <!-- !SECTION -->
 
             <!-- Completed -->
-            <!-- Comments and Task Lists - Section -->
+            <!-- SECTION Comments and Task Lists - Section -->
+            <!-- NOTE Ignore todo's in this section -->
             <section class="main-section" id="Comments_and_Task_Lists">
                 <header><h2>Comments and Task Lists</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
@@ -484,9 +491,10 @@ using System;
                         are not case sensitive. To see the task list,  in the menu click View-&gt;Task List.</p>
                 </article>
             </section>
+            <!-- !SECTION -->
 
-<!-- TODO rewrite -->
-            <!-- Variables, Constants, Types and Literals - Section -->
+            <!-- SECTION Variables, Constants, Types and Literals -->
+<!-- TODO rewrite variables -->
             <section class="main-section" id="Variables,_Constants,_Types_and_Literals">
                 <header><h2>Variables, Constants, Types and Literals</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
@@ -915,9 +923,10 @@ string s = (string)number;
                     </ul>
                 </article>
             </section>
+            <!-- !SECTION -->
 
             <!-- Completed -->
-            <!-- Characters and Strings - Section -->
+            <!-- SECTION Characters and Strings -->
             <section class="main-section" id="Characters_and_Strings">
                 <header><h2>Characters and Strings</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
@@ -980,9 +989,10 @@ Hello
 </code></pre>
                 </article>
             </section>
+            <!-- !SECTION -->
 
+            <!-- SECTION Expressions and Operators -->
 <!-- TODO rewrite => operator -->
-            <!-- Expressions and Operators - Section -->
             <section class="main-section" id="Expressions_and_Operators">
                 <header><h2>Expressions and Operators</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
@@ -1305,9 +1315,10 @@ b ??= 2;
 
                 </article>
             </section>
+            <!-- !SECTION -->
 
             <!-- Completed -->
-            <!-- Decision Making Statements - Section -->
+            <!-- SECTION Decision Making Statements -->
             <section class="main-section" id="Decision_Making_Statements">
                 <header><h2>Decision Making Statements</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
@@ -1351,9 +1362,10 @@ b ??= 2;
 </code></pre>
                 </article>
             </section>
+            <!-- !SECTION -->
 
             <!-- Completed -->
-            <!-- Iteration Statements - Section -->
+            <!-- SECTION Iteration Statements -->
             <section class="main-section" id="Iteration_Statements">
                 <header><h2>Iteration Statements</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
@@ -1427,11 +1439,12 @@ b ??= 2;
 </code></pre>
                 </article>
             </section>
+            <!-- !SECTION -->
 
-<!-- TODO -- add cross links -->
-            <!-- Arrays - Section -->
+            <!-- SECTION Arrays -->
             <section class="main-section" id="Arrays_and_Data_Structures">
                 <header><h2>Arrays and Data Structures</h2></header>
+<!-- TODO remove bold text-->
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
                     <p>Arrays and data structures store multiple variables together in ways that allows them to be handled and manipulated more efficiently.</p>
@@ -1949,7 +1962,6 @@ b ??= 2;
 </code></pre>
 
                     <h3>Dictionary&lt;TKey, TValue&gt;</h3>
-                    <!-- TODO -->
                     <p>A <b>Dictionary&lt;TKey, TValue&gt;</b> is a strongly typed generic collection of <b>KeyValuePair&lt;TKey, TValue&gt;</b> accessed by a <b>key</b>
                         index.  Like a
                         List, a Dictionary does not have a fixed size and as such does not have to be defined when it is created. Methods include add,
@@ -2121,8 +2133,9 @@ b ??= 2;
 
                 </article>
             </section>
+            <!-- !SECTION -->
 
-            <!-- Enumerators - Section -->
+            <!-- SECTION Enumerators -->
             <section class="main-section" id="Enumerators">
                 <header><h2>Enumerators</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
@@ -2141,25 +2154,26 @@ enum Month: long { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec }
 </code></pre>
                 </article>
             </section>
+            <!-- !SECTION -->
 
-<!-- TODO -->
-            <!-- Classes - Section -->
+            <!-- SECTION Classes -->
             <section class="main-section" id="Classes,_Structs,_Interfaces_and_Inheritance">
                 <header><h2>Classes, Structs, Interfaces and Inheritance</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
                     <p>C# is an Object-oriented programming language (OOP) and objects can be created using reference types such as classes, structures (struct),
-                        interfaces and records.</p>
+                        interfaces and records. Within a C# project these objects can be combined with other resources such as media and text files which are then
+                        compiled to create an <b>assembly</b> in the form of either an executable (.exe) or library (.dll) file.</p>
 
                     <h3>Classes</h3>
 
-                    <p>The main way a developer will create an object is through the use of classes. A class
+                    <p>The main way a C# developer will create an object is through the use of classes. A class
                     is a reference type that can contain fields, properties, methods, indexers, events, constructors, finalizers and other nested types. Collectively
                     these are called <b>class members</b>. Accessibility to classes from code outside of the assembly and to class members both from outside the
                     assembly and from other objects within the assembly is controlled through the use of access modifier keywords. When no access modifier is
                     applied the default access for a class is
-                    <code>internal</code> which means it can only be accessed from within the assembly and for class members the default access is <code>private</code>
-                    which means only code within the same class can access them.</p>
+                    <code>internal</code> which means it can only be accessed from within the assembly. For class members the default access is <code>private</code>
+                    and only code within the same class can access them.</p>
 
                     <h4>Fields</h4>
 
@@ -2760,13 +2774,13 @@ namespace StaticExample
     // Box6 Width: 0, Height: 0, Length: 0, Volume: 0
     </code></pre>
 
-
+<!-- TODO: Class inheritance Examples -->
                     <h3>Inheritance</h3>
 
                     <p>Inheritance is one of the main concepts in Object Oriented Programming. It allows us to create a parent class with common features that child
                         classes can inherit and expand upon. In C# a parent class is called a base class and a child a derived class. C# only allows single inheritance,
                         that is a derived class can only inherit from one base class but it does allow for multiple generations which means a base class can be inherited
-                        by a second which it turn can inherited by a third and so on. This means that members that are in the base class will be available in each
+                        by a second which it turn can inherited by a third and so on. As a result members that are in the base class will be available in each
                         generation of derived classes with the following exceptions.
                     </p>
 
@@ -2776,22 +2790,28 @@ namespace StaticExample
                         <li>Finalizers</li>
                     </ul>
 
-                    <p>Note that although constructors and finalizers cannot be inherited those in the base class are still called after the derived constructor is called
-                        but before the code within its body is run. Whilst all other members are available in derived classes their visibility is dependent on the Scope
-                        rules. Apart from classes only interfaces can be inherited.</p>
-
-
-
-
+                    <p>Note that although constructors cannot be inherited those in the base class are still called after the derived constructor is called but before the
+                        enclosed code of the derived class constructor is run. Whilst all other members are available in derived classes their visibility is
+                        dependent on the Scope rules. Apart from classes only interfaces can be inherited.</p>
 
                     <p>The implementation of a member in a derived class can overridden provided that the member in the base class is marked with the <code>virtual</code>
-                        keyword. To do so the member in the derived class must be marked with the <code>override</code> keyword. Base class members are not virtual by
-                        default and attempting to override a member not marked as virtual results in an error.</p>
+                        keyword or has overridden a member in a previous base class. To do so the member in the derived class must be marked with the
+                        <code>override</code> keyword. Base class members are not virtual by default and attempting to override a member not marked as virtual results in
+                        an error.</p>
 
-                    <p>A base class and its members can also me marked with the <code>abstract</code> keyword. When inherited the derived class must override
-                        all abstract members. An abstract member cannot declare a n implementation and any class that contains an abstract member must be declared also be
-                        marked with the <code>abstract</code> keyword.</p>
+                    <p>To prevent a class from being inherited it can be marked with the <code>sealed</code> keyword. Individual members can also be marked as
+                        <code>sealed</code> including those that have overridden a member in a base class thus preventing them from being overridden in any further
+                        derived classes.</p>
 
+                    <p>A base class and its members can also me marked with the <code>abstract</code> keyword. Abstract classes can be inherited by sealed, abstract and
+                        non abstract classes and can inherit from an abstract or non abstract class that is not a sealed class. An abstract class cannot be
+                        instantiated so to be used, a derived class must be created that inherits the abstract class and overrides all abstract members it contains.
+                        Abstract members cannot declare an implementation and within a derived class are effectively the same as a virtual member. Any class that contains
+                        an abstract member must be marked with the <code>abstract</code>keyword. An abstract class can contain both abstract and non abstract members.</p>
+
+                    <p>The <code>base</code> keyword can be used in a derived class to call constructors and overridden instance members within the base class. Only those
+                        in the first base class in the derived class declaration can be accessed.
+                    </p>
 
                     <h3>Interfaces</h3>
 
@@ -2799,21 +2819,23 @@ namespace StaticExample
                         literature you may find on line, including that of Microsoft's own C# reference. So what is an interface.</p>
 
                     <p>Take a computer manufacturer. They can't anticipate every printer, keyboard, mouse, etc, that will be plugged into their devices. To allow for this,
-                        the industry as a whole has a set of specifications for which various devices must adhere to so that they are compatible. For a keyboard for example
+                        the industry as a whole has created a set of specifications of which various devices must adhere to, so that they are compatible. For a keyboard
                         this may be the signals it must produce when a key is pressed, but it is not the computer manufacturer's job to tell the keyboard manufacturer
-                        how to achieve this. In this way the keyboard manufacturer is free to design it as they like. An interface works on a similar basis by defining
-                        which members a class or struct will have without saying how they are to be implemented. In C# this achieved within an interface by only declaring
-                        the signature of a member.</p>
+                        how to make their keyboards. Providing that the specifications are met the keyboard manufacturer is free to design it as they like. An interface
+                        works on a similar basis by defining which members a class or struct will have without saying how they are to be implemented.</p>
+
+                    <p></p>
 
                     <p></p>
                 </article>
             </section>
+            <!-- !SECTION -->
 
-<!-- TODO -->
-            <!-- Delegates, Actions and Functions - Section -->
+            <!-- SECTION Delegates, Actions and Functions -->
             <section class="main-section" id="Anonymous_function_expressions">
                 <header><h2>Anonymous function expressions</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
+<!-- TODO Write up this section-->
                 <article>
                     <p>Lorem</p>
 
@@ -2838,12 +2860,13 @@ namespace StaticExample
 
                 </article>
             </section>
+            <!-- !SECTION -->
 
-<!-- TODO -->
-            <!-- References and Namespaces - Section -->
+            <!-- SECTION References and Namespaces -->
             <section class="main-section" id="References_and_Namespaces">
                 <header><h2>References and Namespaces</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
+<!-- TODO complete this section -->
                 <article>
 
                     <h3>References</h3>
@@ -3005,12 +3028,13 @@ namespace SomeNamespace
     </code></pre>
                 </article>
             </section>
+            <!-- !SECTION -->
 
-<!-- TODO -->
-            <!-- Scope and Access Modifiers - Section -->
+            <!-- SECTION Scope and Access Modifiers -->
             <section class="main-section" id="Scope_and_Access_Modifiers">
                 <header><h2>Scope and Access Modifiers</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
+<!-- TODO complete this section -->
                 <article>
                     <h3>Scope</h3>
                     <p>Scope is the accessibility of a variable from one part of the code to another. In C# scope is arranged like the layers of an onion.
@@ -3082,9 +3106,10 @@ code
 </code></pre>
                 </article>
             </section>
+            <!-- !SECTION -->
 
             <!-- Completed -->
-            <!-- Object-oriented Programming - Section -->
+            <!-- SECTION Object-oriented Programming -->
             <section class="main-section" id="Object-oriented_Programming">
                 <header><h2>Object-oriented Programming</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
@@ -3186,9 +3211,9 @@ code
                     </p>
                 </article>
             </section>
+            <!-- !SECTION -->
 
-<!-- TODO Write specifications intro-->
-            <!-- Keywords - Section -->
+            <!-- SECTION Keywords -->
             <section class="main-section" id="Keywords_and_Specifications">
                 <header><h2>Keywords and Specifications</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
@@ -3351,7 +3376,7 @@ code
                     </div>
 
                     <h3>C# Specifications</h3>
-
+<!-- TODO Write specifications intro-->
                     <p></p>
 
                     <h4>Variable types, range and size</h4>
@@ -3514,9 +3539,10 @@ var c = '\u0123' <span class="comment">\\ the <b>g</b> character</span>
 </code></pre>
                 </article>
             </section>
+            <!-- !SECTION -->
 
             <!-- Completed -->
-            <!-- References - Section -->
+            <!-- SECTION References -->
             <section class="main-section" id="References">
                 <header><h2>References</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
@@ -3531,12 +3557,13 @@ var c = '\u0123' <span class="comment">\\ the <b>g</b> character</span>
                     </p>
                 </article>
             </section>
+            <!-- !SECTION -->
 
-<!-- TODO add copyright -->
-            <!-- Disclaimer - Section -->
+            <!-- SECTION Disclaimer -->
             <section class="main-section" id="Disclaimer">
                 <header><h2>Disclaimer</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
+            <!-- TODO add copyright -->
                 <article>
                     <p>You accept all risk of using the website and content on the website. As far as the law allows, Stephen Ward provides the website as is,
                         without any warranty whatsoever.</p>
@@ -3546,9 +3573,10 @@ var c = '\u0123' <span class="comment">\\ the <b>g</b> character</span>
                             running the service.</p>
                 </article>
             </section>
+            <!-- !SECTION -->
 
         </main>
-<!-- TODO -->
+<!-- TODO Uncomment freecodecamp script-->
         <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
     </body>
 </html>
