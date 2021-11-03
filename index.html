@@ -2662,117 +2662,117 @@ namespace StaticExample
 
 <pre><code>using System;
 
-    namespace StructExample
+namespace StructExample
+{
+    class Program
     {
-        class Program
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
+            // Create a new box then set its field values
+            Box box1 = new();
+            box1.Width = 1;
+            box1.Height = 2;
+            box1.Depth = 3;
+
+            // Create a box and set its field values in the constructor
+            Box box2 = new(2, 3, 4);
+
+            // Create a box using an alternate constructor
+            Box box3 = new(2);
+
+            // Create a box and set its field values with an object-initializer
+            Box box4 = new()
             {
-                // Create a new box then set its field values
-                Box box1 = new();
-                box1.Width = 1;
-                box1.Height = 2;
-                box1.Depth = 3;
+                Width = 4,
+                Height = 5,
+                Depth = 6
+            };
 
-                // Create a box and set its field values in the constructor
-                Box box2 = new(2, 3, 4);
-
-                // Create a box using an alternate constructor
-                Box box3 = new(2);
-
-                // Create a box and set its field values with an object-initializer
-                Box box4 = new()
-                {
-                    Width = 4,
-                    Height = 5,
-                    Depth = 6
-                };
-
-                Console.WriteLine("Box1 Width: {0}, Height: {1}, Length: {2}, Volume: {3}", box1.Width, box1.Height, box1.Depth, box1.GetVolume());
-                Console.WriteLine("Box2 Width: {0}, Height: {1}, Length: {2}, Volume: {3}", box2.Width, box2.Height, box2.Depth, box2.GetVolume());
-                Console.WriteLine("Box3 Width: {0}, Height: {1}, Length: {2}, Volume: {3}", box3.Width, box3.Height, box3.Depth, box3.GetVolume());
-                Console.WriteLine("Box4 Width: {0}, Height: {1}, Length: {2}, Volume: {3}", box4.Width, box4.Height, box4.Depth, box4.GetVolume());
+            Console.WriteLine("Box1 Width: {0}, Height: {1}, Length: {2}, Volume: {3}", box1.Width, box1.Height, box1.Depth, box1.GetVolume());
+            Console.WriteLine("Box2 Width: {0}, Height: {1}, Length: {2}, Volume: {3}", box2.Width, box2.Height, box2.Depth, box2.GetVolume());
+            Console.WriteLine("Box3 Width: {0}, Height: {1}, Length: {2}, Volume: {3}", box3.Width, box3.Height, box3.Depth, box3.GetVolume());
+            Console.WriteLine("Box4 Width: {0}, Height: {1}, Length: {2}, Volume: {3}", box4.Width, box4.Height, box4.Depth, box4.GetVolume());
 
 
-                // If all instance fields are accessible a struct can
-                // be instantiated without the new keyword but instance fields
-                // must be set before it can be used
-                Box box5;
+            // If all instance fields are accessible a struct can
+            // be instantiated without the new keyword but instance fields
+            // must be set before it can be used
+            Box box5;
 
-                // Uncommenting the following results in the error
-                // Use of unassigned variable 'box5'
-                //var v = box5.GetVolume();
-
-                box5.Width = 5;
-                box5.Height = 6;
-                box5.Depth = 7;
-
-                Console.WriteLine("Box4 Width: {0}, Height: {1}, Length: {2}, Volume: {3}", box5.Width, box5.Height, box5.Depth, box5.GetVolume());
-
-                // Although we can't create a parameterless constructor
-                // the compiler always creates one that assigns all instance
-                // fields their default values. When displayed box6 will
-                // have all fields set to 0 resulting in a volume of 0
-                Box box6 = new();
-
-                Console.WriteLine("Box6 Width: {0}, Height: {1}, Length: {2}, Volume: {3}", box6.Width, box6.Height, box6.Depth, box6.GetVolume());
-            }
-        }
-
-        public struct Box
-        {
-            public Box(int width, int height, int depth)
-            {
-                Width = width;
-                Height = height;
-                Depth = depth;
-            }
-
-            // A struct cannot contain a parameterless constructor
             // Uncommenting the following results in the error
-            // Structs cannot contain explicit parameterless constructors
-            //public Box() { }
+            // Use of unassigned variable 'box5'
+            //var v = box5.GetVolume();
 
-            // A structs constructor must assign values to all instance fields
-            // Uncommenting the following results in the following error
-            // Field 'Box.Depth' must be fully assigned
-            // before control is returned to the caller
-            //public Box(double width)
-            //{
-            //    Width = width;
-            //    Height = 1;
-            //}
+            box5.Width = 5;
+            box5.Height = 6;
+            box5.Depth = 7;
 
-            // This is OK as all instance fields have been assigned a value
-            public Box(int width)
-            {
-                Width = width;
-                Height = 1;
-                Depth = 1;
-            }
+            Console.WriteLine("Box4 Width: {0}, Height: {1}, Length: {2}, Volume: {3}", box5.Width, box5.Height, box5.Depth, box5.GetVolume());
 
-            public int Width;
+            // Although we can't create a parameterless constructor
+            // the compiler always creates one that assigns all instance
+            // fields their default values. When displayed box6 will
+            // have all fields set to 0 resulting in a volume of 0
+            Box box6 = new();
 
-            public int Height;
-
-            public int Depth;
-
-            public int GetVolume()
-            {
-                return Width * Height * Depth;
-            }
+            Console.WriteLine("Box6 Width: {0}, Height: {1}, Length: {2}, Volume: {3}", box6.Width, box6.Height, box6.Depth, box6.GetVolume());
         }
     }
 
-    // The example writes the following to the console
+    public struct Box
+    {
+        public Box(int width, int height, int depth)
+        {
+            Width = width;
+            Height = height;
+            Depth = depth;
+        }
 
-    // Box1 Width: 1, Height: 2, Length: 3, Volume: 6
-    // Box2 Width: 2, Height: 3, Length: 4, Volume: 24
-    // Box3 Width: 2, Height: 1, Length: 1, Volume: 2
-    // Box4 Width: 4, Height: 5, Length: 6, Volume: 120
-    // Box4 Width: 5, Height: 6, Length: 7, Volume: 210
-    // Box6 Width: 0, Height: 0, Length: 0, Volume: 0
-    </code></pre>
+        // A struct cannot contain a parameterless constructor
+        // Uncommenting the following results in the error
+        // Structs cannot contain explicit parameterless constructors
+        //public Box() { }
+
+        // A structs constructor must assign values to all instance fields
+        // Uncommenting the following results in the following error
+        // Field 'Box.Depth' must be fully assigned
+        // before control is returned to the caller
+        //public Box(double width)
+        //{
+        //    Width = width;
+        //    Height = 1;
+        //}
+
+        // This is OK as all instance fields have been assigned a value
+        public Box(int width)
+        {
+            Width = width;
+            Height = 1;
+            Depth = 1;
+        }
+
+        public int Width;
+
+        public int Height;
+
+        public int Depth;
+
+        public int GetVolume()
+        {
+            return Width * Height * Depth;
+        }
+    }
+}
+
+// The example writes the following to the console
+
+// Box1 Width: 1, Height: 2, Length: 3, Volume: 6
+// Box2 Width: 2, Height: 3, Length: 4, Volume: 24
+// Box3 Width: 2, Height: 1, Length: 1, Volume: 2
+// Box4 Width: 4, Height: 5, Length: 6, Volume: 120
+// Box4 Width: 5, Height: 6, Length: 7, Volume: 210
+// Box6 Width: 0, Height: 0, Length: 0, Volume: 0
+</code></pre>
 
 <!-- TODO: Class inheritance Examples -->
                     <h3>Inheritance</h3>
@@ -2794,24 +2794,274 @@ namespace StaticExample
                         enclosed code of the derived class constructor is run. Whilst all other members are available in derived classes their visibility is
                         dependent on the Scope rules. Apart from classes only interfaces can be inherited.</p>
 
+                    <p>The following example demonstrates the syntax for inheriting a class. First base class <code>A</code> is declared as normal. Derived Class
+                        <code>B</code> is then declared followed by a colon, then the name of the class to be inherited, followed by the code block for class
+                        <code>B</code>.</p>
+
+<pre><code>using System;
+
+namespace ClassInheritanceExample
+{
+    // Base class A is fist declared
+    class A { }
+
+    // Derived class B inherits class A
+    class B : A { }
+}
+</code></pre>
+
+                    <p>It is important to note that a derived class cannot be made more accessible than a base class. In this next example base class <code>A</code>
+                        does not have an
+                        accessibility keyword applied so it will be internal by default. When derived public class <code>B</code> then attempts to inherit internal class
+                        <code>A</code> this results in a syntax error. Following this base public class <code>C</code> is declared then derived class <code>D</code>
+                        inherits class <code>C</code>. Although <code>D</code> is internal by default, this is allowed as <code>D</code> is less accessible that
+                        <code>C</code>. Then when public class <code>E</code> inherits <code>D</code> again we have an error as <code>E</code> is more accessible than
+                        <code>D</code>.</p>
+
+                    <p>This illustrates that relying on the default accessibility for a class or interface can easily lead to unexpected errors so it is advisable
+                        to always use the <code>internal</code> keyword if that is your intention. This is important as the default template provided by Visual Studio
+                        does not provide an accessibility keyword so if you see an 'Inconsistent accessibility' error, check that the base class has been declared
+                        public.</p>
+
+<pre><code>using System;
+
+namespace ClassInheritanceExample
+{
+    // Base class A default accessibility is internal
+    class A { }
+
+    // Uncommenting the following results in the error
+    // Inconsistent accessibility: base class 'A'
+    // is less accessible than class 'C'
+    //public class B : A { }
+
+    public class C { }
+
+    // This is OK as internal class D is less
+    // accessible than public class C
+    class D : C { }
+
+    // Uncommenting the following results in the error
+    // Inconsistent accessibility: base class 'D'
+    // is less accessible than class 'E'
+    //public class E : D { }
+}
+</code></pre>
+
+                    <p>The following example creates a base class called <code>Animal</code> with a public property <code>Legs</code> that provides access to a private
+                        field <code>mLegs;</code>. Both classes <code>Bird</code> and <code>Cat</code> inherit and extend the <code>Animal</code> class with
+                        <code>Bird</code> adding the property <code>Wings</code> and <code>Cat</code> the property <code>Meowing</code>. In the <code>Program</code>
+                        class an instance of <code>Bird</code> is created setting values for both <code>Legs</code> and <code>Wings</code> and an instance of
+                        <code>Cat</code> setting values for both <code>Legs</code> and <code>Meowing</code>. A message describing each is then written to the console with
+                        their corresponding properties. The example also shows that attempting to access the private <code>mLegs</code> field in <code>Animals</code> from
+                        the derived class <code>Cat</code> results in a syntax error.
+                    </p>
+
+<pre><code>using System;
+
+namespace ClassInheritanceExample
+{
+    public class Animal
+    {
+        int mLegs;
+
+        public int Legs
+        {
+            get
+            {
+                return mLegs;
+            }
+            set
+            {
+                mLegs = value;
+            }
+        }
+    }
+
+    public class Bird : Animal
+    {
+        public string Flying { get; set; }
+    }
+
+    public class Cat : Animal
+    {
+        public string Meowing { get; set; }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Bird bird = new()
+            {
+                Legs = 2,
+                Flying = "Slowly"
+            };
+
+            Cat cat = new()
+            {
+                Legs = 4,
+                Meowing = "Loudly"
+            };
+
+            Console.WriteLine("The bird has {0} legs and is flying {1}", bird.Legs, bird.Flying);
+            Console.WriteLine("The cat has {0} legs and is meowing {1}", cat.Legs, cat.Meowing);
+
+            // Uncommenting the following results in the error
+            // 'Animal.mLegs' is inaccessible due to its protection level
+            //cat.mLegs = 4;
+        }
+    }
+}
+
+// The example writes the following to the console
+// The bird has 2 legs and is flying Slowly
+// The cat has 4 legs and is meowing Loudly
+</code></pre>
+
                     <p>The implementation of a member in a derived class can overridden provided that the member in the base class is marked with the <code>virtual</code>
                         keyword or has overridden a member in a previous base class. To do so the member in the derived class must be marked with the
                         <code>override</code> keyword. Base class members are not virtual by default and attempting to override a member not marked as virtual results in
                         an error.</p>
 
-                    <p>To prevent a class from being inherited it can be marked with the <code>sealed</code> keyword. Individual members can also be marked as
-                        <code>sealed</code> including those that have overridden a member in a base class thus preventing them from being overridden in any further
-                        derived classes.</p>
+                    <p>In the following example a base class <code>LogAnalyser</code> is created that has a method <code>AnalyzeLogMessage()</code> and a virtual method
+                        <code>DisplayMessage()</code>. Derived class <code>LogAnalyser1</code> inherits <code>LogAnalyser</code> and overrides the virtual method
+                        providing its own implementation. <code>LogAnalyser2</code> inherits <code>LogAnalyser1</code> and overrides the virtual method that it had
+                        overridden. <code>LogAnalyser3</code> also inherits <code>LogAnalyser</code>. It does not override the virtual method but it shows that attempting
+                        to override the non virtual method results in a syntax error. When <code>DisplayMessage()</code> is called from each of the derived class
+                        instances <code>LogAnalyser1</code> and <code>LogAnalyser2</code> each display the message in their own overridden methods whereas
+                        <code>LogAnalyser3</code> displays the message from the base class.
+                    </p>
+
+<pre><code>using System;
+
+namespace ClassInheritanceExample
+{
+    public class LogAnalyser
+    {
+        public void AnalyzeLogMessage()
+        {
+            Console.WriteLine("Analyzing log message");
+        }
+
+        public virtual void DisplayMessage()
+        {
+            Console.WriteLine("Log message has occurred");
+        }
+    }
+
+    public class LogAnalyser1 : LogAnalyser
+    {
+        public override void DisplayMessage()
+        {
+            Console.WriteLine("Log message type 1 has occurred");
+        }
+    }
+
+    public class LogAnalyser2 : LogAnalyser1
+    {
+        public override void DisplayMessage()
+        {
+            Console.WriteLine("Log message type 2 has occurred");
+        }
+    }
+
+    public class LogAnalyser3 : LogAnalyser
+    {
+        // Uncommenting the following results in the error
+        // 'LogAnalyser3.AnalyzeLogMessage()':cannot override inherited member
+        // 'LogAnalyser.AnalyzeLogMessage()' because it is not marked
+        // virtual, abstract or override
+        //public override void AnalyzeLogMessage() { }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            LogAnalyser1 logAnalyser1 = new();
+            LogAnalyser2 logAnalyser2 = new();
+            LogAnalyser3 logAnalyser3 = new();
+
+            Console.WriteLine("Using logAnalyser1");
+            logAnalyser1.AnalyzeLogMessage();
+            logAnalyser1.DisplayMessage();
+
+            Console.WriteLine("\r\nUsing logAnalyser2");
+            logAnalyser2.AnalyzeLogMessage();
+            logAnalyser2.DisplayMessage();
+
+            Console.WriteLine("\r\nUsing logAnalyser3");
+            logAnalyser3.AnalyzeLogMessage();
+            logAnalyser3.DisplayMessage();
+        }
+    }
+}
+
+// The example writes the following to the console
+// Using logAnalyser1
+// Analyzing log message
+// Log message type 1 has occurred
+
+// Using logAnalyser2
+// Analyzing log message
+// Log message type 2 has occurred
+
+// Using logAnalyser3
+// Analyzing log message
+// Log message has occurred
+</code></pre>
+
+                    <p>To prevent a class from being inherited it can be marked with the <code>sealed</code> keyword. A member that is being overridden in a class can
+                        also be marked as <code>sealed</code> which prevents it from being overridden in any further derived classes.</p>
+
+<pre><code>using System;
+
+namespace ClassInheritanceExample
+{
+    public sealed class A
+    {
+        public void Method1() { }
+
+        // Uncommenting the following results in the error
+        // 'A.Method2()' is a new virtual member in a sealed type 'A'
+        //public virtual void Method2() { }
+    }
+
+    // Uncommenting the following results in the error
+    // 'B':cannot derive from sealed class 'A'
+    //public class B : A { }
+
+    public class C
+    {
+        public virtual void Method1() { }
+    }
+
+    public class D : C
+    {
+        public sealed override void Method1() { }
+    }
+
+    public class E : D
+    {
+        // Uncommenting the following results in the error
+        // 'E.Method1()' cannot override inherited member 'D.Method1()' because it is sealed
+        //public override void Method1() { }
+    }
+}
+</code></pre>
 
                     <p>A base class and its members can also me marked with the <code>abstract</code> keyword. Abstract classes can be inherited by sealed, abstract and
                         non abstract classes and can inherit from an abstract or non abstract class that is not a sealed class. An abstract class cannot be
                         instantiated so to be used, a derived class must be created that inherits the abstract class and overrides all abstract members it contains.
-                        Abstract members cannot declare an implementation and within a derived class are effectively the same as a virtual member. Any class that contains
+                        Abstract members cannot declare an implementation and within a derived class are treated the same as a virtual member. Any class that contains
                         an abstract member must be marked with the <code>abstract</code>keyword. An abstract class can contain both abstract and non abstract members.</p>
 
                     <p>The <code>base</code> keyword can be used in a derived class to call constructors and overridden instance members within the base class. Only those
                         in the first base class in the derived class declaration can be accessed.
                     </p>
+
+                    <p>All classes in C#, even the ones we write, are ultimately derived from the <b>object</b> class.</p>
 
                     <h3>Interfaces</h3>
 
