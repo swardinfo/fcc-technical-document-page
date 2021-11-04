@@ -2237,7 +2237,7 @@ enum Month: long { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec }
                     <p>A constructor is called when an instance of the class is created and is used to initialize the state of its members.
                         Its syntax is similar to a method but it does not return a value so no return type is to be specified. The name of the the
                         constructor is the same as that of the class. As with methods constructors can be overloaded. If a constructor is not specified
-                        the compiler will create a constructor with an empty code block at runtime with which to create the instance. To create an
+                        the compiler will create a parameterless constructor with an empty code block at runtime with which to create the instance. To create an
                         instance of a class the <code>new</code> keyword is used</p>
 
                     <h4>Finalizers</h4>
@@ -2773,8 +2773,6 @@ namespace StructExample
 // Box4 Width: 5, Height: 6, Length: 7, Volume: 210
 // Box6 Width: 0, Height: 0, Length: 0, Volume: 0
 </code></pre>
-
-<!-- TODO: Class inheritance Examples -->
                     <h3>Inheritance</h3>
 
                     <p>Inheritance is one of the main concepts in Object Oriented Programming. It allows us to create a parent class with common features that child
@@ -2790,9 +2788,8 @@ namespace StructExample
                         <li>Finalizers</li>
                     </ul>
 
-                    <p>Note that although constructors cannot be inherited those in the base class are still called after the derived constructor is called but before the
-                        enclosed code of the derived class constructor is run. Whilst all other members are available in derived classes their visibility is
-                        dependent on the Scope rules. Apart from classes only interfaces can be inherited.</p>
+                    <p>Whilst all other members are available in derived classes their visibility is dependent on the Scope rules. Apart from classes only interfaces can
+                        be inherited.</p>
 
                     <p>The following example demonstrates the syntax for inheriting a class. First base class <code>A</code> is declared as normal. Derived Class
                         <code>B</code> is then declared followed by a colon, then the name of the class to be inherited, followed by the code block for class
@@ -3051,17 +3048,233 @@ namespace ClassInheritanceExample
 }
 </code></pre>
 
-                    <p>A base class and its members can also me marked with the <code>abstract</code> keyword. Abstract classes can be inherited by sealed, abstract and
-                        non abstract classes and can inherit from an abstract or non abstract class that is not a sealed class. An abstract class cannot be
-                        instantiated so to be used, a derived class must be created that inherits the abstract class and overrides all abstract members it contains.
-                        Abstract members cannot declare an implementation and within a derived class are treated the same as a virtual member. Any class that contains
-                        an abstract member must be marked with the <code>abstract</code>keyword. An abstract class can contain both abstract and non abstract members.</p>
+<!-- TODO Rewrite this -->
+                    <p>Although constructors cannot be inherited those in the base class are still called after the derived constructor is called but before the enclosed
+                        code of the derived class constructor is run. Additionally the <code>base</code> keyword can be used in a derived class to call constructors and
+                        overridden instance members within the base class. Only those in the immediate base class in the derived class declaration can be accessed. Lastly
+                        if a base class is provided with one or more parameterized constructors then the compiler forgoes providing the default parameterless constructor.
+                        As a result when inheriting such a class we will then need to provide the derived class with at least one constructor with the same signature as
+                        one of the constructors in the base class. The constructor in the derived class must call the constructor in the base class by using the
+                        <code>base</code> keyword and pass the arguments provided to it on to the base class constructor.</p>
 
-                    <p>The <code>base</code> keyword can be used in a derived class to call constructors and overridden instance members within the base class. Only those
-                        in the first base class in the derived class declaration can be accessed.
+                    <p>In this example <code>BaseClass</code> has a parameterless constructor that writes to the console when it is called, then sets a value in a
+                        a field called <code>mField</code>. It also has a parameterized constructor that takes a value which it uses to set <code>mField</code>
+                        and a virtual method <code>GetFieldValue</code> that returns the value of <code>mField</code>. <code>DerivedClass</code> inherits from
+                        <code>BaseClass</code>. It too has a parameterless constructor that writes to the console when it is called, then sets a value in its own
+                        field called <code>mField</code>. It also has a parameterized constructor which first calls its counterpart in the base class through use of the
+                        <code>base</code> keyword which requires passing all arguments it receives to the base class. The derived class also overrides
+                        <code>GetFieldValue</code> returning its own <code>mField</code> value and has a method called <code>CallBaseMethod</code> which, using the
+                        <code>base</code> keyword, calls <code>GetFieldValue</code> in the base class.</p>
+
+                    <p>In the <code>Program</code> class an instance of <code>DerivedClass</code> is created using the parameterless constructor which results in first
+                        the base class then the derived class constructor being called. Then the return value of <code>GetFieldValue</code> followed by
+                        <code>CallBaseMethod</code> are written to the console. Next a second instance of <code>DerivedClass</code> is created using the parameterized
+                        constructor with the string 'instance 2' passed in and again the return value of <code>GetFieldValue</code> followed by
+                        <code>CallBaseMethod</code> are written to the console.</p>
+
+                    <p>The example also declares a class <code>BaseClass2</code> which contains a parameterized constructor. Deriving the class
+                        <code>DerivedClass2</code> from <code>BaseClass2</code> without providing a parameterized constructor with the same signature as that of the base
+                        class results in a syntax error.
                     </p>
 
-                    <p>All classes in C#, even the ones we write, are ultimately derived from the <b>object</b> class.</p>
+<pre><code>using System;
+
+namespace ClassInheritanceExample
+{
+public class BaseClass
+{
+string mField;
+
+public BaseClass()
+{
+Console.WriteLine("Base class constructor");
+mField = "Base class";
+}
+
+public BaseClass(string value)
+{
+mField = "Base Class " + value;
+}
+
+public virtual string GetFieldValue()
+{
+return mField;
+}
+}
+
+public class DerivedClass : BaseClass
+{
+string mField;
+
+public DerivedClass()
+{
+Console.WriteLine("Derived class constructor");
+mField = "Derived class";
+}
+
+public DerivedClass(string value) : base(value)
+{
+mField = "Derived Class " + value;
+}
+
+public override string GetFieldValue()
+{
+return mField;
+}
+
+public string CallBaseMethod()
+{
+return base.GetFieldValue();
+}
+}
+
+public class BaseClass2
+{
+public BaseClass2(int value) { }
+}
+
+// Uncommenting the following results in the error
+// There is no argument given that corresponds to the
+// required formal parameter 'value' of 'BaseClass2.BaseClass2(int)'
+//public class DerivedClass2 : BaseClass2 { }
+
+class Program
+{
+static void Main(string[] args)
+{
+DerivedClass instance1 = new();
+Console.WriteLine();
+Console.WriteLine(instance1.GetFieldValue());
+Console.WriteLine(instance1.CallBaseMethod());
+
+Console.WriteLine();
+DerivedClass instance2 = new("instance 2");
+Console.WriteLine(instance2.GetFieldValue());
+Console.WriteLine(instance2.CallBaseMethod());
+
+}
+}
+}
+
+// The example writes the following to the console
+// Base class constructor
+// Derived class constructor
+
+// Derived class
+// Base class
+
+// Derived Class instance 2
+// Base Class instance 2
+</code></pre>
+
+                    <p> An <b>abstract</b> class is used when it makes sense to define a common base class but where the implementation is specific to each derived class.
+                        A base
+                        class and its members can be declared abstract by marking them with the <code>abstract</code> keyword. It cannot be instantiated so to be used, a
+                        derived class must be created that inherits it and overrides all abstract members it contains. Abstract classes can be inherited by sealed,
+                        abstract and non abstract classes and can inherit from an abstract or non abstract base class that is not a sealed class. Abstract members cannot
+                        declare an implementation and within a derived class are treated the same as a virtual member. Any class that contains an abstract member must be
+                        marked with the <code>abstract</code>keyword. An abstract class can contain both abstract and non abstract members.</p>
+
+                    <p>In the following example an abstract class <code>PriceCalculator</code> is declared with an abstract method called <code>CalculateAmount</code>.
+                        Two derived classes that inherit from <code>PriceCalculator</code> are declared. The first <code>ItemsPriceCalculator</code> has two properties,
+                        <code>ItemPrice</code> and <code>Quantity</code> and overrides <code>CalculateAmount</code> to return an amount by multiplying these two
+                        properties. The second class <code>HoursPriceCalculator</code> has three properties, <code>StartTime</code>, <code>FinishTime</code> and
+                        <code>HourlyRate</code>. In this case the overridden <code>CalculateAmount</code> first subtracts <code>StartTime</code> from
+                        <code>FinishTime</code> then multiplies thy result by <code>HourlyRate</code> and then returns the amount. Lastly as can be seen, attempting to
+                        instantiate <code>PriceCalculator</code> results in a syntax error.</p>
+
+<!-- TODO Add info somewhere about creating datetime and ToString("C", CultureInfo.CurrentCulture) -->
+
+<pre><code>using System;
+using System.Globalization;
+
+namespace ClassInheritanceExample
+{
+    public abstract class PriceCalculator
+    {
+        public abstract double CalculateAmount();
+    }
+
+    public class ItemsPriceCalculator : PriceCalculator
+    {
+        public double ItemPrice { get; set; }
+
+        public int Quantity { get; set; }
+
+        public override double CalculateAmount()
+        {
+            return ItemPrice * Quantity;
+        }
+    }
+
+    public class HoursPriceCalculator : PriceCalculator
+    {
+        public  DateTime StartTime { get; set; }
+
+        public  DateTime FinishTime { get; set; }
+
+        public double HourlyRate { get; set; }
+
+        public override double CalculateAmount()
+        {
+            var timeTaken = FinishTime - StartTime;
+            return timeTaken.TotalHours * HourlyRate;
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            ItemsPriceCalculator itemsPriceCalculator = new();
+            itemsPriceCalculator.Quantity = 6;
+            itemsPriceCalculator.ItemPrice = 3.10;
+            Console.WriteLine("The price of the items is {0}", itemsPriceCalculator.CalculateAmount().ToString("C", CultureInfo.CurrentCulture));
+
+            HoursPriceCalculator hoursPriceCalculator = new();
+            hoursPriceCalculator.StartTime = new DateTime(2021, 11, 4, 9, 0, 0);
+            hoursPriceCalculator.FinishTime = new DateTime(2021, 11, 4, 17, 0, 0);
+            hoursPriceCalculator.HourlyRate = 30;
+            Console.WriteLine("The price of the hours is {0}", hoursPriceCalculator.CalculateAmount().ToString("C", CultureInfo.CurrentCulture));
+
+            // Uncommenting the following results in the error
+            // Cannot create an instance of the abstract type or instance 'PriceCalculator'
+            //PriceCalculator priceCalculator = new();
+        }
+    }
+}
+
+// The example writes the following to the console
+// The price of the items is $18.60
+// The price of the hours is $240.00
+}
+</code></pre>
+
+                    <p>All classes in C#, even the ones we write, are ultimately derived from the <b>object</b> class. This means that even if we don't explicitly use the
+                        syntax to inherit from <code>object</code> our class will still contain the following overridable members</p>
+
+                    <ul>
+                        <li>Equals(Object)</li>
+                        <li>Finalize()</li>
+                        <li>GetHashCode()</li>
+                        <li>ToString()</li>
+                    </ul>
+
+                    <p>the following non-overridable members (note: MemeberwiseClone is protected)</p>
+
+                    <ul>
+                        <li>GetType()</li>
+                        <li>MemberwiseClone()</li>
+                    </ul>
+
+                    <p>and the following static members</p>
+
+                    <ul>
+                        <li>Equals(Object, Object)</li>
+                        <li>ReferenceEquals(Object, Object)</li>
+                    </ul>
+
+
 
                     <h3>Interfaces</h3>
 
