@@ -54,22 +54,21 @@
             <!-- project requirement - several section elements, each with a class of main-section. There should be a minimum of 5 -->
             <!-- project requirement - section with class of main-section, id corresponds to header text, spaces replaced with underscores -->
 
-            <!-- Completed -->
             <!-- SECTION Introduction -->
             <section class="main-section" id="Introduction">
                 <header><h2>Introduction</h2></header>
                 <!-- project requirement -  first element in each .main-section is a header element which contains text that describes the topic -->
                     <article>
                         <!-- project requirement - .main-section elements should contain at least 10 p elements total, not each -->
-                        <p>The purpose of this guide is to give you an idea of what C# is about and what it provides for writing an application. What this is not is a
-                            step by step guide into computer programming. Whilst someone with no programming skills may get some benefit, this guide it is aimed at
+                        <p>The purpose of this guide is to give you an idea of what C# is about and the tools it provides for writing an application. What this is not is
+                            a step by step guide into computer programming. Whilst someone with no programming skills may get some benefit, this guide it is aimed at
                             those who have experience with other languages and want to see what C# has to offer.</p>
 
                         <p>So what do you need to know. Firstly, developing an application in almost any programming language will require
                             some basic maths skills, such as, logical thinking, basic algebra, knowing the difference between integers and floating
                             point numbers, etc. You should also know how to install and upgrade software and operating systems on a computer and
                             have an internet connection. It would also be useful to know some of the basics of how a computer works such as CPU's, memory,
-                            etc and that they use binary mathematics and what that is.</p>
+                            etc.</p>
 
                         <p>Lastly and perhaps most importantly you should have skills in theory of mind and empathy i.e. what the user maybe thinking and how they
                             feel. These should be a constant consideration as you create your application. For example, entering a letter in a
@@ -80,7 +79,6 @@
             </section>
             <!-- !SECTION -->
 
-            <!-- Completed -->
             <!-- SECTION C# Language -->
             <section class="main-section" id="C_Sharp_and_Dot_NET">
                 <header><h2>C Sharp and Dot NET</h2></header>
@@ -114,7 +112,7 @@
             <!-- !SECTION -->
 
 <!-- TODO create C# program to format code sections-->
-            <!-- SECTION IDE - Integrated Development Environment -->
+            <!-- SECTION Integrated Development Environment -->
             <section class="main-section" id="Integrated_Development_Environment">
                 <header><h2>Integrated Development Environment</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
@@ -161,7 +159,6 @@
             </section>
             <!-- !SECTION -->
 
-            <!-- Completed -->
             <!-- SECTION Create a Hello World Project -->
             <section class="main-section" id="Create_a_Hello_World_Project">
                 <header><h2>Create a Hello World Project</h2></header>
@@ -170,18 +167,18 @@
                     <p>This guide assumes that the IDE has already been installed, updated and is set to its default settings xxx.</p>
                     <ol>
                         <li>Start the IDE then click <b>Create a new project</b>.</li>
-                        <li> On the <b>Create&nbsp;a&nbsp;new&nbsp;project</b> page in the search box at the top type
-                            <b>'console&nbsp;core'</b>.</li>
+                        <li> On the <span class="nowrap"><b>Create a new project</b></span> page in the search box at the top type
+                            <span class="nowrap"><b>'console core'</b></span>.</li>
                         <li>
-                            A project template titled <b>Console&nbsp;Application</b> should appear at the top of the list. It
-                            has an icon that looks like a document with C# in the top right corner. Select the
-                            <b>Console&nbsp;Application</b> then choose <b>Next</b>. (Hint: if <b>Console&nbsp;Application</b>
-                            is not at the top, click <b>Clear all</b> and search again)
+                            A project template titled <span class="nowrap"><b>Console Application</b></span> should appear at the top of the list. It
+                            has an icon that looks like a document with C# in the top right corner. Select <span class="nowrap"><b>Console Application</b></span> then
+                            choose <b>Next</b>. (Hint: if <span class="nowrap"><b>Console Application</b></span> is not at the top, click <b>Clear all</b> and search
+                            again)
                         </li>
-                        <li>On the <b>Configure&nbsp;your&nbsp;new&nbsp;project</b> page type <b>'HelloWorld'</b>
-                            in the <b>Project&nbsp;name</b> box. Leave the <b>Location</b> and <b>Solution&nbsp;name</b> as filled in by the
-                            IDE and choose <b>Next</b>.</li>
-                        <li>In the <b>Additional&nbsp;information</b> page make sure <b>.NET5.0(Current)</b> is selected in the dropdown selector
+                        <li>On the <span class="nowrap"><b>Configure your new project</b></span> page type <b>'HelloWorld'</b>
+                            in the <span class="nowrap"><b>Project name</b></span> box. Leave the <b>Location</b> and <span class="nowrap"><b>Solution name</b></span> as
+                            filled in by the IDE and choose <b>Next</b>.</li>
+                        <li>In the <span class="nowrap"><b>Additional information</b></span> page make sure <b>.NET5.0(Current)</b> is selected in the dropdown selector
                             then choose <b>Create</b></li>
                     </ol>
 
@@ -211,12 +208,11 @@
 
                     <p>The console, a <i>command window</i> in Windows, opens displaying the words <b>'Hello World!'</b>. Congratulations,
                         you have now created and run your first C# program. The remainder of the text tells us our program finished but the
-                        IDE has kept the console open so that we can see the result. <b>Press</b> any key to close the console.</p>
+                        IDE has kept the console open so that we can see the result. Press any key to close the console.</p>
 
                     <p>By pressing <kbd>F5</kbd> the compiler built then ran the program with the debugger attached. The program starts with the
                         method called <code>static void Main(string[] args)</code>. This is known as the <b>entry point</b> and there are
-                        several rules it must follow which can be found in
-                        (<a href="Code_Syntax">Code&nbsp;Syntax</a>).</p>
+                        several <a href="Code_Syntax">Code&nbsp;Syntax</a> rules it must follow.</p>
 
                     <p>Following <code>static void Main(string[] args)</code> is a pair of curly brackets <code>{ }</code>. The program
                         executes all the statements it finds within these. Here there is only one,
@@ -230,7 +226,6 @@
             </section>
             <!-- !SECTION -->
 
-            <!-- Completed -->
             <!-- SECTION Code Syntax -->
             <section class="main-section" id="Code_Syntax">
                 <header><h2>Code Syntax</h2></header>
@@ -435,7 +430,6 @@ using System;
             </section>
             <!-- !SECTION -->
 
-            <!-- Completed -->
             <!-- SECTION Comments and Task Lists - Section -->
             <!-- NOTE Ignore todos in this section -->
             <section class="main-section" id="Comments_and_Task_Lists">
@@ -510,8 +504,8 @@ using System;
                         determines what type of data can be stored and a <b>value</b> which is the actual data. C# is a strongly typed
                         language which means the variable's type must be declared before it can be used and cannot be changed later. The
                         compiler then checks if the value stored in the variable is of the correct type and will tell us if it is wrong.
-                        A constant is similar to a variable, except it must be assigned a value when declared and that value cannot be
-                        changed. A literal is the representation in the code we write for the data we assign to a variable.</p>
+                        A <b>constant</b> is similar to a variable, except it must be assigned a value when declared and that value cannot be
+                        changed. A <i>literal</i> is the representation in the code we write for the data we assign to a variable.</p>
 
                     <p>C# has two basic categories of variables, the <b>value type</b> and the <b>reference type</b>, into which all variables
                         are grouped. A <b>value type</b> stores its own data where as a <b>reference type</b> stores the address to where its data
@@ -824,8 +818,8 @@ using System;
 
 
                     <p>For built in types C# has a number of different ways conversions can be achieved. A value can be cast by placing the desired
-                        type in brackets followed by the variable or literal to be converted. From the examples <code>i = (int)3.9</code> converts the floating point literal
-                        <b>3.9</b> is converted to an <b>int</b> with the value being truncated to 3 and assigned to <b>int i</b>. </p>
+                        type in brackets followed by the variable or literal to be converted. From the examples <code>i = (int)3.9</code> converts the floating point
+                        literal <b>3.9</b> is converted to an <b>int</b> with the value being truncated to 3 and assigned to <b>int i</b>.</p>
 
 
 
@@ -941,51 +935,85 @@ string s = (string)number;
                         <li>Hexadecimal escape sequence</li>
                     </ul>
 
-                    <p>String literals can be in two forms, regular and verbatim. Each can contain zero or more characters enclosed in a
-                        pair of double quotes.
-                    </p>
+                    <p>String literals can be regular or verbatim and/or interpolated. Each can contain zero or more characters enclosed in a
+                        pair of double quotes.</p>
 
                     <p>Regular string literals can contain escaped characters as per above and will be interpreted as such. They can't span
-                        multiple lines so to split a statement with a long string literal across two lines, each part of the string on each
-                        line must first be enclosed in a pair of double quotes. The <code>+</code> concatenation operator is then placed at
-                        the end of each line to join the separated strings into one.
-                    </p>
+                        multiple lines so to split a statement with a long string literal across two or more lines, each part of the string on each
+                        line must first be enclosed in a pair of double quotes. The <code>+</code> concatenation operator is then placed between each string to join
+                        them together.</p>
 
-                    <p>Verbatim string literals are prefixed with the <code>@</code> character. Any escaped character will be interpreted
+                    <p>Verbatim string literals are prefixed with the verbatim identifier <code>@</code>. Any escaped character will be interpreted
                         verbatim except <code>'\"'</code> which will be interpreted as one double quote. Verbatim string literals can
-                        span multiple lines.
-                    </p>
-                    <p>Following are some examples of strings.</p>
-<pre><code>var a = "Regular string";
-var b = @"Verbatim string";
-var c = "Regular string with an escaped \t tab";
-var d = @"Verbatim string with an escaped \t tab";
-var e = "Sally said to say \"Hi\" to you";
-var f = @"Sally said to say ""Hi"" to you";
-var g = "\\\\server\\folder\\file.exe";
-var h = @"\\server\folder\file.exe";
-var i = "Regular Hello " + // This line concatenated with the next
-            "world";       // strings on both lines are enclosed in " "
-var j = @"Verbatim Hello
-            world";
+                        span multiple lines. There must be no white space between the <code>@</code> character and the string.</p>
 
-// Compile error: Can't split regular string across two lines
-var k = "<u class="syntax">Hello</u>
-<u class="syntax">world</u>";
+                    <p>Interpolated strings are prefixed with the interpolation identifier <code>$</code> which indicates that they may contain <i>interpolation
+                        expressions</i>. These can contain variables and other special characters that instruct the compiler how to format the string at
+                        <span class="nowrap">run-time</span>. Interpolation expressions are wrapped in a pair of curly braces. There must be no white space between the
+                        <code>$</code> identifier and the string. To use a curly brace as a character in an interpolated string two braces <code>{{</code> or
+                        <code>}}</code> must be used. Interpolation expressions cover a vast range of options information of which can be found in the
+<!-- TODO add link below -->
+                        Microsoft Reference Documentation</p>
 
-// Output
-Regular string
-Verbatim string
-Regular string with an escaped   tab
-Verbatim string with an escaped \t tab
-Sally said to say "Hi" to you
-Sally said to say "Hi" to you
-\\server\folder\file.exe
-\\server\folder\file.exe
-Hello world
-Hello
-            world
+                    <p>The interpolation identifier can be used in conjunction with the verbatim identifier and the order of the identifiers doesn't matter.</p>
 
+                    <p>Following are examples of string usage.</p>
+
+<pre><code>using System;
+
+namespace IndexExample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var now = DateTime.Now;
+            Console.WriteLine("Regular string");
+            Console.WriteLine(@"Verbatim string");
+            Console.WriteLine("Regular string with an escaped \t tab");
+            Console.WriteLine(@"Verbatim string with an escaped \t tab");
+            Console.WriteLine("Sally said to say \"Hi\" to you");
+            Console.WriteLine(@"Sally said to say ""Hi"" to you");
+            Console.WriteLine("\\\\server\\folder\\file.exe");
+            Console.WriteLine(@"\\server\folder\file.exe");
+            // The following three lines are concatenated
+            // through use of the + operator
+            Console.WriteLine("Regular string " +
+                "Hello " +
+                        "world");
+            Console.WriteLine(@"The verbatim string
+        will appear as it is
+                    written in code");
+            int number = 123;
+            Console.WriteLine($"The number is {number}");
+            Console.WriteLine($"Opening brace {{ closing brace }}");
+            Console.WriteLine(@$"Today is {now.DayOfWeek}
+its now {now:HH:mm}");
+
+            //// Compile error: Can't split regular string across two lines
+            //var k = "Hello
+            //            world";
+        }
+    }
+}
+
+// The example writes the following to the console
+// Regular string
+// Verbatim string
+// Regular string with an escaped   tab
+// Verbatim string with an escaped \t tab
+// Sally said to say "Hi" to you
+// Sally said to say "Hi" to you
+// \\server\folder\file.exe
+// \\server\folder\file.exe
+// Regular string Hello world
+// The verbatim string
+//         will appear as it is
+//                     written in code
+// The number is 123
+// Opening brace { closing brace }
+// Today is Saturday
+// its now 17:46
 </code></pre>
                 </article>
             </section>
@@ -1608,7 +1636,7 @@ b ??= 2;
 
         // The total number of elements of an array can be found by using
         // the Length property 'array.Length'.
-        Console.WriteLine("colors has {0} elements\r\n", colors.Length);
+        Console.WriteLine($"colors has {colors.Length} elements\r\n");
 
         // Attempting to access an array with an index value less than 0
         // or more than the length - 1 will result in an
@@ -1677,14 +1705,14 @@ b ??= 2;
 
         // The number of dimensions of an array
         // can be found using the Rank property 'array.Rank'.
-        Console.WriteLine("numbers has {0} dimensions\r\n", numbers.Rank);
+        Console.WriteLine($"numbers has {numbers.Rank} dimensions\r\n");
         var total =  1;
         for (int i = 0; i &lt; numbers.Rank; i++)
         {
-            Console.WriteLine("numbers[{0}] has {1} elements", i, numbers.GetLength(i));
+            Console.WriteLine($"numbers[{i}] has {numbers.GetLength(i)} elements");
             total *= numbers.GetLength(i);
         }
-        Console.WriteLine("Numbers has a total {0} of elements which is the same as Numbers.Length: {1}\r\n", total, numbers.Length);
+        Console.WriteLine($"Numbers has a total {total} of elements which is the same as Numbers.Length: {numbers.Length}\r\n");
 
         // Accessing a jagged array is similar to a multi-dimensional
         // This prints 7 to the console which is the third element [2]
@@ -1695,21 +1723,21 @@ b ??= 2;
             new int[] {5, 6, 7},
             new int[] {8, 9}
         };
-        Console.WriteLine("{0}\r\n", jaggedArray[1][2]);
+        Console.WriteLine($"{jaggedArray[1][2]}\r\n");
 
         // Assigning values is also similar to multi-dimensional arrays
         // This assigns 42 to the third element [2] of the second array [1]
         // then prints it to the console
         jaggedArray[1][2] = 42;
-        Console.WriteLine("{0}\r\n", jaggedArray[1][2]);
+        Console.WriteLine($"{jaggedArray[1][2]}\r\n");
 
         // This demonstrates looping though a jagged array with for loops
         for (int i = 0; i &lt; jaggedArray.Length; i++)
         {
-            Console.Write("The values in array{0} are: ", i);
+            Console.Write("The values in array{i} are: ");
             for (int j = 0; j &lt; jaggedArray[i].Length; j++)
             {
-                Console.Write(" {0}",jaggedArray[i][j]);
+                Console.Write($" {jaggedArray[i][j]}");
             }
             Console.WriteLine();
         }
@@ -1909,7 +1937,7 @@ b ??= 2;
             // item wasn't found. The following removes the first 'emu'
             // then prints the updated list to the console
             var removed = animals.Remove("emu") ? "'emu' was removed" : "'emu' was NOT removed";
-            Console.WriteLine("\r\n\r\n{0}", removed);
+            Console.WriteLine($"\r\n\r\n{removed}");
             foreach (var item in animals) { Console.Write(item + " "); }
 
             // 'Sort' sorts the list based on the comparer argument
@@ -1928,7 +1956,7 @@ b ??= 2;
             // The 'Count' property is the number of items the list.
             animals.Clear();
             Console.WriteLine("\r\n\r\nClear the list");
-            Console.WriteLine("There are {0} items in the list", animals.Count);
+            Console.WriteLine($"There are {animals.Count} items in the list");
             Console.WriteLine();
         }
         // The following is printed in the console
@@ -1990,14 +2018,13 @@ b ??= 2;
         fruit.Add("Plums", 6);
 
         // 'Count' returns the number of items in a Dictionary
-        Console.WriteLine("There are {0} fruit items\r\n",
-                    fruit.Count);
+        Console.WriteLine($"There are {fruit.Count} fruit items\r\n");
 
         // To use a Dictionary in a foreach loop use
         // KeyValuePair&lt;TKey, TValue&gt;. The types must be the same
         // as that used in the declaration of the dictionary
         foreach (KeyValuePair&lt;string, int&gt; item in fruit)
-            Console.Write("{0} : {1}\r\n", item.Key, item.Value);
+            Console.Write($"{item.Key} : {item.Value}\r\n");
 
         // Each item must have a unique 'key'
         // Uncommenting the following results in
@@ -2012,7 +2039,7 @@ b ??= 2;
         var added = fruit.TryAdd("Plums", 3) ?
             "'Another Plums entry' was added" :
             "'Another Plums entry' could NOT be added";
-        Console.WriteLine("\r\n\r\n{0}", added);
+        Console.WriteLine($"\r\n\r\n{added}");
 
         // 'Keys' returns a 'KeyCollection' of all the keys
         // in the Dictionary and will have the same type that
@@ -2030,13 +2057,12 @@ b ??= 2;
         int total = 0;
         foreach (var value in values)
             total += value;
-        Console.WriteLine("\r\n\r\nThere is a total of {0} fruit",
-                            total);
+        Console.WriteLine($"\r\n\r\nThere is a total of {total} fruit");
 
         // Individual items can be accessed using the 'Key' index
-        Console.WriteLine("\r\nThere are {0} 'Pears'", fruit["Pears"]);
+        Console.WriteLine($"\r\nThere are {fruit["Pears"]} 'Pears'");
         fruit["Pears"] = 3;
-        Console.WriteLine("\r\nThere are now {0} 'Pears'", fruit["Pears"]);
+        Console.WriteLine($"\r\nThere are now {fruit["Pears"]} 'Pears'");
 
         // The 'Key' index must exist to access an item. Uncommenting the
         // following will result in the exception
@@ -2050,7 +2076,7 @@ b ??= 2;
         // the item. If not found result will be the type's default value
         if (fruit.TryGetValue("Mangoes", out var result))
         {
-            Console.WriteLine("\r\nThere are {0} 'Mangoes'", result);
+            Console.WriteLine($"\r\nThere are {result} 'Mangoes'");
         }
         else
         {
@@ -2061,7 +2087,7 @@ b ??= 2;
         // the specified 'Key'
         if (fruit.ContainsKey("Bananas"))
         {
-            Console.WriteLine("\r\nThere are {0} 'Bananas'", fruit["Bananas"]);
+            Console.WriteLine($"\r\nThere are {fruit["Bananas"]} 'Bananas'");
         }
         else
         {
@@ -2083,7 +2109,7 @@ b ??= 2;
         fruit.Remove("Oranges");
         if (fruit.ContainsKey("Oranges"))
         {
-            Console.WriteLine("\r\nThere are {0} 'Oranges'", fruit["Oranges"]);
+            Console.WriteLine($"\r\nThere are {fruit["Oranges"]} 'Oranges'");
         }
         else
         {
@@ -2093,7 +2119,7 @@ b ??= 2;
         // 'Clear' removes all KeyValuePair&lt;TKey, TValue&gt; items from
         // the Dictionary
         fruit.Clear();
-        Console.WriteLine("\r\nThere are {0} fruit items\r\n", fruit.Count);
+        Console.WriteLine($"\r\nThere are {fruit.Count} fruit items\r\n");
     }
     // The following is printed in the console
     //There are 7 fruit items
@@ -2146,8 +2172,8 @@ b ??= 2;
                         and the list is zero based. The following example shows how to declare and use an enumerator using the defaults.</p>
 <pre><code>enum Day { Sun, Mon, Tue, Wed, Thu, Fri, Sat }
 int day = Day.Tue;
-Console.WriteLine("Day is {0}", day); // Output: Day is Tue
-Console.WriteLine("day's value {0}", (int)Day.Sun); // Output: day's value 0
+Console.WriteLine($"Day is {day}"); // Output: Day is Tue
+Console.WriteLine($"day's value {(int)Day.Sun}"); // Output: day's value 0
 
 <span class="comment">// month is long type</span>
 enum Month: long { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec }
@@ -2367,9 +2393,9 @@ namespace ClassExample
             square2.AreaChanged += Square_AreaChanged;
             square3.AreaChanged += Square_AreaChanged;
             // The initial area values are written to the console
-            Console.WriteLine("{0} area is {1}", square1.Name, square1.GetArea().ToString());
-            Console.WriteLine("{0} area is {1}", square2.Name, square2.GetArea().ToString());
-            Console.WriteLine("{0} area is {1}", square3.Name, square3.GetArea().ToString());
+            Console.WriteLine($"{square1.Name} area is {square1.GetArea().ToString()}");
+            Console.WriteLine($"{square2.Name} area is {square2.GetArea().ToString()}");
+            Console.WriteLine($"{square3.Name} area is {square3.GetArea().ToString()}");
             // Changing the width triggers the square2 AreaChanged event
             square2.Width = 3;
             // Changing the height triggers the square3 AreaChanged event
@@ -2382,7 +2408,7 @@ namespace ClassExample
         private static void Square_AreaChanged(object sender, EventArgs e)
         {
             var square = sender as Square;
-            Console.WriteLine("{0} area changed and is now {1}", square.Name, square.GetArea().ToString());
+            Console.WriteLine($"{square.Name} area changed and is now {square.GetArea().ToString()}");
         }
     }
 }
@@ -2574,10 +2600,10 @@ namespace StaticExample
             // instances and was set to 1 by MyClass.StaticProperty = 1; above
             Console.WriteLine("Display initial static and instance property");
             Console.WriteLine("values of the two instances of MyClass\r\n");
-            Console.WriteLine("myClass1 InstanceProperty: {0}", myClass1.GetInstanceProperty());
-            Console.WriteLine("myClass2 InstanceProperty: {0}", myClass2.GetInstanceProperty());
-            Console.WriteLine("myClass1 StaticProperty: {0}", myClass1.GetStaticProperty());
-            Console.WriteLine("myClass2 StaticProperty: {0}", myClass2.GetStaticProperty());
+            Console.WriteLine($"myClass1 InstanceProperty: {myClass1.GetInstanceProperty()}");
+            Console.WriteLine($"myClass2 InstanceProperty: {myClass2.GetInstanceProperty()}");
+            Console.WriteLine($"myClass1 StaticProperty: {myClass1.GetStaticProperty()}");
+            Console.WriteLine($"myClass2 StaticProperty: {myClass2.GetStaticProperty()}");
 
             // Change the instance and static properties in myClassInstance2
             Console.WriteLine("\r\nThe instance and static properties are changed in myClassInstance2");
@@ -2593,14 +2619,14 @@ namespace StaticExample
             // it for both
             myClass1.SetStaticProperty(3);
             Console.WriteLine("values of the two instances of MyClass are now\r\n");
-            Console.WriteLine("myClass1 InstanceProperty: {0}", myClass1.GetInstanceProperty());
-            Console.WriteLine("myClass2 InstanceProperty: {0}", myClass2.GetInstanceProperty());
-            Console.WriteLine("myClass1 StaticProperty: {0}", myClass1.GetStaticProperty());
-            Console.WriteLine("myClass2 StaticProperty: {0}", myClass2.GetStaticProperty());
+            Console.WriteLine($"myClass1 InstanceProperty: {myClass1.GetInstanceProperty()}");
+            Console.WriteLine($"myClass2 InstanceProperty: {myClass2.GetInstanceProperty()}");
+            Console.WriteLine($"myClass1 StaticProperty: {myClass1.GetStaticProperty()}");
+            Console.WriteLine($"myClass2 StaticProperty: {myClass2.GetStaticProperty()}");
 
             // The MyMathFunctions.Square method can be called
             // without creating an instance of MyMathFunctions
-            Console.WriteLine("\r\nThe square of {0} is {1}", 3, MyMathFunctions.SquareNumber(3));
+            Console.WriteLine($"\r\nThe square of 3 is {MyMathFunctions.SquareNumber(3)}");
 
             // A static class cannot be instantiated
             // Uncommenting the following results in the error
@@ -2686,11 +2712,10 @@ namespace StructExample
                 Depth = 6
             };
 
-            Console.WriteLine("Box1 Width: {0}, Height: {1}, Length: {2}, Volume: {3}", box1.Width, box1.Height, box1.Depth, box1.GetVolume());
-            Console.WriteLine("Box2 Width: {0}, Height: {1}, Length: {2}, Volume: {3}", box2.Width, box2.Height, box2.Depth, box2.GetVolume());
-            Console.WriteLine("Box3 Width: {0}, Height: {1}, Length: {2}, Volume: {3}", box3.Width, box3.Height, box3.Depth, box3.GetVolume());
-            Console.WriteLine("Box4 Width: {0}, Height: {1}, Length: {2}, Volume: {3}", box4.Width, box4.Height, box4.Depth, box4.GetVolume());
-
+            Console.WriteLine($"Box1 Width: { box1.Width}, Height: {box1.Height}, Length: {box1.Depth}, Volume: {box1.GetVolume()}");
+            Console.WriteLine($"Box2 Width: { box2.Width}, Height: {box2.Height}, Length: {box2.Depth}, Volume: {box2.GetVolume()}");
+            Console.WriteLine($"Box3 Width: { box3.Width}, Height: {box3.Height}, Length: {box3.Depth}, Volume: {box3.GetVolume()}");
+            Console.WriteLine($"Box4 Width: { box4.Width}, Height: {box4.Height}, Length: {box4.Depth}, Volume: {box4.GetVolume()}");
 
             // If all instance fields are accessible a struct can
             // be instantiated without the new keyword but instance fields
@@ -2705,7 +2730,7 @@ namespace StructExample
             box5.Height = 6;
             box5.Depth = 7;
 
-            Console.WriteLine("Box4 Width: {0}, Height: {1}, Length: {2}, Volume: {3}", box5.Width, box5.Height, box5.Depth, box5.GetVolume());
+            Console.WriteLine($"Box5 Width: { box5.Width}, Height: {box5.Height}, Length: {box5.Depth}, Volume: {box5.GetVolume()}");
 
             // Although we can't create a parameterless constructor
             // the compiler always creates one that assigns all instance
@@ -2713,7 +2738,7 @@ namespace StructExample
             // have all fields set to 0 resulting in a volume of 0
             Box box6 = new();
 
-            Console.WriteLine("Box6 Width: {0}, Height: {1}, Length: {2}, Volume: {3}", box6.Width, box6.Height, box6.Depth, box6.GetVolume());
+            Console.WriteLine($"Box6 Width: { box6.Width}, Height: {box6.Height}, Length: {box6.Depth}, Volume: {box6.GetVolume()}");
         }
     }
 
@@ -2899,8 +2924,8 @@ namespace ClassInheritanceExample
                 Meowing = "Loudly"
             };
 
-            Console.WriteLine("The bird has {0} legs and is flying {1}", bird.Legs, bird.Flying);
-            Console.WriteLine("The cat has {0} legs and is meowing {1}", cat.Legs, cat.Meowing);
+            Console.WriteLine($"The bird has {bird.Legs} legs and is flying {bird.Flying}");
+            Console.WriteLine($"The cat has {cat.Legs} legs and is meowing {cat.Meowing}");
 
             // Uncommenting the following results in the error
             // 'Animal.mLegs' is inaccessible due to its protection level
@@ -3282,13 +3307,13 @@ namespace ClassInheritanceExample
             ItemsPriceCalculator itemsPriceCalculator = new();
             itemsPriceCalculator.Quantity = 6;
             itemsPriceCalculator.ItemPrice = 3.10;
-            Console.WriteLine("The price of the items is {0}", itemsPriceCalculator.CalculateAmount().ToString("C", CultureInfo.CurrentCulture));
+            Console.WriteLine($"The price of the items is {itemsPriceCalculator.CalculateAmount().ToString("C", CultureInfo.CurrentCulture)}");
 
             HoursPriceCalculator hoursPriceCalculator = new();
             hoursPriceCalculator.StartTime = new DateTime(2021, 11, 4, 9, 0, 0);
             hoursPriceCalculator.FinishTime = new DateTime(2021, 11, 4, 17, 0, 0);
             hoursPriceCalculator.HourlyRate = 30;
-            Console.WriteLine("The price of the hours is {0}", hoursPriceCalculator.CalculateAmount().ToString("C", CultureInfo.CurrentCulture));
+            Console.WriteLine($"The price of the hours is {hoursPriceCalculator.CalculateAmount().ToString("C", CultureInfo.CurrentCulture)}");
 
             // Uncommenting the following results in the error
             // Cannot create an instance of the abstract type or instance 'PriceCalculator'
@@ -3361,7 +3386,7 @@ namespace ClassInheritanceExample
                 LastName = "Jones"
             };
 
-            Console.WriteLine("This person is {0}", person.ToString());
+            Console.WriteLine($"This person is {person.ToString()}");
         }
     }
 }
