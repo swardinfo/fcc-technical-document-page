@@ -437,7 +437,7 @@ using System;
 
             <!-- Completed -->
             <!-- SECTION Comments and Task Lists - Section -->
-            <!-- NOTE Ignore todo's in this section -->
+            <!-- NOTE Ignore todos in this section -->
             <section class="main-section" id="Comments_and_Task_Lists">
                 <header><h2>Comments and Task Lists</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
@@ -2167,13 +2167,12 @@ enum Month: long { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec }
 
                     <h3>Classes</h3>
 
-                    <p>The main way a C# developer will create an object is through the use of classes. A class
-                    is a reference type that can contain fields, properties, methods, indexers, events, constructors, finalizers and other nested types. Collectively
-                    these are called <b>class members</b>. Accessibility to classes from code outside of the assembly and to class members both from outside the
-                    assembly and from other objects within the assembly is controlled through the use of access modifier keywords. When no access modifier is
-                    applied the default access for a class is
-                    <code>internal</code> which means it can only be accessed from within the assembly. For class members the default access is <code>private</code>
-                    and only code within the same class can access them.</p>
+                    <p>The main way a C# developer will create an object is through the use of classes. A class is a reference type that is defined using the
+                        <code>class</code> keyword and can contain fields, properties, methods, indexers, events, constructors, finalizers and other nested types.
+                        Collectively these are called <b>class members</b>. Accessibility to classes from code outside of the assembly and to class members both from
+                        outside the assembly and from other objects within the assembly is controlled through the use of access modifier keywords. When no access modifier
+                        is applied the default access for a class is <code>internal</code> which means it can only be accessed from within the assembly. For class members
+                        the default access is <code>private</code> and only code within the same class can access them.</p>
 
                     <h4>Fields</h4>
 
@@ -2630,7 +2629,6 @@ namespace StaticExample
 // myClass2 StaticProperty: 3
     </code></pre>
 
-
                     <h3>Structures (struct)</h3>
 
                     <p>A <b>structure</b> usually referred to by its keyword <code>struct</code> is similar to a class with the following main differences.</p>
@@ -3009,6 +3007,72 @@ namespace ClassInheritanceExample
 // Log message has occurred
 </code></pre>
 
+                    <p>In the previous example each derived class was created and the methods called separately. Ideally it would have been better to do this
+                        all through a loop. We can do this as polymorphism allows us to substitute a parent for a child then when the parent's method is called at runtime
+                        it will be substituted for the child's.
+                    </p>
+
+                    <p>In this example example a base class <code>LogAnalyser</code> is defined that has a virtual <code>DisplayMessage</code> method. Derived class
+                        <code>LogAnalyser1</code> inherits from <code>LogAnalyser</code> and <code>LogAnalyser2</code> inherits from <code>LogAnalyser1</code> with each
+                        overriding <code>DisplayMessage</code> with its own implementation. In the <code>Program</code> class a list of type <code>LogAnalyser</code> is
+                        created that adds an instance of the base and the two derived classes. A foreach loop then loops through the list using a
+                        <code>LogAnalyser</code> type iterator calling the <code>DisplayMessage</code> method which at runtime is replaced by the overridden version of
+                        each item.</p>
+
+<pre><code>using System;
+using System.Collections.Generic;
+
+namespace ClassInheritanceExample
+{
+    public class LogAnalyser
+    {
+        public virtual void DisplayMessage()
+        {
+            Console.WriteLine("Log message has occurred");
+        }
+    }
+
+    public class LogAnalyser1 : LogAnalyser
+    {
+        public override void DisplayMessage()
+        {
+            Console.WriteLine("Log message type 1 has occurred");
+        }
+    }
+
+    public class LogAnalyser2 : LogAnalyser1
+    {
+        public override void DisplayMessage()
+        {
+            Console.WriteLine("Log message type 2 has occurred");
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List&gt;LogAnalyser&lt; logAnalysers = new()
+            {
+                new LogAnalyser(),
+                new LogAnalyser1(),
+                new LogAnalyser2(),
+            };
+
+            foreach(LogAnalyser logAnalyser in logAnalysers)
+            {
+                logAnalyser.DisplayMessage();
+            }
+        }
+    }
+}
+
+// The example writes the following to the console
+// Log message has occurred
+// Log message type 1 has occurred
+// Log message type 2 has occurred
+</code></pre>
+
                     <p>To prevent a class from being inherited it can be marked with the <code>sealed</code> keyword. A member that is being overridden in a class can
                         also be marked as <code>sealed</code> which prevents it from being overridden in any further derived classes.</p>
 
@@ -3081,90 +3145,79 @@ namespace ClassInheritanceExample
 
 namespace ClassInheritanceExample
 {
-public class BaseClass
-{
-string mField;
+    public class BaseClass
+    {
+        string mField;
 
-public BaseClass()
-{
-Console.WriteLine("Base class constructor");
-mField = "Base class";
+        public BaseClass()
+        {
+            Console.WriteLine("Base class constructor");
+            mField = "Base class";
+        }
+
+        public BaseClass(string value)
+        {
+            mField = "Base Class " + value;
+        }
+
+        public virtual string GetFieldValue()
+        {
+            return mField;
+        }
+    }
+
+    public class DerivedClass : BaseClass
+    {
+        string mField;
+
+        public DerivedClass()
+        {
+            Console.WriteLine("Derived class constructor");
+            mField = "Derived class";
+        }
+
+        public DerivedClass(string value) : base(value)
+        {
+            mField = "Derived Class " + value;
+        }
+
+        public override string GetFieldValue()
+        {
+            return mField;
+        }
+
+        public string CallBaseMethod()
+        {
+            return base.GetFieldValue();
+        }
+    }
+
+    public class BaseClass2
+    {
+        public BaseClass2(int value) { }
+    }
+
+    // Uncommenting the following results in the error
+    // There is no argument given that corresponds to the
+    // required formal parameter 'value' of 'BaseClass2.BaseClass2(int)'
+    //public class DerivedClass2 : BaseClass2 { }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            DerivedClass instance1 = new();
+            Console.WriteLine();
+            Console.WriteLine(instance1.GetFieldValue());
+            Console.WriteLine(instance1.CallBaseMethod());
+
+            Console.WriteLine();
+            DerivedClass instance2 = new("instance 2");
+            Console.WriteLine(instance2.GetFieldValue());
+            Console.WriteLine(instance2.CallBaseMethod());
+        }
+    }
 }
-
-public BaseClass(string value)
-{
-mField = "Base Class " + value;
-}
-
-public virtual string GetFieldValue()
-{
-return mField;
-}
-}
-
-public class DerivedClass : BaseClass
-{
-string mField;
-
-public DerivedClass()
-{
-Console.WriteLine("Derived class constructor");
-mField = "Derived class";
-}
-
-public DerivedClass(string value) : base(value)
-{
-mField = "Derived Class " + value;
-}
-
-public override string GetFieldValue()
-{
-return mField;
-}
-
-public string CallBaseMethod()
-{
-return base.GetFieldValue();
-}
-}
-
-public class BaseClass2
-{
-public BaseClass2(int value) { }
-}
-
-// Uncommenting the following results in the error
-// There is no argument given that corresponds to the
-// required formal parameter 'value' of 'BaseClass2.BaseClass2(int)'
-//public class DerivedClass2 : BaseClass2 { }
-
-class Program
-{
-static void Main(string[] args)
-{
-DerivedClass instance1 = new();
-Console.WriteLine();
-Console.WriteLine(instance1.GetFieldValue());
-Console.WriteLine(instance1.CallBaseMethod());
-
-Console.WriteLine();
-DerivedClass instance2 = new("instance 2");
-Console.WriteLine(instance2.GetFieldValue());
-Console.WriteLine(instance2.CallBaseMethod());
-
-}
-}
-}
-
-// The example writes the following to the console
-// Base class constructor
-// Derived class constructor
-
-// Derived class
-// Base class
-
-// Derived Class instance 2
-// Base Class instance 2
 </code></pre>
 
                     <p> An <b>abstract</b> class is used when it makes sense to define a common base class but where the implementation is specific to each derived class.
@@ -3250,6 +3303,9 @@ namespace ClassInheritanceExample
 }
 </code></pre>
 
+                    <p>In addition to overriding a base class member that is marked virtual or abstract, a member with the same name can can be hidden in a derived class through the use of the <code>new</code>
+                        keyword. The new member does have to be the same type, have the same return type or signature of the member it hides. In the following example  </p>
+
                     <p>All classes in C#, even the ones we write, are ultimately derived from the <b>object</b> class. This means that even if we don't explicitly use the
                         syntax to inherit from <code>object</code> our class will still contain the following overridable members</p>
 
@@ -3260,7 +3316,7 @@ namespace ClassInheritanceExample
                         <li>ToString()</li>
                     </ul>
 
-                    <p>the following non-overridable members (note: MemeberwiseClone is protected)</p>
+                    <p>the following non-overridable members</p>
 
                     <ul>
                         <li>GetType()</li>
@@ -3274,7 +3330,45 @@ namespace ClassInheritanceExample
                         <li>ReferenceEquals(Object, Object)</li>
                     </ul>
 
+                    <p>The default implementation of <code>ToString()</code> is to return the result of <code>GetType()</code> which is the fully qualified type name. As
+                        a result it is not uncommon to override <code>ToString()</code> with something more meaningful. In the following example the class
+                        <code>Person</code> takes in first and last name arguments in its constructor and <code>ToString()</code> is overridden to combine the
+                        first and last names then return the full name which is written to the console.</p>
 
+<pre><code>using System;
+
+namespace ClassInheritanceExample
+{
+    public class Person
+    {
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        public override string ToString()
+        {
+            return FirstName + " " + LastName;
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Person person = new()
+            {
+                FirstName = "Denise",
+                LastName = "Jones"
+            };
+
+            Console.WriteLine("This person is {0}", person.ToString());
+        }
+    }
+}
+
+// The example writes the following to the console
+// This person is Denise Jones
+</code></pre>
 
                     <h3>Interfaces</h3>
 
@@ -3287,9 +3381,126 @@ namespace ClassInheritanceExample
                         how to make their keyboards. Providing that the specifications are met the keyboard manufacturer is free to design it as they like. An interface
                         works on a similar basis by defining which members a class or struct will have without saying how they are to be implemented.</p>
 
-                    <p></p>
+                    <p>An interface is created using the <code>interface</code> keyword. The following signature only members can be declared within an interface.</p>
 
-                    <p></p>
+                    <ul>
+                        <li>Methods</li>
+                        <li>Properties</li>
+                        <li>Indexers</li>
+                        <li>Events</li>
+                    </ul>
+
+                    <p>Members that are not implemented are public by default and access modifiers cannot be applied to them. Additionally interfaces can contain members
+                        that are implemented which is called default implementation. These are</p>
+
+                    <ul>
+                        <li>Constants</li>
+                        <li>Operators</li>
+                        <li>Static constructors</li>
+                        <li>Nested types</li>
+                        <li>Static fields</li>
+                        <li>Static Methods</li>
+                        <li>Static Properties</li>
+                        <li>Static Indexers</li>
+                        <li>Static Events</li>
+                        <li>Member declarations using explicit interface implementation syntax</li>
+                        <li>Explicit access modifiers</li>
+                    </ul>
+
+                    <p>An interface cannot contain an instance field or instance auto-property as an interface cannot have an instance state. Note, whilst the declaration
+                        of a property in an interface is written with the same syntax as an instance <span class="nowrap">auto-property,</span> it differs in that the
+                        compiler does not create an instance backing field. An interface can inherit from and be inherited by another interface. Implemented members in an
+                        interface can be overridden. When this is done explicit interface implementation syntax must be used.</p>
+
+                    <p>Whereas a class can only inherit a single base class it can implement multiple interfaces. This is done in the same manner, i.e. the class name is
+                        followed by a colon then the name of all interfaces in a comma separated list. If a class also inherits a base class its name must come first in
+                        the list. A class can also explicitly implement a member of an interface. Explicitly implemented members and default implemented members in an
+                        interface can only be accessed through an instance of the interface.</p>
+
+                    <p>Whilst on the surface an interface may seem to provide much of the same function as an abstract class the important distinction is that a class can
+                        contain a state and thus can represent a thing where as an interface cannot and is used to represent a behavior.</p>
+
+                    <p>In the following example the <code>Car</code> class inherits the base class <code>Vehicle</code> and overrides the <code>ApplyBrakes</code>
+                        method. The <code>Dog</code> class has a method <code>Speak</code>. Whilst both are quite different objects both are able to move and make a sound
+                        and so implement the <code>IMotion</code> and <code>ISound</code> interfaces which respectively include the <code>Move</code> method and
+                        <code>Sound</code> property. As can be seen whilst the base class <code>Vehicle</code> must come first in the declaration list, the order of the
+                        interface declaration is irrelevant.</p>
+
+<pre><code>using System;
+
+namespace ClassInheritanceExample
+{
+    public interface IMotion
+    {
+        void Move();
+    }
+
+    public interface ISound
+    {
+        string Sound { get; set; }
+    }
+
+    public abstract class Vehicle
+    {
+        public abstract void ApplyBrakes();
+    }
+
+    public class Car : Vehicle, ISound, IMotion
+    {
+        public string Sound { get; set; }
+
+        public void Move()
+        {
+            Console.WriteLine("Car accelerates");
+        }
+
+        public override void ApplyBrakes()
+        {
+            Console.WriteLine(Sound);
+            Console.WriteLine("Car slows");
+        }
+    }
+
+    public class Dog : IMotion, ISound
+    {
+        public string Sound { get; set; }
+
+        public void Move()
+        {
+            Console.WriteLine("Dog chases car");
+        }
+
+        public void Speak()
+        {
+            Console.WriteLine(Sound);
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Car car = new();
+            car.Sound = "Brakes squeal";
+
+            Dog dog = new();
+            dog.Sound = "Dog barks";
+
+            car.Move();
+            dog.Move();
+            car.ApplyBrakes();
+            dog.Speak();
+        }
+    }
+}
+
+// The example writes the following to the console
+// Car accelerates
+// Car slows
+// Dog chases car
+// Dog barks at car
+</code></pre>
+
                 </article>
             </section>
             <!-- !SECTION -->
@@ -3571,7 +3782,6 @@ code
             </section>
             <!-- !SECTION -->
 
-            <!-- Completed -->
             <!-- SECTION Object-oriented Programming -->
             <section class="main-section" id="Object-oriented_Programming">
                 <header><h2>Object-oriented Programming</h2></header>
@@ -3644,7 +3854,7 @@ code
 
                     <h3>Abstraction</h3>
 
-                    <p>Abstraction is the process of determining and extracting from a complex problem just the information we require tyo define a solution. For example
+                    <p>Abstraction is the process of determining and extracting from a complex problem just the information we require to define a solution. For example
                         what does it take to eat food. Here we need to ask an expert in this case lets consider what a child would say. They'd probably say something
                         like, you  put food in your mouth chew it then swallow. That's it. Now of course the human body is an extremely complex organism, to actually
                         eat food the brain has to send signals to the jaw muscles to chew the food, then to the tongue to swallow it. From there it goes into the stomach
@@ -3664,7 +3874,7 @@ code
                         error.</p>
 
                     <h3>Polymorphism</h3>
-
+<!-- TODO Rewrite -->
                     <p>Polymorphism is the ability to substitute any child object for its parent and the members they contain. Using the inheritance example, we want to
                         make sure that we can steer our vehicle so we provide a steer method. This presents a problem as we can't be sure whether the consumer is going
                         to buy a car or a motorbike. The car has a steering wheel property that has to be set whereas the motor bike has handle bars. Polymorphism allows
