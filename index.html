@@ -3678,23 +3678,40 @@ namespace ClassInheritanceExample
                     <p>Lorem</p>
 
 
-<pre><code>// Example of an an anonymous function
-    // with an expression body
-    // prints 27 to the console
-    Func&lt;int, int&gt; volume = x =&gt; x * x * x;
-    Console.WriteLine(volume(3));
+<pre><code>using System;
 
-    // Example of an an anonymous function
-    // with a statement block
-    // prints 50.2654824 to the console
-    Action&lt;int&gt; printArea = r =&gt;
+namespace ArrayCreationExample
+{
+    class Program
     {
-        const double pi = 3.14159265;
-        var area = pi * r * r;
-        Console.WriteLine(area);
-    };
-    printArea(4);
-    </code></pre>
+        static void Main(string[] args)
+        {
+            // Example of an anonymous function
+            // with an expression body
+            // prints 27 to the console
+            Func &lt;int, int&gt; volume = x =&gt; x* x *x;
+
+            Console.WriteLine($"volume = {volume(3)}");
+
+            // Example of an anonymous function
+            // with a statement block
+            // prints 50.2654824 to the console
+            Action &lt;int&gt; printArea = r =&gt;
+            {
+                const double pi = 3.14159265;
+                var area = pi * r * r;
+                Console.WriteLine($"area = {area}");
+            };
+
+            printArea(4);
+        }
+    }
+}
+
+// The example prints the following to the console
+// volume = 27
+// area = 50.2654824
+</code></pre>
 
                 </article>
             </section>
