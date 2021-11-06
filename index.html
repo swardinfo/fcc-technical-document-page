@@ -442,31 +442,38 @@ using System;
                     <p>Following are some examples of comments.</p>
 
 
-<pre><code>static void Main(string[] args)
+<pre><code>using System;
+
+namespace CommentExamples
 {
-    <span class="comment">// This is a single line comment</span>
-    int i = 1; <span class="comment">// This starts after the statement</span>
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // This is a single line comment
+            int i = 1; // This starts after the statement
 
-    <span class="comment">/*</span>
-    <span class="comment">this is</span>
-        <span class="comment">a multiline comment</span>
-    <span class="comment">*/</span>
+            /*
+                this is
+                    a multi-line comment
+                */
+            // this is a better way
+            // to do a multi-line comment
 
-    <span class="comment">// this is a better way</span>
-    <span class="comment">// to do a multiline comment</span>
+            // Program execution can be temporarily changed in
+            // order to debug and determine where a fault may lie.
+            // The following statement will be ignored when the program runs
+            // suspectedError++;
 
-    <span class="comment">// Program execution can be temporarily changed in</span>
-    <span class="comment">// order to debug and determine where a fault may lie.</span>
-    <span class="comment">// The following statement will be ignored when the program runs</span>
-    <span class="comment">// suspectedError++;</span>
+            // See the description in the main text on how to comment out
+            // multiple lines of code such as the following 3 lines
+            Console.WriteLine("Hello World!");
+            Console.WriteLine("Hello World!");
+            Console.WriteLine("Hello World!");
 
-    <span class="comment">// See the description in the main text on how to comment out</span>
-    <span class="comment">// multiple lines of code such as the following 3 lines</span>
-    Console.WriteLine("Hello World!");
-    Console.WriteLine("Hello World!");
-    Console.WriteLine("Hello World!");
-
-    <span class="comment">// TODO: This comment will be added to the tasks list</span>
+            // TODO: This comment will be added to the tasks list
+        }
+    }
 }
 </code></pre>
                     <p>Comments can be in two forms. Single line comments start with <code>//</code> and extend to the end of the line.
@@ -828,8 +835,14 @@ using System;
                         <p>When the program is run the values 1, 2 and 4 written to the console.</p>
 
                         <p id="Listing_7_3" class="listing">Listing 7.3 &nbsp; Casting and conversions</p>
-<pre><code>public void Method()
-{
+<pre><code>using System;
+
+    namespace CastingAndConversionExamples
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
                 // This casts the double type 3.9 to an int with a value of 3
                 // A cast to an int truncates the value so 3.9 becomes 3
 
@@ -876,19 +889,19 @@ using System;
 
                 i = (int)Math.Round(3.5, MidpointRounding.ToZero);
                 Console.WriteLine(i);
+            }
+        }
+    }
 
-                // The above statements will produce the following
-                // on the console when this is run
-
-                // 3
-                // 3.9
-                // 4
-                // 4
-                // 4
-                // 4
-                // 4
-                // 3
-}
+    // The example writes the following to the console
+    // 3
+    // 3.9
+    // 4
+    // 4
+    // 4
+    // 4
+    // 4
+    // 3
 </code></pre>
 
 
@@ -896,14 +909,23 @@ using System;
                     <p>To perform an explicit conversion from between types, use the cast expression <code>(T)E</code>. If no conversion
                         exists from <b>E</b> to <b>T</b> a compile error will occur. At runtime a conversion may also not occur and
                         throw an exception.</p>
-<pre><code>// conversion from double to int results in truncation
-int number = (int) 7 / 2; // number has value of 3
+<pre><code>using System;
 
-// compile error: cannot convert type 'int' to 'string'
-string s = (string)number;
+namespace CastingAndConversionExamples
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // conversion from double to int results in truncation
+            int number = (int)7 / 2; // number has value of 3
 
-
-
+            // Uncommenting the following results in the error
+            // cannot convert type 'int' to 'string'
+            // string s = (string)number;
+        }
+    }
+}
 </code></pre>
 
                     <p>To summarize</p>
@@ -961,7 +983,7 @@ string s = (string)number;
 
 <pre><code>using System;
 
-namespace IndexExample
+namespace StringExamples
 {
     class Program
     {
@@ -993,6 +1015,12 @@ its now {now:HH:mm}");
             //// Compile error: Can't split regular string across two lines
             //var k = "Hello
             //            world";
+
+            // Create a variable that is set to Environment.NewLine
+            // and use it in an interpolated string to write a
+            // blank line before the next line of text
+            var nl = Environment.NewLine;
+            Console.WriteLine($"{nl}This sentence is written after a blank line");
         }
     }
 }
@@ -1013,7 +1041,9 @@ its now {now:HH:mm}");
 // The number is 123
 // Opening brace { closing brace }
 // Today is Saturday
-// its now 17:46
+// its now 19:32
+
+// This sentence is written after a blank line
 </code></pre>
                 </article>
             </section>
@@ -1355,38 +1385,60 @@ b ??= 2;
                     <h3>if and else statements</h3>
 
                     <p>The if and else statements allow the program execution to branch in one of two directions based on a condition.</p>
-<pre><code>static void Main(string[] args)
+<pre><code>using System;
+
+namespace IfElseExample
 {
-    int a = 1;
-    if (a == 1)
+    class Program
     {
-        var result = "a equals 1";
-    }
-    else
-    {
-        var result = "a does not equal 1";
+        static void Main(string[] args)
+        {
+            int a = 1;
+            if (a == 1)
+            {
+                Console.WriteLine("a equals 1");
+            }
+            else
+            {
+                Console.WriteLine("a does not equal 1");
+            }
+        }
     }
 }
+
+// The example prints the following to the console
+// a equals 1
 </code></pre>
 
                     <h3>switch statement</h3>
 
                     <p>The switch statement allows for program execution to branch in one of multiple directions based on a condition.</p>
-<pre><code>static void HowManyIsA(int a)
+<pre><code>using System;
+
+namespace SwitchExample
 {
-    switch (a)
+    class Program
     {
-        case 0:
-            Console.WriteLine("none");
-            break;
-        case 1:
-            Console.WriteLine("one");
-            break;
-        default:
-            Console.WriteLine("many");
-            break;
+        static void Main(string[] args)
+        {
+            int a = 5;
+            switch (a)
+            {
+                case 0:
+                    Console.WriteLine("none");
+                    break;
+                case 1:
+                    Console.WriteLine("one");
+                    break;
+                default:
+                    Console.WriteLine("many");
+                    break;
+            }
+        }
     }
 }
+// The example prints the following to the console
+// many
 </code></pre>
                 </article>
             </section>
@@ -1405,65 +1457,101 @@ b ??= 2;
 
                     <p>The while statement iterates until a condition is met. If the condition already exists, program execution won't enter
                         the <b>while</b> loop.</p>
-<pre><code>static void Main(string[] args)
+<pre><code>using System;
+
+namespace WhileLoopExample
 {
-    int i = 0;
-    while (i &lt; 10)
+    class Program
     {
-        Console.Write(i);
-        i++;
+        static void Main(string[] args)
+        {
+            int i = 0;
+            while (i &lt; 10)
+            {
+                Console.Write(i);
+                i++;
+            }
+        }
     }
-    <span class="comment">// Result:</span>
-    <span class="comment">// 0123456789</span>
 }
+
+// The example prints the following to the console
+// 0123456789
 </code></pre>
 
                     <h3>do statement</h3>
 
                     <p>The do statement iterates until a condition is met. At least one iteration of the <b>do</b> loop is guaranteed to
                         be executed before testing for the condition.</p>
-<pre><code>static void Main(string[] args)
+<pre><code>using System;
+
+namespace DoWhileLoopExample
 {
-    do
+    class Program
     {
-        s = Console.Readline();
-        Console.WriteLine(s);
-    } while (!string.IsNullOrEmpty(s));
-    <span class="comment">// Repeats text until enter is pressed after not writing text</span>
+        static void Main(string[] args)
+        {
+            string s = "";
+            do
+            {
+                s = Console.ReadLine();
+                Console.WriteLine(s);
+            } while (!string.IsNullOrEmpty(s));
+        }
+    }
 }
+
+// Repeats text until enter is pressed after not writing text
 </code></pre>
 
                     <h3>for statement</h3>
 
                     <p>The for statement iterates a set number of times based on an exit condition.</p>
-<pre><code>static void Main(string[] args)
-{
-    for (int i = 0; i &lt; 10; i ++)
+<pre><code>using System;
+
+    namespace WhileLoopExample
     {
-        <span class="comment">// for loop moves to next iteration if i is 5</span>
-        if (i == 5)
-            continue;
-        Console.Write(i); <span class="comment">// does not write 5</span>
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                for (int i = 0; i &lt; 10; i++)
+                {
+                    // for loop skips current iteration if i is 5
+                    if (i == 5)
+                        continue;
+                    Console.Write(i); // does not write 5
+                }
+            }
+        }
     }
-    <span class="comment">// Result:</span>
-    <span class="comment">// 012346789</span>
-}
+
+    // The example prints the following to the console
+    // 012346789
 </code></pre>
 
                     <h3>foreach statement</h3>
 
                     <p>The foreach statement iterates through all members of a collection.</p>
-<pre><code>static void Main(string[] args)
-{
-    string s = "Hello world!";
-    foreach (char c in s)
-    {
-        Console.Write(c + " ");
-    }
-    <span class="comment">// Result:</span>
-    <span class="comment">// H e l l o  w o r l d !</span>
+<pre><code>using System;
 
-}
+    namespace WhileLoopExample
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                string s = "Hello world!";
+                foreach (char c in s)
+                {
+                    Console.Write(c + " ");
+                }
+            }
+        }
+    }
+
+    // The example prints the following to the console
+    // H e l l o   w o r l d !
 </code></pre>
                 </article>
             </section>
@@ -1494,339 +1582,360 @@ b ??= 2;
                         array stores other arrays the default type is always null. Following are examples of how arrays can be initialized.
                     </p>
 
-<pre><code>static void Main(string[] args)
+<pre><code>using System;
+
+namespace ArrayCreationExample
+{
+    class Program
     {
+        static void Main(string[] args)
+        {
 
-        <span class="comment">// Declare an array of type 'string' with the name stringArray</span>
-        <span class="comment">// stringArray will be null</span>
-        string[] stringArray;
+            // Declare an array of type 'string' with the name stringArray
+            // stringArray will be null
+            string[] stringArray;
 
-        <span class="comment">// Declare an array of type 'int' with the name arr1</span>
-        <span class="comment">// arr1 will be null</span>
-        int[] arr1;
+            // Declare an array of type 'int' with the name arr1
+            // arr1 will be null
+            int[] arr1;
 
-        <span class="comment">// Create a new array arr1 with 5 elements</span>
-        <span class="comment">// Each element will have the default value 0</span>
-        arr1 = new int[5];
+            // Create a new array arr1 with 5 elements
+            // Each element will have the default value 0
+            arr1 = new int[5];
 
-        <span class="comment">// Create a new array arr1 of length 6</span>
-        <span class="comment">// Each element will have the default value 0</span>
-        <span class="comment">// The previous array with 5 elements and their</span>
-        <span class="comment">// values are deleted from memory</span>
-        arr1 = new int[6];
+            // Create a new array arr1 of length 6
+            // Each element will have the default value 0
+            // The previous array with 5 elements and their
+            // values are deleted from memory
+            arr1 = new int[6];
 
-        <span class="comment">// Declare and create an array of length 7.</span>
-        <span class="comment">// Each element will have the default value of 0</span>
-        int[] arr2 = new int[7];
+            // Declare and create an array of length 7.
+            // Each element will have the default value of 0
+            int[] arr2 = new int[7];
 
-        <span class="comment">// Declare, create and initialize an array of length 2.</span>
-        <span class="comment">// Elements at indexes 0 and 1 will have the values 3 and 4 respectively</span>
-        int[] arr3 = new int[2] { 3, 4 };
+            // Declare, create and initialize an array of length 2.
+            // Elements at indexes 0 and 1 will have the values 3 and 4 respectively
+            int[] arr3 = new int[2] { 3, 4 };
 
-        <span class="comment">// Another syntax to declare, create and initialize an array of length 2.</span>
-        <span class="comment">// Elements at indexes 0 and 1 will have the values 8 and 9 respectively</span>
-        int[] arr4 = new[] { 8, 9 };
+            // Another syntax to declare, create and initialize an array of length 2.
+            // Elements at indexes 0 and 1 will have the values 8 and 9 respectively
+            int[] arr4 = new[] { 8, 9 };
 
-        <span class="comment">// Yet another syntax to declare, create and initialize an array of length 2.</span>
-        <span class="comment">// Elements at indexes 0 and 1 will have the values 10 and 11 respectively</span>
-        int[] arr5 = { 10, 11 };
+            // Yet another syntax to declare, create and initialize an array of length 2.
+            // Elements at indexes 0 and 1 will have the values 10 and 11 respectively
+            int[] arr5 = { 10, 11 };
 
-        <span class="comment">// var can be used in place of int[] in the syntax of</span>
-        <span class="comment">// arr2, arr3 and arr4 but not arr5</span>
+            // var can be used in place of int[] in the syntax of
+            // arr2, arr3 and arr4 but not arr5
 
-        <span class="comment">// Declare and create an array of length 7.</span>
-        <span class="comment">// Each element will have the default value of 0</span>
-        var arr6 = new int[7];
+            // Declare and create an array of length 7.
+            // Each element will have the default value of 0
+            var arr6 = new int[7];
 
-        <span class="comment">// Declare, create and initialize an array of length 2.</span>
-        <span class="comment">// Elements at indexes 0 and 1 will have the values 3 and 4 respectively</span>
-        var arr7 = new int[2] { 3, 4 };
+            // Declare, create and initialize an array of length 2.
+            // Elements at indexes 0 and 1 will have the values 3 and 4 respectively
+            var arr7 = new int[2] { 3, 4 };
 
-        <span class="comment">// Another syntax to declare, create and initialize an array of length 2.</span>
-        <span class="comment">// Elements at indexes 0 and 1 will have the values 8 and 9 respectively</span>
-        var arr8 = new[] { 8, 9 };
+            // Another syntax to declare, create and initialize an array of length 2.
+            // Elements at indexes 0 and 1 will have the values 8 and 9 respectively
+            var arr8 = new[] { 8, 9 };
 
-        <span class="comment">// Cannot initialize an implicitly-typed variable with an array initializer</span>
-        var <u class="syntax">arr9 = { 11, 12 }</u>;
+            // Uncommenting the following results in the error
+            // Cannot initialize an implicitly-typed variable with an array initializer
+            //var arr9 = { 11, 12 };
 
-        <span class="comment">// Declare, create and initialize an array of type 'string'</span>
-        <span class="comment">// called with a length of 3</span>
-        string[] arr10 = new string[3] { "red", "green", "blue" };
+            // Declare, create and initialize an array of type 'string'
+            // called with a length of 3
+            string[] arr10 = new string[3] { "red", "green", "blue" };
 
-        <span class="comment">// Several ways to declare an empty array. The array will not be null</span>
-        <span class="comment">// but will not be able to store any elements. An empty array has</span>
-        <span class="comment">// very little uses and most can now replaced by newer data structure types</span>
-        int[] emptyArray1 = { };
-        int[] emptyArray2 = new int[] { };
-        int[] emptyArray3 = new int[0];
-        int[] emptyArray4 = Array.Empty &lt;int&gt; ();
+            // Several ways to declare an empty array. The array will not be null
+            // but will not be able to store any elements. An empty array has
+            // very little uses and most can now replaced by newer data structure types
+            int[] emptyArray1 = { };
+            int[] emptyArray2 = new int[] { };
+            int[] emptyArray3 = new int[0];
+            int[] emptyArray4 = Array.Empty &lt; int &gt; ();
 
-        <span class="comment">// Declare a multi-dimensional array with 2 dimensions</span>
-        int[,] arr11;
+            // Declare a multi-dimensional array with 2 dimensions
+            int[,] arr11;
 
-        <span class="comment">// Create a 2 dimensional array of length 4 in the first</span>
-        <span class="comment">// and length 2 in the second. You can think of this as having</span>
-        <span class="comment">// 4 rows and 2 columns</span>
-        arr11 = new int[4, 2];
+            // Create a 2 dimensional array of length 4 in the first
+            // and length 2 in the second. You can think of this as having
+            // 4 rows and 2 columns
+            arr11 = new int[4, 2];
 
-        <span class="comment">// Create and initialize a 2 dimensional array</span>
-        arr11 = new int[4, 2] { { 1, 2 }, { 3, 4 },
-                                { 5, 6 }, { 7, 8 } };
+            // Create and initialize a 2 dimensional array
+            arr11 = new int[4, 2] { { 1, 2 }, { 3, 4 },
+                                    { 5, 6 }, { 7, 8 } };
 
-        <span class="comment">// Create and initialize a 2 dimensional array</span>
-        <span class="comment">// Here the lengths are inferred from</span>
-        <span class="comment">// from the block inside the curly brackets</span>
-        arr11 = new int[,] { { 1, 2 }, { 3, 4 }, { 5, 6 }, { 7, 8 } };
+            // Create and initialize a 2 dimensional array
+            // Here the lengths are inferred from
+            // from the block inside the curly brackets
+            arr11 = new int[,] { { 1, 2 }, { 3, 4 }, { 5, 6 }, { 7, 8 } };
 
-        <span class="comment">// Declare, create and initialize a 2 dimensional string array</span>
-        string[,] arr12 = new string[3, 2] { { "red", "cyan" },
+            // Declare, create and initialize a 2 dimensional string array
+            string[,] arr12 = new string[3, 2] { { "red", "cyan" },
                                             { "green", "magenta" },
                                             { "blue", "yellow" } };
 
-        <span class="comment">// Declare, create and initialize a 3 dimensional 'int' array</span>
-        <span class="comment">// This will create an array with dimensions [2, 2, 3]</span>
-        int[,,] arr13 = new int[,,] { { { 1, 2, 3 }, { 4, 5, 6 } },
+            // Declare, create and initialize a 3 dimensional 'int' array
+            // This will create an array with dimensions [2, 2, 3]
+            int[,,] arr13 = new int[,,] { { { 1, 2, 3 }, { 4, 5, 6 } },
                                     { { 7, 8, 9 }, { 10, 11, 12 } } };
 
-        <span class="comment">// Declares and crates a jagged array. The first array</span>
-        <span class="comment">// is a single-dimensional array with 3 elements</span>
-        <span class="comment">// each of which is a 2 dimensional array</span>
-        int[][,] arr14 = new int[3][,];
+            // Declares and creates a jagged array. The first array
+            // is a single-dimensional array with 3 elements
+            // each of which is a 2 dimensional array
+            int[][,] arr14 = new int[3][,];
 
-        <span class="comment">// Each single-dimensional element of arr13 must also</span>
-        <span class="comment">// be created before it can be used</span>
-        arr14[0] = new int[1, 2];
-        arr14[1] = new int[2, 3];
-        arr14[2] = new int[4, 5];
+            // Each single-dimensional element of arr13 must also
+            // be created before it can be used
+            arr14[0] = new int[1, 2];
+            arr14[1] = new int[2, 3];
+            arr14[2] = new int[4, 5];
 
-        <span class="comment">// An array within a jagged array can also be initialized</span>
-        arr14[1] = new int[2, 3] { { 1 , 2, 3 }, { 4, 5, 6 } };
+            // An array within a jagged array can also be initialized
+            arr14[1] = new int[2, 3] { { 1, 2, 3 }, { 4, 5, 6 } };
 
-        <span class="comment">// Yet another syntax for initializing a jagged array</span>
-        int[][] arr16 =
-        {
-            new int[] {1, 2, 3, 4},
-            new int[] {5, 6, 7},
-            new int[] {8, 9}
-        };
+            // Yet another syntax for initializing a jagged array
+            int[][] arr16 =
+            {
+                new int[] { 1, 2, 3, 4 },
+                new int[] { 5, 6, 7 },
+                new int[] { 8, 9 }
+            };
+        }
     }
+}
 </code></pre>
 
                     <h3>accessing arrays</h3>
                     <p>Arrays are normally zero index based so the elements in a dimension of length n will be accessed by index values of 0 through n-1.
                         Whilst it is possible to create an array that is not zero based its use is very uncommon and is beyond the scope of this document.</p>
 
-<pre><code>static void Main(string[] args)
+<pre><code>using System;
+
+namespace ArrayCreationExample
+{
+    class Program
     {
-        // Each element in array is accessed using an 'int' type
-        // index which is zero based. For an array of length 3
-        // the index values for the elements are 0, 1 and 2.
-        // To obtain and element specify the index  within
-        // square brackets
-        string[] colors = { "red", "green", "blue" };
-        Console.WriteLine(colors[0]);
-        Console.WriteLine(colors[1]);
-        Console.WriteLine(colors[2]);
-        Console.WriteLine();
-
-        // To assign a value to an element use the assignment operator '='
-        colors[0] = "cyan";
-        colors[1] = "magenta";
-        colors[2] = "yellow";
-
-        // The total number of elements of an array can be found by using
-        // the Length property 'array.Length'.
-        Console.WriteLine($"colors has {colors.Length} elements\r\n");
-
-        // Attempting to access an array with an index value less than 0
-        // or more than the length - 1 will result in an
-        // IndexOutOfRange exception and the program will stop
-        // Uncomment the following line will demonstrate this error
-        // Console.WriteLine(colors[3]);
-
-        // As the array indexes
-        // are 0 based the elements can be accessed using a 'for' loop
-        for (int i = 0; i &lt; colors.Length; i++)
+        static void Main(string[] args)
         {
-            Console.WriteLine(colors[i]);
-        }
-        Console.WriteLine();
+            // Each element in array is accessed using an 'int' type
+            // index which is zero based. For an array of length 3
+            // the index values for the elements are 0, 1 and 2.
+            // To obtain and element specify the index  within
+            // square brackets
+            string[] colors = { "red", "green", "blue" };
+            Console.WriteLine(colors[0]);
+            Console.WriteLine(colors[1]);
+            Console.WriteLine(colors[2]);
+            Console.WriteLine();
 
-        // Additionally the elements can be accessed using a 'foreach' loop
-        foreach (var color in colors)
-        {
-            Console.WriteLine(color);
-        }
-        Console.WriteLine();
+            // To assign a value to an element use the assignment operator '='
+            colors[0] = "cyan";
+            colors[1] = "magenta";
+            colors[2] = "yellow";
 
-        // Accessing the elements within a multi-dimensional array
-        // is similar to a single-dimensional array using one
-        // 'int' type index for each dimension
-        int[,] numbers = new int[3, 2] { { 1, 2 }, { 3, 4 }, { 5, 6 } };
-        Console.WriteLine(numbers[0, 0]);
-        Console.WriteLine(numbers[0, 1]);
-        Console.WriteLine(numbers[1, 0]);
-        Console.WriteLine(numbers[1, 1]);
-        Console.WriteLine(numbers[2, 0]);
-        Console.WriteLine(numbers[2, 1]);
-        Console.WriteLine();
+            // The total number of elements of an array can be found by using
+            // the Length property 'array.Length'.
+            Console.WriteLine($"colors has {colors.Length} elements");
+            Console.WriteLine();
 
-        // Assigning values to elements in a multi-dimensional
-        // is also similar to a single-dimensional array using one
-        // 'int' type index for each dimension
-        numbers[0, 0] = 6;
-        numbers[0, 1] = 5;
-        numbers[1, 0] = 4;
-        numbers[1, 1] = 3;
-        numbers[2, 0] = 2;
-        numbers[2, 1] = 1;
+            // Attempting to access an array with an index value less than 0
+            // or more than the length - 1 will result in an
+            // IndexOutOfRange exception and the program will stop
+            // Uncomment the following line will demonstrate this error
+            // Console.WriteLine(colors[3]);
 
-        // Looping through a multi-dimensional array can be
-        // done using nested for loops, one for each dimension
-        // To obtain the length for a given dimension the
-        // GetLength() is used 'array.GetLength(dimensionIndex)'
-        for (int i = 0; i &lt; numbers.GetLength(0); i++)
-        {
-            for (int j = 0; j &lt; numbers.GetLength(1); j++)
+            // As the array indexes
+            // are 0 based the elements can be accessed using a 'for' loop
+            for (int i = 0; i &lt; colors.Length; i++)
             {
-                Console.WriteLine(numbers[i, j]);
-            }
-        }
-        Console.WriteLine();
-
-        // The foreach loop can also be used for multi-dimensional arrays
-        // however nested for loops allow you traverse an array in any
-        // order you require
-        foreach (var number in numbers)
-        {
-            Console.WriteLine(number);
-        }
-        Console.WriteLine();
-
-        // The number of dimensions of an array
-        // can be found using the Rank property 'array.Rank'.
-        Console.WriteLine($"numbers has {numbers.Rank} dimensions\r\n");
-        var total =  1;
-        for (int i = 0; i &lt; numbers.Rank; i++)
-        {
-            Console.WriteLine($"numbers[{i}] has {numbers.GetLength(i)} elements");
-            total *= numbers.GetLength(i);
-        }
-        Console.WriteLine($"Numbers has a total {total} of elements which is the same as Numbers.Length: {numbers.Length}\r\n");
-
-        // Accessing a jagged array is similar to a multi-dimensional
-        // This prints 7 to the console which is the third element [2]
-        // of the second array [1] of jaggedArray
-        int[][] jaggedArray =
-        {
-            new int[] {1, 2, 3, 4},
-            new int[] {5, 6, 7},
-            new int[] {8, 9}
-        };
-        Console.WriteLine($"{jaggedArray[1][2]}\r\n");
-
-        // Assigning values is also similar to multi-dimensional arrays
-        // This assigns 42 to the third element [2] of the second array [1]
-        // then prints it to the console
-        jaggedArray[1][2] = 42;
-        Console.WriteLine($"{jaggedArray[1][2]}\r\n");
-
-        // This demonstrates looping though a jagged array with for loops
-        for (int i = 0; i &lt; jaggedArray.Length; i++)
-        {
-            Console.Write("The values in array{i} are: ");
-            for (int j = 0; j &lt; jaggedArray[i].Length; j++)
-            {
-                Console.Write($" {jaggedArray[i][j]}");
+                Console.WriteLine(colors[i]);
             }
             Console.WriteLine();
-        }
-        Console.WriteLine();
 
-        // Looping through a jagged array with a foreach loop is a bit more
-        // complicated as a first loop is required to get the arrays and a
-        // second to get the actual values
-        foreach (var arr in jaggedArray)
-        {
-            foreach (var i in arr)
+            // Additionally the elements can be accessed using a 'foreach' loop
+            foreach (var color in colors)
             {
-                Console.WriteLine(i.ToString());
+                Console.WriteLine(color);
             }
+            Console.WriteLine();
+
+            // Accessing the elements within a multi-dimensional array
+            // is similar to a single-dimensional array using one
+            // 'int' type index for each dimension
+            int[,] numbers = new int[3, 2] { { 1, 2 }, { 3, 4 }, { 5, 6 } };
+            Console.WriteLine(numbers[0, 0]);
+            Console.WriteLine(numbers[0, 1]);
+            Console.WriteLine(numbers[1, 0]);
+            Console.WriteLine(numbers[1, 1]);
+            Console.WriteLine(numbers[2, 0]);
+            Console.WriteLine(numbers[2, 1]);
+            Console.WriteLine();
+
+            // Assigning values to elements in a multi-dimensional
+            // is also similar to a single-dimensional array using one
+            // 'int' type index for each dimension
+            numbers[0, 0] = 6;
+            numbers[0, 1] = 5;
+            numbers[1, 0] = 4;
+            numbers[1, 1] = 3;
+            numbers[2, 0] = 2;
+            numbers[2, 1] = 1;
+
+            // Looping through a multi-dimensional array can be
+            // done using nested for loops, one for each dimension
+            // To obtain the length for a given dimension the
+            // GetLength() is used 'array.GetLength(dimensionIndex)'
+            for (int i = 0; i &lt; numbers.GetLength(0); i++)
+            {
+                for (int j = 0; j &lt; numbers.GetLength(1); j++)
+                {
+                    Console.WriteLine(numbers[i, j]);
+                }
+            }
+            Console.WriteLine();
+
+            // The foreach loop can also be used for multi-dimensional arrays
+            // however nested for loops allow you traverse an array in any
+            // order you require
+            foreach (var number in numbers)
+            {
+                Console.WriteLine(number);
+            }
+            Console.WriteLine();
+
+            // The number of dimensions of an array
+            // can be found using the Rank property 'array.Rank'.
+            Console.WriteLine($"numbers has {numbers.Rank} dimensions");
+            Console.WriteLine();
+            var total = 1;
+            for (int i = 0; i &lt; numbers.Rank; i++)
+            {
+                Console.WriteLine($"numbers[{i}] has {numbers.GetLength(i)} elements");
+                total *= numbers.GetLength(i);
+            }
+            Console.WriteLine($"Numbers has a total {total} of elements which is the same as Numbers.Length: {numbers.Length}");
+            Console.WriteLine();
+
+            // Accessing a jagged array is similar to a multi-dimensional
+            // This prints 7 to the console which is the third element [2]
+            // of the second array [1] of jaggedArray
+            int[][] jaggedArray =
+            {
+                new int[] {1, 2, 3, 4},
+                new int[] {5, 6, 7},
+                new int[] {8, 9}
+            };
+            Console.WriteLine($"{jaggedArray[1][2]}");
+            Console.WriteLine();
+
+            // Assigning values is also similar to multi-dimensional arrays
+            // This assigns 42 to the third element [2] of the second array [1]
+            // then prints it to the console
+            jaggedArray[1][2] = 42;
+            Console.WriteLine($"{jaggedArray[1][2]}");
+            Console.WriteLine();
+
+            // This demonstrates looping though a jagged array with for loops
+            for (int i = 0; i &lt; jaggedArray.Length; i++)
+            {
+                Console.Write("The values in array{i} are: ");
+                for (int j = 0; j &lt; jaggedArray[i].Length; j++)
+                {
+                    Console.Write($" {jaggedArray[i][j]}");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+
+            // Looping through a jagged array with a foreach loop is a bit more
+            // complicated as a first loop is required to get the arrays and a
+            // second to get the actual values
+            foreach (var arr in jaggedArray)
+            {
+                foreach (var i in arr)
+                {
+                    Console.WriteLine(i.ToString());
+                }
+            }
+            Console.WriteLine();
+
+            // This demonstrates the types that are stored in a jagged array
+            // The first line prints Int32[] where the brackets indicate
+            // that it is an array of type 'int' whereas the second prints
+            // Int32 without brackets indicating the actual type stored in
+            // each array is an 'int'
+            Console.WriteLine(jaggedArray[0].GetType().Name);
+            Console.WriteLine(jaggedArray[0][0].GetType().Name);
         }
-        Console.WriteLine();
-
-        // This demonstrates the types that are stored in a jagged array
-        // The first line prints Int32[] where the brackets indicate
-        // that it is an array of type 'int' whereas the second prints
-        // Int32 without brackets indicating the actual type stored in
-        // each array is an 'int'
-        Console.WriteLine(jaggedArray[0].GetType().Name);
-        Console.WriteLine(jaggedArray[0][0].GetType().Name);
     }
+}
 
-    // The example prints the following to the console
+// The example prints the following to the console
+// red
+// green
+// blue
 
-    //red
-    //green
-    //blue
+// colors has 3 elements
 
-    //colors has 3 elements
+// cyan
+// magenta
+// yellow
 
-    //cyan
-    //magenta
-    //yellow
+// cyan
+// magenta
+// yellow
 
-    //cyan
-    //magenta
-    //yellow
+// 1
+// 2
+// 3
+// 4
+// 5
+// 6
 
-    //1
-    //2
-    //3
-    //4
-    //5
-    //6
+// 6
+// 5
+// 4
+// 3
+// 2
+// 1
 
-    //6
-    //5
-    //4
-    //3
-    //2
-    //1
+// 6
+// 5
+// 4
+// 3
+// 2
+// 1
 
-    //6
-    //5
-    //4
-    //3
-    //2
-    //1
+// numbers has 2 dimensions
 
-    //numbers has 2 dimensions
+// numbers[0] has 3 elements
+// numbers[1] has 2 elements
+// Numbers has a total 6 of elements which is the same as Numbers.Length: 6
 
-    //numbers[0] has 3 elements
-    //numbers[1] has 2 elements
-    //Numbers has a total 6 of elements which is the same as Numbers.Length: 6
+// 7
 
-    //7
+// 42
 
-    //42
+// The values in array{i} are: 1 2 3 4
+// The values in array{i} are: 5 6 42
+// The values in array{i} are: 8 9
 
-    //The values in array0 are:  1 2 3 4
-    //The values in array1 are:  5 6 42
-    //The values in array2 are:  8 9
+// 1
+// 2
+// 3
+// 4
+// 5
+// 6
+// 42
+// 8
+// 9
 
-    //1
-    //2
-    //3
-    //4
-    //5
-    //6
-    //42
-    //8
-    //9
-
-    //Int32[]
-    //Int32
+// Int32[]
+// Int32
 </code></pre>
 
                     <h3>collections</h3>
@@ -1852,23 +1961,24 @@ b ??= 2;
                     </ul>
 
                     <h3>List&lt;T&gt;</h3>
-                    <p>A <b>List&lt;T&gt;</b> is a strongly typed generic collection of objects accessed by an <b>int</b> type <b>index</b>. Unlike an array, a list does not
-                        have a fixed size and as such does not have to be defined when it is created. It provides a number of useful methods for manipulating its data
-                        such as add, remove, sort, find and clear.
+                    <p>A <b>List&lt;T&gt;</b> is a strongly typed generic collection of objects accessed by an <b>int</b> type <b>index</b>. Unlike an array, a list does
+                        not have a fixed size and as such does not have to be defined when it is created. It provides a number of useful methods for manipulating its data
+                        such as add, remove, sort, find and clear.</p>
 
-                    </p>
 <!-- TODO add link to anonymous functions -->
+
                     <p>Note: The Find method uses an anonymous expression details of which are in Anonymous expression functions</p>
 
-<pre><code>static void Main(string[] args)
+<pre><code>using System;
+using System.Collections.Generic;
+
+namespace ListExample
 {
-    // This example assumes that the directive
-            // 'using System.Collections.Generic;'
-            // has been added to the top of the file. This allows
-            // List&lt;T&gt; to be used without having to write
-            // the full namespace each time as in
-            // 'System.Collections.Generic.List&lt;T&gt;'
-            // (See Namespaces and references)
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var nl = Environment.NewLine;
 
             // Create a list of strings
             List&lt;string&gt; animals = new();
@@ -1898,7 +2008,7 @@ b ??= 2;
             var notAnAnimal = animals.Find(item =&gt; item == "boat");
             if (notAnAnimal != null)
                 animals.Remove(notAnAnimal);
-            Console.WriteLine("\r\n\r\nFind 'boat' then remove it");
+            Console.WriteLine($"{nl}{nl}Find 'boat' then remove it");
             foreach (var item in animals) { Console.Write(item + " "); }
 
             // Create a variable to store the index value
@@ -1913,7 +2023,7 @@ b ??= 2;
                 index = animals.IndexOf("lizard");
                 animals[index] = "duck";
             }
-            Console.WriteLine("\r\n\r\nIf list has 'lizard' replace it with 'duck'");
+            Console.WriteLine($"{nl}{nl}If list has 'lizard' replace it with 'duck'");
             foreach (var item in animals) { Console.Write(item + " "); }
 
             // 'Insert' inserts an item at a specific index
@@ -1921,7 +2031,7 @@ b ??= 2;
             // as found from the previous example. All items after
             // and including 'duck' are moved after 'shark'
             animals.Insert(index, "shark");
-            Console.WriteLine("\r\n\r\nInsert 'shark' before 'duck'");
+            Console.WriteLine($"{nl}{nl}Insert 'shark' before 'duck'");
             foreach (var item in animals) { Console.Write(item + " "); }
 
             // 'RemoveAt' removes an at a specified index
@@ -1929,7 +2039,7 @@ b ??= 2;
             index = animals.IndexOf("ball");
             if (index != 0)
                 animals.RemoveAt(index);
-            Console.WriteLine("\r\n\r\nRemove 'ball'");
+            Console.WriteLine($"{nl}{nl}Remove 'ball'");
             foreach (var item in animals) { Console.Write(item + " "); }
 
             // 'Remove' removes the first occurrence of a specific item
@@ -1937,56 +2047,54 @@ b ??= 2;
             // item wasn't found. The following removes the first 'emu'
             // then prints the updated list to the console
             var removed = animals.Remove("emu") ? "'emu' was removed" : "'emu' was NOT removed";
-            Console.WriteLine($"\r\n\r\n{removed}");
+            Console.WriteLine($"{nl}{nl}{removed}");
             foreach (var item in animals) { Console.Write(item + " "); }
 
             // 'Sort' sorts the list based on the comparer argument
             // passed in. If none is supplied then the default
             // comparer is used. The following alphabetically sorts the list
             animals.Sort();
-            Console.WriteLine("\r\n\r\nSort the list");
+            Console.WriteLine($"{nl}{nl}Sort the list");
             foreach (var item in animals) { Console.Write(item + " "); }
 
             // 'Reverse' reverses the order of the list
             animals.Reverse();
-            Console.WriteLine("\r\n\r\nThe list has been reversed");
+            Console.WriteLine($"{nl}{nl}The list has been reversed");
             foreach (var item in animals) { Console.Write(item + " "); }
 
             // 'Clear' removes all items from the list
             // The 'Count' property is the number of items the list.
             animals.Clear();
-            Console.WriteLine("\r\n\r\nClear the list");
+            Console.WriteLine($"{nl}{nl}Clear the list");
             Console.WriteLine($"There are {animals.Count} items in the list");
             Console.WriteLine();
         }
-        // The following is printed in the console
-        //A list of animals
-        //dog cat lizard ball emu emu boat salmon
-
-        //Find 'boat' then remove it
-        //dog cat lizard ball emu emu salmon
-
-        //If list has 'lizard' replace it with 'duck'
-        //dog cat duck ball emu emu salmon
-
-        //Insert 'shark' before 'duck'
-        //dog cat shark duck ball emu emu salmon
-
-        //Remove 'ball'
-        //dog cat shark duck emu emu salmon
-
-        //'emu' was removed
-        //dog cat shark duck emu salmon
-
-        //Sort the list
-        //cat dog duck emu salmon shark
-
-        //The list has been reversed
-        //shark salmon emu duck dog cat
-
-        //Clear the list
-        //There are 0 items in the list
+    }
 }
+
+// The example writes the following to the console
+// dog cat lizard ball emu emu salmon
+
+// If list has 'lizard' replace it with 'duck'
+// dog cat duck ball emu emu salmon
+
+// Insert 'shark' before 'duck'
+// dog cat shark duck ball emu emu salmon
+
+// Remove 'ball'
+// dog cat shark duck emu emu salmon
+
+// 'emu' was removed
+// dog cat shark duck emu salmon
+
+// Sort the list
+// cat dog duck emu salmon shark
+
+// The list has been reversed
+// shark salmon emu duck dog cat
+
+// Clear the list
+// There are 0 items in the list
 </code></pre>
 
                     <h3>Dictionary&lt;TKey, TValue&gt;</h3>
@@ -1995,166 +2103,169 @@ b ??= 2;
                         List, a Dictionary does not have a fixed size and as such does not have to be defined when it is created. Methods include add,
                         remove, contains, clear.</p>
 
-<pre><code>static void Main(string[] args)
+<pre><code>using System;
+using System.Collections.Generic;
+
+namespace DictionaryExample
+{
+    class Program
     {
-        // This example assumes that the directive
-        // 'using System.Collections.Generic;'
-        // has been added to the top of the file. This allows
-        // List&lt;T&gt; to be used without having to write
-        // the full namespace each time as in
-        // 'System.Collections.Generic.Dictionary&lt;TKey, TValue&gt;'
-        // (See Namespaces and references)
-
-        // Create a list of strings
-        Dictionary&lt;string, int&gt; fruit = new();
-
-        // Add some items
-        fruit.Add("Oranges", 6);
-        fruit.Add("Pears", 4);
-        fruit.Add("Apples", 8);
-        fruit.Add("Bananas", 7);
-        fruit.Add("Lemons", 3);
-        fruit.Add("Peaches", 6);
-        fruit.Add("Plums", 6);
-
-        // 'Count' returns the number of items in a Dictionary
-        Console.WriteLine($"There are {fruit.Count} fruit items\r\n");
-
-        // To use a Dictionary in a foreach loop use
-        // KeyValuePair&lt;TKey, TValue&gt;. The types must be the same
-        // as that used in the declaration of the dictionary
-        foreach (KeyValuePair&lt;string, int&gt; item in fruit)
-            Console.Write($"{item.Key} : {item.Value}\r\n");
-
-        // Each item must have a unique 'key'
-        // Uncommenting the following results in
-        // System.ArgumentException: System.ArgumentException:
-        // 'An item with the same key has already been added.
-        // Key: Plums' when the program is run
-        //fruit.Add("Plums", 3);
-
-        // 'TryAdd' unlike 'Add' won't result in an
-        // exception but will return false if the
-        // item could not be added.
-        var added = fruit.TryAdd("Plums", 3) ?
-            "'Another Plums entry' was added" :
-            "'Another Plums entry' could NOT be added";
-        Console.WriteLine($"\r\n\r\n{added}");
-
-        // 'Keys' returns a 'KeyCollection' of all the keys
-        // in the Dictionary and will have the same type that
-        // was used when declaring it
-        var keys = fruit.Keys;
-        Console.WriteLine("\r\nWe have the following fruit");
-        foreach (var key in keys)
-            Console.Write(key + " ");
-
-        // 'Values' returns a 'ValueCollection' of all the values
-        // in the Dictionary and will have the same type that
-        // was used when declaring it
-        var values = fruit.Values;
-
-        int total = 0;
-        foreach (var value in values)
-            total += value;
-        Console.WriteLine($"\r\n\r\nThere is a total of {total} fruit");
-
-        // Individual items can be accessed using the 'Key' index
-        Console.WriteLine($"\r\nThere are {fruit["Pears"]} 'Pears'");
-        fruit["Pears"] = 3;
-        Console.WriteLine($"\r\nThere are now {fruit["Pears"]} 'Pears'");
-
-        // The 'Key' index must exist to access an item. Uncommenting the
-        // following will result in the exception
-        // System.Collections.Generic.KeyNotFoundException:
-        // 'The given key 'Mangoes' was not present in the dictionary.'
-        // var mangoes = fruit["Mangoes"];
-
-        // 'TryAdd' unlike accessing a Dictionary with the 'Key' index
-        // won't result in an exception but will return false if the
-        // Key does not exist. If found result will be the value for
-        // the item. If not found result will be the type's default value
-        if (fruit.TryGetValue("Mangoes", out var result))
+        static void Main(string[] args)
         {
-            Console.WriteLine($"\r\nThere are {result} 'Mangoes'");
-        }
-        else
-        {
-            Console.WriteLine("\r\nThere is no 'Mangoes' item in 'fruit'");
-        }
+            var nl = Environment.NewLine;
 
-        // 'ContainsKey' returns true if the Dictionary contains
-        // the specified 'Key'
-        if (fruit.ContainsKey("Bananas"))
-        {
-            Console.WriteLine($"\r\nThere are {fruit["Bananas"]} 'Bananas'");
-        }
-        else
-        {
-            Console.WriteLine("\r\nThere are no 'Bananas' item in fruit");
-        }
+            // Create a list of strings
+            Dictionary&lt;string, int&gt; fruit = new();
 
-        // 'ContainsValue' returns true if the Dictionary contains
-        // the specified 'Value'
-        if (fruit.ContainsValue(6))
-        {
-            Console.WriteLine("\r\nThere is at least 1 item with the value '6'");
-        }
-        else
-        {
-            Console.WriteLine("\r\nThere are no items with the value '6'");
-        }
+            // Add some items
+            fruit.Add("Oranges", 6);
+            fruit.Add("Pears", 4);
+            fruit.Add("Apples", 8);
+            fruit.Add("Bananas", 7);
+            fruit.Add("Lemons", 3);
+            fruit.Add("Peaches", 6);
+            fruit.Add("Plums", 6);
 
-        // 'Remove' removes the specified 'Key' from the Dictionary
-        fruit.Remove("Oranges");
-        if (fruit.ContainsKey("Oranges"))
-        {
-            Console.WriteLine($"\r\nThere are {fruit["Oranges"]} 'Oranges'");
-        }
-        else
-        {
-            Console.WriteLine("\r\nThere is no longer an 'Oranges' item in fruit");
-        }
+            // 'Count' returns the number of items in a Dictionary
+            Console.WriteLine($"There are {fruit.Count} fruit items{nl}");
 
-        // 'Clear' removes all KeyValuePair&lt;TKey, TValue&gt; items from
-        // the Dictionary
-        fruit.Clear();
-        Console.WriteLine($"\r\nThere are {fruit.Count} fruit items\r\n");
+            // To use a Dictionary in a foreach loop use
+            // KeyValuePair&lt;TKey, TValue&gt;. The types must be the same
+            // as that used in the declaration of the dictionary
+            foreach (KeyValuePair&lt;string, int&gt; item in fruit)
+                Console.Write($"{item.Key} : {item.Value}{nl}");
+
+            // Each item must have a unique 'key'
+            // Uncommenting the following results in
+            // System.ArgumentException: System.ArgumentException:
+            // 'An item with the same key has already been added.
+            // Key: Plums' when the program is run
+            //fruit.Add("Plums", 3);
+
+            // 'TryAdd' unlike 'Add' won't result in an
+            // exception but will return false if the
+            // item could not be added.
+            var added = fruit.TryAdd("Plums", 3) ?
+                "'Another Plums entry' was added" :
+                "'Another Plums entry' could NOT be added";
+            Console.WriteLine($"{nl}{nl}{added}");
+
+            // 'Keys' returns a 'KeyCollection' of all the keys
+            // in the Dictionary and will have the same type that
+            // was used when declaring it
+            var keys = fruit.Keys;
+            Console.WriteLine($"{nl}We have the following fruit");
+            foreach (var key in keys)
+                Console.Write(key + " ");
+
+            // 'Values' returns a 'ValueCollection' of all the values
+            // in the Dictionary and will have the same type that
+            // was used when declaring it
+            var values = fruit.Values;
+
+            int total = 0;
+            foreach (var value in values)
+                total += value;
+            Console.WriteLine($"{nl}{nl}There is a total of {total} fruit");
+
+            // Individual items can be accessed using the 'Key' index
+            Console.WriteLine($"{nl}There are {fruit["Pears"]} 'Pears'");
+            fruit["Pears"] = 3;
+            Console.WriteLine($"{nl}There are now {fruit["Pears"]} 'Pears'");
+
+            // The 'Key' index must exist to access an item. Uncommenting the
+            // following will result in the exception
+            // System.Collections.Generic.KeyNotFoundException:
+            // 'The given key 'Mangoes' was not present in the dictionary.'
+            // var mangoes = fruit["Mangoes"];
+
+            // 'TryAdd' unlike accessing a Dictionary with the 'Key' index
+            // won't result in an exception but will return false if the
+            // Key does not exist. If found result will be the value for
+            // the item. If not found result will be the type's default value
+            if (fruit.TryGetValue("Mangoes", out var result))
+            {
+                Console.WriteLine($"{nl}There are {result} 'Mangoes'");
+            }
+            else
+            {
+                Console.WriteLine($"{nl}There is no 'Mangoes' item in 'fruit'");
+            }
+
+            // 'ContainsKey' returns true if the Dictionary contains
+            // the specified 'Key'
+            if (fruit.ContainsKey("Bananas"))
+            {
+                Console.WriteLine($"{nl}There are {fruit["Bananas"]} 'Bananas'");
+            }
+            else
+            {
+                Console.WriteLine($"{nl}There are no 'Bananas' item in fruit");
+            }
+
+            // 'ContainsValue' returns true if the Dictionary contains
+            // the specified 'Value'
+            if (fruit.ContainsValue(6))
+            {
+                Console.WriteLine($"{nl}There is at least 1 item with the value '6'");
+            }
+            else
+            {
+                Console.WriteLine($"{nl}There are no items with the value '6'");
+            }
+
+            // 'Remove' removes the specified 'Key' from the Dictionary
+            fruit.Remove("Oranges");
+            if (fruit.ContainsKey("Oranges"))
+            {
+                Console.WriteLine($"{nl}There are {fruit["Oranges"]} 'Oranges'");
+            }
+            else
+            {
+                Console.WriteLine($"{nl}There is no longer an 'Oranges' item in fruit");
+            }
+
+            // 'Clear' removes all KeyValuePair&lt;TKey, TValue&gt; items from
+            // the Dictionary
+            fruit.Clear();
+            Console.WriteLine($"{nl}There are {fruit.Count} fruit items{nl}");
+        }
     }
-    // The following is printed in the console
-    //There are 7 fruit items
-
-    //Oranges : 6
-    //Pears : 4
-    //Apples : 8
-    //Bananas : 7
-    //Lemons : 3
-    //Peaches : 6
-    //Plums : 6
+}
 
 
-    //'Another Plums entry' could NOT be added
+// The example writes the following to the console
+// There are 7 fruit items
 
-    //We have the following fruit
-    //Oranges Pears Apples Bananas Lemons Peaches Plums
+// Oranges : 6
+// Pears: 4
+// Apples: 8
+// Bananas: 7
+// Lemons: 3
+// Peaches: 6
+// Plums: 6
 
-    //There is a total of 40 fruit
 
-    //There are 4 'Pears'
+// 'Another Plums entry' could NOT be added
 
-    //There are now 3 'Pears'
+// We have the following fruit
+// Oranges Pears Apples Bananas Lemons Peaches Plums
 
-    //There is no 'Mangoes' item in 'fruit'
+// There is a total of 40 fruit
 
-    //There are 7 'Bananas'
+// There are 4 'Pears'
 
-    //There is at least 1 item with the value '6'
+// There are now 3 'Pears'
 
-    //There is no longer an 'Oranges' item in fruit
+// There is no 'Mangoes' item in 'fruit'
 
-    //There are 0 fruit items
+// There are 7 'Bananas'
 
-    }
+// There is at least 1 item with the value '6'
+
+// There is no longer an 'Oranges' item in fruit
+
+// There are 0 fruit items
 </code></pre>
 
                 </article>
@@ -2170,13 +2281,37 @@ b ??= 2;
                         editor allows us to use these names to assign the underlying constant values to variables. We can define the type
                         and value of each constant or allow the editor to assign them for us. The default type for the value is an integer
                         and the list is zero based. The following example shows how to declare and use an enumerator using the defaults.</p>
-<pre><code>enum Day { Sun, Mon, Tue, Wed, Thu, Fri, Sat }
-int day = Day.Tue;
-Console.WriteLine($"Day is {day}"); // Output: Day is Tue
-Console.WriteLine($"day's value {(int)Day.Sun}"); // Output: day's value 0
+<pre><code>using System;
 
-<span class="comment">// month is long type</span>
-enum Month: long { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec }
+namespace ArrayCreationExample
+{
+    class Program
+    {
+        enum Day { Sun, Mon, Tue, Wed, Thu, Fri, Sat }
+
+        // Underlying month type is declared as long
+        enum Month : long { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec }
+
+        static void Main(string[] args)
+        {
+            var day = Day.Tue;
+            var dayType = day.GetType();
+            var underlyingDayType = Enum.GetUnderlyingType(dayType);
+            Console.WriteLine($"Day is {day}, value is {(int)day}," +
+                $" Type is {dayType.Name}, underlying type is {underlyingDayType}");
+            var month = Month.Nov;
+            var monthType = month.GetType();
+            var underlyingMonthType = Enum.GetUnderlyingType(monthType);
+            Console.WriteLine($"Month is {month}, value is {(long)month}," +
+                $" Type is {monthType.Name}, underlying type is {underlyingMonthType}");
+
+        }
+    }
+}
+
+// The example prints the following to the console
+// Day is Tue, value is 2, Type is Day, underlying type is System.Int32
+// Month is Nov, value is 10, Type is Month, underlying type is System.Int64
 </code></pre>
                 </article>
             </section>
@@ -2578,6 +2713,8 @@ namespace StaticExample
     {
         static void Main(string[] args)
         {
+            var nl = Environment.NewLine;
+
             // Set MyClass.StaticProperty
             MyClass.StaticProperty = 1;
 
@@ -2599,14 +2736,14 @@ namespace StaticExample
             // instance was created. The static property is shared by all
             // instances and was set to 1 by MyClass.StaticProperty = 1; above
             Console.WriteLine("Display initial static and instance property");
-            Console.WriteLine("values of the two instances of MyClass\r\n");
+            Console.WriteLine($"values of the two instances of MyClass{nl}");
             Console.WriteLine($"myClass1 InstanceProperty: {myClass1.GetInstanceProperty()}");
             Console.WriteLine($"myClass2 InstanceProperty: {myClass2.GetInstanceProperty()}");
             Console.WriteLine($"myClass1 StaticProperty: {myClass1.GetStaticProperty()}");
             Console.WriteLine($"myClass2 StaticProperty: {myClass2.GetStaticProperty()}");
 
             // Change the instance and static properties in myClassInstance2
-            Console.WriteLine("\r\nThe instance and static properties are changed in myClassInstance2");
+            Console.WriteLine($"{nl}The instance and static properties are changed in myClassInstance2");
 
 
             // Each instance of MyClass has there own instance of
@@ -2618,7 +2755,7 @@ namespace StaticExample
             // so changing the value in myClassInstance1 changes
             // it for both
             myClass1.SetStaticProperty(3);
-            Console.WriteLine("values of the two instances of MyClass are now\r\n");
+            Console.WriteLine($"values of the two instances of MyClass are now{nl}");
             Console.WriteLine($"myClass1 InstanceProperty: {myClass1.GetInstanceProperty()}");
             Console.WriteLine($"myClass2 InstanceProperty: {myClass2.GetInstanceProperty()}");
             Console.WriteLine($"myClass1 StaticProperty: {myClass1.GetStaticProperty()}");
@@ -2626,7 +2763,7 @@ namespace StaticExample
 
             // The MyMathFunctions.Square method can be called
             // without creating an instance of MyMathFunctions
-            Console.WriteLine($"\r\nThe square of 3 is {MyMathFunctions.SquareNumber(3)}");
+            Console.WriteLine($"{nl}The square of 3 is {MyMathFunctions.SquareNumber(3)}");
 
             // A static class cannot be instantiated
             // Uncommenting the following results in the error
@@ -3007,11 +3144,13 @@ namespace ClassInheritanceExample
             logAnalyser1.AnalyzeLogMessage();
             logAnalyser1.DisplayMessage();
 
-            Console.WriteLine("\r\nUsing logAnalyser2");
+            Console.WriteLine();
+            Console.WriteLine("Using logAnalyser2");
             logAnalyser2.AnalyzeLogMessage();
             logAnalyser2.DisplayMessage();
 
-            Console.WriteLine("\r\nUsing logAnalyser3");
+            Console.WriteLine();
+            Console.WriteLine("Using logAnalyser3");
             logAnalyser3.AnalyzeLogMessage();
             logAnalyser3.DisplayMessage();
         }
