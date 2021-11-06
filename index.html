@@ -444,7 +444,7 @@ using System;
 
 <pre><code>using System;
 
-namespace CommentExamples
+namespace CommentExample
 {
     class Program
     {
@@ -566,7 +566,7 @@ namespace CommentExamples
                     <p id="Listing_7_1" class="listing">Listing 7.1 &nbsp; Declaration and assignment</p>
 <pre><code>using System;
 
-    namespace HelloWorld
+    namespace VariablesExample
     {
         class Program
         {
@@ -677,7 +677,7 @@ namespace CommentExamples
                     <p id="Listing_7_2" class="listing">Listing 7.2 &nbsp; Declaration and assignment syntax errors</p>
 <pre><code>using System;
 
-    namespace HelloWorld
+    namespace VariablesExamples
     {
         class Program
         {
@@ -837,7 +837,7 @@ namespace CommentExamples
                         <p id="Listing_7_3" class="listing">Listing 7.3 &nbsp; Casting and conversions</p>
 <pre><code>using System;
 
-    namespace CastingAndConversionExamples
+    namespace CastingAndConversionExample
     {
         class Program
         {
@@ -911,7 +911,7 @@ namespace CommentExamples
                         throw an exception.</p>
 <pre><code>using System;
 
-namespace CastingAndConversionExamples
+namespace CastingAndConversionExample
 {
     class Program
     {
@@ -983,7 +983,7 @@ namespace CastingAndConversionExamples
 
 <pre><code>using System;
 
-namespace StringExamples
+namespace StringExample
 {
     class Program
     {
@@ -1437,6 +1437,7 @@ namespace SwitchExample
         }
     }
 }
+
 // The example prints the following to the console
 // many
 </code></pre>
@@ -1509,25 +1510,25 @@ namespace DoWhileLoopExample
                     <p>The for statement iterates a set number of times based on an exit condition.</p>
 <pre><code>using System;
 
-    namespace WhileLoopExample
+namespace ForLoopExample
+{
+    class Program
     {
-        class Program
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
+            for (int i = 0; i &lt; 10; i++)
             {
-                for (int i = 0; i &lt; 10; i++)
-                {
-                    // for loop skips current iteration if i is 5
-                    if (i == 5)
-                        continue;
-                    Console.Write(i); // does not write 5
-                }
+                // for loop skips current iteration if i is 5
+                if (i == 5)
+                    continue;
+                Console.Write(i); // does not write 5
             }
         }
     }
+}
 
-    // The example prints the following to the console
-    // 012346789
+// The example prints the following to the console
+// 012346789
 </code></pre>
 
                     <h3>foreach statement</h3>
@@ -1535,23 +1536,23 @@ namespace DoWhileLoopExample
                     <p>The foreach statement iterates through all members of a collection.</p>
 <pre><code>using System;
 
-    namespace WhileLoopExample
+namespace ForEachLoopExample
+{
+    class Program
     {
-        class Program
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
+            string s = "Hello world!";
+            foreach (char c in s)
             {
-                string s = "Hello world!";
-                foreach (char c in s)
-                {
-                    Console.Write(c + " ");
-                }
+                Console.Write(c + " ");
             }
         }
     }
+}
 
-    // The example prints the following to the console
-    // H e l l o   w o r l d !
+// The example prints the following to the console
+// H e l l o   w o r l d !
 </code></pre>
                 </article>
             </section>
@@ -1715,7 +1716,7 @@ namespace ArrayCreationExample
 
 <pre><code>using System;
 
-namespace ArrayCreationExample
+namespace ArrayAccessExample
 {
     class Program
     {
@@ -2283,7 +2284,7 @@ namespace DictionaryExample
                         and the list is zero based. The following example shows how to declare and use an enumerator using the defaults.</p>
 <pre><code>using System;
 
-namespace ArrayCreationExample
+namespace EnumExample
 {
     class Program
     {
@@ -3242,7 +3243,7 @@ namespace ClassInheritanceExample
 
 <pre><code>using System;
 
-namespace ClassInheritanceExample
+namespace SealedClassExample
 {
     public sealed class A
     {
@@ -3307,7 +3308,7 @@ namespace ClassInheritanceExample
 
 <pre><code>using System;
 
-namespace ClassInheritanceExample
+namespace BaseClassExample
 {
     public class BaseClass
     {
@@ -3382,6 +3383,16 @@ namespace ClassInheritanceExample
         }
     }
 }
+
+// The example writes the following to the console
+// Base class constructor
+// Derived class constructor
+
+// Derived class
+// Base class
+
+// Derived Class instance 2
+// Base Class instance 2
 </code></pre>
 
                     <p> An <b>abstract</b> class is used when it makes sense to define a common base class but where the implementation is specific to each derived class.
@@ -3405,7 +3416,7 @@ namespace ClassInheritanceExample
 <pre><code>using System;
 using System.Globalization;
 
-namespace ClassInheritanceExample
+namespace AbstractClassExample
 {
     public abstract class PriceCalculator
     {
@@ -3467,9 +3478,6 @@ namespace ClassInheritanceExample
 }
 </code></pre>
 
-                    <p>In addition to overriding a base class member that is marked virtual or abstract, a member with the same name can can be hidden in a derived class through the use of the <code>new</code>
-                        keyword. The new member does have to be the same type, have the same return type or signature of the member it hides. In the following example  </p>
-
                     <p>All classes in C#, even the ones we write, are ultimately derived from the <b>object</b> class. This means that even if we don't explicitly use the
                         syntax to inherit from <code>object</code> our class will still contain the following overridable members</p>
 
@@ -3501,7 +3509,7 @@ namespace ClassInheritanceExample
 
 <pre><code>using System;
 
-namespace ClassInheritanceExample
+namespace OverridingToStringExample
 {
     public class Person
     {
@@ -3592,7 +3600,7 @@ namespace ClassInheritanceExample
 
 <pre><code>using System;
 
-namespace ClassInheritanceExample
+namespace InterfaceExample
 {
     public interface IMotion
     {
@@ -3680,7 +3688,7 @@ namespace ClassInheritanceExample
 
 <pre><code>using System;
 
-namespace ArrayCreationExample
+namespace DelegateExample
 {
     class Program
     {
