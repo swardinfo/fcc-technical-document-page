@@ -3900,28 +3900,219 @@ namespace SomeNamespace
 <!-- TODO complete this section -->
                 <article>
                     <h3>Scope</h3>
-                    <p>Scope is the accessibility of a variable from one part of the code to another. In C# scope is arranged like the layers of an onion.
-                        In computer science this is known as encapsulation and inner scopes that are contained within outer scopes are said to be nested.
-                        Variables in an outer scope can be accessed from those within but not vise versa.</p>
-<!-- TODO variable links-->
-                    <p>A <b>local variable</b> is a variable declared in a method, property or indexer or one of its nested code blocks. The variable is only
-                         accessible after it has been declared and only within the same code block or a nested code block. A local variable within the same block or a
-                         nested code block cannot be declared with the same name.</p>
-
-                    <p>A variable declared inside a class, struct or record type but outside any member is called a field and is also a member of that type.
-                        A field can be directly accessed by any of the type's methods, properties or indexers and any nested code blocks they contain, irrespective
-                        of the location of the field's declaration. By convention fields are normally declared at the top of a class before any other code. A field
-                        can be modified to be readonly and its accessibility level can be changed with the use of an access modifier, (See Access modifiers below).
+                    <p>Scope is the accessibility of a variable from one part of the code to another. In C# scope is arranged like the layers of an onion. Variables in an
+                        outer scope can be accessed from those within but not vise versa. In computer science this is known as encapsulation and inner scopes that are
+                        contained within outer scopes are said to be nested.
                         </p>
-                    <p>A local variable in the same container (enclosing type) as a field can be declared with the same name and any type. When
-                        this is done the field is said to be hidden by the local variable. In this case, to then access the field the <code>this</code> name qualifier this must be
-                        used. For example if in a class a field <code>int someName</code> exists and in a method <code>string someName;</code> to access the field
-                        you would use <code>var x = this.someName</code>.</p>
+<!-- TODO variable links-->
+                    <p>A <b>local variable</b> is a variable declared in a method, property or indexer or one of its nested code blocks. The variable is only accessible
+                        after it has been declared and only within the same code block or a nested code block. A local variable within the same block or a nested code
+                        block cannot be declared with the same name. A parameter that is passed into a method or indexer is accessible outside the member and becomes a
+                        local variable within the member.</p>
+
+                    <p>A variable declared inside a class, struct or record type but outside any member is called a field and is also a member of that type. A field can
+                        be directly accessed by any of the type's methods, properties or indexers and any nested code blocks they contain, irrespective of the location of
+                        the field's declaration within the class. By convention fields are normally declared at the top of a class before any other code. A field can be
+                        modified to be readonly and its accessibility level can be changed with the use of an access modifier, (See Access modifiers below).</p>
+
+                    <p>A local variable in the same container (enclosing type) as a field can be declared with the same name and any type. When this is done the field is
+                        said to be hidden by the local variable. In this case, to then access the field the <code>this</code> name qualifier this must be used. For
+                        example if in a class a field <code>int someName</code> exists and in a method <code>string someName;</code> to access the field you would use
+                        <code>var x = this.someName</code>.</p>
 
                     <p>Following are examples of scope.</p>
 <!-- TODO scope code example -->
-<pre><code>
+<pre><code>using System;
 
+namespace ScopeExample
+{
+    public class Class1
+    {
+        string nl = Environment.NewLine;
+
+        // Define field1 and field2 at the top of the class
+        // Fields do not have to be initialized so field1
+        // has the default integer value 0
+        int field1;
+        string field2 = "field2";
+
+        public void Method1(int value)
+        {
+            // variable1 is declared and initialized within the
+            // scope of Method1. All code following this within
+            // Method1 will have access to it
+            int variable1 = 1;
+
+            // The variable 'value' was declared in the signature of Method1
+            // and as such is a local variable in the scope of Method 1
+            // Uncommenting the following results in the error
+            // A local or parameter named 'value' cannot be declared in this scope because
+            // that name is used in an enclosing local scope to define a local or parameter
+            //int value = 0;
+
+            Console.WriteLine($"Initial class level field1 value = {field1}");
+
+            // A local variable field2 is declared after this statement
+            // which hides the class level declaration of field2
+            // Uncommenting the following results in the error
+            // Cannot use variable 'field2' before it is declared.
+            // The declaration of the local variable hides the field 'Class1.field2'.
+            //Console.WriteLine($"Initial field2 value = {field2}");
+
+            // Declaring a local field2 variable hides the class level field2
+            // Local field2 is an int whereas class level field2 is a string
+            int field2 = 0;
+            Console.WriteLine($"Initial local variable field2 value = {field2}");
+
+            // To access the hidden class level field2 use the 'this' qualifier
+            Console.WriteLine($"Class level field2 value = {this.field2}");
+
+            Console.WriteLine($"{nl}Display iterator 'i' from Loop 1");
+
+            // Loop 1 defines a nested scope within the scope of Method1
+            // A variable named 'i' has been declared as the iterator for Loop 1
+            for (int i = 0; i &lt;= 5; i++)
+            {
+                Console.Write($"{i}, ");
+                variable1 += i;
+                int variable2 = i * 2;
+                field1 += variable2;
+            }
+
+            Console.WriteLine($"{nl}Result of variable1 in Loop 1 = {variable1}");
+            Console.WriteLine($"Result of field1 in Loop 1 = {field1}");
+
+            variable1 = 0;
+            field1 = 0;
+
+            Console.WriteLine($"{nl}Display iterator 'i' from Loop 2");
+
+            // Loop 2 also defines a scope within Method1 but is outside
+            // the scope of Loop 2. As such a variable named 'i' can
+            // also be declared as an iterator for Loop 2
+            for (int i = 0; i &lt;= 15; i += 3)
+            {
+                Console.Write($"{i}, ");
+                variable1 += i;
+                int variable2 = i * 4;
+
+                // Although field3 was declared within Class1 after Method1
+                // as it is a Field the location of its declaration within
+                // the class does not matter so it can be accessed here
+                field3 += variable2;
+
+                // As Loop 2 has declared variable 'i' as its iterator and as any
+                // code here is within the scope of Loop 2 no other variables
+                // named 'i' can be declared here.
+                // Uncommenting the following results in the error
+                // A local or parameter named 'i' cannot be declared in this scope because that
+                // name is used in an enclosing local scope to define a local or parameter
+                //for (int i = 0; i &lt; 10; i++) { }
+
+                // As variable3 is declared after Loop 2
+                // uncommenting the following results in the error
+                // Cannot use variable 'variable3' before it is declared
+                //variable3 = 1;
+
+                // Even though variable3 is declared after Loop 2 and thus cannot
+                // be used here it is still with in the code block for Method1 and
+                // as such is a local variable in respect to the scope of Loop 2
+                // Uncommenting the follow results in the error
+                // A local or parameter named 'variable3' cannot be declared in this scope because
+                // that name is used in an enclosing local scope to define a local or parameter
+                //int variable3 = i;
+
+                // Loop 3 creates a nested scope within Loop 2
+                for (int j = 0; j &lt; 5; j++)
+                {
+                    // Loop 2 iterator i and variable2 can
+                    // be accessed within the scope of Loop 2
+                    int variable4 = j + i + variable2;
+                    field1 += variable4;
+                }
+            }
+
+            Console.WriteLine($"{nl}Result of variable1 in Loop 2 = {variable1}");
+            Console.WriteLine($"Result of field1 in Loop 2 = {field1}");
+            Console.WriteLine($"Result of field3 in Loop 2 = {field3}");
+            Console.WriteLine($"local field2 = {field2}");
+            Console.WriteLine($"class level field2 = {this.field2}");
+
+            // 'variable2' and 'i' from Loop 1 and Loop 2 and 'j' from Loop 3
+            // are all out of scope outside the loops so uncommenting
+            // any of the following 3 statements results in an error
+            //Console.WriteLine($"variable2 = {variable2}");
+            //Console.WriteLine($"i = {i}");
+            //Console.WriteLine($"j = {j}");
+
+            int variable3 = 0;
+        }
+
+        // Although by convention fields are defined at
+        // the top of a class they can be placed anywhere
+        int field3 = 20;
+
+        // None of the local variables within the scope of Method1
+        // can be accessed outside of it at the class level
+        // Uncommenting the following will result in an error
+        //variable1 = 0;
+        //variable2 = 0;
+        //variable3 = 0;
+        //variable4 = 0;
+        //i = 0;
+        //j = 0;
+        //value = 0;
+
+        // Method2 declares the same local variables as Method1
+        // There is no conflict as the variables within each
+        // method are within their own local scope
+        public void Method2(string value)
+        {
+            int variable1 = 0;
+            int variable2 = 0;
+            int variable3 = 0;
+            int variable4 = 0;
+            int i = 0;
+            int j = 0;
+            field2 = value;
+            Console.WriteLine($"Method2 field2 = {field2}");
+        }
+
+        // An attempt is made to define another field1 within the same scope
+        // Uncommenting the following results in the error
+        // The type 'Class1' already contains a definition for 'field1'
+        //int field1;
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Class1 class1 = new();
+            class1.Method1(10);
+            class1.Method2("New value");
+        }
+    }
+}
+
+// The example prints the following to the console
+// Initial class level field1 value = 0
+// Initial local variable field2 value = 0
+// Class level field2 value = field2
+
+// Display iterator 'i' from Loop 1
+// 0, 1, 2, 3, 4, 5,
+// Result of variable1 in Loop 1 = 16
+// Result of field1 in Loop 1 = 30
+
+// Display iterator 'i' from Loop 2
+// 0, 3, 6, 9, 12, 15,
+// Result of variable1 in Loop 2 = 45
+// Result of field1 in Loop 2 = 1185
+// Result of field3 in Loop 2 = 200
+// local field2 = 0
+// class level field2 = field2
+// Method2 field2 = New value
 </code></pre>
                     <h3>Access modifiers</h3>
                     <p> Accessibility level defines where a type or type's members can be used by other code within your assembly or other assemblies.
@@ -3961,8 +4152,6 @@ namespace SomeNamespace
                         enum type container and access modifiers cannot be applied to them.</p>
 
                     <p>The following example demonstrates various accessibility scenarios. </p>
-
-
 
 <pre><code>code
 code
