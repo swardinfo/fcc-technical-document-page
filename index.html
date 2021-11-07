@@ -2371,6 +2371,9 @@ namespace EnumExample
                         accessors must be manually-implemented or auto-implemented.
                     </p>
 
+<!-- TODO add info about parameters and passing by reference -->
+<!-- TODO add passing array to a method -->
+
                     <h4>Method</h4>
 
                     <p>A method provides a way of doing things. This could be reading a file, calculating a value, writing to the screen, etc.
@@ -2949,8 +2952,9 @@ namespace StructExample
                         <li>Finalizers</li>
                     </ul>
 
-                    <p>Whilst all other members are available in derived classes their visibility is dependent on the Scope rules. Apart from classes only interfaces can
-                        be inherited.</p>
+                    <p>Whilst all other members are available in derived classes their visibility is dependent on the Scope rules. Also events can only be invoked from
+                        within the base class so in order to do so a method is created in the base class that invokes the event. This can then be called from the derived
+                        class to raise the event. Apart from classes only interfaces can be inherited. </p>
 
                     <p>The following example demonstrates the syntax for inheriting a class. First base class <code>A</code> is declared as normal. Derived Class
                         <code>B</code> is then declared followed by a colon, then the name of the class to be inherited, followed by the code block for class
@@ -3077,10 +3081,14 @@ namespace ClassInheritanceExample
 // The cat has 4 legs and is meowing Loudly
 </code></pre>
 
-                    <p>The implementation of a member in a derived class can overridden provided that the member in the base class is marked with the <code>virtual</code>
+                    <p>The implementation of a member in a derived class can be overridden provided that the member in the base class is marked with the
+                        <code>virtual</code>
                         keyword or has overridden a member in a previous base class. To do so the member in the derived class must be marked with the
                         <code>override</code> keyword. Base class members are not virtual by default and attempting to override a member not marked as virtual results in
                         an error.</p>
+
+                    <p>Note: Microsoft has advised not to declare ana event as <code>virtual</code> as the compiler does not handle these correctly. Instead a method
+                        should be created in the base class that invokes the event. This method can then be called from the derived class to raise the event.</p>
 
                     <p>In the following example a base class <code>LogAnalyser</code> is created that has a method <code>AnalyzeLogMessage()</code> and a virtual method
                         <code>DisplayMessage()</code>. Derived class <code>LogAnalyser1</code> inherits <code>LogAnalyser</code> and overrides the virtual method
@@ -3921,7 +3929,7 @@ namespace SomeNamespace
                         <code>var x = this.someName</code>.</p>
 
                     <p>Following are examples of scope.</p>
-<!-- TODO scope code example -->
+
 <pre><code>using System;
 
 namespace ScopeExample
@@ -4151,10 +4159,212 @@ namespace ScopeExample
                     <p>Enum members do not have any declared accessibility. An enum member's accessibility  is determined by the accessibility of the
                         enum type container and access modifiers cannot be applied to them.</p>
 
-                    <p>The following example demonstrates various accessibility scenarios. </p>
+                    <p>The following example demonstrates various accessibility scenarios. It contains two assemblies. The first is a library under the namespace
+                        <code>ClassLibrary1</code>. The second is an executable under the namespace <code>ScopeExample</code> that references <code>ClassLibrary1</code>.
+                    </p>
 
-<pre><code>code
-code
+<pre><code>using System;
+
+namespace ClassLibrary1
+{
+    public class PublicBase
+    {
+        public string publicField = "library base publicField";
+        protected internal string protectedInternalField = "library base protectedInternalField";
+        protected string protectedField = "library base protectedField";
+        internal string internalField = "library base internalField";
+        private protected string privateProtectedField = "library base privateProtectedField";
+        private string privateField = "library base privateField";
+    }
+
+    internal class InternalBase { }
+
+    class DefaultAccessBase { }
+}
+
+using System;
+
+namespace ScopeExample
+{
+    // Default access for class without
+    // an access modifier is internal
+    class BaseClass
+    {
+        public string publicField = "base publicField";
+        protected internal string protectedInternalField = "base protectedInternalField";
+        protected string protectedField = "base protectedField";
+        internal string internalField = "base internalField";
+        private protected string privateProtectedField = "base privateProtectedField";
+        private string privateField = "base privateField";
+
+        // Default access for a class member
+        // without an access modifier is private
+        string defaultField = "base defaultField";
+
+        // A method marked protected can only be
+        // accessed within the base or a derived class
+        protected void ProtectedMethod()
+        {
+            var nl = Environment.NewLine;
+            Console.WriteLine($"base ProtectedMethod{nl}");
+            PrivateMethod();
+        }
+
+        // A method marked private can only be
+        // accessed from within the base class
+        private void PrivateMethod()
+        {
+            var nl = Environment.NewLine;
+            Console.WriteLine($"base PrivateMethod{nl}");
+            // Within the same class any member can be accessed
+            // within another no matter what its access level is
+            Console.WriteLine($"base PrivateMethod publicField = {publicField}");
+            Console.WriteLine($"base PrivateMethod protectedInternalField = {protectedInternalField}");
+            Console.WriteLine($"base PrivateMethod protectedField = {protectedField}");
+            Console.WriteLine($"base PrivateMethod internalField = {internalField}");
+            Console.WriteLine($"base PrivateMethod privateProtectedField = {privateProtectedField}");
+            Console.WriteLine($"base PrivateMethod privateField = {privateField}");
+            Console.WriteLine($"base PrivateMethod defaultField = {defaultField}");
+        }
+
+        // As this class is nested it can be marked private
+        private class Nested1 { }
+
+        public class Nested2
+        {
+            public string publicField = "nested publicField";
+            protected internal string protectedInternalField = "nested protectedInternalField";
+            protected string protectedField = "nested protectedField";
+            internal string internalField = "nested internalField";
+            private protected string privateProtectedField = "nested privateProtectedField";
+            private string privateField = "nested privateField";
+        }
+    }
+
+    // A class that is not nested i.e. declared within
+    // a namespace can only be marked as internal or public
+    // Uncommenting the following results in th error
+    // Elements defined in a namespace cannot be explicitly declared
+    // as private, protected, protected internal or private protected
+    //private class Base2 { }
+
+    // Inherits from Base within same assembly
+    class DerivedClass : BaseClass
+    {
+        public void PublicMethod()
+        {
+            var nl = Environment.NewLine;
+            Console.WriteLine($"derived PublicMethod{nl}");
+            publicField = "derived publicField";
+            protectedInternalField = "derived protectedInternalField";
+            protectedField = "derived protectedField";
+            internalField = "derived internalField";
+            privateProtectedField = "derived privateProtectedField";
+
+            // As 'privateField' and 'defaultField' are private in the base
+            // class they are inaccessible in the derived class
+            // Uncommenting the following statements results in an error
+            //privateField = 0;
+            //defaultField = 0;
+
+            ProtectedMethod();
+        }
+    }
+
+    // Inherits PublicBase from ClassLibrary1
+    public class Class1 : ClassLibrary1.PublicBase
+    {
+        public void PublicMethod()
+        {
+            publicField = "Class1 publicField";
+            protectedInternalField = "Class1 protectedInternalField";
+            protectedField = "Class1 protectedField";
+
+            // internal, private protected and private marked
+            // members can only be accessed within the same assembly
+            // Uncommenting the following statements results in an error
+            //internalField = "Class1 internalField";
+            //privateProtectedField = "Class1 privateProtectedField";
+            //privateField = "Class1 privateField";
+        }
+    }
+
+    // Cannot inherit from 'ClassLibrary1.InternalBase' as it has
+    // been marked Internal and cannot be accessed in another assembly
+    //public class Class2 : ClassLibrary1.InternalBase { }
+
+    // Cannot inherit from 'ClassLibrary1.DefaultAccessBase'
+    // as it has no access modifier, is internal by default
+    // and cannot be accessed in another assembly
+    //public class Class3 : ClassLibrary1.DefaultAccessBase { }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var nl = Environment.NewLine;
+
+            // Only the internal, protected internal and public fields
+            // from BaseClass, BaseClass.Nested2 and DerivedClass
+            // are accessible within the Program class
+            BaseClass baseClass = new();
+            Console.WriteLine(baseClass.internalField);
+            Console.WriteLine(baseClass.protectedInternalField);
+            Console.WriteLine(baseClass.publicField + nl);
+
+            BaseClass.Nested2 nested2 = new();
+            Console.WriteLine(nested2.internalField);
+            Console.WriteLine(nested2.protectedInternalField);
+            Console.WriteLine(nested2.publicField + nl);
+
+            DerivedClass derivedClass = new();
+            Console.WriteLine(derivedClass.internalField);
+            Console.WriteLine(derivedClass.protectedInternalField);
+            Console.WriteLine(derivedClass.publicField + nl);
+            Console.WriteLine();
+            derivedClass.PublicMethod();
+
+            Class1 class1 = new();
+            // Only the public field from ClassLibrary1.PublicBase that
+            // Class1 inherited is accessible within the Program class
+            Console.WriteLine(nl + class1.publicField + nl);
+            class1.PublicMethod();
+            Console.WriteLine(class1.publicField + nl);
+        }
+    }
+}
+
+// The example prints the following to the console
+// base internalField
+// base protectedInternalField
+// base publicField
+
+// nested internalField
+// nested protectedInternalField
+// nested publicField
+
+// base internalField
+// base protectedInternalField
+// base publicField
+
+
+// derived PublicMethod
+
+// base ProtectedMethod
+
+// base PrivateMethod
+
+// base PrivateMethod publicField = derived publicField
+// base PrivateMethod protectedInternalField = derived protectedInternalField
+// base PrivateMethod protectedField = derived protectedField
+// base PrivateMethod internalField = derived internalField
+// base PrivateMethod privateProtectedField = derived privateProtectedField
+// base PrivateMethod privateField = base privateField
+// base PrivateMethod defaultField = base defaultField
+
+// library base publicField
+
+// Class1 publicField
 </code></pre>
                 </article>
             </section>
