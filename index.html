@@ -30,6 +30,7 @@
                 <li><a class="nav-link" href="#Create_a_Hello_World_Project">Create a Hello World Project</a></li>
                 <li><a class="nav-link" href="#Code_Syntax">Code Syntax</a></li>
                 <li><a class="nav-link" href="#Comments_and_Task_Lists">Comments and Task Lists</a></li>
+                <li><a class="nav-link" href="#Exceptions_and_Error_Handling">Exceptions and Error Handling</a></li>
                 <li><a class="nav-link" href="#Variables,_Constants,_Types_and_Literals">Variables, Constants, Types and Literals</a></li>
                 <li><a class="nav-link" href="#Characters_and_Strings">Characters and Strings</a></li>
                 <li><a class="nav-link" href="#Expressions_and_Operators">Expressions and Operators</a></li>
@@ -210,7 +211,8 @@
                         you have now created and run your first C# program. The remainder of the text tells us our program finished but the
                         IDE has kept the console open so that we can see the result. Press any key to close the console.</p>
 
-                    <p>By pressing <kbd>F5</kbd> the compiler built then ran the program with the debugger attached. The program starts with the
+                    <p>By pressing <kbd>F5</kbd> the compiler built then ran the program with the debugger attached known as running in <i>debug mode</i>. The program
+                        starts with the
                         method called <code>static void Main(string[] args)</code>. This is known as the <b>entry point</b> and there are
                         several <a href="Code_Syntax">Code&nbsp;Syntax</a> rules it must follow.</p>
 
@@ -490,6 +492,140 @@ namespace CommentExample
                         added to the Task List. There are four predefined task tokens, <code>HACK</code>, <code>TODO</code>,
                         <code>UNDONE</code> and <code>UnresolvedMergeConflict</code>. As well custom tokens can also be added. Task tokens
                         are not case sensitive. To see the task list,  in the menu click View-&gt;Task List.</p>
+                </article>
+            </section>
+            <!-- !SECTION -->
+
+            <!-- SECTION Exceptions and Error Handling -->
+            <section class="main-section" id="#Exceptions_and_Error_Handling">
+                <header><h2>Exceptions and Error Handling</h2></header>
+                <a class="back-to-top" href="#">Back to top</a>
+                <article>
+                    <p>As the program code grows the likelihood that a bug will be introduced grows with it. Whilst the compiler will show us syntax errors, logical
+                        errors that are not apparent until runtime can occur. In some cases these may prevent the continued execution of the program. C# has a system that
+                        allows us to handle these errors safely so that the program can continue.
+                    </p>
+
+                    <h3>Exception</h3>
+
+                    <p>An <code>exception</code> is an error from which the program cannot recover. C# has a number of built in exceptions that are thrown for various
+                        error conditions. Following is an example that shows the result of attempting to divide by zero. By pressing <kbd>F5</kbd> the compiler will run
+                        in debug mode and stop displaying an <i>Exception Unhandled</i> dialog box with the message
+                        <i>System.DivideByZeroException: 'Attempted to divide by zero.'</i> of which <code>DivideByZeroException</code> is the exception. To stop the
+                        program and clear the exception press <kbd>Shift</kbd> + <kbd>F5</kbd>.</p>
+
+<pre><code>using System;
+
+namespace ExceptionExample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var x = 1;
+            var y = 0;
+            var z = x / y;
+        }
+    }
+}
+
+// When run, the example results in a DivideByZeroException
+</code></pre>
+
+                    <h3>throw</h3>
+
+<p>Sometimes you may wish to check for invalid conditions specific to your own program. When these occur you can respond by throwing an exception of
+your own choice using the <code>throw</code> keyword. You can also include a custom message with the exception. The following throws an
+<code>ArgumentException</code> with the message <i>y cannot be zero</i>. </p>
+
+<pre><code>using System;
+
+    namespace ExceptionExample
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                int y = 0;
+                throw new ArgumentException("y cannot be zero");
+            }
+        }
+    }
+
+    // When run, the example results in
+    // System.ArgumentException: 'y cannot be zero'
+    </code></pre>
+
+                    <h3>try-catch</h3>
+
+                    <p>The try-catch provides a mechanism to safely handle exceptions and consists of a <code>try</code> code block followed by a <code>catch</code>
+                        code block. Code that has the possibility of resulting in an exception is placed within the <code>try</code> block and if an exception occurs
+                        program execution stops before any further code within the <code>try</code> block is run. Program execution then passes to a catch block that
+                        targets the exception. If none is found, program execution passes back to the calling code until an appropriate catch block is found. If a
+                        <code>catch</code> block is not found then the program ends with an <i>unhandled exception</i>. Following shows how the
+                        <code>DivideByZeroException</code> in the previous example could be handled. When run, instead of resulting in an unhandled exception dialog box,
+                        <i>Attempted to divide by zero.</i> is written to the console.</p>
+
+<pre><code>using System;
+
+    namespace ExceptionExample
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                int x = 1;
+                int y = 0;
+                try
+                {
+                    int z = x / y;
+                }
+                catch (DivideByZeroException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+    }
+
+    // The example writes the following to the console
+    // Attempted to divide by zero.
+</code></pre>
+                        <p>It is also possible to have multiple catch blocks so as to catch different exceptions. An exception is only caught by the first catch block
+                            that can handle it. If there is the possibility that the exception could be caught by more than one, the catch blocks should be ordered
+                            most to least specific. In the following example the first block catches the <code>DivideByZeroException</code> and the second
+                            <code>Exception</code> which catches all exceptions.</p>
+
+<pre><code>using System;
+
+namespace ExceptionExample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int x = 1;
+            int y = 2;
+            try
+            {
+                int z = x / y;
+                throw new Exception("A second exception");
+            }
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+    }
+}
+
+// The example writes the following to the console
+// A second exception
+</code></pre>
                 </article>
             </section>
             <!-- !SECTION -->
@@ -1384,7 +1520,8 @@ b ??= 2;
 
                     <h3>if and else statements</h3>
 
-                    <p>The if and else statements allow the program execution to branch in one of two directions based on a condition.</p>
+                    <p>The <code>if</code> and <code>else</code> statements allow the program execution to branch in one of two directions based on a condition.</p>
+
 <pre><code>using System;
 
 namespace IfElseExample
@@ -1412,7 +1549,8 @@ namespace IfElseExample
 
                     <h3>switch statement</h3>
 
-                    <p>The switch statement allows for program execution to branch in one of multiple directions based on a condition.</p>
+                    <p>The <code>switch</code> statement allows for program execution to branch in one of multiple directions based on a condition.</p>
+
 <pre><code>using System;
 
 namespace SwitchExample
@@ -1456,8 +1594,9 @@ namespace SwitchExample
 
                     <h3>while statement</h3>
 
-                    <p>The while statement iterates until a condition is met. If the condition already exists, program execution won't enter
-                        the <b>while</b> loop.</p>
+                    <p>The <code>while</code> statement iterates until a condition is met. If the condition already exists, program execution won't enter
+                        the <code>while</code> loop.</p>
+
 <pre><code>using System;
 
 namespace WhileLoopExample
@@ -1482,8 +1621,9 @@ namespace WhileLoopExample
 
                     <h3>do statement</h3>
 
-                    <p>The do statement iterates until a condition is met. At least one iteration of the <b>do</b> loop is guaranteed to
+                    <p>The <code>do</code> statement iterates until a condition is met. At least one iteration of the <code>do</code> loop is guaranteed to
                         be executed before testing for the condition.</p>
+
 <pre><code>using System;
 
 namespace DoWhileLoopExample
@@ -1507,7 +1647,8 @@ namespace DoWhileLoopExample
 
                     <h3>for statement</h3>
 
-                    <p>The for statement iterates a set number of times based on an exit condition.</p>
+                    <p>The <code>for</code> statement iterates a set number of times based on an exit condition.</p>
+
 <pre><code>using System;
 
 namespace ForLoopExample
@@ -1518,22 +1659,20 @@ namespace ForLoopExample
         {
             for (int i = 0; i &lt; 10; i++)
             {
-                // for loop skips current iteration if i is 5
-                if (i == 5)
-                    continue;
-                Console.Write(i); // does not write 5
+                Console.Write(i);
             }
         }
     }
 }
 
 // The example prints the following to the console
-// 012346789
+// 0123456789
 </code></pre>
 
                     <h3>foreach statement</h3>
 
-                    <p>The foreach statement iterates through all members of a collection.</p>
+                    <p>The <code>foreach</code> statement iterates through all members of a collection.</p>
+
 <pre><code>using System;
 
 namespace ForEachLoopExample
@@ -1554,6 +1693,62 @@ namespace ForEachLoopExample
 // The example prints the following to the console
 // H e l l o   w o r l d !
 </code></pre>
+
+                    <h3>break</h3>
+
+                    <p>The <code>break</code> keyword gives you a way of conditionally exiting a loop before completion.</p>
+
+<pre><code>using System;
+
+    namespace ConsoleApp17
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                string s = "Hello world!";
+                foreach (char c in s)
+                {
+                    Console.Write(c + " ");
+                    if (c == ' ')
+                        break;
+                }
+            }
+        }
+    }
+
+    // The example prints the following to the console
+    // H e l l o
+</code></pre>
+
+                    <h3>continue</h3>
+
+                    <p>The <code>continue</code> keyword gives you a way of conditionally skipping an iteration. The following example uses the <code>%</code> operator in
+                        conjunction with the <code>continue</code> keyword to skip all even numbers.</p>
+
+<pre><code>using System;
+
+    namespace ConsoleApp17
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                for (int i = 0; i &lt; 10; i++)
+                {
+                    // for loop skips current iteration if i is 5
+                    if (i % 2 == 0)
+                        continue;
+                    Console.Write(i);
+                }
+            }
+        }
+    }
+
+    // The example prints the following to the console
+    //  13579
+</code></pre>
+
                 </article>
             </section>
             <!-- !SECTION -->
@@ -3905,7 +4100,6 @@ namespace SomeNamespace
             <section class="main-section" id="Scope_and_Access_Modifiers">
                 <header><h2>Scope and Access Modifiers</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
-<!-- TODO complete this section -->
                 <article>
                     <h3>Scope</h3>
                     <p>Scope is the accessibility of a variable from one part of the code to another. In C# scope is arranged like the layers of an onion. Variables in an
@@ -4487,25 +4681,25 @@ namespace ScopeExample
                     <div class="four-column">
                         <!-- Column 1 -->
                         <div>
-                            <a class="keyword-link" href="#Keywords">abstract</a>
-                            <a class="keyword-link" href="#Keywords">as</a>
-                            <a class="keyword-link" href="#Keywords">base</a>
-                            <a class="keyword-link" href="#Keywords">bool</a>
-                            <a class="keyword-link" href="#Keywords">break</a>
-                            <a class="keyword-link" href="#Keywords">byte</a>
-                            <a class="keyword-link" href="#Keywords">case</a>
+                            <a class="keyword-link" href="#Classes,_Structs,_Interfaces_and_Inheritance">abstract</a>
+                            <a class="keyword-link" href="#Expressions_and_Operators">as</a>
+                            <a class="keyword-link" href="#Classes,_Structs,_Interfaces_and_Inheritance">base</a>
+                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">bool</a>
+                            <a class="keyword-link" href="#Iteration_Statements">break</a>
+                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">byte</a>
+                            <a class="keyword-link" href="#Decision_Making_Statements">case</a>
                             <a class="keyword-link" href="#Keywords">catch</a>
-                            <a class="keyword-link" href="#Keywords">char</a>
+                            <a class="keyword-link" href="#Characters_and_Strings">char</a>
                             <a class="keyword-link" href="#Keywords">checked</a>
-                            <a class="keyword-link" href="#Keywords">class</a>
-                            <a class="keyword-link" href="#Keywords">const</a>
-                            <a class="keyword-link" href="#Keywords">continue</a>
-                            <a class="keyword-link" href="#Keywords">decimal</a>
+                            <a class="keyword-link" href="#Classes,_Structs,_Interfaces_and_Inheritance">class</a>
+                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">const</a>
+                            <a class="keyword-link" href="#Iteration_Statements">continue</a>
+                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">decimal</a>
                             <a class="keyword-link" href="#Keywords">default</a>
                             <a class="keyword-link" href="#Keywords">delegate</a>
-                            <a class="keyword-link" href="#Keywords">do</a>
-                            <a class="keyword-link" href="#Keywords">double</a>
-                            <a class="keyword-link" href="#Keywords">else</a>
+                            <a class="keyword-link" href="#Iteration_Statements">do</a>
+                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">double</a>
+                            <a class="keyword-link" href="#Decision_Making_Statements">else</a>
                             <a class="keyword-link" href="#Keywords">enum</a>
                         </div>
                         <!-- Column 2 -->
@@ -4513,66 +4707,66 @@ namespace ScopeExample
                             <a class="keyword-link" href="#Keywords">event</a>
                             <a class="keyword-link" href="#Keywords">explicit</a>
                             <a class="keyword-link" href="#Keywords">extern</a>
-                            <a class="keyword-link" href="#Keywords">FALSE</a>
+                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">FALSE</a>
                             <a class="keyword-link" href="#Keywords">finally</a>
                             <a class="keyword-link" href="#Keywords">fixed</a>
-                            <a class="keyword-link" href="#Keywords">float</a>
-                            <a class="keyword-link" href="#Keywords">for</a>
-                            <a class="keyword-link" href="#Keywords">foreach</a>
+                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">float</a>
+                            <a class="keyword-link" href="#Iteration_Statements">for</a>
+                            <a class="keyword-link" href="#Iteration_Statements">foreach</a>
                             <a class="keyword-link" href="#Keywords">goto</a>
-                            <a class="keyword-link" href="#Keywords">if</a>
+                            <a class="keyword-link" href="#Decision_Making_Statements">if</a>
                             <a class="keyword-link" href="#Keywords">implicit</a>
                             <a class="keyword-link" href="#Keywords">in</a>
                             <a class="keyword-link" href="#Keywords">int</a>
-                            <a class="keyword-link" href="#Keywords">interface</a>
-                            <a class="keyword-link" href="#Keywords">internal</a>
-                            <a class="keyword-link" href="#Keywords">is</a>
+                            <a class="keyword-link" href="#Classes,_Structs,_Interfaces_and_Inheritance">interface</a>
+                            <a class="keyword-link" href="#Scope_and_Access_Modifiers">internal</a>
+                            <a class="keyword-link" href="#Expressions_and_Operators">is</a>
                             <a class="keyword-link" href="#Keywords">lock</a>
-                            <a class="keyword-link" href="#Keywords">long</a>
+                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">long</a>
                         </div>
                         <!-- Column 3 -->
                         <div>
                             <a class="keyword-link" href="#Keywords">namespace</a>
                             <a class="keyword-link" href="#Keywords">new</a>
-                            <a class="keyword-link" href="#Keywords">null</a>
-                            <a class="keyword-link" href="#Keywords">object</a>
+                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">null</a>
+                            <a class="keyword-link" href="#Classes,_Structs,_Interfaces_and_Inheritance">object</a>
                             <a class="keyword-link" href="#Keywords">operator</a>
                             <a class="keyword-link" href="#Keywords">out</a>
-                            <a class="keyword-link" href="#Keywords">override</a>
+                            <a class="keyword-link" href="#Classes,_Structs,_Interfaces_and_Inheritance">override</a>
                             <a class="keyword-link" href="#Keywords">params</a>
-                            <a class="keyword-link" href="#Keywords">private</a>
-                            <a class="keyword-link" href="#Keywords">protected</a>
-                            <a class="keyword-link" href="#Keywords">public</a>
+                            <a class="keyword-link" href="#Scope_and_Access_Modifiers">private</a>
+                            <a class="keyword-link" href="#Scope_and_Access_Modifiers">protected</a>
+                            <a class="keyword-link" href="#Scope_and_Access_Modifiers">public</a>
                             <a class="keyword-link" href="#Keywords">readonly</a>
                             <a class="keyword-link" href="#Keywords">ref</a>
                             <a class="keyword-link" href="#Keywords">return</a>
-                            <a class="keyword-link" href="#Keywords">sbyte</a>
+                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">sbyte</a>
                             <a class="keyword-link" href="#Keywords">sealed</a>
-                            <a class="keyword-link" href="#Keywords">short</a>
+                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">short</a>
                             <a class="keyword-link" href="#Keywords">sizeof</a>
                             <a class="keyword-link" href="#Keywords">stackalloc</a>
                         </div>
                         <!-- Column 4 -->
                         <div>
-                            <a class="keyword-link" href="#Keywords">static</a>
-                            <a class="keyword-link" href="#Keywords">string</a>
-                            <a class="keyword-link" href="#Keywords">struct</a>
-                            <a class="keyword-link" href="#Keywords">switch</a>
+                            <a class="keyword-link" href="#Classes,_Structs,_Interfaces_and_Inheritance">static</a>
+                            <a class="keyword-link" href="#Characters_and_Strings">string</a>
+                            <a class="keyword-link" href="#Classes,_Structs,_Interfaces_and_Inheritance">struct</a>
+                            <a class="keyword-link" href="#Decision_Making_Statements">switch</a>
                             <a class="keyword-link" href="#Keywords">this</a>
                             <a class="keyword-link" href="#Keywords">throw</a>
-                            <a class="keyword-link" href="#Keywords">TRUE</a>
+                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">TRUE</a>
                             <a class="keyword-link" href="#Keywords">try</a>
                             <a class="keyword-link" href="#Keywords">typeof</a>
-                            <a class="keyword-link" href="#Keywords">uint</a>
-                            <a class="keyword-link" href="#Keywords">ulong</a>
+                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">uint</a>
+                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">ulong</a>
                             <a class="keyword-link" href="#Keywords">unchecked</a>
                             <a class="keyword-link" href="#Keywords">unsafe</a>
-                            <a class="keyword-link" href="#Keywords">ushort</a>
+                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">ushort</a>
                             <a class="keyword-link" href="#Keywords">using</a>
-                            <a class="keyword-link" href="#Keywords">virtual</a>
+                            <a class="keyword-link" href="#Classes,_Structs,_Interfaces_and_Inheritance">virtual</a>
                             <a class="keyword-link" href="#Keywords">void</a>
                             <a class="keyword-link" href="#Keywords">volatile</a>
-                            <a class="keyword-link" href="#Keywords">while</a>
+                            <a class="keyword-link" href="#Iteration_Statements">while</a>
                         </div>
                     </div>
                     <h4>Contextual keywords</h4>
