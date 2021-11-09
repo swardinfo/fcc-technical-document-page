@@ -199,6 +199,11 @@ pre {
     padding: 0 3px;
 }
 
+.four-column a{
+    display: block;
+    margin-bottom: 6px;
+}
+
 .comment {
     color: var(--code-comment-color);
 }
@@ -340,12 +345,12 @@ u.syntax::after {
 
     .four-column {
         display: flex;
-        margin: 0 auto;
-        justify-content: space-between;
+        max-width: 1200px;
+        flex-wrap: nowrap;
     }
 
-    .four-column a {
-        display: block;
+    .four-column div {
+        flex-basis: calc(25%);
     }
 }
 
