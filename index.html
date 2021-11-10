@@ -54,64 +54,48 @@
         <main id="main-doc">
             <!-- project requirement - several section elements, each with a class of main-section. There should be a minimum of 5 -->
             <!-- project requirement - section with class of main-section, id corresponds to header text, spaces replaced with underscores -->
-
             <!-- SECTION Introduction -->
             <section class="main-section" id="Introduction">
                 <header><h2>Introduction</h2></header>
                 <!-- project requirement -  first element in each .main-section is a header element which contains text that describes the topic -->
-                    <article>
-                        <!-- project requirement - .main-section elements should contain at least 10 p elements total, not each -->
-                        <p>The purpose of this guide is to give you an idea of what C# is about and the tools it provides for writing an application. What this is not is
-                            a step by step guide into computer programming. Whilst someone with no programming skills may get some benefit, this guide it is aimed at
-                            those who have experience with other languages and want to see what C# has to offer.</p>
-
-                        <p>So what do you need to know. Firstly, developing an application in almost any programming language will require
-                            some basic maths skills, such as, logical thinking, basic algebra, knowing the difference between integers and floating
-                            point numbers, etc. You should also know how to install and upgrade software and operating systems on a computer, and
-                            have an internet connection. It would also be useful to know some of the basics of how a computer works such as CPU's, memory, file systems,
-                            etc.</p>
-
-                        <p>Lastly and perhaps most importantly you should have skills in theory of mind and empathy, i.e. what the user maybe thinking and how they
-                            feel. These should be a constant consideration as you create your application. For example, entering a letter in a
-                            program when a number is required may be invalid. Having a popup error message with each wrong keystroke that then needs to be cancelled will
-                            quickly lead to frustration and your program ending up in the trash.
-                        </p>
-                    </article>
+                <article>
+                    <!-- project requirement - .main-section elements should contain at least 10 p elements total, not each -->
+                    <p>The purpose of this guide is to give you an idea of what C# is about and the tools it provides for writing an application. What this is not is a
+                        step by step guide into computer programming. Whilst someone with no programming skills may get some benefit, this guide it is aimed at those who
+                        have experience with other languages and want to see what C# has to offer.</p>
+                    <p>So what do you need to know. Firstly, developing an application in almost any programming language will require some basic maths skills, such as,
+                        logical thinking, basic algebra, knowing the difference between integers and floating point numbers, etc. You should also know how to install and
+                        upgrade software and operating systems on a computer, and have an internet connection. It would also be useful to know some of the basics of how a
+                        computer works such as CPU's, memory, file systems, etc.</p>
+                    <p>Lastly and perhaps most importantly you should have skills in theory of mind and empathy, i.e. what the user maybe thinking and how they feel.
+                        These should be a constant consideration as you create your application. For example, entering a letter in a program when a number is required may
+                        be invalid. Having a popup error message with each wrong keystroke that then needs to be cancelled will quickly lead to frustration and your
+                        program ending up in the trash.</p>
+                </article>
             </section>
             <!-- !SECTION -->
-
             <!-- SECTION C# Language -->
             <section class="main-section" id="C_Sharp_and_Dot_NET">
                 <header><h2>C Sharp and Dot NET</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
                     <p><em>Note:</em><i> The correct title for this section is <b>C# and .NET</b> but has been changed due to technical limitations</i></p>
-
                     <h3>The C# language</h3>
-
-                    <p>C# is a high level computer language created and maintained by Microsoft for the purpose of developing computer programs.
-                        A computer uses binary, the language of ones and zeros. To put it at its simplest all a computer can do is like a light switch
-                        turn things on or off, albeit at billions of times a second. For any person trying to write in ones and zeros, this soon becomes
-                        an impossible task. A high level programming language is a type of shorthand that is human readable making it easier for a developer to
-                        read and write code.</p>
-
+                    <p>C# is a high level computer language created and maintained by Microsoft for the purpose of developing computer programs. A computer uses binary,
+                        the language of ones and zeros. To put it at its simplest all a computer can do is like a light switch turn things on or off, albeit at billions
+                        of times a second. For any person trying to write in ones and zeros, this soon becomes an impossible task. A high level programming language is a
+                        type of shorthand that is human readable making it easier for a developer to read and write code.</p>
                     <h3>.NET</h3>
-
                     <p>.NET is an open-source, cross platform framework created and maintained by Microsoft. It provides the <i>Common Language Runtime</i>(CLR) which
-                        will run our code and other services such as memory management, debugging, garbage collection, etc, making our job of writing code easier.
-                        The phrase <i>during runtime</i>, is often used to refer to the time in which the code is running.</p>
-
-                    <p>.NET also provides a large quantity of pre written code we can use that provides many of the basic functions such as file I/O, network
-                        access, collections, user interfaces, etc, so we don't have to write our own. Whenever a console, WinForms or WPF application is created
-                        the .NET framework is added by default and can be accessed through the System namespace. At the time of this writing the current version
-                        is .Net 5.0.</p>
-
+                        will run our code and other services such as memory management, debugging, garbage collection, etc, making our job of writing code easier. The
+                        phrase <i>during runtime</i>, is often used to refer to the time in which the code is running.</p>
+                    <p>.NET also provides a large quantity of pre written code we can use that provides many of the basic functions such as file I/O, network access,
+                        collections, user interfaces, etc, so we don't have to write our own. Whenever a console, WinForms or WPF application is created the .NET
+                        framework is added by default and can be accessed through the System namespace. At the time of this writing the current version is .Net 5.0.</p>
                     <p>Links to the reference documentation for C# and .NET can be found in <a href="#References">References</a></p>
-
                 </article>
             </section>
             <!-- !SECTION -->
-
             <!-- SECTION Integrated Development Environment -->
             <section class="main-section" id="Integrated_Development_Environment">
                 <header><h2>Integrated Development Environment</h2></header>
@@ -127,37 +111,31 @@
                         <li>Compiler</li>
                         <li>Debugger</li>
                     </ul>
-                    <p>The code editor, like a word processor, provides many tools that help in writing code. These include indication of
-                        syntax errors shown with a <u class="syntax">red wavy underline</u> that may prevent the program from running,
-                        code auto completion, called IntelliSense in Visual Studio, that provides suggestions with documentation and formatting tools
-                        that help keep the code consistent with coding conventions.</p>
-
-                    <p>The compiler is used by C# to convert the code the developer writes into the language the computer requires and using
-                        it is known as building the program. On completion, the compiler will report if the result was successful or
-                        produce a list of errors that must be corrected before the code can be run.</p>
-
-                    <p>The debugger aids the developer in finding errors in the code. Not every program will be written perfectly first time
-                        and the errors that prevent it from functioning correctly are known as bugs. If we were just to write, compile and
-                        run the program, then we would not have much to go on as to where a bug may exist. The debugger allows us to step
-                        through the code one line at a time to find the problem. This is known as running the program with the debugger
-                        attached.</p>
-
+                    <p>The code editor, like a word processor, provides many tools that help in writing code. These include indication of syntax errors shown with a
+                        <u class="syntax">red wavy underline</u> that may prevent the program from running, code auto completion, called IntelliSense in Visual Studio,
+                        that provides suggestions with documentation and formatting tools that help keep the code consistent with coding conventions.</p>
+                    <p>The compiler is used by C# to convert the code the developer writes into the language the computer requires and using it is known as building the
+                        program. On completion, the compiler will report if the result was successful or produce a list of errors that must be corrected before the code
+                        can be run.</p>
+                    <p>The debugger aids the developer in finding errors in the code. Not every program will be written perfectly first time and the errors that prevent
+                        it from functioning correctly are known as bugs. If we were just to write, compile and run the program, then we would not have much to go on as to
+                        where a bug may exist. The debugger allows us to step through the code one line at a time to find the problem. This is known as running the
+                        program with the debugger attached.</p>
                     <p>At the time of this writing the there are three versions of Visual Studio 2019.</p>
                     <ul>
                         <li>Community</li>
                         <li>Professional</li>
                         <li>Enterprise</li>
                     </ul>
-                    <p>All examples in this document can be created and run on the community version which can be downloaded and installed
-                        free from the <a href="https://visualstudio.microsoft.com/" rel="external nofollow noopener noreferrer" target="_blank">
-                        Visual Studio</a> web page. For the remainder of this document Visual Studio will be referred to as the IDE.</p>
+                    <p>All examples in this document can be created and run on the community version which can be downloaded and installed free from the
+                        <a href="https://visualstudio.microsoft.com/" rel="external nofollow noopener noreferrer" target="_blank"> Visual Studio</a> web page. For the
+                        remainder of this document Visual Studio will be referred to as the IDE.</p>
 
                     <p><em>Note:</em> <i>Whilst the code editor in Visual Studio provides color coding for different elements of the code only the
                         <u class="syntax">red wavy underline</u> used to indicate syntax errors will be shown in this guide.</i></p>
                 </article>
             </section>
             <!-- !SECTION -->
-
             <!-- SECTION Create a Hello World Project -->
             <section class="main-section" id="Create_a_Hello_World_Project">
                 <header><h2>Create a Hello World Project</h2></header>
@@ -168,24 +146,19 @@
                         <li>Start the IDE then click <b>Create a new project</b>.</li>
                         <li> On the <span class="nowrap"><b>Create a new project</b></span> page in the search box at the top type
                             <span class="nowrap"><b>'console core'</b></span>.</li>
-                        <li>
-                            A project template titled <span class="nowrap"><b>Console Application</b></span> should appear at the top of the list. It
+                        <li>A project template titled <span class="nowrap"><b>Console Application</b></span> should appear at the top of the list. It
                             has an icon that looks like a document with C# in the top right corner. Select <span class="nowrap"><b>Console Application</b></span> then
                             choose <b>Next</b>. (Hint: if <span class="nowrap"><b>Console Application</b></span> is not at the top, click <b>Clear all</b> and search
-                            again)
-                        </li>
+                            again)</li>
                         <li>On the <span class="nowrap"><b>Configure your new project</b></span> page type <b>'HelloWorld'</b>
                             in the <span class="nowrap"><b>Project name</b></span> box. Leave the <b>Location</b> and <span class="nowrap"><b>Solution name</b></span> as
                             filled in by the IDE and choose <b>Next</b>.</li>
                         <li>In the <span class="nowrap"><b>Additional information</b></span> page make sure <b>.NET5.0(Current)</b> is selected in the dropdown selector
                             then choose <b>Create</b></li>
                     </ol>
-
-                    <p>The main window of the IDE opens with <i>Solution Explorer</i> open on the right and the code editor on the left.
-                        The <i>Program.cs</i> code file should be open in the code editor with the code as per the following example. Not
-                        shown here are the line numbers in the left column visible in the code editor. These are not part of the program and
-                        are purely for reference.</p>
-
+                    <p>The main window of the IDE opens with <i>Solution Explorer</i> open on the right and the code editor on the left. The <i>Program.cs</i> code file
+                        should be open in the code editor with the code as per the following example. Not shown here are the line numbers in the left column visible in
+                        the code editor. These are not part of the program and are purely for reference.</p>
 <!-- Warning, pre and code tags require html to be formatted here which makes it look like crap in the code editor! -->
 <pre><code>using System;
 
@@ -200,124 +173,111 @@ namespace HelloWorld
     }
 }
 </code></pre>
-
-                    Press <kbd>F5</kbd>.
-
-                    <p>The console, a <i>command window</i> in Windows, opens displaying the words <b>'Hello World!'</b>. Congratulations,
-                        you have now created and run your first C# program. The remainder of the text tells us our program finished but the
-                        IDE has kept the console open so that we can see the result. Press any key to close the console.</p>
-
+                    To run the program press <kbd>F5</kbd>.
+                    <p>The console, a <i>command window</i> in Windows, opens displaying the words <b>'Hello World!'</b>. Congratulations, you have now created and run
+                        your first C# program. The remainder of the text tells us our program finished but the IDE has kept the console open so that we can see the
+                        result. Press any key to close the console.</p>
                     <p>By pressing <kbd>F5</kbd> the compiler built then ran the program with the debugger attached known as running in <i>debug mode</i>. The program
-                        starts with the
-                        method called <code>static void Main(string[] args)</code>. This is known as the <i>entry point</i> and there are
-                        several <a href="#Code_Syntax">code&nbsp;syntax</a> rules it must follow.</p>
-
-                    <p>Following <code>static void Main(string[] args)</code> is a pair of curly brackets <code>{ }</code>. The program
-                        executes all the statements it finds within these. Here there is only one,
-                        <code>Console.WriteLine("Hello World!");</code>. This tells the computer to write a line followed by a carriage
-                        return to the <i>command window</i> and that the text to be written is located within the round brackets
-                        <code>( )</code>, which in this case is <span class="nowrap"><b>'Hello World!'</b></span>. As there are no further
-                        lines in our code before the closing bracket <code>}</code>, the program exits. At this point the window of a program
-                        would normally close but the IDE has an option to keep console application windows open so that you can see the results.
-                        This option is turned on by default.</p>
+                        starts with the method called <code>static void Main(string[] args)</code>. This is known as the <i>entry point</i> and there are several
+                        <a href="#Code_Syntax">code&nbsp;syntax</a> rules it must follow.</p>
+                    <p>Following <code>static void Main(string[] args)</code> is a pair of curly brackets <code>{ }</code>. The program executes all the statements it
+                        finds within these. Here there is only one, <code>Console.WriteLine("Hello World!");</code>. This tells the computer to write a line followed by a
+                        carriage return to the <i>command window</i> and that the text to be written is located within the round brackets <code>( )</code>, which in this
+                        case is <span class="nowrap"><b>'Hello World!'</b></span>. As there are no further lines in our code before the closing bracket <code>}</code>,
+                        the program exits. At this point the window of a program would normally close but the IDE has an option to keep console application windows open
+                        so that you can see the results. This option is turned on by default.</p>
                 </article>
             </section>
             <!-- !SECTION -->
-
             <!-- SECTION Code Syntax -->
             <section class="main-section" id="Code_Syntax">
                 <header><h2>Code Syntax</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
-                    <p>Some of the terms that will be mentioned in this section have not yet been covered and links are provided to their
-                        details, so consider this as a reference to come back to as you become more familiar with them.</p>
-
-                    <p>C# consists of text and symbols each of which tells the compiler how to convert our code into a program. The
-                        <i>syntax</i> is the set of rules that governs how our code must be put together, i.e. which word or symbol goes
-                        where. Together these words and symbols are combined to form statements, declarations and directives that are the
-                        instructions used to create a C# program. For someone with no experience in C#, reading a list of rules and
-                        specifications is likely to lead to more confusion than understanding, so the best way forward is to dive into some
-                        examples and see what's going on.</p>
-
+                    <p>Some of the terms that will be mentioned in this section have not yet been covered and links are provided to their details, so consider this as a
+                        reference to come back to as you become more familiar with them.</p>
+                    <p>C# consists of text and symbols each of which tells the compiler how to convert our code into a program. The <i>syntax</i> is the set of rules that
+                        governs how our code must be put together, i.e. which word or symbol goes where. Together these words and symbols are combined to form statements,
+                        declarations and directives that are the instructions used to create a C# program. For someone with no experience in C#, reading a list of rules
+                        and specifications is likely to lead to more confusion than understanding, so the best way forward is to dive into some examples and see what's
+                        going on.</p>
                     <p>The following illustrates examples both valid and invalid syntax</p>
-
 <pre><code>// This is a comment
 
 // using directive
 using System;
 
 // namespace declaration
-    namespace MyProgram
+namespace MyProgram
+{
+    // class declaration
+    public class MyClass
     {
-        // class declaration
-        public class MyClass
+        // Constructor declaration with empty code block
+        MyClass() {  }
+
+        // Method declaration
+        static void Main(string[] args)
         {
-            // Constructor declaration with empty code block
-            MyClass() {  }
+            // Single statement
+            Console.WriteLine("Hello World!");
 
-            // Method declaration
-            static void Main(string[] args)
+            // Single statements, declaring and assigning variables
+            int k;
+            k = 0;
+            int j = 0;
+
+            // while statement with code block
+            while (true)
             {
-                // Single statement
-                Console.WriteLine("Hello World!");
-
-                // Single statements, declaring and assigning variables
-                int k;
-                k = 0;
-                int j = 0;
-
-                // while statement with code block
-                while (true)
-                {
-                    k = 1;
-                    break;
-                    // Unreachable code
-                    j = 2;
-                }
-
-                // These two 'if' statements are equivalent
-                if (a)
-                {
-                    x = 1;
-                }
-
-                if (a)
-                    x = 1; // Embedded statement
-
-                // The following results in the error
-
-                if (a)
-                    <u class="syntax">var y = 1;</u> // Invalid, embedded statement cannot be a declaration
-
-                // The  Console.WriteLine("Hello World!"); from above rearranged
-                Console
-                    .
-                        WriteLine
-
-                    ("Hello World")
-                                    ;  // The semicolon here determines the end of the statement
-
-                // Invalid statement, can't put space in keyword
-                <u class="syntax">Con</u> <u class="syntax">sole</u>.WriteLine ("Hello World") ;
-
-                // Invalid statement, can't put line break in keyword
-                <u class="syntax">Con</u>
-                    <u class="syntax">sole</u>.WriteLine ("Hello World") ;
-
-                // Invalid string statement, can't put line break in regular string
-                Console.WriteLine("<u class="syntax">Hello</u>
-                                    <u class="syntax">World!</u>");
-
-                // OK string statement, can put line break in verbatim string
-                Console.WriteLine(@"Hello
-    World!");
-                // This produces
-                // Hello
-                // World
+                k = 1;
+                break;
+                // Unreachable code
+                j = 2;
             }
+
+            // These two 'if' statements are equivalent
+            if (a)
+            {
+                x = 1;
+            }
+
+            if (a)
+                x = 1; // Embedded statement
+
+            // The following results in the error
+
+            if (a)
+                <u class="syntax">var y = 1;</u> // Invalid, embedded statement cannot be a declaration
+
+            // The  Console.WriteLine("Hello World!"); from above rearranged
+            Console
+                .
+                    WriteLine
+
+                ("Hello World")
+                                ;  // The semicolon here determines the end of the statement
+
+            // Invalid statement, can't put space in keyword
+            <u class="syntax">Con</u> <u class="syntax">sole</u>.WriteLine ("Hello World") ;
+
+            // Invalid statement, can't put line break in keyword
+            <u class="syntax">Con</u>
+                <u class="syntax">sole</u>.WriteLine ("Hello World") ;
+
+            // Invalid string statement, can't put line break in regular string
+            Console.WriteLine("<u class="syntax">Hello</u>
+                                <u class="syntax">World!</u>");
+
+            // OK string statement, can put line break in verbatim string
+            Console.WriteLine(@"Hello
+World!");
+            // This produces
+            // Hello
+            // World
         }
     }
-
+}
 </code></pre>
                     <p>First a quick look at the structure of the code which we'll go to into detail throughout this guide. In general a program takes the form of a list
                         of instructions with one per line, though C# allows for an instruction to span multiple lines if required. C# also allows for multiple
@@ -325,25 +285,19 @@ using System;
                         it can contain any combination of statements, declarations, directives, comments and other code blocks. Each instruction, depending on its type,
                         must be followed by either a code block, a semicolon <code>;</code> or a carriage return. The compiler ignores comments and whitespace other than
                         as separators for words and symbols.</p>
-
                     <p>There are varying conventions on how to format code. The one used throughout this guide is to place code blocks directly under the beginning of the
                         instruction they belong to and indent everything within them. The IDE has tools to aid with code formatting styles such as this.</p>
-
                     <p>A statement is the part of the code that becomes the instructions in the program that tells the computer what to do. A declaration tells the
                         compiler that a new object is to exist and become part of the program. In some cases a declaration can also be a statement. A directive is an
                         instruction for the compiler that while not directly part of our program will effect how our program will be built and run.</p>
-
                     <p>In the example below, the first line is a <i>comment</i>. The two forward slashes <code>//</code> at the beginning indicates that this is a single
                         line comment. Details on comment syntax and its use is in (<a href="#Comments_and_Task_Lists">Comments and Task Lists</a>).</p>
-
                     <p>The line <code>using System;</code> is a using directive and must always end with a semicolon <code>;</code>. The first word <code>using</code> is
                         a reserved word called a <i>keyword</i> in C#. Keywords are directly used by the compiler as instructions. A list of all keywords can be found in
                         (<a href="#Keywords">Keywords</a>). The next word <code>System</code> is an <i>identifier</i>. Identifiers are used to name types
-                        (class, interface, struct, delegate, record or enum) members, variables, or namespaces.
-                    </p>
+                        (class, interface, struct, delegate, record or enum) members, variables, or namespaces.</p>
 
                     <p>The rules for identifiers are</p>
-
                     <ul>
                         <li>Identifiers must begin with a letter or the <code>_</code> character</li>
                         <li>Identifiers can only contain letters, numbers or the <code>_</code> character</li>
@@ -353,81 +307,62 @@ using System;
                         <li>Identifiers can only be declared once within the same scope</li>
                         <li>A keyword can't be used as an identifier</li>
                     </ul>
-
                     <p>By being case sensitive it is valid for two identifiers to differ by case only, e.g. <code><b>n</b>ame</code> and <code><b>N</b>ame</code> are two
                         different identifiers.</p>
-
                     <p>More recently C# has introduced the discard variable which is used when the output of an expression is not required. This is an advanced subject
                         that won't be discussed in this guide but is mentioned here for completeness. The identifier for the discard variable is the <code>_</code>
-                        character by itself. Unlike other variables, multiple discard variable identifiers can be declared within the same scope.
-                    </p>
-
+                        character by itself. Unlike other variables, multiple discard variable identifiers can be declared within the same scope.</p>
                     <p><code>namespace MyProgram</code> is a namespace declaration. Namespaces are used to organize objects into logical groups. Details of the
                         <code>using</code> directive and namespaces are in (<a href="#Namespaces_and_References">Namespaces and References</a>).</p>
-
                     <p>Following the namespace declaration is an opening curly bracket <code>{</code> which is the beginning of a code block and its closing bracket
                         <code>}</code> is the last line in the example. All code blocks must have an opening and closing bracket. Nested within this code block is a class
                         as declared by <code>public class MyClass</code> and its associated code block. Nested within this is a constructor declaration
                         <code>MyClass() { }</code> , a method declaration <code>static void Main(string[] args)</code> and their code blocks. Details on
                         <i>constructors</i> and <i>methods</i> are in (<a href="#Classes_and_Objects">Classes and Objects</a>).</p>
-
                     <p>There are two main ways in which a program can be compiled for use. The first is as a class library to be used by other applications and the second
                         as an application that can be started directly. For the latter the program must have an entry point method and as mentioned in
                         (<a href="#Create_a_Hello_World_Project">Create a Hello World Project</a>), for C# it is the method <code>static void Main(string[] args)</code>.
                         There are several rules that it must follow but the main ones that concern us are</p>
-
                     <ul>
                         <li>There can only be one <code>static void Main(string[] args)</code> method within the program</li>
                         <li>It must have the <code> static </code> keyword </li>
                     </ul>
-
                     <p><code>Console.WriteLine("Hello World!");</code> , a single line statement, is the first in the <code>public void MyMethod()</code> code block. In
                         this context, the dot <code>.</code> between <code>Console</code> and <code>WriteLine ("Hello World")</code> is called the Member access operator.
                         It allows access to a member, here a method called <code>WriteLine</code> in a class called <code>Console</code>. The round brackets
                         <code>( )</code> allow parameters to be passed into the method, here the string literal <code>"Hello World!"</code>. All single line statements
                         must end with a semicolon <code>;</code> . Following are three further examples of single line statements showing how variables can be declared
-                        and assigned, details of which are in (<a href="#Variables,_Constants,_Types_and_Literals">Variables, Constants, Types and Literals</a>)
-                     </p>
-
+                        and assigned, details of which are in (<a href="#Variables,_Constants,_Types_and_Literals">Variables, Constants, Types and Literals</a>)</p>
                     <p> The <code>while (true)</code> statement also called a while loop, together with the curly brackets and enclosed code form a code block. No
                         semicolon is required after the closing curly bracket. Within the code block is an assignment statement, a <code>break</code> statement which
                         causes the program to leave the while loop and another assignment statement. As the the second assignment statement follows the <code>break</code>
                         statement, it can't be executed and is known as unreachable code. This won't prevent the program from being built or run but will cause a warning
-                        in the IDE and should be rectified. Details on while loops can be found in (<a href="#Iteration_Statements">Iteration Statements</a>).
-                    </p>
-
+                        in the IDE and should be rectified. Details on while loops can be found in (<a href="#Iteration_Statements">Iteration Statements</a>).</p>
                     <p>Next are two <code>if</code> statements. Details on if statements can be found in
                         (<a href="#Decision_Making_Statements">Decision Making Statements </a>). Some statements allow for a single statement known as an embedded
                         statement, such as <code>x = 1;</code> in the example, to be placed directly after it without the need for curly brackets. Together they form a
                         compound statement. In the example the two <code>if</code> statements are equivalent. An embedded statement cannot be a declaration or labelled
                         statement so the following example is invalid.</p>
-
                     <p>As mentioned above, but for a few exceptions, the compiler ignores line breaks, tabs and whitespace, so a statement does not need to be on a single
                         line. <code>Console.WriteLine ("Hello World");</code> can be rearranged to produce the following valid code example. It's the semicolon here that
                         instructs the compiler where the end of the statement is. Keywords and identifiers can't contain whitespace or line breaks so the following two
                         examples are invalid. For the remainder of this guide, <i>statement</i> will refer to a statement that ends with a semicolon, even if that
                         statement spans multiple lines.</p>
-
-
                     <p>Regular string literals such as "Hello World!" can't contain line breaks so the first string statement example is invalid. Verbatim string
                         literals, prefixed with an <code>@</code> symbol, as in the second example can contain line breaks and produces the result as shown. Details on
                         strings can be found in (<a href="#Characters_and_Strings">Characters and Strings</a>)</p>
                 </article>
             </section>
             <!-- !SECTION -->
-
             <!-- SECTION Comments and Task Lists - Section -->
             <!-- NOTE Ignore todos in this section -->
             <section class="main-section" id="Comments_and_Task_Lists">
                 <header><h2>Comments and Task Lists</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
-                    <p>Comments have several purposes, they provide information to developers as to what the code does and can also aid in
-                        debugging. Comments are ignored by the compiler when building the application.</p>
-
+                    <p>Comments have several purposes, they provide information to developers as to what the code does and can also aid in debugging. Comments are ignored
+                        by the compiler when building the application.</p>
                     <p>Following are some examples of comments.</p>
-
-
 <pre><code>using System;
 
 namespace CommentExample
@@ -462,24 +397,19 @@ namespace CommentExample
     }
 }
 </code></pre>
-                    <p>Comments can be in two forms. Single line comments start with <code>//</code> and extend to the end of the line.
-                        Delimited comments start with <code>*/</code> end with <code>*/</code> and can span multiple lines. For technical
-                        reasons that won't be detailed here it is preferred to use multiple single line rather than delimited comments and
-                        the IDE has tools that assist with this. To comment out multiple lines, first select all the lines by placing the
-                        cursor in front of the first statement, then while pressing the <kbd>Ctrl</kbd> key, drag the mouse diagonally down
-                        to the end of the last statement. Then while still pressing <kbd>Ctrl</kbd> press and release <kbd>K</kbd> then
-                        press <kbd>C</kbd> to comment out the selected lines. To uncomment, again with all lines selected, press
-                        <kbd>Ctrl</kbd> + <kbd>K</kbd> then while still pressing <kbd>Ctrl</kbd> release <kbd>K</kbd> then
-                        press <kbd>U</kbd>.</p>
-
-                    <p>The last comment in the example <code>// TODO: A task list comment</code> is interpreted by the IDE as a task to be
-                        added to the Task List. There are four predefined task tokens, <code>HACK</code>, <code>TODO</code>,
-                        <code>UNDONE</code> and <code>UnresolvedMergeConflict</code>. As well custom tokens can also be added. Task tokens
-                        are not case sensitive. To see the task list,  in the menu click View-&gt;Task List.</p>
+                    <p>Comments can be in two forms. Single line comments start with <code>//</code> and extend to the end of the line. Delimited comments start with
+                        <code>*/</code> end with <code>*/</code> and can span multiple lines. For technical reasons that won't be detailed here it is preferred to use
+                        multiple single line rather than delimited comments and the IDE has tools that assist with this. To comment out multiple lines, first select all
+                        the lines by placing the cursor in front of the first statement, then while pressing the <kbd>Ctrl</kbd> key, drag the mouse diagonally down to
+                        the end of the last statement. Then while still pressing <kbd>Ctrl</kbd> press and release <kbd>K</kbd> then press <kbd>C</kbd> to comment out the
+                        selected lines. To uncomment, again with all lines selected, press <kbd>Ctrl</kbd> + <kbd>K</kbd> then while still pressing <kbd>Ctrl</kbd>
+                        release <kbd>K</kbd> then press <kbd>U</kbd>.</p>
+                    <p>The last comment in the example <code>// TODO: A task list comment</code> is interpreted by the IDE as a task to be added to the Task List. There
+                        are four predefined task tokens, <code>HACK</code>, <code>TODO</code>, <code>UNDONE</code> and <code>UnresolvedMergeConflict</code>. As well
+                        custom tokens can also be added. Task tokens are not case sensitive. To see the task list,  in the menu click View-&gt;Task List.</p>
                 </article>
             </section>
             <!-- !SECTION -->
-
             <!-- SECTION Exceptions and Error Handling -->
             <section class="main-section" id="Exceptions_and_Error_Handling">
                 <header><h2>Exceptions and Error Handling</h2></header>
@@ -487,17 +417,13 @@ namespace CommentExample
                 <article>
                     <p>As the program code grows the likelihood that a bug will be introduced grows with it. Whilst the compiler will show us syntax errors, logical
                         errors that are not apparent until runtime can occur. In some cases these may prevent the continued execution of the program. C# has a system that
-                        allows us to handle these errors safely so that the program can continue.
-                    </p>
-
+                        allows us to handle these errors safely so that the program can continue.</p>
                     <h3>Exception</h3>
-
                     <p>An <code>exception</code> is an error from which the program cannot recover. C# has a number of built in exceptions that are thrown for various
                         error conditions. Following is an example that shows the result of attempting to divide by zero. By pressing <kbd>F5</kbd> the compiler will run
                         in debug mode and stop displaying an <i>Exception Unhandled</i> dialog box with the message
                         <i>System.DivideByZeroException: 'Attempted to divide by zero.'</i> of which <code>DivideByZeroException</code> is the exception. To stop the
                         program and clear the exception press <kbd>Shift</kbd> + <kbd>F5</kbd>.</p>
-
 <pre><code>using System;
 
 namespace ExceptionExample
@@ -515,33 +441,28 @@ namespace ExceptionExample
 
 // When run, the example results in a DivideByZeroException
 </code></pre>
-
                     <h3>throw</h3>
-
                     <p>Sometimes you may wish to check for invalid conditions specific to your own program. When these occur you can respond by throwing an exception of
                     your own choice using the <code>throw</code> keyword. You can also include a custom message with the exception. The following throws an
-                    <code>ArgumentException</code> with the message <i>y cannot be zero</i>. </p>
-
+                    <code>ArgumentException</code> with the message <i>y cannot be zero</i>.</p>
 <pre><code>using System;
 
-    namespace ExceptionExample
+namespace ExceptionExample
+{
+    class Program
     {
-        class Program
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
-            {
-                int y = 0;
-                throw new ArgumentException("y cannot be zero");
-            }
+            int y = 0;
+            throw new ArgumentException("y cannot be zero");
         }
     }
+}
 
-    // When run, the example results in
-    // System.ArgumentException: 'y cannot be zero'
+// When run, the example results in
+// System.ArgumentException: 'y cannot be zero'
     </code></pre>
-
                     <h3>try-catch</h3>
-
                     <p>The try-catch provides a mechanism to safely handle exceptions and consists of a <code>try</code> code block followed by a <code>catch</code>
                         code block. Code that has the possibility of resulting in an exception is placed within the <code>try</code> block and if an exception occurs
                         program execution stops before any further code within the <code>try</code> block is run. Program execution then passes to a catch block that
@@ -549,37 +470,35 @@ namespace ExceptionExample
                         <code>catch</code> block is not found then the program ends with an <i>unhandled exception</i>. Following shows how the
                         <code>DivideByZeroException</code> in the previous example could be handled. When run, instead of resulting in an unhandled exception dialog box,
                         <i>Attempted to divide by zero.</i> is written to the console.</p>
-
 <pre><code>using System;
 
-    namespace ExceptionExample
+namespace ExceptionExample
+{
+    class Program
     {
-        class Program
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
+            int x = 1;
+            int y = 0;
+            try
             {
-                int x = 1;
-                int y = 0;
-                try
-                {
-                    int z = x / y;
-                }
-                catch (DivideByZeroException ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
+                int z = x / y;
+            }
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
     }
+}
 
-    // The example writes the following to the console
-    // Attempted to divide by zero.
+// The example writes the following to the console
+// Attempted to divide by zero.
 </code></pre>
                     <p>It is also possible to have multiple catch blocks so as to catch different exceptions. An exception is only caught by the first catch block that
                         can handle it. If there is the possibility that the exception could be caught by more than one, the catch blocks should be ordered most to least
                         specific. In the following example the first block catches the <code>DivideByZeroException</code> and the second <code>Exception</code> which
                         catches all exceptions.</p>
-
 <pre><code>using System;
 
 namespace ExceptionExample
@@ -613,47 +532,36 @@ namespace ExceptionExample
                 </article>
             </section>
             <!-- !SECTION -->
-
             <!-- SECTION Variables, Constants, Types and Literals -->
             <section class="main-section" id="Variables,_Constants,_Types_and_Literals">
                 <header><h2>Variables, Constants, Types and Literals</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
-
                     <p>Variables are used to represent data in memory using a symbolic name. Every variable has a <i>type</i> that determines what type of data can be
                         stored and a <i>value</i> which is the actual data. C# is a strongly typed language which means the variable's type must be declared before it can
                         be used and cannot be changed later. The compiler then checks if the value stored in the variable is of the correct type and will tell us if it is
                         wrong. A <i>constant</i> is similar to a variable, except it must be assigned a value when declared and that value cannot be changed. A
                         <i>literal</i> is the representation in the code we write for the data we assign to a variable. Variables and constants can only be declared once
                         within the same <a href="#Scope_and_Access_Modifiers">scope</a></p>
-
                     <p>C# has two basic categories of variables, the <i>value type</i> and the <i>reference type</i>, into which all variables are grouped. A value type
                         stores its own data where as a reference type stores the address to where its data is located. You can think of these as a house and a contact in
                         an address book. The value type is like the house which has an address and physically stores its own contents where as the reference type is like
                         the contact that only stores the address to where the house is located. .</p>
-
                     <h3>Value type</h3>
-
                     <p>C# allocates memory based on the smallest size unit of an 8 bit byte. For efficiency reasons, each value type uses a fixed number of bytes. For an
                         integer or whole number C# provides a number of options based on size and whether negative values are allowed. The most commonly used is the
                         <i>int</i> which has a memory allocation of 4 bytes or 32 bits and can have negative values. It has a range from -2147483648 to 2147483647. When
                         you write <code>int i = 1;</code> you are telling the compiler to reserve a 4 byte section of memory, that its address will be referred to by the
                         variable with the identifier <code>i</code> and to store the value <code>1</code> in it. But for a few exceptions, operations on one value type
                         variable cannot affect the data of another. A value type variable cannot be changed to refer to data in another memory location.</p>
-
                     <h3>Reference type</h3>
-
                     <p>Providing it is of the same type a reference type can be changed to refer to a different location in memory and its size in memory can change. A
                         reference type can only refer to one location at a time but 2 reference type variables can refer to the same location. The result is that changing
                         the contents of one will affect the contents of the other.</p>
-
                     <p>C# has a number of built-in types of which each has a dedicated keyword. See
                         <a href="#Keywords_and_Specifications">Keywords and Specifications</a> for a full list of variable type, rang and size.</p>
-
                     <h3>Declaration and assignment</h3>
-
                     <p>The following applies to variables</p>
-
                     <ul>
                         <li>A variable must be declared with a type before it can be used</li>
                         <li>A <a href="#Scope_and_Access_Modifiers">local variable</a> can only be declared once within the same scope</li>
@@ -665,14 +573,12 @@ namespace ExceptionExample
                         <li>A <a href="#Scope_and_Access_Modifiers">local variable's accessibility</a> cannot be changed with an
                             <a href="#Scope_and_Access_Modifiers">access modifier</a></li>
                     </ul>
-
                     <p>In the following the first few examples demonstrate explicit declaration where you tell the editor what the variable's type is before it is used.
                         The first statement <code>int i;</code> declares the variable <code>i</code> to be a type of integer and then in <code>i = 1;</code> the
                         <code>=</code> operator assigns the literal value 1 to it. In <code>double j = 2.4</code> both the floating point type double <code>j</code> is
                         declared and the value 2.4 is assigned to it. In <code>int k = i + 3;</code> first the expression <code>i + 3</code> is evaluated then the
                         resultant value 4 is assigned to <code>k</code>. In <code>const double pi = 3.1415;</code> the constant <code>pi</code> is declared as a type
                         <code>double</code> and is assigned the value 3.1415.</p>
-
                     <p>C# also allows for <i>implicit</i> declaration through the use of the <code>var</code> keyword. This tells the compiler to determine the type of
                         variable to store based on the expression on the right side of the <code>=</code> operator. In the statement <code>var n = 3;</code> the compiler
                         interprets the 3 as an integer and based on its size assigns <code>n</code> a type of <code>int</code> and the value 3. In
@@ -681,7 +587,6 @@ namespace ExceptionExample
                         <code>var y = i + d;</code>summing an int with a double will result in a double so <code>y</code> is a double. As can be seen care must be taken
                         when using <code>var</code> as it is easy to end up with a type that was not expected. It should also be mentioned that there is much debate as to
                         the use of the <code>var</code> keyword which will be left for the reader to research.</p>
-
                     <p>The next eight <code>Console.WriteLine</code> statements write the values of i, j, k, pi, n, d, x and y to the console. Note that the default
                         behavior of <code>Console.WriteLine</code> is to truncate a number if the fractional part is zero so <code>d</code> and <code>y</code> are written
                         as 3 and 4 respectively. The four statements that follow introduce the <code>GetType()</code> method. As the name suggests this method gets the
@@ -691,7 +596,6 @@ namespace ExceptionExample
                         <a href="#Keywords_and_Specifications">keywords</a> for commonly used types. In this example <code>int</code> is the keyword for
                         <code>System.Int32</code> and <code>double</code> the keyword <code>System.Double</code> (note the capital 'D'). Both can be used in code but in
                         general the keyword is favoured by most.</p>
-
 <pre><code>using System;
 
 namespace VariablesExample
@@ -771,27 +675,19 @@ namespace VariablesExample
 // System.Int32
 // System.Double
 </code></pre>
-
                     <h3>Declaration and assignment syntax errors</h3>
-
                     <p>Syntax errors that occur when declaring and assigning variables will prevent the application from being compiled. The editor identifies these
                         errors and notifies you by placing a <u class="syntax">red wavy underline</u> under the part of the statement that is causing them. By moving the
                         the mouse over the line a message will popup detailing the error. Some errors can be quite cryptic so following are a few examples and an
-                        explanation of what they mean.
-                    </p>
-
+                        explanation of what they mean.</p>
                     <p><i>The name 'p' does not exist in the current context</i> - Before a variable can be used, it must first be declared either explicitly with
                         the use of a type followed by an identifier <code>int p;</code> or implicitly by use of the <code>var</code> keyword <code>var p = 0;</code></p>
-
                     <p><i>A local variable or function 'i' is already defined in this scope</i> - Only one unique instance of a variable can exist within a
                         <a href="#Scope">scope</a>. As <code>int i = 1;</code> has already declared variable <code>i</code>, the next statement
                         <code>int <u class="syntax">i</u> = 2;</code> is evaluated by the editor as an attempt to declare a second variable <code>i</code>.</p>
-
                     <p><i>Cannot use variable 'b' before it is declared</i> - C# executes statements in the order they appear in the code from top down. In this case
                         <code><u class="syntax">b</u> = 1;</code> has been written above <code>int b;</code>. Reversing the order of these two statements will resolve
-                        this error.
-                    </p>
-
+                        this error.</p>
                     <p><i>Use of unassigned local variable 'k'</i> - C# requires variables declared within a local <a href="#Scope">scope</a> to be assigned a value
                         before they can be used. Here <code>int k;</code> declares that a variable <code>k</code> of type <code>int</code> but does not assign it a value.
                         When declaring a variable a value can simultaneously be assigned to it through the used of the <code>=</code> operator as in
@@ -800,189 +696,173 @@ namespace VariablesExample
                         <code>=</code> operator that need to have a value assigned so the use of the <code>j</code> which is declared but not assigned a value on the left
                         side is valid. C# also has has the <code>default</code> keyword which allows any variable to be assigned its default value such as
                         <code>int k = default;</code>.  In this case <code>k</code>  would have a value of 0.</p>
-
                     <p><i>Cannot implicitly convert type 'double' to 'int'. An explicit conversion exists (Are you missing a cast?)</i> - In all the following cases
                         an attempt is being made to assign a variable of type <code>int</code> a value of type <code>double</code>. C# does not allow the assignment of a
                         value to a variable that could unwittingly result in a conversion that produces a loss of information. By assigning a floating point
                         <code>double</code> to an <code>int</code>, the fractional part after the decimal point could be lost. As can be seen from the examples it may not
-                        be obvious at first that a conversion is occurring.
-
+                        be obvious at first that a conversion is occurring.</p>
                     <p><code>i = <u class="syntax">d</u>;</code> an attempt is being made to assign the value in <code>d</code> which was declared a
                         <code>double</code> to <code>i</code> which was declared an <code>int</code>.</p>
-
                     <p><code>i = <u class="syntax">3.0</u>;</code> the variable <code>i</code> which was declared as an <code>int</code> is being assigned the literal
                         <code>3.0</code> which is interpreted as a <code>double</code> by the editor.</p>
-
-                    <p></p><code>b = <u class="syntax">i + d</u>;</code> as <code>i</code>is an <code>int</code> and <code>d</code> a <code>double</code> the result of
+                    <p><code>b = <u class="syntax">i + d</u>;</code> as <code>i</code>is an <code>int</code> and <code>d</code> a <code>double</code> the result of
                      <code>i + d</code> is first evaluated by the editor to be a <code>double</code> so assigning this to <code>b</code> produces the error.</p>
-
                     <p><code>b = <u class="syntax">i + x</u>;</code> in the previous statement <code>var x = i + d;</code> <code>i + d</code> was evaluated by the editor
                         to be a <code>double</code> and is allowed to be assigned to <code>x</code> through the use of the <code>var</code> keyword. This results in
                         <code>i + x</code> also being interpreted as a <code>double</code> so assigning it to the int <code>b</code> produces the error.</p>
-
                     <p><code>d = i;</code> there is no possibility of information loss from an <code>int</code> to a <code>double</code> so this is allowed.</p>
-
                     <p><em>Note:</em> <i>C# has a number of explicit methods that allow for a conversion that results in information loss without resulting in an error as
                         will be discussed shortly.</i></p>
-
                     <p><i>The left-hand side of an assignment must be a variable, property or indexer</i> - Here <code>pi</code> is a constant and as its value can't be
                         changed so attempting results in this error.</p>
-
                     <p><i>The expression assigned to 'area' must be constant</i> - As <code>area</code> has been declared a <code>const</code> the use of the variable
                         <code>i</code> in <code>i * 3 * 3</code> produces this error.</p>
-
                     <p><i>Operator '+' cannot be applied to operands of type 'int' and 'bool'</i> - C# does not allow the conversion of a boolean value to a number so
                         attempting a numeric addition between an <code>int</code> and a <code>bool</code> produces this error.</p>
-
 <pre><code>using System;
 
-    namespace VariablesExamples
+namespace VariablesExamples
+{
+    class Program
     {
-        class Program
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
-            {
-                // A red wavy line under parts of the following statements
-                // indicate that a syntax error is present. When the mouse
-                // is placed over the line a message will pop up with
-                // details of the error. The message has been included
-                // as a comment above each example
+            // A red wavy line under parts of the following statements
+            // indicate that a syntax error is present. When the mouse
+            // is placed over the line a message will pop up with
+            // details of the error. The message has been included
+            // as a comment above each example
 
-                // The name 'p' does not exist in the current context
-                <u class="syntax">p</u> = 1;
+            // The name 'p' does not exist in the current context
+            <u class="syntax">p</u> = 1;
 
-                int i = 1;
+            int i = 1;
 
-                // A local variable or function 'i' is already defined in this scope
-                int <u class="syntax">i</u> = 2;
+            // A local variable or function 'i' is already defined in this scope
+            int <u class="syntax">i</u> = 2;
 
-                // Cannot use variable 'b' before it is declared
-                <u class="syntax">b</u> = 1;
-                int b;
+            // Cannot use variable 'b' before it is declared
+            <u class="syntax">b</u> = 1;
+            int b;
 
-                int j;
-                int k;
+            int j;
+            int k;
 
-                // Use of unassigned local variable 'k'
-                j = i + <u class="syntax">k</u>;
+            // Use of unassigned local variable 'k'
+            j = i + <u class="syntax">k</u>;
 
-                // The next four statements would creates an implicit conversion
-                // that would result in the fractional part of the double
-                // being lost which is not allowed and so produce a syntax error
+            // The next four statements would creates an implicit conversion
+            // that would result in the fractional part of the double
+            // being lost which is not allowed and so produce a syntax error
 
-                double d = 0;
+            double d = 0;
 
-                // Cannot implicitly convert type 'double' to 'int'.
-                // An explicit conversion exists (Are you missing a cast?)
-                i = <u class="syntax">d</u>;
+            // Cannot implicitly convert type 'double' to 'int'.
+            // An explicit conversion exists (Are you missing a cast?)
+            i = <u class="syntax">d</u>;
 
-                // Cannot implicitly convert type 'double' to 'int'.
-                // An explicit conversion exists (Are you missing a cast?)
-                i = <u class="syntax">3.0</u>;
+            // Cannot implicitly convert type 'double' to 'int'.
+            // An explicit conversion exists (Are you missing a cast?)
+            i = <u class="syntax">3.0</u>;
 
-                d = i + 3;
+            d = i + 3;
 
-                // Cannot implicitly convert type 'double' to 'int'.
-                // An explicit conversion exists (Are you missing a cast?)
-                b = <u class="syntax">i + d</u>;
+            // Cannot implicitly convert type 'double' to 'int'.
+            // An explicit conversion exists (Are you missing a cast?)
+            b = <u class="syntax">i + d</u>;
 
-                var x = i + d;
+            var x = i + d;
 
-                // Cannot implicitly convert type 'double' to 'int'.
-                // An explicit conversion exists (Are you missing a cast?)
-                b = <u class="syntax">i + x</u>;
+            // Cannot implicitly convert type 'double' to 'int'.
+            // An explicit conversion exists (Are you missing a cast?)
+            b = <u class="syntax">i + x</u>;
 
-                // This is allowed as there is no loss of information
-                d = i;
+            // This is allowed as there is no loss of information
+            d = i;
 
-                const double pi = 3.1415;
+            const double pi = 3.1415;
 
-                // The left-hand side of an assignment must be a variable, property or indexer
-                <u class="syntax">pi</u> = 4;
+            // The left-hand side of an assignment must be a variable, property or indexer
+            <u class="syntax">pi</u> = 4;
 
-                // The expression assigned to 'area' must be constant
-                const double area = <u class="syntax">i * 3 * 3</u>;
+            // The expression assigned to 'area' must be constant
+            const double area = <u class="syntax">i * 3 * 3</u>;
 
-                bool t = true;
+            bool t = true;
 
-                // Operator '+' cannot be applied to operands of type 'int' and 'bool'
-                b = <u class="syntax">i + t</u>;
-            }
-        }
-</code></pre>
-
-                    <h3>Type conversion</h3>
-
-                    <p>Following are examples of the different tools C# provides to convert built in types.</p>
-
-<pre><code>using System;
-
-    namespace CastingAndConversionExample
-    {
-        class Program
-        {
-            static void Main(string[] args)
-            {
-                int i;
-                double d = 3.9;
-
-                // This casts the double d with a value of 3.9 to int i
-                // The cast truncates the value so 3.9 becomes 3
-                // The value in d remains unaffected
-                i = (int)d;
-
-                Console.WriteLine(i);
-                Console.WriteLine(d);
-
-                // This converts the double d with a value of 3.9 to int i
-                // Here the value in i is rounded up to 4
-                i = Convert.ToInt32(d);
-                Console.WriteLine(i);
-
-                // When the value is half way between to integers the
-                // value is rounded to the nearest even integer so
-                // 3.5 is rounded up to 4 and 4.5 down to 4
-                // Here the value in i is rounded up to 4
-
-                i = Convert.ToInt32(3.5);
-                Console.WriteLine(i);
-
-                i = Convert.ToInt32(4.5);
-                Console.WriteLine(i);
-
-                // The math class provides a number of math functions
-                // one of which is Math.Round. The default rounding here
-                // is the same as for Convert.ToInt32. The result is
-                // a double so a cast to an int is also required
-
-                i = (int)Math.Round(3.5);
-                Console.WriteLine(i);
-
-                i = (int)Math.Round(4.5);
-                Console.WriteLine(i);
-
-                // Math.Round with option to always round down
-                // this time 3.5 becomes 3
-
-                i = (int)Math.Round(3.5, MidpointRounding.ToZero);
-                Console.WriteLine(i);
-            }
+            // Operator '+' cannot be applied to operands of type 'int' and 'bool'
+            b = <u class="syntax">i + t</u>;
         }
     }
-
-    // The example writes the following to the console
-    // 3
-    // 3.9
-    // 4
-    // 4
-    // 4
-    // 4
-    // 4
-    // 3
+}
 </code></pre>
+                    <h3>Type conversion</h3>
+                    <p>Following are examples of the different tools C# provides to convert built in types.</p>
+<pre><code>using System;
 
+namespace CastingAndConversionExample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int i;
+            double d = 3.9;
 
+            // This casts the double d with a value of 3.9 to int i
+            // The cast truncates the value so 3.9 becomes 3
+            // The value in d remains unaffected
+            i = (int)d;
 
+            Console.WriteLine(i);
+            Console.WriteLine(d);
+
+            // This converts the double d with a value of 3.9 to int i
+            // Here the value in i is rounded up to 4
+            i = Convert.ToInt32(d);
+            Console.WriteLine(i);
+
+            // When the value is half way between to integers the
+            // value is rounded to the nearest even integer so
+            // 3.5 is rounded up to 4 and 4.5 down to 4
+            // Here the value in i is rounded up to 4
+
+            i = Convert.ToInt32(3.5);
+            Console.WriteLine(i);
+
+            i = Convert.ToInt32(4.5);
+            Console.WriteLine(i);
+
+            // The math class provides a number of math functions
+            // one of which is Math.Round. The default rounding here
+            // is the same as for Convert.ToInt32. The result is
+            // a double so a cast to an int is also required
+
+            i = (int)Math.Round(3.5);
+            Console.WriteLine(i);
+
+            i = (int)Math.Round(4.5);
+            Console.WriteLine(i);
+
+            // Math.Round with option to always round down
+            // this time 3.5 becomes 3
+
+            i = (int)Math.Round(3.5, MidpointRounding.ToZero);
+            Console.WriteLine(i);
+        }
+    }
+}
+
+// The example writes the following to the console
+// 3
+// 3.9
+// 4
+// 4
+// 4
+// 4
+// 4
+// 3
+</code></pre>
                     <p>To perform an explicit conversion from between types, use the cast expression <code>(T)E</code>. If no conversion exists from <code>E</code> to
                         <code>T</code> a compile error will occur. It also may be possible that a conversion error is not detected until the code containing it is
                         executed during run-time in which case an exception will be thrown.</p>
@@ -1007,7 +887,6 @@ namespace CastingAndConversionExample
                 </article>
             </section>
             <!-- !SECTION -->
-
             <!-- Completed -->
             <!-- SECTION Characters and Strings -->
             <section class="main-section" id="Characters_and_Strings">
@@ -1015,7 +894,6 @@ namespace CastingAndConversionExample
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
                     <p>Character literals consists of a single character in a pair of single quotes, <code>'a'</code>.</p>
-
                     <p>A character consists of one of:</p>
                     <ul>
                         <li>Single character</li>
@@ -1023,28 +901,21 @@ namespace CastingAndConversionExample
                         <li>Unicode escape sequence</li>
                         <li>Hexadecimal escape sequence</li>
                     </ul>
-
                     <p>String literals can be regular or verbatim and/or interpolated. Each can contain zero or more characters enclosed in a  pair of double quotes.</p>
-
                     <p>Regular string literals can contain escaped characters as per above and will be interpreted as such. They can't span multiple lines so to split a
                         statement with a long string literal across two or more lines, each part of the string on each line must first be enclosed in a pair of double
                         quotes. The <code>+</code> concatenation operator is then placed between each string to join them together.</p>
-
                     <p>Verbatim string literals are prefixed with the verbatim identifier <code>@</code>. Any escaped character will be interpreted verbatim except
                         <code>'\"'</code> which will be interpreted as one double quote. Verbatim string literals can span multiple lines. There must be no white space
                         between the <code>@</code> character and the string.</p>
-
                     <p>Interpolated strings are prefixed with the interpolation identifier <code>$</code> which indicates that they may contain <i>interpolation
                         expressions</i>. These can contain variables and other special characters that instruct the compiler how to format the string at
                         <span class="nowrap">run-time</span>. Interpolation expressions are wrapped in a pair of curly braces. There must be no white space between the
                         <code>$</code> identifier and the string. To use a curly brace as a character in an interpolated string two braces <code>{{</code> or
                         <code>}}</code> must be used. Interpolation expressions cover a vast range of options information of which can be found in the
                         <a href="#References">Microsoft Reference Documentation</a></p>
-
                     <p>The interpolation identifier can be used in conjunction with the verbatim identifier and the order of the identifiers doesn't matter.</p>
-
                     <p>Following are examples of string usage.</p>
-
 <pre><code>using System;
 
 namespace StringExample
@@ -1112,7 +983,6 @@ its now {now:HH:mm}");
                 </article>
             </section>
             <!-- !SECTION -->
-
             <!-- SECTION Expressions and Operators -->
             <section class="main-section" id="Expressions_and_Operators">
                 <header><h2>Expressions and Operators</h2></header>
@@ -1127,11 +997,8 @@ its now {now:HH:mm}");
 </code></pre>
                     <p>Following is a list of expressions that demonstrates the result of the operators. The examples are shown in order of arithmetic precedence.
                         Parentheses <code>( )</code> can be used to change the order.</p>
-
                     <h3>Assignment operator</h3>
-
                     <p>Assigns a value to a variable</p>
-
 <pre><code>using System;
 
 namespace AssignmentOperatorExample
@@ -1150,9 +1017,7 @@ namespace AssignmentOperatorExample
 // The example prints the following to the console
 // a = 1
 </code></pre>
-
                     <h3>Equality operators</h3>
-
                     <p>Evaluates whether two operands are equal</p>
 <pre><code>using System;
 
@@ -1182,9 +1047,7 @@ namespace EqualityOperatorExample
 // x = True
 // y = False
 </code></pre>
-
                     <h3>Comparison operators</h3>
-
                     <p>Compares the values of two operands</p>
 <pre><code>using System;
 
@@ -1226,11 +1089,8 @@ namespace ComparisonOperatorExample
 // y = True
 // z = False
 </code></pre>
-
                     <h3>Arithmetic operators</h3>
-
                     <p>Appliers an arithmetical operation between two operands</p>
-
 <pre><code>using System;
 
 namespace ArithmeticOperatorExample
@@ -1323,11 +1183,8 @@ namespace ArithmeticOperatorExample
 // o = 5
 // p = 1
 </code></pre>
-
                     <h3>Boolean logic operators</h3>
-
                     <p>Appliers an boolean logic operation between two operands</p>
-
 <pre><code>using System;
 
 namespace BooleanLogicOperatorExample
@@ -1398,11 +1255,8 @@ namespace BooleanLogicOperatorExample
 // o = True
 // p = False
 </code></pre>
-
                     <h3>Compound assignment operators</h3>
-
                     <p>An expression using an operator <code>op</code> in the form <code>x op= y</code> is equivalent to <code>x = x op y</code></p>
-
 <pre><code>using System;
 
 namespace CompoundAssignmentOperatorExample
@@ -1466,9 +1320,7 @@ namespace CompoundAssignmentOperatorExample
 // f = True
 // g = True
 </code></pre>
-
                     <h3>Conditional operator ?:</h3>
-
                     <p>The conditional operator <code>?:</code>, also known as the ternary conditional operator takes the form <code>x = predicate ? a : b</code>. If the
                         predicate is true then the expression returns <code>a</code> else it returns <code>b</code>. Both <code>a</code> and <code>b</code> must be of the
                         same type. The conditional operator can also be used as a shorthand way to replace combined <code>if</code> and <code>else</code> statements.
@@ -1496,13 +1348,10 @@ namespace ConditionalOperatorExample
 // x = Yes
 // y = No
 </code></pre>
-
                     <h3>Conditional and operator &&</h3>
-
                     <p>In the expression <code>x = a && b</code> <code>x</code> is true if both <code>a</code> and <code>b</code> are true otherwise <code>x</code> is
                         false. If <code>a</code> is false <code>b</code> is not evaluated. This is useful in a situation where, if <code>a</code> is false evaluating
                         <code>b</code> would produce an invalid condition that could result in an exception.</p>
-
 <pre><code>using System;
 
 namespace ConditionalAndOperatorExample
@@ -1536,13 +1385,10 @@ namespace ConditionalAndOperatorExample
 // y = False
 // z = False
 </code></pre>
-
                     <h3>Conditional or operator ||</h3>
-
                     <p>In the expression <code>x = a || b</code>, <code>x</code> is true if either <code>a</code> or <code>b</code> are true otherwise <code>x</code> is
                         false. If <code>a</code> is true <code>b</code> is not evaluated. This is useful in a situation where, if <code>a</code> is true evaluating
                         <code>b</code> would produce an invalid condition that could result in an exception.</p>
-
 <pre><code>using System;
 
 namespace ConditionalOrOperatorExample
@@ -1576,12 +1422,9 @@ namespace ConditionalOrOperatorExample
 // y = False
 // z = True
 </code></pre>
-
                     <h3>The null-coalescing operator ??</h3>
-
                     <p>The null-coalescing operator <code>??</code> returns the left-hand operand if it not null otherwise it evaluates the right-hand expression and
                         returns the result</p>
-
 <pre><code>using System;
 
 namespace NullCoalescingExample
@@ -1605,12 +1448,9 @@ namespace NullCoalescingExample
 // x = 2
 // y = 1
 </code></pre>
-
                     <h3>The null-coalescing assignment operator ??=</h3>
-
                     <p>The null-coalescing assignment operator <code>??=</code> evaluates and assigns the-right hand expression to the left-hand variable only if the
                         variable is null</p>
-
 <pre><code>using System;
 
 namespace NullCoalescingExample
@@ -1635,16 +1475,12 @@ namespace NullCoalescingExample
 // b = 1
 </code></pre>
                     <h3>The Lambda and Expression body definition operator =&gt;</h3>
-
                     <p>The <code>=&gt;</code> operator has two uses, as part of a <i>Lambda Expression</i> or an <i>Expression-bodied member</i> definition.</p>
-
                     <p>A Lambda expression is comprised of a set of input parameters which are then passed into the body in the form of either an expression or a
                         statement block. They are used to create an Anonymous function. In this case the <code>=&gt;</code> operator is used to separate the input
                         parameters from the body. See <a href="#Anonymous_function_expressions">Anonymous function expressions</a>.</p>
-
                     <p>An Expression-bodied member definition provides a shorthand method of writing the body of a member. In this case the <code>=&gt;</code> operator is
                         used to separate the name of the member and its body. Supported members are:</p>
-
                     <ul>
                         <li>Method</li>
                         <li>Read-only property</li>
@@ -1653,25 +1489,19 @@ namespace NullCoalescingExample
                         <li>Finalizer</li>
                         <li>Indexer</li>
                     </ul>
-
                     <p>Information on Expression-bodied member can be found in
                         <a href="#Classes,_Structs,_Interfaces_and_Inheritance">Classes, Structs, Interfaces and Inheritance</a></p>
-
                 </article>
             </section>
             <!-- !SECTION -->
-
             <!-- Completed -->
             <!-- SECTION Decision Making Statements -->
             <section class="main-section" id="Decision_Making_Statements">
                 <header><h2>Decision Making Statements</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
-
                     <h3>if and else statements</h3>
-
                     <p>The <code>if</code> and <code>else</code> statements allow the program execution to branch in one of two directions based on a condition.</p>
-
 <pre><code>using System;
 
 namespace IfElseExample
@@ -1696,11 +1526,8 @@ namespace IfElseExample
 // The example prints the following to the console
 // a equals 1
 </code></pre>
-
                     <h3>switch statement</h3>
-
                     <p>The <code>switch</code> statement allows for program execution to branch in one of multiple directions based on a condition.</p>
-
 <pre><code>using System;
 
 namespace SwitchExample
@@ -1732,7 +1559,6 @@ namespace SwitchExample
                 </article>
             </section>
             <!-- !SECTION -->
-
             <!-- Completed -->
             <!-- SECTION Iteration Statements -->
             <section class="main-section" id="Iteration_Statements">
@@ -1740,12 +1566,9 @@ namespace SwitchExample
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
                     <p>Iteration statements, also known as loop statements, allow the execution of a code block to be repeated until an exit condition is met.</p>
-
                     <h3>while statement</h3>
-
                     <p>The <code>while</code> statement iterates until a condition is met. If the condition already exists, program execution won't enter the
                         <code>while</code> loop.</p>
-
 <pre><code>using System;
 
 namespace WhileLoopExample
@@ -1767,12 +1590,9 @@ namespace WhileLoopExample
 // The example prints the following to the console
 // 0123456789
 </code></pre>
-
                     <h3>do statement</h3>
-
                     <p>The <code>do</code> statement iterates until a condition is met. At least one iteration of the <code>do</code> loop is guaranteed to be executed
                         before testing for the condition.</p>
-
 <pre><code>using System;
 
 namespace DoWhileLoopExample
@@ -1793,11 +1613,8 @@ namespace DoWhileLoopExample
 
 // Repeats text until enter is pressed after not writing text
 </code></pre>
-
                     <h3>for statement</h3>
-
                     <p>The <code>for</code> statement iterates a set number of times based on an exit condition.</p>
-
 <pre><code>using System;
 
 namespace ForLoopExample
@@ -1817,11 +1634,8 @@ namespace ForLoopExample
 // The example prints the following to the console
 // 0123456789
 </code></pre>
-
                     <h3>foreach statement</h3>
-
                     <p>The <code>foreach</code> statement iterates through all members of a collection.</p>
-
 <pre><code>using System;
 
 namespace ForEachLoopExample
@@ -1842,92 +1656,78 @@ namespace ForEachLoopExample
 // The example prints the following to the console
 // H e l l o   w o r l d !
 </code></pre>
-
                     <h3>break</h3>
-
                     <p>The <code>break</code> keyword gives you a way of conditionally exiting a loop before completion.</p>
-
 <pre><code>using System;
 
-    namespace ConsoleApp17
+namespace ConsoleApp17
+{
+    class Program
     {
-        class Program
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
+            string s = "Hello world!";
+            foreach (char c in s)
             {
-                string s = "Hello world!";
-                foreach (char c in s)
-                {
-                    Console.Write(c + " ");
-                    if (c == ' ')
-                        break;
-                }
+                Console.Write(c + " ");
+                if (c == ' ')
+                    break;
             }
         }
     }
+}
 
-    // The example prints the following to the console
-    // H e l l o
+// The example prints the following to the console
+// H e l l o
 </code></pre>
-
                     <h3>continue</h3>
-
                     <p>The <code>continue</code> keyword gives you a way of conditionally skipping an iteration. The following example uses the <code>%</code> operator in
                         conjunction with the <code>continue</code> keyword to skip all even numbers.</p>
-
 <pre><code>using System;
 
-    namespace ConsoleApp17
+namespace ConsoleApp17
+{
+    class Program
     {
-        class Program
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
+            for (int i = 0; i &lt; 10; i++)
             {
-                for (int i = 0; i &lt; 10; i++)
-                {
-                    // for loop skips current iteration if i is 5
-                    if (i % 2 == 0)
-                        continue;
-                    Console.Write(i);
-                }
+                // for loop skips current iteration if i is 5
+                if (i % 2 == 0)
+                    continue;
+                Console.Write(i);
             }
         }
     }
+}
 
-    // The example prints the following to the console
-    //  13579
+// The example prints the following to the console
+//  13579
 </code></pre>
-
                 </article>
             </section>
             <!-- !SECTION -->
-
             <!-- SECTION Arrays -->
             <section class="main-section" id="Arrays_and_Data_Structures">
                 <header><h2>Arrays and Data Structures</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
                     <p>Arrays and data structures store multiple variables together in ways that allows them to be handled and manipulated more efficiently.</p>
-
                     <h3>Array</h3>
-
                     <p>An array is like a box with separate compartments in which only one item called an <i>element</i> can be stored in each. They can be
                         single-dimensional,  multi-dimensional or jagged and all items must be of the same type. A single-dimensional array is like  one row  of
                         compartments. A multidimensional array can contain rows, columns or more up to a maximum of 32 dimensions. A jagged array is like storing a
                         separate box within each compartment of the first where each one could have its own set of dimensions with different sizes. A jagged array is
                         sometimes called an array of arrays. In addition to the examples shown here C# also provides the <i>Array</i> class which provides a set of
                         methods for manipulating arrays, information of which can be found in the <a href="#References">C# reference documentation</a>.</p>
-
                     <h3>Declaring, creating and initializing arrays</h3>
-
                     <p>An array is immutable which means that the number of dimensions and elements or <i>Length</i> of an array must be defined when the array is
                         created and can't be changed. An array can be recreated by using the new keyword which deletes and replaces the existing array
                         <em>and its data</em> with a new one. There are a number of different ways in which to create an array which can also include initializing the
                         element values. If not initialized the default value for the elements in a single-dimensional or multi-dimensional array will be 0 for numeric
                         types and null for reference types. As a jagged array stores other arrays the default type is always null. Following are examples of how arrays
-                        can be initialized.
-                    </p>
-
+                        can be initialized.</p>
 <pre><code>using System;
 
 namespace ArrayCreationExample
@@ -2054,11 +1854,9 @@ namespace ArrayCreationExample
     }
 }
 </code></pre>
-
                     <h3>Accessing arrays</h3>
                     <p>Arrays are normally zero index based so the elements in a dimension of length n will be accessed by index values of 0 through n-1. Whilst it is
                         possible to create an array that is not zero based its use is very uncommon and is beyond the scope of this document.</p>
-
 <pre><code>using System;
 
 namespace ArrayAccessExample
@@ -2283,20 +2081,14 @@ namespace ArrayAccessExample
 // Int32[]
 // Int32
 </code></pre>
-
                     <h3>Collections</h3>
-
                     <p>.NET provides a number of data structures grouped under the category of collections. They provide common functionality such as to add, remove and
-                        modify either individual elements or a range of elements.
-                    </p>
-
+                        modify either individual elements or a range of elements.</p>
                     <p>There are two main types of collections, generic an non-generic. Generic collections take in a type parameter making them type safe at compile time
                         which allows IntelliSense to indicate syntax errors. Non-generic collections store items as type <i>object</i> which requires casting when
                         accessing the data within them. Because of this non-generic collections are less commonly used today and are mostly found in legacy code.</p>
-
                     <p>Following is a list of some common collection types but only examples of <i>List&lt;T&gt;</i> and <i>Dictionary&lt;TKey, TValue&gt;</i>
                         will be discussed in this article.</p>
-
                     <ul>
                         <li><i>List&lt;T&gt;</i> - A collection of items stored by index</li>
                         <li><i>Dictionary&lt;TKey, TValue&gt;</i> - Used to store items as key/value pairs</li>
@@ -2308,16 +2100,12 @@ namespace ArrayAccessExample
                         <li><i>HashSet&lt;T&gt;</i> - A set for mathematical functions</li>
                         <li><i>SortedSet&lt;T&gt;</i> - A sorted set for mathematical functions</li>
                     </ul>
-
                     <h3>List&lt;T&gt;</h3>
-
                     <p>A <i>List&lt;T&gt;</i> is a strongly typed generic collection of objects accessed by an int type <i>index</i>. Unlike an array, a list does
                         not have a fixed size and as such does not have to be defined when it is created. It provides a number of useful methods for manipulating its data
                         such as add, remove, sort, find and clear.</p>
-
                     <p><em>Note:</em> <i>The Find method uses an anonymous expression details of which are in
                             <a href="#Anonymous_function_expressions">Anonymous expression functions</a></i></p>
-
 <pre><code>using System;
 using System.Collections.Generic;
 
@@ -2445,13 +2233,10 @@ namespace ListExample
 // Clear the list
 // There are 0 items in the list
 </code></pre>
-
                     <h3>Dictionary&lt;TKey, TValue&gt;</h3>
-
                     <p>A <i>Dictionary&lt;TKey, TValue&gt;</i> is a strongly typed generic collection of <i>KeyValuePair&lt;TKey, TValue&gt;</i> accessed by a <i>key</i>
                         index.  Like a List, a Dictionary does not have a fixed size and as such does not have to be defined when it is created. Methods include add,
                         remove, contains, clear.</p>
-
 <pre><code>using System;
 using System.Collections.Generic;
 
@@ -2615,11 +2400,9 @@ namespace DictionaryExample
 
 // There are 0 fruit items
 </code></pre>
-
                 </article>
             </section>
             <!-- !SECTION -->
-
             <!-- SECTION Enumerators -->
             <section class="main-section" id="Enumerators">
                 <header><h2>Enumerators</h2></header>
@@ -2664,7 +2447,6 @@ namespace EnumExample
                 </article>
             </section>
             <!-- !SECTION -->
-
             <!-- SECTION Classes -->
             <section class="main-section" id="Classes,_Structs,_Interfaces_and_Inheritance">
                 <header><h2>Classes, Structs, Interfaces and Inheritance</h2></header>
@@ -2717,41 +2499,30 @@ namespace EnumExample
                         return values. When not returning a value the return type must use the void keyword. Methods can be overloaded by defining a different number of,
                         or different types of parameters to be passed in. When a method has overloads IntelliSense will show there are more than one version of the method
                         to choose from.</p>
-
                     <h4>Events</h4>
-
                     <p>An event is a way for the class to communicate with other objects or other parts within itself that the state of the class instance has changed.
                         The event defines which type of method known as an event handler must be used respond to the event. The event usually passes the object that
                         created the event and an EventArgs that can contain additional information about the event to the event handler. The return type for an event
                         handler is almost always void so if information is to be passed back from the event handler, variables can be included in the EventArgs that can
                         be changed within the event handler.</p>
-
                     <h4>Indexers</h4>
-
                     <p>An indexer allows an object to be indexed like an array. It is similar to a property but also takes an index value to set or get a specific
                         instance. In place of an identifier the <code>this</code> keyword is used to define an indexer. The same rules as as those for read/write and
                         accessibility of properties also apply to indexers.</p>
-
                     <h4>Constructors</h4>
-
                     <p>A constructor is called when an instance of the class is created and is used to initialize the state of its members. Its syntax is similar to a
                         method but it does not return a value so no return type is to be specified. The name of the the constructor is the same as that of the class. As
                         with methods constructors can be overloaded. If a constructor is not specified the compiler will create a parameterless constructor with an empty
                         code block at runtime with which to create the instance. To create an instance of a class the <code>new</code> keyword is used</p>
-
                     <h4>Finalizers</h4>
-
                     <p>A finalizer is used to perform any cleanup of the class when it is no longer in use. The compiler adds a default finalizer to each instance of a
                         class that is created so it would be a rare requirement to add one ourselves.</p>
-
                     <p>The following example defines a <code>Square</code> class with fields, properties, methods and events. The <code>Program</code> class creates
                         three instances of the <code>Square</code> class and adds the <code>Square_AreaChanged</code> event handler to the <code>Square_AreaChanged</code>
                         event of both the <code>square2</code> and <code>square3</code> instances. After writing the initial area values to the console it then changes
                         the <code>Width</code> property directly on the <code>square2</code> instance and <code>Height</code> on <code>square3</code> through the
                         <code>SetHeight</code> method. This triggers the <code>AreaChanged</code> event in each which then calls the <code>Square_AreaChanged</code> event
-                        handler which in turn writes the updated values to the console.
-                    </p>
-
+                        handler which in turn writes the updated values to the console.</p>
 <pre><code>using System;
 
 namespace ClassExample
@@ -2896,11 +2667,9 @@ namespace ClassExample
 // Square 3 area changed and is now 100
 
 </code></pre>
-
                     <p>The following example defines a string collection which uses an indexer to index instances of itself. The <code>Program</code> class creates a new
                         <code>StringCollection</code> instance, assigns the string "Hello World" to the instance at index 0 in the collection, then retrieves the same and
                         finally writes its value to the console.</p>
-
 <pre><code>using System;
 
 namespace IndexExample
@@ -2927,35 +2696,27 @@ namespace IndexExample
     }
 }
 </code></pre>
-
                     <h3>Static classes and static members</h3>
-
                     <p>So far the majority of the examples we have looked at involve creating an instance of a class by using the <code>new</code> keyword. This
                         allows for multiple instances of a class to be created each with its own initialized state which can be set either by arguments passed in
                         through an instance constructor or with an object-initializer. Creating an instance of a class in this way is known as instantiation.</p>
-
                     <p>In addition we can make a class static by applying the <code>static</code> keyword to the class definition. Here the class cannot be instantiated.
                         Instead it is created automatically during runtime and only one instance of it exists. As a static class is not assigned an identifier, to access
                         its members the class name is used instead. For a class called <code>MyClass</code> with a method called <code>MyMethod</code> to access the
                         method you would use <code>MyClass.MyMethod</code>.</p>
-
                     <p>Class members can also be either instance types or made static through use of the <code>static</code> keyword. Note that members within a static
                         class must always be be static whilst members in an instance class can be either instance or static. As with a static class static members are
                         created automatically during runtime and are accessed using the class name.  To initialize a static field a static constructor must be used which
                         cannot have values passed in. Within a class, static members can only access other static members.</p>
-
                     <p>A static method can be useful when it is to perform simple functions that don't have to store or retrieve data from within the class, for example
                         squaring a number. As the method is created as soon as the program is running it can be shared from multiple locations throughout the programs
                         code without the necessity to create a new class instance every time. The .NET <code>System.Math</code> class which contains numerous small math
                         functions is an example of a static class.</p>
-
                     <p>It is important to note that whereas each instance of an object carries has its own copy of an instance member static members are shared by all
                         code in an assembly. If a static filed or property's value is changed in one instance of its containing class then the value will be changed for
                         all instances</p>
-
                     <p>In the following example, <code>InstanceClass</code> contains both instance and static, fields and methods. Whilst <code>InstanceMethod</code> can
                         access both <code>instanceField</code> and <code>staticField</code>, <code>StaticMethod</code> can only access <code>staticField</code>.</p>
-
                     <p> Next <code>MyClass</code> contains an instance property <code>InstanceProperty</code> and a static property <code>StaticProperty</code>.
                         <code>MyClass</code> also contains methods that can separately set and get the property values. The static property is first set without
                         an instance of <code>MyClass</code> through the use of <code>MyClass.StaticProperty</code>. Next 2 instances of <code>MyClass</code>,
@@ -2963,10 +2724,8 @@ namespace IndexExample
                         <code>InstanceProperty</code> has the value 0 and the <code>StaticProperty</code> the value 1. Next <code>myClass1</code> is used to change only
                         the instance property in <code>myClass1</code> has changed whereas the the static property in both now has the value 3. This shows us that each
                         instance has its own copy of <code>InstanceProperty</code> whereas both share <code>StaticProperty</code>.</p>
-
                     <p>Lastly we have the static class <code>MyMathFunctions</code> which has the static method <code>SquareNumber</code> which is called directly using
                         <code>MyMathFunction.SquareNumber</code> to display the square of 3.</p>
-
 <pre><code>using System;
 
 namespace StaticExample
@@ -3126,11 +2885,8 @@ namespace StaticExample
 // myClass1 StaticProperty: 3
 // myClass2 StaticProperty: 3
     </code></pre>
-
                     <h3>Structures (struct)</h3>
-
                     <p>A <i>structure</i> usually referred to by its keyword <code>struct</code> is similar to a class with the following main differences.</p>
-
                     <ul>
                         <li>A struct is a value type</li>
                         <li>The static, abstract and sealed modifiers cannot be applied to a struct</li>
@@ -3141,18 +2897,15 @@ namespace StaticExample
                         <li>A struct cannot have a finalizer</li>
                         <li>A struct can't inherit or be inherited by a another class or struct</li>
                     </ul>
-
                     <p>A struct is normally used to create a basic data type with little or no functionality. Within C# <code>int</code>, <code>double</code>,
                         <code>char</code> and <code>bool</code> are all examples of structs. As a struct is a value type so all instance fields it contains must be
                         assigned a value before it can be used. Although we can't create a parameterless constructor in a struct, the compiler creates one which sets all
                         instance fields to their default values. We can then use this when instantiating a struct with the <code>new</code> keyword. If all instance
                         fields in a struct are accessible then a struct can be instantiated without using the <code>new</code> keyword. For example an integer can be
                         assigned the value 0 either by <code>int x = new();</code> or <code>int x = 0;</code>.</p>
-
                     <p>The following example declares a struct called <code>Box</code> with <code>Width</code>, <code>Height</code> and <code>Depth</code> fields and a
                         method called <code>GetVolume</code>. It demonstrates several ways to declare and assign values to a struct and then writes the values to the
                         console.</p>
-
 <pre><code>using System;
 
 namespace StructExample
@@ -3266,28 +3019,22 @@ namespace StructExample
 // Box6 Width: 0, Height: 0, Length: 0, Volume: 0
 </code></pre>
                     <h3>Inheritance</h3>
-
                     <p>Inheritance is one of the main concepts in Object Oriented Programming. It allows us to create a parent class with common features that child
                         classes can inherit and expand upon. In C# a parent class is called a base class and a child a derived class. C# only allows single inheritance,
                         that is a derived class can only inherit from one base class but it does allow for multiple generations which means a base class can be inherited
                         by a second which it turn can inherited by a third and so on. As a result members that are in the base class will be available in each generation
-                        of derived classes with the following exceptions.
-                    </p>
-
+                        of derived classes with the following exceptions.</p>
                     <ul>
                         <li>Static constructors</li>
                         <li>Instance constructors</li>
                         <li>Finalizers</li>
                     </ul>
-
                     <p>Whilst all other members are available in derived classes their visibility is dependent on the Scope rules. Also events can only be invoked from
                         within the base class so in order to do so a method is created in the base class that invokes the event. This can then be called from the derived
                         class to raise the event. Apart from classes only interfaces can be inherited. </p>
-
                     <p>The following example demonstrates the syntax for inheriting a class. First base class <code>A</code> is declared as normal. Derived Class
                         <code>B</code> is then declared followed by a colon, then the name of the class to be inherited, followed by the code block for class
                         <code>B</code>.</p>
-
 <pre><code>using System;
 
 namespace ClassInheritanceExample
@@ -3299,18 +3046,15 @@ namespace ClassInheritanceExample
     class B : A { }
 }
 </code></pre>
-
                     <p>It is important to note that a derived class cannot be made more accessible than a base class. In this next example base class <code>A</code>
                         does not have an accessibility keyword applied so it will be internal by default. When derived public class <code>B</code> then attempts to
                         inherit internal class <code>A</code> this results in a syntax error. Following this base public class <code>C</code> is declared then derived
                         class <code>D</code> inherits class <code>C</code>. Although <code>D</code> is internal by default, this is allowed as <code>D</code> is less
                         accessible that <code>C</code>. Then when public class <code>E</code> inherits <code>D</code> again we have an error as <code>E</code> is more
                         accessible than <code>D</code>.</p>
-
                     <p>This illustrates that relying on the default accessibility for a class or interface can easily lead to unexpected errors so it is advisable to
                         always use the <code>internal</code> keyword if that is your intention. This is important as the default template provided by Visual Studio does
                         not provide an accessibility keyword so if you see an 'Inconsistent accessibility' error, check that the base class has been declared public.</p>
-
 <pre><code>using System;
 
 namespace ClassInheritanceExample
@@ -3335,15 +3079,13 @@ namespace ClassInheritanceExample
     //public class E : D { }
 }
 </code></pre>
-
                     <p>The following example creates a base class called <code>Animal</code> with a public property <code>Legs</code> that provides access to a private
                         field <code>mLegs;</code>. Both classes <code>Bird</code> and <code>Cat</code> inherit and extend the <code>Animal</code> class with
                         <code>Bird</code> adding the property <code>Wings</code> and <code>Cat</code> the property <code>Meowing</code>. In the <code>Program</code>
                         class an instance of <code>Bird</code> is created setting values for both <code>Legs</code> and <code>Wings</code> and an instance of
                         <code>Cat</code> setting values for both <code>Legs</code> and <code>Meowing</code>. A message describing each is then written to the console with
                         their corresponding properties. The example also shows that attempting to access the private <code>mLegs</code> field in <code>Animals</code> from
-                        the derived class <code>Cat</code> results in a syntax error.
-                    </p>
+                        the derived class <code>Cat</code> results in a syntax error.</p>
 
 <pre><code>using System;
 
@@ -3406,25 +3148,20 @@ namespace ClassInheritanceExample
 // The bird has 2 legs and is flying Slowly
 // The cat has 4 legs and is meowing Loudly
 </code></pre>
-
                     <p>The implementation of a member in a derived class can be overridden provided that the member in the base class is marked with the
                         <code>virtual</code> keyword or has overridden a member in a previous base class. To do so the member in the derived class must be marked with the
                         <code>override</code> keyword. Base class members are not virtual by default and attempting to override a member not marked as virtual results in
                         an error.</p>
-
                     <p><em>Note:</em> <i>Microsoft has advised not to declare an event as <code>virtual</code> as the compiler does not handle these correctly. Instead a
                         method should be created in the base class that invokes the event. This method can then be called from the derived class to raise the event.</i>
                     </p>
-
                     <p>In the following example a base class <code>LogAnalyser</code> is created that has a method <code>AnalyzeLogMessage()</code> and a virtual method
                         <code>DisplayMessage()</code>. Derived class <code>LogAnalyser1</code> inherits <code>LogAnalyser</code> and overrides the virtual method
                         providing its own implementation. <code>LogAnalyser2</code> inherits <code>LogAnalyser1</code> and overrides the virtual method that it had
                         overridden. <code>LogAnalyser3</code> also inherits <code>LogAnalyser</code>. It does not override the virtual method but it shows that attempting
                         to override the non virtual method results in a syntax error. When <code>DisplayMessage()</code> is called from each of the derived class
                         instances <code>LogAnalyser1</code> and <code>LogAnalyser2</code> each display the message in their own overridden methods whereas
-                        <code>LogAnalyser3</code> displays the message from the base class.
-                    </p>
-
+                        <code>LogAnalyser3</code> displays the message from the base class.</p>
 <pre><code>using System;
 
 namespace ClassInheritanceExample
@@ -3505,11 +3242,9 @@ namespace ClassInheritanceExample
 // Analyzing log message
 // Log message has occurred
 </code></pre>
-
                     <p>In the previous example each derived class was created and the methods called separately. Ideally it would have been better to do this all through
                         a loop. We can do this as polymorphism allows us to substitute a parent for a child then when the parent's method is called at runtime it will be
-                        substituted for the child's.
-                    </p>
+                        substituted for the child's.</p>
 
                     <p>In this example example a base class <code>LogAnalyser</code> is defined that has a virtual <code>DisplayMessage</code> method. Derived class
                         <code>LogAnalyser1</code> inherits from <code>LogAnalyser</code> and <code>LogAnalyser2</code> inherits from <code>LogAnalyser1</code> with each
@@ -3517,7 +3252,6 @@ namespace ClassInheritanceExample
                         created that adds an instance of the base and the two derived classes. A foreach loop then loops through the list using a
                         <code>LogAnalyser</code> type iterator calling the <code>DisplayMessage</code> method which at runtime is replaced by the overridden version of
                         each item.</p>
-
 <pre><code>using System;
 using System.Collections.Generic;
 
@@ -3571,10 +3305,8 @@ namespace ClassInheritanceExample
 // Log message type 1 has occurred
 // Log message type 2 has occurred
 </code></pre>
-
                     <p>To prevent a class from being inherited it can be marked with the <code>sealed</code> keyword. A member that is being overridden in a class can
                         also be marked as <code>sealed</code> which prevents it from being overridden in any further derived classes.</p>
-
 <pre><code>using System;
 
 namespace SealedClassExample
@@ -3610,7 +3342,6 @@ namespace SealedClassExample
     }
 }
 </code></pre>
-
 <!-- TODO Rewrite this -->
                     <p>Although constructors cannot be inherited those in the base class are still called after the derived constructor is called but before the enclosed
                         code of the derived class constructor is run. Additionally the <code>base</code> keyword can be used in a derived class to call constructors and
@@ -3619,7 +3350,6 @@ namespace SealedClassExample
                         As a result when inheriting such a class we will then need to provide the derived class with at least one constructor with the same signature as
                         one of the constructors in the base class. The constructor in the derived class must call the constructor in the base class by using the
                         <code>base</code> keyword and pass the arguments provided to it on to the base class constructor.</p>
-
                     <p>In this example <code>BaseClass</code> has a parameterless constructor that writes to the console when it is called, then sets a value in a
                         a field called <code>mField</code>. It also has a parameterized constructor that takes a value which it uses to set <code>mField</code>
                         and a virtual method <code>GetFieldValue</code> that returns the value of <code>mField</code>. <code>DerivedClass</code> inherits from
@@ -3628,17 +3358,14 @@ namespace SealedClassExample
                         <code>base</code> keyword which requires passing all arguments it receives to the base class. The derived class also overrides
                         <code>GetFieldValue</code> returning its own <code>mField</code> value and has a method called <code>CallBaseMethod</code> which, using the
                         <code>base</code> keyword, calls <code>GetFieldValue</code> in the base class.</p>
-
                     <p>In the <code>Program</code> class an instance of <code>DerivedClass</code> is created using the parameterless constructor which results in first
                         the base class then the derived class constructor being called. Then the return value of <code>GetFieldValue</code> followed by
                         <code>CallBaseMethod</code> are written to the console. Next a second instance of <code>DerivedClass</code> is created using the parameterized
                         constructor with the string 'instance 2' passed in and again the return value of <code>GetFieldValue</code> followed by
                         <code>CallBaseMethod</code> are written to the console.</p>
-
                     <p>The example also declares a class <code>BaseClass2</code> which contains a parameterized constructor. Deriving the class
                         <code>DerivedClass2</code> from <code>BaseClass2</code> without providing a parameterized constructor with the same signature as that of the base
-                        class results in a syntax error.
-                    </p>
+                        class results in a syntax error.</p>
 
 <pre><code>using System;
 
@@ -3728,14 +3455,12 @@ namespace BaseClassExample
 // Derived Class instance 2
 // Base Class instance 2
 </code></pre>
-
                     <p> An <i>abstract</i> class is used when it makes sense to define a common base class but where the implementation is specific to each derived class.
                         A base class and its members can be declared abstract by marking them with the <code>abstract</code> keyword. It cannot be instantiated so to be
                         used, a derived class must be created that inherits it and overrides all abstract members it contains. Abstract classes can be inherited by
                         sealed, abstract and non abstract classes and can inherit from an abstract or non abstract base class that is not a sealed class. Abstract members
                         cannot declare an implementation and within a derived class are treated the same as a virtual member. Any class that contains an abstract member
                         must be marked with the <code>abstract</code>keyword. An abstract class can contain both abstract and non abstract members.</p>
-
                     <p>In the following example an abstract class <code>PriceCalculator</code> is declared with an abstract method called <code>CalculateAmount</code>.
                         Two derived classes that inherit from <code>PriceCalculator</code> are declared. The first <code>ItemsPriceCalculator</code> has two properties,
                         <code>ItemPrice</code> and <code>Quantity</code> and overrides <code>CalculateAmount</code> to return an amount by multiplying these two
@@ -3743,7 +3468,6 @@ namespace BaseClassExample
                         <code>HourlyRate</code>. In this case the overridden <code>CalculateAmount</code> first subtracts <code>StartTime</code> from
                         <code>FinishTime</code> then multiplies thy result by <code>HourlyRate</code> and then returns the amount. Lastly as can be seen, attempting to
                         instantiate <code>PriceCalculator</code> results in a syntax error.</p>
-
 <!-- TODO Add info somewhere about creating datetime and ToString("C", CultureInfo.CurrentCulture) -->
 
 <pre><code>using System;
@@ -3810,36 +3534,28 @@ namespace AbstractClassExample
 // The price of the hours is $240.00
 }
 </code></pre>
-
                     <p>All classes in C#, even the ones we write, are ultimately derived from the <i>object</i> class. This means that even if we don't explicitly use the
                         syntax to inherit from <code>object</code> our class will still contain the following overridable members</p>
-
                     <ul>
                         <li>Equals(Object)</li>
                         <li>Finalize()</li>
                         <li>GetHashCode()</li>
                         <li>ToString()</li>
                     </ul>
-
                     <p>the following non-overridable members</p>
-
                     <ul>
                         <li>GetType()</li>
                         <li>MemberwiseClone()</li>
                     </ul>
-
                     <p>and the following static members</p>
-
                     <ul>
                         <li>Equals(Object, Object)</li>
                         <li>ReferenceEquals(Object, Object)</li>
                     </ul>
-
                     <p>The default implementation of <code>ToString()</code> is to return the result of <code>GetType()</code> which is the fully qualified type name. As
                         a result it is not uncommon to override <code>ToString()</code> with something more meaningful. In the following example the class
                         <code>Person</code> takes in first and last name arguments in its constructor and <code>ToString()</code> is overridden to combine the first and
                         last names then return the full name which is written to the console.</p>
-
 <pre><code>using System;
 
 namespace OverridingToStringExample
@@ -3874,30 +3590,23 @@ namespace OverridingToStringExample
 // The example writes the following to the console
 // This person is Denise Jones
 </code></pre>
-
                     <h3>Interfaces</h3>
-
                     <p>"An interface is a contract" has to be one of the worst explanations as to what an interface is, yet it still persists throughout much of the
                         literature you may find on line, including that of Microsoft's own C# reference. So what is an interface.</p>
-
                     <p>Take a computer manufacturer. They can't anticipate every printer, keyboard, mouse, etc, that will be plugged into their devices. To allow for this,
                         the industry as a whole has created a set of specifications of which various devices must adhere to, so that they are compatible. For a keyboard
                         this may be the signals it must produce when a key is pressed, but it is not the computer manufacturer's job to tell the keyboard manufacturer
                         how to make their keyboards. Providing that the specifications are met the keyboard manufacturer is free to design it as they like. An interface
                         works on a similar basis by defining which members a class or struct will have without saying how they are to be implemented.</p>
-
                     <p>An interface is created using the <code>interface</code> keyword. The following signature only members can be declared within an interface.</p>
-
                     <ul>
                         <li>Methods</li>
                         <li>Properties</li>
                         <li>Indexers</li>
                         <li>Events</li>
                     </ul>
-
                     <p>Members that are not implemented are public by default and access modifiers cannot be applied to them. Additionally interfaces can contain members
                         that are implemented which is called default implementation. These are</p>
-
                     <ul>
                         <li>Constants</li>
                         <li>Operators</li>
@@ -3911,27 +3620,21 @@ namespace OverridingToStringExample
                         <li>Member declarations using explicit interface implementation syntax</li>
                         <li>Explicit access modifiers</li>
                     </ul>
-
                     <p>An interface cannot contain an instance field or instance auto-property as an interface cannot have an instance state.</p>
-
                     <p><em>Note:</em> <i>whilst the declaration of a property in an interface is written with the same syntax as an instance
                         <span class="nowrap">auto-property,</span> it differs in that the compiler does not create an instance backing field.</i></p>
-
                     <p>Whereas a class can only inherit a single base class it can implement multiple interfaces. This is done in the same manner, i.e. the class name is
                         followed by a colon then the name of all interfaces in a comma separated list. If a class also inherits a base class its name must come first in
                         the list. A class can also explicitly implement a member of an interface. An interface can inherit from and be inherited by another interface.
                         Implemented members in an interface can be overridden. When this is done explicit interface implementation syntax must be used. Explicitly
                         implemented members and default implemented members in an interface can only be accessed through an instance of the interface.</p>
-
                     <p>Whilst on the surface an interface may seem to provide much of the same function as an abstract class the important distinction is that a class can
                         contain a state and thus can represent a thing where as an interface cannot and is used to represent a behavior.</p>
-
                     <p>In the following example the <code>Car</code> class inherits the base class <code>Vehicle</code> and overrides the <code>ApplyBrakes</code>
                         method. The <code>Dog</code> class has a method <code>Speak</code>. Whilst both are quite different objects both are able to move and make a sound
                         and so implement the <code>IMotion</code> and <code>ISound</code> interfaces which respectively include the <code>Move</code> method and
                         <code>Sound</code> property. As can be seen whilst the base class <code>Vehicle</code> must come first in the declaration list, the order of the
                         interface declaration is does not matter.</p>
-
 <pre><code>using System;
 
 namespace InterfaceExample
@@ -4006,11 +3709,9 @@ namespace InterfaceExample
 // Dog chases car
 // Dog barks at car
 </code></pre>
-
                 </article>
             </section>
             <!-- !SECTION -->
-
             <!-- SECTION Delegates, Actions and Functions -->
             <section class="main-section" id="Anonymous_function_expressions">
                 <header><h2>Anonymous function expressions</h2></header>
@@ -4023,7 +3724,6 @@ namespace InterfaceExample
                         <code>Func&lt;in T1, in T2 ... in T16, out TResult&gt;</code> and for an <code>Action </code> is
                         <code>Action&lt;in T1, in T2 ... in T16t&gt;</code>. Both allow for up to 16 input values of any type and <code>Func</code> allows for 1 return
                         value of any type.</p>
-
                         <p>Following is an example of both a <code>Func</code> and an <code>Action</code>.</p>
 
 <pre><code>using System;
@@ -4060,19 +3760,15 @@ namespace DelegateExample
 // volume = 27
 // area = 50.2654824
 </code></pre>
-
                 </article>
             </section>
             <!-- !SECTION -->
-
             <!-- SECTION References and Namespaces -->
             <section class="main-section" id="References_and_Namespaces">
                 <header><h2>References and Namespaces</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
-
                     <h3>References</h3>
-
                     <p>A C# project may consist of multiple sources of code along with other other resources such as media and text files which are then compiled to
                         create an <i>assembly</i>. This can be in the form of either an executable (.exe) or library (.dll) file and an application may consist of one or
                         more of these. When multiple assemblies are used, in order for one to be able to access the components of another it must have a reference to it.
@@ -4084,7 +3780,6 @@ namespace DelegateExample
                         right side of Visual Studio. If the tab is not visible, click on <b>View</b> then <b>Solution Explorer</b> in the menu. The Solution Explorer
                         appears similar to that of tree view of the File Explorer. Under the Solution root node is listed each project and under these each of the files
                         they contain.</p>
-
                     <p>For most project types such as a Console, Windows Forms, WPF applications, etc, these will also include the <i>.NETCore framework</i> which is
                         an extensive library of code that our project will have access to through a reference automatically added by Visual Studio. Under each project
                         in the Solution Explorer is a <i>Dependencies</i> node which when expanded reveals a <i>Frameworks</i> node and under this
@@ -4092,10 +3787,8 @@ namespace DelegateExample
                         (.dll) file prefixed with System. These include objects such as the run-time, file access, memory management, collections, etc available to us so
                         that we don't have to create these ourselves. In addition to the .NETCore framework a project can have a reference to other projects within the
                         solution and applications external to it.</p>
-
                     <p>The following example demonstrates how to create a new project, add a second project to the solution of the first and then create a reference of
                         the second project to the first.</p>
-
                     <ol>
                         <li>Start the IDE then click <b>Create a new project</b>.</li>
                         <li> On the <span class="nowrap"><b>Create a new project</b></span> page in the search box at the top type
@@ -4121,20 +3814,17 @@ namespace DelegateExample
                         <li>Under the <b>ProjectA</b> node in <b>Solution Explorer</b> expand the <b>Dependencies</b> node then the <b>Projects</b> node</li>
                         <li><b>ProjectB</b> should now be listed under this node confirming that <b>ProjectA</b> now has a reference to <b>ProjectB</b></li>
                     </ol>
-
                     <h3>Namespaces</h3>
                     <p>C# requires that each object within a particular scope be unique and namespaces do this by organizing the code into a tree structure similar to
                         that of the file system on a computer. For example in order to have 2 files called MyFile.txt on a computer you may put one in a folder called
                         RootFolder\MyFiles1 and the other in RootFolder\MyFiles2. Namespaces are the same except that the root namespace is normally the name of a project
                         and the backslashes are replaced with a dot. A sublevel namespace is known as a nested namespace</p>
-
                     <h3>namespace</h3>
                     <p>The <code>namespace</code> keyword followed by a code block is used to declare objects belonging to a particular <i>namespace</i>. Objects can then
                         be identified in code by using their <i>fully qualified</i> names in the form <code>MyNamespace.MyObject</code>. <i>IntelliSense</i> uses
                         namespaces to assist you by providing suggestions as you type. After typing the root namespace then pressing <kbd>.</kbd>, all the objects and
                         nested namespaces within it will appear in the suggestion box. If one of the nested namespaces is selected, the <kbd>.</kbd> can again be pressed
                         to find all objects and nested namespaces  within it and the process can be repeated until no nested namespaces remain.</p>
-
 <pre><code>// A using directive can be placed at
 at the top of the file
 namespace MyProject
@@ -4184,13 +3874,10 @@ namespace AnotherNamespace
     }
 }
 </code></pre>
-
                     <p>When adding a new class using the default class template, Visual Studio automatically puts it within a namespace based on the folder in the project
                         in which the class is added. If you want to use the root namespace instead and want to avoid editing the namespace, add the new class to the root
                         project then move the file to your desired folder. The following shows the code generated by adding a class called <i>MainViewModel</i> to a
-                        folder called <i>ViewModels</i> in a project called <i>MyCompany</i>.
-                    </p>
-
+                        folder called <i>ViewModels</i> in a project called <i>MyCompany</i>.</p>
 <pre><code>using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -4205,18 +3892,15 @@ namespace MyCompany.ViewModels
 }
 </code></pre>
                     <h3>using</h3>
-
                     <p>Identifying every object by its <i>fully qualified</i> name soon becomes cumbersome and can make the code hard to read. The <code>using</code>
                         directive makes all objects and nested namespaces within a namespace available for use. This is also known as importing. The name of just the
-                        objects name can then be used within the code.</p>
-                    <p>If you know the name of the object you want to add to your code but don't know its namespace, Visual Studio provides a shortcut for this. After
+                        objects name can then be used within the code.</p>                    <p>If you know the name of the object you want to add to your code but don't know its namespace, Visual Studio provides a shortcut for this. After
                         typing the object's full name and with the cursor touching it, for example <code>List</code>, press <kbd>Ctrl</kbd> + <kbd>.</kbd> and
                         IntelliSense will suggest the correct using directive to use, most likely at the top of the list. Click on the suggestion and it will added to the
                         code. Please note that the full name name must be entered with the correct case. Also, the project must have a reference to the library containing
                         object. (See below)</p>
                     <p>To remove unused <i>using</i> directives, right click anywhere in the code editor and click <b>Remove and Sort Usings</b>.</p>
                     <p> The following assumes that the first example in this section already exists.</p>
-
 <pre><code>using MyProject.Animals;
 using MyProject.DataModels;
 
@@ -4230,10 +3914,8 @@ namespace SomeNamespace
 }
 </code></pre>
                     <h3>Aliases</h3>
-
                     <p>The <code>using</code> can also be used to create an alias for a namespace or object. The following assumes that the first example in this section
                         already exists.</p>
-
 <pre><code>using Project = MyProject;
 using Employment = MyProject.DataModels;
 using MyDog = MyProject.Animals.Dog;
@@ -4247,11 +3929,10 @@ namespace SomeNamespace
         MyDog myDog = new();
     }
 }
-    </code></pre>
+</code></pre>
                 </article>
             </section>
             <!-- !SECTION -->
-
             <!-- SECTION Scope and Access Modifiers -->
             <section class="main-section" id="Scope_and_Access_Modifiers">
                 <header><h2>Scope and Access Modifiers</h2></header>
@@ -4261,24 +3942,19 @@ namespace SomeNamespace
                     <p>Scope is the accessibility of a variable from one part of the code to another. In C# scope is arranged like the layers of an onion. Variables in an
                         outer scope can be accessed from those within but not vise versa. In computer science this is known as encapsulation and inner scopes that are
                         contained within outer scopes are said to be nested.</p>
-
                     <p>A local <a href="#Variables,_Constants,_Types_and_Literals">variable</a> is a variable declared in a method, property or indexer or one of its
                         nested code blocks. The variable is only accessible after it has been declared and only within the same code block or a nested code block. A local
                         variable within the same block or a nested code block cannot be declared with the same name. A parameter that is passed into a method or indexer
                         is accessible outside the member and becomes a local variable within the member.</p>
-
                     <p>A variable declared inside a class, struct or record type but outside any member is called a field and is also a member of that type. A field can
                         be directly accessed by any of the type's methods, properties or indexers and any nested code blocks they contain, irrespective of the location of
                         the field's declaration within the class. By convention fields are normally declared at the top of a class before any other code. A field can be
                         modified to be readonly and its accessibility level can be changed with the use of an access modifier, (See Access modifiers below).</p>
-
                     <p>A local variable in the same container (enclosing type) as a field can be declared with the same name and any type. When this is done the field is
                         said to be hidden by the local variable. In this case, to then access the field the <code>this</code> name qualifier this must be used. For
                         example if in a class a field <code>int someName</code> exists and in a method <code>string someName;</code> to access the field you would use
                         <code>var x = this.someName</code>.</p>
-
                     <p>Following are examples of scope.</p>
-
 <pre><code>using System;
 
 namespace ScopeExample
@@ -4477,9 +4153,7 @@ namespace ScopeExample
                         modifier keyword. A local variable's accessibility is always restricted to the scope in which it is contained and cannot be modified. Except for
                         <code>protected internal</code> and <code>private protected</code> only one access modifier keyword can be applied to a type or a member. For
                         information about accessibility of the accessors for a property or indexer see Classes. Following is the list of access modifier keywords and the
-                        access level provided by them.
-                    </p>
-
+                        access level provided by them.</p>
                     <ul>
                         <li><i>public</i> - the same assembly or another assembly that references it</li>
                         <li><i>protected internal</i> - the same assembly or in a derived class in another assembly</li>
@@ -4488,14 +4162,11 @@ namespace ScopeExample
                         <li><i>private protected</i> - the same class or a derived class in the same assembly only</li>
                         <li><i>private</i> - the same class or a derived class nested within a base class only</li>
                     </ul>
-
                     <p>Types declared directly within a namespace (i.e. not nested), can only be declared public or internal where internal is the default level. The
                         following types can be be declared in a namespace <code>class</code>, <code>struct</code>, <code>interface</code>, <code>delegate</code>,
                         <code>record</code> and <code>enum</code>.</p>
-
                     <p>The following list shows containing types, which access modifiers can be applied to the members and nested types within them and their default
                         access level.</p>
-
                     <ul>
                         <li><i>class or record</i> - <code>public</code>, <code>protected internal</code>, <code>protected</code>,
                             <code>internal</code>, <code>private protected</code>, <code>private(default)</code></li>
@@ -4503,14 +4174,11 @@ namespace ScopeExample
                             <code>internal</code>, <code>private protected</code>, <code>private</code>*</li>
                         <li><i>struct</i> - <code>public</code>, <code>internal</code>, <code>private(default)</code></li>
                     </ul>
-
                     <p>Enum members do not have any declared accessibility. An enum member's accessibility  is determined by the accessibility of the enum type container
                         and access modifiers cannot be applied to them.</p>
-
                     <p>The following example demonstrates various accessibility scenarios. It contains two assemblies. The first is a library under the namespace
                         <code>ClassLibrary1</code>. The second is an executable under the namespace <code>ScopeExample</code> that references <code>ClassLibrary1</code>.
                     </p>
-
 <pre><code>using System;
 
 namespace ClassLibrary1
@@ -4717,22 +4385,17 @@ namespace ScopeExample
                 </article>
             </section>
             <!-- !SECTION -->
-
             <!-- SECTION Object-oriented Programming -->
             <section class="main-section" id="Object-oriented_Programming">
                 <header><h2>Object-oriented Programming</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
-
                     <p>Object-oriented programming (OOP) is a programming paradigm used extensively throughout C#. It encompasses a number of concepts that provide the
                         developer a structured process for writing a program. This is particularly important for large applications that may be maintained by multiple
                         teams of developers. Instead of having one massive length of code that does everything, it is instead broken down into objects that each have a
                         narrowly defined responsibility. C# uses a sort of template in the form of either a Class or Struct to define an object and each specific object
-                        is known as a type. These are then combined to create an application.
-                    </p>
-
+                        is known as a type. These are then combined to create an application.</p>
                     <p> Major principles of OOP include:</p>
-
                     <ul>
                         <li>Object</li>
                         <li>Encapsulation</li>
@@ -4740,39 +4403,29 @@ namespace ScopeExample
                         <li>Abstraction</li>
                         <li>Polymorphism</li>
                     </ul>
-
                     <h3>Object</h3>
-
                     <p>An object combines data and methods to represent everyday things such as a number, a spreadsheet, a person or even something less tangible such as
                         the relationship between a part's name and its quantity in a database. During runtime multiple objects based on the same type can be created each
                         with its own own internal state. This allows different versions (instances) of an object to exist. For example two number type objects could be
                         created, one with a value of 5 and another with 7. Three techniques employed by C# to define an object are:</p>
-
                     <ul>
                         <li>Properties - a particular state of an object such as color, the number of columns, what a thing is made of.</li>
                         <li>Methods - something an object can do such as add numbers, manipulate text, etc. Methods can take in and return modified data.</li>
                         <li>Events - a way of communicating to other objects that its state has changed.</li>
                     </ul>
-
                     <p>Take for example a light. It could have a 'Light Is On' property, a 'Turn Light On' method and a 'Light Has Turned' On event. A person object
                         could then check the 'Light Is On' property and if it's off (false), use the 'Turn Light On' method to turn the light on. The method would then
                         set 'Light Is On' to true and then trigger the 'Light Has Turned On' event. A second person object could be watching out for the event and when it
-                        happens it would know to run its own 'Read Book' method.
-                    </p>
-
+                        happens it would know to run its own 'Read Book' method.</p>
                     <h3>Encapsulation</h3>
-
                     <p>Encapsulation protects the data and methods used to define the internal state of an object from direct manipulation. This way code external to an
                         object need not be concerned with the data it contains or how a method works, only that by using it, it will provide the expected result. Take for
                         example the posting of a letter. Provided that you give it the correct address and a stamp, once you place it in the mail box you expect it to
                         arrive at the recipient. You need not be concerned with the details of the method (how it will be delivered) or the internal data (the name of the
                         person doing the delivery). With this the creator of the object is free to change the internal workings of an object without affecting those using
                         it, as long as it continues to do what it says on the box. In order to decide which object members are made available externally to an object, C#
-                        provides access modifier keywords such as <code>public</code> and <code>private</code>.
-                    </p>
-
+                        provides access modifier keywords such as <code>public</code> and <code>private</code>.</p>
                     <h3>Inheritance</h3>
-
                     <p>Many things in life have similarities. For example a car and a motorbike both have an engine, wheels and brakes but where as a motorbike has
                         handle bars a car has a steering wheel. This makes it difficult to use one object to represent both but rather than create two objects duplicating
                         much of the same functionality we can use the concept of inheritance. Here, first an parent object containing all the common traits is created
@@ -4780,14 +4433,10 @@ namespace ScopeExample
                         vehicle object that has the engine, brakes and wheels properties then from that create a motorbike object that adds handle bars and a car object
                         that adds a steering wheel. By having a common inherited wheels property the number of wheels can be set at runtime to 2 for a motorbike and 4 for
                         car or even 3 if it is a three-wheeler.</p>
-
                     <p>Other names for parent are ancestor or superclass and for child, descendant or subclass. Just to be different, C# calls a parent a base class and a
                         child a derived class which is specifically mentioned here as C# provides the <code>base</code> keyword to access a base class from a derived
-                        class. Also note that structs can neither inherit or be inherited by another class or struct.
-                    </p>
-
+                        class. Also note that structs can neither inherit or be inherited by another class or struct.</p>
                     <h3>Abstraction</h3>
-
                     <p>Abstraction is the process of determining and extracting from a complex problem just the information we require to define a solution. For example
                         what does it take to eat food. Here we need to ask an expert in this case lets consider what a child would say. They'd probably say something
                         like, you  put food in your mouth chew it then swallow. That's it. Now of course the human body is an extremely complex organism, to actually
@@ -4796,7 +4445,6 @@ namespace ScopeExample
                         mouth, chew, swallow. Of course had we omitted the chew step then the choke method may have kicked in resulting in a premature end to our program.
                         It is important then to extract exactly what is required, no less, no more and this is an essential design step before the first line of code is
                         even written.</p>
-
                     <p>Another term you may come across is abstraction layers which is the dividing of a problem into the various layers of complexity. Take for instance
                         what is involved in writing and running an application. As mentioned in the C Sharp Language section all a computer knows is ones and zeroes but
                         even that is not the lowest level. If we go further we get down to the quantum level where the state of electrons are controlled by transistors.
@@ -4805,9 +4453,7 @@ namespace ScopeExample
                         language used by by those creating the compiler that translates the C# language we write into the binary language amd ultimately into the quantum
                         state of the hardware. This does not mean that someone writing in C# is completely separated from the other layers. For example as you use the
                         code editor the the compiler is constantly interpreting what you write and if it can't, it will warn you that there is a syntax error.</p>
-
                     <h3>Polymorphism</h3>
-
                     <p>Polymorphism is the ability to substitute any child object for its parent and the members they contain. Using the inheritance example, we want to
                         make sure that we can steer our vehicle so we provide a steer method. This presents a problem as we can't be sure whether the consumer is going
                         to buy a car or a motorbike. The car has a steering wheel property that has to be set whereas the motor bike has handle bars. Polymorphism allows
@@ -4817,7 +4463,6 @@ namespace ScopeExample
                 </article>
             </section>
             <!-- !SECTION -->
-
             <!-- SECTION Keywords -->
             <section class="main-section" id="Keywords_and_Specifications">
                 <header><h2>Keywords and Specifications</h2></header>
@@ -4978,11 +4623,8 @@ namespace ScopeExample
                             <a class="keyword-link" href="#References">yield</a>
                         </div>
                     </div>
-
                     <h3>C# Specifications</h3>
-
                     <p>Following is a list of specifications for the various C# types and escape characters</p>
-
                     <h4>Value types</h4>
                     <ul>
                         <li>Boolean: <i>bool</i></li>
@@ -4995,7 +4637,6 @@ namespace ScopeExample
                         <li>User defined type of form struct S {...}</li>
                         <li>Nullable value type: Extension of all other value types with a null value</li>
                     </ul>
-
                     <h4>Value type range and size</h4>
                     <ul>
                         <li><span><i>bool</i> :</span> false, true (1 byte, 8 bits)</li>
@@ -5011,16 +4652,13 @@ namespace ScopeExample
                         <li><i>double</i> : ±5.0 x 10-324 to ±1.7 x 10308, 15-digit precision (8 byte, 64 bits)</li>
                         <li><i>decimal</i> : ±1.0 x 10-28 to  ±7.9 x 1028, 28-bit precision (16 byte, 128 bits)</li>
                     </ul>
-
                     <h4>Built-in reference types</h4>
-
                     <ul>
                         <li>Ultimate base class of all other types: <i>object</i></li>
                         <li>Unicode strings: <i>string</i></li>
                         <li>Array types: Single dimensional int[], multi-dimensional int[,]</li>
                         <li>dynamic</li>
                     </ul>
-
                     <h4>User defined reference types</h4>
                     <ul>
                         <li>User defined type of form class C {...}</li>
@@ -5029,43 +4667,40 @@ namespace ScopeExample
 <!-- TODO add syntax for record -->
                         <li>record</li>
                     </ul>
-
                     <p>The default value for all integer and floating-point types is 0.</p>
-
-                <p>A literal is interpreted by the compiler both by the way it is written and the context in which it is used. A compile error will result if a literal is
-                    outside the range for the type it is being assigned to.</p>
-
-                <p>In the following</p>
+                    <p>A literal is interpreted by the compiler both by the way it is written and the context in which it is used. A compile error will result if a
+                        literal is outside the range for the type it is being assigned to.</p>
+                    <p>In the following</p>
 <!-- Line space at bottom of code block is to prevent vertical scroll bar due to underline -->
 <pre><code>byte b = 25; // This is OK
 <u class="syntax">byte b = 311;</u> // Compile error: Value '311' cannot be converted to a 'byte'.
 
 </code></pre>
-                <p>Literals are interpreted as follows.</p>
-                <p class="no-bottom-margin">Boolean literal, one of:</p>
-                <p><i>true &emsp; false</i></p>
+                    <p>Literals are interpreted as follows.</p>
+                    <p class="no-bottom-margin">Boolean literal, one of:</p>
+                    <p><i>true &emsp; false</i></p>
 <pre><code>bool test = true;
 bool test = false;
 </code></pre>
-                <p>Integer literals consist of combinations of the following.</p>
-                <p class="no-bottom-margin">decimal digits:</p>
-                <p><i>0 1 2 3 4 5 6 7 8 9</i></p>
-                <p class="no-bottom-margin">hex digits:</p>
-                <p><i>0 1 2 3 4 5 6 7 8 9 A B C D E F a b c d e f</i></p>
-                <p class="no-bottom-margin">unsigned, long and unsigned long identification suffix, one of:</p>
-                <p><i>U  u  L  l  UL  Ul  uL  ul  LU  Lu  lU  lu</i></p>
-                <p class="no-bottom-margin">sign prefix, one of:</p>
-                <p><i>+ -</i></p>
-                <p class="no-bottom-margin">hexadecimal identification prefix, one of:</p>
-                <p><i>0x hex-digits&emsp;0X hex-digits</i></p>
-                <p>Integer literals type are interpreted in the following order</p>
-                <ul>
-                    <li>No suffix : <i>int, uint, long, ulong</i></li>
-                    <li>Suffixed with <i>U</i> or <i>u</i> : <i>uint, ulong</i></li>
-                    <li>Suffixed with <i>L</i> or <i>l</i> : <i>long, ulong</i></li>
-                    <li>Suffixed by <i>UL, Ul, uL, ul, LU, Lu, lU, lu</i> : <i>ulong</i></li>
-                </ul>
-                <p>Some examples of usage</p>
+                    <p>Integer literals consist of combinations of the following.</p>
+                    <p class="no-bottom-margin">decimal digits:</p>
+                    <p><i>0 1 2 3 4 5 6 7 8 9</i></p>
+                    <p class="no-bottom-margin">hex digits:</p>
+                    <p><i>0 1 2 3 4 5 6 7 8 9 A B C D E F a b c d e f</i></p>
+                    <p class="no-bottom-margin">unsigned, long and unsigned long identification suffix, one of:</p>
+                    <p><i>U  u  L  l  UL  Ul  uL  ul  LU  Lu  lU  lu</i></p>
+                    <p class="no-bottom-margin">sign prefix, one of:</p>
+                    <p><i>+ -</i></p>
+                    <p class="no-bottom-margin">hexadecimal identification prefix, one of:</p>
+                    <p><i>0x hex-digits&emsp;0X hex-digits</i></p>
+                    <p>Integer literals type are interpreted in the following order</p>
+                    <ul>
+                        <li>No suffix : <i>int, uint, long, ulong</i></li>
+                        <li>Suffixed with <i>U</i> or <i>u</i> : <i>uint, ulong</i></li>
+                        <li>Suffixed with <i>L</i> or <i>l</i> : <i>long, ulong</i></li>
+                        <li>Suffixed by <i>UL, Ul, uL, ul, LU, Lu, lU, lu</i> : <i>ulong</i></li>
+                    </ul>
+                    <p>Some examples of usage</p>
 <pre><code>var a = 1; // int
 var b = -2147483648; // int
 var c = 2147483648; // uint
@@ -5079,26 +4714,26 @@ var k = 9223372036854775808L; // ulong
 var l = 1UL; // ulong
 var hex = 0xF81A; // int
 </code></pre>
-                <p>A value outside of the range of the ulong type results in a compile error</p>
+                    <p>A value outside of the range of the ulong type results in a compile error</p>
 <pre><code>var tooBig = 18446744073709551616; // compile error: Integral constant too large
 </code></pre>
-                <p>Real literals consist of combinations of the following:</p>
-                <p class="no-bottom-margin">decimal digits:</p>
-                <p><i>0 1 2 3 4 5 6 7 8 9</i></p>
-                <p class="no-bottom-margin">exponent part, one of:</p>
-                <p><i>e sign decimal digits &emsp; E sign decimal digits</i></p>
-                <p class="no-bottom-margin">sign prefix, one of:</p>
-                <p><i>+ -</i></p>
-                <p class="no-bottom-margin">real type suffix, one of:</p>
-                <p><i>F  f  D  d  M  m</i></p>
-                <p>Real literals are interpreted as follows</p>
-                <ul>
-                    <li>No suffix : <i>double</i></li>
-                    <li>Suffixed with <i>F</i> or <i>f</i> : <i>float</i></li>
-                    <li>Suffixed with <i>D</i> or <i>d</i> : <i>double</i></li>
-                    <li>Suffixed with <i>M</i> or <i>m</i> : <i>decimal</i></li>
-                </ul>
-                <p><em>Note:</em> <i>As per integer literals above a literal digit that is a whole number will be interpreted as an integer.</i></p>
+                    <p>Real literals consist of combinations of the following:</p>
+                    <p class="no-bottom-margin">decimal digits:</p>
+                    <p><i>0 1 2 3 4 5 6 7 8 9</i></p>
+                    <p class="no-bottom-margin">exponent part, one of:</p>
+                    <p><i>e sign decimal digits &emsp; E sign decimal digits</i></p>
+                    <p class="no-bottom-margin">sign prefix, one of:</p>
+                    <p><i>+ -</i></p>
+                    <p class="no-bottom-margin">real type suffix, one of:</p>
+                    <p><i>F  f  D  d  M  m</i></p>
+                    <p>Real literals are interpreted as follows</p>
+                    <ul>
+                        <li>No suffix : <i>double</i></li>
+                        <li>Suffixed with <i>F</i> or <i>f</i> : <i>float</i></li>
+                        <li>Suffixed with <i>D</i> or <i>d</i> : <i>double</i></li>
+                        <li>Suffixed with <i>M</i> or <i>m</i> : <i>decimal</i></li>
+                    </ul>
+                    <p><em>Note:</em> <i>As per integer literals above a literal digit that is a whole number will be interpreted as an integer.</i></p>
 <pre><code>var i = 1; // int
 </code></pre>
                 <p>Literals interpreted as real numbers</p>
@@ -5119,38 +4754,29 @@ var o = 2.3m; // decimal
 var p = 3e9m; // decimal
 var q = -2.1e-3m; // decimal
 </code></pre>
-                <h4>Character specifications</h4>
-
-                <p>Single character, one of:</p>
-
-                <p>any character except <code>'</code> <i>(U+0027)</i>, <code>\</code> <i>(U+005C)</i> or line character</p>
-
-                <p>Simple escape character, one of:</p>
-
-                <ul>
-                    <li><i>\'</i>&emsp; Single quote</li>
-                    <li><i>\"</i>&emsp; Double quote</li>
-                    <li><i>\\</i>&emsp; Backslash</li>
-                    <li><i>\0</i>&emsp; Null</li>
-                    <li><i>\a</i>&emsp; Alert</li>
-                    <li><i>\b</i>&emsp; Backspace</li>
-                    <li><i>\f</i>&emsp; Form feed</li>
-                    <li><i>\n</i>&emsp; New line</li>
-                    <li><i>\r</i>&emsp; Carriage return</li>
-                    <li><i>\t</i>&emsp; Horizontal tab</li>
-                    <li><i>\v</i>&emsp; Vertical tab</li>
-                </ul>
-
-                <p class="no-bottom-margin">Unicode escape character, one of:</p>
-                <p><i>\u0000</i> to <i>\uFFFF</i></p>
-
-                <p class="no-bottom-margin">hexadecimal escape character:</p>
-                <p><i>\x</i>&emsp; <em>Note:</em> <i>Due to possible confusion with Unicode characters it is not recommended to use \x</i></p>
-
-                <p>The default value is the NUL character \u0000</p>
-
-                <p>Character literal examples</p>
-
+                    <h4>Character specifications</h4>
+                    <p>Single character, one of:</p>
+                    <p>any character except <code>'</code> <i>(U+0027)</i>, <code>\</code> <i>(U+005C)</i> or line character</p>
+                    <p>Simple escape character, one of:</p>
+                    <ul>
+                        <li><i>\'</i>&emsp; Single quote</li>
+                        <li><i>\"</i>&emsp; Double quote</li>
+                        <li><i>\\</i>&emsp; Backslash</li>
+                        <li><i>\0</i>&emsp; Null</li>
+                        <li><i>\a</i>&emsp; Alert</li>
+                        <li><i>\b</i>&emsp; Backspace</li>
+                        <li><i>\f</i>&emsp; Form feed</li>
+                        <li><i>\n</i>&emsp; New line</li>
+                        <li><i>\r</i>&emsp; Carriage return</li>
+                        <li><i>\t</i>&emsp; Horizontal tab</li>
+                        <li><i>\v</i>&emsp; Vertical tab</li>
+                    </ul>
+                    <p class="no-bottom-margin">Unicode escape character, one of:</p>
+                    <p><i>\u0000</i> to <i>\uFFFF</i></p>
+                    <p class="no-bottom-margin">hexadecimal escape character:</p>
+                    <p><i>\x</i>&emsp; <em>Note:</em> <i>Due to possible confusion with Unicode characters it is not recommended to use \x</i></p>
+                    <p>The default value is the NUL character \u0000</p>
+                    <p>Character literal examples</p>
 <pre><code>var a = 'a' \\ the <i>a</i> character
 var b = '\\' \\ the <i>\</i> character
 var c = '\u0123' \\ the <i>g</i> character
@@ -5158,7 +4784,6 @@ var c = '\u0123' \\ the <i>g</i> character
                 </article>
             </section>
             <!-- !SECTION -->
-
             <!-- Completed -->
             <!-- SECTION References -->
             <section class="main-section" id="References">
@@ -5176,19 +4801,16 @@ var c = '\u0123' \\ the <i>g</i> character
                 </article>
             </section>
             <!-- !SECTION -->
-
             <!-- SECTION Disclaimer -->
             <section class="main-section" id="Disclaimer">
                 <header><h2>Disclaimer</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
             <!-- TODO add copyright -->
                 <article>
-                    <p>You accept all risk of using the website and content on the website. As far as the law allows, Stephen Ward provides the website as is,
-                        without any warranty whatsoever.</p>
-
-                        <p>The website may hyperlink to and integrate websites and services run by others. Stephen Ward does not make any warranty about services
-                            run by others, or content they may provide. Use of services run by others may be governed by other terms between you and the one
-                            running the service.</p>
+                    <p>You accept all risk of using the website and content on the website. As far as the law allows, Stephen Ward provides the website as is, without any
+                        warranty whatsoever.</p>
+                    <p>The website may hyperlink to and integrate websites and services run by others. Stephen Ward does not make any warranty about services run by
+                        others, or content they may provide. Use of services run by others may be governed by other terms between you and the one running the service.</p>
                 </article>
             </section>
             <!-- !SECTION -->
