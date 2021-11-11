@@ -4634,45 +4634,44 @@ namespace ScopeExample
                     <p>Following is a list of specifications for the various C# types and escape characters</p>
                     <h4>Value types</h4>
                     <ul>
-                        <li>Boolean: <i>bool</i></li>
-                        <li>Signed integer: <i>sbyte, short, int, long</i></li>
-                        <li>Unsigned integer: <i>byte, ushort, uint, ulong</i></li>
-                        <li>IEEE binary floating-point: <i>float, double</i></li>
-                        <li>Decimal floating-point: <i>decimal</i></li>
-                        <li>Unicode characters: <i>char</i></li>
-                        <li>User-defined type of form enum E {...}</li>
-                        <li>User defined type of form struct S {...}</li>
-                        <li>Nullable value type: Extension of all other value types with a null value</li>
+                        <li>Boolean: <b>bool</b></li>
+                        <li>Signed integer: <b>sbyte</b>, <b>short</b>, <b>int</b>, <b>long</b></li>
+                        <li>Unsigned integer: <b>byte</b>, <b>ushort</b>, <b>uint</b>, <b>ulong</b></li>
+                        <li>IEEE binary floating-point: <b>float</b>, <b>double</b></li>
+                        <li>Decimal floating-point: <b>decimal</b></li>
+                        <li>Unicode characters: <b>char</b></li>
+                        <li>User-defined type of form <b>enum E {...}</b></li>
+                        <li>User defined type of form <b>struct S {...}</b></li>
+                        <li>Nullable value type: Extension of all other value types with a null value of the form <b>T?</b></li>
                     </ul>
                     <h4>Value type range and size</h4>
                     <ul>
-                        <li><span><i>bool</i> :</span> false, true (1 byte, 8 bits)</li>
-                        <li><i>sbyte</i> : -128 to 127 (1 byte, 8 bits)</li>
-                        <li><i>short</i> : -32,768 to 32,767 (2 bytes, 16 bits)</li>
-                        <li><i>int</i> : -2,147,438,648 to 2,147,483,647 (4 bytes, 32 bits)</li>
-                        <li><i>long</i> : -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 (8 byte, 64 bits)</li>
-                        <li><i>byte</i> : 0 to 255 (1 byte, 8 bits)</li>
-                        <li><i>ushort</i> : -128 to 127 (2 byte, 16 bits)</li>
-                        <li><i>uint</i> : 0 to 65,535 (4 byte, 32 bits)</li>
-                        <li><i>ulong</i> : 0 to 18,446,744,073,709,551,615 (8 byte, 64 bits)</li>
-                        <li><i>float</i> : ±1.5 x 10-45 to ±3.4 x 1038, 7-digit precision (4 byte, 32 bits)</li>
-                        <li><i>double</i> : ±5.0 x 10-324 to ±1.7 x 10308, 15-digit precision (8 byte, 64 bits)</li>
-                        <li><i>decimal</i> : ±1.0 x 10-28 to  ±7.9 x 1028, 28-bit precision (16 byte, 128 bits)</li>
+                        <li><span><b>bool</b> :</span> false, true (1 byte, 8 bits)</li>
+                        <li><b>sbyte</b> : -128 to 127 (1 byte, 8 bits)</li>
+                        <li><b>short</b> : -32,768 to 32,767 (2 bytes, 16 bits)</li>
+                        <li><b>int</b> : -2,147,438,648 to 2,147,483,647 (4 bytes, 32 bits)</li>
+                        <li><b>long</b> : -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 (8 byte, 64 bits)</li>
+                        <li><b>byte</b> : 0 to 255 (1 byte, 8 bits)</li>
+                        <li><b>ushort</b> : -128 to 127 (2 byte, 16 bits)</li>
+                        <li><b>uint</b> : 0 to 65,535 (4 byte, 32 bits)</li>
+                        <li><b>ulong</b> : 0 to 18,446,744,073,709,551,615 (8 byte, 64 bits)</li>
+                        <li><b>float</b> : ±1.5 x 10-45 to ±3.4 x 1038, 7-digit precision (4 byte, 32 bits)</li>
+                        <li><b>double</b> : ±5.0 x 10-324 to ±1.7 x 10308, 15-digit precision (8 byte, 64 bits)</li>
+                        <li><b>decimal</b> : ±1.0 x 10-28 to  ±7.9 x 1028, 28-bit precision (16 byte, 128 bits)</li>
                     </ul>
                     <h4>Built-in reference types</h4>
                     <ul>
-                        <li>Ultimate base class of all other types: <i>object</i></li>
-                        <li>Unicode strings: <i>string</i></li>
-                        <li>Array types: Single dimensional int[], multi-dimensional int[,]</li>
-                        <li>dynamic</li>
+                        <li>Ultimate base class of all other types: <b>object</b></li>
+                        <li>Unicode strings: <b>string</b></li>
+                        <li>Array types: Single dimensional <b>int[]</b>, multi-dimensional <b>int[,]</b></li>
+                        <li>dynamic of the form <b>dynamic T</b></li>
                     </ul>
                     <h4>User defined reference types</h4>
                     <ul>
-                        <li>User defined type of form class C {...}</li>
-                        <li>User defined type of form interface I {...}</li>
-                        <li>User-defined type of form delegate int D(...)</li>
-<!-- TODO add syntax for record -->
-                        <li>record</li>
+                        <li>User defined type of form <b>class C {...}</b></li>
+                        <li>User defined type of form <b>interface I {...}</b></li>
+                        <li>User-defined type of form <b>delegate T D(...)</b></li>
+                        <li>User-defined type of form <b>record T R(...)</b></li>
                     </ul>
                     <p>The default value for all integer and floating-point types is 0.</p>
                     <p>A literal is interpreted by the compiler both by the way it is written and the context in which it is used. A compile error will result if a
@@ -4766,22 +4765,22 @@ var q = -2.1e-3m; // decimal
                     <p>any character except <code>'</code> <i>(U+0027)</i>, <code>\</code> <i>(U+005C)</i> or line character</p>
                     <p>Simple escape character, one of:</p>
                     <ul>
-                        <li><i>\'</i>&emsp; Single quote</li>
-                        <li><i>\"</i>&emsp; Double quote</li>
-                        <li><i>\\</i>&emsp; Backslash</li>
-                        <li><i>\0</i>&emsp; Null</li>
-                        <li><i>\a</i>&emsp; Alert</li>
-                        <li><i>\b</i>&emsp; Backspace</li>
-                        <li><i>\f</i>&emsp; Form feed</li>
-                        <li><i>\n</i>&emsp; New line</li>
-                        <li><i>\r</i>&emsp; Carriage return</li>
-                        <li><i>\t</i>&emsp; Horizontal tab</li>
-                        <li><i>\v</i>&emsp; Vertical tab</li>
+                        <li><b>\'</b>&emsp; Single quote</li>
+                        <li><b>\"</b>&emsp; Double quote</li>
+                        <li><b>\\</b>&emsp; Backslash</li>
+                        <li><b>\0</b>&emsp; Null</li>
+                        <li><b>\a</b>&emsp; Alert</li>
+                        <li><b>\b</b>&emsp; Backspace</li>
+                        <li><b>\f</b>&emsp; Form feed</li>
+                        <li><b>\n</b>&emsp; New line</li>
+                        <li><b>\r</b>&emsp; Carriage return</li>
+                        <li><b>\t</b>&emsp; Horizontal tab</li>
+                        <li><b>\v</b>&emsp; Vertical tab</li>
                     </ul>
                     <p class="no-bottom-margin">Unicode escape character, one of:</p>
-                    <p><i>\u0000</i> to <i>\uFFFF</i></p>
+                    <p><b>\u0000</b> to <i>\uFFFF</i></p>
                     <p class="no-bottom-margin">hexadecimal escape character:</p>
-                    <p><i>\x</i>&emsp; <em>Note:</em> <i>Due to possible confusion with Unicode characters it is not recommended to use \x</i></p>
+                    <p><b>\x</b>&emsp; <em>Note:</em> <i>Due to possible confusion with Unicode characters it is not recommended to use <b>\x</b></i></p>
                     <p>The default value is the NUL character \u0000</p>
                     <p>Character literal examples</p>
 <pre><code>var a = 'a' \\ the <i>a</i> character
