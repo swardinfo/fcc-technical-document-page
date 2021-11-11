@@ -198,9 +198,8 @@ pre {
     padding: 0 3px;
 }
 
-.four-column a{
-    display: block;
-    margin-bottom: 6px;
+.four-column p{
+    margin-bottom: 0px;
 }
 
 .comment {
@@ -348,7 +347,7 @@ u.syntax::after {
 
     .four-column {
         display: flex;
-        max-width: 1200px;
+        max-width: 1100px;
         flex-wrap: nowrap;
     }
 

@@ -45,7 +45,7 @@
                 <li><a class="nav-link" href="#Object-oriented_Programming">Object-oriented Programming</a></li>
                 <li><a class="nav-link" href="#Keywords_and_Specifications">Keywords and Specifications</a></li>
                 <li><a class="nav-link" href="#References">References</a></li>
-                <li><a class="nav-link" href="#Disclaimer">Disclaimer</a></li>
+                <li><a class="nav-link" href="#Terms_and_conditions">Terms and conditions</a></li>
             </ul>
         </nav>
         <!-- !SECTION -->
@@ -178,14 +178,16 @@ namespace HelloWorld
                         your first C# program. The remainder of the text tells us our program finished but the IDE has kept the console open so that we can see the
                         result. Press any key to close the console.</p>
                     <p>By pressing <kbd>F5</kbd> the compiler built then ran the program with the debugger attached known as running in <i>debug mode</i>. The program
-                        starts with the method called <code>static void Main(string[] args)</code>. This is known as the <i>entry point</i> and there are several
-                        <a href="#Code_Syntax">code&nbsp;syntax</a> rules it must follow.</p>
-                    <p>Following <code>static void Main(string[] args)</code> is a pair of curly brackets <code>{ }</code>. The program executes all the statements it
-                        finds within these. Here there is only one, <code>Console.WriteLine("Hello World!");</code>. This tells the computer to write a line followed by a
-                        carriage return to the <i>command window</i> and that the text to be written is located within the round brackets <code>( )</code>, which in this
-                        case is <span class="nowrap"><b>'Hello World!'</b></span>. As there are no further lines in our code before the closing bracket <code>}</code>,
-                        the program exits. At this point the window of a program would normally close but the IDE has an option to keep console application windows open
-                        so that you can see the results. This option is turned on by default.</p>
+                        starts running at the line <code>static void Main(string[] args)</code>. This is known as the <i>entry point</i> and there are several
+                        <a href="#Code_Syntax">code&nbsp;syntax</a> rules it must follow. <code>static void Main(string[] args)</code> is also the start of a
+                        <a href="#Classes,_Structs,_Interfaces_and_Inheritance">method</a>.</p>
+                    <p>Following <code>static void Main(string[] args)</code> is a pair of curly brackets <code>{ }</code> that form a
+                        <a href="#Code_Syntax">code block</a>. The program executes all the <a href="#Code_Syntax">statements</a> it finds within these. Here there is
+                        only one, <code>Console.WriteLine("Hello World!");</code>. This tells the computer to write a line followed by a carriage return to the
+                        <i>command window</i> and that the text to be written is located within the round brackets <code>( )</code>, which in this case is
+                        <span class="nowrap"><b>'Hello World!'</b></span>. As there are no further lines in our code before the closing bracket <code>}</code>, the
+                        program exits. At this point the window of a program would normally close but the IDE has an option to keep console application windows open so
+                        that you can see the results. This option is turned on by default.</p>
                 </article>
             </section>
             <!-- !SECTION -->
@@ -198,10 +200,23 @@ namespace HelloWorld
                         reference to come back to as you become more familiar with them.</p>
                     <p>C# consists of text and symbols each of which tells the compiler how to convert our code into a program. The <i>syntax</i> is the set of rules that
                         governs how our code must be put together, i.e. which word or symbol goes where. Together these words and symbols are combined to form statements,
-                        declarations and directives that are the instructions used to create a C# program. For someone with no experience in C#, reading a list of rules
-                        and specifications is likely to lead to more confusion than understanding, so the best way forward is to dive into some examples and see what's
-                        going on.</p>
-                    <p>The following illustrates examples both valid and invalid syntax</p>
+                        declarations and directives that are the instructions used to create a C# program.</p>
+                    <p>First a quick look at the structure of the code which we'll go to into detail throughout this guide. In general a program takes the form of a list
+                        of instructions with one per line, though C# allows for an instruction to span multiple lines if required. C# also allows for multiple
+                        instructions to be enclosed within a pair of curly brackets <code>{ }</code> (<i>also known as braces</i>) called a <i>code block</i>.
+                        A code block can be empty or
+                        it can contain any combination of statements, declarations, directives, comments and other code blocks. Each instruction, depending on its type,
+                        must be followed by either a code block, a semicolon <code>;</code> or a carriage return. The compiler ignores comments and whitespace other than
+                        as separators for words and symbols.</p>
+                    <p>There are varying conventions on how to format code. The one used throughout this guide is to place code blocks containing instructions directly
+                        under the beginning of the instruction they belong to and indent everything within them. An empty code block may be placed on the same line after
+                        the instruction. The IDE has tools to aid with code formatting styles such as this.</p>
+                    <p>A statement is the part of the code that becomes the instructions in the program that tells the computer what to do. A declaration tells the
+                        compiler that a new object is to exist and become part of the program. In some cases a declaration can also be a statement. A directive is an
+                        instruction for the compiler that while not directly part of our program will effect how our program will be built and run.</p>
+                    <p>For someone with no experience in C#, reading a list of rules and specifications is likely to lead to more confusion than understanding, so the
+                        best way forward is to dive into some examples and see what's going on.</p>
+                    <p>The following example illustrates both valid and invalid syntax</p>
 <pre><code>// This is a comment
 
 // using directive
@@ -279,23 +294,15 @@ World!");
     }
 }
 </code></pre>
-                    <p>First a quick look at the structure of the code which we'll go to into detail throughout this guide. In general a program takes the form of a list
-                        of instructions with one per line, though C# allows for an instruction to span multiple lines if required. C# also allows for multiple
-                        instructions to be enclosed within a pair of curly brackets (<i>also known as braces</i>) called a <i>code block</i>. A code block can be empty or
-                        it can contain any combination of statements, declarations, directives, comments and other code blocks. Each instruction, depending on its type,
-                        must be followed by either a code block, a semicolon <code>;</code> or a carriage return. The compiler ignores comments and whitespace other than
-                        as separators for words and symbols.</p>
-                    <p>There are varying conventions on how to format code. The one used throughout this guide is to place code blocks directly under the beginning of the
-                        instruction they belong to and indent everything within them. The IDE has tools to aid with code formatting styles such as this.</p>
-                    <p>A statement is the part of the code that becomes the instructions in the program that tells the computer what to do. A declaration tells the
-                        compiler that a new object is to exist and become part of the program. In some cases a declaration can also be a statement. A directive is an
-                        instruction for the compiler that while not directly part of our program will effect how our program will be built and run.</p>
-                    <p>In the example below, the first line is a <i>comment</i>. The two forward slashes <code>//</code> at the beginning indicates that this is a single
-                        line comment. Details on comment syntax and its use is in (<a href="#Comments_and_Task_Lists">Comments and Task Lists</a>).</p>
+                    <p>In the example above, the first line is a <a href="#Comments_and_Task_Lists">comment</a>. The two forward slashes <code>//</code> at the beginning
+                        indicates that this is a single line comment.</p>
                     <p>The line <code>using System;</code> is a using directive and must always end with a semicolon <code>;</code>. The first word <code>using</code> is
-                        a reserved word called a <i>keyword</i> in C#. Keywords are directly used by the compiler as instructions. A list of all keywords can be found in
-                        (<a href="#Keywords">Keywords</a>). The next word <code>System</code> is an <i>identifier</i>. Identifiers are used to name types
-                        (class, interface, struct, delegate, record or enum) members, variables, or namespaces.</p>
+                        a reserved word called a <i>keyword</i> in C#. <a href="#Keywords_and_Specifications">Keywords</a> are directly used by the compiler as
+                        instructions. The next word <code>System</code> is an <i>identifier</i>. Identifiers are used to name types such as
+                        <a href="#Classes,_Structs,_Interfaces_and_Inheritance">classes, interfaces, structs, records,</a>
+                        <a href="#Anonymous_function_expressions">delegates,</a> <a href="#Enumerators">enums</a> and their
+                        <a href="#Classes,_Structs,_Interfaces_and_Inheritance">members</a> and <a href="#Variables,_Constants,_Types_and_Literals">variables,</a> or
+                        <a href="#References_and_Namespaces">namespaces</a>.</p>
 
                     <p>The rules for identifiers are</p>
                     <ul>
@@ -4477,92 +4484,92 @@ namespace ScopeExample
                     <div class="four-column">
                         <!-- Column 1 -->
                         <div>
-                            <a class="keyword-link" href="#Classes,_Structs,_Interfaces_and_Inheritance">abstract</a>
-                            <a class="keyword-link" href="#Expressions_and_Operators">as</a>
-                            <a class="keyword-link" href="#Classes,_Structs,_Interfaces_and_Inheritance">base</a>
-                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">bool</a>
-                            <a class="keyword-link" href="#Iteration_Statements">break</a>
-                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">byte</a>
-                            <a class="keyword-link" href="#Decision_Making_Statements">case</a>
-                            <a class="keyword-link" href="#Exceptions_and_Error_Handling">catch</a>
-                            <a class="keyword-link" href="#Characters_and_Strings">char</a>
-                            <a class="keyword-link" href="#References">checked</a>
-                            <a class="keyword-link" href="#Classes,_Structs,_Interfaces_and_Inheritance">class</a>
-                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">const</a>
-                            <a class="keyword-link" href="#Iteration_Statements">continue</a>
-                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">decimal</a>
-                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">default</a>
-                            <a class="keyword-link" href="#References">delegate</a>
-                            <a class="keyword-link" href="#Iteration_Statements">do</a>
-                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">double</a>
-                            <a class="keyword-link" href="#Decision_Making_Statements">else</a>
-                            <a class="keyword-link" href="#Enumerators">enum</a>
+                            <p>abstract</p>
+                            <p>as</p>
+                            <p>base</p>
+                            <p>bool</p>
+                            <p>break</p>
+                            <p>byte</p>
+                            <p>case</p>
+                            <p>catch</p>
+                            <p>char</p>
+                            <p>checked</p>
+                            <p>class</p>
+                            <p>const</p>
+                            <p>continue</p>
+                            <p>decimal</p>
+                            <p>default</p>
+                            <p>delegate</p>
+                            <p>do</p>
+                            <p>double</p>
+                            <p>else</p>
+                            <p>enum</p>
                         </div>
                         <!-- Column 2 -->
                         <div>
-                            <a class="keyword-link" href="#Classes,_Structs,_Interfaces_and_Inheritance">event</a>
-                            <a class="keyword-link" href="#References">explicit</a>
-                            <a class="keyword-link" href="#References">extern</a>
-                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">FALSE</a>
-                            <a class="keyword-link" href="#References">finally</a>
-                            <a class="keyword-link" href="#References">fixed</a>
-                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">float</a>
-                            <a class="keyword-link" href="#Iteration_Statements">for</a>
-                            <a class="keyword-link" href="#Iteration_Statements">foreach</a>
-                            <a class="keyword-link" href="#References">goto</a>
-                            <a class="keyword-link" href="#Decision_Making_Statements">if</a>
-                            <a class="keyword-link" href="#References">implicit</a>
-                            <a class="keyword-link" href="#References">in</a>
-                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">int</a>
-                            <a class="keyword-link" href="#Classes,_Structs,_Interfaces_and_Inheritance">interface</a>
-                            <a class="keyword-link" href="#Scope_and_Access_Modifiers">internal</a>
-                            <a class="keyword-link" href="#Expressions_and_Operators">is</a>
-                            <a class="keyword-link" href="#References">lock</a>
-                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">long</a>
+                            <p>event</p>
+                            <p>explicit</p>
+                            <p>extern</p>
+                            <p>false</p>
+                            <p>finally</p>
+                            <p>fixed</p>
+                            <p>float</p>
+                            <p>for</p>
+                            <p>foreach</p>
+                            <p>goto</p>
+                            <p>if</p>
+                            <p>implicit</p>
+                            <p>in</p>
+                            <p>int</p>
+                            <p>interface</p>
+                            <p>internal</p>
+                            <p>is</p>
+                            <p>lock</p>
+                            <p>long</p>
                         </div>
                         <!-- Column 3 -->
                         <div>
-                            <a class="keyword-link" href="#References_and_Namespaces">namespace</a>
-                            <a class="keyword-link" href="#References">new</a>
-                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">null</a>
-                            <a class="keyword-link" href="#Classes,_Structs,_Interfaces_and_Inheritance">object</a>
-                            <a class="keyword-link" href="#References">operator</a>
-                            <a class="keyword-link" href="#References">out</a>
-                            <a class="keyword-link" href="#Classes,_Structs,_Interfaces_and_Inheritance">override</a>
-                            <a class="keyword-link" href="#References">params</a>
-                            <a class="keyword-link" href="#Scope_and_Access_Modifiers">private</a>
-                            <a class="keyword-link" href="#Scope_and_Access_Modifiers">protected</a>
-                            <a class="keyword-link" href="#Scope_and_Access_Modifiers">public</a>
-                            <a class="keyword-link" href="#Classes,_Structs,_Interfaces_and_Inheritance">readonly</a>
-                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">ref</a>
-                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">return</a>
-                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">sbyte</a>
-                            <a class="keyword-link" href="#Classes,_Structs,_Interfaces_and_Inheritance">sealed</a>
-                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">short</a>
-                            <a class="keyword-link" href="#References">sizeof</a>
-                            <a class="keyword-link" href="#References">stackalloc</a>
+                            <p>namespace</p>
+                            <p>new</p>
+                            <p>null</p>
+                            <p>object</p>
+                            <p>operator</p>
+                            <p>out</p>
+                            <p>override</p>
+                            <p>params</p>
+                            <p>private</p>
+                            <p>protected</p>
+                            <p>public</p>
+                            <p>readonly</p>
+                            <p>ref</p>
+                            <p>return</p>
+                            <p>sbyte</p>
+                            <p>sealed</p>
+                            <p>short</p>
+                            <p>sizeof</p>
+                            <p>stackalloc</p>
                         </div>
                         <!-- Column 4 -->
                         <div>
-                            <a class="keyword-link" href="#Classes,_Structs,_Interfaces_and_Inheritance">static</a>
-                            <a class="keyword-link" href="#Characters_and_Strings">string</a>
-                            <a class="keyword-link" href="#Classes,_Structs,_Interfaces_and_Inheritance">struct</a>
-                            <a class="keyword-link" href="#Decision_Making_Statements">switch</a>
-                            <a class="keyword-link" href="#References">this</a>
-                            <a class="keyword-link" href="#Exceptions_and_Error_Handling">throw</a>
-                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">TRUE</a>
-                            <a class="keyword-link" href="#Exceptions_and_Error_Handling">try</a>
-                            <a class="keyword-link" href="#References">typeof</a>
-                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">uint</a>
-                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">ulong</a>
-                            <a class="keyword-link" href="#References">unchecked</a>
-                            <a class="keyword-link" href="#References">unsafe</a>
-                            <a class="keyword-link" href="#Variables,_Constants,_Types_and_Literals">ushort</a>
-                            <a class="keyword-link" href="#References">using</a>
-                            <a class="keyword-link" href="#Classes,_Structs,_Interfaces_and_Inheritance">virtual</a>
-                            <a class="keyword-link" href="#Classes,_Structs,_Interfaces_and_Inheritance">void</a>
-                            <a class="keyword-link" href="#References">volatile</a>
-                            <a class="keyword-link" href="#Iteration_Statements">while</a>
+                            <p>static</p>
+                            <p>string</p>
+                            <p>struct</p>
+                            <p>switch</p>
+                            <p>this</p>
+                            <p>throw</p>
+                            <p>true</p>
+                            <p>try</p>
+                            <p>typeof</p>
+                            <p>uint</p>
+                            <p>ulong</p>
+                            <p>unchecked</p>
+                            <p>unsafe</p>
+                            <p>ushort</p>
+                            <p>using</p>
+                            <p>virtual</p>
+                            <p>void</p>
+                            <p>volatile</p>
+                            <p>while</p>
                         </div>
                     </div>
                     <h4>Contextual keywords</h4>
@@ -4570,57 +4577,57 @@ namespace ScopeExample
                     <div class="four-column">
                         <!-- Column 1 -->
                         <div>
-                            <a class="keyword-link" href="#References">add</a>
-                            <a class="keyword-link" href="#References">and</a>
-                            <a class="keyword-link" href="#References">alias</a>
-                            <a class="keyword-link" href="#References">ascending</a>
-                            <a class="keyword-link" href="#References">async</a>
-                            <a class="keyword-link" href="#References">await</a>
-                            <a class="keyword-link" href="#References">by</a>
-                            <a class="keyword-link" href="#References">descending</a>
-                            <a class="keyword-link" href="#References">dynamic</a>
-                            <a class="keyword-link" href="#References">equals</a>
-                            <a class="keyword-link" href="#References">from</a>
+                            <p>add</p>
+                            <p>and</p>
+                            <p>alias</p>
+                            <p>ascending</p>
+                            <p>async</p>
+                            <p>await</p>
+                            <p>by</p>
+                            <p>descending</p>
+                            <p>dynamic</p>
+                            <p>equals</p>
+                            <p>from</p>
                         </div>
                         <!-- Column 2 -->
                         <div>
-                            <a class="keyword-link" href="#References">get</a>
-                            <a class="keyword-link" href="#References">global</a>
-                            <a class="keyword-link" href="#References">group</a>
-                            <a class="keyword-link" href="#References">init</a>
-                            <a class="keyword-link" href="#References">into</a>
-                            <a class="keyword-link" href="#References">join</a>
-                            <a class="keyword-link" href="#References">let</a>
-                            <a class="keyword-link" href="#References">managed (function pointer calling convention)</a>
-                            <a class="keyword-link" href="#References">nameof</a>
-                            <a class="keyword-link" href="#References">nint</a>
-                            <a class="keyword-link" href="#References">not</a>
+                            <p>get</p>
+                            <p>global</p>
+                            <p>group</p>
+                            <p>init</p>
+                            <p>into</p>
+                            <p>join</p>
+                            <p>let</p>
+                            <p>managed (function pointer calling convention)</p>
+                            <p>nameof</p>
+                            <p>nint</p>
+                            <p>not</p>
                         </div>
                         <!-- Column 3 -->
                         <div>
-                            <a class="keyword-link" href="#References">notnull</a>
-                            <a class="keyword-link" href="#References">nuint</a>
-                            <a class="keyword-link" href="#References">on</a>
-                            <a class="keyword-link" href="#References">or</a>
-                            <a class="keyword-link" href="#References">orderby</a>
-                            <a class="keyword-link" href="#References">partial (type)</a>
-                            <a class="keyword-link" href="#References">partial (method)</a>
-                            <a class="keyword-link" href="#References">record</a>
-                            <a class="keyword-link" href="#References">remove</a>
-                            <a class="keyword-link" href="#References">select</a>
+                            <p>notnull</p>
+                            <p>nuint</p>
+                            <p>on</p>
+                            <p>or</p>
+                            <p>orderby</p>
+                            <p>partial (type)</p>
+                            <p>partial (method)</p>
+                            <p>record</p>
+                            <p>remove</p>
+                            <p>select</p>
                         </div>
                         <!-- Column 4 -->
                         <div>
-                            <a class="keyword-link" href="#References">set</a>
-                            <a class="keyword-link" href="#References">unmanaged (function pointer calling convention)</a>
-                            <a class="keyword-link" href="#References">unmanaged (generic type constraint)</a>
-                            <a class="keyword-link" href="#References">value</a>
-                            <a class="keyword-link" href="#References">var</a>
-                            <a class="keyword-link" href="#References">when (filter condition)</a>
-                            <a class="keyword-link" href="#References">where (generic type constraint)</a>
-                            <a class="keyword-link" href="#References">where (query clause)</a>
-                            <a class="keyword-link" href="#References">with</a>
-                            <a class="keyword-link" href="#References">yield</a>
+                            <p>set</p>
+                            <p>unmanaged (function pointer calling convention)</p>
+                            <p>unmanaged (generic type constraint)</p>
+                            <p>value</p>
+                            <p>var</p>
+                            <p>when (filter condition)</p>
+                            <p>where (generic type constraint)</p>
+                            <p>where (query clause)</p>
+                            <p>with</p>
+                            <p>yield</p>
                         </div>
                     </div>
                     <h3>C# Specifications</h3>
