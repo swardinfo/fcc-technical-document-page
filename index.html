@@ -2989,6 +2989,7 @@ namespace FieldDeclarationExample
                     <!-- !SECTION Methods -->
                     <!-- SECTION Events -->
                     <h3 id="Events">Events</h3>
+<!-- TODO finish events description -->
                     <p>An event is a way for the class to communicate with other objects or other parts within itself that the state of the class instance has changed.
                         The event declares which type of method known as an event handler must be used respond to the event. The event usually passes the object that
                         created the event and an EventArgs that can contain additional information about the event to the event handler. The return type for an event
@@ -3000,9 +3001,13 @@ namespace FieldDeclarationExample
                     <!-- !SECTION Events -->
                     <!-- SECTION Indexers -->
                     <h3 id="Indexers">Indexers</h3>
-                    <p>An indexer allows an object to be indexed like an array. It is similar to a property but also takes an index value to set or get a specific
-                        instance. In place of an identifier the <code>this</code> keyword is used to declare an indexer. The same rules as as those for read/write and
-                        accessibility of properties also apply to indexers.</p>
+                    <p>An indexer allows an object to be indexed like an array. It is similar to a <a href="#Properties">property</a> but also takes an index value to set
+                        or get a specific instance. To declare an indexer first an array or collection backing field is declared to store the instances to be indexed. The
+                        indexer is then declared using an optional <a href="#Access_modifiers">access modifier</a>, followed by the <code>this</code> keyword, followed by
+                        the type of indexer, followed by square brackets that contain one or more indexes separated by commas, with each consisting of the type of index
+                        and an index identifier. Accessors are then used to set and/or get the instances from the backing field using the indexes that are passed in. The
+                        same rules as as those for read/write and accessibility of properties and accessors also apply to indexers except that an indexer cannot be static
+                        and an indexer cannot be auto-indexed.</p>
                     <p>The following example declares a string collection which uses an indexer to index instances of itself. The <code>Program</code> class creates a new
                         <code>StringCollection</code> instance, assigns the string "Hello World" to the instance at index 0 in the collection, then retrieves the same and
                         finally writes its value to the console.</p>
@@ -3038,7 +3043,7 @@ namespace IndexExample
                     <!-- SECTION Finalizers -->
                     <h3 id="Finalizers">Finalizers</h3>
                     <p>A finalizer is used to perform any cleanup of the class when it is no longer in use. The compiler adds a default finalizer to each instance of a
-                        class that is created so it would be a rare requirement to add one ourselves.</p>
+                        class that is created. As implementing a finalizer is a rare and complex subject it won't be discussed in this guide.</p>
 
 
 
