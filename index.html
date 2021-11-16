@@ -2983,10 +2983,100 @@ namespace FieldDeclarationExample
                         optional <a href="#Access_modifiers">access modifier</a>, followed by the <i>return type</i>, followed by an identifier that is unique within the
                         method's containing type, followed by a pair of brackets that can contain <a href="#Parameters,_signatures_and_overloading">parameters</a>,
                         followed by a pair of curly brackets that define a code
-                        block which is the body of the method. For a method that doesn't return a value, the <code>void</code> keyword is used in place of the returning type.
+                        block which is the body of the method. For a method that doesn't return a value, the <code>void</code> keyword is used in place of the returning
+                        type. A method that has a return type but that does not have a return value from all possible paths produce a syntax error;
                         Methods can be <a href="#Parameters,_signatures_and_overloading">overloaded</a>.</p>
                     <p>Access to a method by code external to the type is in the form of <code>instance.Method(parameters)</code>.</p>
+                    <p>The following shows examples of method declaration and use.</p>
+<pre><code>using System;
 
+namespace MethodExample
+{
+    public class Class1
+    {
+        // A method that takes in an argument
+        // through a string parameter which it
+        // writes to the console. As the
+        // return type is void it does not
+        // return a value
+        public void PrintMessage(string value)
+        {
+            Console.WriteLine(value);
+        }
+
+        // A method that calls another method
+        // from within the class and prints
+        // then prints the returned value
+        public void PrintProduct(int a, int b)
+        {
+            var product = Multiply(a, b);
+            Console.WriteLine(product);
+        }
+
+        // A public method that returns an int
+        // value of the sum of the parameters
+        public int Add(int x, int y)
+        {
+            return x + y;
+        }
+
+        // A method that uses an expression body
+        public int Subtract(int x, int y) => x = y;
+
+        // A private method that can only
+        // that can only be accessed from
+        // within the enclosing type
+        private int Multiply(int x, int y)
+        {
+            return x * y;
+        }
+
+        // This method does not have a return statement
+        // Uncommenting this results in the error
+        // 'Class1.Sum(int, int, int)': not all code
+        // paths return a value
+        //public int Sum(int a, int b, int c, int d)
+        //{
+        //    var result = a + b + c + d;
+        //}
+
+        // This also results in an error. The if statement
+        // does not return a value if x == 0
+        // Uncommenting this results in the error
+        // 'Class1.Sum(int, int, int)': not all code
+        // paths return a value
+        //public int Sum(int a, int b, int c, int d)
+        //{
+        //    if (x != 0)
+        //     return  a + b + c + d;
+        //}
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Class1 class1 = new Class1();
+            var sum = class1.Add(2, 3);
+            var difference = class1.Subtract(7, 4);
+            class1.PrintMessage("Commencing test");
+            Console.WriteLine($"2 + 3 = {sum}");
+            Console.WriteLine($"7 - 4 = {difference}");
+            Console.Write("5 x 6 = ");
+            class1.PrintProduct(5, 6);
+            class1.PrintMessage("Test completed");
+        }
+    }
+}
+
+// The example writes the following to the console
+
+// Commencing test
+// 2 + 3 = 5
+// 7 - 4 = 4
+// 5 x 6 = 30
+// Test completed
+</code></pre>
 <!-- TODO add method example -->
                     <!-- !SECTION Methods -->
                     <!-- SECTION Events -->
