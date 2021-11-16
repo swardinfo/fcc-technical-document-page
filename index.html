@@ -2563,6 +2563,7 @@ namespace EnumExample
                         </li>
                         <li><a href="#Records">records</a> are reference types that can behave like a value type and are used mostly with data that once set doesn't
                             change</li>
+                        <li><a href="Delegates">delegates</a> is a type used to represent a reference to a method that can be passed as an argument to another method</li>
                         <li><a href="#Interfaces">interfaces</a> can't be instantiated but instead are used to define behaviors that can be implemented by other types
                         </li>
                     </ul>
@@ -2984,7 +2985,8 @@ namespace FieldDeclarationExample
                         followed by a pair of curly brackets that define a code
                         block which is the body of the method. For a method that doesn't return a value, the <code>void</code> keyword is used in place of the returning type.
                         Methods can be <a href="#Parameters,_signatures_and_overloading">overloaded</a>.</p>
-                        <p>Access to a method by code external to the type is in the form of <code>instance.Method(parameters)</code>.</p>
+                    <p>Access to a method by code external to the type is in the form of <code>instance.Method(parameters)</code>.</p>
+
 <!-- TODO add method example -->
                     <!-- !SECTION Methods -->
                     <!-- SECTION Events -->
@@ -3007,7 +3009,8 @@ namespace FieldDeclarationExample
                         the type of indexer, followed by square brackets that contain one or more indexes separated by commas, with each consisting of the type of index
                         and an index identifier. Accessors are then used to set and/or get the instances from the backing field using the indexes that are passed in. The
                         same rules as as those for read/write and accessibility of properties and accessors also apply to indexers except that an indexer cannot be static
-                        and an indexer cannot be auto-indexed.</p>
+                        and an indexer cannot be auto-indexed. Indexers can be <a href="#Parameters,_signatures_and_overloading">overloaded</a>.</p>
+                    <p>Access to an indexer by code external to the type is in the form of <code>instance.Indexer[index]</code></p>
                     <p>The following example declares a string collection which uses an indexer to index instances of itself. The <code>Program</code> class creates a new
                         <code>StringCollection</code> instance, assigns the string "Hello World" to the instance at index 0 in the collection, then retrieves the same and
                         finally writes its value to the console.</p>
@@ -3037,8 +3040,6 @@ namespace IndexExample
     }
 }
 </code></pre>
-
-
                     <!-- !SECTION Indexers -->
                     <!-- SECTION Finalizers -->
                     <h3 id="Finalizers">Finalizers</h3>
@@ -3291,6 +3292,50 @@ namespace StaticExample
 
 namespace StructExample
 {
+    public struct Box
+    {
+        public Box(int width, int height, int depth)
+        {
+            Width = width;
+            Height = height;
+            Depth = depth;
+        }
+
+        // A struct cannot contain a parameterless constructor
+        // Uncommenting the following results in the error
+        // Structs cannot contain explicit parameterless constructors
+        //public Box() { }
+
+        // A structs constructor must assign values to all instance fields
+        // Uncommenting the following results in the following error
+        // Field 'Box.Depth' must be fully assigned
+        // before control is returned to the caller
+        //public Box(double width)
+        //{
+        //    Width = width;
+        //    Height = 1;
+        //}
+
+        // This is OK as all instance fields have been assigned a value
+        public Box(int width)
+        {
+            Width = width;
+            Height = 1;
+            Depth = 1;
+        }
+
+        public int Width;
+
+        public int Height;
+
+        public int Depth;
+
+        public int GetVolume()
+        {
+            return Width * Height * Depth;
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
@@ -3344,50 +3389,6 @@ namespace StructExample
             Console.WriteLine($"Box6 Width: { box6.Width}, Height: {box6.Height}, Length: {box6.Depth}, Volume: {box6.GetVolume()}");
         }
     }
-
-    public struct Box
-    {
-        public Box(int width, int height, int depth)
-        {
-            Width = width;
-            Height = height;
-            Depth = depth;
-        }
-
-        // A struct cannot contain a parameterless constructor
-        // Uncommenting the following results in the error
-        // Structs cannot contain explicit parameterless constructors
-        //public Box() { }
-
-        // A structs constructor must assign values to all instance fields
-        // Uncommenting the following results in the following error
-        // Field 'Box.Depth' must be fully assigned
-        // before control is returned to the caller
-        //public Box(double width)
-        //{
-        //    Width = width;
-        //    Height = 1;
-        //}
-
-        // This is OK as all instance fields have been assigned a value
-        public Box(int width)
-        {
-            Width = width;
-            Height = 1;
-            Depth = 1;
-        }
-
-        public int Width;
-
-        public int Height;
-
-        public int Depth;
-
-        public int GetVolume()
-        {
-            return Width * Height * Depth;
-        }
-    }
 }
 
 // The example writes the following to the console
@@ -3400,10 +3401,18 @@ namespace StructExample
 // Box6 Width: 0, Height: 0, Length: 0, Volume: 0
 </code></pre>
                     <!-- !SECTION Structures (struct) -->
+
                     <!-- SECTION Records -->
                     <h3 id="Records">Records</h3>
 <!-- TODO add content about records -->
                     <!-- !SECTION Records -->
+
+                    <!-- SECTION Delegates -->
+                    <h3 id="Delegates">Delegates</h3>
+<!-- TODO add content about delegates -->
+                    <!-- !SECTION Delegates -->
+
+
                     <!-- SECTION Inheritance and polymorphism -->
                     <h3 id="Inheritance_and_polymorphism">Inheritance and polymorphism</h3>
                     <p>Inheritance is one of the main concepts in Object Oriented Programming. It allows you to create a parent class with common features that child
