@@ -116,9 +116,10 @@
                         <li>Debugger</li>
                     </ul>
                     <p>The code editor, like a word processor, provides many tools that help in writing code. These include indication of
-                        <a href="#Code_Syntax">syntax</a> errors shown with a <u class="syntax">red wavy underline</u> that may prevent the program from running, code
-                        auto completion, called IntelliSense in Visual Studio, that provides suggestions with documentation and formatting tools that help keep the code
-                        consistent with coding conventions.</p>
+                        <a href="#Code_Syntax">syntax</a> errors shown with a <u class="error">red wavy underline</u> that may prevent the program from running, and
+                        warnings shown with a <u class="warning">green wavy underline</u> that won't stop the program from running but should be addressed. It also
+                        provides code auto completion, called IntelliSense in Visual Studio, that provides suggestions with documentation and formatting tools that help
+                        keep the code consistent with coding conventions.</p>
                     <p>The compiler is used by C# to convert the code the developer writes into the language the computer requires and using it is known as building the
                         program. On completion, the compiler will report if the result was successful or produce a list of errors that must be corrected before the code
                         can be run.</p>
@@ -136,7 +137,7 @@
                         <a href="https://visualstudio.microsoft.com/" rel="external nofollow noopener noreferrer" target="_blank"> Visual Studio</a> web page.</p>
 
                     <p><em>Note:</em> <i>Whilst the code editor in Visual Studio provides color coding for different elements of the code only the
-                        <u class="syntax">red wavy underline</u> used to indicate syntax errors will be shown in this guide.</i></p>
+                        <u class="error">red wavy underline</u> used to indicate syntax errors will be shown in this guide.</i></p>
                 </article>
             </section>
             <!-- !SECTION Integrated Development Environment -->
@@ -268,7 +269,7 @@ namespace MyProgram
             // The following results in the error
 
             if (a)
-                <u class="syntax">var y = 1;</u> // Invalid, embedded statement cannot be a declaration
+                <u class="error">var y = 1;</u> // Invalid, embedded statement cannot be a declaration
 
             // The  Console.WriteLine("Hello World!"); from above rearranged
             Console
@@ -279,15 +280,15 @@ namespace MyProgram
                                 ;  // The semicolon here determines the end of the statement
 
             // Invalid statement, can't put space in keyword
-            <u class="syntax">Con</u> <u class="syntax">sole</u>.WriteLine ("Hello World") ;
+            <u class="error">Con</u> <u class="error">sole</u>.WriteLine ("Hello World") ;
 
             // Invalid statement, can't put line break in keyword
-            <u class="syntax">Con</u>
-                <u class="syntax">sole</u>.WriteLine ("Hello World") ;
+            <u class="error">Con</u>
+                <u class="error">sole</u>.WriteLine ("Hello World") ;
 
             // Invalid string statement, can't put line break in regular string
-            Console.WriteLine("<u class="syntax">Hello</u>
-                                <u class="syntax">World!</u>");
+            Console.WriteLine("<u class="error">Hello</u>
+                                <u class="error">World!</u>");
 
             // OK string statement, can put line break in verbatim string
             Console.WriteLine(@"Hello
@@ -715,16 +716,16 @@ namespace VariablesExample
                     <!-- SECTION Variable declaration and assignment syntax errors -->
                     <h3 id="Variable_declaration_and_assignment_syntax_errors">Variable declaration and assignment syntax errors</h3>
                     <p>Syntax errors that occur when declaring and assigning variables will prevent the application from being compiled. The editor identifies these
-                        errors and notifies you by placing a <u class="syntax">red wavy underline</u> under the part of the statement that is causing them. By moving the
+                        errors and notifies you by placing a <u class="error">red wavy underline</u> under the part of the statement that is causing them. By moving the
                         the mouse over the line a message will popup detailing the error. Some errors can be quite cryptic so following are a few examples and an
                         explanation of what they mean.</p>
                     <p><i>The name 'p' does not exist in the current context</i> - Before a variable can be used, it must first be declared either explicitly with
                         the use of a type followed by an identifier <code>int p;</code> or implicitly by use of the <code>var</code> keyword <code>var p = 0;</code></p>
                     <p><i>A local variable or function 'i' is already defined in this scope</i> - Only one unique instance of a variable can exist within a
                         <a href="#Scope">scope</a>. As <code>int i = 1;</code> has already declared variable <code>i</code>, the next statement
-                        <code>int <u class="syntax">i</u> = 2;</code> is evaluated by the editor as an attempt to declare a second variable <code>i</code>.</p>
+                        <code>int <u class="error">i</u> = 2;</code> is evaluated by the editor as an attempt to declare a second variable <code>i</code>.</p>
                     <p><i>Cannot use variable 'b' before it is declared</i> - C# executes statements in the order they appear in the code from top down. In this case
-                        <code><u class="syntax">b</u> = 1;</code> has been written above <code>int b;</code>. Reversing the order of these two statements will resolve
+                        <code><u class="error">b</u> = 1;</code> has been written above <code>int b;</code>. Reversing the order of these two statements will resolve
                         this error.</p>
                     <p><i>Use of unassigned local variable 'k'</i> - C# requires variables declared within a local <a href="#Scope">scope</a> to be assigned a value
                         before they can be used. Here <code>int k;</code> declares that a variable <code>k</code> of type <code>int</code> but does not assign it a value.
@@ -739,13 +740,13 @@ namespace VariablesExample
                         value to a variable that could unwittingly result in a conversion that produces a loss of information. By assigning a floating point
                         <code>double</code> to an <code>int</code>, the fractional part after the decimal point could be lost. As can be seen from the examples it may not
                         be obvious at first that a conversion is occurring.</p>
-                    <p><code>i = <u class="syntax">d</u>;</code> an attempt is being made to assign the value in <code>d</code> which was declared a
+                    <p><code>i = <u class="error">d</u>;</code> an attempt is being made to assign the value in <code>d</code> which was declared a
                         <code>double</code> to <code>i</code> which was declared an <code>int</code>.</p>
-                    <p><code>i = <u class="syntax">3.0</u>;</code> the variable <code>i</code> which was declared as an <code>int</code> is being assigned the literal
+                    <p><code>i = <u class="error">3.0</u>;</code> the variable <code>i</code> which was declared as an <code>int</code> is being assigned the literal
                         <code>3.0</code> which is interpreted as a <code>double</code> by the editor.</p>
-                    <p><code>b = <u class="syntax">i + d</u>;</code> as <code>i</code>is an <code>int</code> and <code>d</code> a <code>double</code> the result of
+                    <p><code>b = <u class="error">i + d</u>;</code> as <code>i</code>is an <code>int</code> and <code>d</code> a <code>double</code> the result of
                      <code>i + d</code> is first evaluated by the editor to be a <code>double</code> so assigning this to <code>b</code> produces the error.</p>
-                    <p><code>b = <u class="syntax">i + x</u>;</code> in the previous statement <code>var x = i + d;</code> <code>i + d</code> was evaluated by the editor
+                    <p><code>b = <u class="error">i + x</u>;</code> in the previous statement <code>var x = i + d;</code> <code>i + d</code> was evaluated by the editor
                         to be a <code>double</code> and is allowed to be assigned to <code>x</code> through the use of the <code>var</code> keyword. This results in
                         <code>i + x</code> also being interpreted as a <code>double</code> so assigning it to the int <code>b</code> produces the error.</p>
                     <p><code>d = i;</code> there is no possibility of information loss from an <code>int</code> to a <code>double</code> so this is allowed.</p>
@@ -772,22 +773,22 @@ namespace VariablesExamples
             // as a comment above each example
 
             // The name 'p' does not exist in the current context
-            <u class="syntax">p</u> = 1;
+            <u class="error">p</u> = 1;
 
             int i = 1;
 
             // A local variable or function 'i' is already defined in this scope
-            int <u class="syntax">i</u> = 2;
+            int <u class="error">i</u> = 2;
 
             // Cannot use variable 'b' before it is declared
-            <u class="syntax">b</u> = 1;
+            <u class="error">b</u> = 1;
             int b;
 
             int j;
             int k;
 
             // Use of unassigned local variable 'k'
-            j = i + <u class="syntax">k</u>;
+            j = i + <u class="error">k</u>;
 
             // The next four statements would creates an implicit conversion
             // that would result in the fractional part of the double
@@ -797,23 +798,23 @@ namespace VariablesExamples
 
             // Cannot implicitly convert type 'double' to 'int'.
             // An explicit conversion exists (Are you missing a cast?)
-            i = <u class="syntax">d</u>;
+            i = <u class="error">d</u>;
 
             // Cannot implicitly convert type 'double' to 'int'.
             // An explicit conversion exists (Are you missing a cast?)
-            i = <u class="syntax">3.0</u>;
+            i = <u class="error">3.0</u>;
 
             d = i + 3;
 
             // Cannot implicitly convert type 'double' to 'int'.
             // An explicit conversion exists (Are you missing a cast?)
-            b = <u class="syntax">i + d</u>;
+            b = <u class="error">i + d</u>;
 
             var x = i + d;
 
             // Cannot implicitly convert type 'double' to 'int'.
             // An explicit conversion exists (Are you missing a cast?)
-            b = <u class="syntax">i + x</u>;
+            b = <u class="error">i + x</u>;
 
             // This is allowed as there is no loss of information
             d = i;
@@ -821,15 +822,15 @@ namespace VariablesExamples
             const double pi = 3.1415;
 
             // The left-hand side of an assignment must be a variable, property or indexer
-            <u class="syntax">pi</u> = 4;
+            <u class="error">pi</u> = 4;
 
             // The expression assigned to 'area' must be constant
-            const double area = <u class="syntax">i * 3 * 3</u>;
+            const double area = <u class="error">i * 3 * 3</u>;
 
             bool t = true;
 
             // Operator '+' cannot be applied to operands of type 'int' and 'bool'
-            b = <u class="syntax">i + t</u>;
+            b = <u class="error">i + t</u>;
         }
     }
 }
@@ -1550,6 +1551,7 @@ namespace NullCoalescingExample
                     <p>An Expression-bodied member definition provides a shorthand method of writing the body of a member. In this case the <code>=&gt;</code> operator is
                         used to separate the name of the member and its body. Supported members are:</p>
                     <ul>
+<!-- TODO add links to members here -->
                         <li>Method</li>
                         <li>Read-only property</li>
                         <li>Property</li>
@@ -2504,9 +2506,10 @@ namespace DictionaryExample
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
                     <p>The keyword <code>enum</code> is used to declare an enumerator which provides a list of named constants. The code editor allows you to use these
-                        names to assign the underlying constant values to variables. You can define the type and value of each constant or allow the editor to assign them
-                        for you. The default type for the value is an integer and the list is zero based. The following example shows how to declare and use an enumerator
-                        using the defaults.</p>
+                        names to assign the underlying constant values to variables. You can declare the type and value of each constant or allow the editor to declare
+                        them for you. The default type for the value is an integer and the list is zero based. A value in an enum is accessed through the enums
+                        identifier, followed by a period, followed by the the name of one of the constants.</p>
+                        <p>The following example shows how to declare and use an enumerator using the defaults.</p>
 <pre><code>using System;
 
 namespace EnumExample
@@ -2801,24 +2804,7 @@ namespace ClassExample
                     <!-- SECTION Members -->
                     <h3 id="Members">Members</h3>
                     <p>The state of an object is held by the members it contains. These provide <a href="#Encapsulation">encapsulation</a> and storage of its data,
-                        as well as the object's behavior. Members are declared within the type that defines the object. Access to members is controlled through
-                        the use of <a href="#Scope_and_Access_Modifiers">access modifier</a> keywords and the access level of the type that contains them. Members
-                        can also be marked with the <a href="static">static</a>, <a href="#abstract">abstract</a> or <a href="#sealed">sealed</a> keywords which are
-                        mutually exclusive. A calling object accesses the the member of another in the same <a href="#namespace">namespace</a> through the object's
-                        identifier if it is an instance, or the type's identifier if it is static, followed by a period, followed by the member's identifier such as
-                        <code>object.Member</code> or <code>Type.Member</code>. If an object needs access to a member of an object in another namespace then the fully
-                        qualified name is required in the form of <code>Namespace.Type.Member</code>. This can be negated through the use of a
-                        <a href="#using">using directive</a>. Some members also require the passing in of arguments to parameters contained in brackets that follow the
-                        member identifier. Visual Studio's IntelliSense can assist you as it will display a suggestion box that lists the namespaces, types and members to
-                        choose from as you enter them.</p>
-                    <p>A type can contain multiple members with the same identifier, known as <a href="#Parameters,_signatures_and_overloading">overloading</a>, provided
-                        that each has a unique <a href="#Parameters,_signatures_and_overloading">signature</a>. Members in a
-                        <a href="Inheritance_and_polymorphism">base</a> type marked with the <code>virtual</code> keyword can be
-                        <a href="#Overriding_a_virtual_member">overridden</a> in an <a href="#Inheritance_and_polymorphism">derived</a> type by a member with the same
-                        signature that is marked with the <code>override</code> keyword. Where members in both a base and derived type have the same signature and
-                        where neither are marked as either virtual or override, the the derived member will hide the base member. Access to a hidden member can still be
-                        obtained through use of the <a href="#base_keyword">base</a> keyword. When a member is hidden the code editor will indicate this on the hiding
-                        member in the derived class with a s</p>
+                        as well as the object's behavior.</p>
                     <p>The members that a type can contain include</p>
                     <ul>
                         <li><a href="#Constructors">constructors</a> which initialize the state of an object</li>
@@ -2830,6 +2816,31 @@ namespace ClassExample
                         <li><a href="#Finalizers">finalizers</a> that performs cleanup of an object when it is no longer in use </li>
                         <li>nested type which is the declaration of another type within the containing type</li>
                     </ul>
+                    <p>Members are declared within the type that defines the object. All members within an object can access each other irrespective of the location at
+                        which they are declared. Access to members external to the object is controlled through the use of
+                        <a href="#Scope_and_Access_Modifiers">access modifier</a> keywords and the access level of the object that contains them. If omitted a member's
+                        access level will be private by default. Members can also be marked with the <a href="#static">static</a>,
+                        <a href="#abstract">abstract</a> or <a href="#sealed">sealed</a> keywords which are mutually exclusive. A calling object accesses the the member
+                        of another in the same <a href="#namespace">namespace</a> through the object's identifier if it is an instance, or the type's identifier if it is
+                        static, followed by a period, followed by the member's identifier such as <code>object.Member</code> or <code>Type.Member</code> respectively. If
+                        an object needs to access a static member of an object in another namespace then the fully qualified name is required in the form of
+                        <code>Namespace.Type.Member</code>. This can be negated through the use of a <a href="#using">using</a> directive. Some members also
+                        require the passing in of arguments to parameters contained in brackets that follow the member identifier. Visual Studio's IntelliSense can assist
+                        you as it will display a suggestion box that lists the namespaces, types and members to choose from as you enter them.</p>
+                    <p>All members except fields and events support implementation through the use of
+                        <a href="#The_Lambda_and_Expression_body_definition_operator">expression-bodied members</a>. A type can contain multiple members with the same
+                        identifier, known as <a href="#Parameters,_signatures_and_overloading">overloading</a>, provided that each has a unique
+                        <a href="#Parameters,_signatures_and_overloading">signature</a>. Only members with parameters can be overloaded which are
+                        <a href="#Constructors">constructors</a>, <a href="#Methods">methods</a> and <a href="#Indexers">indexers</a>. Members in a
+                        <a href="#Inheritance_and_polymorphism">base</a> type marked with the <code>virtual</code> keyword can be
+                        <a href="#Overriding_a_virtual_member">overridden</a> in an <a href="#Inheritance_and_polymorphism">derived</a> type by a member with the same
+                        signature that is marked with the <code>override</code> keyword. Where members in both a base and derived type have the same identifier and
+                        where neither are marked as either virtual or override, the the derived member will hide the base member. The two members don't have to be of the
+                        same type or have the same signature. For example a property in a base class can be hidden by a method. Access to a hidden member can still be
+                        obtained through use of the <a href="#base_keyword">base</a> keyword. When a member is hidden the code editor will indicate this on the hiding
+                        member in the derived class with a <u class="warning">warning</u>. This can be removed by marking the member with the <code>new</code> keyword.
+                    </p>
+
                     <!-- !SECTION Members -->
                     <!-- SECTION Constructors -->
                     <h3 id="Constructors">Constructors</h3>
@@ -2863,19 +2874,22 @@ namespace ClassExample
                     <!-- !SECTION Constructors -->
                     <!-- SECTION Fields -->
                     <h3 id="Fields">Fields</h3>
-                    <p>A field is a variable or a constant used to store data about an object and can be accessed by other members within it. It is declared using an
-                        optional <a href="#Access_modifiers">access modifier</a>, followed by the field's type, followed by an identifier that is unique within the
-                        field's containing type. If omitted the default access is private.
-                          Whilst a field's access
-                        outside the type can be changed using  it is normally left at the default private value.
-                        This provides <a href="#Encapsulation">encapsulation</a> and access to a fields is achieved through other members within the type including
+                    <p>A variable or constant declared inside a type but outside any other member is called a field and is used to store data about an object. It is
+                        declared using an optional <a href="#Access_modifiers">access modifier</a>, followed by the field's type, followed by an identifier that is unique
+                        within the field's containing type. Fields are normally declared either private or protected. This provides
+                        <a href="#Encapsulation">encapsulation</a> and access to a field is achieved through other members within the type including
                         <a href="#Properties">properties</a>, <a href="#Methods">methods</a>, <a href="#Indexers">indexers</a> and
-                        <a href="#Constructors">constructors</a>. This has the advantage of allowing for data validation and performing other tasks before changing its
-                        value. A variable field can also be made readonly through the use of the <code>readonly</code> keyword and can then only be set from within the
-                        class constructor when the object is created. A variable field does not have to be initialized with a value and if not will be initialized by the
-                        compiler to the default value for its type. A constant field must have its value initialized when it is declared.</p>
+                        <a href="#Constructors">constructors</a>. This has the advantage of allowing for data validation and performing other tasks before or after
+                        changing its value. Most commonly, external access to a field is through a property and when this is done the field is called a
+                        <i>backing field</i>. Access to a field by code external to the type is in the form of <code>instance.field</code>. A variable field does not have to
+                        be initialized with a value and if not will be initialized by the compiler to the default
+                        value for its type. When the program is run, field initialization occurs in the order of
+                        <i>declaration &gt; constructor &gt; object initializer</i>. This means that setting a field's value in a constructor will overwrite a value set
+                        in the declaration and setting it's value in an object-initializer will overwrite the value set both in the constructor and the declaration. A
+                        variable field can be made readonly through the use of the <code>readonly</code> keyword in which case it can only be initialized either by
+                        declaration or in a constructor. A constant field must have its value initialized when it is declared. By convention fields are normally declared
+                        at the top of a class before any other code.</p>
                     <p>The following example demonstrates field declaration.</p>
-
 <!-- TODO show constructor initializing field -->
 <pre><code>using System;
 
@@ -2921,27 +2935,41 @@ namespace FieldDeclarationExample
                     <!-- !SECTION Fields -->
                     <!-- SECTION Properties -->
                     <h3 id="Properties">Properties</h3>
-                    <p>A property is a way of allowing code external to a class to access its fields. It can use the <code>set</code> keyword to declare a <i>setter</i>
-                        for writing a value to a field and the <code>get</code> keyword for declaring a <i>getter</i> for reading the value from a field. A property can
-                        be made read/write by using both <code>set</code> and <code>get</code>, readonly by only using <code>get</code> and write only by only using
-                        <code>set</code> though the latter is an extremely rare situation. With <code>set</code> the <code>value</code> keyword is used to hold the value
-                        passed in. An alternative to <code>set</code> is <code>init</code> which can only be called by the constructor or an object-initializer.
-                        Collectively <code>set</code>, <code>init</code> and <code>get</code> are called <i>accessors</i>. As with all class members, the default access
-                        level for a property is private but as the most common use is to access them from outside a class they will usually have an access modifier
-                        applied.</p>
-                    <p> The default access for accessors is that of the property but can be changed changed through the use of access modifiers provided that</p>
-                        <ul>
-                            <li>the property is read/write</li>
-                            <li>only one of the accessors has the access modifier applied</li>
-                            <li>the access modifier is more restrictive than the property container</li>
-                        </ul>
-                    <p>A property can take two basic forms, manually-implemented and auto-implemented. With a manually-implemented property a separate field known as a
-                        backing field must be created. Each accessor must have its own code block with appropriate expressions to read and write to and from the backing
-                        field. This has the advantage allowing extra logic to perform other tasks such as validation within the property. With an auto-implemented
-                        property accessors are declared without an implementation code block and no backing field is required. During runtime the compiler creates a
-                        private backing field that can only be accessed through the property. An advantage of an auto-implemented is that it can be initialized through
-                        the declaration like so <code>public int MyProperty { get; set; } = 1;</code>. For a read/write property either both accessors must be
-                        manually-implemented or auto-implemented.</p>
+                    <p>A property is a way of allowing external code to have controlled access to a field within an object. Declaration of a property can take two forms,
+                        <i>manually-implemented</i> or <i>auto-implemented</i>.</p>
+                    <p>A property that is manually-implemented stores the data in a separately declared field, which in this context is known as a <i>backing field</i>.
+                        The property is then declared using an optional <a href="#Access_modifiers">access modifier</a>, followed by the property's type, followed by an
+                        identifier that is unique within the property's containing type, followed by a pair of curly brackets that define a code block. The code block is
+                        the body of the property and within it and the <code>set</code> keyword can be used to declare a <i>setter</i> for writing a value to the backing
+                        field and the  <code>get</code> keyword for declaring a <i>getter</i> for reading the value from the backing field. A property can be made
+                        read/write by using both <code>set</code> and <code>get</code>, readonly by only using <code>get</code> and write only by only using
+                        <code>set</code> though the latter is an extremely rare situation. Both <code>set</code> and <code>get</code> each have their own code block.
+                        Whilst the default access level without an access modifier is private, one is normally applied to allow for access outside the object.</p>
+                    <p>Within the <code>set</code> code block the <code>value</code> keyword is used to hold the value passed in to the property which is to be assigned
+                        to the backing field, in the form of <code>backingField = value;</code>. Other statements can be placed in the <code>set</code> code block to to
+                        validate the value before it is written to the backing field or to perform an action before or after this is done. This could include
+                        <a href="#Events">raising an event</a> to communicate to other objects that the property's value has changed. A <code>get</code> must always
+                        return a value of the type declared by the property. Within it's code block this usually takes the form of <code>return backingField</code>. As
+                        with <code>set</code>, other code can also be placed within the <code>get</code> code block. In both cases such code should be limited and where
+                        more complex procedures are required a <a href="#Methods">method</a> should be utilized. An alternative to <code>set</code> is <code>init</code>
+                        which can only be called by the constructor or an object-initializer, which makes the property read-only after it has been initialized during the
+                        objects instantiation. The <code>set</code> and <code>init</code> keywords are mutually exclusive. Collectively <code>set</code>,
+                        <code>init</code> and <code>get</code> are called <i>accessors</i>.</p>
+                    <p>The default access for accessors is that of the property containing them, but can be changed changed through the use of access modifiers provided
+                        that</p>
+                    <ul>
+                        <li>the property is read/write</li>
+                        <li>only one of the accessors has the access modifier applied</li>
+                        <li>the access modifier is more restrictive than the property container</li>
+                    </ul>
+                    <p>Making an <code>init</code> accessor private has the effect that the property can only be initialized in a constructor and <b>not</b> an
+                        object-initializer.</p>
+                    <p><em>Note:</em><i>Applying an access modifier to a <code>get</code> accessor is not recommended.</i></p>
+                    <p>In an Auto-implemented property, the accessors are declared without an implementation code block and no backing field is required, allowing the
+                        property to be written with one line of code. During runtime the compiler creates a private backing field that can only be accessed through the
+                        property. An advantage of an auto-implemented property is that it can be initialized through the declaration. For a read/write property either
+                        both accessors must be manually-implemented or auto-implemented.</p>
+                    <p>Access to a property by code external to the type is in the form of <code>instance.Property</code>.</p>
 
 <!-- TODO add properties example -->
 
@@ -2950,12 +2978,13 @@ namespace FieldDeclarationExample
                     <!-- !SECTION Properties -->
                     <!-- SECTION Methods -->
                     <h3 id="Methods">Methods</h3>
-                    <p>A method provides the behavior of an object. This could be reading a file, calculating a value, writing to the screen, etc. Its syntax is similar
-                        to a constructor but can also return a value.
-                         A method can receive and
-                        return values. When not returning a value the return type must use the void keyword. Methods can be overloaded by declaring a different number of,
-                        or different types of parameters to be passed in. When a method has overloads IntelliSense will show there are more than one version of the method
-                        to choose from.</p>
+                    <p>A method provides the behavior of an object. This could be reading a file, calculating a value, writing to the screen, etc. It is declared using an
+                        optional <a href="#Access_modifiers">access modifier</a>, followed by the <i>return type</i>, followed by an identifier that is unique within the
+                        method's containing type, followed by a pair of brackets that can contain <a href="#Parameters,_signatures_and_overloading">parameters</a>,
+                        followed by a pair of curly brackets that define a code
+                        block which is the body of the method. For a method that doesn't return a value, the <code>void</code> keyword is used in place of the returning type.
+                        Methods can be <a href="#Parameters,_signatures_and_overloading">overloaded</a>.</p>
+                        <p>Access to a method by code external to the type is in the form of <code>instance.Method(parameters)</code>.</p>
 <!-- TODO add method example -->
                     <!-- !SECTION Methods -->
                     <!-- SECTION Events -->
@@ -3010,6 +3039,8 @@ namespace IndexExample
                     <h3 id="Finalizers">Finalizers</h3>
                     <p>A finalizer is used to perform any cleanup of the class when it is no longer in use. The compiler adds a default finalizer to each instance of a
                         class that is created so it would be a rare requirement to add one ourselves.</p>
+
+
 
 
 
@@ -4271,6 +4302,7 @@ namespace MyCompany.ViewModels
 </code></pre>
                     <!-- !SECTION namespace -->
                     <!-- SECTION using -->
+<!-- TODO add using static -->
                     <h3 id="using">using</h3>
                     <p>Identifying every object by its <i>fully qualified</i> name soon becomes cumbersome and can make the code hard to read. The <code>using</code>
                         directive makes all objects and nested namespaces within a namespace available for use. This is also known as importing. The name of just the
@@ -4328,13 +4360,11 @@ namespace SomeNamespace
                         contained within outer scopes are said to be nested.</p>
                     <p>A local <a href="#Variables,_Constants,_Types_and_Literals">variable</a> is a variable declared in a method, property or indexer or one of its
                         nested code blocks. The variable is only accessible after it has been declared and only within the same code block or a nested code block. A local
-                        variable within the same block or a nested code block cannot be declared with the same name. A parameter that is passed into a method or indexer
+                        variable within the same block or a nested code block cannot be declared with the same name.
+
+<!-- TODO Fix method parameter passing ing argument -->
+                        An argument that is passed into a method or indexer
                         is accessible outside the member and becomes a local variable within the member.</p>
-                    <p>A variable or constant declared inside a class, struct or record type but outside any member is called a field and is also a member of that type. A
-                        field can
-                        be directly accessed by any of the type's methods, properties or indexers and any nested code blocks they contain, irrespective of the location of
-                        the field's declaration within the class. By convention fields are normally declared at the top of a class before any other code. A field can be
-                        modified to be readonly and its accessibility level can be changed with the use of an <a href="#Access_modifiers">access modifier</a>.</p>
                     <p>A local variable in the same container (enclosing type) as a field can be declared with the same name and any type. When this is done the field is
                         said to be hidden by the local variable. In this case, to then access the field the <code>this</code> name qualifier this must be used. For
                         example if in a class a field <code>int someName</code> exists and in a method <code>string someName;</code> to access the field you would use
@@ -5086,7 +5116,7 @@ namespace ScopeExample
                     <p>In the following</p>
 <!-- Line space at bottom of code block is to prevent vertical scroll bar due to underline -->
 <pre><code>byte b = 25; // This is OK
-<u class="syntax">byte b = 311;</u> // Compile error: Value '311' cannot be converted to a 'byte'.
+<u class="error">byte b = 311;</u> // Compile error: Value '311' cannot be converted to a 'byte'.
 
 </code></pre>
                     <p>Literals are interpreted as follows.</p>
