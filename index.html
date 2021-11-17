@@ -38,7 +38,7 @@
                 <li><a class="nav-link" href="#Iteration_Statements">Iteration Statements</a></li>
                 <li><a class="nav-link" href="#Arrays_and_Data_Structures">Arrays and Data Structures</a></li>
                 <li><a class="nav-link" href="#Enumerators">Enumerators</a></li>
-                <li><a class="nav-link" href="#Classes,_Structs,_Interfaces_and_Inheritance">Classes, Structs, Interfaces and Inheritance</a></li>
+                <li><a class="nav-link" href="#Classes_and_Other_User_Defined_Types">Classes and Other User Defined Types</a></li>
                 <li><a class="nav-link" href="#Anonymous_function_expressions">Anonymous function expressions</a></li>
                 <li><a class="nav-link" href="#Dependencies_and_Namespaces">Dependencies and Namespaces</a></li>
                 <li><a class="nav-link" href="#Scope_and_Access_Modifiers">Scope and Access Modifiers</a></li>
@@ -197,6 +197,7 @@ namespace HelloWorld
                 </article>
             </section>
             <!-- !SECTION Create a Hello World Project -->
+<!-- TODO rewrite this -->
             <!-- SECTION Code Syntax -->
             <section class="main-section" id="Code_Syntax">
                 <header><h2>Code Syntax</h2></header>
@@ -217,8 +218,11 @@ namespace HelloWorld
                     <p>There are varying conventions on how to format code. The one used throughout this guide is to place code blocks containing instructions directly
                         under the beginning of the instruction they belong to and indent everything within them. An empty code block may be placed on the same line after
                         the instruction. The IDE has tools to aid with code formatting styles such as this.</p>
-                    <p>A statement is the part of the code that becomes the instructions in the program that tells the computer what to do. A declaration tells the
-                        compiler that a new <a href="#Object">object</a> is to exist and become part of the program. In some cases a declaration can also be a statement. A directive is an
+                    <p>A statement is the part of the code that becomes the instructions in the program that tells the computer what to do. A declaration instructs the
+                        compiler to create a placeholder for an <a href="#Object">object</a> that is to exist and become part of the program. In some cases a declaration
+                        can also be a statement. The object must then be initialized if it is a value type or instantiated if it is a reference type before it can be
+                        used.
+                        A directive is an
                         instruction for the compiler that while not directly part of our program will effect how our program will be built and run.</p>
                     <p>For someone with no experience in C#, reading a list of rules and specifications is likely to lead to more confusion than understanding, so the
                         best way forward is to dive into some examples and see what's going on.</p>
@@ -296,6 +300,25 @@ World!");
             // This produces
             // Hello
             // World
+
+            // Creating or instantiating an object
+            // using a constructor
+            AnotherClass class1 = new();
+
+            // Creating or instantiating an object
+            // using a constructor and assign a value
+            // to Property in an object initializer
+            AnotherClass class2 = new()
+            {
+                Property = 1;
+            }
+        }
+
+        // Declare a nested class within MyClass
+        public class AnotherClass
+        {
+            // Declare a property
+            public int Property { get; set; }
         }
     }
 }
@@ -305,9 +328,9 @@ World!");
                     <p>The line <code>using System;</code> is a using directive and must always end with a semicolon <code>;</code>. The first word <code>using</code> is
                         a reserved word called a <i>keyword</i> in C#. <a href="#Keywords_and_Specifications">Keywords</a> are directly used by the compiler as
                         instructions. The next word <code>System</code> is an <i>identifier</i>. Identifiers are used to name types such as
-                        <a href="#Classes,_Structs,_Interfaces_and_Inheritance">classes, interfaces, structs, records,</a>
+                        <a href="#Classes_and_Other_User_Defined_Types">classes, interfaces, structs, records,</a>
                         <a href="#Anonymous_function_expressions">delegates,</a> <a href="#Enumerators">enums</a> and their
-                        <a href="#Classes,_Structs,_Interfaces_and_Inheritance">members</a> and <a href="#Variables,_Constants,_Types_and_Literals">variables,</a> or
+                        <a href="#Classes_and_Other_User_Defined_Types">members</a> and <a href="#Variables,_Constants,_Types_and_Literals">variables,</a> or
                         <a href="#Namespaces">namespaces</a>.</p>
 
                     <p>The rules for identifiers are</p>
@@ -589,7 +612,7 @@ namespace ExceptionExample
                     <p>Providing it is of the same type a reference type can be changed to refer to a different location in memory and its size in memory can change. A
                         reference type can only refer to one location at a time but two reference type variables can refer to the same location. The result is that changing
                         the contents of one will affect the contents of the other.</p>
-                    <p><em>Note:</em><i> Various type <a href="#Classes,_Structs,_Interfaces_and_Inheritance">members</a> allow the
+                    <p><em>Note:</em><i> Various type <a href="#Classes_and_Other_User_Defined_Types">members</a> allow the
                         <a href="#Parameters,_signatures_and_overloading">passing in</a> of a variable as an argument. When this occurs, what can happen to the variable
                         depends on whether it is a value or reference type and whether any keywords are present to change this behavior</i></p>
                     <p>C# has a number of built-in types of which each has a dedicated <a href="#Value_type_keywords">keyword</a>.</p>
@@ -1559,8 +1582,9 @@ namespace NullCoalescingExample
                         <li>Finalizer</li>
                         <li>Indexer</li>
                     </ul>
+<!-- TODO remove this -->
                     <p>Information on Expression-bodied member can be found in
-                        <a href="#Classes,_Structs,_Interfaces_and_Inheritance">Classes, Structs, Interfaces and Inheritance</a></p>
+                        <a href="#Classes_and_Other_User_Defined_Types">Classes and Other User Defined Types</a></p>
                     <!-- !SECTION The Lambda and Expression body definition operator -->
                 </article>
             </section>
@@ -2545,9 +2569,9 @@ namespace EnumExample
                 </article>
             </section>
             <!-- !SECTION Enumerators -->
-            <!-- SECTION Classes, Structs, Interfaces and Inheritance -->
-            <section class="main-section" id="Classes,_Structs,_Interfaces_and_Inheritance">
-                <header><h2>Classes, Structs, Interfaces and Inheritance</h2></header>
+            <!-- SECTION Classes and Other User Defined Types -->
+            <section class="main-section" id="Classes_and_Other_User_Defined_Types">
+                <header><h2>Classes and Other User Defined Types</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
                     <p>C# is an <a href="#Object-oriented_Programming">Object-oriented programming language (OOP)</a> and objects can be created using types. A type is a
@@ -2809,7 +2833,9 @@ namespace ClassExample
                     <p>The members that a type can contain include</p>
                     <ul>
                         <li><a href="#Constructors">constructors</a> which initialize the state of an object</li>
-                        <li><a href="#Fields">fields</a> that store data about the object</li>
+                        <li><a href="#Fields">fields</a>that store data about the object</li>
+                        <li><a href="#Constants">constants</a> that store data when declared, cannot be changed at run-time and are inherently
+                            <a href="static">static</a></li>
                         <li><a href="#Properties">properties</a> that provide controlled access to an object's data</li>
                         <li><a href="#Methods">methods</a> that provide the behavior of the object</li>
                         <li><a href="#Events">events</a> that communicate changes in the object's state to other objects or to itself</li>
@@ -2882,58 +2908,114 @@ namespace ClassExample
                         <a href="#Properties">properties</a>, <a href="#Methods">methods</a>, <a href="#Indexers">indexers</a> and
                         <a href="#Constructors">constructors</a>. This has the advantage of allowing for data validation and performing other tasks before or after
                         changing its value. Most commonly, external access to a field is through a property and when this is done the field is called a
-                        <i>backing field</i>. Access to a field by code external to the type is in the form of <code>instance.field</code>. A variable field does not have to
-                        be initialized with a value and if not will be initialized by the compiler to the default
-                        value for its type. When the program is run, field initialization occurs in the order of
-                        <i>declaration &gt; constructor &gt; object initializer</i>. This means that setting a field's value in a constructor will overwrite a value set
-                        in the declaration and setting it's value in an object-initializer will overwrite the value set both in the constructor and the declaration. A
-                        variable field can be made readonly through the use of the <code>readonly</code> keyword in which case it can only be initialized either by
-                        declaration or in a constructor. A constant field must have its value initialized when it is declared. By convention fields are normally declared
-                        at the top of a class before any other code.</p>
-                    <p>The following example demonstrates field declaration.</p>
-<!-- TODO show constructor initializing field -->
+                        <i>backing field</i>.</p>
+                    <p>A variable field does not have to be initialized with a value and if not, will be initialized by the compiler to the default value for its type.
+                        When the program is run, field initialization occurs in the order of</p>
+                    <p><i>declaration &gt; constructor &gt; object initializer</i>.</p>
+                    <p>This means that setting a field's value in a constructor will overwrite a value set in the declaration and setting it's value in an
+                        object-initializer will overwrite the value set both in the field declaration, a constructor or an init accessor of a property. A variable field
+                        can be made readonly through the use of the <code>readonly</code> keyword in which case it can only be initialized either by declaration or in a
+                        constructor. A constant field must have its value initialized when it is declared. By convention fields are normally declared at the top of a
+                        class before any other code.</p>
+                    <p>Access to a field by code external to the type is in the form of <code>instance.field</code>.</p>
+                    <p>The following example demonstrates field declaration and initialization.</p>
 <pre><code>using System;
 
 namespace FieldDeclarationExample
 {
-    class Program
+    public class Person
     {
         // This field has been declared public and can be accessed
-        // from any code outside this class both within and without
+        // from any code outside this class both in and outside
         // the assembly that contains it. As it has not been initialized
         // it will have the default string value i.e. an empty string
         public string Id;
 
-        // A field of type int. With no access modifier it is
-        // private by default. Only members within this class
-        // can access it. As this field is not initialized the
-        // compiler will set its value to 0, the default value
-        // for an int.
-        int age;
+        // A private field with default string value i.e. an empty string
+        private string mName;
 
-        // A private field of type double. Its value has
-        //  been initialized as part of its declaration
-        // and can be changed by other members of this class
-        double weight = 55.4;
+        // With no access modifier this field is private
+        // It has the default value of 0
+        int mAge;
 
-        // A private read only field of type string. Its
+        // A private field of type double which is initialized to 55.4
+        private double mWeight = 55.4;
+
+        // A public read only field of type string. Its
         // value can only be set through the constructor
-        // when an instance of the class is created
-        readonly string name;
+        public readonly string Details;
 
-        // A private constant of type double. Its value must be
-        // initialized within the declaration and cannot be changed
-        // Convention for naming constants is to use all capitals
-        const double PI = 3.1415;
+        // A parameterless constructor that sets the Details field
+        // using the default values of the other fields
+        public Person()
+        {
+            Details = $"ID: {Id}, Name: {mName}, Age: {mAge}, Weight: {mWeight}kg";
+        }
 
+        // This constructor takes in arguments to set the
+        // Id, mName, mAge and mWeight fields. These values
+        // are then used to set the value of the Details field
+        public Person(string id, string name, int age, double weight)
+        {
+            Id = id;
+            mName = name;
+            mAge = age;
+            mWeight = weight;
+            Details = $"ID: {Id}, Name: {mName}, Age: {mAge}, Weight: {mWeight}kg";
+        }
+    }
+
+    class Program
+    {
         static void Main(string[] args)
         {
+            Person person1 = new();
+            Person person2 = new("Person2", "John Smith", 23, 50);
+            Person person3 = new("Person3", "Andrew Smith", 23, 50)
+            {
+                Id = "Other"
+            };
 
+            // Each instance contains its own copy of the fields
+            Console.WriteLine($"person1 details - {person1.Details}");
+            Console.WriteLine($"person2 details - {person2.Details}");
+            Console.WriteLine($"person3 details - {person3.Details}");
+
+            // person3.Id contains 'Other' as it was changed in the object initializer
+            Console.WriteLine($"person3 ID: {person3.Id}");
+
+            // As person3.Id is public direct access is allowed that cannot be
+            // validated. Changes to person3.Id don't affect person3.Details
+            person3.Id = "Invalid ID";
+            Console.WriteLine($"person3 ID: {person3.Id}");
+            Console.WriteLine($"person3 details - {person3.Details}");
+
+            // Details are marked readonly
+            // Uncommenting the following results in the error
+            // A readonly field cannot be assigned to (except in a
+            // constructor or init-only setter of the type in
+            // which the field is defined or a variable initializer)
+            //person3.Details = "Change details";
         }
     }
 }
+
+// The example writes the following to the console
+// person1 details - ID: , Name: , Age: 0, Weight: 55.4kg
+// person2 details - ID: Person2, Name: John Smith, Age: 23, Weight: 50kg
+// person3 details - ID: Person3, Name: Andrew Smith, Age: 23, Weight: 50kg
+// person3 ID: Other
+// person3 ID: Invalid ID
+// person3 details - ID: Person3, Name: Andrew Smith, Age: 23, Weight: 50kg
 </code></pre>
+
                     <!-- !SECTION Fields -->
+
+                    <!-- SECTION Constants -->
+                    <h3 id="Constants">Constants</h3>
+<!-- TODO add content about Constants -->
+                    <!-- !SECTION Constants -->
+
                     <!-- SECTION Properties -->
                     <h3 id="Properties">Properties</h3>
                     <p>A property is a way of allowing external code to have controlled access to a field within an object. Declaration of a property can take two forms,
@@ -3070,7 +3152,6 @@ namespace MethodExample
 }
 
 // The example writes the following to the console
-
 // Commencing test
 // 2 + 3 = 5
 // 7 - 4 = 4
@@ -3338,7 +3419,6 @@ namespace StaticExample
 }
 
 // The example writes the following to the console
-
 // Display initial static and instance property
 // values of the two instances of MyClass
 
@@ -3482,7 +3562,6 @@ namespace StructExample
 }
 
 // The example writes the following to the console
-
 // Box1 Width: 1, Height: 2, Length: 3, Volume: 6
 // Box2 Width: 2, Height: 3, Length: 4, Volume: 24
 // Box3 Width: 2, Height: 1, Length: 1, Volume: 2
@@ -4218,7 +4297,7 @@ namespace InterfaceExample
                     <!-- !SECTION Interfaces -->
                 </article>
             </section>
-            <!-- !SECTION Classes, Structs, Interfaces and Inheritance -->
+            <!-- !SECTION Classes and Other User Defined Types -->
             <!-- SECTION Delegates, Actions and Functions -->
             <section class="main-section" id="Anonymous_function_expressions">
                 <header><h2>Anonymous function expressions</h2></header>
