@@ -3018,7 +3018,7 @@ namespace FieldDeclarationExample
                             members, a constant field cannot be accessed by external code through an instance of the type that contains it. It must access it through the
                             type itself using the type's identifier in the form <code>Type.CONSTANT</code>. Code within an instance containing a constant field can access
                             it without the need of the Type's identifier.</p>
-                        <p>The following example demonstrates constant field declaration and use. It demonstrates that a </p>
+                        <p>The following example demonstrates constant field declaration and use.</p>
 <pre><code>using System;
 
     namespace ConstantsExample
@@ -3032,6 +3032,7 @@ namespace FieldDeclarationExample
 
             // A member within an instance of
             // MathConstants can access constant field PI
+            // without the need for the Type identifier
             public double Area(double r)
             {
                 return PI * r * r;
