@@ -2833,8 +2833,8 @@ namespace ClassExample
                     <p>The members that a type can contain include</p>
                     <ul>
                         <li><a href="#Constructors">constructors</a> which initialize the state of an object</li>
-                        <li><a href="#Fields">fields</a>that store data about the object</li>
-                        <li><a href="#Constants">constants</a> that store data when declared, cannot be changed at run-time and are inherently
+                        <li><a href="#Fields">fields</a>that store data about the object and can be changed at run-time</li>
+                        <li><a href="#Constant_fields">constant fields</a> that store data when declared, cannot be changed at run-time and are inherently
                             <a href="static">static</a></li>
                         <li><a href="#Properties">properties</a> that provide controlled access to an object's data</li>
                         <li><a href="#Methods">methods</a> that provide the behavior of the object</li>
@@ -2885,7 +2885,7 @@ namespace ClassExample
                         and a static class cannot contain an instance constructor.
                     </p>
 
-                    <p>A static constructor can be used to initialize static data or perform setup procedures. An instance ype can contain a static constructor but a
+                    <p>A static constructor can be used to initialize static data or perform setup procedures. An instance type can contain a static constructor but a
                         static constructor cannot be used to create an instance of a type.
                     </p>
                         <!-- A
@@ -2901,24 +2901,22 @@ namespace ClassExample
                     <!-- !SECTION Constructors -->
                     <!-- SECTION Fields -->
                     <h3 id="Fields">Fields</h3>
-                    <p>A variable or constant declared inside a type but outside any other member is called a field and is used to store data about an object. It is
-                        declared using an optional <a href="#Access_modifiers">access modifier</a>, followed by the field's type, followed by an identifier that is unique
-                        within the field's containing type. Fields are normally declared either private or protected. This provides
-                        <a href="#Encapsulation">encapsulation</a> and access to a field is achieved through other members within the type including
-                        <a href="#Properties">properties</a>, <a href="#Methods">methods</a>, <a href="#Indexers">indexers</a> and
-                        <a href="#Constructors">constructors</a>. This has the advantage of allowing for data validation and performing other tasks before or after
-                        changing its value. Most commonly, external access to a field is through a property and when this is done the field is called a
-                        <i>backing field</i>.</p>
+                    <p>A variable declared inside a type but outside any other member is called a field and is used to store data about an object. It is declared using an
+                        optional <a href="#Access_modifiers">access modifier</a>, followed by the field's type, followed by an identifier that is unique within the
+                        field's containing type. Fields are normally declared either private or protected. This provides <a href="#Encapsulation">encapsulation</a> and
+                        access to a field is achieved through other members within the type including <a href="#Properties">properties</a>,
+                        <a href="#Methods">methods</a>, <a href="#Indexers">indexers</a> and <a href="#Constructors">constructors</a>. This has the advantage of allowing
+                        for data validation and performing other tasks before or after changing its value. Most commonly, external access to a field is through a property
+                        and when this is done the field is called a <i>backing field</i>.</p>
                     <p>A variable field does not have to be initialized with a value and if not, will be initialized by the compiler to the default value for its type.
                         When the program is run, field initialization occurs in the order of</p>
                     <p><i>declaration &gt; constructor &gt; object initializer</i>.</p>
                     <p>This means that setting a field's value in a constructor will overwrite a value set in the declaration and setting it's value in an
                         object-initializer will overwrite the value set both in the field declaration, a constructor or an init accessor of a property. A variable field
                         can be made readonly through the use of the <code>readonly</code> keyword in which case it can only be initialized either by declaration or in a
-                        constructor. A constant field must have its value initialized when it is declared. By convention fields are normally declared at the top of a
-                        class before any other code.</p>
+                        constructor. By convention fields are normally declared at the top of a class before any other code.</p>
                     <p>Access to a field by code external to the type is in the form of <code>instance.field</code>.</p>
-                    <p>The following example demonstrates field declaration and initialization.</p>
+                    <p>The following example demonstrates field declaration and use.</p>
 <pre><code>using System;
 
 namespace FieldDeclarationExample
@@ -3012,8 +3010,50 @@ namespace FieldDeclarationExample
                     <!-- !SECTION Fields -->
 
                     <!-- SECTION Constants -->
-                    <h3 id="Constants">Constants</h3>
+                    <h3 id="Constant_fields">Constant fields</h3>
 <!-- TODO add content about Constants -->
+                    <p>Like a variable field a constant is declared inside a type but outside any other member. It is declared using an optional
+                        <a href="#Access_modifiers">access modifier</a>, followed by the <code>const</code> keyword, followed by the constant field's type, followed by an
+                        identifier that is unique within the constant field's containing type. A constant field must have its value initialized when it is declared. As
+                        with variable fields, constant fields are normally declared at the top of the type and their identifier is normally written with all capital
+                        letters.</p>
+                        <p>A constant field is effectively <a href="static"></a> so it cannot be accessed through an instance and must be accessed through the type
+                        itself in the form <code>Type.CONSTANT</code>.</p>
+                        <p>The following example demonstrates constant field declaration and initialization.</p>
+<pre><code>using System;
+
+namespace ConstantsExample
+{
+    public class MathConstants
+    {
+        // A public constant of type double. Its value must be
+        // initialized within the declaration and cannot be changed
+        // Convention for naming constants is to use all capitals
+        public const double PI = 3.1415;
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var area = MathConstants.PI * 2 * 2;
+            Console.WriteLine($"The area of a circle with a radius of 2 is {area}");
+
+            MathConstants mathConstants = new();
+
+            // A constant field cannot be accessed through an instance
+            // Uncommenting the following results in the error
+            // Member 'MathConstants.PI' cannot be accessed with an
+            // instance reference; qualify it with a type name instead
+            //var pi = mathConstants.PI;
+        }
+    }
+}
+
+// The example writes the following to the console
+
+// The area of a circle with a radius of 2 is 12.566
+</code></pre>
                     <!-- !SECTION Constants -->
 
                     <!-- SECTION Properties -->
