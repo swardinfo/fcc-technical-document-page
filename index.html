@@ -3006,56 +3006,65 @@ namespace FieldDeclarationExample
 // person3 ID: Invalid ID
 // person3 details - ID: Person3, Name: Andrew Smith, Age: 23, Weight: 50kg
 </code></pre>
-
                     <!-- !SECTION Fields -->
-
                     <!-- SECTION Constants -->
                     <h3 id="Constant_fields">Constant fields</h3>
-<!-- TODO add content about Constants -->
-                    <p>Like a variable field a constant is declared inside a type but outside any other member. It is declared using an optional
+                    <p>Like a variable field, a constant field is declared inside a type but outside any other member. It is declared using an optional
                         <a href="#Access_modifiers">access modifier</a>, followed by the <code>const</code> keyword, followed by the constant field's type, followed by an
-                        identifier that is unique within the constant field's containing type. A constant field must have its value initialized when it is declared. As
-                        with variable fields, constant fields are normally declared at the top of the type and their identifier is normally written with all capital
-                        letters.</p>
-                        <p>A constant field is effectively <a href="static"></a> so it cannot be accessed through an instance and must be accessed through the type
-                        itself in the form <code>Type.CONSTANT</code>.</p>
-                        <p>The following example demonstrates constant field declaration and initialization.</p>
+                        identifier that is unique within the constant field's containing type. A constant field can only and must have its value initialized when it is
+                        declared. As with variable fields, constant fields are normally declared at the top of the type. By convention a constant field's identifier is
+                        written in all capitals such as <code>CONSTANT</code>.</p>
+                        <p>A constant field is already effectively <a href="static">static</a> so the <code>static</code> keyword cannot be applied to it. Like static
+                            members, a constant field cannot be accessed by external code through an instance of the type that contains it. It must access it through the
+                            type itself using the type's identifier in the form <code>Type.CONSTANT</code>. Code within an instance containing a constant field can access
+                            it without the need of the Type's identifier.</p>
+                        <p>The following example demonstrates constant field declaration and use. It demonstrates that a </p>
 <pre><code>using System;
 
-namespace ConstantsExample
-{
-    public class MathConstants
+    namespace ConstantsExample
     {
-        // A public constant of type double. Its value must be
-        // initialized within the declaration and cannot be changed
-        // Convention for naming constants is to use all capitals
-        public const double PI = 3.1415;
-    }
-
-    class Program
-    {
-        static void Main(string[] args)
+        public class MathConstants
         {
-            var area = MathConstants.PI * 2 * 2;
-            Console.WriteLine($"The area of a circle with a radius of 2 is {area}");
+            // A public constant of type double. Its value must be
+            // initialized within the declaration and cannot be changed
+            // Convention for naming constants is to use all capitals
+            public const double PI = 3.1415;
 
-            MathConstants mathConstants = new();
+            // A member within an instance of
+            // MathConstants can access constant field PI
+            public double Area(double r)
+            {
+                return PI * r * r;
+            }
+        }
 
-            // A constant field cannot be accessed through an instance
-            // Uncommenting the following results in the error
-            // Member 'MathConstants.PI' cannot be accessed with an
-            // instance reference; qualify it with a type name instead
-            //var pi = mathConstants.PI;
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                var area1 = MathConstants.PI * 2 * 2;
+                Console.WriteLine($"The area of circle 1 with a radius of 2 is {area1}");
+
+                MathConstants mathConstants = new();
+
+                // A constant field cannot be accessed through an instance
+                // Uncommenting the following results in the error
+                // Member 'MathConstants.PI' cannot be accessed with an
+                // instance reference; qualify it with a type name instead
+                //var pi = mathConstants.PI;
+
+                var area2 = mathConstants.Area(3);
+                Console.WriteLine($"The area of circle 2 with a radius of 3 is {area2}");
+            }
         }
     }
-}
 
-// The example writes the following to the console
+    // The example writes the following to the console
 
-// The area of a circle with a radius of 2 is 12.566
+    // The area of circle 1 with a radius of 2 is 12.566
+    // The area of circle 2 with a radius of 3 is 28.2735
 </code></pre>
                     <!-- !SECTION Constants -->
-
                     <!-- SECTION Properties -->
                     <h3 id="Properties">Properties</h3>
                     <p>A property is a way of allowing external code to have controlled access to a field within an object. Declaration of a property can take two forms,
@@ -3198,7 +3207,6 @@ namespace MethodExample
 // 5 x 6 = 30
 // Test completed
 </code></pre>
-<!-- TODO add method example -->
                     <!-- !SECTION Methods -->
                     <!-- SECTION Events -->
                     <h3 id="Events">Events</h3>
