@@ -3011,13 +3011,12 @@ namespace FieldDeclarationExample
                     <h3 id="Constant_fields">Constant fields</h3>
                     <p>Like a variable field, a constant field is declared inside a type but outside any other member. It is declared using an optional
                         <a href="#Access_modifiers">access modifier</a>, followed by the <code>const</code> keyword, followed by the constant field's type, followed by an
-                        identifier that is unique within the constant field's containing type. A constant field can only and must have its value initialized when it is
-                        declared. As with variable fields, constant fields are normally declared at the top of the type. By convention a constant field's identifier is
-                        written in all capitals such as <code>CONSTANT</code>.</p>
+                        identifier that is unique within the constant field's containing type. A constant field can only and <em>must have</em> its value initialized when
+                        it is declared. As with variable fields, constant fields are normally declared at the top of the type. By convention a constant field's identifier
+                        is written in all capitals such as <code>CONSTANT</code>.</p>
                         <p>A constant field is already effectively <a href="static">static</a> so the <code>static</code> keyword cannot be applied to it. Like static
-                            members, a constant field cannot be accessed by external code through an instance of the type that contains it. It must access it through the
-                            type itself using the type's identifier in the form <code>Type.CONSTANT</code>. Code within an instance containing a constant field can access
-                            it without the need of the Type's identifier.</p>
+                            members, a constant field cannot be accessed by code through an instance of the type but through the type itself.</p>
+                        <p>Access to a property by code external to the type is in the form of <code>Type.CONSTANT</code>.</p>
                         <p>The following example demonstrates constant field declaration and use.</p>
 <pre><code>using System;
 
@@ -3116,7 +3115,7 @@ namespace FieldDeclarationExample
                         method's containing type, followed by a pair of brackets that can contain <a href="#Parameters,_signatures_and_overloading">parameters</a>,
                         followed by a pair of curly brackets that define a code
                         block which is the body of the method. For a method that doesn't return a value, the <code>void</code> keyword is used in place of the returning
-                        type. A method that has a return type but that does not have a return value from all possible paths produce a syntax error;
+                        type. A method that has a return type but that does not have a return value from all possible paths produce a syntax error.
                         Methods can be <a href="#Parameters,_signatures_and_overloading">overloaded</a>.</p>
                     <p>Access to a method by code external to the type is in the form of <code>instance.Method(parameters)</code>.</p>
                     <p>The following shows examples of method declaration and use.</p>
