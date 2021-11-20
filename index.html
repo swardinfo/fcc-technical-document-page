@@ -2587,7 +2587,8 @@ namespace EnumExample
                         </li>
                         <li><a href="#Records">records</a> are reference types that can behave like a value type and are used mostly with data that once set doesn't
                             change</li>
-                        <li><a href="Delegates">delegates</a> is a type used to represent a reference to a method that can be passed as an argument to another method</li>
+                        <li><a href="#Delegates">delegates</a> are a type used to represent a reference to a method that can be passed as an argument to another method
+                        </li>
                         <li><a href="#Interfaces">interfaces</a> can't be instantiated but instead are used to define behaviors that can be implemented by other types
                         </li>
                     </ul>
@@ -2833,13 +2834,13 @@ namespace ClassExample
                     <p>The members that a type can contain include</p>
                     <ul>
                         <li><a href="#Constructors">constructors</a> which initialize the state of an object</li>
-                        <li><a href="#Fields">fields</a>that store data about the object and can be changed at run-time</li>
+                        <li><a href="#Fields">fields</a> that store data about the object and can be changed at run-time</li>
                         <li><a href="#Constant_fields">constant fields</a> that store data when declared, cannot be changed at run-time and are inherently
                             <a href="static">static</a></li>
                         <li><a href="#Properties">properties</a> that provide controlled access to an object's data</li>
+                        <li><a href="#Indexers">indexers</a> that allows an object to be indexed like an array</li>
                         <li><a href="#Methods">methods</a> that provide the behavior of the object</li>
                         <li><a href="#Events">events</a> that communicate changes in the object's state to other objects or to itself</li>
-                        <li><a href="#Indexers">indexers</a> that allows an object to be indexed like an array</li>
                         <li><a href="#Finalizers">finalizers</a> that performs cleanup of an object when it is no longer in use </li>
                         <li>nested type which is the declaration of another type within the containing type</li>
                     </ul>
@@ -2854,15 +2855,16 @@ namespace ClassExample
                         <code>Namespace.Type.Member</code>. This can be negated through the use of a <a href="#using">using</a> directive. Some members also
                         require the passing in of arguments to parameters contained in brackets that follow the member identifier. Visual Studio's IntelliSense can assist
                         you as it will display a suggestion box that lists the namespaces, types and members to choose from as you enter them.</p>
-                    <p>All members except fields and events support implementation through the use of
-                        <a href="#The_Lambda_and_Expression_body_definition_operator">expression-bodied members</a>. A type can contain multiple members with the same
-                        identifier, known as <a href="#Parameters,_signatures_and_overloading">overloading</a>, provided that each has a unique
-                        <a href="#Parameters,_signatures_and_overloading">signature</a>. Only members with parameters can be overloaded which are
-                        <a href="#Constructors">constructors</a>, <a href="#Methods">methods</a> and <a href="#Indexers">indexers</a>. Members in a
-                        <a href="#Inheritance_and_polymorphism">base</a> type marked with the <code>virtual</code> keyword can be
-                        <a href="#Overriding_a_virtual_member">overridden</a> in an <a href="#Inheritance_and_polymorphism">derived</a> type by a member with the same
-                        signature that is marked with the <code>override</code> keyword. Where members in both a base and derived type have the same identifier and
-                        where neither are marked as either virtual or override, the the derived member will hide the base member. The two members don't have to be of the
+                    <p>All members except fields, constant fields and events support implementation through the use of
+                        <a href="#The_Lambda_and_Expression_body_definition_operator">expression-bodied members</a>. Constructors, indexers and methods can be
+                        <a href="#Parameters,_signatures_and_overloading">overloaded</a>. That is a type can contain multiple versions with the same identifier provided
+                        that they overload a member of the same type and each overload has a unique signature.</p>
+                    <p>Properties, indexers, methods and events in a <a href="#Inheritance_and_polymorphism">base</a> type can be marked marked
+                        <a href="#abstract">abstract</a> or <a href="Overriding_a_virtual_member">virtual</a>. In a <a href="#Inheritance_and_polymorphism">derived</a> type a virtual base member can
+                        optionally be <a href="#Overriding_a_virtual_member">overridden</a> where as an abstract base member <em>must</em> be overridden by a member with
+                        the same signature that is marked with the <code>override</code> keyword. A type that contains an abstract member must also be marked abstract. A
+                        member marked as <code>override</code> can also be marked with the <code>sealed</code> keyword preventing it from being overridden in any further
+                        derived type. In the derived, where members in both a base and derived type have the same identifier and where neither are marked as either virtual or override, the the derived member will hide the base member. The two members don't have to be of the
                         same type or have the same signature. For example a property in a base class can be hidden by a method. Access to a hidden member can still be
                         obtained through use of the <a href="#base_keyword">base</a> keyword. When a member is hidden the code editor will indicate this on the hiding
                         member in the derived class with a <u class="warning">warning</u>. This can be removed by marking the member with the <code>new</code> keyword.
@@ -2901,8 +2903,8 @@ namespace ClassExample
                     <!-- !SECTION Constructors -->
                     <!-- SECTION Fields -->
                     <h3 id="Fields">Fields</h3>
-                    <p>A variable declared inside a type but outside any other member is called a field and is used to store data about an object. It is declared using an
-                        optional <a href="#Access_modifiers">access modifier</a>, followed by the field's type, followed by an identifier that is unique within the
+                    <p>A variable declared inside a type but outside any other member is called a field and is used to store data about an object. They are declared using
+                        an optional <a href="#Access_modifiers">access modifier</a>, followed by the field's type, followed by an identifier that is unique within the
                         field's containing type. Fields are normally declared either private or protected. This provides <a href="#Encapsulation">encapsulation</a> and
                         access to a field is achieved through other members within the type including <a href="#Properties">properties</a>,
                         <a href="#Methods">methods</a>, <a href="#Indexers">indexers</a> and <a href="#Constructors">constructors</a>. This has the advantage of allowing
@@ -3009,7 +3011,7 @@ namespace FieldDeclarationExample
                     <!-- !SECTION Fields -->
                     <!-- SECTION Constants -->
                     <h3 id="Constant_fields">Constant fields</h3>
-                    <p>Like a variable field, a constant field is declared inside a type but outside any other member. It is declared using an optional
+                    <p>Like a variable field, a constant field is declared inside a type but outside any other member. They are declared using an optional
                         <a href="#Access_modifiers">access modifier</a>, followed by the <code>const</code> keyword, followed by the constant field's type, followed by an
                         identifier that is unique within the constant field's containing type. A constant field can only and <em>must have</em> its value initialized when
                         it is declared. As with variable fields, constant fields are normally declared at the top of the type. By convention a constant field's identifier
@@ -3110,13 +3112,13 @@ namespace FieldDeclarationExample
                     <!-- !SECTION Properties -->
                     <!-- SECTION Methods -->
                     <h3 id="Methods">Methods</h3>
-                    <p>A method provides the behavior of an object. This could be reading a file, calculating a value, writing to the screen, etc. It is declared using an
-                        optional <a href="#Access_modifiers">access modifier</a>, followed by the <i>return type</i>, followed by an identifier that is unique within the
-                        method's containing type, followed by a pair of brackets that can contain <a href="#Parameters,_signatures_and_overloading">parameters</a>,
-                        followed by a pair of curly brackets that define a code
-                        block which is the body of the method. For a method that doesn't return a value, the <code>void</code> keyword is used in place of the returning
-                        type. A method that has a return type but that does not have a return value from all possible paths produce a syntax error.
-                        Methods can be <a href="#Parameters,_signatures_and_overloading">overloaded</a>.</p>
+                    <p>A method provides the behavior of an object. This could be reading a file, calculating a value, writing to the screen, etc. They are declared using
+                        an optional <a href="#Access_modifiers">access modifier</a>, followed by the <i>return type</i>, followed by an identifier that is unique within
+                        the method's containing type, followed by a pair of brackets that can optionally contain
+                        <a href="#Parameters,_signatures_and_overloading">parameters</a>, followed by a pair of curly brackets that define a code block which is the body
+                        of the method. For a method that doesn't return a value, the <code>void</code> keyword is used in place of the returning type. A method that has a
+                        return type but that does not have a return value from all possible paths produce a syntax error. Methods can be
+                        <a href="#Parameters,_signatures_and_overloading">overloaded</a>.</p>
                     <p>Access to a method by code external to the type is in the form of <code>instance.Method(parameters)</code>.</p>
                     <p>The following shows examples of method declaration and use.</p>
 <pre><code>using System;
@@ -3626,7 +3628,77 @@ namespace StructExample
 
                     <!-- SECTION Delegates -->
                     <h3 id="Delegates">Delegates</h3>
-<!-- TODO add content about delegates -->
+                    <p>A delegate allows you to create a reference to a method that can then be passed as a parameter. It is declared using an optional
+                        <a href="#Access_modifiers">access modifier</a>, followed by the <code>delegate</code> keyword, followed by the <i>return type</i>, followed by an
+                        identifier that is unique within the <a href="#Dependencies_and_Namespaces">namespace</a>, followed by a pair of brackets that can optionally
+                        contain <a href="#Parameters,_signatures_and_overloading">parameters</a>. Delegates are created similar to other types with the use of the
+                        <code>new</code> keyword but instead of passing in type values as arguments, a reference to a method with the same return type and signature as
+                        that declared in the delegate is used. This can then be used to invoke the method that was passed in as if it was called directly. A common use
+                        for delegates is in <a href="#Events">events</a> in which an <code>EventHandler</code> method is invoked by an event which is a special kind of
+                        multicast delegate.</p>
+                    <p><em>Note:</em><i> the <code>delegate</code> keyword is also used as an operator to create
+                        <a href="Anonymous_function_expressions">anonymous methods</a></i></p>
+                    <p>The following example demonstrates delegate declaration and use.</p>
+<pre><code>using System;
+
+namespace DelegateExample
+{
+    // A delegate called Calculate that returns an int and takes in
+    // two int's is declared in the DelegateExample namespace
+    // Note that it does not define an implementation
+    delegate int Calculate(int value1, int value2);
+
+    public class MathFunctions
+    {
+        // The static method 'Add' with the same return
+        // type and signature as the delegate Calculate
+        // is declared along with an implementation
+        public static int Add(int x, int y)
+        {
+            return x + y;
+        }
+
+        // The static method 'Subtract' with the same return
+        // type and signature as the delegate Calculate
+        // is declared along with an implementation
+        public static int Subtract(int x, int y)
+        {
+            return x + y;
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // A 'Calculate' delegate is created that passes in the
+            // static Add method from the MathFunctions class
+            var addMethod = new Calculate(MathFunctions.Add);
+
+            // A 'Calculate' delegate is created that passes in the
+            // static Subtract method from the MathFunctions class
+            var subtractMethod = new Calculate(MathFunctions.Subtract);
+
+            // The addMethod delegate is used to invoke the Add method
+            // and the result is stored in a the sum variable
+            var sum = addMethod(2, 3);
+
+            // The addMethod delegate is used to invoke the Subtract
+            // Method and the result is stored in a the difference variable
+            var difference = subtractMethod(5, 3);
+
+            // The results from each delegate
+            // invocation is written to the console
+            Console.WriteLine($"2 + 3 = {sum}");
+            Console.WriteLine($"5 - 3 = {difference}");
+        }
+    }
+}
+
+// The example writes the following to the console
+// 2 + 3 = 5
+// 5 - 3 = 8
+    </code></pre>
                     <!-- !SECTION Delegates -->
 
 
@@ -4346,11 +4418,12 @@ namespace InterfaceExample
                 </article>
             </section>
             <!-- !SECTION Classes and Other User Defined Types -->
-            <!-- SECTION Delegates, Actions and Functions -->
+            <!-- SECTION Anonymous function expressions -->
             <section class="main-section" id="Anonymous_function_expressions">
                 <header><h2>Anonymous function expressions</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
+<!-- TODO add info about anonymous methods -->
                     <p>In some cases creating a method to do a simple task may be overkill. In this case <i>anonymous function expressions</i> provide a means create a
                         method on the fly. The type to use depends on whether a return value is required. If it is then a <code>Func</code> should be employed otherwise
                         where a method returns <code>void</code> then use an <code>Action</code>. A <code>Func</code> or <code>Action</code> can also be passed as a
