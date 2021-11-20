@@ -38,11 +38,11 @@
                 <li><a class="nav-link" href="#Iteration_Statements">Iteration Statements</a></li>
                 <li><a class="nav-link" href="#Arrays_and_Data_Structures">Arrays and Data Structures</a></li>
                 <li><a class="nav-link" href="#Enumerators">Enumerators</a></li>
+                <li><a class="nav-link" href="#Object-oriented_Programming">Object-oriented Programming</a></li>
                 <li><a class="nav-link" href="#Classes_and_Other_User_Defined_Types">Classes and Other User Defined Types</a></li>
-                <li><a class="nav-link" href="#Anonymous_function_expressions">Anonymous function expressions</a></li>
+                <li><a class="nav-link" href="#Anonymous_methods_and_functions">Anonymous methods and functions</a></li>
                 <li><a class="nav-link" href="#Dependencies_and_Namespaces">Dependencies and Namespaces</a></li>
                 <li><a class="nav-link" href="#Scope_and_Access_Modifiers">Scope and Access Modifiers</a></li>
-                <li><a class="nav-link" href="#Object-oriented_Programming">Object-oriented Programming</a></li>
                 <li><a class="nav-link" href="#Keywords_and_Specifications">Keywords and Specifications</a></li>
                 <li><a class="nav-link" href="#References">References</a></li>
                 <li><a class="nav-link" href="#Terms_and_Conditions">Terms and Conditions</a></li>
@@ -329,7 +329,7 @@ World!");
                         a reserved word called a <i>keyword</i> in C#. <a href="#Keywords_and_Specifications">Keywords</a> are directly used by the compiler as
                         instructions. The next word <code>System</code> is an <i>identifier</i>. Identifiers are used to name types such as
                         <a href="#Classes_and_Other_User_Defined_Types">classes, interfaces, structs, records,</a>
-                        <a href="#Anonymous_function_expressions">delegates,</a> <a href="#Enumerators">enums</a> and their
+                        <a href="#Anonymous_methods_and_functions">delegates,</a> <a href="#Enumerators">enums</a> and their
                         <a href="#Classes_and_Other_User_Defined_Types">members</a> and <a href="#Variables,_Constants,_Types_and_Literals">variables,</a> or
                         <a href="#Namespaces">namespaces</a>.</p>
 
@@ -1570,7 +1570,7 @@ namespace NullCoalescingExample
                     <p>The <code>=&gt;</code> operator has two uses, as part of a <i>Lambda Expression</i> or an <i>Expression-bodied member</i> definition.</p>
                     <p>A Lambda expression is comprised of a set of input parameters which are then passed into the body in the form of either an expression or a
                         statement block. They are used to create an Anonymous function. In this case the <code>=&gt;</code> operator is used to separate the input
-                        parameters from the body. See <a href="#Anonymous_function_expressions">Anonymous function expressions</a>.</p>
+                        parameters from the body. See <a href="#Anonymous_methods_and_functions">Anonymous function expressions</a>.</p>
                     <p>An Expression-bodied member definition provides a shorthand method of writing the body of a member. In this case the <code>=&gt;</code> operator is
                         used to separate the name of the member and its body. Supported members are:</p>
                     <ul>
@@ -2223,7 +2223,7 @@ namespace ArrayAccessExample
                         not have a fixed size and as such does not have to be declared. It provides a number of useful methods for manipulating its data such as add,
                         remove, sort, find and clear.</p>
                     <p><em>Note:</em> <i>The Find method uses an anonymous expression details of which are in
-                            <a href="#Anonymous_function_expressions">Anonymous expression functions</a></i></p>
+                            <a href="#Anonymous_methods_and_functions">Anonymous expression functions</a></i></p>
 <pre><code>using System;
 using System.Collections.Generic;
 
@@ -2569,6 +2569,96 @@ namespace EnumExample
                 </article>
             </section>
             <!-- !SECTION Enumerators -->
+            <!-- SECTION Object-oriented Programming -->
+            <section class="main-section" id="Object-oriented_Programming">
+                <header><h2>Object-oriented Programming</h2></header>
+                <a class="back-to-top" href="#">Back to top</a>
+                <article>
+                    <p>Object-oriented programming (OOP) is a programming paradigm used extensively throughout C#. It encompasses a number of concepts that provide the
+                        developer a structured process for writing a program. This is particularly important for large applications that may be maintained by multiple
+                        teams of developers. Instead of having one massive length of code that does everything, it is instead broken down into objects that each have a
+                        narrowly defined responsibility. C# uses a sort of template called a type to define an object that is created when a program is run and multiple
+                        objects, also called instances, can be created based on the type, each with their own state. These types are then combined to create an assembly
+                        and one or more assemblies are combine to create an application.</p>
+                    <p> Major principles of OOP include:</p>
+                    <ul>
+                        <li>Object</li>
+                        <li>Encapsulation</li>
+                        <li>Inheritance</li>
+                        <li>Abstraction</li>
+                        <li>Polymorphism</li>
+                    </ul>
+                    <!-- SECTION Object -->
+                    <h3 id="Object">Object</h3>
+                    <p>An object combines data and behavior to represent everyday things such as a number, a spreadsheet, a person or even something less tangible such as
+                        the relationship between a part's name and its quantity in a database. During runtime multiple objects are created from a type definition each
+                        with their own own internal state. This allows different versions (instances) of an object to exist. For example two number type objects could be
+                        created, one with a value of 5 and another with 7. Three techniques employed by C# to define an object are:</p>
+                    <ul>
+                        <li>Properties - a particular state of an object such as color, the number of columns, what a thing is made of.</li>
+                        <li>Methods - the behavior of an object such as add numbers, manipulate text, etc. Methods can take in and return modified data.</li>
+                        <li>Events - a way of communicating to other objects that its state has changed.</li>
+                    </ul>
+                    <p>Take for example a light. It could have a 'Light Is On' property, a 'Turn Light On' method and a 'Light Has Turned' On event. A person object
+                        could then check the 'Light Is On' property and if it's off (false), use the 'Turn Light On' method to turn the light on. The method would then
+                        set 'Light Is On' to true and then trigger the 'Light Has Turned On' event. A second person object could be watching out for the event and when it
+                        happens it would know to run its own 'Read Book' method.</p>
+                    <!-- !SECTION Object -->
+                    <!-- SECTION Encapsulation -->
+                    <h3 id="Encapsulation">Encapsulation</h3>
+                    <p>Encapsulation protects the data and methods used to define the internal state of an object from direct manipulation. Data that is passed in and out
+                        of the object can be validated so as to ensure that the state of the object becomes invalid. This way code external to an object need not be
+                        concerned with the data it contains or how a method works, only that by using it, it will provide the expected result. Take for example the
+                        posting of a letter. Provided that you give it the correct address and a stamp, once you place it in the mail box you expect it to arrive at the
+                        recipient. You need not be concerned with the details of the method (how it will be delivered) or the internal data (the name of the person doing
+                        the delivery). With this the creator of the object is free to change the internal workings of an object without affecting those using it, as long
+                        as it continues to do what it says on the box. In order to decide which object members are made available externally to an object, C# provides
+                        access modifier keywords such as <code>public</code> and <code>private</code>.</p>
+                    <!-- !SECTION Encapsulation -->
+                    <!-- SECTION Inheritance -->
+                    <h3 id="Inheritance">Inheritance</h3>
+                    <p>Many things in life have similarities. For example a car and a motorbike both have an engine, wheels and brakes but where as a motorbike has
+                        handle bars a car has a steering wheel. This makes it difficult to use one object to represent both but rather than create two objects duplicating
+                        much of the same functionality we can use the concept of inheritance. Here, first an parent object containing all the common traits is created
+                        then separate child objects based on the parent are created, each adding just their own differences. Using the previous example we could create a
+                        vehicle object that has the engine, brakes and wheels properties then from that create a motorbike object that adds handle bars and a car object
+                        that adds a steering wheel. By having a common inherited wheels property the number of wheels can be set at runtime to 2 for a motorbike and 4 for
+                        car or even 3 if it is a three-wheeler.</p>
+                    <p>Other names for parent are ancestor or superclass and for child, descendant or subclass. Just to be different, C# calls a parent a base type and
+                        a child a derived type which is specifically mentioned here as C# provides the <code>base</code> keyword to access a base type from a derived
+                        type. Also note that structs can neither inherit or be inherited by another class or struct.</p>
+                    <!-- !SECTION Inheritance -->
+                    <!-- SECTION Abstraction -->
+                    <h3 id="Abstraction">Abstraction</h3>
+                    <p>Abstraction is the process of determining and extracting from a complex problem just the information we require to define a solution. For example
+                        what does it take to eat food. Here we need to ask an expert in this case lets consider what a child would say. They'd probably say something
+                        like, you  put food in your mouth chew it then swallow. That's it. Now of course the human body is an extremely complex organism, to actually
+                        eat food the brain has to send signals to the jaw muscles to chew the food, then to the tongue to swallow it. From there it goes into the stomach
+                        where it is mixed with acid, then into the small intestine ... But for the purposes of survival all the user has to be concerned with is food,
+                        mouth, chew, swallow. Of course had we omitted the chew step then the choke method may have kicked in resulting in a premature end to our program.
+                        It is important then to extract exactly what is required, no less, no more and this is an essential design step before the first line of code is
+                        even written.</p>
+                    <p>Another term you may come across is abstraction layers which is the dividing of a problem into the various layers of complexity. Take for instance
+                        what is involved in writing and running an application. As mentioned in the C Sharp Language section all a computer knows is ones and zeroes but
+                        even that is not the lowest level. If we go further we get down to the quantum level where the state of electrons are controlled by transistors.
+                        This is the hardware abstraction layer limited mainly to the manufacturer. Above the ones and zeroes, or binary abstraction layer, is the assembly
+                        language which is a set of instructions in a pseudo human language provided by hardware manufacturers as to what the hardware does. This is the
+                        language used by by those creating the compiler that translates the C# language we write into the binary language amd ultimately into the quantum
+                        state of the hardware. This does not mean that someone writing in C# is completely separated from the other layers. For example as you use the
+                        code editor the the compiler is constantly interpreting what you write and if it can't, it will warn you that there is a syntax error.</p>
+                    <!-- !SECTION Abstraction -->
+                    <!-- SECTION Polymorphism -->
+                    <h3 id="Polymorphism">Polymorphism</h3>
+                    <p>Polymorphism is the ability to substitute any child object for its parent and the members they contain. Using the inheritance example, we want to
+                        make sure that we can steer our vehicle so we provide a steer method. This presents a problem as we can't be sure whether the consumer is going
+                        to buy a car or a motorbike. The car has a steering wheel property that has to be set whereas the motor bike has handle bars. Polymorphism allows
+                        you to substitute what the steer method does in the child object. If you then have a purchasing object, that has a buy method that can take in a
+                        vehicle object and when it is called, you can substitute the vehicle parent object for either car or motorbike child object. This way whichever is
+                        provided will have the correct steer method. </p>
+                    <!-- !SECTION Polymorphism -->
+                </article>
+            </section>
+            <!-- !SECTION Object-oriented Programming -->
             <!-- SECTION Classes and Other User Defined Types -->
             <section class="main-section" id="Classes_and_Other_User_Defined_Types">
                 <header><h2>Classes and Other User Defined Types</h2></header>
@@ -2716,7 +2806,7 @@ namespace ClassExample
 
         // An event that fires when there are changes
         // This uses the Expression-bodied member syntax
-        public event EventHandler AreaChanged = (sender, e) => { };
+        public event EventHandler AreaChanged = (sender, e) =&gt; { };
 
         // The name property has a private setter
         // It can only be set from within the class
@@ -2872,6 +2962,7 @@ namespace ClassExample
 
                     <!-- !SECTION Members -->
                     <!-- SECTION Constructors -->
+<!-- TODO finish constructors -->
                     <h3 id="Constructors">Constructors</h3>
                     <p>A constructor is used to set the data and provide other actions that initialize the state of an object. It can take two forms, an instance
                         constructor that is used to instantiate a type depending on
@@ -3154,7 +3245,7 @@ namespace MethodExample
         }
 
         // A method that uses an expression body
-        public int Subtract(int x, int y) => x = y;
+        public int Subtract(int x, int y) =&gt; x = y;
 
         // A private method that can only
         // that can only be accessed from
@@ -3266,15 +3357,10 @@ namespace IndexExample
                     <h3 id="Finalizers">Finalizers</h3>
                     <p>A finalizer is used to perform any cleanup of the class when it is no longer in use. The compiler adds a default finalizer to each instance of a
                         class that is created. As implementing a finalizer is a rare and complex subject it won't be discussed in this guide.</p>
-
-
-
-
-
-<!-- TODO finnish signatures info and add example  -->
-<!-- TODO add info about parameters, passing by reference, optional arguments, passing an array -->
                     <!-- !SECTION Finalizers -->
                     <!-- SECTION Parameters, signatures and overloading -->
+<!-- TODO finnish signatures info and add example  -->
+<!-- TODO add info about parameters, passing by reference, optional arguments, passing an array -->
                     <h3 id="Parameters,_signatures_and_overloading">Parameters, signatures and overloading</h3>
                     <p>  A method, constructor and indexer have a signature which is declared by its identifier and the type, number, passing mode and left right order of
                         its parameters. Access modifiers and a method's return type are not part of the signature.</p>
@@ -3631,13 +3717,12 @@ namespace StructExample
                     <p>A delegate allows you to create a reference to a method that can then be passed as a parameter. It is declared using an optional
                         <a href="#Access_modifiers">access modifier</a>, followed by the <code>delegate</code> keyword, followed by the <i>return type</i>, followed by an
                         identifier that is unique within the <a href="#Dependencies_and_Namespaces">namespace</a>, followed by a pair of brackets that can optionally
-                        contain <a href="#Parameters,_signatures_and_overloading">parameters</a>. Delegates are created similar to other types with the use of the
-                        <code>new</code> keyword but instead of passing in type values as arguments, a reference to a method with the same return type and signature as
-                        that declared in the delegate is used. This can then be used to invoke the method that was passed in as if it was called directly. A common use
-                        for delegates is in <a href="#Events">events</a> in which an <code>EventHandler</code> method is invoked by an event which is a special kind of
-                        multicast delegate.</p>
+                        contain <a href="#Parameters,_signatures_and_overloading">parameters</a>. Delegates are created using the delegate's identifier, followed by an
+                        identifier unique within the local scope and then assigning it the name of a method which can be either an instance or static. This can then be
+                        used to invoke the method as if it was called directly. A common use for delegates is in <a href="#Events">events</a> in which an
+                        <code>EventHandler</code> method is invoked by an event which is a special kind of multicast delegate.</p>
                     <p><em>Note:</em><i> the <code>delegate</code> keyword is also used as an operator to create
-                        <a href="Anonymous_function_expressions">anonymous methods</a></i></p>
+                        <a href="#Anonymous_methods_and_functions">anonymous methods</a></i></p>
                     <p>The following example demonstrates delegate declaration and use.</p>
 <pre><code>using System;
 
@@ -3645,25 +3730,22 @@ namespace DelegateExample
 {
     // A delegate called Calculate that returns an int and takes in
     // two int's is declared in the DelegateExample namespace
-    // Note that it does not define an implementation
     delegate int Calculate(int value1, int value2);
 
     public class MathFunctions
     {
-        // The static method 'Add' with the same return
-        // type and signature as the delegate Calculate
-        // is declared along with an implementation
+        // A static method 'Add' with the same return type
+        // and signature as the delegate Calculate is declared
         public static int Add(int x, int y)
         {
             return x + y;
         }
 
-        // The static method 'Subtract' with the same return
-        // type and signature as the delegate Calculate
-        // is declared along with an implementation
-        public static int Subtract(int x, int y)
+        // An instance method 'Multiply' with the same return type
+        // and signature as the delegate Calculate is declared
+        public int Multiply(int x, int y)
         {
-            return x + y;
+            return x * y;
         }
     }
 
@@ -3671,38 +3753,32 @@ namespace DelegateExample
     {
         static void Main(string[] args)
         {
-            // A 'Calculate' delegate is created that passes in the
-            // static Add method from the MathFunctions class
-            var addMethod = new Calculate(MathFunctions.Add);
+            // Create an instance of 'Calculate' that passes in Add
+            Calculate addMethod = MathFunctions.Add;
 
-            // A 'Calculate' delegate is created that passes in the
-            // static Subtract method from the MathFunctions class
-            var subtractMethod = new Calculate(MathFunctions.Subtract);
+            // Create an instance of 'Calculate' that passes in Multiply
+            // which is not static so an instance of MathFunctions
+            // is required
+            Calculate multiplyMethod = new MathFunctions().Multiply;
 
-            // The addMethod delegate is used to invoke the Add method
-            // and the result is stored in a the sum variable
-            var sum = addMethod(2, 3);
+            // Use the addMethod delegate to invoke Add
+            Console.WriteLine($"2 + 3 = {addMethod(2, 3)}");
 
-            // The addMethod delegate is used to invoke the Subtract
-            // Method and the result is stored in a the difference variable
-            var difference = subtractMethod(5, 3);
-
-            // The results from each delegate
-            // invocation is written to the console
-            Console.WriteLine($"2 + 3 = {sum}");
-            Console.WriteLine($"5 - 3 = {difference}");
+            // Use the addMethod delegate to invoke Subtract
+            Console.WriteLine($"5 x 3 = {multiplyMethod(5, 3)}");
         }
     }
 }
 
 // The example writes the following to the console
 // 2 + 3 = 5
-// 5 - 3 = 8
-    </code></pre>
+// 5 x 3 = 15
+</code></pre>
                     <!-- !SECTION Delegates -->
 
 
                     <!-- SECTION Inheritance and polymorphism -->
+<!-- TODO add info about polymorphism -->
                     <h3 id="Inheritance_and_polymorphism">Inheritance and polymorphism</h3>
                     <p>Inheritance is one of the main concepts in Object Oriented Programming. It allows you to create a parent class with common features that child
                         classes can inherit and expand upon. In C# a parent class is called a base class and a child a derived class. C# only allows single inheritance,
@@ -4418,20 +4494,29 @@ namespace InterfaceExample
                 </article>
             </section>
             <!-- !SECTION Classes and Other User Defined Types -->
-            <!-- SECTION Anonymous function expressions -->
-            <section class="main-section" id="Anonymous_function_expressions">
-                <header><h2>Anonymous function expressions</h2></header>
+            <!-- SECTION Anonymous methods and functions -->
+            <section class="main-section" id="Anonymous_methods_and_functions">
+                <header><h2>Anonymous methods and functions</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
 <!-- TODO add info about anonymous methods -->
                     <p>In some cases creating a method to do a simple task may be overkill. In this case <i>anonymous function expressions</i> provide a means create a
-                        method on the fly. The type to use depends on whether a return value is required. If it is then a <code>Func</code> should be employed otherwise
-                        where a method returns <code>void</code> then use an <code>Action</code>. A <code>Func</code> or <code>Action</code> can also be passed as a
-                        parameter to a method or another <code>Func</code> or <code>Action</code>. The syntax for a <code>Func</code> is
-                        <code>Func&lt;in T1, in T2 ... in T16, out TResult&gt;</code> and for an <code>Action </code> is
+                        method on the fly. The type to use depends on whether a return value is required.</p>
+
+                    <h3 id="Anonymous_methods">Anonymous methods</h3>
+
+
+
+
+
+                    <h3 id="Action_and_Func">Action and Func</h3>
+                    <p>C# provides two types of built-in <a href="Delegates">delegates</a> that can be used to pass a method as a parameter. If the method returns a value
+                        you can use a <code>Func</code> otherwise where a method returns <code>void</code> you can use an <code>Action</code>. A <code>Func</code> or
+                        <code>Action</code> can also be passed as a parameter to a method or another <code>Func</code> or <code>Action</code>. The syntax for a
+                        <code>Func</code> is <code>Func&lt;in T1, in T2 ... in T16, out TResult&gt;</code> and for an <code>Action </code> is
                         <code>Action&lt;in T1, in T2 ... in T16t&gt;</code>. Both allow for up to 16 input values of any type and <code>Func</code> allows for 1 return
                         value of any type.</p>
-                        <p>Following is an example of both a <code>Func</code> and an <code>Action</code>.</p>
+                    <p>Following is an example of both a <code>Func</code> and an <code>Action</code>.</p>
 
 <pre><code>using System;
 
@@ -4469,7 +4554,7 @@ namespace DelegateExample
 </code></pre>
                 </article>
             </section>
-            <!-- !SECTION Delegates, Actions and Functions -->
+            <!-- !SECTION Anonymous methods and functions -->
             <!-- SECTION Dependencies and Namespaces -->
             <section class="main-section" id="Dependencies_and_Namespaces">
                 <header><h2>Dependencies and Namespaces</h2></header>
@@ -5107,96 +5192,6 @@ namespace ScopeExample
                 </article>
             </section>
             <!-- !SECTION Scope and Access Modifiers -->
-            <!-- SECTION Object-oriented Programming -->
-            <section class="main-section" id="Object-oriented_Programming">
-                <header><h2>Object-oriented Programming</h2></header>
-                <a class="back-to-top" href="#">Back to top</a>
-                <article>
-                    <p>Object-oriented programming (OOP) is a programming paradigm used extensively throughout C#. It encompasses a number of concepts that provide the
-                        developer a structured process for writing a program. This is particularly important for large applications that may be maintained by multiple
-                        teams of developers. Instead of having one massive length of code that does everything, it is instead broken down into objects that each have a
-                        narrowly defined responsibility. C# uses a sort of template called a type to define an object that is created when a program is run and multiple
-                        objects, also called instances, can be created based on the type, each with their own state. These types are then combined to create an assembly
-                        and one or more assemblies are combine to create an application.</p>
-                    <p> Major principles of OOP include:</p>
-                    <ul>
-                        <li>Object</li>
-                        <li>Encapsulation</li>
-                        <li>Inheritance</li>
-                        <li>Abstraction</li>
-                        <li>Polymorphism</li>
-                    </ul>
-                    <!-- SECTION Object -->
-                    <h3 id="Object">Object</h3>
-                    <p>An object combines data and behavior to represent everyday things such as a number, a spreadsheet, a person or even something less tangible such as
-                        the relationship between a part's name and its quantity in a database. During runtime multiple objects are created from a type definition each
-                        with their own own internal state. This allows different versions (instances) of an object to exist. For example two number type objects could be
-                        created, one with a value of 5 and another with 7. Three techniques employed by C# to define an object are:</p>
-                    <ul>
-                        <li>Properties - a particular state of an object such as color, the number of columns, what a thing is made of.</li>
-                        <li>Methods - the behavior of an object such as add numbers, manipulate text, etc. Methods can take in and return modified data.</li>
-                        <li>Events - a way of communicating to other objects that its state has changed.</li>
-                    </ul>
-                    <p>Take for example a light. It could have a 'Light Is On' property, a 'Turn Light On' method and a 'Light Has Turned' On event. A person object
-                        could then check the 'Light Is On' property and if it's off (false), use the 'Turn Light On' method to turn the light on. The method would then
-                        set 'Light Is On' to true and then trigger the 'Light Has Turned On' event. A second person object could be watching out for the event and when it
-                        happens it would know to run its own 'Read Book' method.</p>
-                    <!-- !SECTION Object -->
-                    <!-- SECTION Encapsulation -->
-                    <h3 id="Encapsulation">Encapsulation</h3>
-                    <p>Encapsulation protects the data and methods used to define the internal state of an object from direct manipulation. Data that is passed in and out
-                        of the object can be validated so as to ensure that the state of the object becomes invalid. This way code external to an object need not be
-                        concerned with the data it contains or how a method works, only that by using it, it will provide the expected result. Take for example the
-                        posting of a letter. Provided that you give it the correct address and a stamp, once you place it in the mail box you expect it to arrive at the
-                        recipient. You need not be concerned with the details of the method (how it will be delivered) or the internal data (the name of the person doing
-                        the delivery). With this the creator of the object is free to change the internal workings of an object without affecting those using it, as long
-                        as it continues to do what it says on the box. In order to decide which object members are made available externally to an object, C# provides
-                        access modifier keywords such as <code>public</code> and <code>private</code>.</p>
-                    <!-- !SECTION Encapsulation -->
-                    <!-- SECTION Inheritance -->
-                    <h3 id="Inheritance">Inheritance</h3>
-                    <p>Many things in life have similarities. For example a car and a motorbike both have an engine, wheels and brakes but where as a motorbike has
-                        handle bars a car has a steering wheel. This makes it difficult to use one object to represent both but rather than create two objects duplicating
-                        much of the same functionality we can use the concept of inheritance. Here, first an parent object containing all the common traits is created
-                        then separate child objects based on the parent are created, each adding just their own differences. Using the previous example we could create a
-                        vehicle object that has the engine, brakes and wheels properties then from that create a motorbike object that adds handle bars and a car object
-                        that adds a steering wheel. By having a common inherited wheels property the number of wheels can be set at runtime to 2 for a motorbike and 4 for
-                        car or even 3 if it is a three-wheeler.</p>
-                    <p>Other names for parent are ancestor or superclass and for child, descendant or subclass. Just to be different, C# calls a parent a base type and
-                        a child a derived type which is specifically mentioned here as C# provides the <code>base</code> keyword to access a base type from a derived
-                        type. Also note that structs can neither inherit or be inherited by another class or struct.</p>
-                    <!-- !SECTION Inheritance -->
-                    <!-- SECTION Abstraction -->
-                    <h3 id="Abstraction">Abstraction</h3>
-                    <p>Abstraction is the process of determining and extracting from a complex problem just the information we require to define a solution. For example
-                        what does it take to eat food. Here we need to ask an expert in this case lets consider what a child would say. They'd probably say something
-                        like, you  put food in your mouth chew it then swallow. That's it. Now of course the human body is an extremely complex organism, to actually
-                        eat food the brain has to send signals to the jaw muscles to chew the food, then to the tongue to swallow it. From there it goes into the stomach
-                        where it is mixed with acid, then into the small intestine ... But for the purposes of survival all the user has to be concerned with is food,
-                        mouth, chew, swallow. Of course had we omitted the chew step then the choke method may have kicked in resulting in a premature end to our program.
-                        It is important then to extract exactly what is required, no less, no more and this is an essential design step before the first line of code is
-                        even written.</p>
-                    <p>Another term you may come across is abstraction layers which is the dividing of a problem into the various layers of complexity. Take for instance
-                        what is involved in writing and running an application. As mentioned in the C Sharp Language section all a computer knows is ones and zeroes but
-                        even that is not the lowest level. If we go further we get down to the quantum level where the state of electrons are controlled by transistors.
-                        This is the hardware abstraction layer limited mainly to the manufacturer. Above the ones and zeroes, or binary abstraction layer, is the assembly
-                        language which is a set of instructions in a pseudo human language provided by hardware manufacturers as to what the hardware does. This is the
-                        language used by by those creating the compiler that translates the C# language we write into the binary language amd ultimately into the quantum
-                        state of the hardware. This does not mean that someone writing in C# is completely separated from the other layers. For example as you use the
-                        code editor the the compiler is constantly interpreting what you write and if it can't, it will warn you that there is a syntax error.</p>
-                    <!-- !SECTION Abstraction -->
-                    <!-- SECTION Polymorphism -->
-                    <h3 id="Polymorphism">Polymorphism</h3>
-                    <p>Polymorphism is the ability to substitute any child object for its parent and the members they contain. Using the inheritance example, we want to
-                        make sure that we can steer our vehicle so we provide a steer method. This presents a problem as we can't be sure whether the consumer is going
-                        to buy a car or a motorbike. The car has a steering wheel property that has to be set whereas the motor bike has handle bars. Polymorphism allows
-                        you to substitute what the steer method does in the child object. If you then have a purchasing object, that has a buy method that can take in a
-                        vehicle object and when it is called, you can substitute the vehicle parent object for either car or motorbike child object. This way whichever is
-                        provided will have the correct steer method. </p>
-                    <!-- !SECTION Polymorphism -->
-                </article>
-            </section>
-            <!-- !SECTION Object-oriented Programming -->
             <!-- SECTION Keywords and Specifications -->
             <section class="main-section" id="Keywords_and_Specifications">
                 <header><h2>Keywords and Specifications</h2></header>
