@@ -389,7 +389,7 @@ World!");
             </section>
             <!-- !SECTION Code Syntax -->
             <!-- SECTION Comments and Task Lists - Section -->
-            <!-- NOTE Ignore todos in this section -->
+            <!-- NOTE Ignore TODO in this section -->
             <section class="main-section" id="Comments_and_Task_Lists">
                 <header><h2>Comments and Task Lists</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
@@ -3914,18 +3914,18 @@ namespace ClassInheritanceExample
                     <p><em>Note:</em> <i>Microsoft has advised not to declare an event as <code>virtual</code> as the compiler does not handle these correctly. Instead a
                         method should be created in the base class that invokes the event. This method can then be called from the derived class to raise the event.</i>
                     </p>
-                    <p>In the following example a base class <code>LogAnalyser</code> is created that has a method <code>AnalyzeLogMessage()</code> and a virtual method
-                        <code>DisplayMessage()</code>. Derived class <code>LogAnalyser1</code> inherits <code>LogAnalyser</code> and overrides the virtual method
-                        providing its own implementation. <code>LogAnalyser2</code> inherits <code>LogAnalyser1</code> and overrides the virtual method that it had
-                        overridden. <code>LogAnalyser3</code> also inherits <code>LogAnalyser</code>. It does not override the virtual method but it shows that attempting
+                    <p>In the following example a base class <code>LogAnalyzer</code> is created that has a method <code>AnalyzeLogMessage()</code> and a virtual method
+                        <code>DisplayMessage()</code>. Derived class <code>LogAnalyzer1</code> inherits <code>LogAnalyzer</code> and overrides the virtual method
+                        providing its own implementation. <code>LogAnalyzer2</code> inherits <code>LogAnalyzer1</code> and overrides the virtual method that it had
+                        overridden. <code>LogAnalyzer3</code> also inherits <code>LogAnalyzer</code>. It does not override the virtual method but it shows that attempting
                         to override the non virtual method results in a syntax error. When <code>DisplayMessage()</code> is called from each of the derived class
-                        instances <code>LogAnalyser1</code> and <code>LogAnalyser2</code> each display the message in their own overridden methods whereas
-                        <code>LogAnalyser3</code> displays the message from the base class.</p>
+                        instances <code>LogAnalyzer1</code> and <code>LogAnalyzer2</code> each display the message in their own overridden methods whereas
+                        <code>LogAnalyzer3</code> displays the message from the base class.</p>
 <pre><code>using System;
 
-namespace ClassInheritanceExample
+namespace OverridingAVirtualMemberExample
 {
-    public class LogAnalyser
+    public class LogAnalyzer
     {
         public void AnalyzeLogMessage()
         {
@@ -3938,7 +3938,7 @@ namespace ClassInheritanceExample
         }
     }
 
-    public class LogAnalyser1 : LogAnalyser
+    public class LogAnalyzer1 : LogAnalyzer
     {
         public override void DisplayMessage()
         {
@@ -3946,7 +3946,7 @@ namespace ClassInheritanceExample
         }
     }
 
-    public class LogAnalyser2 : LogAnalyser1
+    public class LogAnalyzer2 : LogAnalyzer1
     {
         public override void DisplayMessage()
         {
@@ -3954,11 +3954,11 @@ namespace ClassInheritanceExample
         }
     }
 
-    public class LogAnalyser3 : LogAnalyser
+    public class LogAnalyzer3 : LogAnalyzer
     {
         // Uncommenting the following results in the error
-        // 'LogAnalyser3.AnalyzeLogMessage()':cannot override inherited member
-        // 'LogAnalyser.AnalyzeLogMessage()' because it is not marked
+        // 'LogAnalyzer3.AnalyzeLogMessage()':cannot override inherited member
+        // 'LogAnalyzer.AnalyzeLogMessage()' because it is not marked
         // virtual, abstract or override
         //public override void AnalyzeLogMessage() { }
     }
@@ -3967,37 +3967,37 @@ namespace ClassInheritanceExample
     {
         static void Main(string[] args)
         {
-            LogAnalyser1 logAnalyser1 = new();
-            LogAnalyser2 logAnalyser2 = new();
-            LogAnalyser3 logAnalyser3 = new();
+            LogAnalyzer1 logAnalyzer1 = new();
+            LogAnalyzer2 logAnalyzer2 = new();
+            LogAnalyzer3 logAnalyzer3 = new();
 
-            Console.WriteLine("Using logAnalyser1");
-            logAnalyser1.AnalyzeLogMessage();
-            logAnalyser1.DisplayMessage();
-
-            Console.WriteLine();
-            Console.WriteLine("Using logAnalyser2");
-            logAnalyser2.AnalyzeLogMessage();
-            logAnalyser2.DisplayMessage();
+            Console.WriteLine("Using logAnalyzer1");
+            logAnalyzer1.AnalyzeLogMessage();
+            logAnalyzer1.DisplayMessage();
 
             Console.WriteLine();
-            Console.WriteLine("Using logAnalyser3");
-            logAnalyser3.AnalyzeLogMessage();
-            logAnalyser3.DisplayMessage();
+            Console.WriteLine("Using logAnalyzer2");
+            logAnalyzer2.AnalyzeLogMessage();
+            logAnalyzer2.DisplayMessage();
+
+            Console.WriteLine();
+            Console.WriteLine("Using logAnalyzer3");
+            logAnalyzer3.AnalyzeLogMessage();
+            logAnalyzer3.DisplayMessage();
         }
     }
 }
 
 // The example writes the following to the console
-// Using logAnalyser1
+// Using logAnalyzer1
 // Analyzing log message
 // Log message type 1 has occurred
 
-// Using logAnalyser2
+// Using logAnalyzer2
 // Analyzing log message
 // Log message type 2 has occurred
 
-// Using logAnalyser3
+// Using logAnalyzer3
 // Analyzing log message
 // Log message has occurred
 </code></pre>
@@ -4008,64 +4008,64 @@ namespace ClassInheritanceExample
                         a loop. This can be done as <a href="#Polymorphism">polymorphism</a> allows you to substitute a parent for a child then when the parent's method
                         is called at runtime it will be substituted for the child's.</p>
 
-                    <p>In this example example a base class <code>LogAnalyser</code> is declared that has a virtual <code>DisplayMessage</code> method. Derived class
-                        <code>LogAnalyser1</code> inherits from <code>LogAnalyser</code> and <code>LogAnalyser2</code> inherits from <code>LogAnalyser1</code> with each
-                        overriding <code>DisplayMessage</code> with its own implementation. In the <code>Program</code> class a list of type <code>LogAnalyser</code> is
+                    <p>In this example example a base class <code>LogAnalyzer</code> is declared that has a virtual <code>DisplayMessage</code> method. Derived class
+                        <code>LogAnalyzer1</code> inherits from <code>LogAnalyzer</code> and <code>LogAnalyzer2</code> inherits from <code>LogAnalyzer1</code> with each
+                        overriding <code>DisplayMessage</code> with its own implementation. In the <code>Program</code> class a list of type <code>LogAnalyzer</code> is
                         created that adds an instance of the base and the two derived classes. A foreach loop then loops through the list using a
-                        <code>LogAnalyser</code> type iterator calling the <code>DisplayMessage</code> method which at runtime is replaced by the overridden version of
+                        <code>LogAnalyzer</code> type iterator calling the <code>DisplayMessage</code> method which at runtime is replaced by the overridden version of
                         each item.</p>
 <pre><code>using System;
-using System.Collections.Generic;
+    using System.Collections.Generic;
 
-namespace ClassInheritanceExample
-{
-    public class LogAnalyser
+    namespace PolymorphismExample
     {
-        public virtual void DisplayMessage()
+        public class LogAnalyzer
         {
-            Console.WriteLine("Log message has occurred");
-        }
-    }
-
-    public class LogAnalyser1 : LogAnalyser
-    {
-        public override void DisplayMessage()
-        {
-            Console.WriteLine("Log message type 1 has occurred");
-        }
-    }
-
-    public class LogAnalyser2 : LogAnalyser1
-    {
-        public override void DisplayMessage()
-        {
-            Console.WriteLine("Log message type 2 has occurred");
-        }
-    }
-
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            List&gt;LogAnalyser&lt; logAnalysers = new()
+            public virtual void DisplayMessage()
             {
-                new LogAnalyser(),
-                new LogAnalyser1(),
-                new LogAnalyser2(),
-            };
+                Console.WriteLine("Log message has occurred");
+            }
+        }
 
-            foreach(LogAnalyser logAnalyser in logAnalysers)
+        public class LogAnalyzer1 : LogAnalyzer
+        {
+            public override void DisplayMessage()
             {
-                logAnalyser.DisplayMessage();
+                Console.WriteLine("Log message type 1 has occurred");
+            }
+        }
+
+        public class LogAnalyzer2 : LogAnalyzer1
+        {
+            public override void DisplayMessage()
+            {
+                Console.WriteLine("Log message type 2 has occurred");
+            }
+        }
+
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                List&lt;LogAnalyzer&gt; logAnalyzers = new()
+                {
+                    new LogAnalyzer(),
+                    new LogAnalyzer1(),
+                    new LogAnalyzer2(),
+                };
+
+                foreach (LogAnalyzer logAnalyzer in logAnalyzers)
+                {
+                    logAnalyzer.DisplayMessage();
+                }
             }
         }
     }
-}
 
-// The example writes the following to the console
-// Log message has occurred
-// Log message type 1 has occurred
-// Log message type 2 has occurred
+    // The example writes the following to the console
+    // Log message has occurred
+    // Log message type 1 has occurred
+    // Log message type 2 has occurred
 </code></pre>
                     <!-- !SECTION Implementing polymorphism -->
                     <!-- SECTION sealed -->
@@ -5666,7 +5666,7 @@ var c = '\u0123' \\ the <i>g</i> character
             <!-- !SECTION Disclaimer -->
 
         </main>
-<!-- TODO Uncomment freecodecamp script-->
+<!-- TODO Uncomment FreeCodeCamp script-->
         <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
     </body>
 </html>
