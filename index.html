@@ -1568,9 +1568,7 @@ namespace NullCoalescingExample
                     <h3 id="The_lambda_and_body_definition_operator">The lambda and body definition operator =&gt;</h3>
                     <p>The <code>=&gt;</code> operator has two uses, as part of a <i>lambda expression</i> or an <i>Expression-bodied member</i> definition.</p>
                     <p>A lambda expression is comprised of a set of input parameters on the left which are then passed into the body on the right which are separated
-                        using the <code>=&gt;</code> operator. The body can be in two forms, an <i>expression lambda</i> which can consist of an expression or a method
-                        call and a <i>statement lambda</i> which consists of a statement block. They are used to create
-                        <a href="#Anonymous_functions">anonymous functions</a>.</p>
+                        using the <code>=&gt;</code> operator. They are used to create <a href="#Anonymous_functions">anonymous functions</a>.</p>
                     <p>An expression-bodied member definition provides a shorthand method of writing the body of a member. In this case the <code>=&gt;</code> operator is
                         used to separate the name of the member and its body. Supported members are:</p>
                     <ul>
@@ -3758,10 +3756,10 @@ namespace DelegateExample
             // MathFunctions is required to access it
             Calculate multiply = new MathFunctions().Multiply;
 
-            // Use the add delegate to invoke Add
+            // Using the add delegate to invoke Add
             Console.WriteLine($"2 + 3 = {add(2, 3)}");
 
-            // Use the multiply delegate to invoke Multiply
+            // Using the multiply delegate to invoke Multiply
             Console.WriteLine($"5 x 3 = {multiply(5, 3)}");
         }
     }
@@ -4491,21 +4489,23 @@ namespace InterfaceExample
                 </article>
             </section>
             <!-- !SECTION Classes and Other User Defined Types -->
-            <!-- SECTION Anonymous methods and functions -->
+            <!-- SECTION Anonymous functions -->
             <section class="main-section" id="Anonymous_functions">
                 <header><h2>Anonymous functions</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
-<!-- TODO add info about anonymous methods -->
-                    <p>An anonymous function allows you to create a delegate without the need for a named method and can be declared with one of two basic syntaxes. These
-                        are <i>anonymous methods</i> and <i>lambda expressions</i> with the latter replacing the former.</p>
-
+                    <p>An anonymous function allows you to create a <a href="#Delegates">delegate</a> an assign it a method in one line of code(<i>in-line</i>), without
+                        the need for a separate named method. They can be declared with one of two basic syntaxes, <a href="#Anonymous_methods">anonymous methods</a> and
+                        <a href="Lambda_Expression">lambda expressions</a> with the latter replacing the former. C# also provides two types of built-in delegates,
+                        <a href="#Action_and_Func">Action</a> and  <a href="#Action_and_Func">Func</a>, that allow the in-line declaration of an anonymous function
+                        without the need for the separate declaration of a delegate or a named method. </p>
+                    <!-- SECTION Anonymous methods -->
                     <h3 id="Anonymous_methods">Anonymous methods</h3>
-                    <p>Whilst anonymous methods have largely been replace by lambda expressions, they remain in the C# language for backwards compatibility so will be
-                        detailed here. As with a named method a delegate is first declared with the required return type and signature. An anonymous method is then
-                        declared using the identifier of the declaration, followed by a unique identifier within the local scope, followed by the
-                        <code>delegate</code> keyword, followed by the same signature as the delegate, followed a code block.</p>
-                    <p>The following example demonstrates anonymous method declaration and use</p>
+                    <p>Whilst anonymous methods have largely been replace by lambda expressions, they remain in the C# language for backwards compatibility so are
+                        presented here for reference. As with a <a href="#Delegates">named method</a> a delegate is first declared with the required return type and
+                        <a href="Parameters,_signatures_and_overloading">signature</a>. The delegate instance is then declared and assigned an anonymous method by using
+                        the <code>delegate</code> keyword, followed by the same signature as the delegate, followed by a code block.</p>
+                    <p>The following example demonstrates anonymous method declaration and use.</p>
 <pre><code>using System;
 
 namespace AnonymousMethodExample
@@ -4522,7 +4522,7 @@ namespace AnonymousMethodExample
             // The return type is inferred from the return statement
             Calculate add = delegate (int x, int y) { return x + y; };
 
-            // Use the add delegate
+            // Using the add delegate
             Console.WriteLine($"2 + 3 = {add(2, 3)}");
         }
     }
@@ -4531,56 +4531,134 @@ namespace AnonymousMethodExample
 // The example writes the following to the console
 // 2 + 3 = 5
 </code></pre>
-                    <h3>Lambda expressions</h3>
+                    <!-- !SECTION Anonymous methods -->
+                    <!-- SECTION Lambda expressions -->
+                    <h3 id="Lambda_Expression">Lambda expressions</h3>
+                    <p>Lambda expressions allow for a more concise in-line syntax than anonymous methods. As with a <a href="#Delegates">named method</a> a delegate is
+                        first declared with the required return type and <a href="Parameters,_signatures_and_overloading">signature</a>. The delegate instance is then
+                        declared and assigned an anonymous method by using a pair of brackets containing the same signature as the delegate, followed by the lambda
+                        operator <code>=&gt;</code>, followed by the lambda body. In most cases both the parameter types and the return type are inferred by the compiler.
+                        This means that declaration of parameter types is usually not required but can be included if needed. In any case,
+                        inclusion can assist with human readability of the code. Where only one parameter without a type declaration exists, the brackets become
+                        optional. The body can be in two forms, an <i>expression lambda</i> which can consist of an expression or a method call and a
+                        <i>statement lambda</i> which consists of a statement block. </p>
+                    <p>The following example demonstrates various lambda expression declarations and use.</p>
+<pre><code>using System;
 
+namespace LambdaExpressionExample
+{
+    // 'CalculateTwoValues' takes in two int's and returns an int
+    public delegate int CalculateTwoValues(int value1, int value2);
 
+    // Delegate declares the method return type and signature
+    // 'CalculateOneValue' takes an int and returns a string
+    public delegate string CalculateOneValue(int value);
 
+    // 'MethodCall' takes in a string and returns void
+    public delegate void MethodCall(string value);
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Lambda expression. Return type is inferred based on the
+            // parameter types and the expression in the body.
+            // This form is an expression lambda.
+            CalculateTwoValues add = (x, y) =&gt; x + y;
+
+            // When needed, parameter types can also be explicitly declared
+            CalculateTwoValues multiply = (int x, int y) =&gt; x * y;
+
+            // With only one parameter brackets are not required.
+            CalculateOneValue square = a =&gt; (a * a).ToString();
+
+            // This is form is a statement lambda
+            CalculateOneValue safeInvert = n =&gt;
+            {
+                if (n == 0)
+                    return "Can't divide by zero";
+                return $"1 / {n} = {1 / n}";
+            };
+
+            // A method call used as the lambda expression body
+            MethodCall methodCall = a =&gt; Console.WriteLine(a);
+
+            // Using the add delegate
+            Console.WriteLine($"2 + 3 = {add(2, 3)}");
+
+            //Using the multiply delegate
+            Console.WriteLine($"5 x 3 = {multiply(5, 3)}");
+
+            //Using the square delegate
+            Console.WriteLine($"6 squared = {square(6)}");
+
+            // Using the safeInvert delegate
+            Console.WriteLine($"1 / 0 = {safeInvert(0)}");
+
+            // Using the method call delegate
+            methodCall("A method call was used as the expression body");
+        }
+    }
+}
+
+// The example writes the following to the console
+// 2 + 3 = 5
+// 5 x 3 = 15
+// 6 squared = 36
+// 1 / 0 = Can't divide by zero
+// A method call was used as the expression body
+</code></pre>
+                    <!-- !SECTION Lambda expressions -->
+                    <!-- SECTION Action and Func -->
                     <h3 id="Action_and_Func">Action and Func</h3>
-                    <p>C# provides two types of built-in <a href="#Delegates">delegates</a> that can be used to pass a method as a parameter. If the method returns a value
-                        you can use a <code>Func</code> otherwise where a method returns <code>void</code> you can use an <code>Action</code>. A <code>Func</code> or
-                        <code>Action</code> can also be passed as a parameter to a method or another <code>Func</code> or <code>Action</code>. The syntax for a
-                        <code>Func</code> is <code>Func&lt;in T1, in T2 ... in T16, out TResult&gt;</code> and for an <code>Action </code> is
-                        <code>Action&lt;in T1, in T2 ... in T16t&gt;</code>. Both allow for up to 16 input values of any type and <code>Func</code> allows for 1 return
-                        value of any type.</p>
-                    <p>Following is an example of both a <code>Func</code> and an <code>Action</code>.</p>
+                    <p>C# also has two built in <a href="#Delegates">delegates</a>, <code>Action</code> that returns <code>void</code> and <code>Func</code> that returns
+                        a declared type. Both provide the in-line declaration of an anonymous function without the need for a separate declaration of a delegate or a
+                        <a href="#Delegates">named method</a>. An <code>Action</code> or <code>Func</code> can also be passed as a parameter to a method or another
+                        <code>Action</code> or <code>Func</code>. The <code>Action </code> syntax is <code>Action&lt;in T1, ... in T16t&gt;</code> and the
+                        <code>Func</code> syntax is <code>Func&lt;in T1, ... in T16, out TResult&gt;</code>. Both provide
+                        <a href="#Parameters,_signatures_and_overloading">overloads</a> for up to 16 input parameters of any type with <code>Func</code> allowing for one
+                        return value of any type and both can be assigned a body in the form of either an <a href="#Anonymous_methods">anonymous method</a> or a
+                        <a href="#Lambda_Expression">lambda expression</a>.</p>
+                    <p>The following example demonstrates both <code>Func</code> and <code>Action</code> declaration and use.</p>
 
 <pre><code>using System;
 
-namespace DelegateExample
+namespace ActionAndFuncExample
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // Example of an anonymous function
-            // with an expression body
-            // prints 27 to the console
-            Func &lt;int, int&gt; volume = x =&gt; x* x *x;
+            // Func delegate 'calculateVolume' that takes in three int's
+            // and returns an int from an expression lambda body.
+            Func&lt;int, int&gt; getCubeVolume = x =&gt; x * x * x;
 
-            Console.WriteLine($"volume = {volume(3)}");
-
-            // Example of an anonymous action
-            // with a statement block
-            // prints 50.2654824 to the console
-            Action &lt;int&gt; printArea = r =&gt;
+            // Action delegate 'printCircleArea' that takes
+            // in one int and that has a statement lambda body
+            Action&lt;int&gt; printCircleArea = r =&gt;
             {
-                const double pi = 3.14159265;
+                const double pi = 3.1415;
                 var area = pi * r * r;
-                Console.WriteLine($"area = {area}");
+                Console.WriteLine($"Circle area with radius {r} = {area}");
             };
 
-            printArea(4);
+            // Using the calculateVolume delegate
+            Console.WriteLine($"Cube volume with sides 4 = {getCubeVolume(4)}");
+
+            // Using the printCircleArea delegate
+            printCircleArea(4);
         }
     }
 }
 
 // The example prints the following to the console
-// volume = 27
-// area = 50.2654824
+// Cube volume with sides 4 = 64
+// Circle area with radius 4 = 50.264
 </code></pre>
+                    <!-- !SECTION Action and Func -->
                 </article>
             </section>
-            <!-- !SECTION Anonymous methods and functions -->
+            <!-- !SECTION Anonymous functions -->
             <!-- SECTION Dependencies and Namespaces -->
             <section class="main-section" id="Dependencies_and_Namespaces">
                 <header><h2>Dependencies and Namespaces</h2></header>
