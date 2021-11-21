@@ -1813,11 +1813,15 @@ namespace DoWhileLoop
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Type some text then press enter to repeat what you wrote");
+            Console.WriteLine("Press enter without typing text to end the program");
+            Console.WriteLine();
             string s = "";
             do
             {
                 s = Console.ReadLine();
                 Console.WriteLine(s);
+                Console.WriteLine();
             } while (!string.IsNullOrEmpty(s));
         }
     }
@@ -3377,6 +3381,9 @@ namespace Indexers
         }
     }
 }
+
+// The example writes the following to the console
+// Hello world
 </code></pre>
                     <!-- !SECTION Indexers -->
                     <!-- SECTION Finalizers -->
@@ -3821,7 +3828,7 @@ namespace Delegates
                         <code>B</code>.</p>
 <pre><code>using System;
 
-namespace ClassInheritanceExample
+namespace InheritanceSyntax
 {
     // Base class A is fist declared
     class A { }
@@ -3841,7 +3848,7 @@ namespace ClassInheritanceExample
                         not provide an accessibility keyword so if you see an 'Inconsistent accessibility' error, check that the base class has been declared public.</p>
 <pre><code>using System;
 
-namespace ClassInheritanceExample
+namespace InheritanceAccessibility
 {
     // Base class A default accessibility is internal
     class A { }
@@ -3873,7 +3880,7 @@ namespace ClassInheritanceExample
 
 <pre><code>using System;
 
-namespace ClassInheritanceExample
+namespace InheritanceExample
 {
     // Declare a base class called 'Animal'
     public class Animal
@@ -4338,7 +4345,6 @@ namespace Abstract
 // The example writes the following to the console
 // The price of the items is $18.60
 // The price of the hours is $240.00
-}
 </code></pre>
                     <!-- !SECTION abstract -->
                     <!-- SECTION Overriding object members -->
@@ -4367,7 +4373,7 @@ namespace Abstract
                         last names then return the full name which is written to the console.</p>
 <pre><code>using System;
 
-namespace Overriding
+namespace OverridingObjectMembers
 {
     public class Person
     {
@@ -4450,21 +4456,26 @@ namespace Overriding
 
 namespace Interface
 {
+    // Declare interface IMotion
     public interface IMotion
     {
         void Move();
     }
 
+    // Declare interface ISound
     public interface ISound
     {
         string Sound { get; set; }
     }
 
+    // Declare abstract class Vehicle
     public abstract class Vehicle
     {
         public abstract void ApplyBrakes();
     }
 
+    // Declare Car class that inherits Vehicle
+    // and implements ISound and IMotion
     public class Car : Vehicle, ISound, IMotion
     {
         public string Sound { get; set; }
@@ -4481,6 +4492,7 @@ namespace Interface
         }
     }
 
+    // Declare Dog class that implements ISound and IMotion
     public class Dog : IMotion, ISound
     {
         public string Sound { get; set; }
@@ -4500,9 +4512,11 @@ namespace Interface
     {
         static void Main(string[] args)
         {
+            // Create an instance of Car
             Car car = new();
             car.Sound = "Brakes squeal";
 
+            // Create an instance of Dog
             Dog dog = new();
             dog.Sound = "Dog barks";
 
@@ -4516,9 +4530,10 @@ namespace Interface
 
 // The example writes the following to the console
 // Car accelerates
-// Car slows
 // Dog chases car
-// Dog barks at car
+// Brakes squeal
+// Car slows
+// Dog barks
 </code></pre>
                     <!-- !SECTION Interfaces -->
                 </article>
@@ -4543,7 +4558,7 @@ namespace Interface
                     <p>The following example demonstrates anonymous method declaration and use.</p>
 <pre><code>using System;
 
-namespace AnonymousMethod
+namespace AnonymousMethods
 {
     // Delegate 'Calculate' takes in two int's and returns an int
     public delegate int Calculate(int value1, int value2);
@@ -4580,7 +4595,7 @@ namespace AnonymousMethod
                     <p>The following example demonstrates various lambda expression declarations and use.</p>
 <pre><code>using System;
 
-namespace LambdaExpression
+namespace LambdaExpressions
 {
     // 'CalculateTwoValues' takes in two int's and returns an int
     public delegate int CalculateTwoValues(int value1, int value2);
@@ -4658,7 +4673,7 @@ namespace LambdaExpression
 
 <pre><code>using System;
 
-namespace ActionAndFunc
+namespace ActionsAndFuncs
 {
     class Program
     {
