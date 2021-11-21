@@ -38,11 +38,11 @@
                 <li><a class="nav-link" href="#Iteration_Statements">Iteration Statements</a></li>
                 <li><a class="nav-link" href="#Arrays_and_Data_Structures">Arrays and Data Structures</a></li>
                 <li><a class="nav-link" href="#Enumerators">Enumerators</a></li>
-                <li><a class="nav-link" href="#Object-oriented_Programming">Object-oriented Programming</a></li>
                 <li><a class="nav-link" href="#Classes_and_Other_User_Defined_Types">Classes and Other User Defined Types</a></li>
                 <li><a class="nav-link" href="#Anonymous_functions">Anonymous functions</a></li>
                 <li><a class="nav-link" href="#Dependencies_and_Namespaces">Dependencies and Namespaces</a></li>
                 <li><a class="nav-link" href="#Scope_and_Access_Modifiers">Scope and Access Modifiers</a></li>
+                <li><a class="nav-link" href="#Object-oriented_Programming">Object-oriented Programming</a></li>
                 <li><a class="nav-link" href="#Keywords_and_Specifications">Keywords and Specifications</a></li>
                 <li><a class="nav-link" href="#References">References</a></li>
                 <li><a class="nav-link" href="#Terms_and_Conditions">Terms and Conditions</a></li>
@@ -191,7 +191,7 @@ namespace HelloWorld
                         <a href="#Code_Syntax">code block</a>. The program executes all the <a href="#Code_Syntax">statements</a> it finds within these. Here there is
                         only one, <code>Console.WriteLine("Hello World!");</code>. This tells the computer to write a line followed by a carriage return to the
                         <i>command window</i> and that the text to be written is located within the round brackets <code>( )</code>, which in this case is
-                        <span class="nowrap"><b>'Hello World!'</b></span>. As there are no further lines in our code before the closing bracket <code>}</code>, the
+                        <span class="nowrap"><b>'Hello World!'</b></span>. As there are no further lines in our code before the closing brace <code>}</code>, the
                         program exits. At this point the window of a program would normally close but the Visual Studio has an option to keep console application windows
                         open so that you can see the results. This option is turned on by default.</p>
                 </article>
@@ -349,8 +349,8 @@ World!");
                         character by itself. Unlike other variables, multiple discard variable identifiers can be declared within the same scope.</p>
                     <p><code>namespace MyProgram</code> is a namespace declaration. Namespaces are used to organize objects into logical groups. Details of the
                         <code>using</code> directive and namespaces are in (<a href="#Namespaces_and_References">Namespaces and References</a>).</p>
-                    <p>Following the namespace declaration is an opening curly bracket <code>{</code> which is the beginning of a code block and its closing bracket
-                        <code>}</code> is the last line in the example. All code blocks must have an opening and closing bracket. Nested within this code block is a
+                    <p>Following the namespace declaration is an opening brace <code>{</code> which is the beginning of a code block and its closing brace
+                        <code>}</code> is the last line in the example. All code blocks must have an opening and closing brace. Nested within this code block is a
                         <a href="#Classes">class</a> as declared by <code>public class MyClass</code> and its associated code block. Nested within this is a
                         <a href="#Constructor">constructor</a> declaration <code>MyClass() { }</code> , a <a href="#Methods">method</a> declaration
                         <code>static void Main(string[] args)</code> and their code blocks.</p>
@@ -369,7 +369,7 @@ World!");
                         <code>"Hello World!"</code>. All single line statements must end with a semicolon <code>;</code> . Following are three further examples of single
                         line statements showing how <a href="#Variables,_Constants,_Types_and_Literals">variables</a> can be declared and assigned.</p>
                     <p> The <code>while (true)</code> statement also called a <a href="#while_statement">while</a> loop, together with the braces and enclosed code form a
-                        code block. No semicolon is required after the closing curly bracket. Within the code block is first an assignment statement, followed by a
+                        code block. No semicolon is required after the closing brace. Within the code block is first an assignment statement, followed by a
                         <code>break</code> statement then another assignment statement. As the <a href="#break">break</a> statement causes the program to leave the while
                         loop before reaching the second assignment statement and, it can't be executed and is known as unreachable code. This won't prevent the program
                         from being built or run but will cause a warning in the the code editor and should be rectified.</p>
@@ -399,7 +399,7 @@ World!");
                     <p>Following are some examples of comments.</p>
 <pre><code>using System;
 
-namespace CommentExample
+namespace Comments
 {
     class Program
     {
@@ -463,7 +463,7 @@ namespace CommentExample
                         program and clear the exception press <kbd>Shift</kbd> + <kbd>F5</kbd>.</p>
 <pre><code>using System;
 
-namespace ExceptionExample
+namespace Exception
 {
     class Program
     {
@@ -486,7 +486,7 @@ namespace ExceptionExample
                     <code>ArgumentException</code> with the message <i>y cannot be zero</i>.</p>
 <pre><code>using System;
 
-namespace ExceptionExample
+namespace Throw
 {
     class Program
     {
@@ -514,7 +514,7 @@ namespace ExceptionExample
                         exception dialog box, <i>Attempted to divide by zero.</i> is written to the console.</p>
 <pre><code>using System;
 
-namespace ExceptionExample
+namespace TryCatch
 {
     class Program
     {
@@ -550,7 +550,7 @@ namespace ExceptionExample
                         would have been caught by the <code>Exception</code> code block.</p>
 <pre><code>using System;
 
-namespace ExceptionExample
+namespace MultipleCatchBlocks
 {
     class Program
     {
@@ -657,7 +657,7 @@ namespace ExceptionExample
                         general the keyword is favoured by most.</p>
 <pre><code>using System;
 
-namespace VariablesExample
+namespace Variables
 {
     class Program
     {
@@ -782,7 +782,7 @@ namespace VariablesExample
                         attempting a numeric addition between an <code>int</code> and a <code>bool</code> produces this error.</p>
 <pre><code>using System;
 
-namespace VariablesExamples
+namespace VariableSyntaxErrors
 {
     class Program
     {
@@ -863,7 +863,7 @@ namespace VariablesExamples
                     <p>Following are examples of the different tools C# provides to convert built in types.</p>
 <pre><code>using System;
 
-namespace CastingAndConversionExample
+namespace CastingAndConversion
 {
     class Program
     {
@@ -931,7 +931,7 @@ namespace CastingAndConversionExample
                         executed during run-time in which case an <a href="#Exception">exception</a> will be thrown.</p>
 <pre><code>using System;
 
-namespace CastingAndConversionExample
+namespace ExplicitConversion
 {
     class Program
     {
@@ -940,12 +940,17 @@ namespace CastingAndConversionExample
             // conversion from double to int results in truncation
             int number = (int)7 / 2; // number has value of 3
 
+            Console.WriteLine(number);
+
             // Uncommenting the following results in the error
             // cannot convert type 'int' to 'string'
             // string s = (string)number;
         }
     }
 }
+
+// The example writes the following to the console
+// 3
 </code></pre>
                     <!-- !SECTION Type conversion -->
                 </article>
@@ -956,40 +961,79 @@ namespace CastingAndConversionExample
                 <header><h2>Characters and Strings</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
-                    <p>Character literals consists of a single character in a pair of single quotes, <code>'a'</code>.</p>
-                    <p>A character consists of one of:</p>
+                    <!-- SECTION Characters -->
+                    <h3 id="Characters">Characters</h3>
+                    <p>The <code>char</code> type represents a single Unicode UTF-16 character and can consists of one of:</p>
                     <ul>
-                        <li>Single character</li>
+                        <li>Single character literal</li>
                         <li>Simple escape sequence</li>
-                        <li>Unicode escape sequence</li>
-                        <li>Hexadecimal escape sequence</li>
+                        <li>Unicode character escape sequence</li>
+                        <li>ASCII character escape sequence in octal notation</li>
+                        <li>ASCII character escape sequence in hexadecimal notation</li>
+                        <li>Unicode character escape sequence in hexadecimal notation</li>
                     </ul>
-                    <p>Strings are immutable, that is once created they cannot be changed.
-<!-- TODO finnish info about immutable strings and effects on concatenation -->
-
-                        C# operators that appear to change a string String literals can be regular or verbatim and/or interpolated. Each can contain zero or more characters enclosed in a pair of double quotes.</p>
-                    <p>Regular string literals can contain escaped characters as per above and will be interpreted as such. They can't span multiple lines so to split a
-                        statement with a long string literal across two or more lines, each part of the string on each line must first be enclosed in a pair of double
-                        quotes. The <code>+</code> concatenation operator is then placed between each string to join them together.</p>
-                    <p>Verbatim string literals are prefixed with the verbatim identifier <code>@</code>. Any escaped character will be interpreted verbatim except
-                        <code>'\"'</code> which will be interpreted as one double quote. Verbatim string literals can span multiple lines. There must be no white space
-                        between the <code>@</code> character and the string.</p>
-                    <p>Interpolated strings are prefixed with the interpolation identifier <code>$</code> which indicates that they may contain <i>interpolation
-                        expressions</i>. These can contain variables and other special characters that instruct the compiler how to format the string at
-                        <span class="nowrap">run-time</span>. Interpolation expressions are wrapped in a pair of curly braces. There must be no white space between the
-                        <code>$</code> identifier and the string. To use a curly brace as a character in an interpolated string two braces <code>{{</code> or
-                        <code>}}</code> must be used. Interpolation expressions cover a vast range of options information of which can be found in the
-                        <a href="#References">Microsoft Reference Documentation</a></p>
-                    <p>The interpolation identifier can be used in conjunction with the verbatim identifier and the order of the identifiers doesn't matter.</p>
-                    <p>Following are examples of string usage.</p>
+                    <p>Character literals consists of a single character in a pair of single quotes, such as <code>'a'</code>. Escape sequences consist of a single
+                        backslash followed by a sequence fo characters as defined in <a href="#Character_specifications">Character specifications</a>.</p>
+                    <p>The following example demonstrates declaring and using a character</p>
 <pre><code>using System;
 
-namespace StringExample
+namespace Characters
 {
     class Program
     {
         static void Main(string[] args)
         {
+            // character1 is declared and assigned the character 'a'
+            char character1 = 'a';
+
+            // tab is declared and assigned the simple escape
+            // character for the horizontal tab character
+            char tab = '\t';
+
+            // character2 is declared and assigned the character 'b'
+            // by using the Unicode escape sequence for 'b'
+            char character2 = '\u0062';
+
+            // Write all characters to the console
+            Console.Write(character1);
+            Console.Write(tab);
+            Console.Write(character2);
+        }
+    }
+}
+
+// The example writes the following to the console
+// a       b
+</code></pre>
+                    <!-- !SECTION Characters -->
+                    <!-- SECTION Strings -->
+                    <h3 id="Strings">Strings</h3>
+                    <p>A string is a sequence of Unicode (UTF-16) characters that represent text. The maximum length of a string is based on a memory size of 2GB which
+                        is approximately 1 billion characters. String literals can be regular or verbatim and/or interpolated. Each can contain zero or more characters
+                        enclosed in a pair of double quotes.</p>
+                    <p>Regular string literals can contain escaped characters. They can't span multiple lines so to split a statement with a long string literal across
+                        two or more lines, each part of the string on each line must first be enclosed in a pair of double quotes. The <code>+</code> concatenation
+                        operator is then placed between each string to join them together.</p>
+                    <p>Verbatim string literals are prefixed with the verbatim identifier <code>@</code>. Any escaped character will be interpreted verbatim except
+                        <code>'\"'</code> which will be interpreted as one double quote. Verbatim string literals can span multiple lines. There must be no white space
+                        between the <code>@</code> character and the string.</p>
+                    <p>Interpolated strings are prefixed with the interpolation identifier <code>$</code> which indicates that they may contain <i>interpolation
+                        expressions</i>. These can contain variables and other special characters that instruct the compiler how to format the string at
+                        <span class="nowrap">run-time</span>. Interpolation expressions are wrapped in a pair of braces. There must be no white space between the
+                        <code>$</code> identifier and the string. To use a brace as a character in an interpolated string two braces <code>{{</code> or
+                        <code>}}</code> must be used. Interpolation expressions include a vast range of options, information of which can be found in the
+                        <a href="#References">Microsoft Reference Documentation</a></p>
+                    <p>The interpolation identifier can be used in conjunction with the verbatim identifier and the order of the identifiers doesn't matter.</p>
+                    <p>Following are examples of string usage.</p>
+<pre><code>using System;
+
+namespace CharactersAndStrings
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Get the current date and time
             var now = DateTime.Now;
             Console.WriteLine("Regular string");
             Console.WriteLine(@"Verbatim string");
@@ -1046,6 +1090,80 @@ its now {now:HH:mm}");
 
 // This sentence is written after a blank line
 </code></pre>
+                    <!-- !SECTION Strings -->
+                    <!-- SECTION String immutability and StringBuilder -->
+                    <h3 id="String_immutability_and_StringBuilder">String immutability and StringBuilder</h3>
+                    <p>Strings are immutable, that is once created they cannot be changed. C# operators that appear to change a string actually creates a new modified
+                        copy of the original string. This means that the performance of a program can suffer when a string is repeatedly manipulated. In these cases
+                        C# provides StringBuilder which like a string, also represents a sequence of characters but unlike a string is mutable allowing changes to the
+                        sequence. When the operations to the StringBuilder sequence have been completed it can be converted to a string.</p>
+                    <p>The following example demonstrates how to use StringBuilder</p>
+<pre><code>using System;
+using System.Text;
+
+namespace StringBuilderExample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Create a new instance of StringBuilder
+            StringBuilder builder = new();
+            builder.AppendLine("Hello World");
+            builder.AppendLine("Hello World");
+            builder.AppendLine("Hello World");
+            builder.AppendLine("Hello World");
+            builder.AppendLine("Hello World");
+            builder.AppendLine("Hello World");
+            builder.AppendLine("Hello World");
+            builder.AppendLine("Hello World");
+            builder.AppendLine("Hello World");
+            builder.AppendLine("Hello World");
+            builder.AppendLine("Hello World");
+            builder.AppendLine("Hello World");
+            builder.AppendLine("Hello World");
+            builder.AppendLine("Hello World");
+            builder.AppendLine("Hello World");
+            builder.AppendLine("Hello World");
+            builder.AppendLine("Hello World");
+            builder.AppendLine("Hello World");
+            builder.AppendLine("Hello World");
+            builder.AppendLine("Hello World");
+            builder.AppendLine("Hello World");
+
+            // Convert the StringBuilder sequence to a string
+            String message = builder.ToString();
+
+            // Write the string to the console;
+            Console.WriteLine(message);
+        }
+    }
+}
+
+// The example writes the following to the console
+// Hello World
+// Hello World
+// Hello World
+// Hello World
+// Hello World
+// Hello World
+// Hello World
+// Hello World
+// Hello World
+// Hello World
+// Hello World
+// Hello World
+// Hello World
+// Hello World
+// Hello World
+// Hello World
+// Hello World
+// Hello World
+// Hello World
+// Hello World
+// Hello World
+</code></pre>
+                    <!-- !SECTION String immutability and StringBuilder -->
                 </article>
             </section>
             <!-- !SECTION Characters and Strings -->
@@ -1070,7 +1188,7 @@ its now {now:HH:mm}");
                     <p>Assigns a value to a variable</p>
 <pre><code>using System;
 
-namespace AssignmentOperatorExample
+namespace AssignmentOperator
 {
     class Program
     {
@@ -1092,7 +1210,7 @@ namespace AssignmentOperatorExample
                     <p>Evaluates whether two operands are equal</p>
 <pre><code>using System;
 
-namespace EqualityOperatorExample
+namespace EqualityOperators
 {
     class Program
     {
@@ -1124,7 +1242,7 @@ namespace EqualityOperatorExample
                     <p>Compares the values of two operands</p>
 <pre><code>using System;
 
-namespace ComparisonOperatorExample
+namespace ComparisonOperators
 {
     class Program
     {
@@ -1168,7 +1286,7 @@ namespace ComparisonOperatorExample
                     <p>Appliers an arithmetical operation between two operands</p>
 <pre><code>using System;
 
-namespace ArithmeticOperatorExample
+namespace ArithmeticOperators
 {
     class Program
     {
@@ -1264,7 +1382,7 @@ namespace ArithmeticOperatorExample
                     <p>Appliers an boolean logic operation between two operands</p>
 <pre><code>using System;
 
-namespace BooleanLogicOperatorExample
+namespace BooleanLogicOperators
 {
     class Program
     {
@@ -1338,7 +1456,7 @@ namespace BooleanLogicOperatorExample
                     <p>An expression using an operator <code>op</code> in the form <code>x op= y</code> is equivalent to <code>x = x op y</code></p>
 <pre><code>using System;
 
-namespace CompoundAssignmentOperatorExample
+namespace CompoundAssignmentOperators
 {
     class Program
     {
@@ -1400,7 +1518,7 @@ namespace CompoundAssignmentOperatorExample
 // g = True
 </code></pre>
                     <!-- !SECTION Compound assignment operators -->
-                    <!-- SECTION Conditional operators -->
+                    <!-- SECTION Conditional operator -->
                     <h3 id="Conditional_operator">Conditional operator ?:</h3>
                     <p>The conditional operator <code>?:</code>, also known as the ternary conditional operator takes the form <code>x = predicate ? a : b</code>. If the
                         predicate is true then the expression returns <code>a</code> else it returns <code>b</code>. Both <code>a</code> and <code>b</code> must be of the
@@ -1408,7 +1526,7 @@ namespace CompoundAssignmentOperatorExample
                         Conditional statements can be nested though doing so can make the code hard to read.</p>
 <pre><code>using System;
 
-namespace ConditionalOperatorExample
+namespace ConditionalOperator
 {
     class Program
     {
@@ -1429,7 +1547,7 @@ namespace ConditionalOperatorExample
 // x = Yes
 // y = No
 </code></pre>
-                    <!-- !SECTION Conditional operators -->
+                    <!-- !SECTION Conditional operator -->
                     <!-- SECTION Conditional and operator -->
                     <h3 id="Conditional_and_operator">Conditional and operator &&</h3>
                     <p>In the expression <code>x = a && b</code> <code>x</code> is true if both <code>a</code> and <code>b</code> are true otherwise <code>x</code> is
@@ -1437,7 +1555,7 @@ namespace ConditionalOperatorExample
                         <code>b</code> would produce an invalid condition that could result in an exception.</p>
 <pre><code>using System;
 
-namespace ConditionalAndOperatorExample
+namespace ConditionalAndOperator
 {
     class Program
     {
@@ -1476,7 +1594,7 @@ namespace ConditionalAndOperatorExample
                         <code>b</code> would produce an invalid condition that could result in an exception.</p>
 <pre><code>using System;
 
-namespace ConditionalOrOperatorExample
+namespace ConditionalOrOperator
 {
     class Program
     {
@@ -1514,7 +1632,7 @@ namespace ConditionalOrOperatorExample
                         returns the result</p>
 <pre><code>using System;
 
-namespace NullCoalescingExample
+namespace NullCoalescingOperator
 {
     class Program
     {
@@ -1542,7 +1660,7 @@ namespace NullCoalescingExample
                         variable is null</p>
 <pre><code>using System;
 
-namespace NullCoalescingExample
+namespace NullCoalescingAssignmentOperator
 {
     class Program
     {
@@ -1572,7 +1690,6 @@ namespace NullCoalescingExample
                     <p>An expression-bodied member definition provides a shorthand method of writing the body of a member. In this case the <code>=&gt;</code> operator is
                         used to separate the name of the member and its body. Supported members are:</p>
                     <ul>
-<!-- TODO add links to members here -->
                         <li><a href="#Constructors">Constructors</a></li>
                         <li><a href="#Properties">Read-only Properties</a></li>
                         <li><a href="#Properties">Property accessors</a></li>
@@ -1594,7 +1711,7 @@ namespace NullCoalescingExample
                     <p>The <code>if</code> and <code>else</code> statements allow the program execution to branch in one of two directions based on a condition.</p>
 <pre><code>using System;
 
-namespace IfElseExample
+namespace IfElse
 {
     class Program
     {
@@ -1622,7 +1739,7 @@ namespace IfElseExample
                     <p>The <code>switch</code> statement allows for program execution to branch in one of multiple directions based on a condition.</p>
 <pre><code>using System;
 
-namespace SwitchExample
+namespace Switch
 {
     class Program
     {
@@ -1664,7 +1781,7 @@ namespace SwitchExample
                         <code>while</code> loop.</p>
 <pre><code>using System;
 
-namespace WhileLoopExample
+namespace WhileLoop
 {
     class Program
     {
@@ -1690,7 +1807,7 @@ namespace WhileLoopExample
                         before testing for the condition.</p>
 <pre><code>using System;
 
-namespace DoWhileLoopExample
+namespace DoWhileLoop
 {
     class Program
     {
@@ -1714,7 +1831,7 @@ namespace DoWhileLoopExample
                     <p>The <code>for</code> statement iterates a set number of times based on an exit condition.</p>
 <pre><code>using System;
 
-namespace ForLoopExample
+namespace ForLoop
 {
     class Program
     {
@@ -1737,7 +1854,7 @@ namespace ForLoopExample
                     <p>The <code>foreach</code> statement iterates through all members of a collection.</p>
 <pre><code>using System;
 
-namespace ForEachLoopExample
+namespace ForEachLoop
 {
     class Program
     {
@@ -1761,7 +1878,7 @@ namespace ForEachLoopExample
                     <p>The <code>break</code> keyword gives you a way of conditionally exiting a loop before completion.</p>
 <pre><code>using System;
 
-namespace ConsoleApp17
+namespace Break
 {
     class Program
     {
@@ -1788,7 +1905,7 @@ namespace ConsoleApp17
                         conjunction with the <code>continue</code> keyword to skip all even numbers.</p>
 <pre><code>using System;
 
-namespace ConsoleApp17
+namespace Continue
 {
     class Program
     {
@@ -1833,11 +1950,11 @@ namespace ConsoleApp17
                         created and can't be changed. An array can be recreated by using the <code>new</code> keyword which deletes and replaces the existing array
                         <em>and its data</em> with a new one. There are a number of different ways in which to create an array which can also include initializing the
                         element values. If not initialized the default value for the elements in a single-dimensional or multi-dimensional array will be 0 for numeric
-                        types and null for reference types. As a jagged array stores other arrays the default type is always null. Following are examples of how arrays
-                        can be initialized.</p>
+                        types and null for reference types. As a jagged array stores other arrays the default type is always null.</p>
+                        <p>The following example demonstrates the declaration and initialization of an array.</p>
 <pre><code>using System;
 
-namespace ArrayCreationExample
+namespace Arrays
 {
     class Program
     {
@@ -1965,10 +2082,11 @@ namespace ArrayCreationExample
                     <!-- SECTION Accessing arrays -->
                     <h3 id="Accessing_arrays">Accessing arrays</h3>
                     <p>Arrays are normally zero index based so the elements in a dimension of length n will be accessed by index values of 0 through n-1. Whilst it is
-                        possible to create an array that is not zero based its use is very uncommon and is beyond the scope of this document.</p>
+                        possible to create an array that is not zero based its use is rare.</p>
+                    <p>The following example demonstrates how to access an array.</p>
 <pre><code>using System;
 
-namespace ArrayAccessExample
+namespace ArrayAccess
 {
     class Program
     {
@@ -2117,9 +2235,9 @@ namespace ArrayAccessExample
             Console.WriteLine();
 
             // This demonstrates the types that are stored in a jagged array
-            // The first line prints Int32[] where the brackets indicate
+            // The first line prints Int32[] where the square brackets indicate
             // that it is an array of type 'int' whereas the second prints
-            // Int32 without brackets indicating the actual type stored in
+            // Int32 without square brackets indicating the actual type stored in
             // each array is an 'int'
             Console.WriteLine(jaggedArray[0].GetType().Name);
             Console.WriteLine(jaggedArray[0][0].GetType().Name);
@@ -2217,12 +2335,14 @@ namespace ArrayAccessExample
                     <p>A <i>List&lt;T&gt;</i> is a strongly typed generic collection of objects accessed by an int type <i>index</i>. Unlike an array, a list does
                         not have a fixed size and as such does not have to be declared. It provides a number of useful methods for manipulating its data such as add,
                         remove, sort, find and clear.</p>
+<!-- TODO correct anonymous expression and link note -->
                     <p><em>Note:</em> <i>The Find method uses an anonymous expression details of which are in
                             <a href="#Anonymous_functions">Anonymous functions</a></i></p>
+                    <p>The following example demonstrates List declaration and use </p>
 <pre><code>using System;
 using System.Collections.Generic;
 
-namespace ListExample
+namespace Lists
 {
     class Program
     {
@@ -2352,10 +2472,11 @@ namespace ListExample
                     <p>A <i>Dictionary&lt;TKey, TValue&gt;</i> is a strongly typed generic collection of <i>KeyValuePair&lt;TKey, TValue&gt;</i> accessed by a <i>key</i>
                         index.  Like a List, a Dictionary does not have a fixed size and as such does not have to be declared. Methods include add, remove, contains,
                         clear.</p>
+                    <p>The following example demonstrates Dictionary declaration and use</p>
 <pre><code>using System;
 using System.Collections.Generic;
 
-namespace DictionaryExample
+namespace Dictionaries
 {
     class Program
     {
@@ -2528,10 +2649,10 @@ namespace DictionaryExample
                         names to assign the underlying constant values to variables. You can declare the type and value of each constant or allow the editor to declare
                         them for you. The default type for the value is an integer and the list is zero based. A value in an enum is accessed through the enums
                         identifier, followed by a period, followed by the the name of one of the constants.</p>
-                        <p>The following example shows how to declare and use an enumerator using the defaults.</p>
+                        <p>The following example demonstrates enumerator declaration and use.</p>
 <pre><code>using System;
 
-namespace EnumExample
+namespace Enumerators
 {
     class Program
     {
@@ -2564,96 +2685,6 @@ namespace EnumExample
                 </article>
             </section>
             <!-- !SECTION Enumerators -->
-            <!-- SECTION Object-oriented Programming -->
-            <section class="main-section" id="Object-oriented_Programming">
-                <header><h2>Object-oriented Programming</h2></header>
-                <a class="back-to-top" href="#">Back to top</a>
-                <article>
-                    <p>Object-oriented programming (OOP) is a programming paradigm used extensively throughout C#. It encompasses a number of concepts that provide the
-                        developer a structured process for writing a program. This is particularly important for large applications that may be maintained by multiple
-                        teams of developers. Instead of having one massive length of code that does everything, it is instead broken down into objects that each have a
-                        narrowly defined responsibility. C# uses a sort of template called a type to define an object that is created when a program is run and multiple
-                        objects, also called instances, can be created based on the type, each with their own state. These types are then combined to create an assembly
-                        and one or more assemblies are combine to create an application.</p>
-                    <p> Major principles of OOP include:</p>
-                    <ul>
-                        <li>Object</li>
-                        <li>Encapsulation</li>
-                        <li>Inheritance</li>
-                        <li>Abstraction</li>
-                        <li>Polymorphism</li>
-                    </ul>
-                    <!-- SECTION Object -->
-                    <h3 id="Object">Object</h3>
-                    <p>An object combines data and behavior to represent everyday things such as a number, a spreadsheet, a person or even something less tangible such as
-                        the relationship between a part's name and its quantity in a database. During runtime multiple objects are created from a type definition each
-                        with their own own internal state. This allows different versions (instances) of an object to exist. For example two number type objects could be
-                        created, one with a value of 5 and another with 7. Three techniques employed by C# to define an object are:</p>
-                    <ul>
-                        <li>Properties - a particular state of an object such as color, the number of columns, what a thing is made of.</li>
-                        <li>Methods - the behavior of an object such as add numbers, manipulate text, etc. Methods can take in and return modified data.</li>
-                        <li>Events - a way of communicating to other objects that its state has changed.</li>
-                    </ul>
-                    <p>Take for example a light. It could have a 'Light Is On' property, a 'Turn Light On' method and a 'Light Has Turned' On event. A person object
-                        could then check the 'Light Is On' property and if it's off (false), use the 'Turn Light On' method to turn the light on. The method would then
-                        set 'Light Is On' to true and then trigger the 'Light Has Turned On' event. A second person object could be watching out for the event and when it
-                        happens it would know to run its own 'Read Book' method.</p>
-                    <!-- !SECTION Object -->
-                    <!-- SECTION Encapsulation -->
-                    <h3 id="Encapsulation">Encapsulation</h3>
-                    <p>Encapsulation protects the data and methods used to define the internal state of an object from direct manipulation. Data that is passed in and out
-                        of the object can be validated so as to ensure that the state of the object becomes invalid. This way code external to an object need not be
-                        concerned with the data it contains or how a method works, only that by using it, it will provide the expected result. Take for example the
-                        posting of a letter. Provided that you give it the correct address and a stamp, once you place it in the mail box you expect it to arrive at the
-                        recipient. You need not be concerned with the details of the method (how it will be delivered) or the internal data (the name of the person doing
-                        the delivery). With this the creator of the object is free to change the internal workings of an object without affecting those using it, as long
-                        as it continues to do what it says on the box. In order to decide which object members are made available externally to an object, C# provides
-                        access modifier keywords such as <code>public</code> and <code>private</code>.</p>
-                    <!-- !SECTION Encapsulation -->
-                    <!-- SECTION Inheritance -->
-                    <h3 id="Inheritance">Inheritance</h3>
-                    <p>Many things in life have similarities. For example a car and a motorbike both have an engine, wheels and brakes but where as a motorbike has
-                        handle bars a car has a steering wheel. This makes it difficult to use one object to represent both but rather than create two objects duplicating
-                        much of the same functionality we can use the concept of inheritance. Here, first an parent object containing all the common traits is created
-                        then separate child objects based on the parent are created, each adding just their own differences. Using the previous example we could create a
-                        vehicle object that has the engine, brakes and wheels properties then from that create a motorbike object that adds handle bars and a car object
-                        that adds a steering wheel. By having a common inherited wheels property the number of wheels can be set at runtime to 2 for a motorbike and 4 for
-                        car or even 3 if it is a three-wheeler.</p>
-                    <p>Other names for parent are ancestor or superclass and for child, descendant or subclass. Just to be different, C# calls a parent a base type and
-                        a child a derived type which is specifically mentioned here as C# provides the <code>base</code> keyword to access a base type from a derived
-                        type. Also note that structs can neither inherit or be inherited by another class or struct.</p>
-                    <!-- !SECTION Inheritance -->
-                    <!-- SECTION Abstraction -->
-                    <h3 id="Abstraction">Abstraction</h3>
-                    <p>Abstraction is the process of determining and extracting from a complex problem just the information we require to define a solution. For example
-                        what does it take to eat food. Here we need to ask an expert in this case lets consider what a child would say. They'd probably say something
-                        like, you  put food in your mouth chew it then swallow. That's it. Now of course the human body is an extremely complex organism, to actually
-                        eat food the brain has to send signals to the jaw muscles to chew the food, then to the tongue to swallow it. From there it goes into the stomach
-                        where it is mixed with acid, then into the small intestine ... But for the purposes of survival all the user has to be concerned with is food,
-                        mouth, chew, swallow. Of course had we omitted the chew step then the choke method may have kicked in resulting in a premature end to our program.
-                        It is important then to extract exactly what is required, no less, no more and this is an essential design step before the first line of code is
-                        even written.</p>
-                    <p>Another term you may come across is abstraction layers which is the dividing of a problem into the various layers of complexity. Take for instance
-                        what is involved in writing and running an application. As mentioned in the C Sharp Language section all a computer knows is ones and zeroes but
-                        even that is not the lowest level. If we go further we get down to the quantum level where the state of electrons are controlled by transistors.
-                        This is the hardware abstraction layer limited mainly to the manufacturer. Above the ones and zeroes, or binary abstraction layer, is the assembly
-                        language which is a set of instructions in a pseudo human language provided by hardware manufacturers as to what the hardware does. This is the
-                        language used by by those creating the compiler that translates the C# language we write into the binary language amd ultimately into the quantum
-                        state of the hardware. This does not mean that someone writing in C# is completely separated from the other layers. For example as you use the
-                        code editor the the compiler is constantly interpreting what you write and if it can't, it will warn you that there is a syntax error.</p>
-                    <!-- !SECTION Abstraction -->
-                    <!-- SECTION Polymorphism -->
-                    <h3 id="Polymorphism">Polymorphism</h3>
-                    <p>Polymorphism is the ability to substitute any child object for its parent and the members they contain. Using the inheritance example, we want to
-                        make sure that we can steer our vehicle so we provide a steer method. This presents a problem as we can't be sure whether the consumer is going
-                        to buy a car or a motorbike. The car has a steering wheel property that has to be set whereas the motor bike has handle bars. Polymorphism allows
-                        you to substitute what the steer method does in the child object. If you then have a purchasing object, that has a buy method that can take in a
-                        vehicle object and when it is called, you can substitute the vehicle parent object for either car or motorbike child object. This way whichever is
-                        provided will have the correct steer method. </p>
-                    <!-- !SECTION Polymorphism -->
-                </article>
-            </section>
-            <!-- !SECTION Object-oriented Programming -->
             <!-- SECTION Classes and Other User Defined Types -->
             <section class="main-section" id="Classes_and_Other_User_Defined_Types">
                 <header><h2>Classes and Other User Defined Types</h2></header>
@@ -2688,7 +2719,7 @@ namespace EnumExample
                     <p>Classes, structs and records can be instantiated with use of the <code>new</code> keyword. That is multiple instances of these types can be
                         created, each with its own state. A class can also be made <a href="#static">static</a> in which case it cannot be instantiated using the
                         <code>new</code> keyword but instead a single instance of the class is automatically created at run-time and is shared throughout the assembly. A
-                        child class, record or interface can <a href="#Inheritance_and_polymorphism">inherit</a> from a parent class, record or interface respectively. In
+                        child class, record or interface can <a href="#Inheriting_types">inherit</a> from a parent class, record or interface respectively. In
                         C# a parent type is called a base type and a child a derived type. Classes and records can be marked as <a href="#abstract">abstract</a> requiring
                         a derived class for instantiation or <a href="#sealed">sealed</a> to prevent inheritance. Use of the static, abstract and sealed keywords is
                         mutually exclusive. As well as inheritance a class, struct or record can implement an interface.</p>
@@ -2721,7 +2752,7 @@ namespace EnumExample
                     <p>The following example demonstrates ways in which a class can be declared. </p>
 <pre><code>using System;
 
-namespace ClassDeclarationExample
+namespace ClassDeclaration
 {
     // The syntax for declaring a class is first
     // an optional access modifier followed by
@@ -2854,7 +2885,7 @@ namespace ClassExample
 
         // This is the expression-bodied member syntax for the GetArea method
         // and performs the same function. It is useful when only one line
-        // of code is to be entered within the curly braces
+        // of code is to be entered within the braces
         public int GetArea2() =&gt; Height * Width;
 
         // An overloaded GetArea2 method. When selecting this method
@@ -2944,8 +2975,8 @@ namespace ClassExample
                         <a href="#The_lambda_and_body_definition_operator">expression-bodied members</a>. Constructors, indexers and methods can be
                         <a href="#Parameters,_signatures_and_overloading">overloaded</a>. That is a type can contain multiple versions with the same identifier provided
                         that they overload a member of the same type and each overload has a unique signature.</p>
-                    <p>Properties, indexers, methods and events in a <a href="#Inheritance_and_polymorphism">base</a> type can be marked marked
-                        <a href="#abstract">abstract</a> or <a href="Overriding_a_virtual_member">virtual</a>. In a <a href="#Inheritance_and_polymorphism">derived</a> type a virtual base member can
+                    <p>Properties, indexers, methods and events in a <a href="#Inheriting_types">base</a> type can be marked marked
+                        <a href="#abstract">abstract</a> or <a href="Overriding_a_virtual_member">virtual</a>. In a <a href="#Inheriting_types">derived</a> type a virtual base member can
                         optionally be <a href="#Overriding_a_virtual_member">overridden</a> where as an abstract base member <em>must</em> be overridden by a member with
                         the same signature that is marked with the <code>override</code> keyword. A type that contains an abstract member must also be marked abstract. A
                         member marked as <code>override</code> can also be marked with the <code>sealed</code> keyword preventing it from being overridden in any further
@@ -3007,7 +3038,7 @@ namespace ClassExample
                     <p>The following example demonstrates field declaration and use.</p>
 <pre><code>using System;
 
-namespace FieldDeclarationExample
+namespace Fields
 {
     public class Person
     {
@@ -3095,7 +3126,7 @@ namespace FieldDeclarationExample
 // person3 details - ID: Person3, Name: Andrew Smith, Age: 23, Weight: 50kg
 </code></pre>
                     <!-- !SECTION Fields -->
-                    <!-- SECTION Constants -->
+                    <!-- SECTION Constant fields -->
                     <h3 id="Constant_fields">Constant fields</h3>
                     <p>Like a variable field, a constant field is declared inside a type but outside any other member. They are declared using an optional
                         <a href="#Access_modifiers">access modifier</a>, followed by the <code>const</code> keyword, followed by the constant field's type, followed by an
@@ -3108,7 +3139,7 @@ namespace FieldDeclarationExample
                         <p>The following example demonstrates constant field declaration and use.</p>
 <pre><code>using System;
 
-    namespace ConstantsExample
+    namespace ConstantFields
     {
         public class MathConstants
         {
@@ -3152,7 +3183,7 @@ namespace FieldDeclarationExample
     // The area of circle 1 with a radius of 2 is 12.566
     // The area of circle 2 with a radius of 3 is 28.2735
 </code></pre>
-                    <!-- !SECTION Constants -->
+                    <!-- !SECTION Constant fields -->
                     <!-- SECTION Properties -->
                     <h3 id="Properties">Properties</h3>
                     <p>A property is a way of allowing external code to have controlled access to a field within an object. Declaration of a property can take two forms,
@@ -3209,7 +3240,7 @@ namespace FieldDeclarationExample
                     <p>The following shows examples of method declaration and use.</p>
 <pre><code>using System;
 
-namespace MethodExample
+namespace Methods
 {
     public class Class1
     {
@@ -3323,7 +3354,7 @@ namespace MethodExample
                         finally writes its value to the console.</p>
 <pre><code>using System;
 
-namespace IndexExample
+namespace Indexers
 {
     class StringCollection
     {
@@ -3591,7 +3622,7 @@ namespace StaticExample
                         console.</p>
 <pre><code>using System;
 
-namespace StructExample
+namespace Structs
 {
     public struct Box
     {
@@ -3721,7 +3752,7 @@ namespace StructExample
                     <p>The following example demonstrates delegate declaration and use.</p>
 <pre><code>using System;
 
-namespace DelegateExample
+namespace Delegates
 {
     // A 'delegate' declares the method return type and signature
     // Delegate 'Calculate' takes in two int's and returns an int
@@ -3770,11 +3801,8 @@ namespace DelegateExample
 // 5 x 3 = 15
 </code></pre>
                     <!-- !SECTION Delegates -->
-
-
-                    <!-- SECTION Inheritance and polymorphism -->
-<!-- TODO add info about polymorphism -->
-                    <h3 id="Inheritance_and_polymorphism">Inheritance and polymorphism</h3>
+                    <!-- SECTION Inheriting types -->
+                    <h3 id="Inheriting_types">Inheriting types</h3>
                     <p>Inheritance is one of the main concepts in Object Oriented Programming. It allows you to create a parent class with common features that child
                         classes can inherit and expand upon. In C# a parent class is called a base class and a child a derived class. C# only allows single inheritance,
                         that is a derived class can only inherit from one base class but it does allow for multiple generations which means a base class can be inherited
@@ -3847,6 +3875,7 @@ namespace ClassInheritanceExample
 
 namespace ClassInheritanceExample
 {
+    // Declare a base class called 'Animal'
     public class Animal
     {
         int mLegs;
@@ -3864,11 +3893,15 @@ namespace ClassInheritanceExample
         }
     }
 
+    // The derived class 'Bird' inherits 'Animal'
+    // and adds the property 'Flying'
     public class Bird : Animal
     {
         public string Flying { get; set; }
     }
 
+    // The derived class 'Cat' inherits 'Animal'
+    // and adds the property 'Meowing'
     public class Cat : Animal
     {
         public string Meowing { get; set; }
@@ -3878,12 +3911,14 @@ namespace ClassInheritanceExample
     {
         static void Main(string[] args)
         {
+            // An instance of 'Bird' class is created
             Bird bird = new()
             {
                 Legs = 2,
                 Flying = "Slowly"
             };
 
+            // An instance of 'Cat' class is created
             Cat cat = new()
             {
                 Legs = 4,
@@ -3904,7 +3939,7 @@ namespace ClassInheritanceExample
 // The bird has 2 legs and is flying Slowly
 // The cat has 4 legs and is meowing Loudly
 </code></pre>
-                    <!-- !SECTION Inheritance and polymorphism -->
+                    <!-- !SECTION Inheriting types -->
                     <!-- SECTION Overriding a virtual member -->
                     <h3 id="Overriding_a_virtual_member">Overriding a virtual member</h3>
                     <p>The implementation of a member in a derived class can be overridden provided that the member in the base class is marked with the
@@ -3923,7 +3958,7 @@ namespace ClassInheritanceExample
                         <code>LogAnalyzer3</code> displays the message from the base class.</p>
 <pre><code>using System;
 
-namespace OverridingAVirtualMemberExample
+namespace OverridingVirtualMembers
 {
     public class LogAnalyzer
     {
@@ -4002,8 +4037,8 @@ namespace OverridingAVirtualMemberExample
 // Log message has occurred
 </code></pre>
                     <!-- !SECTION Overriding a virtual member -->
-                    <!-- SECTION Implementing polymorphism -->
-                    <h3 id="Implementing_polymorphism">Implementing polymorphism</h3>
+                    <!-- SECTION Polymorphism implementation -->
+                    <h3 id="Polymorphism_implementation">Polymorphism implementation</h3>
                     <p>In the previous example each derived class was created and the methods called separately. Ideally it would have been better to do this all through
                         a loop. This can be done as <a href="#Polymorphism">polymorphism</a> allows you to substitute a parent for a child then when the parent's method
                         is called at runtime it will be substituted for the child's.</p>
@@ -4017,7 +4052,7 @@ namespace OverridingAVirtualMemberExample
 <pre><code>using System;
     using System.Collections.Generic;
 
-    namespace PolymorphismExample
+    namespace Polymorphism
     {
         public class LogAnalyzer
         {
@@ -4067,14 +4102,14 @@ namespace OverridingAVirtualMemberExample
     // Log message type 1 has occurred
     // Log message type 2 has occurred
 </code></pre>
-                    <!-- !SECTION Implementing polymorphism -->
+                    <!-- !SECTION Polymorphism implementation -->
                     <!-- SECTION sealed -->
                     <h3 id="sealed">sealed</h3>
                     <p>To prevent a class from being inherited it can be marked with the <code>sealed</code> keyword. A member that is being overridden in a class can
                         also be marked as <code>sealed</code> which prevents it from being overridden in any further derived classes.</p>
 <pre><code>using System;
 
-namespace SealedClassExample
+namespace Sealed
 {
     public sealed class A
     {
@@ -4137,7 +4172,7 @@ namespace SealedClassExample
 
 <pre><code>using System;
 
-namespace BaseClassExample
+namespace BaseKeyword
 {
     public class BaseClass
     {
@@ -4244,7 +4279,7 @@ namespace BaseClassExample
 <pre><code>using System;
 using System.Globalization;
 
-namespace AbstractClassExample
+namespace Abstract
 {
     public abstract class PriceCalculator
     {
@@ -4332,7 +4367,7 @@ namespace AbstractClassExample
                         last names then return the full name which is written to the console.</p>
 <pre><code>using System;
 
-namespace OverridingToStringExample
+namespace Overriding
 {
     public class Person
     {
@@ -4413,7 +4448,7 @@ namespace OverridingToStringExample
                         interface declaration is does not matter.</p>
 <pre><code>using System;
 
-namespace InterfaceExample
+namespace Interface
 {
     public interface IMotion
     {
@@ -4508,7 +4543,7 @@ namespace InterfaceExample
                     <p>The following example demonstrates anonymous method declaration and use.</p>
 <pre><code>using System;
 
-namespace AnonymousMethodExample
+namespace AnonymousMethod
 {
     // Delegate 'Calculate' takes in two int's and returns an int
     public delegate int Calculate(int value1, int value2);
@@ -4545,7 +4580,7 @@ namespace AnonymousMethodExample
                     <p>The following example demonstrates various lambda expression declarations and use.</p>
 <pre><code>using System;
 
-namespace LambdaExpressionExample
+namespace LambdaExpression
 {
     // 'CalculateTwoValues' takes in two int's and returns an int
     public delegate int CalculateTwoValues(int value1, int value2);
@@ -4623,7 +4658,7 @@ namespace LambdaExpressionExample
 
 <pre><code>using System;
 
-namespace ActionAndFuncExample
+namespace ActionAndFunc
 {
     class Program
     {
@@ -4865,7 +4900,7 @@ namespace SomeNamespace
                     <p>Following are examples of scope.</p>
 <pre><code>using System;
 
-namespace ScopeExample
+namespace Scope
 {
     public class Class1
     {
@@ -5058,12 +5093,12 @@ namespace ScopeExample
                     <!-- !SECTION Scope -->
                     <!-- SECTION Access modifiers -->
                     <h3 id="Access_modifiers">Access modifiers</h3>
-                    <p> Accessibility level declares where a type or type's members can be used by other code within your assembly or other assemblies. Each type or member
-                        has a default access level which, depending on the context, can be changed either by the access level of the container or by the use of an access
-                        modifier keyword. A local variable's accessibility is always restricted to the scope in which it is contained and cannot be modified. Except for
-                        <code>protected internal</code> and <code>private protected</code> only one access modifier keyword can be applied to a type or a member. For
-                        information about accessibility of the accessors for a property or indexer see Classes. Following is the list of access modifier keywords and the
-                        access level provided by them.</p>
+                    <p> Accessibility level declares where a type or type's members can be used by other code within your assembly or other assemblies. Each type or
+                        member has a default access level which, depending on the context, can be changed either by the access level of the container or by the use of an
+                        access modifier keyword. A local variable's accessibility is always restricted to the scope in which it is contained and cannot be modified.
+                        Except for <code>protected internal</code> and <code>private protected</code> only one access modifier keyword can be applied to a type or a
+                        member. For information about accessibility of the accessors for a property or indexer see Classes. Following is the list of access modifier
+                        keywords and the access level provided by them.</p>
                     <ul>
                         <li><i>public</i> - the same assembly or another assembly that references it</li>
                         <li><i>protected internal</i> - the same assembly or in a derived class in another assembly</li>
@@ -5296,6 +5331,96 @@ namespace ScopeExample
                 </article>
             </section>
             <!-- !SECTION Scope and Access Modifiers -->
+            <!-- SECTION Object-oriented Programming -->
+            <section class="main-section" id="Object-oriented_Programming">
+                <header><h2>Object-oriented Programming</h2></header>
+                <a class="back-to-top" href="#">Back to top</a>
+                <article>
+                    <p>Object-oriented programming (OOP) is a programming paradigm used extensively throughout C#. It encompasses a number of concepts that provide the
+                        developer a structured process for writing a program. This is particularly important for large applications that may be maintained by multiple
+                        teams of developers. Instead of having one massive length of code that does everything, it is instead broken down into objects that each have a
+                        narrowly defined responsibility. C# uses a sort of template called a type to define an object that is created when a program is run and multiple
+                        objects, also called instances, can be created based on the type, each with their own state. These types are then combined to create an assembly
+                        and one or more assemblies are combine to create an application.</p>
+                    <p> Major principles of OOP include:</p>
+                    <ul>
+                        <li>Object</li>
+                        <li>Encapsulation</li>
+                        <li>Inheritance</li>
+                        <li>Abstraction</li>
+                        <li>Polymorphism</li>
+                    </ul>
+                    <!-- SECTION Object -->
+                    <h3 id="Object">Object</h3>
+                    <p>An object combines data and behavior to represent everyday things such as a number, a spreadsheet, a person or even something less tangible such as
+                        the relationship between a part's name and its quantity in a database. During runtime multiple objects are created from a type definition each
+                        with their own own internal state. This allows different versions (instances) of an object to exist. For example two number type objects could be
+                        created, one with a value of 5 and another with 7. Three techniques employed by C# to define an object are:</p>
+                    <ul>
+                        <li>Properties - a particular state of an object such as color, the number of columns, what a thing is made of.</li>
+                        <li>Methods - the behavior of an object such as add numbers, manipulate text, etc. Methods can take in and return modified data.</li>
+                        <li>Events - a way of communicating to other objects that its state has changed.</li>
+                    </ul>
+                    <p>Take for example a light. It could have a 'Light Is On' property, a 'Turn Light On' method and a 'Light Has Turned' On event. A person object
+                        could then check the 'Light Is On' property and if it's off (false), use the 'Turn Light On' method to turn the light on. The method would then
+                        set 'Light Is On' to true and then trigger the 'Light Has Turned On' event. A second person object could be watching out for the event and when it
+                        happens it would know to run its own 'Read Book' method.</p>
+                    <!-- !SECTION Object -->
+                    <!-- SECTION Encapsulation -->
+                    <h3 id="Encapsulation">Encapsulation</h3>
+                    <p>Encapsulation protects the data and methods used to define the internal state of an object from direct manipulation. Data that is passed in and out
+                        of the object can be validated so as to ensure that the state of the object becomes invalid. This way code external to an object need not be
+                        concerned with the data it contains or how a method works, only that by using it, it will provide the expected result. Take for example the
+                        posting of a letter. Provided that you give it the correct address and a stamp, once you place it in the mail box you expect it to arrive at the
+                        recipient. You need not be concerned with the details of the method (how it will be delivered) or the internal data (the name of the person doing
+                        the delivery). With this the creator of the object is free to change the internal workings of an object without affecting those using it, as long
+                        as it continues to do what it says on the box. In order to decide which object members are made available externally to an object, C# provides
+                        access modifier keywords such as <code>public</code> and <code>private</code>.</p>
+                    <!-- !SECTION Encapsulation -->
+                    <!-- SECTION Inheritance -->
+                    <h3 id="Inheritance">Inheritance</h3>
+                    <p>Many things in life have similarities. For example a car and a motorbike both have an engine, wheels and brakes but where as a motorbike has
+                        handle bars a car has a steering wheel. This makes it difficult to use one object to represent both but rather than create two objects duplicating
+                        much of the same functionality we can use the concept of inheritance. Here, first an parent object containing all the common traits is created
+                        then separate child objects based on the parent are created, each adding just their own differences. Using the previous example we could create a
+                        vehicle object that has the engine, brakes and wheels properties then from that create a motorbike object that adds handle bars and a car object
+                        that adds a steering wheel. By having a common inherited wheels property the number of wheels can be set at runtime to 2 for a motorbike and 4 for
+                        car or even 3 if it is a three-wheeler.</p>
+                    <p>Other names for parent are ancestor or superclass and for child, descendant or subclass. Just to be different, C# calls a parent a base type and
+                        a child a derived type which is specifically mentioned here as C# provides the <code>base</code> keyword to access a base type from a derived
+                        type. Also note that structs can neither inherit or be inherited by another class or struct.</p>
+                    <!-- !SECTION Inheritance -->
+                    <!-- SECTION Abstraction -->
+                    <h3 id="Abstraction">Abstraction</h3>
+                    <p>Abstraction is the process of determining and extracting from a complex problem just the information we require to define a solution. For example
+                        what does it take to eat food. Here we need to ask an expert in this case lets consider what a child would say. They'd probably say something
+                        like, you  put food in your mouth chew it then swallow. That's it. Now of course the human body is an extremely complex organism, to actually
+                        eat food the brain has to send signals to the jaw muscles to chew the food, then to the tongue to swallow it. From there it goes into the stomach
+                        where it is mixed with acid, then into the small intestine ... But for the purposes of survival all the user has to be concerned with is food,
+                        mouth, chew, swallow. Of course had we omitted the chew step then the choke method may have kicked in resulting in a premature end to our program.
+                        It is important then to extract exactly what is required, no less, no more and this is an essential design step before the first line of code is
+                        even written.</p>
+                    <p>Another term you may come across is abstraction layers which is the dividing of a problem into the various layers of complexity. Take for instance
+                        what is involved in writing and running an application. As mentioned in the C Sharp Language section all a computer knows is ones and zeroes but
+                        even that is not the lowest level. If we go further we get down to the quantum level where the state of electrons are controlled by transistors.
+                        This is the hardware abstraction layer limited mainly to the manufacturer. Above the ones and zeroes, or binary abstraction layer, is the assembly
+                        language which is a set of instructions in a pseudo human language provided by hardware manufacturers as to what the hardware does. This is the
+                        language used by by those creating the compiler that translates the C# language we write into the binary language amd ultimately into the quantum
+                        state of the hardware. This does not mean that someone writing in C# is completely separated from the other layers. For example as you use the
+                        code editor the the compiler is constantly interpreting what you write and if it can't, it will warn you that there is a syntax error.</p>
+                    <!-- !SECTION Abstraction -->
+                    <!-- SECTION Polymorphism -->
+                    <h3 id="Polymorphism">Polymorphism</h3>
+                    <p>Polymorphism is the ability to substitute any child object for its parent and the members they contain. Using the inheritance example, we want to
+                        make sure that we can steer our vehicle so we provide a steer method. This presents a problem as we can't be sure whether the consumer is going
+                        to buy a car or a motorbike. The car has a steering wheel property that has to be set whereas the motor bike has handle bars. Polymorphism allows
+                        you to substitute what the steer method does in the child object. If you then have a purchasing object, that has a buy method that can take in a
+                        vehicle object and when it is called, you can substitute the vehicle parent object for either car or motorbike child object. This way whichever is
+                        provided will have the correct steer method. </p>
+                    <!-- !SECTION Polymorphism -->
+                </article>
+            </section>
+            <!-- !SECTION Object-oriented Programming -->
             <!-- SECTION Keywords and Specifications -->
             <section class="main-section" id="Keywords_and_Specifications">
                 <header><h2>Keywords and Specifications</h2></header>
@@ -5619,11 +5744,14 @@ var q = -2.1e-3m; // decimal
                         <li><b>\t</b>&emsp; Horizontal tab</li>
                         <li><b>\v</b>&emsp; Vertical tab</li>
                     </ul>
-                    <p class="no-bottom-margin">Unicode escape character, one of:</p>
-                    <p><b>\u0000</b> to <i>\uFFFF</i></p>
-                    <p class="no-bottom-margin">hexadecimal escape character:</p>
-                    <p><b>\x</b>&emsp; <em>Note:</em> <i>Due to possible confusion with Unicode characters it is not recommended to use <b>\x</b></i></p>
-                    <p>The default value is the NUL character \u0000</p>
+                    <p class="no-bottom-margin">Unicode character escape sequence (UTF-16), one of:</p>
+                    <p><b>\u0000</b> to <b>\uFFFF</b></p>
+                    <p class="no-bottom-margin">Unicode character escape sequence (UTF-32), one of:</p>
+                    <p><b>\U000000</b> to <b>\U10FFFF</b></p>
+                    <p class="no-bottom-margin">Unicode escape sequence similar to "\u" except with variable length:</p>
+                    <p><b>\x hhhh</b>&emsp; <em>Note:</em> <i>Due to possible confusion with \u and \U Unicode escape sequences it is not recommended to use
+                        <b>\x hhhh</b></i></p>
+                    <p>The default character value is the NUL character \u0000</p>
                     <p>Character literal examples</p>
 <pre><code>var a = 'a' \\ the <i>a</i> character
 var b = '\\' \\ the <i>\</i> character
