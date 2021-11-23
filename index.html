@@ -1006,6 +1006,7 @@ namespace Characters
 // a       b
 </code></pre>
                     <!-- !SECTION Characters -->
+<!-- TODO Add info somewhere about creating datetime and ToString("C", CultureInfo.CurrentCulture) -->
                     <!-- SECTION Strings -->
                     <h3 id="Strings">Strings</h3>
                     <p>A string is a sequence of Unicode (UTF-16) characters that represent text. The maximum length of a string is based on a memory size of 2GB which
@@ -2334,12 +2335,12 @@ namespace ArrayAccess
                         <li><i>SortedSet&lt;T&gt;</i> - A sorted set for mathematical functions</li>
                     </ul>
                     <!-- !SECTION Collections -->
+<!-- TODO correct anonymous expression and link note -->
                     <!-- SECTION List<T> -->
                     <h4 id="List_T">List&lt;T&gt;</h4>
                     <p>A <i>List&lt;T&gt;</i> is a strongly typed generic collection of objects accessed by an int type <i>index</i>. Unlike an array, a list does
                         not have a fixed size and as such does not have to be declared. It provides a number of useful methods for manipulating its data such as add,
                         remove, sort, find and clear.</p>
-<!-- TODO correct anonymous expression and link note -->
                     <p><em>Note:</em> <i>The Find method uses an anonymous expression details of which are in
                             <a href="#Anonymous_functions">Anonymous functions</a></i></p>
                     <p>The following example demonstrates List declaration and use </p>
@@ -2712,14 +2713,15 @@ namespace Enumerators
                         <li><a href="#Interfaces">interfaces</a> can't be instantiated but instead are used to define behaviors that can be implemented by other types
                         </li>
                     </ul>
-                    <p>A type can contain <a href="#Members">members</a> which include <a href="#Constructors">constructors</a>, <a href="#Fields">fields</a>,
-                        <a href="#Properties">properties</a>, <a href="#Methods">methods</a>, <a href="#Events">events</a>, <a href="#Indexers">indexers</a>,
-                        <a href="#Finalizers">finalizers</a> and nested types. Combined these are used to define an object through encapsulation and storage of its data
-                        and by providing the object's behavior. A type can contain multiple members with the same identifier, known as
-                        <a href="#Parameters,_signatures_and_overloading">overloading</a>, provided that each has a unique
-                        <a href="#Parameters,_signatures_and_overloading">signature</a>. Accessibility to a type from code outside of the assembly, and to members both
-                        from outside the assembly and from other types within the assembly, is controlled through the use of
+                    <p>A type can contain <a href="#Members">members</a>
+                        which include <a href="#Constructors">constructors</a>, <a href="#Fields">fields</a>, <a href="#Properties">properties</a>,
+                        <a href="#Methods">methods</a>, <a href="#Events">events</a>, <a href="#Indexers">indexers</a>, <a href="#Finalizers">finalizers</a> and other
+                        nested types. Combined these are used to define an object through encapsulation and storage of its data and by providing the object's behavior. A
+                        type can contain multiple members with the same identifier, known as <a href="#Parameters,_signatures_and_overloading">overloading</a>, provided
+                        that each has a unique <a href="#Parameters,_signatures_and_overloading">signature</a>. Accessibility to a type from code outside of the assembly,
+                        and to members both from outside the assembly and from other types within the assembly, is controlled through the use of
                         <a href="#Scope_and_Access_Modifiers">access modifier</a> keywords.</p>
+                    <p></p>
                     <p>Classes, structs and records can be instantiated with use of the <code>new</code> keyword. That is multiple instances of these types can be
                         created, each with its own state. A class can also be made <a href="#static">static</a> in which case it cannot be instantiated using the
                         <code>new</code> keyword but instead a single instance of the class is automatically created at run-time and is shared throughout the assembly. A
@@ -2968,8 +2970,8 @@ namespace ClassExample
                         which they are declared. Access to members external to the object is controlled through the use of
                         <a href="#Scope_and_Access_Modifiers">access modifier</a> keywords and the access level of the object that contains them. If omitted a member's
                         access level will be private by default. Members can also be marked with the <a href="#static">static</a>,
-                        <a href="#abstract">abstract</a> or <a href="#sealed">sealed</a> keywords which are mutually exclusive. A calling object accesses the the member
-                        of another in the same <a href="#namespace">namespace</a> through the object's identifier if it is an instance, or the type's identifier if it is
+                        <a href="#abstract">abstract</a> or <a href="#sealed">sealed</a> keywords which are mutually exclusive. A calling object accesses the member of
+                        another in the same <a href="#namespace">namespace</a> through the object's identifier if it is an instance, or the type's identifier if it is
                         static, followed by a period, followed by the member's identifier such as <code>object.Member</code> or <code>Type.Member</code> respectively. If
                         an object needs to access a static member of an object in another namespace then the fully qualified name is required in the form of
                         <code>Namespace.Type.Member</code>. This can be negated through the use of a <a href="#using">using</a> directive. Some members also
@@ -2989,10 +2991,10 @@ namespace ClassExample
                         obtained through use of the <a href="#base_keyword">base</a> keyword. When a member is hidden the code editor will indicate this on the hiding
                         member in the derived class with a <u class="warning">warning</u>. This can be removed by marking the member with the <code>new</code> keyword.
                     </p>
-
                     <!-- !SECTION Members -->
-                    <!-- SECTION Constructors -->
 <!-- TODO finish constructors -->
+                    <!-- SECTION Constructors -->
+
                     <h3 id="Constructors">Constructors</h3>
                     <p>A constructor is used to set the data and provide other actions that initialize the state of an object. It can take two forms, an instance
                         constructor that is used to instantiate a type depending on
@@ -3188,6 +3190,7 @@ namespace Fields
     // The area of circle 2 with a radius of 3 is 28.2735
 </code></pre>
                     <!-- !SECTION Constant fields -->
+<!-- TODO add properties example -->
                     <!-- SECTION Properties -->
                     <h3 id="Properties">Properties</h3>
                     <p>A property is a way of allowing external code to have controlled access to a field within an object. Declaration of a property can take two forms,
@@ -3226,11 +3229,12 @@ namespace Fields
                         both accessors must be manually-implemented or auto-implemented.</p>
                     <p>Access to a property by code external to the type is in the form of <code>instance.Property</code>.</p>
 
-<!-- TODO add properties example -->
 
 
-<!-- TODO add passing array to a method -->
+
+
                     <!-- !SECTION Properties -->
+<!-- TODO add passing array to a method -->
                     <!-- SECTION Methods -->
                     <h3 id="Methods">Methods</h3>
                     <p>A method provides the behavior of an object. This could be reading a file, calculating a value, writing to the screen, etc. They are declared using
@@ -3331,16 +3335,18 @@ namespace Methods
 // Test completed
 </code></pre>
                     <!-- !SECTION Methods -->
+<!-- TODO finish events description -->
+<!-- TODO add events example -->
                     <!-- SECTION Events -->
                     <h3 id="Events">Events</h3>
-<!-- TODO finish events description -->
+
                     <p>An event is a way for the class to communicate with other objects or other parts within itself that the state of the class instance has changed.
                         The event declares which type of method known as an event handler must be used respond to the event. The event usually passes the object that
                         created the event and an EventArgs that can contain additional information about the event to the event handler. The return type for an event
                         handler is almost always void so if information is to be passed back from the event handler, variables can be included in the EventArgs that can
                         be changed within the event handler.</p>
 
-<!-- TODO add events example -->
+
 
                     <!-- !SECTION Events -->
                     <!-- SECTION Indexers -->
@@ -3391,9 +3397,10 @@ namespace Indexers
                     <p>A finalizer is used to perform any cleanup of the class when it is no longer in use. The compiler adds a default finalizer to each instance of a
                         class that is created. As implementing a finalizer is a rare and complex subject it won't be discussed in this guide.</p>
                     <!-- !SECTION Finalizers -->
-                    <!-- SECTION Parameters, signatures and overloading -->
 <!-- TODO finnish signatures info and add example  -->
 <!-- TODO add info about parameters, passing by reference, optional arguments, passing an array -->
+                    <!-- SECTION Parameters, signatures and overloading -->
+
                     <h3 id="Parameters,_signatures_and_overloading">Parameters, signatures and overloading</h3>
                     <p>  A method, constructor and indexer have a signature which is declared by its identifier and the type, number, passing mode and left right order of
                         its parameters. Access modifiers and a method's return type are not part of the signature.</p>
@@ -3739,10 +3746,10 @@ namespace Structs
 // Box6 Width: 0, Height: 0, Length: 0, Volume: 0
 </code></pre>
                     <!-- !SECTION Structures (struct) -->
-
+<!-- TODO add content about records -->
                     <!-- SECTION Records -->
                     <h3 id="Records">Records</h3>
-<!-- TODO add content about records -->
+
                     <!-- !SECTION Records -->
 
                     <!-- SECTION Delegates -->
@@ -4149,8 +4156,9 @@ namespace Sealed
     }
 }
 </code></pre>
-<!-- TODO Rewrite this -->
+
                     <!-- !SECTION sealed -->
+<!-- TODO Rewrite the following -->
                     <!-- SECTION base keyword -->
                     <h3 id="base_keyword">base keyword</h3>
                     <p>Although constructors cannot be inherited those in the base class are still called after the derived constructor is called but before the enclosed
@@ -4281,7 +4289,7 @@ namespace BaseKeyword
                         <code>HourlyRate</code>. In this case the overridden <code>CalculateAmount</code> first subtracts <code>StartTime</code> from
                         <code>FinishTime</code> then multiplies thy result by <code>HourlyRate</code> and then returns the amount. Lastly as can be seen, attempting to
                         instantiate <code>PriceCalculator</code> results in a syntax error.</p>
-<!-- TODO Add info somewhere about creating datetime and ToString("C", CultureInfo.CurrentCulture) -->
+
 
 <pre><code>using System;
 using System.Globalization;
@@ -4720,8 +4728,9 @@ namespace ActionsAndFuncs
                         create an <i>assembly</i>. This can be in the form of either an executable (.exe) or library (.dll) file and an application may consist of one or
                         more of these. When multiple assemblies are used, in order for one to be able to access the components of another it must have a reference to it.
                         The reference is a hierarchal such that if assembly A references assembly B then A can access B's components but not vise versa. If B was then to
-                        attempt to reference A as well this would cause a circular reference error and would prevent either assembly from compiling.</p>
-
+                        attempt to reference A as well this would cause a circular reference error and would prevent either assembly from compiling. Accessibility of a
+                        <a href="#Classes_and_Other_User_Defined_Types">type</a> or type's <a href="#Members">members</a> also depends on the application of
+                        <a href="#Access_modifiers">access modifiers</a>.</p>
                     <p>In Visual Studio when a C# project is created it creates a <i>Solution</i> that includes the project and other files required by the compiler to to
                         build the assembly. These can be viewed in the <i>Solution Explorer</i> window which can be accessed via the <i>Solution Explorer</i> tab on the
                         right side of Visual Studio. If the tab is not visible, click on <b>View</b> then <b>Solution Explorer</b> in the menu. The Solution Explorer
@@ -4762,50 +4771,121 @@ namespace ActionsAndFuncs
                         <li><b>ProjectB</b> should now be listed under this node confirming that <b>ProjectA</b> now has a reference to <b>ProjectB</b></li>
                     </ol>
                     <!-- !SECTION Dependencies -->
+<!-- TODO add info about accessing members -->
                     <!-- SECTION Namespaces -->
                     <h3 id="Namespaces">Namespaces</h3>
-                    <p>C# requires that each object within a particular scope be unique and namespaces do this by organizing the code into a tree structure similar to
-                        that of the file system on a computer. For example in order to have 2 files called MyFile.txt on a computer you may put one in a folder called
-                        RootFolder\MyFiles1 and the other in RootFolder\MyFiles2. Namespaces are the same except that the root namespace is normally the name of a project
-                        and the backslashes are replaced with a dot. A sublevel namespace is known as a nested namespace</p>
+                    <p>C# requires that each type has a unique identifier. As the number of types increases naming conflicts become ever more probable, particularly when
+                        external assemblies are referenced. Namespaces assist with this by compartmentally organizing types in a way that is similar to file system. For
+                        example, in order to have two files on a drive called <i>MyFile.txt</i> you may put one in a folder called <i>MyFolder1</i> and the other in
+                        <i>MyFolder2</i>. In a command window the two files are then referred to by <i>MyFolder1\MyFile.txt</i> and <i>MyFolder2\MyFile.txt</i>.
+                        Namespaces are the same except that the backslashes (or forward slashes) are replaced with a dot. Like a file system namespaces are hierarchical
+                        and a sublevel namespace is known as a nested namespace.</p>
+                    <p>A type is defined by its identifier and the namespace it is declared in. Two classes with identical identifiers and members
+                        declared in different namespaces are treated as two different types, each identified by their <i>fully qualified</i> name in the form
+                        <code>MyNamespace.MyType</code>. Accessing a type in another namespace requires use of its fully qualified name whereas accessing a type in the
+                        same namespace only requires its identifier in the form <code>MyType</code>. Nested namespaces are accessed by chaining the namespaces together in
+                        the form <code>Namespace1.Namespace2.MyType</code>. Accessible <a href="#static">static</a> <a href="#Members">members</a>,
+                        <a href="#Constant_fields">constant fields</a> and nested types within a type are accessed in a similar way in the form
+                        <code>MyNamespace.MyType.Member</code>. <i>IntelliSense</i> uses namespaces to assist you by providing suggestions as you type. After typing the
+                        root namespace then pressing <kbd>.</kbd>, all the types and nested namespaces within it will appear in the suggestion box. If one of the nested
+                        namespaces is selected, the <kbd>.</kbd> can again be pressed to find all types and nested namespaces within it and the process can be repeated
+                        until no nested namespaces remain. If a type is selected, pressing the <kbd>.</kbd> will display type's accessible members.</p>
+                    <p>The <code>using</code> keyword allows types from another namespace to be <a href="#Importing_types"><i>imported</i></a> into a local namespace so
+                        that they can be accessed directly by their identifiers and can also be used to create namespace <a href="#Aliases"><i>aliases</i></a> to avoid
+                        naming conflicts. A type declared outside of any namespace is in the <a href="#Global_namespace"><i>global</i></a> namespace.</p>
                     <!-- !SECTION Namespaces -->
-<!-- TODO add info about accessing members -->
+
                     <!-- SECTION namespace -->
                     <h3 id="namespace">namespace</h3>
-                    <p>The <code>namespace</code> keyword followed by a code block is used to declare objects belonging to a particular <i>namespace</i>. Objects can then
-                        be identified in code by using their <i>fully qualified</i> names in the form <code>MyNamespace.MyObject</code>. <i>IntelliSense</i> uses
-                        namespaces to assist you by providing suggestions as you type. After typing the root namespace then pressing <kbd>.</kbd>, all the objects and
-                        nested namespaces within it will appear in the suggestion box. If one of the nested namespaces is selected, the <kbd>.</kbd> can again be pressed
-                        to find all objects and nested namespaces  within it and the process can be repeated until no nested namespaces remain.</p>
-<pre><code>// A using directive can be placed at
-at the top of the file
-namespace MyProject
+                    <p>The <code>namespace</code> keyword followed by a code block is used to declare that all <a href="#Classes_and_Other_User_Defined_Types">types</a>
+                        enclosed within it belong to that <i>namespace</i> and can access each other through each type's identifier. Multiple declarations using the same
+                        namespace can be made throughout the assembly and don't even have to be in the same file.</p>
+                    <p>The following example demonstrates namespace declaration and usage.</p>
+<pre><code>namespace NameSpace1
 {
-    class SomeClass  { }
+    enum Months { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Nov, Dec }
 
-    enum SomeEnum { sun, mon, tue, wed, thu, fri, sat }
+    // This MyClass is declared to belong to NameSpace1
+    class MyClass
+    {
+        public MyEnum Property1 { get; set; }
 
-    interface ISomeInterFace { }
+        public enum MyEnum { a, b, c }
+    }
+
+    interface ISomeInterFace
+    {
+        Months Month { get; set; }
+    }
+}
+
+namespace NameSpace2
+{
+    // Despite having the same identifier and members by
+    // being declared in NameSpace2 this is a different
+    // type to the Months enum declared in NameSpace1
+    enum Months { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Nov, Dec }
+
+    // This MyClass is declared to belong to NameSpace2
+    class MyClass
+    {
+        public MyEnum Property2 { get; set; }
+
+        public enum MyEnum { x, y, z }
+    }
+}
+
+namespace NameSpace1
+{
+    // ISomeInterFace and ClassWithStaticMembers are both
+    // in NameSpace1 so ISomeInterFace can be accessed
+    // here directly by its identifier
+    class ClassWithStaticMembers : ISomeInterFace
+    {
+        public enum Days { Sun, Mon, Tue, Wed, Thu, Fri, Sat }
+
+        public const double PI = 3.1415;
+
+        public static double Area(double radius) => PI * radius * radius;
+
+        // Implementation of ISomeInterFace member Property
+        public Months Month { get; set; }
+
+        private void Method()
+        {
+            // Months is in NameSpace1 so can be
+            // accessed directly by its identifier
+            Months month = Months.Jul;
+        }
+
+        public class Employer
+        {
+            // Months is in NameSpace1 so can be
+            // accessed directly by its identifier
+            // even within a nested type
+            Months month = Months.Nov;
+        }
+    }
+
+    // MyClass was declared in the previous NameSpace1 code block
+    // so uncommenting the following results in the error
+    // The namespace 'NameSpace1' already contains a
+    // definition for 'MyClass'
+    //class MyClass { }
 }
 
 // Declare an object in a sublevel namespace
-namespace MyProject.DataModels
+namespace NameSpace1.DataModels
 {
     class Person { }
-
-    class Employer { }
-
-    class Job { }
 }
 
 // An alternate way to declare in a
 // sublevel using a nested namespace
-namespace MyProject
+namespace NameSpace1
 {
     namespace Animals
     {
-        class Dog { }
-
         class Cat { }
     }
 }
@@ -4816,12 +4896,39 @@ namespace AnotherNamespace
     {
         public void Example()
         {
-            // Objects identified by using their
+            // NameSpace1 and NameSpace2 each have a
+            // class called MyClass within which each
+            // have their own unique members
+            NameSpace1.MyClass myClass1 = new();
+            NameSpace2.MyClass myClass2 = new();
+            myClass1.Property1 = NameSpace1.MyClass.MyEnum.a;
+            myClass2.Property2 = NameSpace2.MyClass.MyEnum.x;
+
+            // Types identified by using their
             // fully qualified names
-            MyProject.MyClass myClass = new();
-            MyProject.MyEnum myEnum = MyProject.MyEnum.Mon;
-            MyProject.Animals.Cat cat = new();
-            MyProject.DataModels.Person person = new();
+            NameSpace1.Months month = NameSpace1.Months.Apr;
+
+            // These members can be accessed without an instance
+            NameSpace1.ClassWithStaticMembers.Days day = NameSpace1.ClassWithStaticMembers.Days.Sun;
+            var pi = NameSpace1.ClassWithStaticMembers.PI;
+            var circleArea = NameSpace1.ClassWithStaticMembers.Area(5.1);
+            NameSpace1.ClassWithStaticMembers.Employer employer = new();
+
+            // The 'Month' property here refers to the
+            // Month type that was defined in NameSpace1
+            NameSpace1.ClassWithStaticMembers instance = new();
+            instance.Month = NameSpace1.Months.May;
+
+            // Uncommenting the following results in the error
+            // Cannot implicitly convert type
+            // 'NameSpace2.Months' to 'NameSpace1.Months',
+            // An explicit conversion exists (are you missing a cast?)
+            //instance.Month = NameSpace2.Months.May;
+
+            // to access nested namespaces the identifiers
+            // are chained using the '.'
+            NameSpace1.DataModels.Person person = new();
+            NameSpace1.Animals.Cat cat = new();
         }
     }
 }
@@ -4831,10 +4938,6 @@ namespace AnotherNamespace
                         project then move the file to your desired folder. The following shows the code generated by adding a class called <i>MainViewModel</i> to a
                         folder called <i>ViewModels</i> in a project called <i>MyCompany</i>.</p>
 <pre><code>using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyCompany.ViewModels
 {
@@ -4844,50 +4947,206 @@ namespace MyCompany.ViewModels
 }
 </code></pre>
                     <!-- !SECTION namespace -->
-                    <!-- SECTION using -->
 <!-- TODO add using static -->
-                    <h3 id="using">using</h3>
-                    <p>Identifying every object by its <i>fully qualified</i> name soon becomes cumbersome and can make the code hard to read. The <code>using</code>
-                        directive makes all objects and nested namespaces within a namespace available for use. This is also known as importing. The name of just the
-                        objects name can then be used within the code.</p>                    <p>If you know the name of the object you want to add to your code but don't know its namespace, Visual Studio provides a shortcut for this. After
-                        typing the object's full name and with the cursor touching it, for example <code>List</code>, press <kbd>Ctrl</kbd> + <kbd>.</kbd> and
-                        IntelliSense will suggest the correct using directive to use, most likely at the top of the list. Click on the suggestion and it will added to the
-                        code. Please note that the full name name must be entered with the correct case. Also, the project must have a reference to the library containing
-                        object. (See below)</p>
+                    <!-- SECTION Importing types -->
+                    <h3 id="Importing_types">Importing types</h3>
+                    <p>The <code>using</code> directive imports types from other namespaces which can be in any file in the containing assembly or others that the
+                        assembly references. Imported types can then be accessed directly by their identifiers as if they were in the same namespace which makes
+                        the code easier to read. A <code>using</code> directive must precede all other code within a namespace.</p>
+                    <p>If you know a type's identifier but don't know its namespace, Visual Studio provides a shortcut for adding this. After entering the type's
+                        identifier, with the mouse hovering over it, press <kbd>Ctrl</kbd> + <kbd>.</kbd> and IntelliSense will suggest the correct using directive, most
+                        likely at the top of the list. Click on the suggestion and it will added to the code. Please note that the full name name must be entered with
+                        the correct case and the project must have a <a href="#Dependencies">reference</a> to the project containing the type.</p>
                     <p>To remove unused <i>using</i> directives, right click anywhere in the code editor and click <b>Remove and Sort Usings</b>.</p>
-                    <p> The following assumes that the first example in this section already exists.</p>
-<pre><code>using MyProject.Animals;
-using MyProject.DataModels;
+                    <p>The following example demonstrate importing types with the <code>using</code> directive.</p>
+<pre><code>// This imports all types within NameSpace1
+// into all namespaces declared in this file
+using NameSpace1;
 
-namespace SomeNamespace
+// This imports all types within NameSpace4
+// which is declared in another file into
+// all namespaces declared in this file
+using NameSpace4;
+
+// MyClass1 is declared in NameSpace1
+namespace NameSpace1
 {
-    class SomeClass
+    class MyClass1 { }
+}
+
+// MyClass2 is declared in NameSpace2
+namespace NameSpace2
+{
+    class MyClass2 { }
+}
+
+// MyClass3 is declared in NameSpace3
+namespace NameSpace3
+{
+    class MyClass3
     {
-        Cat cat = new();
-        Person person = new();
+        // MyClass1 can be accessed
+        // directly using its identifier
+        MyClass1 myClass1 = new();
+
+        // MyClass2 must be accessed using
+        // its fully qualified name
+        NameSpace2.MyClass2 myClass2 = new();
     }
 }
+
+// AnotherNamespace is declared
+namespace AnotherNamespace
+{
+    // This allows types within NameSpace2
+    // to be imported into this namespaces only
+    using NameSpace2;
+
+    class AnotherClass
+    {
+        // MyClass1 and MyClass2 can each be
+        // accessed directly using their identifiers
+        MyClass1 myClass1 = new();
+        MyClass2 myClass2 = new();
+
+        // MyClass3 must be accessed using
+        // its fully qualified name
+        NameSpace3.MyClass3 myClass3 = new();
+
+        // MyClass4 which is declared within
+        // NameSpace4 in another file can be
+        // accessed directly using its identifier
+        MyClass4 myClass4 = new();
+    }
+}
+
+// A using clause must precede all other elements
+// defined in the namespace except alias declarations
+//using NameSpace3;
 </code></pre>
-                    <!-- !SECTION using -->
+                    <!-- !SECTION Importing types -->
+<!-- TODO aliases used to resolve naming conflicts -->
                     <!-- SECTION Aliases -->
                     <h3 id="Aliases">Aliases</h3>
-                    <p>The <code>using</code> can also be used to create an alias for a namespace or object. The following assumes that the first example in this section
-                        already exists.</p>
-<pre><code>using Project = MyProject;
-using Employment = MyProject.DataModels;
-using MyDog = MyProject.Animals.Dog;
-
-namespace SomeNamespace
-{
-    class SomeClass
+                    <p>Aliases provide a way of resolve naming conflicts which can be of particularly use when importing types from referenced assemblies. The
+                        <code>using</code> keyword is used to create the alias for a namespace or a type.</p>
+                    <p>The following example demonstrates creating and using aliases.</p>
+<pre><code>namespace NameSpace1
     {
-        Project.Animals.Dog dog = new();
-        Employment.Employer employer = new();
-        MyDog myDog = new();
+        // This MyClass is declared to belong to NameSpace1
+        public  class MyClass  { }
+    }
+
+    namespace NameSpace2
+    {
+        // This MyClass is declared to belong to NameSpace2
+        public  class MyClass { }
+    }
+
+    namespace NameSpace3
+    {
+        // This MyClass is declared to belong to NameSpace3
+        public class MyClass { }
+    }
+
+    // A namespace with many levels
+    namespace Level1
+    {
+        namespace Level2
+        {
+            namespace Level3
+            {
+                namespace Level4
+                {
+                    namespace Level5
+                    {
+                        public class SomeClass { }
+                    }
+                }
+            }
+        }
+    }
+
+    namespace AnotherNameSpace
+    {
+        // Import MyClass from both
+        // NameSpace1 and NameSpace2
+        using NameSpace1;
+        using NameSpace2;
+
+        // MyClass3 is an alias for NameSpace3.MyClass
+        using MyClass3 = NameSpace3.MyClass;
+
+        // An alias can also be given to a namespace
+        using MyNameSpace = Level1.Level2.Level3.Level4.Level5;
+
+        class AnotherClass
+        {
+            // Importing MyClass from both NameSpace1 and NameSpace2
+            // creates a naming conflict the compiler can't resolve.
+            // Uncommenting the following results in the error
+            // 'MyClass' is an ambiguous reference between
+            // NameSpace1.MyClass and NameSpace2.MyClass
+            // MyClass myClass1 = new();
+
+            // 'NameSpace2.MyClass' is referenced by
+            // its fully qualified name so this is OK
+            NameSpace2.MyClass myClass2 = new();
+
+            // The MyClass3 alias for NameSpace3.MyClass
+            // allows the use of a shortened name
+            // without an ambiguous reference error
+            MyClass3 myClass3 = new();
+
+            // The alias MyNameSpace is used to access SomeClass
+            MyNameSpace.SomeClass someClass = new();
+        }
+    }
+</code></pre>
+                    <!-- !SECTION Aliases -->
+                    <!-- SECTION Global namespace -->
+                    <h3 id="Global_namespace">Global namespace</h3>
+                    <p>A type declared outside any namespace is in the <i>global</i> namespace and is accessible throughout the assembly provided another type with the
+                        same identifier is not declared locally within a namespace or type. In this case the global type can still be accessed by prefixing its identifier
+                        with the  <code>global</code> keyword followed by two colons in the form <code>global::MyType</code>.</p>
+                    <p>The following example demonstrates how to access a type in the global namespace.</p>
+<pre><code>// MyClass declared in the global namespace
+public class MyClass { }
+
+namespace NameSpace1
+{
+    public class AnotherClass
+    {
+        public void Method()
+        {
+            // This refers to the global MyClass
+            MyClass globalMyClass = new();
+        }
+    }
+}
+
+namespace NameSpace2
+{
+    // MyClass declared locally in NameSpace2
+    public class MyClass { }
+
+    public class AnotherClass
+    {
+        public void Method()
+        {
+            // The refers to NameSpace2.MyClass
+            MyClass localMyClass = new();
+
+            // NameSpace2.MyClass hides the global
+            // MyClass so to access it the class
+            // is prefixed with the global keyword
+            // followed by two colons
+            global::MyClass globalMyClass = new();
+        }
     }
 }
 </code></pre>
-                    <!-- !SECTION Aliases -->
+                    <!-- !SECTION Global namespace -->
                 </article>
             </section>
             <!-- !SECTION Dependencies and Namespaces -->
@@ -4896,6 +5155,7 @@ namespace SomeNamespace
                 <header><h2>Scope and Access Modifiers</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
+<!-- TODO Fix method parameter passing ing argument -->
                     <!-- SECTION Scope -->
                     <h3 id="Scope">Scope</h3>
                     <p>Scope is the accessibility of a variable from one part of the code to another. In C# scope is arranged like the layers of an onion. Variables in an
@@ -4905,7 +5165,7 @@ namespace SomeNamespace
                         nested code blocks. The variable is only accessible after it has been declared and only within the same code block or a nested code block. A local
                         variable within the same block or a nested code block cannot be declared with the same name.
 
-<!-- TODO Fix method parameter passing ing argument -->
+
                         An argument that is passed into a method or indexer
                         is accessible outside the member and becomes a local variable within the member.</p>
                     <p>A local variable in the same container (enclosing type) as a field can be declared with the same name and any type. When this is done the field is
@@ -5794,11 +6054,12 @@ var c = '\u0123' \\ the <i>g</i> character
                 </article>
             </section>
             <!-- !SECTION References -->
+<!-- TODO add copyright -->
             <!-- SECTION Disclaimer -->
             <section class="main-section" id="Terms_and_Conditions">
                 <header><h2>Terms and Conditions</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
-            <!-- TODO add copyright -->
+
                 <article>
                     <p>You accept all risk of using the website and content on the website. As far as the law allows, Stephen Ward provides the website as is, without any
                         warranty whatsoever.</p>
