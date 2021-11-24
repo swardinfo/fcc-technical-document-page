@@ -1699,6 +1699,25 @@ namespace NullCoalescingAssignmentOperator
                         <li><a href="#Finalizers">Finalizers</a></li>
                     </ul>
                     <!-- !SECTION The Lambda and Expression body definition operator -->
+<!-- TODO add info about operator -->
+                    <!-- SECTION Namespace alias qualifier operator -->
+                    <h3 id="Namespace_alias_qualifier_operator">Namespace alias qualifier operator ::</h3>
+                    <p>Explanation</p>
+                    <p>CodeExample</p>
+<pre><code>using System;
+
+namespace Namespace
+{
+    class Program
+    {
+        static void Main()
+        {
+
+        }
+    }
+}
+</code></pre>
+                    <!-- !SECTION Namespace alias qualifier operator -->
                 </article>
             </section>
             <!-- !SECTION Expressions and Operators -->
@@ -1934,7 +1953,7 @@ namespace Continue
                 </article>
             </section>
             <!-- !SECTION Iteration Statements -->
-            <!-- SECTION Arrays -->
+            <!-- SECTION Arrays and Data Structures -->
             <section class="main-section" id="Arrays_and_Data_Structures">
                 <header><h2>Arrays and Data Structures</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
@@ -2644,7 +2663,7 @@ namespace Dictionaries
                     <!-- !SECTION Dictionary<TKey, TValue> -->
                 </article>
             </section>
-            <!-- !SECTION Arrays -->
+            <!-- !SECTION Arrays and Data Structures -->
             <!-- SECTION Enumerators -->
             <section class="main-section" id="Enumerators">
                 <header><h2>Enumerators</h2></header>
@@ -2986,10 +3005,11 @@ namespace ClassExample
                         optionally be <a href="#Overriding_a_virtual_member">overridden</a> where as an abstract base member <em>must</em> be overridden by a member with
                         the same signature that is marked with the <code>override</code> keyword. A type that contains an abstract member must also be marked abstract. A
                         member marked as <code>override</code> can also be marked with the <code>sealed</code> keyword preventing it from being overridden in any further
-                        derived type. In the derived, where members in both a base and derived type have the same identifier and where neither are marked as either virtual or override, the the derived member will hide the base member. The two members don't have to be of the
-                        same type or have the same signature. For example a property in a base class can be hidden by a method. Access to a hidden member can still be
-                        obtained through use of the <a href="#base_keyword">base</a> keyword. When a member is hidden the code editor will indicate this on the hiding
-                        member in the derived class with a <u class="warning">warning</u>. This can be removed by marking the member with the <code>new</code> keyword.
+                        derived type. Where members in both a base and derived type have the same identifier and where neither are marked as either virtual or override,
+                        the the derived member will hide the base member. The two members don't have to be of the same type or have the same signature. For example a
+                        property in a base class can be hidden by a method. Access to a hidden member can still be obtained through use of the
+                        <a href="#base_keyword">base</a> keyword. When a member is hidden the code editor will indicate this on the hiding member in the derived class
+                        with a <u class="warning">warning</u>. This can be removed by marking the member with the <code>new</code> keyword.
                     </p>
                     <!-- !SECTION Members -->
 <!-- TODO finish constructors -->
@@ -4771,7 +4791,6 @@ namespace ActionsAndFuncs
                         <li><b>ProjectB</b> should now be listed under this node confirming that <b>ProjectA</b> now has a reference to <b>ProjectB</b></li>
                     </ol>
                     <!-- !SECTION Dependencies -->
-<!-- TODO add info about accessing members -->
                     <!-- SECTION Namespaces -->
                     <h3 id="Namespaces">Namespaces</h3>
                     <p>C# requires that each type has a unique identifier. As the number of types increases naming conflicts become ever more probable, particularly when
@@ -4792,23 +4811,31 @@ namespace ActionsAndFuncs
                         until no nested namespaces remain. If a type is selected, pressing the <kbd>.</kbd> will display type's accessible members.</p>
                     <p>The <code>using</code> keyword allows types from another namespace to be <a href="#Importing_types"><i>imported</i></a> into a local namespace so
                         that they can be accessed directly by their identifiers and can also be used to create namespace <a href="#Aliases"><i>aliases</i></a> to avoid
-                        naming conflicts. A type declared outside of any namespace is in the <a href="#Global_namespace"><i>global</i></a> namespace.</p>
+                        naming conflicts. The <code>static</code> modifier keyword can be applied to the <code>using</code> directive to
+                        <a href="#Importing_static_members">import static members</a> and nested types. A type declared outside of any namespace is in the
+                        <a href="#Global_namespace"><i>global</i></a> namespace. Types that are in the .NetCore library can be imported using the
+                        <a href="#Importing_system_types">System namespace</a></p>
                     <!-- !SECTION Namespaces -->
 
                     <!-- SECTION namespace -->
                     <h3 id="namespace">namespace</h3>
                     <p>The <code>namespace</code> keyword followed by a code block is used to declare that all <a href="#Classes_and_Other_User_Defined_Types">types</a>
                         enclosed within it belong to that <i>namespace</i> and can access each other through each type's identifier. Multiple declarations using the same
-                        namespace can be made throughout the assembly and don't even have to be in the same file.</p>
+                        namespace can be made throughout the assembly and don't even have to be in the same file. Two types with the same identifier cannot be declared
+                        within the same namespace even if they are declared in different files.</p>
                     <p>The following example demonstrates namespace declaration and usage.</p>
-<pre><code>namespace NameSpace1
+<pre><code>using System;
+
+// All types declared in this namespace
+// code block belong to NameSpace1
+namespace NameSpace1
 {
     enum Months { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Nov, Dec }
 
-    // This MyClass is declared to belong to NameSpace1
-    class MyClass
+    // This Class1 is declared to belong to NameSpace1
+    class Class1
     {
-        public MyEnum Property1 { get; set; }
+        public MyEnum Property { get; set; }
 
         public enum MyEnum { a, b, c }
     }
@@ -4819,6 +4846,8 @@ namespace ActionsAndFuncs
     }
 }
 
+// All types declared in this namespace
+// code block belong to NameSpace2
 namespace NameSpace2
 {
     // Despite having the same identifier and members by
@@ -4826,21 +4855,23 @@ namespace NameSpace2
     // type to the Months enum declared in NameSpace1
     enum Months { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Nov, Dec }
 
-    // This MyClass is declared to belong to NameSpace2
-    class MyClass
+    // This Class1 is declared to belong to NameSpace2
+    class Class1
     {
-        public MyEnum Property2 { get; set; }
+        public MyEnum Property { get; set; }
 
         public enum MyEnum { x, y, z }
     }
 }
 
+// All types declared in this namespace
+// code block also belong to NameSpace1
 namespace NameSpace1
 {
-    // ISomeInterFace and ClassWithStaticMembers are both
+    // ISomeInterFace and Class2 are both
     // in NameSpace1 so ISomeInterFace can be accessed
     // here directly by its identifier
-    class ClassWithStaticMembers : ISomeInterFace
+    class Class2 : ISomeInterFace
     {
         public enum Days { Sun, Mon, Tue, Wed, Thu, Fri, Sat }
 
@@ -4867,11 +4898,11 @@ namespace NameSpace1
         }
     }
 
-    // MyClass was declared in the previous NameSpace1 code block
+    // Class1 was declared in the previous NameSpace1 code block
     // so uncommenting the following results in the error
     // The namespace 'NameSpace1' already contains a
-    // definition for 'MyClass'
-    //class MyClass { }
+    // definition for 'Class1'
+    //class Class1 { }
 }
 
 // Declare an object in a sublevel namespace
@@ -4890,34 +4921,45 @@ namespace NameSpace1
     }
 }
 
-namespace AnotherNamespace
+namespace NamespaceExample
 {
-    class AnotherClass
+    class Program
     {
-        public void Example()
+        static void Main(string[] args)
         {
+            // The following access types using
+            // their fully qualified names
+
             // NameSpace1 and NameSpace2 each have a
-            // class called MyClass within which each
+            // class called Class1 within which each
             // have their own unique members
-            NameSpace1.MyClass myClass1 = new();
-            NameSpace2.MyClass myClass2 = new();
-            myClass1.Property1 = NameSpace1.MyClass.MyEnum.a;
-            myClass2.Property2 = NameSpace2.MyClass.MyEnum.x;
+            NameSpace1.Class1 class1 = new();
+            NameSpace2.Class1 class2 = new();
+            class1.Property = NameSpace1.Class1.MyEnum.a;
+            class2.Property = NameSpace2.Class1.MyEnum.x;
+            Console.WriteLine(class1.Property);
+            Console.WriteLine(class2.Property);
 
-            // Types identified by using their
-            // fully qualified names
+            // Access the enum Months in NameSpace1
             NameSpace1.Months month = NameSpace1.Months.Apr;
+            Console.WriteLine($"The month is {month}");
 
-            // These members can be accessed without an instance
-            NameSpace1.ClassWithStaticMembers.Days day = NameSpace1.ClassWithStaticMembers.Days.Sun;
-            var pi = NameSpace1.ClassWithStaticMembers.PI;
-            var circleArea = NameSpace1.ClassWithStaticMembers.Area(5.1);
-            NameSpace1.ClassWithStaticMembers.Employer employer = new();
+            // enums, constants, static members and nested
+            // types can be accessed without an instance
+            NameSpace1.Class2.Days day = NameSpace1.Class2.Days.Sun;
+            var pi = NameSpace1.Class2.PI;
+            var circleArea = NameSpace1.Class2.Area(5.1);
+            NameSpace1.Class2.Employer employer = new();
+            Console.WriteLine($"The day is {day}");
+            Console.WriteLine($"PI = {pi}");
+            Console.WriteLine($"The area of a circle with a radius of 5.1 is {circleArea}");
 
-            // The 'Month' property here refers to the
-            // Month type that was defined in NameSpace1
-            NameSpace1.ClassWithStaticMembers instance = new();
+            // The 'Month' property of Class2 and Month
+            // both belong to NameSpace2 even though
+            // they are declared in separate code blocks
+            NameSpace1.Class2 instance = new();
             instance.Month = NameSpace1.Months.May;
+            Console.WriteLine(instance.Month);
 
             // Uncommenting the following results in the error
             // Cannot implicitly convert type
@@ -4932,6 +4974,15 @@ namespace AnotherNamespace
         }
     }
 }
+
+// The example writes the following to the console
+// a
+// x
+// The month is Apr
+// The day is Sun
+// PI = 3.1415
+// The area of a circle with a radius of 5.1 is 81.710415
+// May
 </code></pre>
                     <p>When adding a new class using the default class template, Visual Studio automatically puts it within a namespace based on the folder in the project
                         in which the class is added. If you want to use the root namespace instead and want to avoid editing the namespace, add the new class to the root
@@ -4947,206 +4998,428 @@ namespace MyCompany.ViewModels
 }
 </code></pre>
                     <!-- !SECTION namespace -->
-<!-- TODO add using static -->
+                    <!-- SECTION Global namespace -->
+                    <h3 id="Global_namespace">Global namespace</h3>
+                    <p>The area outside any namespace declaration in a file is the <i>global namespace</i> and any type declared within it is accessible throughout the
+                        assembly. Where two types have
+                        the same identifier, a type declared in a local namespace or type will hide a type declared in the global namespace. In this case the global type
+                        can still be accessed by prefixing its identifier with the <code>global</code> keyword followed by the
+                        <a href="#Namespace_alias_qualifier_operator"><i>namespace alias qualifier</i></a> <code>::</code> in the form <code>global::MyType</code>.</p>
+                    <p>The following example demonstrates how to access a type in the global namespace.</p>
+<pre><code>using System;
+
+    // MyClass declared in the global namespace
+    public class MyClass
+    {
+        public void WriteMessage()
+        {
+            Console.WriteLine("MyClass in global namespace");
+        }
+    }
+
+    namespace NameSpace1
+    {
+        public class AnotherClass
+        {
+            public AnotherClass()
+            {
+                NestedClass = new();
+            }
+
+            // This refers to the global MyClass
+            public MyClass NestedClass { get; private set; }
+        }
+    }
+
+    namespace NameSpace2
+    {
+        // MyClass declared locally in NameSpace2
+        public class MyClass
+        {
+            public void WriteMessage()
+            {
+                Console.WriteLine("MyClass in NameSpace2");
+            }
+        }
+
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                // The refers to NameSpace2.MyClass
+                MyClass localMyClass = new();
+                localMyClass.WriteMessage();
+
+                // NameSpace2.MyClass hides the global
+                // MyClass so to access it the identifier
+                // is prefixed with the global keyword
+                // followed by two colons
+                global::MyClass globalMyClass = new();
+                globalMyClass.WriteMessage();
+
+                // AnotherClass.NestedClass refers to the
+                // global MyClass
+                NameSpace1.AnotherClass anotherClass = new();
+                anotherClass.NestedClass.WriteMessage();
+            }
+        }
+    }
+
+    // The example writes the following to the console
+
+    // MyClass in NameSpace2
+    // MyClass in global namespace
+    // MyClass in global namespace
+</code></pre>
+                    <!-- !SECTION Global namespace -->
                     <!-- SECTION Importing types -->
                     <h3 id="Importing_types">Importing types</h3>
-                    <p>The <code>using</code> directive imports types from other namespaces which can be in any file in the containing assembly or others that the
+                    <p>The <code>using</code> directive imports all types from a another namespace which can be in any file in the containing assembly or others that the
                         assembly references. Imported types can then be accessed directly by their identifiers as if they were in the same namespace which makes
-                        the code easier to read. A <code>using</code> directive must precede all other code within a namespace.</p>
+                        the code easier to read. A <code>using</code> directive must precede all other code within a namespace. A <code>using</code> directive that is
+                        placed in the <a href="#Global_namespace">global namespace</a> makes the types in that namespace available in all other namespaces declared within
+                        the same file.  A type in a nested namespace is not
+                        imported and if a <code>using</code> directive to specifically target its namespace not included, it will need to be accessed using its fully
+                        qualified name.</p>
                     <p>If you know a type's identifier but don't know its namespace, Visual Studio provides a shortcut for adding this. After entering the type's
                         identifier, with the mouse hovering over it, press <kbd>Ctrl</kbd> + <kbd>.</kbd> and IntelliSense will suggest the correct using directive, most
                         likely at the top of the list. Click on the suggestion and it will added to the code. Please note that the full name name must be entered with
                         the correct case and the project must have a <a href="#Dependencies">reference</a> to the project containing the type.</p>
                     <p>To remove unused <i>using</i> directives, right click anywhere in the code editor and click <b>Remove and Sort Usings</b>.</p>
                     <p>The following example demonstrate importing types with the <code>using</code> directive.</p>
-<pre><code>// This imports all types within NameSpace1
+<pre><code>// This imports all types from the System namespace
+// See Importing system types for details
+using System;
+
+// This imports all types within NameSpace1
 // into all namespaces declared in this file
 using NameSpace1;
 
-// This imports all types within NameSpace4
-// which is declared in another file into
+// This imports all types within NameSpace5
+// which is declared in another file, into
 // all namespaces declared in this file
-using NameSpace4;
+using NameSpace5;
 
-// MyClass1 is declared in NameSpace1
+// GlobalClass is declared in the global namespace
+class GlobalClass { }
+
+// Uncommenting the following results in the error
+// A using clause must precede all other elements
+// defined in the namespace except alias declarations
+//using NameSpace4;
+
+// Class1 is declared in NameSpace1
 namespace NameSpace1
 {
-    class MyClass1 { }
+    public class Class1 { }
 }
 
-// MyClass2 is declared in NameSpace2
+// Class2 is declared in NameSpace2
 namespace NameSpace2
 {
-    class MyClass2 { }
-}
+    using NameSpace1;
 
-// MyClass3 is declared in NameSpace3
-namespace NameSpace3
-{
-    class MyClass3
+    public class Class2 { }
+
+    // Class3 is declared in NameSpace3
+    // which is nested in NameSpace2
+    namespace NameSpace3
     {
-        // MyClass1 can be accessed
-        // directly using its identifier
-        MyClass1 myClass1 = new();
-
-        // MyClass2 must be accessed using
-        // its fully qualified name
-        NameSpace2.MyClass2 myClass2 = new();
+        public class Class3 { }
     }
 }
 
-// AnotherNamespace is declared
-namespace AnotherNamespace
+// Class4 is declared in NameSpace4
+namespace NameSpace4
+{
+    public class Class4
+    {
+        // Class1 can be accessed
+        // directly using its identifier
+        Class1 class1 = new();
+
+        // Class2 must be accessed using
+        // its fully qualified name
+        NameSpace2.Class2 class2 = new();
+    }
+}
+
+namespace ImportingTypes
 {
     // This allows types within NameSpace2
     // to be imported into this namespaces only
     using NameSpace2;
 
-    class AnotherClass
+    class Program
     {
-        // MyClass1 and MyClass2 can each be
-        // accessed directly using their identifiers
-        MyClass1 myClass1 = new();
-        MyClass2 myClass2 = new();
+        static void Main(string[] args)
+        {
+            // Class1 and Class2 can each be
+            // accessed directly using their identifiers
+            Class1 class1 = new();
+            Class2 class2 = new();
 
-        // MyClass3 must be accessed using
-        // its fully qualified name
-        NameSpace3.MyClass3 myClass3 = new();
+            // Types in the nested namespaces of NameSpace2
+            // are not imported. Uncommenting the following
+            // results in the error
+            // The type or namespace named 'Class'
+            // could not be found (are you missing a
+            // using directive or an assembly reference?)
+            //Class3 mClass3 = new();
 
-        // MyClass4 which is declared within
-        // NameSpace4 in another file can be
-        // accessed directly using its identifier
-        MyClass4 myClass4 = new();
+            // Class3 must be accessed using
+            // its fully qualified name
+            NameSpace2.NameSpace3.Class3 class3 = new();
+
+            // Class4 must be accessed using
+            // its fully qualified name
+            NameSpace4.Class4 class4 = new();
+
+            // Class5 which is declared within
+            // NameSpace5 in another file can be
+            // accessed directly using its identifier
+            Class5 class5 = new();
+
+            // GlobalClass can be accessed
+            // directly using its identifier
+            GlobalClass globalClass = new();
+
+            Console.WriteLine($"class1 type is {class1.GetType()}");
+            Console.WriteLine($"class2 type is {class2.GetType()}");
+            Console.WriteLine($"class3 type is {class3.GetType()}");
+            Console.WriteLine($"class4 type is {class4.GetType()}");
+            Console.WriteLine($"class5 type is {class5.GetType()}");
+            Console.WriteLine($"globalClass type is {globalClass.GetType()}");
+        }
     }
 }
 
-// A using clause must precede all other elements
-// defined in the namespace except alias declarations
-//using NameSpace3;
+// The example writes the following to the console
+// class1 type is NameSpace1.Class1
+// class2 type is NameSpace2.Class2
+// class3 type is NameSpace2.NameSpace3.Class3
+// class4 type is NameSpace4.Class4
+// class5 type is NameSpace5.Class5
+// globalClass type is GlobalClass
 </code></pre>
                     <!-- !SECTION Importing types -->
-<!-- TODO aliases used to resolve naming conflicts -->
+                    <!-- SECTION Importing static members -->
+                    <h3 id="Importing_static_members">Importing static members</h3>
+                    <p>Accessible static members and nested types can be imported by applying the <code>static</code> modifier to the <code>using</code> directive. This
+                        allows the static members to be accessed directly without the need for the type's identifier. Instance members that are also in the type will
+                        still require an instance to be created to access them and inherited members are not imported.</p>
+                    <p>The following example demonstrates importing and using static members.</p>
+<pre><code>using System;
+
+namespace NameSpace1
+{
+    public class MathClass
+    {
+        public const double PI = 3.1415;
+
+        public static double CircleArea(double r) => PI * r * r;
+
+        public double CubeVolume(double x) => x * x * x;
+    }
+}
+
+namespace ImportingStaticMembers
+{
+    // Import the types in NameSpace1
+    using NameSpace1;
+
+    // Import the constant fields and static members
+    // in NameSpace1.MathClass
+    using static NameSpace1.MathClass;
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // This uses the static members in NameSpace1.MathClass
+            // without needing the namespace or the class name
+            Console.WriteLine($"PI = {PI}");
+            double area = CircleArea(5.1);
+            Console.WriteLine($"Area of a circle with radius 5.1 = {area}");
+
+            // To use the instance members in  NameSpace1.MathClass
+            // an instance of the class is still required
+            MathClass mathClass = new();
+            double volume = mathClass.CubeVolume(3.3);
+            Console.WriteLine($"Volume of a cube sides 3.3 = {volume}");
+        }
+    }
+}
+
+// The example writes the following the console
+// PI = 3.1415
+// Area of a circle with radius 5.1 = 81.710415
+// Volume of a cube sides 3.3 = 35.937
+</code></pre>
+                    <!-- !SECTION Importing static members -->
                     <!-- SECTION Aliases -->
                     <h3 id="Aliases">Aliases</h3>
-                    <p>Aliases provide a way of resolve naming conflicts which can be of particularly use when importing types from referenced assemblies. The
+                    <p>Aliases provide a way of resolve naming conflicts which can be of particularly use when importing types from referenced assemblies. They can also
+                        result in a much shorter name to use. This is of particular use where access to the type is through many namespace levels. The
                         <code>using</code> keyword is used to create the alias for a namespace or a type.</p>
                     <p>The following example demonstrates creating and using aliases.</p>
-<pre><code>namespace NameSpace1
-    {
-        // This MyClass is declared to belong to NameSpace1
-        public  class MyClass  { }
-    }
+<pre><code>using System;
 
-    namespace NameSpace2
-    {
-        // This MyClass is declared to belong to NameSpace2
-        public  class MyClass { }
-    }
+namespace NameSpace1
+{
+    // This MyClass is declared to belong to NameSpace1
+    public class MyClass { }
+}
 
-    namespace NameSpace3
-    {
-        // This MyClass is declared to belong to NameSpace3
-        public class MyClass { }
-    }
+namespace NameSpace2
+{
+    // This MyClass is declared to belong to NameSpace2
+    public class MyClass { }
+}
 
-    // A namespace with many levels
-    namespace Level1
+// A namespace with many levels
+namespace Level1
+{
+    namespace Level2
     {
-        namespace Level2
+        namespace Level3
         {
-            namespace Level3
+            namespace Level4
             {
-                namespace Level4
+                namespace Level5
                 {
-                    namespace Level5
-                    {
-                        public class SomeClass { }
-                    }
+                    public class NestedClass { }
                 }
             }
         }
     }
+}
 
-    namespace AnotherNameSpace
+namespace Aliases
+{
+    // Import MyClass from both
+    // NameSpace1 and NameSpace2
+    using NameSpace1;
+    using NameSpace2;
+
+    // An alias is created for each MyClass
+    // in both NameSpace1 and NameSpace2
+    using MyClass1 = NameSpace1.MyClass;
+    using MyClass2 = NameSpace2.MyClass;
+
+    // An alias can also be given to a namespace
+    using ShortName = Level1.Level2.Level3.Level4.Level5;
+
+    class Program
     {
-        // Import MyClass from both
-        // NameSpace1 and NameSpace2
-        using NameSpace1;
-        using NameSpace2;
-
-        // MyClass3 is an alias for NameSpace3.MyClass
-        using MyClass3 = NameSpace3.MyClass;
-
-        // An alias can also be given to a namespace
-        using MyNameSpace = Level1.Level2.Level3.Level4.Level5;
-
-        class AnotherClass
+        static void Main(string[] args)
         {
             // Importing MyClass from both NameSpace1 and NameSpace2
             // creates a naming conflict the compiler can't resolve.
             // Uncommenting the following results in the error
             // 'MyClass' is an ambiguous reference between
             // NameSpace1.MyClass and NameSpace2.MyClass
-            // MyClass myClass1 = new();
+            //MyClass myClass1 = new();
 
-            // 'NameSpace2.MyClass' is referenced by
-            // its fully qualified name so this is OK
-            NameSpace2.MyClass myClass2 = new();
-
-            // The MyClass3 alias for NameSpace3.MyClass
-            // allows the use of a shortened name
-            // without an ambiguous reference error
-            MyClass3 myClass3 = new();
+            // The aliases resolve the naming conflict
+            // and results in a shorter name to use
+            MyClass1 myClass1 = new();
+            MyClass2 myClass2 = new();
 
             // The alias MyNameSpace is used to access SomeClass
-            MyNameSpace.SomeClass someClass = new();
+            // Using the fully qualified name with many
+            // nested namespaces gets quite cumbersome
+            ShortName.NestedClass nestedClass = new();
+
+            Console.WriteLine($"'myClass1' fully qualified name is '{myClass1.GetType()}'");
+            Console.WriteLine($"'myClass2' fully qualified name is '{myClass2.GetType()}'");
+            Console.WriteLine($"'nestedClass' fully qualified name is '{nestedClass.GetType()}'");
         }
     }
+}
+
+// The example writes the following to the console
+// 'myClass1' fully qualified name is 'NameSpace1.MyClass'
+// 'myClass2' fully qualified name is 'NameSpace2.MyClass'
+// 'nestedClass' fully qualified name is 'Level1.Level2.Level3.Level4.Level5.NestedClass'
 </code></pre>
                     <!-- !SECTION Aliases -->
-                    <!-- SECTION Global namespace -->
-                    <h3 id="Global_namespace">Global namespace</h3>
-                    <p>A type declared outside any namespace is in the <i>global</i> namespace and is accessible throughout the assembly provided another type with the
-                        same identifier is not declared locally within a namespace or type. In this case the global type can still be accessed by prefixing its identifier
-                        with the  <code>global</code> keyword followed by two colons in the form <code>global::MyType</code>.</p>
-                    <p>The following example demonstrates how to access a type in the global namespace.</p>
-<pre><code>// MyClass declared in the global namespace
-public class MyClass { }
-
-namespace NameSpace1
+                    <!-- SECTION Importing system types -->
+                    <h3 id="Importing_system_types">Importing system types</h3>
+                    <p>The <code>System</code> namespace and the namespaces nested within it, contain most of the C# built-in types that are part of the
+                        .NetCore library. These include primitive value types such as <code>System.Int32</code> and reference types such as <code>System.String</code> and
+                        access to these without a fully qualified name requires a <code>using System;</code> directive. Many of the C#
+                        <a href="Keywords">keywords</a> are special built-in <a href="#Aliases">aliases</a> for these types but unlike other aliases, don't require an
+                        explicit <code>using</code> directive. For example the <code>int</code> keyword can be used anywhere in code and is the alias for
+                        <code>System.Int32</code>, both of which can be used interchangeably. Other system types such as <code>DateTime</code> which provides many tools
+                        to access and manipulate dates and times and <code>Console</code> which has been used extensively throughout this guide, do require an explicit
+                        <code>using System;</code> directive.</p>
+                    <p>Nested within <code>System</code> are many other namespaces such as <code>System.Collections.Generic</code> that contains the
+                        <a href="#List_T">List&lt;T&gt;</a> and <a href="#Dictionary_TKey_TValue">Dictionary&lt;TKey, TValue&gt;</a> types, <code>System.IO</code> that
+                        contains types that allow you to access and manipulate files and <code>System.Threading</code> that provides tools for creating multi-threaded
+                        applications. All the namespaces available in the .NetCore library can be viewed under the <a href="#Dependencies">dependencies</a> node in the
+                        solution explorer and information about them and the types they contain can be found on the <a href="References">Microsoft C# reference
+                        documentation</a> website.</p>
+                    <p>The following example demonstrates importing and using various System types.</p>
+<pre><code>namespace NameSpace1
 {
-    public class AnotherClass
+    class MyClass
     {
-        public void Method()
+        // int is a c# keyword which is a built-in alias
+        // for the System.Int32 struct. C# keywords can be
+        // accessed without the 'using System' directive
+        int x = 1;
+
+        // Without the 'using System' directive
+        // the fully qualified name must be used
+        // even though this is the same type as int
+        System.Int32 y = 2;
+    }
+}
+
+namespace ImportingSystemTypes
+{
+    using System;
+    using System.Threading;
+
+
+    class Program
+    {
+        static void Main(string[] args)
         {
-            // This refers to the global MyClass
-            MyClass globalMyClass = new();
+            // DateTime is a struct in the System namespace.
+            // DateTime.Now gets the current date and time
+            DateTime startTime = DateTime.Now;
+
+            // Thread is a class in the System.Threading namespace. Thread.Sleep
+            // suspends the thread for the specified number of milliseconds
+            Thread.Sleep(1000);
+
+            // TimeSpan is a struct in the System namespace.
+            // A TimeSpan is the difference between two DateTime's
+            TimeSpan elapsedTime = DateTime.Now - startTime;
+
+            // double is a c# keyword which is a built-in alias
+            // for the System.Double struct
+            double totalSeconds = elapsedTime.TotalSeconds;
+
+            // Math is a class in the System namespace.
+            // Math.Round is a static method that rounds
+            // a value to the nearest integer.
+            // string is a c# keyword which is a built-in
+            // alias for the System.String class.
+            string roundedSeconds = Math.Round(totalSeconds).ToString();
+
+            // Console is a class in the System namespace.
+            Console.WriteLine($"The program has been asleep for {roundedSeconds} second");
         }
     }
 }
 
-namespace NameSpace2
-{
-    // MyClass declared locally in NameSpace2
-    public class MyClass { }
-
-    public class AnotherClass
-    {
-        public void Method()
-        {
-            // The refers to NameSpace2.MyClass
-            MyClass localMyClass = new();
-
-            // NameSpace2.MyClass hides the global
-            // MyClass so to access it the class
-            // is prefixed with the global keyword
-            // followed by two colons
-            global::MyClass globalMyClass = new();
-        }
-    }
-}
+// The example writes the following to the console
+// The program has been asleep for 1 second
 </code></pre>
-                    <!-- !SECTION Global namespace -->
+                    <!-- !SECTION Importing system types -->
                 </article>
             </section>
             <!-- !SECTION Dependencies and Namespaces -->
