@@ -1984,7 +1984,6 @@ namespace Arrays
     {
         static void Main(string[] args)
         {
-
             // Declare an array of type 'string' with the name stringArray
             // stringArray will be null
             string[] stringArray;
@@ -2680,9 +2679,10 @@ namespace Enumerators
 {
     class Program
     {
+        // The default underlying type is an 'int'
         enum Day { Sun, Mon, Tue, Wed, Thu, Fri, Sat }
 
-        // Underlying month type is declared as long
+        // This declares that the underlying month type is declared as 'long'
         enum Month : long { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec }
 
         static void Main(string[] args)
@@ -3072,39 +3072,43 @@ namespace Fields
         // from any code outside this class both in and outside
         // the assembly that contains it. As it has not been initialized
         // it will have the default string value i.e. an empty string
+        // NOTE: instance fields should never be declared public
+        // and is only shown here for demonstrative purposes
         public string Id;
 
         // A private field with default string value i.e. an empty string
-        private string mName;
+        private string _name;
 
         // With no access modifier this field is private
         // It has the default value of 0
-        int mAge;
+        int _age;
 
         // A private field of type double which is initialized to 55.4
-        private double mWeight = 55.4;
+        private double _weight = 55.4;
 
         // A public read only field of type string. Its
         // value can only be set through the constructor
+        // NOTE: instance fields should never be declared public
+        // and is only shown here for demonstrative purposes
         public readonly string Details;
 
         // A parameterless constructor that sets the Details field
         // using the default values of the other fields
         public Person()
         {
-            Details = $"ID: {Id}, Name: {mName}, Age: {mAge}, Weight: {mWeight}kg";
+            Details = $"ID: {Id}, Name: {_name}, Age: {_age}, Weight: {_weight}kg";
         }
 
         // This constructor takes in arguments to set the
-        // Id, mName, mAge and mWeight fields. These values
+        // Id, _Name, _Age and _Weight fields. These values
         // are then used to set the value of the Details field
         public Person(string id, string name, int age, double weight)
         {
             Id = id;
-            mName = name;
-            mAge = age;
-            mWeight = weight;
-            Details = $"ID: {Id}, Name: {mName}, Age: {mAge}, Weight: {mWeight}kg";
+            _name = name;
+            _age = age;
+            _weight = weight;
+            Details = $"ID: {Id}, Name: {_name}, Age: {_age}, Weight: {_weight}kg";
         }
     }
 
@@ -3481,20 +3485,20 @@ namespace StaticExample
 {
     public class InstanceClass
     {
-        int instanceField;
-        static int staticField;
+        int _instanceField;
+        static int _staticField;
 
         public void InstanceMethod(int value)
         {
             // An instance method can access both
-            // static and instance
-            staticField = value;
-            instanceField = value;
+            // static and instance fields
+            _staticField = value;
+            _instanceField = value;
         }
 
         public static void StaticMethod(int value)
         {
-            staticField = value;
+            _staticField = value;
 
             // A static method cannot access an instance field
             // IntelliSense won't even show an option to select
@@ -3632,6 +3636,8 @@ namespace StaticExample
 // myClass2 InstanceProperty: 0
 // myClass1 StaticProperty: 3
 // myClass2 StaticProperty: 3
+
+// The square of 3 is 9
 </code></pre>
                     <!-- !SECTION static -->
                     <!-- SECTION Structures (struct) -->
@@ -4181,6 +4187,7 @@ namespace Sealed
 
                     <!-- !SECTION sealed -->
 <!-- TODO Rewrite the following -->
+<!-- TODO using base in override -->
                     <!-- SECTION base keyword -->
                     <h3 id="base_keyword">base keyword</h3>
                     <p>Although constructors cannot be inherited those in the base class are still called after the derived constructor is called but before the enclosed
@@ -5690,12 +5697,12 @@ namespace ClassLibrary
 {
     public class PublicBase
     {
-            public string publicField = "library base publicField";
-            protected internal string protectedInternalField = "library base protectedInternalField";
-            protected string protectedField = "library base protectedField";
-            internal string internalField = "library base internalField";
-            private protected string privateProtectedField = "library base privateProtectedField";
-            private string privateField = "library base privateField";
+        public string PublicProperty { get; set; } = "library PublicProperty";
+        protected internal string ProtectedInternalProperty { get; set; } = "library ProtectedInternalProperty";
+        protected string ProtectedProperty { get; set; } = "library ProtectedProperty";
+        internal string InternalProperty { get; set; } = "library InternalProperty";
+        private protected string PrivateProtectedProperty { get; set; } = "library PrivateProtectedProperty";
+        private string PrivateProperty { get; set; } = "library PrivateProperty";
     }
 
     internal class InternalBase { }
@@ -5715,16 +5722,16 @@ namespace AccessModifiers
     // an access modifier is internal
     class BaseClass
     {
-        public string publicField = "base publicField";
-        protected internal string protectedInternalField = "base protectedInternalField";
-        protected string protectedField = "base protectedField";
-        internal string internalField = "base internalField";
-        private protected string privateProtectedField = "base privateProtectedField";
-        private string privateField = "base privateField";
+        public string PublicProperty { get; set; } = "base PublicProperty";
+        protected internal string ProtectedInternalProperty { get; set; } = "base ProtectedInternalProperty";
+        protected string ProtectedProperty { get; set; } = "base ProtectedProperty";
+        internal string InternalProperty { get; set; } = "base InternalProperty";
+        private protected string PrivateProtectedProperty { get; set; } = "base PrivateProtectedProperty";
+        private string PrivateProperty { get; set; } = "base PrivateProperty";
 
         // Default access for a class member
         // without an access modifier is private
-        string defaultField = "base defaultField";
+        string DefaultProperty { get; set; } = "base DefaultProperty";
 
         // A method marked protected can only be
         // accessed within the base or a derived class
@@ -5743,13 +5750,13 @@ namespace AccessModifiers
             Console.WriteLine($"base PrivateMethod{nl}");
             // Within the same class any member can be accessed
             // within another no matter what its access level is
-            Console.WriteLine($"base PrivateMethod publicField = {publicField}");
-            Console.WriteLine($"base PrivateMethod protectedInternalField = {protectedInternalField}");
-            Console.WriteLine($"base PrivateMethod protectedField = {protectedField}");
-            Console.WriteLine($"base PrivateMethod internalField = {internalField}");
-            Console.WriteLine($"base PrivateMethod privateProtectedField = {privateProtectedField}");
-            Console.WriteLine($"base PrivateMethod privateField = {privateField}");
-            Console.WriteLine($"base PrivateMethod defaultField = {defaultField}");
+            Console.WriteLine($"base PrivateMethod PublicProperty = {PublicProperty}");
+            Console.WriteLine($"base PrivateMethod ProtectedInternalProperty = {ProtectedInternalProperty}");
+            Console.WriteLine($"base PrivateMethod ProtectedProperty = {ProtectedProperty}");
+            Console.WriteLine($"base PrivateMethod InternalProperty = {InternalProperty}");
+            Console.WriteLine($"base PrivateMethod PrivateProtectedProperty = {PrivateProtectedProperty}");
+            Console.WriteLine($"base PrivateMethod PrivateProperty = {PrivateProperty}");
+            Console.WriteLine($"base PrivateMethod DefaultProperty = {DefaultProperty}");
         }
 
         // As this class is nested it can be marked private
@@ -5757,12 +5764,12 @@ namespace AccessModifiers
 
         public class Nested2
         {
-            public string publicField = "nested publicField";
-            protected internal string protectedInternalField = "nested protectedInternalField";
-            protected string protectedField = "nested protectedField";
-            internal string internalField = "nested internalField";
-            private protected string privateProtectedField = "nested privateProtectedField";
-            private string privateField = "nested privateField";
+            public string PublicProperty { get; set; } = "nested PublicProperty";
+            protected internal string ProtectedInternalProperty { get; set; } = "nested ProtectedInternalProperty";
+            protected string ProtectedProperty { get; set; } = "nested ProtectedProperty";
+            internal string InternalProperty { get; set; } = "nested InternalProperty";
+            private protected string PrivateProtectedProperty { get; set; } = "nested PrivateProtectedProperty";
+            private string PrivateProperty { get; set; } = "nested PrivateProperty";
         }
     }
 
@@ -5780,17 +5787,17 @@ namespace AccessModifiers
         {
             var nl = Environment.NewLine;
             Console.WriteLine($"derived PublicMethod{nl}");
-            publicField = "derived publicField";
-            protectedInternalField = "derived protectedInternalField";
-            protectedField = "derived protectedField";
-            internalField = "derived internalField";
-            privateProtectedField = "derived privateProtectedField";
+            PublicProperty = "derived publicProperty";
+            ProtectedInternalProperty = "derived protectedInternalProperty";
+            ProtectedProperty = "derived protectedProperty";
+            InternalProperty = "derived internalProperty";
+            PrivateProtectedProperty = "derived privateProtectedProperty";
 
-            // As 'privateField' and 'defaultField' are private in the base
+            // As 'PrivateProperty' and 'DefaultProperty' are private in the base
             // class they are inaccessible in the derived class
             // Uncommenting the following statements results in an error
-            //privateField = 0;
-            //defaultField = 0;
+            //PrivateProperty = 0;
+            //DefaultProperty = 0;
 
             ProtectedMethod();
         }
@@ -5801,16 +5808,16 @@ namespace AccessModifiers
     {
         public void PublicMethod()
         {
-            publicField = "Class1 publicField";
-            protectedInternalField = "Class1 protectedInternalField";
-            protectedField = "Class1 protectedField";
+            PublicProperty = "Class1 publicProperty";
+            ProtectedInternalProperty = "Class1 protectedInternalProperty";
+            ProtectedProperty = "Class1 protectedProperty";
 
             // internal, private protected and private marked
             // members can only be accessed within the same assembly
             // Uncommenting the following statements results in an error
-            //internalField = "Class1 internalField";
-            //privateProtectedField = "Class1 privateProtectedField";
-            //privateField = "Class1 privateField";
+            //InternalPublicProperty = "Class1 InternalPublic";
+            //PrivateProtectedPublicProperty = "Class1 PrivateProtectedPublic";
+            //PrivatePublicProperty = "Class1 PrivateProperty";
         }
     }
 
@@ -5829,47 +5836,47 @@ namespace AccessModifiers
         {
             var nl = Environment.NewLine;
 
-            // Only the internal, protected internal and public fields
+            // Only the internal, protected internal and public properties
             // from BaseClass, BaseClass.Nested2 and DerivedClass
             // are accessible within the Program class
             BaseClass baseClass = new();
-            Console.WriteLine(baseClass.internalField);
-            Console.WriteLine(baseClass.protectedInternalField);
-            Console.WriteLine(baseClass.publicField + nl);
+            Console.WriteLine(baseClass.InternalProperty);
+            Console.WriteLine(baseClass.ProtectedInternalProperty);
+            Console.WriteLine(baseClass.PublicProperty + nl);
 
             BaseClass.Nested2 nested2 = new();
-            Console.WriteLine(nested2.internalField);
-            Console.WriteLine(nested2.protectedInternalField);
-            Console.WriteLine(nested2.publicField + nl);
+            Console.WriteLine(nested2.InternalProperty);
+            Console.WriteLine(nested2.ProtectedInternalProperty);
+            Console.WriteLine(nested2.PublicProperty + nl);
 
             DerivedClass derivedClass = new();
-            Console.WriteLine(derivedClass.internalField);
-            Console.WriteLine(derivedClass.protectedInternalField);
-            Console.WriteLine(derivedClass.publicField + nl);
+            Console.WriteLine(derivedClass.InternalProperty);
+            Console.WriteLine(derivedClass.ProtectedInternalProperty);
+            Console.WriteLine(derivedClass.PublicProperty + nl);
             derivedClass.PublicMethod();
 
             Class1 class1 = new();
-            // Only the public field from ClassLibrary.PublicBase that
+            // Only the Public property from ClassLibrary.PublicBase that
             // Class1 inherited is accessible within the Program class
-            Console.WriteLine(nl + class1.publicField + nl);
+            Console.WriteLine(nl + class1.PublicProperty + nl);
             class1.PublicMethod();
-            Console.WriteLine(class1.publicField + nl);
+            Console.WriteLine(class1.PublicProperty + nl);
         }
     }
 }
 
 // The example prints the following to the console
-// base internalField
-// base protectedInternalField
-// base publicField
+// base InternalProperty
+// base ProtectedInternalProperty
+// base PublicProperty
 
-// nested internalField
-// nested protectedInternalField
-// nested publicField
+// nested InternalProperty
+// nested ProtectedInternalProperty
+// nested PublicProperty
 
-// base internalField
-// base protectedInternalField
-// base publicField
+// base InternalProperty
+// base ProtectedInternalProperty
+// base PublicProperty
 
 // derived PublicMethod
 
@@ -5877,17 +5884,17 @@ namespace AccessModifiers
 
 // base PrivateMethod
 
-// base PrivateMethod publicField = derived publicField
-// base PrivateMethod protectedInternalField = derived protectedInternalField
-// base PrivateMethod protectedField = derived protectedField
-// base PrivateMethod internalField = derived internalField
-// base PrivateMethod privateProtectedField = derived privateProtectedField
-// base PrivateMethod privateField = base privateField
-// base PrivateMethod defaultField = base defaultField
+// base PrivateMethod PublicProperty = derived publicProperty
+// base PrivateMethod ProtectedInternalProperty = derived protectedInternalProperty
+// base PrivateMethod ProtectedProperty = derived protectedProperty
+// base PrivateMethod InternalProperty = derived internalProperty
+// base PrivateMethod PrivateProtectedProperty = derived privateProtectedProperty
+// base PrivateMethod PrivateProperty = base PrivateProperty
+// base PrivateMethod DefaultProperty = base DefaultProperty
 
-// library base publicField
+// library PublicProperty
 
-// Class1 publicField
+// Class1 publicProperty
 </code></pre>
                     <!-- !SECTION Access modifiers -->
                 </article>
