@@ -3215,14 +3215,15 @@ namespace Fields
                     <h3 id="Properties">Properties</h3>
                     <p>A property is a way of allowing external code to have controlled access to a field within an object. Declaration of a property can take two forms,
                         <i>manually-implemented</i> or <i>auto-implemented</i>.</p>
-                    <p>A property that is manually-implemented stores the data in a separately declared field, which in this context is known as a <i>backing field</i>.
-                        The property is then declared using an optional <a href="#Access_modifiers">access modifier</a>, followed by the property's type, followed by an
+                    <p>A property that is manually-implemented stores the data in a separately declared field, which in this context is known as a <i>backing field</i>
+                        and which must be of the same type as that declared by the property.
+                        The property is declared using an optional <a href="#Access_modifiers">access modifier</a>, followed by the property's type, followed by an
                         identifier that is unique within the property's containing type, followed by a pair of braces that define a code block. The code block is the body
-                        of the property and within it and the <code>set</code> keyword can be used to declare a <i>setter</i> for writing a value to the backing field and
-                        the  <code>get</code> keyword for declaring a <i>getter</i> for reading the value from the backing field. A property can be made read/write by
+                        of the property and within it the <code>set</code> keyword can be used to declare a <i>setter</i> for writing a value to the backing field and
+                        the  <code>get</code> keyword to declare a <i>getter</i> for reading the value from the backing field. A property can be made read/write by
                         using both <code>set</code> and <code>get</code>, readonly by only using <code>get</code> and write only by only using <code>set</code> though the
                         latter is an extremely rare situation. Both <code>set</code> and <code>get</code> each have their own code block. Whilst the default access level
-                        without an access modifier is private, one is normally applied to allow for access outside the object.</p>
+                        for a property without an access modifier is private, one is normally applied to allow for access outside its containing type.</p>
                     <p>Within the <code>set</code> code block the <code>value</code> keyword is used to hold the value passed in to the property which is to be assigned
                         to the backing field, in the form of <code>backingField = value;</code>. Other statements can be placed in the <code>set</code> code block to to
                         validate the value before it is written to the backing field or to perform an action before or after this is done. This could include
@@ -3232,7 +3233,8 @@ namespace Fields
                         more complex procedures are required a <a href="#Methods">method</a> should be utilized. An alternative to <code>set</code> is <code>init</code>
                         which can only be called by the constructor or an object-initializer, which makes the property read-only after it has been initialized during the
                         objects instantiation. The <code>set</code> and <code>init</code> keywords are mutually exclusive. Collectively <code>set</code>,
-                        <code>init</code> and <code>get</code> are called <i>accessors</i>.</p>
+                        <code>init</code> and <code>get</code> are called <i>accessors</i>. Accessors and their code blocks can also be in the form of an
+                            <a href="#The_lambda_and_body_definition_operator">expression-bodied member</a> which make use of the <code>=&gt;</code> operator.</p>
                     <p>The default access for accessors is that of the property containing them, but can be changed changed through the use of access modifiers provided
                         that</p>
                     <ul>
@@ -5087,7 +5089,17 @@ namespace MyCompany.ViewModels
                         the correct case and the project must have a <a href="#Dependencies">reference</a> to the project containing the type.</p>
                     <p>To remove unused <i>using</i> directives, right click anywhere in the code editor and click <b>Remove and Sort Usings</b>.</p>
                     <p>The following example demonstrate importing types with the <code>using</code> directive.</p>
-<pre><code>// This imports all types from the System namespace
+<pre><code>// This code is in a file called Class5
+namespace NameSpace5
+{
+    public class Class5 { }
+}
+
+// -------------------------------------------------
+
+// This code is in a file called Program
+
+// This imports all types from the System namespace
 // See Importing system types for details
 using System;
 
@@ -5095,8 +5107,8 @@ using System;
 // into all namespaces declared in this file
 using NameSpace1;
 
-// This imports all types within NameSpace5
-// which is declared in another file, into
+// This imports all types within
+// NameSpace5 in the Class5 file, into
 // all namespaces declared in this file
 using NameSpace5;
 
@@ -5176,7 +5188,7 @@ namespace ImportingTypes
             NameSpace4.Class4 class4 = new();
 
             // Class5 which is declared within
-            // NameSpace5 in another file can be
+            // NameSpace5 in the Class5 file can be
             // accessed directly using its identifier
             Class5 class5 = new();
 
@@ -5669,21 +5681,21 @@ namespace Scope
                     </ul>
                     <p>Enum members do not have any declared accessibility. An enum member's accessibility  is determined by the accessibility of the enum type container
                         and access modifiers cannot be applied to them.</p>
-                    <p>The following example demonstrates various accessibility scenarios. It contains two assemblies. The first is a library under the namespace
-                        <code>ClassLibrary1</code>. The second is an executable under the namespace <code>ScopeExample</code> that references <code>ClassLibrary1</code>.
-                    </p>
-<pre><code>using System;
-
-namespace ClassLibrary1
+                    <p>The following example demonstrates various accessibility scenarios. It contains two projects. The first is a class library library called
+                        ClassLibrary that has one file with several classes within the namespace <code>ClassLibrary</code>. The second is an executable called
+                        AccessModifiers that has a reference to ClassLibrary and one file with several classes within the namespace <code>AccessModifiers</code>.</p>
+<pre><code>// This code is in a class library
+// project called ClassLibrary
+namespace ClassLibrary
 {
     public class PublicBase
     {
-        public string publicField = "library base publicField";
-        protected internal string protectedInternalField = "library base protectedInternalField";
-        protected string protectedField = "library base protectedField";
-        internal string internalField = "library base internalField";
-        private protected string privateProtectedField = "library base privateProtectedField";
-        private string privateField = "library base privateField";
+            public string publicField = "library base publicField";
+            protected internal string protectedInternalField = "library base protectedInternalField";
+            protected string protectedField = "library base protectedField";
+            internal string internalField = "library base internalField";
+            private protected string privateProtectedField = "library base privateProtectedField";
+            private string privateField = "library base privateField";
     }
 
     internal class InternalBase { }
@@ -5691,9 +5703,13 @@ namespace ClassLibrary1
     class DefaultAccessBase { }
 }
 
+// ---------------------------------------------------------------------------------------------------
+
+// This code is in a project called
+// AccessModifiers that references ClassLibrary
 using System;
 
-namespace ScopeExample
+namespace AccessModifiers
 {
     // Default access for class without
     // an access modifier is internal
@@ -5780,8 +5796,8 @@ namespace ScopeExample
         }
     }
 
-    // Inherits PublicBase from ClassLibrary1
-    public class Class1 : ClassLibrary1.PublicBase
+    // Inherits PublicBase from ClassLibrary
+    public class Class1 : ClassLibrary.PublicBase
     {
         public void PublicMethod()
         {
@@ -5798,14 +5814,14 @@ namespace ScopeExample
         }
     }
 
-    // Cannot inherit from 'ClassLibrary1.InternalBase' as it has
+    // Cannot inherit from 'ClassLibrary.InternalBase' as it has
     // been marked Internal and cannot be accessed in another assembly
-    //public class Class2 : ClassLibrary1.InternalBase { }
+    //public class Class2 : ClassLibrary.InternalBase { }
 
-    // Cannot inherit from 'ClassLibrary1.DefaultAccessBase'
+    // Cannot inherit from 'ClassLibrary.DefaultAccessBase'
     // as it has no access modifier, is internal by default
     // and cannot be accessed in another assembly
-    //public class Class3 : ClassLibrary1.DefaultAccessBase { }
+    //public class Class3 : ClassLibrary.DefaultAccessBase { }
 
     class Program
     {
@@ -5830,11 +5846,10 @@ namespace ScopeExample
             Console.WriteLine(derivedClass.internalField);
             Console.WriteLine(derivedClass.protectedInternalField);
             Console.WriteLine(derivedClass.publicField + nl);
-            Console.WriteLine();
             derivedClass.PublicMethod();
 
             Class1 class1 = new();
-            // Only the public field from ClassLibrary1.PublicBase that
+            // Only the public field from ClassLibrary.PublicBase that
             // Class1 inherited is accessible within the Program class
             Console.WriteLine(nl + class1.publicField + nl);
             class1.PublicMethod();
@@ -5855,7 +5870,6 @@ namespace ScopeExample
 // base internalField
 // base protectedInternalField
 // base publicField
-
 
 // derived PublicMethod
 
