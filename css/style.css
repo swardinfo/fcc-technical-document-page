@@ -375,6 +375,10 @@ u.warning::after {
         font-weight: normal; */
     }
 
+    pre {
+        max-width: 860px;
+    }
+
     /* h2 {
         font-size: 24px;
     } */

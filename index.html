@@ -54,6 +54,7 @@
         <main id="main-doc">
             <!-- project requirement - several section elements, each with a class of main-section. There should be a minimum of 5 -->
             <!-- project requirement - section with class of main-section, id corresponds to header text, spaces replaced with underscores -->
+            <!-- TODO rewrite Introduction -->
             <!-- SECTION Introduction -->
             <section class="main-section" id="Introduction">
                 <header><h2>Introduction</h2></header>
@@ -198,6 +199,7 @@ namespace HelloWorld
             </section>
             <!-- !SECTION Create a Hello World Project -->
 <!-- TODO rewrite this -->
+<!-- TODO add expression bodied members -->
             <!-- SECTION Code Syntax -->
             <section class="main-section" id="Code_Syntax">
                 <header><h2>Code Syntax</h2></header>
@@ -2732,9 +2734,9 @@ namespace Enumerators
                         <li><a href="#Interfaces">interfaces</a> can't be instantiated but instead are used to define behaviors that can be implemented by other types
                         </li>
                     </ul>
-                    <p>A type can contain <a href="#Members">members</a>
-                        which include <a href="#Constructors">constructors</a>, <a href="#Fields">fields</a>, <a href="#Properties">properties</a>,
-                        <a href="#Methods">methods</a>, <a href="#Events">events</a>, <a href="#Indexers">indexers</a>, <a href="#Finalizers">finalizers</a> and other
+                    <p>A type can contain <a href="#Members">members</a> which include <a href="#Constructors">constructors</a>, <a href="#Methods">methods</a>,
+                        <a href="#Fields">fields</a>, <a href="#Constant_fields">constant fields</a>, <a href="#Properties">properties</a>,
+                        <a href="#Indexers">indexers</a>, <a href="#Events">events</a>, <a href="#Finalizers">finalizers</a> and other
                         nested types. Combined these are used to define an object through encapsulation and storage of its data and by providing the object's behavior. A
                         type can contain multiple members with the same identifier, known as <a href="#Parameters,_signatures_and_overloading">overloading</a>, provided
                         that each has a unique <a href="#Parameters,_signatures_and_overloading">signature</a>. Accessibility to a type from code outside of the assembly,
@@ -2814,8 +2816,9 @@ namespace ClassDeclaration
     }
 }
 </code></pre>
-                    <p>The following example defines a <code>Square</code> class with <a href="#Constructors">constructors</a>, <a href="#Fields">fields</a>,
-                        <a href="#Properties">properties</a>, <a href="#Methods">methods</a> and <a href="#Events">events</a>. There are two constructors, the first has a
+                    <p>The following example defines a <code>Square</code> class with <a href="#Constructors">constructors</a>, <a href="#Methods">methods</a>,
+                        <a href="#Fields">fields</a>,
+                        <a href="#Properties">properties</a> and <a href="#Events">events</a>. There are two constructors, the first has a
                         <a href="#Parameters_signatures_and_overloading">signature</a> with one parameter and the second with three in which the third parameter is
                         optional. The <code>Program</code> class creates three instances of the <code>Square</code> class. The first uses the first constructor, the
                         second the second constructor without passing an argument to the third parameter. The third also uses the second constructor but does pass an
@@ -2833,7 +2836,7 @@ namespace ClassExample
         // Declare 2 fields a constant to initialize the width and a
         // variable to use as a backing field for the Width property
         const int DEFAULT_VALUE = 1;
-        int mWidth;
+        private int _Width;
 
         // A constructor that sets the Height
         // and Width to the default value internally
@@ -2878,12 +2881,12 @@ namespace ClassExample
         // OnAreaChanged method
         public int Width
         {
-            get =&gt; mWidth;
+            get =&gt; _Width;
             set
             {
-                if (mWidth == value)
+                if (_Width == value)
                     return;
-                mWidth = value;
+                _Width = value;
                 OnAreaChanged();
             }
         }
@@ -2975,12 +2978,12 @@ namespace ClassExample
                     <p>The members that a type can contain include</p>
                     <ul>
                         <li><a href="#Constructors">constructors</a> which initialize the state of an object</li>
+                        <li><a href="#Methods">methods</a> that provide the behavior of the object</li>
                         <li><a href="#Fields">fields</a> that store data about the object and can be changed at run-time</li>
                         <li><a href="#Constant_fields">constant fields</a> that store data when declared, cannot be changed at run-time and are inherently
                             <a href="static">static</a></li>
                         <li><a href="#Properties">properties</a> that provide controlled access to an object's data</li>
                         <li><a href="#Indexers">indexers</a> that allows an object to be indexed like an array</li>
-                        <li><a href="#Methods">methods</a> that provide the behavior of the object</li>
                         <li><a href="#Events">events</a> that communicate changes in the object's state to other objects or to itself</li>
                         <li><a href="#Finalizers">finalizers</a> that performs cleanup of an object when it is no longer in use </li>
                         <li>nested type which is the declaration of another type within the containing type</li>
@@ -2996,10 +2999,10 @@ namespace ClassExample
                         <code>Namespace.Type.Member</code>. This can be negated through the use of a <a href="#using">using</a> directive. Some members also
                         require the passing in of arguments to parameters contained in brackets that follow the member identifier. Visual Studio's IntelliSense can assist
                         you as it will display a suggestion box that lists the namespaces, types and members to choose from as you enter them.</p>
-                    <p>All members except fields, constant fields and events support implementation through the use of
-                        <a href="#The_lambda_and_body_definition_operator">expression-bodied members</a>. Constructors, indexers and methods can be
-                        <a href="#Parameters,_signatures_and_overloading">overloaded</a>. That is a type can contain multiple versions with the same identifier provided
-                        that they overload a member of the same type and each overload has a unique signature.</p>
+                    <p>All members except fields, constant fields and events that have a single expression support implementation through the use of
+                        <a href="#The_lambda_and_body_definition_operator">expression-bodied members which makes for a much more concise code</a>.  Constructors, indexers
+                        and methods can be <a href="#Parameters,_signatures_and_overloading">overloaded</a>. That is a type can contain multiple versions with the same
+                        identifier provided that they overload a member of the same type and each overload has a unique signature.</p>
                     <p>Properties, indexers, methods and events in a <a href="#Inheriting_types">base</a> type can be marked marked
                         <a href="#abstract">abstract</a> or <a href="Overriding_a_virtual_member">virtual</a>. In a <a href="#Inheriting_types">derived</a> type a virtual base member can
                         optionally be <a href="#Overriding_a_virtual_member">overridden</a> where as an abstract base member <em>must</em> be overridden by a member with
@@ -3044,6 +3047,111 @@ namespace ClassExample
 
 
                     <!-- !SECTION Constructors -->
+                    <!-- TODO add passing array to a method -->
+                    <!-- SECTION Methods -->
+                    <h3 id="Methods">Methods</h3>
+                    <p>A method provides the behavior of an object. This could be reading a file, calculating a value, writing to the screen, etc. It is declared using
+                        an optional <a href="#Access_modifiers">access modifier</a>, followed by the <i>return type</i> or the <code>void</code> keyword if it doesn't
+                        return a value. This is followed by an identifier that is unique within the method's containing type, followed by a pair of brackets that can
+                        optionally contain <a href="#Parameters,_signatures_and_overloading">parameters</a>, followed by a pair of braces that define a code block which
+                        is the body of the method.</p>
+                    <p>For a method that returns a value, the statements in the body are executed until a return statement is reached. This is defined by the
+                        <code>return</code> keyword followed by a variable or literal of the type in the method declaration followed by a semicolon. Program execution,
+                         along with the returned value  will then be passed back to the code that called the method.</p>
+                    <p>For a method that does not return a value, execution will be passed back to the calling code either when a return statement or the closing brace is
+                        reached. In this case a return statement is defined just with the <code>return</code> keyword followed by a semicolon.</p>
+                    <p>In both cases a method can contain multiple return statements allowing for multiple exit points from different paths back to the calling code. In
+                        this case, a method that has a return type but that does not have a return statement for all possible paths will produces a syntax error. Methods
+                        with a single expression can be implemented in the form of an an <a href="#The_lambda_and_body_definition_operator">expression-bodied member</a>
+                        and a class can contain multiple <a href="#Parameters,_signatures_and_overloading">overloads</a> of a method.</p>
+                    <p>Access to a method by code external to the type is in the form of <code>instance.Method(parameters)</code> for an instance of a type and
+                       <code>TypeName.Method(parameters)</code> for a <a href="static">static</a> type.</p>
+                    <p>The following shows examples of method declaration and use.</p>
+<pre><code>using System;
+
+namespace Methods
+{
+    public class Class1
+    {
+        // A method that takes in an argument
+        // through a string parameter which it
+        // writes to the console. As the
+        // return type is void it does not
+        // return a value
+        public void PrintMessage(string value)
+        {
+            Console.WriteLine(value);
+        }
+
+        // A method that calls another method
+        // from within the class and prints
+        // then prints the returned value
+        public void PrintProduct(int a, int b)
+        {
+            var product = Multiply(a, b);
+            Console.WriteLine(product);
+        }
+
+        // A public method that returns an int
+        // value of the sum of the parameters
+        public int Add(int x, int y)
+        {
+            return x + y;
+        }
+
+        // A method that uses an expression body
+        public int Subtract(int x, int y) =&gt; x - y;
+
+        // A private method that can only
+        // that can only be accessed from
+        // within the enclosing type
+        private int Multiply(int x, int y)
+        {
+            return x * y;
+        }
+
+        // This method does not have a return statement
+        // Uncommenting this results in the error
+        // 'Class1.Sum(int, int, int)': not all code
+        // paths return a value
+        //public int Sum(int a, int b, int c, int d)
+        //{
+        //    var result = a + b + c + d;
+        //}
+
+        // This also results in an error. The if statement
+        // does not return a value if x == 0
+        // Uncommenting this results in the error
+        // 'Class1.Sum(int, int, int)': not all code
+        // paths return a value
+        //public int Sum(int a, int b, int c, int d)
+        //{
+        //    if (x != 0)
+        //     return  a + b + c + d;
+        //}
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Class1 class1 = new Class1();
+            var sum = class1.Add(2, 3);
+            var difference = class1.Subtract(7, 4);
+            Console.WriteLine($"2 + 3 = {sum}");
+            Console.WriteLine($"7 - 4 = {difference}");
+            Console.Write("5 x 6 = ");
+            class1.PrintProduct(5, 6);
+        }
+    }
+}
+
+// The example writes the following to the console
+// 2 + 3 = 5
+// 7 - 4 = 3
+// 5 x 6 = 30
+</code></pre>
+                    <!-- !SECTION Methods -->
                     <!-- SECTION Fields -->
                     <h3 id="Fields">Fields</h3>
                     <p>A variable declared inside a type but outside any other member is called a field and is used to store data about an object. They are declared using
@@ -3074,7 +3182,7 @@ namespace Fields
         // it will have the default string value i.e. an empty string
         // NOTE: instance fields should never be declared public
         // and is only shown here for demonstrative purposes
-        public string Id;
+        public string ID;
 
         // A private field with default string value i.e. an empty string
         private string _name;
@@ -3096,7 +3204,7 @@ namespace Fields
         // using the default values of the other fields
         public Person()
         {
-            Details = $"ID: {Id}, Name: {_name}, Age: {_age}, Weight: {_weight}kg";
+            Details = $"ID: {ID}, Name: {_name}, Age: {_age}, Weight: {_weight}kg";
         }
 
         // This constructor takes in arguments to set the
@@ -3104,11 +3212,11 @@ namespace Fields
         // are then used to set the value of the Details field
         public Person(string id, string name, int age, double weight)
         {
-            Id = id;
+            ID = id;
             _name = name;
             _age = age;
             _weight = weight;
-            Details = $"ID: {Id}, Name: {_name}, Age: {_age}, Weight: {_weight}kg";
+            Details = $"ID: {ID}, Name: {_name}, Age: {_age}, Weight: {_weight}kg";
         }
     }
 
@@ -3120,7 +3228,7 @@ namespace Fields
             Person person2 = new("Person2", "John Smith", 23, 50);
             Person person3 = new("Person3", "Andrew Smith", 23, 50)
             {
-                Id = "Other"
+                ID = "Other"
             };
 
             // Each instance contains its own copy of the fields
@@ -3129,12 +3237,12 @@ namespace Fields
             Console.WriteLine($"person3 details - {person3.Details}");
 
             // person3.Id contains 'Other' as it was changed in the object initializer
-            Console.WriteLine($"person3 ID: {person3.Id}");
+            Console.WriteLine($"person3 ID: {person3.ID}");
 
             // As person3.Id is public direct access is allowed that cannot be
             // validated. Changes to person3.Id don't affect person3.Details
-            person3.Id = "Invalid ID";
-            Console.WriteLine($"person3 ID: {person3.Id}");
+            person3.ID = "Invalid ID";
+            Console.WriteLine($"person3 ID: {person3.ID}");
             Console.WriteLine($"person3 details - {person3.Details}");
 
             // Details are marked readonly
@@ -3217,150 +3325,244 @@ namespace Fields
 <!-- TODO add properties example -->
                     <!-- SECTION Properties -->
                     <h3 id="Properties">Properties</h3>
-                    <p>A property is a way of allowing external code to have controlled access to a field within an object. Declaration of a property can take two forms,
-                        <i>manually-implemented</i> or <i>auto-implemented</i>.</p>
-                    <p>A property that is manually-implemented stores the data in a separately declared field, which in this context is known as a <i>backing field</i>
-                        and which must be of the same type as that declared by the property.
-                        The property is declared using an optional <a href="#Access_modifiers">access modifier</a>, followed by the property's type, followed by an
-                        identifier that is unique within the property's containing type, followed by a pair of braces that define a code block. The code block is the body
-                        of the property and within it the <code>set</code> keyword can be used to declare a <i>setter</i> for writing a value to the backing field and
-                        the  <code>get</code> keyword to declare a <i>getter</i> for reading the value from the backing field. A property can be made read/write by
-                        using both <code>set</code> and <code>get</code>, readonly by only using <code>get</code> and write only by only using <code>set</code> though the
-                        latter is an extremely rare situation. Both <code>set</code> and <code>get</code> each have their own code block. Whilst the default access level
-                        for a property without an access modifier is private, one is normally applied to allow for access outside its containing type.</p>
-                    <p>Within the <code>set</code> code block the <code>value</code> keyword is used to hold the value passed in to the property which is to be assigned
-                        to the backing field, in the form of <code>backingField = value;</code>. Other statements can be placed in the <code>set</code> code block to to
-                        validate the value before it is written to the backing field or to perform an action before or after this is done. This could include
-                        <a href="#Events">raising an event</a> to communicate to other objects that the property's value has changed. A <code>get</code> must always
-                        return a value of the type declared by the property. Within it's code block this usually takes the form of <code>return backingField</code>. As
+                    <p>A property is a way of allowing external code to have controlled access to data within an object. It does this by providing special methods
+                        that can read from and write to the data, most often a single field which in this context is known as a <i>backing field</i>. The data the
+                        property accesses must be of the same type as the property's declared type. Whilst the
+                        default access level for a property is private, an optional <a href="#Access_modifiers">access modifier</a> is normally applied to allow for
+                        access outside its containing type. Declaration of a property can take one of two forms, <i>manually-implemented</i> or
+                        <i>auto-implemented</i>.</p>
+                    <p>Manually-implemented properties can be declared using an optional access modifier, followed by the property's type,
+                        followed by an identifier that is unique within the property's containing type, followed by a pair of braces that define a code block which is the
+                        body of the property. This can contain one or both of two special methods which include a <i>getter</i> declared using the <code>get</code>
+                        keyword to read data from the object and a <i>setter</i> declared using either the <code>set</code> or <code>init</code> keywords to write
+                        data to the object. Collectively <code>get</code>, <code>set</code> and <code>init</code> are called <i>accessors</i> with <code>set</code> and
+                        <code>init</code> being mutually exclusive. A property can be made read/write by using both a getter and a setter, read-only by only using a
+                        getter or write-only by only using a setter, though the latter is an extremely rare situation.  </p>
+                    <p>Both the getter and the setter each have their own code block. Within the setter code block the <code>value</code> keyword is used to hold the
+                        value passed in to the property which is to be assigned
+                        to the data, in the form of <code>data = value;</code>. Other statements can be placed in the setter to to
+                        validate the value before it is written to the data or to perform an action before or after this is done. This could include
+                        <a href="#Events">raising an event</a> to communicate to other objects that the property's value has changed.  Within getter code block  this usually
+                         takes the form of <code>return backingField</code>. As
                         with <code>set</code>, other code can also be placed within the <code>get</code> code block. In both cases such code should be limited and where
                         more complex procedures are required a <a href="#Methods">method</a> should be utilized. An alternative to <code>set</code> is <code>init</code>
                         which can only be called by the constructor or an object-initializer, which makes the property read-only after it has been initialized during the
-                        objects instantiation. The <code>set</code> and <code>init</code> keywords are mutually exclusive. Collectively <code>set</code>,
-                        <code>init</code> and <code>get</code> are called <i>accessors</i>. Accessors and their code blocks can also be in the form of an
-                            <a href="#The_lambda_and_body_definition_operator">expression-bodied member</a> which make use of the <code>=&gt;</code> operator.</p>
-                    <p>The default access for accessors is that of the property containing them, but can be changed changed through the use of access modifiers provided
+                        objects instantiation. As with <code>set</code> a property can be made write-only by only using <code>init</code>. The <code>set</code> and
+                        <code>init</code> keywords are mutually exclusive. Collectively <code>set</code>,
+                        <code>init</code> and <code>get</code> are called <i>accessors</i>. An accessor that has a single expression can be implemented in the form of an
+                        <a href="#The_lambda_and_body_definition_operator">expression-bodied member</a>.</p>
+                    <p>The default access for accessors is that of the property containing them, but can be changed through the use of access modifiers provided
                         that</p>
                     <ul>
                         <li>the property is read/write</li>
                         <li>only one of the accessors has the access modifier applied</li>
                         <li>the access modifier is more restrictive than the property container</li>
                     </ul>
-                    <p>Making an <code>init</code> accessor private has the effect that the property can only be initialized in a constructor and <b>not</b> an
-                        object-initializer.</p>
-                    <p><em>Note:</em><i>Applying an access modifier to a <code>get</code> accessor is not recommended.</i></p>
-                    <p>In an Auto-implemented property, the accessors are declared without an implementation code block and no backing field is required, allowing the
-                        property to be written with one line of code. During runtime the compiler creates a private backing field that can only be accessed through the
+                    <p>This means for example, if a property is public and and the <code>set</code> accessor is made private then the property can be read from outside
+                         the class but
+                         ony set by other members
+                        within it. </p>
+                    <p><em>Note:</em><i> Applying an access modifier to a <code>get</code> accessor is not recommended and making an <code>init</code> accessor private
+                         has the effect that the property can only be initialized in a constructor and <b>not</b> an
+                        object-initializer. </i></p>
+                    <p>Auto-implemented properties have accessors that are declared without an implementation code block and without declaring a separate  backing field
+                        allowing the
+                        property to be written with one line of code. During runtime the compiler creates a hidden private backing field that can only be accessed through
+                         the
                         property. An advantage of an auto-implemented property is that it can be initialized through the declaration. For a read/write property either
-                        both accessors must be manually-implemented or auto-implemented.</p>
-                    <p>Access to a property by code external to the type is in the form of <code>instance.Property</code>.</p>
+                        both accessors must be manually-implemented or auto-implemented. An auto-implemented property must always have a <code>get</code> accessor so
+                        it cannot be write-only.</p>
+                    <p>Whilst the order of getters and setters in both manually-implemented or auto-implemented properties doesn't matter, by convention getters are
+                        normally declared first. Access to a property by code external to the type is in the form of <code>instance.Property</code> for an instance of
+                         a type and
+                        <code>TypeName.Property</code> for a <a href="static">static</a> type.</p>
+                    <p>The following example demonstrates property declaration and use.</p>
+<pre><code>using System;
 
+    namespace Properties
+    {
+        public enum SkillLevel { None, Beginner, Intermediate, Expert }
 
+        public class Student
+        {
+            private string _firstName;
+            private string _lastName;
+            private int _courseLength;
+            private string _password;
+            private string _courseName;
+            private DateTime _created;
 
+            public Student(long id, string courseName, int courseLength,  DateTime enrollmentDate, string password)
+            {
+                ID = id;
+                CourseName = courseName;
+                CourseLength = courseLength;
+                EnrollmentDate = enrollmentDate;
+                Password = password;
+                Created = DateTime.Now;
+                Modified = Created;
+            }
+
+            // A manually-implemented property with full accessor code blocks.
+            public string FirstName
+            {
+                get
+                {
+                    return _firstName;
+                }
+                set
+                {
+                    _firstName = value;
+                }
+            }
+
+            // Accessors with a single expression
+            // implemented as expression-bodied members
+            // The get does not require the return
+            // keyword and neither accessor
+            // requires braces to define a code block.
+            public string LastName
+            {
+                get =&gt; _lastName;
+                set =&gt; _lastName = value;
+            }
+
+            // A property with a expression-bodied get and
+            // an inti accessor with a full code block accessor.
+            public int CourseLength
+            {
+                get =&gt; _courseLength;
+                init
+                {
+                    if (value &lt;= 0)
+                        throw new ArgumentOutOfRangeException(nameof(value), "Must be more than zero");
+                    _courseLength = value;
+                }
+            }
+
+            // A read-only property can only be initialized in the constructor
+            // but still allows code within the expression to be run.
+            // This property does not use a backing field.
+            public DateTime ExpectedCompletionDate =&gt; EnrollmentDate.AddYears(CourseLength);
+
+            // A write only property is actively discouraged
+            // within Microsoft's reference documentation.
+            public string Password { set =&gt; _password = value; }
+
+            // A read/write property with have an access modifier.
+            // It can be read externally but only set within the class.
+            public string CourseName
+            {
+                get =&gt; _courseName;
+                private set =&gt; _courseName = value;
+            }
+
+            // A manually-implemented property with an init accessor.
+            public DateTime Created
+            {
+                get =&gt; _created;
+                init =&gt; _created = value;
+            }
+
+            // An auto-implemented property has its own hidden backing
+            // field and can be initialized as part of its declaration.
+            public SkillLevel ProgrammingSkillLevel { get; set; } = SkillLevel.Beginner;
+
+            // An auto-implemented read-only property.
+            public long ID { get; }
+
+            // An auto-implemented read/write property with an access modifier
+            public DateTime Modified { get; private set; }
+
+            // An auto-implemented read/write property with an init accessor
+            public DateTime EnrollmentDate { get; init; }
+
+            // Syntax error, an auto-implemented property must have a get
+            //public string Password2 { set; }
+
+            // Syntax error, only one accessor can have an access modifier
+            //public string User { internal get; private set; }
+
+            // Syntax error, an accessor access modifier must be
+            // more restrictive than the property containing it
+            //public string Password2 { public get; set; }
+
+            public string LogIn(string password)
+            {
+                // Syntax error, can't read a write only property
+                //if (password == Password)
+
+                // This accesses the _password field so is OK
+                if (password == _password)
+                    return ("login successful");
+                return "login failed";
+            }
+
+            public void Update(string courseName)
+            {
+                CourseName = courseName;
+                Modified = DateTime.Now;
+            }
+        }
+
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                string nl = Environment.NewLine;
+
+                Student student = new(1, "Programming in Java masters", 2, new DateTime(2021, 12, 5), "password")
+                {
+                    // Assign values to properties in an object initializer
+                    FirstName = "Jane",
+                    LastName = "Robinson",
+                    ProgrammingSkillLevel = SkillLevel.Intermediate,
+                    Created = new DateTime(2021, 12, 4)
+                };
+
+                Console.WriteLine($"ID: {student.ID}, {student.FirstName} {student.LastName}");
+                Console.WriteLine($"Course: {student.CourseName}, Length: {student.CourseLength} years");
+                Console.WriteLine($"Enrolled: {student.EnrollmentDate:dd MMM yyyy}");
+                Console.WriteLine($"Expected Finish Date: {student.ExpectedCompletionDate:dd MMM yyyy}");
+                Console.WriteLine($"Current Skill Level {student.ProgrammingSkillLevel}");
+                Console.WriteLine($"Record created: {student.Created:dd MMM yyyy}{nl}");
+
+                student.Update("Programming in C# masters");
+                Console.WriteLine($"ID: {student.ID}, {student.FirstName} {student.LastName}");
+                Console.WriteLine($"Course: {student.CourseName}, Length: {student.CourseLength} years");
+                Console.WriteLine($"Last updated: {student.Modified:dd MMM yyyy}{nl}");
+
+                // Syntax error, can only assign a value to a property with an
+                // init accessor in a constructor or an object initializer
+                //student1.Created = DateTime.Now;
+
+                Console.WriteLine($"Attempting student login before changing password, {student.LogIn("password")}");
+                // Assign a value to a write only property
+                student.Password = "NewPassword";
+                Console.WriteLine($"Attempting student login after changing password, {student.LogIn("password")}");
+            }
+        }
+    }
+
+    // The example prints the following to the console
+    // ID: 1, Jane Robinson
+    // Course: Programming in Java masters, Length: 2 years
+    // Enrolled: 05 Dec 2021
+    // Expected Finish Date: 05 Dec 2023
+    // Current Skill Level Intermediate
+    // Record created: 04 Dec 2021
+
+    // ID: 1, Jane Robinson
+    // Course: Programming in C# masters, Length: 2 years
+    // Last updated: 09 Dec 2021
+
+    // Attempting student login before changing password, login successful
+    // Attempting student login after changing password, login failed
+    </code></pre>
 
 
                     <!-- !SECTION Properties -->
-<!-- TODO add passing array to a method -->
-                    <!-- SECTION Methods -->
-                    <h3 id="Methods">Methods</h3>
-                    <p>A method provides the behavior of an object. This could be reading a file, calculating a value, writing to the screen, etc. They are declared using
-                        an optional <a href="#Access_modifiers">access modifier</a>, followed by the <i>return type</i>, followed by an identifier that is unique within
-                        the method's containing type, followed by a pair of brackets that can optionally contain
-                        <a href="#Parameters,_signatures_and_overloading">parameters</a>, followed by a pair of braces that define a code block which is the body of the
-                        method. For a method that doesn't return a value, the <code>void</code> keyword is used in place of the returning type. A method that has a return
-                        type but that does not have a return value from all possible paths produce a syntax error. Methods can be
-                        <a href="#Parameters,_signatures_and_overloading">overloaded</a>.</p>
-                    <p>Access to a method by code external to the type is in the form of <code>instance.Method(parameters)</code>.</p>
-                    <p>The following shows examples of method declaration and use.</p>
-<pre><code>using System;
 
-namespace Methods
-{
-    public class Class1
-    {
-        // A method that takes in an argument
-        // through a string parameter which it
-        // writes to the console. As the
-        // return type is void it does not
-        // return a value
-        public void PrintMessage(string value)
-        {
-            Console.WriteLine(value);
-        }
-
-        // A method that calls another method
-        // from within the class and prints
-        // then prints the returned value
-        public void PrintProduct(int a, int b)
-        {
-            var product = Multiply(a, b);
-            Console.WriteLine(product);
-        }
-
-        // A public method that returns an int
-        // value of the sum of the parameters
-        public int Add(int x, int y)
-        {
-            return x + y;
-        }
-
-        // A method that uses an expression body
-        public int Subtract(int x, int y) =&gt; x = y;
-
-        // A private method that can only
-        // that can only be accessed from
-        // within the enclosing type
-        private int Multiply(int x, int y)
-        {
-            return x * y;
-        }
-
-        // This method does not have a return statement
-        // Uncommenting this results in the error
-        // 'Class1.Sum(int, int, int)': not all code
-        // paths return a value
-        //public int Sum(int a, int b, int c, int d)
-        //{
-        //    var result = a + b + c + d;
-        //}
-
-        // This also results in an error. The if statement
-        // does not return a value if x == 0
-        // Uncommenting this results in the error
-        // 'Class1.Sum(int, int, int)': not all code
-        // paths return a value
-        //public int Sum(int a, int b, int c, int d)
-        //{
-        //    if (x != 0)
-        //     return  a + b + c + d;
-        //}
-    }
-
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Class1 class1 = new Class1();
-            var sum = class1.Add(2, 3);
-            var difference = class1.Subtract(7, 4);
-            class1.PrintMessage("Commencing test");
-            Console.WriteLine($"2 + 3 = {sum}");
-            Console.WriteLine($"7 - 4 = {difference}");
-            Console.Write("5 x 6 = ");
-            class1.PrintProduct(5, 6);
-            class1.PrintMessage("Test completed");
-        }
-    }
-}
-
-// The example writes the following to the console
-// Commencing test
-// 2 + 3 = 5
-// 7 - 4 = 4
-// 5 x 6 = 30
-// Test completed
-</code></pre>
-                    <!-- !SECTION Methods -->
 <!-- TODO finish events description -->
 <!-- TODO add events example -->
                     <!-- SECTION Events -->
@@ -3394,12 +3596,12 @@ namespace Indexers
 {
     class StringCollection
     {
-        private string[] strings = new string[10];
+        private string[] _strings = new string[10];
 
         public string this[int i]
         {
-            get =&gt; strings[i];
-            set =&gt; strings[i] = value;
+            get =&gt; _strings[i];
+            set =&gt; _strings[i] = value;
         }
     }
 
@@ -3485,8 +3687,8 @@ namespace StaticExample
 {
     public class InstanceClass
     {
-        int _instanceField;
-        static int _staticField;
+        private int _instanceField;
+        private static int _staticField;
 
         public void InstanceMethod(int value)
         {
@@ -3505,9 +3707,9 @@ namespace StaticExample
             // instanceVariable and using it here results in an error.
             // Uncommenting the following results in the error
             // An object is required for the non-static field
-            // method or property 'Program.InstanceClass.instanceVariable'
+            // method or property 'InstanceClass._instanceField'
 
-            //instanceVariable = value;
+            //_instanceField = value;
         }
     }
 
@@ -3593,14 +3795,12 @@ namespace StaticExample
             Console.WriteLine($"{nl}The instance and static properties are changed in myClassInstance2");
 
 
-            // Each instance of MyClass has there own instance of
+            // Each instance of MyClass has its own instance of
             // InstanceProperty so only myClassInstance1's is changed
-            //
             myClass1.SetInstanceProperty(2);
 
-            // Both instances of MyClass share StaticProperty
-            // so changing the value in myClassInstance1 changes
-            // it for both
+            // Both instances of MyClass share StaticProperty so changing
+            // the value in myClassInstance1 changes it for both
             myClass1.SetStaticProperty(3);
             Console.WriteLine($"values of the two instances of MyClass are now{nl}");
             Console.WriteLine($"myClass1 InstanceProperty: {myClass1.GetInstanceProperty()}");
@@ -3906,11 +4106,11 @@ namespace InheritanceAccessibility
 }
 </code></pre>
                     <p>The following example creates a base class called <code>Animal</code> with a public property <code>Legs</code> that provides access to a private
-                        field <code>mLegs;</code>. Both classes <code>Bird</code> and <code>Cat</code> inherit and extend the <code>Animal</code> class with
+                        field <code>_Legs;</code>. Both classes <code>Bird</code> and <code>Cat</code> inherit and extend the <code>Animal</code> class with
                         <code>Bird</code> adding the property <code>Wings</code> and <code>Cat</code> the property <code>Meowing</code>. In the <code>Program</code>
                         class an instance of <code>Bird</code> is created setting values for both <code>Legs</code> and <code>Wings</code> and an instance of
                         <code>Cat</code> setting values for both <code>Legs</code> and <code>Meowing</code>. A message describing each is then written to the console with
-                        their corresponding properties. The example also shows that attempting to access the private <code>mLegs</code> field in <code>Animals</code> from
+                        their corresponding properties. The example also shows that attempting to access the private <code>_Legs</code> field in <code>Animals</code> from
                         the derived class <code>Cat</code> results in a syntax error.</p>
 
 <pre><code>using System;
@@ -3920,17 +4120,17 @@ namespace InheritanceExample
     // Declare a base class called 'Animal'
     public class Animal
     {
-        int mLegs;
+        private int _Legs;
 
         public int Legs
         {
             get
             {
-                return mLegs;
+                return _Legs;
             }
             set
             {
-                mLegs = value;
+                _Legs = value;
             }
         }
     }
@@ -3971,8 +4171,8 @@ namespace InheritanceExample
             Console.WriteLine($"The cat has {cat.Legs} legs and is meowing {cat.Meowing}");
 
             // Uncommenting the following results in the error
-            // 'Animal.mLegs' is inaccessible due to its protection level
-            //cat.mLegs = 4;
+            // 'Animal._Legs' is inaccessible due to its protection level
+            //cat._Legs = 4;
         }
     }
 }
@@ -4198,12 +4398,12 @@ namespace Sealed
                         one of the constructors in the base class. The constructor in the derived class must call the constructor in the base class by using the
                         <code>base</code> keyword and pass the arguments provided to it on to the base class constructor.</p>
                     <p>In this example <code>BaseClass</code> has a parameterless constructor that writes to the console when it is called, then sets a value in a
-                        a field called <code>mField</code>. It also has a parameterized constructor that takes a value which it uses to set <code>mField</code>
-                        and a virtual method <code>GetFieldValue</code> that returns the value of <code>mField</code>. <code>DerivedClass</code> inherits from
+                        a field called <code>_Field</code>. It also has a parameterized constructor that takes a value which it uses to set <code>_Field</code>
+                        and a virtual method <code>GetFieldValue</code> that returns the value of <code>_Field</code>. <code>DerivedClass</code> inherits from
                         <code>BaseClass</code>. It too has a parameterless constructor that writes to the console when it is called, then sets a value in its own
-                        field called <code>mField</code>. It also has a parameterized constructor which first calls its counterpart in the base class through use of the
+                        field called <code>_Field</code>. It also has a parameterized constructor which first calls its counterpart in the base class through use of the
                         <code>base</code> keyword which requires passing all arguments it receives to the base class. The derived class also overrides
-                        <code>GetFieldValue</code> returning its own <code>mField</code> value and has a method called <code>CallBaseMethod</code> which, using the
+                        <code>GetFieldValue</code> returning its own <code>_Field</code> value and has a method called <code>CallBaseMethod</code> which, using the
                         <code>base</code> keyword, calls <code>GetFieldValue</code> in the base class.</p>
                     <p>In the <code>Program</code> class an instance of <code>DerivedClass</code> is created using the parameterless constructor which results in first
                         the base class then the derived class constructor being called. Then the return value of <code>GetFieldValue</code> followed by
@@ -4220,43 +4420,43 @@ namespace BaseKeyword
 {
     public class BaseClass
     {
-        string mField;
+        private string _Field;
 
         public BaseClass()
         {
             Console.WriteLine("Base class constructor");
-            mField = "Base class";
+            _Field = "Base class";
         }
 
         public BaseClass(string value)
         {
-            mField = "Base Class " + value;
+            _Field = "Base Class " + value;
         }
 
         public virtual string GetFieldValue()
         {
-            return mField;
+            return _Field;
         }
     }
 
     public class DerivedClass : BaseClass
     {
-        string mField;
+        private string _Field;
 
         public DerivedClass()
         {
             Console.WriteLine("Derived class constructor");
-            mField = "Derived class";
+            _Field = "Derived class";
         }
 
         public DerivedClass(string value) : base(value)
         {
-            mField = "Derived Class " + value;
+            _Field = "Derived Class " + value;
         }
 
         public override string GetFieldValue()
         {
-            return mField;
+            return _Field;
         }
 
         public string CallBaseMethod()
@@ -4454,23 +4654,23 @@ namespace OverridingObjectMembers
                         An interface works on a similar basis by declaring which members a class or struct will have without saying how they are to be implemented.</p>
                     <p>An interface is created using the <code>interface</code> keyword. The following signature only members can be declared within an interface.</p>
                     <ul>
-                        <li>Methods</li>
-                        <li>Properties</li>
-                        <li>Indexers</li>
-                        <li>Events</li>
+                        <li><a href="#Methods">Methods</a></li>
+                        <li><a href="#Properties">Properties</a></li>
+                        <li><a href="#Indexers">Indexers</a></li>
+                        <li><a href="#Events">Events</a></li>
                     </ul>
                     <p>Members that are not implemented are public by default and access modifiers cannot be applied to them. Additionally interfaces can contain members
                         that are implemented which is called default implementation. These are</p>
                     <ul>
-                        <li>Constants</li>
+                        <li><a href="#Constant_fields">Constant fields</a></li>
                         <li>Operators</li>
-                        <li>Static constructors</li>
+                        <li><a href="#Constructors">Static constructors</a></li>
                         <li>Nested types</li>
-                        <li>Static fields</li>
-                        <li>Static Methods</li>
-                        <li>Static Properties</li>
-                        <li>Static Indexers</li>
-                        <li>Static Events</li>
+                        <li><a href="#Fields">Static fields</a></li>
+                        <li><a href="#Methods">Static methods</a></li>
+                        <li><a href="#Properties">Static properties</a></li>
+                        <li><a href="#Indexers">Static indexers</a></li>
+                        <li><a href="#Events">Static events</a></li>
                         <li>Member declarations using explicit interface implementation syntax</li>
                         <li>Explicit access modifiers</li>
                     </ul>
@@ -4886,7 +5086,7 @@ namespace NameSpace1
 
         public const double PI = 3.1415;
 
-        public static double Area(double radius) => PI * radius * radius;
+        public static double Area(double radius) =&gt; PI * radius * radius;
 
         // Implementation of ISomeInterFace member Property
         public Months Month { get; set; }
@@ -5181,10 +5381,10 @@ namespace ImportingTypes
             // Types in the nested namespaces of NameSpace2
             // are not imported. Uncommenting the following
             // results in the error
-            // The type or namespace named 'Class'
+            // The type or namespace named 'Class3'
             // could not be found (are you missing a
             // using directive or an assembly reference?)
-            //Class3 mClass3 = new();
+            //Class3 myClass3 = new();
 
             // Class3 must be accessed using
             // its fully qualified name
@@ -5236,9 +5436,9 @@ namespace NameSpace1
     {
         public const double PI = 3.1415;
 
-        public static double CircleArea(double r) => PI * r * r;
+        public static double CircleArea(double r) =&gt; PI * r * r;
 
-        public double CubeVolume(double x) => x * x * x;
+        public double CubeVolume(double x) =&gt; x * x * x;
     }
 }
 
@@ -5471,13 +5671,13 @@ namespace Scope
 {
     public class Class1
     {
-        string nl = Environment.NewLine;
+        private string _nl = Environment.NewLine;
 
         // Declare field1 and field2 at the top of the class
         // Fields do not have to be initialized so field1
         // has the default integer value 0
-        int field1;
-        string field2 = "field2";
+        private int _field1;
+        private string _field2 = "field2";
 
         public void Method1(int value)
         {
@@ -5493,7 +5693,7 @@ namespace Scope
             // that name is used in an enclosing local scope to declare a local or parameter
             //int value = 0;
 
-            Console.WriteLine($"Initial class level field1 value = {field1}");
+            Console.WriteLine($"Initial class level field1 value = {_field1}");
 
             // A local variable field2 is declared after this statement
             // which hides the class level declaration of field2
@@ -5508,9 +5708,9 @@ namespace Scope
             Console.WriteLine($"Initial local variable field2 value = {field2}");
 
             // To access the hidden class level field2 use the 'this' qualifier
-            Console.WriteLine($"Class level field2 value = {this.field2}");
+            Console.WriteLine($"Class level field2 value = {this._field2}");
 
-            Console.WriteLine($"{nl}Display iterator 'i' from Loop 1");
+            Console.WriteLine($"{_nl}Display iterator 'i' from Loop 1");
 
             // Loop 1 declares a nested scope within the scope of Method1
             // A variable named 'i' has been declared as the iterator for Loop 1
@@ -5519,16 +5719,16 @@ namespace Scope
                 Console.Write($"{i}, ");
                 variable1 += i;
                 int variable2 = i * 2;
-                field1 += variable2;
+                _field1 += variable2;
             }
 
-            Console.WriteLine($"{nl}Result of variable1 in Loop 1 = {variable1}");
-            Console.WriteLine($"Result of field1 in Loop 1 = {field1}");
+            Console.WriteLine($"{_nl}Result of variable1 in Loop 1 = {variable1}");
+            Console.WriteLine($"Result of field1 in Loop 1 = {_field1}");
 
             variable1 = 0;
-            field1 = 0;
+            _field1 = 0;
 
-            Console.WriteLine($"{nl}Display iterator 'i' from Loop 2");
+            Console.WriteLine($"{_nl}Display iterator 'i' from Loop 2");
 
             // Loop 2 also declares a scope within Method1 but is outside
             // the scope of Loop 2. As such a variable named 'i' can
@@ -5571,15 +5771,15 @@ namespace Scope
                     // Loop 2 iterator i and variable2 can
                     // be accessed within the scope of Loop 2
                     int variable4 = j + i + variable2;
-                    field1 += variable4;
+                    _field1 += variable4;
                 }
             }
 
-            Console.WriteLine($"{nl}Result of variable1 in Loop 2 = {variable1}");
-            Console.WriteLine($"Result of field1 in Loop 2 = {field1}");
+            Console.WriteLine($"{_nl}Result of variable1 in Loop 2 = {variable1}");
+            Console.WriteLine($"Result of field1 in Loop 2 = {_field1}");
             Console.WriteLine($"Result of field3 in Loop 2 = {field3}");
             Console.WriteLine($"local field2 = {field2}");
-            Console.WriteLine($"class level field2 = {this.field2}");
+            Console.WriteLine($"class level field2 = {this._field2}");
 
             // 'variable2' and 'i' from Loop 1 and Loop 2 and 'j' from Loop 3
             // are all out of scope outside the loops so uncommenting
@@ -5617,8 +5817,8 @@ namespace Scope
             int variable4 = 0;
             int i = 0;
             int j = 0;
-            field2 = value;
-            Console.WriteLine($"Method2 field2 = {field2}");
+            _field2 = value;
+            Console.WriteLine($"Method2 field2 = {_field2}");
         }
 
         // An attempt is made to declare another field1 within the same scope
@@ -5658,6 +5858,7 @@ namespace Scope
 // Method2 field2 = New value
 </code></pre>
                     <!-- !SECTION Scope -->
+<!-- TODO using private with collections -->
                     <!-- SECTION Access modifiers -->
                     <h3 id="Access_modifiers">Access modifiers</h3>
                     <p> Accessibility level declares where a type or type's members can be used by other code within your assembly or other assemblies. Each type or
