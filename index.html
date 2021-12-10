@@ -30,7 +30,7 @@
                 <li><a class="nav-link" href="#Create_a_Hello_World_Project">Create a Hello World Project</a></li>
                 <li><a class="nav-link" href="#Code_Syntax">Code Syntax</a></li>
                 <li><a class="nav-link" href="#Comments_and_Task_Lists">Comments and Task Lists</a></li>
-                <li><a class="nav-link" href="#Exceptions_and_Error_Handling">Exceptions and Error Handling</a></li>
+                <li><a class="nav-link" href="#Errors_and_Exception_Handling">Errors and Exception Handling</a></li>
                 <li><a class="nav-link" href="#Variables,_Constants,_Types_and_Literals">Variables, Constants, Types and Literals</a></li>
                 <li><a class="nav-link" href="#Characters_and_Strings">Characters and Strings</a></li>
                 <li><a class="nav-link" href="#Expressions_and_Operators">Expressions and Operators</a></li>
@@ -117,7 +117,7 @@
                         <li>Debugger</li>
                     </ul>
                     <p>The code editor, like a word processor, provides many tools that help in writing code. These include indication of
-                        <a href="#Code_Syntax">syntax</a> errors shown with a <u class="error">red wavy underline</u> that may prevent the program from running, and
+                        <a href="#Syntax_errors">syntax errors</a> shown with a <u class="error">red wavy underline</u> that may prevent the program from running, and
                         warnings shown with a <u class="warning">green wavy underline</u> that won't stop the program from running but should be addressed. It also
                         provides code auto completion, called IntelliSense in Visual Studio, that provides suggestions with documentation and formatting tools that help
                         keep the code consistent with coding conventions.</p>
@@ -128,7 +128,7 @@
                         it from functioning correctly are known as bugs. If we were just to write, compile and run the program, then we would not have much to go on as to
                         where a bug may exist. The debugger allows you to step through the code one line at a time to find the problem. This is known as running the
                         program with the debugger attached.</p>
-                    <p>At the time of this writing the there are three versions of Visual Studio 2019.</p>
+                    <p>At the time of this writing there are three versions of Visual Studio.</p>
                     <ul>
                         <li>Community</li>
                         <li>Professional</li>
@@ -200,6 +200,7 @@ namespace HelloWorld
             <!-- !SECTION Create a Hello World Project -->
 <!-- TODO rewrite this -->
 <!-- TODO add expression bodied members -->
+<!-- TODO add syntax errors when uncommenting -->
             <!-- SECTION Code Syntax -->
             <section class="main-section" id="Code_Syntax">
                 <header><h2>Code Syntax</h2></header>
@@ -448,21 +449,35 @@ namespace Comments
                 </article>
             </section>
             <!-- !SECTION Comments and Task Lists - Section -->
-            <!-- SECTION Exceptions and Error Handling -->
-            <section class="main-section" id="Exceptions_and_Error_Handling">
-                <header><h2>Exceptions and Error Handling</h2></header>
+            <!-- SECTION Errors and Exception Handling -->
+            <section class="main-section" id="Errors_and_Exception_Handling">
+                <header><h2>Errors and Exception Handling</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
-                    <p>As the program code grows the likelihood that a bug will be introduced grows with it. Whilst the compiler will show us
-                        <a href="#Code_Syntax">syntax errors</a>, logical errors that are not apparent until runtime can occur. In some cases these may prevent the
-                        continued execution of the program. C# has a system that allows you to handle these errors safely so that the program can continue.</p>
-                    <!-- SECTION Exception -->
-                    <h3 id="Exception">Exception</h3>
+                    <p>As the program code grows the likelihood that a error will be introduced grows with it. There are three different kinds of errors, syntax errors,
+                        run-time errors and logical errors.</p>
+                    <h3 id="Syntax_errors">Syntax error</h3>
+                    <p>As the title suggests, syntax errors occur when the syntax is wrong and this will prevent the code from being compiled. This could be caused by a
+                        spelling mistake, a missing semi colon, an incorrect use of a language element, etc. The code editor will identify such errors with a
+                        <u class="error">red wavy underline</u>. These are the easiest errors to fix as in most cases, hovering the mouse over the error will result in a
+                        popup dialog in the code editor, identifying the issue along with suggestions on how to fix it.</p>
+                    <h3 id="Run-time_errors">Run-time error</h3>
+                    <p>A run-time error occurs after the program has been compiled and run. Whilst syntactically correct, when the code is executed it will result
+                        in an error that causes the program to crash, most often in the form of an unhandled <a href="#Exception_Handling">exception</a>. As such errors
+                        are at a fixed point in the code, these can be usually be fixed fairly easily by either correcting the error through debugging or by providing
+                        appropriate <a href="#Exception_Handling">exception handling</a>.</p>
+                    <h3 id="Logical_errors">Logical error</h3>
+                    <p>These are errors that occur while the program is running but don't cause the program to crash. Instead the program will produce an unexpected
+                        result. For example the sum of a list of numbers may be far more than expected because an expression may mistakenly multiplies instead of adding
+                        the values. These are often the hardest errors to debug as they most often they result from incorrect assumptions on what the program is doing.
+                    </p>
+                    <!-- SECTION Exception handling -->
+                    <h3 id="Exception_Handling">Exception handling</h3>
                     <p>An <code>exception</code> is an error from which the program cannot recover. C# has a number of built in exceptions that are thrown for various
-                        error conditions. Following is an example that shows the result of attempting to divide by zero. By pressing <kbd>F5</kbd> the compiler will run
-                        in debug mode and stop displaying an <i>Exception Unhandled</i> dialog box with the message
-                        <i>System.DivideByZeroException: 'Attempted to divide by zero.'</i> of which <code>DivideByZeroException</code> is the exception. To stop the
-                        program and clear the exception press <kbd>Shift</kbd> + <kbd>F5</kbd>.</p>
+                        error conditions. Following is an example that shows the result of attempting to divide by zero. By pressing <kbd>F5</kbd> the program will start
+                        running in debug mode and then stop and highlight the statement <code>var z = x / y;</code> and display an <i>Exception Unhandled</i> dialog box
+                        with the message <i>System.DivideByZeroException: 'Attempted to divide by zero.'</i> of which <code>DivideByZeroException</code> is the exception.
+                        To stop the program and clear the exception press <kbd>Shift</kbd> + <kbd>F5</kbd>.</p>
 <pre><code>using System;
 
 namespace Exception
@@ -480,7 +495,7 @@ namespace Exception
 
 // When run, the example results in a DivideByZeroException
 </code></pre>
-                    <!-- !SECTION Exception -->
+                    <!-- !SECTION Exception handling -->
                     <!-- SECTION throw -->
                     <h3 id="throw">throw</h3>
                     <p>Sometimes you may wish to check for invalid conditions specific to your own program. When these occur you can respond by throwing an exception of
@@ -583,7 +598,7 @@ namespace MultipleCatchBlocks
                     <!-- !SECTION multiple catch blocks -->
                 </article>
             </section>
-            <!-- !SECTION Exceptions and Error Handling -->
+            <!-- !SECTION Errors and Exception Handling -->
             <!-- SECTION Variables, Constants, Types and Literals -->
             <section class="main-section" id="Variables,_Constants,_Types_and_Literals">
                 <header><h2>Variables, Constants, Types and Literals</h2></header>
@@ -944,8 +959,7 @@ namespace ExplicitConversion
 
             Console.WriteLine(number);
 
-            // Uncommenting the following results in the error
-            // cannot convert type 'int' to 'string'
+            // Error, cannot convert type 'int' to 'string'
             // string s = (string)number;
         }
     }
@@ -2035,8 +2049,7 @@ namespace Arrays
             // Elements at indexes 0 and 1 will have the values 8 and 9 respectively
             var arr8 = new[] { 8, 9 };
 
-            // Uncommenting the following results in the error
-            // Cannot initialize an implicitly-typed variable with an array initializer
+            // Error, 'var' can't be used with an array initializer
             //var arr9 = { 11, 12 };
 
             // Declare, create and initialize an array of type 'string'
@@ -2049,7 +2062,7 @@ namespace Arrays
             int[] emptyArray1 = { };
             int[] emptyArray2 = new int[] { };
             int[] emptyArray3 = new int[0];
-            int[] emptyArray4 = Array.Empty &lt; int &gt; ();
+            int[] emptyArray4 = Array.Empty&lt;int&gt;();
 
             // Declare a multi-dimensional array with 2 dimensions
             int[,] arr11;
@@ -2060,8 +2073,7 @@ namespace Arrays
             arr11 = new int[4, 2];
 
             // Create and initialize a 2 dimensional array
-            arr11 = new int[4, 2] { { 1, 2 }, { 3, 4 },
-                                    { 5, 6 }, { 7, 8 } };
+            arr11 = new int[4, 2] { { 1, 2 }, { 3, 4 }, { 5, 6 }, { 7, 8 } };
 
             // Create and initialize a 2 dimensional array
             // Here the lengths are inferred from
@@ -2069,14 +2081,11 @@ namespace Arrays
             arr11 = new int[,] { { 1, 2 }, { 3, 4 }, { 5, 6 }, { 7, 8 } };
 
             // Declare, create and initialize a 2 dimensional string array
-            string[,] arr12 = new string[3, 2] { { "red", "cyan" },
-                                            { "green", "magenta" },
-                                            { "blue", "yellow" } };
+            string[,] arr12 = new string[3, 2] { { "red", "cyan" }, { "green", "magenta" }, { "blue", "yellow" } };
 
             // Declare, create and initialize a 3 dimensional 'int' array
             // This will create an array with dimensions [2, 2, 3]
-            int[,,] arr13 = new int[,,] { { { 1, 2, 3 }, { 4, 5, 6 } },
-                                    { { 7, 8, 9 }, { 10, 11, 12 } } };
+            int[,,] arr13 = new int[,,] { { { 1, 2, 3 }, { 4, 5, 6 } }, { { 7, 8, 9 }, { 10, 11, 12 } } };
 
             // Declares and creates a jagged array. The first array
             // is a single-dimensional array with 3 elements
@@ -2123,10 +2132,7 @@ namespace ArrayAccess
             // To obtain and element specify the index  within
             // square brackets
             string[] colors = { "red", "green", "blue" };
-            Console.WriteLine(colors[0]);
-            Console.WriteLine(colors[1]);
-            Console.WriteLine(colors[2]);
-            Console.WriteLine();
+            Console.WriteLine($"{colors[0]}, {colors[1]}, {colors[2]}");
 
             // To assign a value to an element use the assignment operator '='
             colors[0] = "cyan";
@@ -2135,8 +2141,7 @@ namespace ArrayAccess
 
             // The total number of elements of an array can be found by using
             // the Length property 'array.Length'.
-            Console.WriteLine($"colors has {colors.Length} elements");
-            Console.WriteLine();
+            Console.WriteLine($"The array colors has {colors.Length} elements");
 
             // Attempting to access an array with an index value less than 0
             // or more than the length - 1 will result in an
@@ -2148,14 +2153,14 @@ namespace ArrayAccess
             // are 0 based the elements can be accessed using a 'for' loop
             for (int i = 0; i &lt; colors.Length; i++)
             {
-                Console.WriteLine(colors[i]);
+                Console.Write($"{colors[i]} ");
             }
             Console.WriteLine();
 
             // Additionally the elements can be accessed using a 'foreach' loop
             foreach (var color in colors)
             {
-                Console.WriteLine(color);
+                Console.Write($"{color} ");
             }
             Console.WriteLine();
 
@@ -2163,13 +2168,8 @@ namespace ArrayAccess
             // is similar to a single-dimensional array using one
             // 'int' type index for each dimension
             int[,] numbers = new int[3, 2] { { 1, 2 }, { 3, 4 }, { 5, 6 } };
-            Console.WriteLine(numbers[0, 0]);
-            Console.WriteLine(numbers[0, 1]);
-            Console.WriteLine(numbers[1, 0]);
-            Console.WriteLine(numbers[1, 1]);
-            Console.WriteLine(numbers[2, 0]);
-            Console.WriteLine(numbers[2, 1]);
-            Console.WriteLine();
+            Console.WriteLine($"{numbers[0, 0]} {numbers[0, 1]} {numbers[1, 0]} " +
+                                $"{numbers[1, 1]} {numbers[2, 0]} {numbers[2, 1]}");
 
             // Assigning values to elements in a multi-dimensional
             // is also similar to a single-dimensional array using one
@@ -2189,7 +2189,7 @@ namespace ArrayAccess
             {
                 for (int j = 0; j &lt; numbers.GetLength(1); j++)
                 {
-                    Console.WriteLine(numbers[i, j]);
+                    Console.Write($"{numbers[i, j]} ");
                 }
             }
             Console.WriteLine();
@@ -2199,14 +2199,13 @@ namespace ArrayAccess
             // order you require
             foreach (var number in numbers)
             {
-                Console.WriteLine(number);
+                Console.Write($"{number} ");
             }
             Console.WriteLine();
 
             // The number of dimensions of an array
             // can be found using the Rank property 'array.Rank'.
             Console.WriteLine($"numbers has {numbers.Rank} dimensions");
-            Console.WriteLine();
             var total = 1;
             for (int i = 0; i &lt; numbers.Rank; i++)
             {
@@ -2214,7 +2213,6 @@ namespace ArrayAccess
                 total *= numbers.GetLength(i);
             }
             Console.WriteLine($"Numbers has a total {total} of elements which is the same as Numbers.Length: {numbers.Length}");
-            Console.WriteLine();
 
             // Accessing a jagged array is similar to a multi-dimensional
             // This prints 7 to the console which is the third element [2]
@@ -2226,39 +2224,35 @@ namespace ArrayAccess
                 new int[] {8, 9}
             };
             Console.WriteLine($"{jaggedArray[1][2]}");
-            Console.WriteLine();
 
             // Assigning values is also similar to multi-dimensional arrays
             // This assigns 42 to the third element [2] of the second array [1]
             // then prints it to the console
             jaggedArray[1][2] = 42;
             Console.WriteLine($"{jaggedArray[1][2]}");
-            Console.WriteLine();
 
             // This demonstrates looping though a jagged array with for loops
             for (int i = 0; i &lt; jaggedArray.Length; i++)
             {
-                Console.Write("The values in array{i} are: ");
+                Console.Write($"The values in jaggedArray[{i}] are: ");
                 for (int j = 0; j &lt; jaggedArray[i].Length; j++)
                 {
                     Console.Write($" {jaggedArray[i][j]}");
                 }
                 Console.WriteLine();
             }
-            Console.WriteLine();
 
             // Looping through a jagged array with a foreach loop is a bit more
-            // complicated as a first loop is required to get the arrays and a
-            // second to get the actual values
+            // complicated as an outer loop is required to get the arrays and an
+            // inner loop to get the actual values
             foreach (var arr in jaggedArray)
             {
                 foreach (var i in arr)
                 {
-                    Console.WriteLine(i.ToString());
+                    Console.Write($"{i} ");
                 }
             }
             Console.WriteLine();
-
             // This demonstrates the types that are stored in a jagged array
             // The first line prints Int32[] where the square brackets indicate
             // that it is an array of type 'int' whereas the second prints
@@ -2271,65 +2265,23 @@ namespace ArrayAccess
 }
 
 // The example prints the following to the console
-// red
-// green
-// blue
-
-// colors has 3 elements
-
-// cyan
-// magenta
-// yellow
-
-// cyan
-// magenta
-// yellow
-
-// 1
-// 2
-// 3
-// 4
-// 5
-// 6
-
-// 6
-// 5
-// 4
-// 3
-// 2
-// 1
-
-// 6
-// 5
-// 4
-// 3
-// 2
-// 1
-
+// red, green, blue
+// The array colors has 3 elements
+// cyan magenta yellow
+// cyan magenta yellow
+// 1 2 3 4 5 6
+// 6 5 4 3 2 1
+// 6 5 4 3 2 1
 // numbers has 2 dimensions
-
 // numbers[0] has 3 elements
 // numbers[1] has 2 elements
 // Numbers has a total 6 of elements which is the same as Numbers.Length: 6
-
 // 7
-
 // 42
-
-// The values in array{i} are: 1 2 3 4
-// The values in array{i} are: 5 6 42
-// The values in array{i} are: 8 9
-
-// 1
-// 2
-// 3
-// 4
-// 5
-// 6
-// 42
-// 8
-// 9
-
+// The values in jaggedArray[0] are: 1 2 3 4
+// The values in jaggedArray[1] are: 5 6 42
+// The values in jaggedArray[2] are: 8 9
+// 1 2 3 4 5 6 42 8 9
 // Int32[]
 // Int32
 </code></pre>
@@ -2522,7 +2474,7 @@ namespace Dictionaries
             fruit.Add("Plums", 6);
 
             // 'Count' returns the number of items in a Dictionary
-            Console.WriteLine($"There are {fruit.Count} fruit items{nl}");
+            Console.WriteLine($"There are {fruit.Count} fruit items");
 
             // To use a Dictionary in a foreach loop use
             // KeyValuePair&lt;TKey, TValue&gt;. The types must be the same
@@ -2530,11 +2482,7 @@ namespace Dictionaries
             foreach (KeyValuePair&lt;string, int&gt; item in fruit)
                 Console.Write($"{item.Key} : {item.Value}{nl}");
 
-            // Each item must have a unique 'key'
-            // Uncommenting the following results in
-            // System.ArgumentException: System.ArgumentException:
-            // 'An item with the same key has already been added.
-            // Key: Plums' when the program is run
+            // Error, Each item must have a unique 'key'
             //fruit.Add("Plums", 3);
 
             // 'TryAdd' unlike 'Add' won't result in an
@@ -2543,15 +2491,14 @@ namespace Dictionaries
             var added = fruit.TryAdd("Plums", 3) ?
                 "'Another Plums entry' was added" :
                 "'Another Plums entry' could NOT be added";
-            Console.WriteLine($"{nl}{nl}{added}");
+            Console.WriteLine($"{added}");
 
             // 'Keys' returns a 'KeyCollection' of all the keys
             // in the Dictionary and will have the same type that
             // was used when declaring it
             var keys = fruit.Keys;
-            Console.WriteLine($"{nl}We have the following fruit");
             foreach (var key in keys)
-                Console.Write(key + " ");
+                Console.Write($"{key} ");
 
             // 'Values' returns a 'ValueCollection' of all the values
             // in the Dictionary and will have the same type that
@@ -2561,17 +2508,14 @@ namespace Dictionaries
             int total = 0;
             foreach (var value in values)
                 total += value;
-            Console.WriteLine($"{nl}{nl}There is a total of {total} fruit");
+            Console.WriteLine($"{nl}There is a total of {total} fruit");
 
             // Individual items can be accessed using the 'Key' index
-            Console.WriteLine($"{nl}There are {fruit["Pears"]} 'Pears'");
+            Console.WriteLine($"There are {fruit["Pears"]} 'Pears'");
             fruit["Pears"] = 3;
-            Console.WriteLine($"{nl}There are now {fruit["Pears"]} 'Pears'");
+            Console.WriteLine($"There are now {fruit["Pears"]} 'Pears'");
 
-            // The 'Key' index must exist to access an item. Uncommenting the
-            // following will result in the exception
-            // System.Collections.Generic.KeyNotFoundException:
-            // 'The given key 'Mangoes' was not present in the dictionary.'
+            // Error, The 'Key' index must exist to access an item.
             // var mangoes = fruit["Mangoes"];
 
             // 'TryAdd' unlike accessing a Dictionary with the 'Key' index
@@ -2580,57 +2524,56 @@ namespace Dictionaries
             // the item. If not found result will be the type's default value
             if (fruit.TryGetValue("Mangoes", out var result))
             {
-                Console.WriteLine($"{nl}There are {result} 'Mangoes'");
+                Console.WriteLine($"There are {result} 'Mangoes'");
             }
             else
             {
-                Console.WriteLine($"{nl}There is no 'Mangoes' item in 'fruit'");
+                Console.WriteLine($"There is no 'Mangoes' item in 'fruit'");
             }
 
             // 'ContainsKey' returns true if the Dictionary contains
             // the specified 'Key'
             if (fruit.ContainsKey("Bananas"))
             {
-                Console.WriteLine($"{nl}There are {fruit["Bananas"]} 'Bananas'");
+                Console.WriteLine($"There are {fruit["Bananas"]} 'Bananas'");
             }
             else
             {
-                Console.WriteLine($"{nl}There are no 'Bananas' item in fruit");
+                Console.WriteLine($"There are no 'Bananas' item in fruit");
             }
 
             // 'ContainsValue' returns true if the Dictionary contains
             // the specified 'Value'
             if (fruit.ContainsValue(6))
             {
-                Console.WriteLine($"{nl}There is at least 1 item with the value '6'");
+                Console.WriteLine($"There is at least 1 item with the value '6'");
             }
             else
             {
-                Console.WriteLine($"{nl}There are no items with the value '6'");
+                Console.WriteLine($"There are no items with the value '6'");
             }
 
             // 'Remove' removes the specified 'Key' from the Dictionary
             fruit.Remove("Oranges");
             if (fruit.ContainsKey("Oranges"))
             {
-                Console.WriteLine($"{nl}There are {fruit["Oranges"]} 'Oranges'");
+                Console.WriteLine($"There are {fruit["Oranges"]} 'Oranges'");
             }
             else
             {
-                Console.WriteLine($"{nl}There is no longer an 'Oranges' item in fruit");
+                Console.WriteLine($"There is no longer an 'Oranges' item in fruit");
             }
 
             // 'Clear' removes all KeyValuePair&lt;TKey, TValue&gt; items from
             // the Dictionary
             fruit.Clear();
-            Console.WriteLine($"{nl}There are {fruit.Count} fruit items{nl}");
+            Console.WriteLine($"There are {fruit.Count} fruit items");
         }
     }
 }
 
 // The example writes the following to the console
 // There are 7 fruit items
-
 // Oranges : 6
 // Pears: 4
 // Apples: 8
@@ -2638,27 +2581,15 @@ namespace Dictionaries
 // Lemons: 3
 // Peaches: 6
 // Plums: 6
-
-
 // 'Another Plums entry' could NOT be added
-
-// We have the following fruit
 // Oranges Pears Apples Bananas Lemons Peaches Plums
-
 // There is a total of 40 fruit
-
 // There are 4 'Pears'
-
 // There are now 3 'Pears'
-
 // There is no 'Mangoes' item in 'fruit'
-
 // There are 7 'Bananas'
-
 // There is at least 1 item with the value '6'
-
 // There is no longer an 'Oranges' item in fruit
-
 // There are 0 fruit items
 </code></pre>
                     <!-- !SECTION Dictionary<TKey, TValue> -->
@@ -3071,11 +3002,11 @@ namespace ClassExample
 
 namespace Methods
 {
-    public class Class1
+    public class MyClass
     {
         // A method that takes in an argument
         // through a string parameter which it
-        // writes to the console. As the
+        // then writes to the console. As the
         // return type is void it does not
         // return a value
         public void PrintMessage(string value)
@@ -3084,8 +3015,8 @@ namespace Methods
         }
 
         // A method that calls another method
-        // from within the class and prints
-        // then prints the returned value
+        // from within the class and then
+        // prints the returned value
         public void PrintProduct(int a, int b)
         {
             var product = Multiply(a, b);
@@ -3100,7 +3031,7 @@ namespace Methods
         }
 
         // A method that uses an expression body
-        public int Subtract(int x, int y) =&gt; x - y;
+        public int Subtract(int x, int y) => x - y;
 
         // A private method that can only
         // that can only be accessed from
@@ -3110,20 +3041,13 @@ namespace Methods
             return x * y;
         }
 
-        // This method does not have a return statement
-        // Uncommenting this results in the error
-        // 'Class1.Sum(int, int, int)': not all code
-        // paths return a value
+        // Error, a method with a return type must have a return statement
         //public int Sum(int a, int b, int c, int d)
         //{
         //    var result = a + b + c + d;
         //}
 
-        // This also results in an error. The if statement
-        // does not return a value if x == 0
-        // Uncommenting this results in the error
-        // 'Class1.Sum(int, int, int)': not all code
-        // paths return a value
+        // Error, the if statement does not return a value if x == 0
         //public int Sum(int a, int b, int c, int d)
         //{
         //    if (x != 0)
@@ -3135,13 +3059,13 @@ namespace Methods
     {
         static void Main(string[] args)
         {
-            Class1 class1 = new Class1();
-            var sum = class1.Add(2, 3);
-            var difference = class1.Subtract(7, 4);
+            MyClass myClass = new MyClass();
+            var sum = myClass.Add(2, 3);
+            var difference = myClass.Subtract(7, 4);
             Console.WriteLine($"2 + 3 = {sum}");
             Console.WriteLine($"7 - 4 = {difference}");
             Console.Write("5 x 6 = ");
-            class1.PrintProduct(5, 6);
+            myClass.PrintProduct(5, 6);
         }
     }
 }
@@ -3165,23 +3089,31 @@ namespace Methods
                         When the program is run, field initialization occurs in the order of</p>
                     <p><i>declaration &gt; constructor &gt; object initializer</i>.</p>
                     <p>This means that setting a field's value in a constructor will overwrite a value set in the declaration and setting it's value in an
-                        object-initializer will overwrite the value set both in the field declaration, a constructor or an init accessor of a property. A variable field
-                        can be made readonly through the use of the <code>readonly</code> keyword in which case it can only be initialized either by declaration or in a
-                        constructor. By convention fields are normally declared at the top of a class before any other code.</p>
-                    <p>Access to a field by code external to the type is in the form of <code>instance.field</code>.</p>
+                        object-initializer will overwrite the value set both in the field declaration, a constructor or an init accessor of a property.
+                    <p>A variable field can be made readonly through the use of the <code>readonly</code> keyword in which case it can only be initialized either by
+                        declaration or in a constructor. How this effects a variable though depends on whether it is a value or a reference type. As a value type contains
+                        its data it can't be changed after being initialized. As a reference type only stores the address in memory of the data, it is only this reference
+                        that can't be changed and not the data itself. For example, if a <code>List&lt;T&gt;</code> is declared as a public read-only field, code outside
+                        the class can still add and remove items from the list.</p>
+                    <p><p><em>Note:</em><i> Whilst a <a href="#Strings">string</a> is a reference type as it is immutable declaring it <code>readonly</code> prevents it from being assigned to
+                        after initialization.</i></p>
+                    <p>By convention fields are normally declared at the top of a class before any other code. Access to a field by code external to the type is in the
+                        form of <code>instance.field</code>.</p>
                     <p>The following example demonstrates field declaration and use.</p>
 <pre><code>using System;
+using System.Collections.Generic;
 
 namespace Fields
 {
     public class Person
     {
+        // NOTE: instance fields should never be declared public
+        // and are only shown here for demonstrative purposes
+
         // This field has been declared public and can be accessed
         // from any code outside this class both in and outside
         // the assembly that contains it. As it has not been initialized
         // it will have the default string value i.e. an empty string
-        // NOTE: instance fields should never be declared public
-        // and is only shown here for demonstrative purposes
         public string ID;
 
         // A private field with default string value i.e. an empty string
@@ -3196,15 +3128,20 @@ namespace Fields
 
         // A public read only field of type string. Its
         // value can only be set through the constructor
-        // NOTE: instance fields should never be declared public
-        // and is only shown here for demonstrative purposes
         public readonly string Details;
+
+        // A public read only field of type List&lt;T&gt;. As it is a mutable
+        // reference type the data it contains can still be modified
+        // from any code outside this class both in and outside
+        // the assembly that contains it
+        public readonly List&lt;string&gt; Skills;
 
         // A parameterless constructor that sets the Details field
         // using the default values of the other fields
         public Person()
         {
             Details = $"ID: {ID}, Name: {_name}, Age: {_age}, Weight: {_weight}kg";
+            Skills = new();
         }
 
         // This constructor takes in arguments to set the
@@ -3217,6 +3154,7 @@ namespace Fields
             _age = age;
             _weight = weight;
             Details = $"ID: {ID}, Name: {_name}, Age: {_age}, Weight: {_weight}kg";
+            Skills = new();
         }
     }
 
@@ -3245,12 +3183,13 @@ namespace Fields
             Console.WriteLine($"person3 ID: {person3.ID}");
             Console.WriteLine($"person3 details - {person3.Details}");
 
-            // Details are marked readonly
-            // Uncommenting the following results in the error
-            // A readonly field cannot be assigned to (except in a
-            // constructor or init-only setter of the type in
-            // which the field is defined or a variable initializer)
+            // Error, a readonly field value type variable
+            // can't be assigned to after initialization
             //person3.Details = "Change details";
+
+            // As readonly Skills is a reference type its data can still be modified
+            person3.Skills.Add("C# programming");
+            Console.WriteLine($"person3 hobbies: {person3.Skills[0]}");
         }
     }
 }
@@ -3262,6 +3201,7 @@ namespace Fields
 // person3 ID: Other
 // person3 ID: Invalid ID
 // person3 details - ID: Person3, Name: Andrew Smith, Age: 23, Weight: 50kg
+// person3 hobbies: C# programming
 </code></pre>
                     <!-- !SECTION Fields -->
                     <!-- SECTION Constant fields -->
@@ -3271,7 +3211,7 @@ namespace Fields
                         identifier that is unique within the constant field's containing type. A constant field can only and <em>must have</em> its value initialized when
                         it is declared. As with variable fields, constant fields are normally declared at the top of the type. By convention a constant field's identifier
                         is written in all capitals such as <code>CONSTANT</code>.</p>
-                        <p>A constant field is already effectively <a href="static">static</a> so the <code>static</code> keyword cannot be applied to it. Like static
+                        <p>A constant field is already effectively <a href="#static">static</a> so the <code>static</code> keyword cannot be applied to it. Like static
                             members, a constant field cannot be accessed by code through an instance of the type but through the type itself.</p>
                         <p>Access to a property by code external to the type is in the form of <code>Type.CONSTANT</code>.</p>
                         <p>The following example demonstrates constant field declaration and use.</p>
@@ -3286,9 +3226,8 @@ namespace Fields
             // Convention for naming constants is to use all capitals
             public const double PI = 3.1415;
 
-            // A member within an instance of
-            // MathConstants can access constant field PI
-            // without the need for the Type identifier
+            // A member within an instance of MathConstants can access
+            // constant field PI without the need for the Type identifier
             public double Area(double r)
             {
                 return PI * r * r;
@@ -3299,15 +3238,13 @@ namespace Fields
         {
             static void Main(string[] args)
             {
+                // A constant accessed using type's identifier 'MathConstants'
                 var area1 = MathConstants.PI * 2 * 2;
                 Console.WriteLine($"The area of circle 1 with a radius of 2 is {area1}");
 
                 MathConstants mathConstants = new();
 
-                // A constant field cannot be accessed through an instance
-                // Uncommenting the following results in the error
-                // Member 'MathConstants.PI' cannot be accessed with an
-                // instance reference; qualify it with a type name instead
+                // Error, a constant field cannot be accessed through an instance
                 //var pi = mathConstants.PI;
 
                 var area2 = mathConstants.Area(3);
@@ -3322,7 +3259,6 @@ namespace Fields
     // The area of circle 2 with a radius of 3 is 28.2735
 </code></pre>
                     <!-- !SECTION Constant fields -->
-<!-- TODO add properties example -->
                     <!-- SECTION Properties -->
                     <h3 id="Properties">Properties</h3>
                     <p>A property is a way of allowing external code to have controlled access to data within an object. It does this by providing special methods
@@ -3477,19 +3413,19 @@ namespace Fields
             // An auto-implemented read/write property with an init accessor
             public DateTime EnrollmentDate { get; init; }
 
-            // Syntax error, an auto-implemented property must have a get
+            // Error, an auto-implemented property must have a get
             //public string Password2 { set; }
 
-            // Syntax error, only one accessor can have an access modifier
+            // Error, only one accessor can have an access modifier
             //public string User { internal get; private set; }
 
-            // Syntax error, an accessor access modifier must be
+            // Error, an accessor access modifier must be
             // more restrictive than the property containing it
             //public string Password2 { public get; set; }
 
             public string LogIn(string password)
             {
-                // Syntax error, can't read a write only property
+                // Error, can't read a write only property
                 //if (password == Password)
 
                 // This accesses the _password field so is OK
@@ -3532,7 +3468,7 @@ namespace Fields
                 Console.WriteLine($"Course: {student.CourseName}, Length: {student.CourseLength} years");
                 Console.WriteLine($"Last updated: {student.Modified:dd MMM yyyy}{nl}");
 
-                // Syntax error, can only assign a value to a property with an
+                // Error, can only assign a value to a property with an
                 // init accessor in a constructor or an object initializer
                 //student1.Created = DateTime.Now;
 
@@ -3702,13 +3638,7 @@ namespace StaticExample
         {
             _staticField = value;
 
-            // A static method cannot access an instance field
-            // IntelliSense won't even show an option to select
-            // instanceVariable and using it here results in an error.
-            // Uncommenting the following results in the error
-            // An object is required for the non-static field
-            // method or property 'InstanceClass._instanceField'
-
+            // Error, a static method cannot access an instance field
             //_instanceField = value;
         }
     }
@@ -3743,8 +3673,7 @@ namespace StaticExample
         }
     }
 
-    // A static class cannot be instantiated
-    // and can only contain static members
+    // A static class cannot be instantiated and can only contain static members
     public static class MyMathFunctions
     {
         public static int SquareNumber(int value)
@@ -3752,9 +3681,7 @@ namespace StaticExample
             return value * value;
         }
 
-        // Uncommenting the following results in the error
-        // 'InstanceMethod': cannot declare
-        // instance members in a static class
+        // Error, a static class can't declare instance members
         //public void InstanceMethod() { }
     }
 
@@ -3767,16 +3694,11 @@ namespace StaticExample
             // Set MyClass.StaticProperty
             MyClass.StaticProperty = 1;
 
-            // An instance of a class must be created to use an instance member.
-            // Uncommenting the following results in the error
-            // An object reference is required for the non-static
-            // field, method or property 'Program.MyClass.InstanceProperty'
+            // Error, an instance of a class must be created to
+            // use an instance member even if it contains static members
             //MyClass.InstanceProperty = 1;
 
-            // Create a first instance of MyClass
             MyClass myClass1 = new();
-
-            // Create a second instance of MyClass
             MyClass myClass2 = new();
 
             // Display the initial values of the instance and
@@ -3812,9 +3734,7 @@ namespace StaticExample
             // without creating an instance of MyMathFunctions
             Console.WriteLine($"{nl}The square of 3 is {MyMathFunctions.SquareNumber(3)}");
 
-            // A static class cannot be instantiated
-            // Uncommenting the following results in the error
-            // Cannot declare a variable of static type 'Program.MyMathFunctions'
+            // Error, a static class cannot be instantiated
             //MyMathFunctions staticClass;
         }
     }
@@ -3875,15 +3795,10 @@ namespace Structs
             Depth = depth;
         }
 
-        // A struct cannot contain a parameterless constructor
-        // Uncommenting the following results in the error
-        // Structs cannot contain explicit parameterless constructors
+        // Error, a struct cannot contain a parameterless constructor
         //public Box() { }
 
-        // A structs constructor must assign values to all instance fields
-        // Uncommenting the following results in the following error
-        // Field 'Box.Depth' must be fully assigned
-        // before control is returned to the caller
+        // Error, a structs constructor must assign values to all instance fields
         //public Box(double width)
         //{
         //    Width = width;
@@ -3939,13 +3854,11 @@ namespace Structs
             Console.WriteLine($"Box3 Width: { box3.Width}, Height: {box3.Height}, Length: {box3.Depth}, Volume: {box3.GetVolume()}");
             Console.WriteLine($"Box4 Width: { box4.Width}, Height: {box4.Height}, Length: {box4.Depth}, Volume: {box4.GetVolume()}");
 
-            // If all instance fields are accessible a struct can
-            // be instantiated without the new keyword but instance fields
-            // must be set before it can be used
+            // If all instance fields are accessible a struct can be instantiated
+            // without the new keyword but instance fields must be set before it can be used
             Box box5;
 
-            // Uncommenting the following results in the error
-            // Use of unassigned variable 'box5'
+            // Error, use of unassigned variable 'box5'
             //var v = box5.GetVolume();
 
             box5.Width = 5;
@@ -3954,10 +3867,8 @@ namespace Structs
 
             Console.WriteLine($"Box5 Width: { box5.Width}, Height: {box5.Height}, Length: {box5.Depth}, Volume: {box5.GetVolume()}");
 
-            // Although you can't declare a parameterless constructor
-            // the compiler always creates one that assigns all instance
-            // fields their default values. When displayed box6 will
-            // have all fields set to 0 resulting in a volume of 0
+            // Although you can't declare a parameterless constructor the compiler always creates one that assigns all instance
+            // fields their default values. When displayed box6 will have all fields set to 0 resulting in a volume of 0
             Box box6 = new();
 
             Console.WriteLine($"Box6 Width: { box6.Width}, Height: {box6.Height}, Length: {box6.Depth}, Volume: {box6.GetVolume()}");
@@ -4088,9 +3999,8 @@ namespace InheritanceAccessibility
     // Base class A default accessibility is internal
     class A { }
 
-    // Uncommenting the following results in the error
-    // Inconsistent accessibility: base class 'A'
-    // is less accessible than class 'C'
+    // Error, derived public class B can't be
+    // more accessible than its internal base class A
     //public class B : A { }
 
     public class C { }
@@ -4099,9 +4009,9 @@ namespace InheritanceAccessibility
     // accessible than public class C
     class D : C { }
 
-    // Uncommenting the following results in the error
-    // Inconsistent accessibility: base class 'D'
-    // is less accessible than class 'E'
+    // Error, derived public class E can't be
+    // more accessible than its internal base class D
+    // even though D inherits from public class C
     //public class E : D { }
 }
 </code></pre>
@@ -4110,8 +4020,7 @@ namespace InheritanceAccessibility
                         <code>Bird</code> adding the property <code>Wings</code> and <code>Cat</code> the property <code>Meowing</code>. In the <code>Program</code>
                         class an instance of <code>Bird</code> is created setting values for both <code>Legs</code> and <code>Wings</code> and an instance of
                         <code>Cat</code> setting values for both <code>Legs</code> and <code>Meowing</code>. A message describing each is then written to the console with
-                        their corresponding properties. The example also shows that attempting to access the private <code>_Legs</code> field in <code>Animals</code> from
-                        the derived class <code>Cat</code> results in a syntax error.</p>
+                        their corresponding properties.</p>
 
 <pre><code>using System;
 
@@ -4120,19 +4029,7 @@ namespace InheritanceExample
     // Declare a base class called 'Animal'
     public class Animal
     {
-        private int _Legs;
-
-        public int Legs
-        {
-            get
-            {
-                return _Legs;
-            }
-            set
-            {
-                _Legs = value;
-            }
-        }
+        public int Legs { get; set; }
     }
 
     // The derived class 'Bird' inherits 'Animal'
@@ -4169,10 +4066,6 @@ namespace InheritanceExample
 
             Console.WriteLine($"The bird has {bird.Legs} legs and is flying {bird.Flying}");
             Console.WriteLine($"The cat has {cat.Legs} legs and is meowing {cat.Meowing}");
-
-            // Uncommenting the following results in the error
-            // 'Animal._Legs' is inaccessible due to its protection level
-            //cat._Legs = 4;
         }
     }
 }
@@ -5859,6 +5752,7 @@ namespace Scope
 </code></pre>
                     <!-- !SECTION Scope -->
 <!-- TODO using private with collections -->
+<!-- TODO add info about private field accessibility -->
                     <!-- SECTION Access modifiers -->
                     <h3 id="Access_modifiers">Access modifiers</h3>
                     <p> Accessibility level declares where a type or type's members can be used by other code within your assembly or other assemblies. Each type or
@@ -6550,19 +6444,21 @@ var c = '\u0123' \\ the <i>g</i> character
             </section>
             <!-- !SECTION References -->
 <!-- TODO add copyright -->
-            <!-- SECTION Disclaimer -->
+            <!-- SECTION Terms and Conditions -->
             <section class="main-section" id="Terms_and_Conditions">
                 <header><h2>Terms and Conditions</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
-
                 <article>
                     <p>You accept all risk of using the website and content on the website. As far as the law allows, Stephen Ward provides the website as is, without any
                         warranty whatsoever.</p>
                     <p>The website may hyperlink to and integrate websites and services run by others. Stephen Ward does not make any warranty about services run by
                         others, or content they may provide. Use of services run by others may be governed by other terms between you and the one running the service.</p>
                 </article>
+                <h3 id="Notice_of_Non-Affiliation_and_Disclaimer">Notice of Non-Affiliation and Disclaimer</h3>
+                <p>Stephen Ward is not not affiliated, associated, authorized, endorsed by, or in any way officially connected with Microsoft or any of its subsidiaries
+                    or its affiliates.</p>
             </section>
-            <!-- !SECTION Disclaimer -->
+            <!-- !SECTION Terms and Conditions -->
 
         </main>
 <!-- TODO Uncomment FreeCodeCamp script-->
