@@ -68,9 +68,9 @@
                         logical thinking, basic algebra, knowing the difference between integers and floating point numbers, etc. You should also know how to install and
                         upgrade software and operating systems on a computer, and have an internet connection. It would also be useful to know some of the basics of how a
                         computer works such as CPU's, memory, file systems, etc.</p>
-                    <p>Lastly and perhaps most importantly you should have skills in theory of mind and empathy, i.e. what the user maybe thinking and how they feel.
-                        These should be a constant consideration as you create your application. For example, entering a letter in a program when a number is required may
-                        be invalid. Having a popup error message with each wrong keystroke that then needs to be cancelled will quickly lead to frustration and your
+                    <p>Lastly and perhaps most importantly is theory of mind, what the user maybe thinking when they use your program.
+                        This should be a constant consideration as you create your application. For example, entering a letter in a program when a number is required may
+                        be invalid. But then having a popup error message with each wrong keystroke that needs to be cancelled will quickly lead to frustration and your
                         program ending up in the trash.</p>
                 </article>
             </section>
@@ -959,7 +959,7 @@ namespace ExplicitConversion
 
             Console.WriteLine(number);
 
-            // Error, cannot convert type 'int' to 'string'
+            // Syntax error, cannot convert type 'int' to 'string'
             // string s = (string)number;
         }
     }
@@ -2049,7 +2049,7 @@ namespace Arrays
             // Elements at indexes 0 and 1 will have the values 8 and 9 respectively
             var arr8 = new[] { 8, 9 };
 
-            // Error, 'var' can't be used with an array initializer
+            // Syntax error, 'var' can't be used with an array initializer
             //var arr9 = { 11, 12 };
 
             // Declare, create and initialize an array of type 'string'
@@ -2482,7 +2482,7 @@ namespace Dictionaries
             foreach (KeyValuePair&lt;string, int&gt; item in fruit)
                 Console.Write($"{item.Key} : {item.Value}{nl}");
 
-            // Error, Each item must have a unique 'key'
+            // Syntax error, Each item must have a unique 'key'
             //fruit.Add("Plums", 3);
 
             // 'TryAdd' unlike 'Add' won't result in an
@@ -2515,7 +2515,7 @@ namespace Dictionaries
             fruit["Pears"] = 3;
             Console.WriteLine($"There are now {fruit["Pears"]} 'Pears'");
 
-            // Error, The 'Key' index must exist to access an item.
+            // Syntax error, The 'Key' index must exist to access an item.
             // var mangoes = fruit["Mangoes"];
 
             // 'TryAdd' unlike accessing a Dictionary with the 'Key' index
@@ -2935,13 +2935,14 @@ namespace ClassExample
                         and methods can be <a href="#Parameters,_signatures_and_overloading">overloaded</a>. That is a type can contain multiple versions with the same
                         identifier provided that they overload a member of the same type and each overload has a unique signature.</p>
                     <p>Properties, indexers, methods and events in a <a href="#Inheriting_types">base</a> type can be marked marked
-                        <a href="#abstract">abstract</a> or <a href="Overriding_a_virtual_member">virtual</a>. In a <a href="#Inheriting_types">derived</a> type a virtual base member can
-                        optionally be <a href="#Overriding_a_virtual_member">overridden</a> where as an abstract base member <em>must</em> be overridden by a member with
-                        the same signature that is marked with the <code>override</code> keyword. A type that contains an abstract member must also be marked abstract. A
-                        member marked as <code>override</code> can also be marked with the <code>sealed</code> keyword preventing it from being overridden in any further
-                        derived type. Where members in both a base and derived type have the same identifier and where neither are marked as either virtual or override,
-                        the the derived member will hide the base member. The two members don't have to be of the same type or have the same signature. For example a
-                        property in a base class can be hidden by a method. Access to a hidden member can still be obtained through use of the
+                        <a href="#abstract">abstract</a> or <a href="Overriding_a_virtual_member">virtual</a> though marking an event a virtual is not recommended as the
+                        C# compiler does not handle them correctly producing unpredictable results. In a <a href="#Inheriting_types">derived</a> type a virtual base
+                        member can optionally be <a href="#Overriding_a_virtual_member">overridden</a> where as an abstract base member <em>must</em> be overridden by a
+                        member with the same signature that is marked with the <code>override</code> keyword. A type that contains an abstract member must also be marked
+                        abstract. A member marked as <code>override</code> can also be marked with the <code>sealed</code> keyword preventing it from being overridden in
+                        any further derived type. Where members in both a base and derived type have the same identifier and where neither are marked as either virtual or
+                        override, the the derived member will hide the base member. The two members don't have to be of the same type or have the same signature. For
+                        example a property in a base class can be hidden by a method. Access to a hidden member can still be obtained through use of the
                         <a href="#base_keyword">base</a> keyword. When a member is hidden the code editor will indicate this on the hiding member in the derived class
                         with a <u class="warning">warning</u>. This can be removed by marking the member with the <code>new</code> keyword.
                     </p>
@@ -3031,7 +3032,7 @@ namespace Methods
         }
 
         // A method that uses an expression body
-        public int Subtract(int x, int y) => x - y;
+        public int Subtract(int x, int y) =&gt; x - y;
 
         // A private method that can only
         // that can only be accessed from
@@ -3041,13 +3042,13 @@ namespace Methods
             return x * y;
         }
 
-        // Error, a method with a return type must have a return statement
+        // Syntax error, a method with a return type must have a return statement
         //public int Sum(int a, int b, int c, int d)
         //{
         //    var result = a + b + c + d;
         //}
 
-        // Error, the if statement does not return a value if x == 0
+        // Syntax error, the if statement does not return a value if x == 0
         //public int Sum(int a, int b, int c, int d)
         //{
         //    if (x != 0)
@@ -3089,15 +3090,16 @@ namespace Methods
                         When the program is run, field initialization occurs in the order of</p>
                     <p><i>declaration &gt; constructor &gt; object initializer</i>.</p>
                     <p>This means that setting a field's value in a constructor will overwrite a value set in the declaration and setting it's value in an
-                        object-initializer will overwrite the value set both in the field declaration, a constructor or an init accessor of a property.
+                        object-initializer will overwrite the value set both in the field declaration, a constructor or an init accessor of a property.</p>
                     <p>A variable field can be made readonly through the use of the <code>readonly</code> keyword in which case it can only be initialized either by
                         declaration or in a constructor. How this effects a variable though depends on whether it is a value or a reference type. As a value type contains
                         its data it can't be changed after being initialized. As a reference type only stores the address in memory of the data, it is only this reference
                         that can't be changed and not the data itself. For example, if a <code>List&lt;T&gt;</code> is declared as a public read-only field, code outside
                         the class can still add and remove items from the list.</p>
-                    <p><p><em>Note:</em><i> Whilst a <a href="#Strings">string</a> is a reference type as it is immutable declaring it <code>readonly</code> prevents it from being assigned to
-                        after initialization.</i></p>
-                    <p>By convention fields are normally declared at the top of a class before any other code. Access to a field by code external to the type is in the
+                    <p><em>Note:</em><i> Whilst a <a href="#Strings">string</a> is a reference type as it is immutable declaring it <code>readonly</code> prevents it
+                        from being assigned to after initialization.</i></p>
+                    <p>By convention fields are normally declared at the top of a class before any other code and are usually prefixed with 'm' or an underscore such as
+                        <code>mField</code> or <code>_Field</code>. Access to a field by code external to the type is in the
                         form of <code>instance.field</code>.</p>
                     <p>The following example demonstrates field declaration and use.</p>
 <pre><code>using System;
@@ -3183,7 +3185,7 @@ namespace Fields
             Console.WriteLine($"person3 ID: {person3.ID}");
             Console.WriteLine($"person3 details - {person3.Details}");
 
-            // Error, a readonly field value type variable
+            // Syntax error, a readonly field value type variable
             // can't be assigned to after initialization
             //person3.Details = "Change details";
 
@@ -3244,7 +3246,7 @@ namespace Fields
 
                 MathConstants mathConstants = new();
 
-                // Error, a constant field cannot be accessed through an instance
+                // Syntax error, a constant field cannot be accessed through an instance
                 //var pi = mathConstants.PI;
 
                 var area2 = mathConstants.Area(3);
@@ -3413,19 +3415,19 @@ namespace Fields
             // An auto-implemented read/write property with an init accessor
             public DateTime EnrollmentDate { get; init; }
 
-            // Error, an auto-implemented property must have a get
+            // Syntax error, an auto-implemented property must have a get
             //public string Password2 { set; }
 
-            // Error, only one accessor can have an access modifier
+            // Syntax error, only one accessor can have an access modifier
             //public string User { internal get; private set; }
 
-            // Error, an accessor access modifier must be
+            // Syntax error, an accessor access modifier must be
             // more restrictive than the property containing it
             //public string Password2 { public get; set; }
 
             public string LogIn(string password)
             {
-                // Error, can't read a write only property
+                // Syntax error, can't read a write only property
                 //if (password == Password)
 
                 // This accesses the _password field so is OK
@@ -3468,7 +3470,7 @@ namespace Fields
                 Console.WriteLine($"Course: {student.CourseName}, Length: {student.CourseLength} years");
                 Console.WriteLine($"Last updated: {student.Modified:dd MMM yyyy}{nl}");
 
-                // Error, can only assign a value to a property with an
+                // Syntax error, can only assign a value to a property with an
                 // init accessor in a constructor or an object initializer
                 //student1.Created = DateTime.Now;
 
@@ -3638,7 +3640,7 @@ namespace StaticExample
         {
             _staticField = value;
 
-            // Error, a static method cannot access an instance field
+            // Syntax error, a static method cannot access an instance field
             //_instanceField = value;
         }
     }
@@ -3681,7 +3683,7 @@ namespace StaticExample
             return value * value;
         }
 
-        // Error, a static class can't declare instance members
+        // Syntax error, a static class can't declare instance members
         //public void InstanceMethod() { }
     }
 
@@ -3694,7 +3696,7 @@ namespace StaticExample
             // Set MyClass.StaticProperty
             MyClass.StaticProperty = 1;
 
-            // Error, an instance of a class must be created to
+            // Syntax error, an instance of a class must be created to
             // use an instance member even if it contains static members
             //MyClass.InstanceProperty = 1;
 
@@ -3734,7 +3736,7 @@ namespace StaticExample
             // without creating an instance of MyMathFunctions
             Console.WriteLine($"{nl}The square of 3 is {MyMathFunctions.SquareNumber(3)}");
 
-            // Error, a static class cannot be instantiated
+            // Syntax error, a static class cannot be instantiated
             //MyMathFunctions staticClass;
         }
     }
@@ -3795,10 +3797,10 @@ namespace Structs
             Depth = depth;
         }
 
-        // Error, a struct cannot contain a parameterless constructor
+        // Syntax error, a struct cannot contain a parameterless constructor
         //public Box() { }
 
-        // Error, a structs constructor must assign values to all instance fields
+        // Syntax error, a structs constructor must assign values to all instance fields
         //public Box(double width)
         //{
         //    Width = width;
@@ -3858,7 +3860,7 @@ namespace Structs
             // without the new keyword but instance fields must be set before it can be used
             Box box5;
 
-            // Error, use of unassigned variable 'box5'
+            // Syntax error, use of unassigned variable 'box5'
             //var v = box5.GetVolume();
 
             box5.Width = 5;
@@ -3956,19 +3958,20 @@ namespace Delegates
                     <!-- !SECTION Delegates -->
                     <!-- SECTION Inheriting types -->
                     <h3 id="Inheriting_types">Inheriting types</h3>
-                    <p>Inheritance is one of the main concepts in Object Oriented Programming. It allows you to create a parent class with common features that child
-                        classes can inherit and expand upon. In C# a parent class is called a base class and a child a derived class. C# only allows single inheritance,
-                        that is a derived class can only inherit from one base class but it does allow for multiple generations which means a base class can be inherited
-                        by a second which it turn can inherited by a third and so on. As a result members that are in the base class will be available in each generation
-                        of derived classes with the following exceptions.</p>
+                    <p>Inheritance is one of the main concepts in Object Oriented Programming. It allows you to create a parent class with common features that multiple
+                        different child classes can inherit and expand upon. In C# a parent class is called a base class and a child a derived class. C# only allows
+                        single inheritance, that is a derived class can only inherit from one base class but it does allow for multiple generations which means a base
+                        class can be inherited by a second which it turn can inherited by a third and so on. As a result members that are in the base class will be
+                        available in each generation of derived classes with the following exceptions.</p>
                     <ul>
                         <li>Static constructors</li>
                         <li>Instance constructors</li>
                         <li>Finalizers</li>
                     </ul>
-                    <p>Whilst all other members are available in derived classes their visibility is dependent on the Scope rules. Also events can only be invoked from
-                        within the base class so in order to do so from a derived class a method is created in the base class that invokes the event. This can then be
-                        called from the derived class to raise the event. Apart from classes only interfaces can be inherited. </p>
+                    <p>Also events can only be invoked from within the class they are declared so to <a href="Raising_base_class_events_in_a_derived_class">raise a base
+                        class event from a derived class</a> a common pattern is to declare a method in the base class that can be called from the derived class to invoke
+                        the event. The availability of all other members in a derived class is dependent on the <a href="#Scope_and_Access_Modifiers">accessibility</a> of
+                        a member in the base class. Apart from classes only interfaces can be inherited.</p>
                     <p>The following example demonstrates the syntax for inheriting a class. First base class <code>A</code> is declared as normal. Derived Class
                         <code>B</code> is then declared followed by a colon, then the name of the class to be inherited, followed by the code block for class
                         <code>B</code>.</p>
@@ -3999,7 +4002,7 @@ namespace InheritanceAccessibility
     // Base class A default accessibility is internal
     class A { }
 
-    // Error, derived public class B can't be
+    // Syntax error, derived public class B can't be
     // more accessible than its internal base class A
     //public class B : A { }
 
@@ -4009,7 +4012,7 @@ namespace InheritanceAccessibility
     // accessible than public class C
     class D : C { }
 
-    // Error, derived public class E can't be
+    // Syntax error, derived public class E can't be
     // more accessible than its internal base class D
     // even though D inherits from public class C
     //public class E : D { }
@@ -4126,10 +4129,8 @@ namespace OverridingVirtualMembers
 
     public class LogAnalyzer3 : LogAnalyzer
     {
-        // Uncommenting the following results in the error
-        // 'LogAnalyzer3.AnalyzeLogMessage()':cannot override inherited member
-        // 'LogAnalyzer.AnalyzeLogMessage()' because it is not marked
-        // virtual, abstract or override
+        // Syntax error, can't override a member that
+        // is not marked virtual, abstract or override
         //public override void AnalyzeLogMessage() { }
     }
 
@@ -4172,6 +4173,27 @@ namespace OverridingVirtualMembers
 // Log message has occurred
 </code></pre>
                     <!-- !SECTION Overriding a virtual member -->
+                    <!-- TODO add derived class event example -->
+                    <!-- SECTION Raising base class events in a derived class -->
+                    <h3 id="Raising_base_class_events_in_a_derived_class">Raising base class events in a derived class</h3>
+                    <p>An event can only be invoked within the class it is declared. A common pattern to invoke a base class event in a derived class is to declare a
+                        virtual method in the base class to invoke the event. This can then be overridden in the derived class where it can be used to indirectly call the
+                        base class event. This also allows for additional code to be added and executed within the method before or after the event is raised.</p>
+                    <p>CodeExample</p>
+<pre><code>using System;
+
+namespace Namespace
+{
+    class Program
+    {
+        static void Main()
+        {
+
+        }
+    }
+}
+</code></pre>
+                    <!-- !SECTION Raising base class events in a derived class -->
                     <!-- SECTION Polymorphism implementation -->
                     <h3 id="Polymorphism_implementation">Polymorphism implementation</h3>
                     <p>In the previous example each derived class was created and the methods called separately. Ideally it would have been better to do this all through
@@ -4250,13 +4272,11 @@ namespace Sealed
     {
         public void Method1() { }
 
-        // Uncommenting the following results in the error
-        // 'A.Method2()' is a new virtual member in a sealed type 'A'
+        // Syntax error, a virtual member is invalid in a sealed class
         //public virtual void Method2() { }
     }
 
-    // Uncommenting the following results in the error
-    // 'B':cannot derive from sealed class 'A'
+    // Syntax error, a derived class cannot inherit a sealed class
     //public class B : A { }
 
     public class C
@@ -4271,13 +4291,12 @@ namespace Sealed
 
     public class E : D
     {
-        // Uncommenting the following results in the error
-        // 'E.Method1()' cannot override inherited member 'D.Method1()' because it is sealed
+        // Syntax error, 'E.Method1()' cannot override
+        // inherited member 'D.Method1()' because it is sealed
         //public override void Method1() { }
     }
 }
 </code></pre>
-
                     <!-- !SECTION sealed -->
 <!-- TODO Rewrite the following -->
 <!-- TODO using base in override -->
@@ -4465,8 +4484,7 @@ namespace Abstract
             hoursPriceCalculator.HourlyRate = 30;
             Console.WriteLine($"The price of the hours is {hoursPriceCalculator.CalculateAmount().ToString("C", CultureInfo.CurrentCulture)}");
 
-            // Uncommenting the following results in the error
-            // Cannot create an instance of the abstract type or instance 'PriceCalculator'
+            // Syntax error, can't create an instance of an abstract class
             //PriceCalculator priceCalculator = new();
         }
     }
@@ -5000,10 +5018,8 @@ namespace NameSpace1
         }
     }
 
-    // Class1 was declared in the previous NameSpace1 code block
-    // so uncommenting the following results in the error
-    // The namespace 'NameSpace1' already contains a
-    // definition for 'Class1'
+    // Syntax error, Class1 was already declared
+    // in the previous NameSpace1 code block
     //class Class1 { }
 }
 
@@ -5063,10 +5079,9 @@ namespace NamespaceExample
             instance.Month = NameSpace1.Months.May;
             Console.WriteLine(instance.Month);
 
-            // Uncommenting the following results in the error
-            // Cannot implicitly convert type
-            // 'NameSpace2.Months' to 'NameSpace1.Months',
-            // An explicit conversion exists (are you missing a cast?)
+            // Syntax error, being in different namespaces
+            // NameSpace1.Month and NameSpace2.Month are different types
+            // so this is attempting an implicit conversion which fails
             //instance.Month = NameSpace2.Months.May;
 
             // to access nested namespaces the identifiers
@@ -5215,9 +5230,8 @@ using NameSpace5;
 // GlobalClass is declared in the global namespace
 class GlobalClass { }
 
-// Uncommenting the following results in the error
-// A using clause must precede all other elements
-// defined in the namespace except alias declarations
+// Syntax error, a using clause must precede all other
+// elements defined in the namespace except alias declarations
 //using NameSpace4;
 
 // Class1 is declared in NameSpace1
@@ -5271,12 +5285,7 @@ namespace ImportingTypes
             Class1 class1 = new();
             Class2 class2 = new();
 
-            // Types in the nested namespaces of NameSpace2
-            // are not imported. Uncommenting the following
-            // results in the error
-            // The type or namespace named 'Class3'
-            // could not be found (are you missing a
-            // using directive or an assembly reference?)
+            // Syntax error, types in nested namespaces are not imported
             //Class3 myClass3 = new();
 
             // Class3 must be accessed using
@@ -5426,11 +5435,8 @@ namespace Aliases
     {
         static void Main(string[] args)
         {
-            // Importing MyClass from both NameSpace1 and NameSpace2
-            // creates a naming conflict the compiler can't resolve.
-            // Uncommenting the following results in the error
-            // 'MyClass' is an ambiguous reference between
-            // NameSpace1.MyClass and NameSpace2.MyClass
+            // Syntax error, importing MyClass from both NameSpace1 and
+            // NameSpace2 creates a naming conflict the compiler can't resolve.
             //MyClass myClass1 = new();
 
             // The aliases resolve the naming conflict
@@ -5556,21 +5562,25 @@ namespace ImportingSystemTypes
                     <p>A local variable in the same container (enclosing type) as a field can be declared with the same name and any type. When this is done the field is
                         said to be hidden by the local variable. In this case, to then access the field the <code>this</code> name qualifier this must be used. For
                         example if in a class a field <code>int someName</code> exists and in a method <code>string someName;</code> to access the field you would use
-                        <code>var x = this.someName</code>.</p>
+                        <code>var x = this.someName</code>. By convention fields are usually prefixed with 'm' or an underscore such as <code>mField</code> or
+                        <code>_Field</code>and local variables are written in 'camel Case' such as <code>localVariable</code> which helps to prevent to prevent naming
+                        conflicts.</p>
                     <p>Following are examples of scope.</p>
 <pre><code>using System;
 
 namespace Scope
 {
-    public class Class1
+    public class MyClass
     {
         private string _nl = Environment.NewLine;
 
-        // Declare field1 and field2 at the top of the class
-        // Fields do not have to be initialized so field1
+        // Declare _field1 and field2 at the top of the class
+        // Fields do not have to be initialized so _field1
         // has the default integer value 0
         private int _field1;
-        private string _field2 = "field2";
+        // Note: field2 does not have an underscore
+        // prefix for demonstrative purposes only
+        private string field2 = "field2";
 
         public void Method1(int value)
         {
@@ -5579,20 +5589,16 @@ namespace Scope
             // Method1 will have access to it
             int variable1 = 1;
 
-            // The variable 'value' was declared in the signature of Method1
-            // and as such is a local variable in the scope of Method 1
-            // Uncommenting the following results in the error
-            // A local or parameter named 'value' cannot be declared in this scope because
-            // that name is used in an enclosing local scope to declare a local or parameter
+            // Syntax error, because 'value' was declared in the signature
+            // of Method1 it is a local variable in the scope of Method1
+            // so another variable called value can't be declared in it
             //int value = 0;
 
-            Console.WriteLine($"Initial class level field1 value = {_field1}");
+            Console.WriteLine($"Initial class level _field1 value = {_field1}");
 
-            // A local variable field2 is declared after this statement
-            // which hides the class level declaration of field2
-            // Uncommenting the following results in the error
-            // Cannot use variable 'field2' before it is declared.
-            // The declaration of the local variable hides the field 'Class1.field2'.
+            // Syntax error, can't use local variable before
+            // it is declared, local variable field2 is declared
+            // after this statement and hides class level field2
             //Console.WriteLine($"Initial field2 value = {field2}");
 
             // Declaring a local field2 variable hides the class level field2
@@ -5601,7 +5607,7 @@ namespace Scope
             Console.WriteLine($"Initial local variable field2 value = {field2}");
 
             // To access the hidden class level field2 use the 'this' qualifier
-            Console.WriteLine($"Class level field2 value = {this._field2}");
+            Console.WriteLine($"Class level field2 value = {this.field2}");
 
             Console.WriteLine($"{_nl}Display iterator 'i' from Loop 1");
 
@@ -5616,46 +5622,35 @@ namespace Scope
             }
 
             Console.WriteLine($"{_nl}Result of variable1 in Loop 1 = {variable1}");
-            Console.WriteLine($"Result of field1 in Loop 1 = {_field1}");
+            Console.WriteLine($"Result of _field1 in Loop 1 = {_field1}");
 
             variable1 = 0;
             _field1 = 0;
 
             Console.WriteLine($"{_nl}Display iterator 'i' from Loop 2");
 
-            // Loop 2 also declares a scope within Method1 but is outside
-            // the scope of Loop 2. As such a variable named 'i' can
-            // also be declared as an iterator for Loop 2
+            // Loop 2 also declares a nested scope within Method1 but is outside the scope of
+            // loop 2 so a variable named 'i' can also be declared as an iterator for Loop 2
             for (int i = 0; i &lt;= 15; i += 3)
             {
                 Console.Write($"{i}, ");
                 variable1 += i;
                 int variable2 = i * 4;
 
-                // Although field3 was declared within Class1 after Method1
+                // Although _field3 was declared within MyClass after Method1
                 // as it is a Field the location of its declaration within
                 // the class does not matter so it can be accessed here
-                field3 += variable2;
+                _field3 += variable2;
 
-                // As Loop 2 has declared variable 'i' as its iterator and as any
-                // code here is within the scope of Loop 2 no other variables
-                // named 'i' can be declared here.
-                // Uncommenting the following results in the error
-                // A local or parameter named 'i' cannot be declared in this scope because that
-                // name is used in an enclosing local scope to define a local or parameter
+                // Syntax error, this nested loop is within the scope of loop 2 so it
+                // can't declare the same iterator 'i' that was declared by loop 2.
                 //for (int i = 0; i &lt; 10; i++) { }
 
-                // As variable3 is declared after Loop 2
-                // uncommenting the following results in the error
-                // Cannot use variable 'variable3' before it is declared
+                // Syntax error, variable3 is declared after loop 2 so can't be accessed in it
                 //variable3 = 1;
 
-                // Even though variable3 is declared after Loop 2 and so cannot
-                // be used here, it is still within the code block for Method1 and
-                // as such is a local variable in respect to the scope of Loop 2
-                // Uncommenting the follow results in the error
-                // A local or parameter named 'variable3' cannot be declared in this scope because
-                // that name is used in an enclosing local scope to define a local or parameter
+                // Syntax error, loop 2's scope is nested in Method1's scope
+                // so another local variable3 can't be declared here also
                 //int variable3 = i;
 
                 // Loop 3 creates a nested scope within Loop 2
@@ -5669,14 +5664,13 @@ namespace Scope
             }
 
             Console.WriteLine($"{_nl}Result of variable1 in Loop 2 = {variable1}");
-            Console.WriteLine($"Result of field1 in Loop 2 = {_field1}");
-            Console.WriteLine($"Result of field3 in Loop 2 = {field3}");
+            Console.WriteLine($"Result of _field1 in Loop 2 = {_field1}");
+            Console.WriteLine($"Result of _field3 in Loop 2 = {_field3}");
             Console.WriteLine($"local field2 = {field2}");
-            Console.WriteLine($"class level field2 = {this._field2}");
+            Console.WriteLine($"class level field2 = {this.field2}");
 
-            // 'variable2' and 'i' from Loop 1 and Loop 2 and 'j' from Loop 3
-            // are all out of scope outside the loops so uncommenting
-            // any of the following 3 statements results in an error
+            // Syntax error, 'variable2' and 'i' from Loop 1 and
+            // Loop 2 and 'j' from Loop 3 are all out of scope
             //Console.WriteLine($"variable2 = {variable2}");
             //Console.WriteLine($"i = {i}");
             //Console.WriteLine($"j = {j}");
@@ -5686,11 +5680,10 @@ namespace Scope
 
         // Although by convention fields are declared at
         // the top of a class they can be placed anywhere
-        int field3 = 20;
+        int _field3 = 20;
 
-        // None of the local variables within the scope of Method1
-        // can be accessed outside of it at the class level
-        // Uncommenting the following will result in an error
+        // Syntax error, local variables within the scope of Method1
+        // can't be accessed outside of it at the class level
         //variable1 = 0;
         //variable2 = 0;
         //variable3 = 0;
@@ -5710,42 +5703,41 @@ namespace Scope
             int variable4 = 0;
             int i = 0;
             int j = 0;
-            _field2 = value;
-            Console.WriteLine($"Method2 field2 = {_field2}");
+            field2 = value;
+            Console.WriteLine($"Method2 field2 = {field2}");
         }
 
-        // An attempt is made to declare another field1 within the same scope
-        // Uncommenting the following results in the error
-        // The type 'Class1' already contains a definition for 'field1'
-        //int field1;
+        // Syntax error, _field1 was already declared
+        // within the same scope at the top of MyClass
+        //int _field1;
     }
 
     class Program
     {
         static void Main(string[] args)
         {
-            Class1 class1 = new();
-            class1.Method1(10);
-            class1.Method2("New value");
+            MyClass myClass = new();
+            myClass.Method1(10);
+            myClass.Method2("New value");
         }
     }
 }
 
 // The example prints the following to the console
-// Initial class level field1 value = 0
+// Initial class level _field1 value = 0
 // Initial local variable field2 value = 0
 // Class level field2 value = field2
 
 // Display iterator 'i' from Loop 1
 // 0, 1, 2, 3, 4, 5,
 // Result of variable1 in Loop 1 = 16
-// Result of field1 in Loop 1 = 30
+// Result of _field1 in Loop 1 = 30
 
 // Display iterator 'i' from Loop 2
 // 0, 3, 6, 9, 12, 15,
 // Result of variable1 in Loop 2 = 45
-// Result of field1 in Loop 2 = 1185
-// Result of field3 in Loop 2 = 200
+// Result of _field1 in Loop 2 = 1185
+// Result of _field3 in Loop 2 = 200
 // local field2 = 0
 // class level field2 = field2
 // Method2 field2 = New value
@@ -5868,11 +5860,8 @@ namespace AccessModifiers
         }
     }
 
-    // A class that is not nested i.e. declared within
+    // Syntax error, a class that is not nested i.e. declared within
     // a namespace can only be marked as internal or public
-    // Uncommenting the following results in th error
-    // Elements declared in a namespace cannot be explicitly declared
-    // as private, protected, protected internal or private protected
     //private class Base2 { }
 
     // Inherits from Base within same assembly
@@ -5888,9 +5877,8 @@ namespace AccessModifiers
             InternalProperty = "derived internalProperty";
             PrivateProtectedProperty = "derived privateProtectedProperty";
 
-            // As 'PrivateProperty' and 'DefaultProperty' are private in the base
-            // class they are inaccessible in the derived class
-            // Uncommenting the following statements results in an error
+            // Syntax error, as 'PrivateProperty' and 'DefaultProperty' are private
+            // in the base class they are inaccessible in the derived class
             //PrivateProperty = 0;
             //DefaultProperty = 0;
 
@@ -5907,9 +5895,8 @@ namespace AccessModifiers
             ProtectedInternalProperty = "Class1 protectedInternalProperty";
             ProtectedProperty = "Class1 protectedProperty";
 
-            // internal, private protected and private marked
+            // Syntax error, internal, private protected and private marked
             // members can only be accessed within the same assembly
-            // Uncommenting the following statements results in an error
             //InternalPublicProperty = "Class1 InternalPublic";
             //PrivateProtectedPublicProperty = "Class1 PrivateProtectedPublic";
             //PrivatePublicProperty = "Class1 PrivateProperty";
