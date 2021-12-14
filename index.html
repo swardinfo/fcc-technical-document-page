@@ -3506,13 +3506,253 @@ namespace Fields
                     <!-- SECTION Events -->
                     <h3 id="Events">Events</h3>
 
-                    <p>An event is a way for the class to communicate with other objects or other parts within itself that the state of the class instance has changed.
-                        The event declares which type of method known as an event handler must be used respond to the event. The event usually passes the object that
-                        created the event and an EventArgs that can contain additional information about the event to the event handler. The return type for an event
-                        handler is almost always void so if information is to be passed back from the event handler, variables can be included in the EventArgs that can
-                        be changed within the event handler.</p>
+                    <p>An event is a way for a class to communicate with other objects that something within it has occurred. This could be a button click, completion of
+                        a task, change of state, etc. The class that <i>raises</i> the event is know as a <i>publisher</i> and the objects receiving the event
+                        are known as <i>subscribers</i>. When a publisher declares an event, it in turn allows the declaration of a special type of multicast
+                        <a href="#Delegates">delegate</a> and provides methods that a subscriber can use to add or remove instances of the delegate. When an event is
+                        raised the delegate is then used to invoke a method within the subscriber which in this case is known as an <i>event handler</i>. By being
+                        multicast the delegate allows multiple objects to subscribe to the same event or for a subscriber to use the same event handler to handle the same
+                        type of event from multiple publishers.</p>
+                    <p>Whilst a delegate can declare a signature that defines a return type, a multicast delegate only returns a value from the last event handler that
+                        was invoked. For this reason the standard event delegate signature is one that returns void and contains two parameters. The first parameter is an
+                        object that refers to the instance that raised the event. The second is a type that can optionally contain event data including values that can be
+                        changed in the event handler to effectively supply a return value. A common type for containing event data is one that is
+                        <a href="#Inheriting_types">derived</a> from the <code>EventArgs</code> class.</p>
+                    <p>C# .NET provides many built-in delegates for use with events which are suffixed with <i>EventHandler</i>. There two most common are
+                        <code>EventHandler</code> and <code>EventHandler&lt;TEventArgs&gt;</code>.</p>
+                    <p><code>EventHandler</code> is used when the event does not include event data. It declares <code>EventArgs</code> as the second parameter which is
+                        set to the <code>EventArg.Empty</code> field when invoking the event.</p>
+                    <p><code>EventHandler&lt;TEventArgs&gt;</code> can be used to send event data. Originally it was required that the return data type be derived from
+                        <code>EventArgs</code> which is why <i>TEventArgs</i> is still mentioned in much of the online documentation, but that constraint has been removed and
+                        any type can now be specified. There are still advantages for doing so, particularly where more complex types are employed and for reasons of
+                        <a href="#Polymorphism_implementation">polymorphism</a>. If there is a requirement to return a value then a reference type should be used.</p>
+                    <p>An event can't be invoked from outside the class that contains it so an additional method is required to call the event. It is common that such a
+                        method be marked <code>virtual</code> so they can be <a href="#Overriding_a_virtual_member">overridden</a> if the class can be inherited. The
+                        naming convention for such a method is the name of the event prefixed with <i>On</i> such as <code>OnEvent</code>. The naming convention for
+                        subscriber event handlers is the instance or type identifier followed by an underscore followed by the event identifier such as
+                        <code>instance_SomeEvent</code>. An event handler can also be in the form of a <a href="#Lambda_Expression">lambda expression</a>.</p>
+                    <p><em>Note:</em> <i>When an event has multiple subscribers the order in which they receive the event is not always guarantied. A subscriber should
+                        not rely on another having already handled the event.</i></p>
+                    <p>In the following example the <code>Clock</code> class declares <code>Started</code>, <code>Stopped</code> and <code>Ticked</code> events and the
+                        <code>Program</code> class subscribes and declares event handlers to all of them. The <code>Clock</code> class also declares a <code>Timer</code>
+                        instance that provides a continuous <code>Timer.Elapsed</code> event at one second intervals which is handled by a <code>Timer_Elapsed</code>
+                        event handler. This in turn calls the <code>OnTicked</code> method that then invokes the <code>Ticked</code> event. When the
+                        <code>_clock_Tick</code> event handler in <code>Program</code> is invoked it writes the current time to the console. The
+                        <code>Clock.Started</code> event takes a <code>DateTime</code> type which is used to pass the start time to the <code>_clock_Started</code> event
+                        handler. The <code>Clock.Stopped</code> event takes a custom type <code>StoppedEventArgs</code> derived from <code>EventArgs</code> which is used
+                        to pass the stop time to the <code>_clock_Stopped</code> event handler. <code>StoppedEventArgs</code> has a <code>DateTime</code> type
+                        <code>Time</code> property that is set by the constructor. The example also employs <code>Console.ReadKey</code> to test whether the user has
+                        pressed the <kbd>enter</kbd> key to end the program.</p>
 
+<pre><code>using System;
+using System.Timers;
 
+namespace Events
+{
+    public class Clock
+    {
+        Timer _timer;
+
+        // An event that can be raised when the clock is started
+        // EventHandler&lt;TEventArgs&gt; delegate type is declared
+        // The EventArgs parameter is the DateTime type
+        public event EventHandler&lt;DateTime&gt; Started = (s, e) =&gt; { };
+
+        // An event that can be raised when the clock is stopped
+        // The EventArgs parameter is the custom StoppedEventArgs type
+        public event EventHandler&lt;StoppedEventArgs&gt; Stopped = (s, e) =&gt; { };
+
+        // An event that can be raised when the clock ticked. It does
+        // not have event data so EventHandler delegate is declared
+        // as it declares dataless EventArgs for the second parameter
+        public event EventHandler Ticked = (s, e) =&gt; { };
+
+        // A method to call to invoke the Started event
+        protected virtual void OnStarted()
+        {
+            // Create a parameter to pass to the Started event
+            DateTime args = DateTime.Now;
+            // Raise the Started event
+            Started?.Invoke(this, DateTime.Now);
+        }
+
+        // A method to call to invoke the Stopped event
+        protected virtual void OnStopped()
+        {
+            // Create an instance of custom StoppedEventArgs
+            // to pass as a parameter to pass to the Started event
+            StoppedEventArgs stoppedEventArgs = new(DateTime.Now);
+            // Raise the Stopped event
+            Stopped?.Invoke(this, stoppedEventArgs);
+        }
+
+        // A method to call to invoke the Ticked event
+        protected virtual void OnTicked()
+        {
+            // Raise the Ticked event, no EventArgs value is to be passed
+            // so it is set to the static read-only EventArgs.Empty field
+            Ticked?.Invoke(this, EventArgs.Empty);
+        }
+
+        // Event handler for Timer.Elapsed event
+        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            OnTicked();
+        }
+
+        public void Start(double interval)
+        {
+            _timer = new(interval);
+            // Subscribe to the Timer.Elapsed event and
+            // declare Timer_Elapsed as the event handler
+            _timer.Elapsed += Timer_Elapsed;
+            _timer.AutoReset = true;
+            _timer.Enabled = true;
+            OnStarted();
+        }
+
+        public void Stop()
+        {
+            _timer.Stop();
+            // The timer object is disposed so that the
+            // garbage collector can remove it from memory
+            _timer.Dispose();
+            OnStopped();
+        }
+    }
+
+    // Create a custom that inherits from EventArgs
+    // to be passed by the Clock.Stopped event
+    public class StoppedEventArgs : EventArgs
+    {
+        public StoppedEventArgs(DateTime time) =&gt; Time = time;
+        public DateTime Time { get; set; }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Clock _clock = new();
+            // Subscribe to the Clock.Started event and
+            // declare _clock_Started as the event handler
+            _clock.Started += _clock_Started;
+
+            // Subscribe to the Clock.Stopped event and declare
+            // an event handler using a lambda expression
+            _clock.Stopped += (s, e) =&gt;
+            {
+                Console.WriteLine($"\rThe clock was stopped at {e.Time:T}");
+            };
+
+            // Start the clock with a tick interval of 1 second (1000 ms)
+            _clock.Start(1000);
+            Console.WriteLine("Press enter to stop the clock");
+
+            // Subscribe to the Clock.Ticked event and
+            // declare _clock_Ticked as the event handler
+            _clock.Ticked += _clock_Ticked;
+
+            // Wait until the user presses the 'enter' key
+            while (Console.ReadKey(true).Key != ConsoleKey.Enter) { }
+
+            // Unsubscribe from the Clock.Ticked event
+            _clock.Ticked -= _clock_Ticked;
+            _clock.Stop();
+        }
+
+        // Event handler for Clock.Started event
+        private static void _clock_Started(object sender, DateTime e)
+        {
+            Console.WriteLine($"The clock started at {e:T}");
+        }
+
+        // Event handler for Clock.Ticked event
+        private static void _clock_Ticked(object sender, EventArgs e)
+        {
+            Console.Write($"\rCurrent time: {DateTime.Now:T}");
+        }
+    }
+}
+</code></pre>
+                    <p>There are situations where you may wish to cancel an event. One such scenario is when closing a program and you want to give the user the
+                        opportunity to save unsaved data before this occurs. C# .NET provides the <code>CancelEventHandler</code> delegate to achieve this which passes
+                        a <code>CancelEventArgs</code> parameter to the event handler. <code>CancelEventArgs</code> has a bool type property <code>Cancel</code> which can
+                        be set in the event handler to indicate if the event should be cancelled.</p>
+                    <p>In the following example the <code>ApplicationManager</code> class declares an <code>Exiting</code> event that in turn declares a
+                        <code>CancelEventHandler</code> type delegate. The <code>Program</code> class subscribes to the <code>Exiting</code> event and declares an event
+                        handler for this using a <a href="#Lambda_Expression">lambda expression</a>. Within the <code>Main</code> method are two while loops, one testing
+                        if the user presses the <kbd>x</kbd> key, nested in another that tests if the <code>AllowExit</code> property is true. When the <kbd>x</kbd> key is
+                        pressed, <code>Exit</code> is called which calls <code>OnExiting</code> which invokes the <code>Exiting</code> event. Within the
+                        <code>Exiting</code> event handler in <code>Program</code>, the <code>CancelEventArgs.Cancel</code> property is set <code>true</code> or
+                        <code>false</code> depending if the <kbd>y</kbd> key is pressed, then passed back to <code>OnExiting</code> then to <code>Exit</code> where it
+                        sets the <code>AllowExit</code> property. Execution passes back to the while loops which it exits if <code>AllowExit</code> is true and the
+                        program then terminates.</p>
+<pre><code>using System;
+using System.ComponentModel;
+
+namespace CancelEvent
+{
+    public class ApplicationManager
+    {
+        // An event with CancelEventArgs type parameter
+        public event CancelEventHandler Exiting = (s, e) =&gt; { };
+
+        public bool AllowExit { get; set; }
+
+        // The OnExiting method takes a CancelEventArgs parameter
+        // so that its Cancel property can be passed back
+        protected virtual void OnExiting(CancelEventArgs e)
+        {
+            Exiting?.Invoke(this, e);
+        }
+
+        public void Exit()
+        {
+            CancelEventArgs args = new();
+            OnExiting(args);
+            // Use the CancelEventArgs.Cancel property set by the
+            // Exiting event handler to set the AllowExit property
+            AllowExit = args.Cancel;
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            ApplicationManager _applicationManager = new();
+            // Subscribe to the _applicationManager.Exiting event and
+            // declare _applicationManager_Exiting as the event handler
+            _applicationManager.Exiting += (s, e) =&gt;
+            {
+                Console.WriteLine("Are you sure you want to exit the program");
+                Console.WriteLine("Press y to confirm ending the program or any other key to cancel");
+                // Set the CancelEventArgs.Cancel property
+                e.Cancel = Console.ReadKey(true).Key == ConsoleKey.Y;
+            };
+
+            // Loop until the user presses the 'y' key which sets AllowExit
+            // to true through the Exiting event CancelEventArgs.Cancel property
+            while (!_applicationManager.AllowExit)
+            {
+                Console.Clear();
+                Console.WriteLine("Press x to exit the program");
+                // Wait until the user presses the 'x' key
+                while (Console.ReadKey(true).Key != ConsoleKey.X) { }
+                _applicationManager.Exit();
+            }
+            Console.WriteLine("You have exited the program");
+        }
+    }
+}
+
+// The example writes the following to the console
+// Press x to exit the program
+// Are you sure you want to exit the program
+// Press y to confirm ending the program or any other key to cancel
+// You have exited the program
+</code></pre>
 
                     <!-- !SECTION Events -->
                     <!-- SECTION Indexers -->
@@ -3895,21 +4135,22 @@ namespace Structs
 
                     <!-- SECTION Delegates -->
                     <h3 id="Delegates">Delegates</h3>
-                    <p>A delegate allows you to create a reference to a method that can then be passed as a parameter. It is declared using an optional
-                        <a href="#Access_modifiers">access modifier</a>, followed by the <code>delegate</code> keyword, followed by the <i>return type</i>, followed by an
+                    <p>A delegate allows you to create a reference to a method that can then be passed as a parameter. It does this by declaring the
+                        <a href="Parameters,_signatures_and_overloading">signature</a> of the method which in this case includes the return type. It is declared using an
+                        optional <a href="#Access_modifiers">access modifier</a>, followed by the <code>delegate</code> keyword, then the <i>return type</i>, then an
                         identifier that is unique within the <a href="#Dependencies_and_Namespaces">namespace</a>, followed by a pair of brackets that can optionally
                         contain <a href="#Parameters,_signatures_and_overloading">parameters</a>. Delegates are created using the delegate's identifier, followed by an
                         identifier unique within the local scope and then assigning it a named method which can be either an instance or static. This can then be
-                        used to invoke the method as if it was called directly. A common use for delegates is in <a href="#Events">events</a> in which an
-                        <code>EventHandler</code> method is invoked by an event which is a special kind of multicast delegate. The <code>delegate</code> keyword can also
-                        be used as an operator to create <a href="#Anonymous_functions">anonymous methods</a> that don't require the declaration of a named method for
-                        assignment.</p>
+                        used to invoke the method as if it was called directly. The <code>delegate</code> keyword can also be used as an operator to create
+                        <a href="#Anonymous_functions">anonymous methods</a> that don't require the declaration of a named method for assignment.</p>
+                    <p>A common use for delegates is in <a href="#Events">events</a> in which a method known as an <i>event handler</i> is invoked by a special kind of
+                        multicast delegate that is declared by the event.</p>
                     <p>The following example demonstrates delegate declaration and use.</p>
 <pre><code>using System;
 
 namespace Delegates
 {
-    // A 'delegate' declares the method return type and signature
+    // A 'delegate' declares the method signature including return type
     // Delegate 'Calculate' takes in two int's and returns an int
     public delegate int Calculate(int value1, int value2);
 
@@ -4733,13 +4974,13 @@ namespace AnonymousMethods
                     <!-- SECTION Lambda expressions -->
                     <h3 id="Lambda_Expression">Lambda expressions</h3>
                     <p>Lambda expressions allow for a more concise in-line syntax than anonymous methods. As with a <a href="#Delegates">named method</a> a delegate is
-                        first declared with the required return type and <a href="Parameters,_signatures_and_overloading">signature</a>. The delegate instance is then
+                        first declared with the required <a href="Parameters,_signatures_and_overloading">signature</a>. The delegate instance is then
                         declared and assigned an anonymous method by using a pair of brackets containing the same signature as the delegate, followed by the lambda
                         operator <code>=&gt;</code>, followed by the lambda body. In most cases both the parameter types and the return type are inferred by the compiler.
                         This means that declaration of parameter types is usually not required but can be included if needed. In any case,
                         inclusion can assist with human readability of the code. Where only one parameter without a type declaration exists, the brackets become
                         optional. The body can be in two forms, an <i>expression lambda</i> which can consist of an expression or a method call and a
-                        <i>statement lambda</i> which consists of a statement block. </p>
+                        <i>statement lambda</i> which consists of a statement block which can contain multiple statements.</p>
                     <p>The following example demonstrates various lambda expression declarations and use.</p>
 <pre><code>using System;
 
