@@ -455,14 +455,14 @@ namespace Comments
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
                     <p>As the program code grows the likelihood that a error will be introduced grows with it. There are three different kinds of errors, syntax errors,
-                        run-time errors and logical errors.</p>
+                        runtime errors and logical errors.</p>
                     <h3 id="Syntax_errors">Syntax error</h3>
                     <p>As the title suggests, syntax errors occur when the syntax is wrong and this will prevent the code from being compiled. This could be caused by a
                         spelling mistake, a missing semi colon, an incorrect use of a language element, etc. The code editor will identify such errors with a
                         <u class="error">red wavy underline</u>. These are the easiest errors to fix as in most cases, hovering the mouse over the error will result in a
                         popup dialog in the code editor, identifying the issue along with suggestions on how to fix it.</p>
-                    <h3 id="Run-time_errors">Run-time error</h3>
-                    <p>A run-time error occurs after the program has been compiled and run. Whilst syntactically correct, when the code is executed it will result
+                    <h3 id="Runtime_errors">Runtime error</h3>
+                    <p>A runtime error occurs after the program has been compiled and run. Whilst syntactically correct, when the code is executed it will result
                         in an error that causes the program to crash, most often in the form of an unhandled <a href="#Exception_Handling">exception</a>. As such errors
                         are at a fixed point in the code, these can be usually be fixed fairly easily by either correcting the error through debugging or by providing
                         appropriate <a href="#Exception_Handling">exception handling</a>.</p>
@@ -945,7 +945,7 @@ namespace CastingAndConversion
 </code></pre>
                     <p>To perform an explicit conversion between types, use the cast expression <code>(T)E</code>. If no conversion exists from <code>E</code> to
                         <code>T</code> a compile error will occur. It also may be possible that a conversion error is not detected until the code containing it is
-                        executed during run-time in which case an <a href="#Exception">exception</a> will be thrown.</p>
+                        executed during runtime in which case an <a href="#Exception">exception</a> will be thrown.</p>
 <pre><code>using System;
 
 namespace ExplicitConversion
@@ -1036,7 +1036,7 @@ namespace Characters
                         between the <code>@</code> character and the string.</p>
                     <p>Interpolated strings are prefixed with the interpolation identifier <code>$</code> which indicates that they may contain <i>interpolation
                         expressions</i>. These can contain variables and other special characters that instruct the compiler how to format the string at
-                        <span class="nowrap">run-time</span>. Interpolation expressions are wrapped in a pair of braces. There must be no white space between the
+                        <span class="nowrap">runtime</span>. Interpolation expressions are wrapped in a pair of braces. There must be no white space between the
                         <code>$</code> identifier and the string. To use a brace as a character in an interpolated string two braces <code>{{</code> or
                         <code>}}</code> must be used. Interpolation expressions include a vast range of options, information of which can be found in the
                         <a href="#References">Microsoft Reference Documentation</a></p>
@@ -2676,7 +2676,7 @@ namespace Enumerators
                     <p></p>
                     <p>Classes, structs and records can be instantiated with use of the <code>new</code> keyword. That is multiple instances of these types can be
                         created, each with its own state. A class can also be made <a href="#static">static</a> in which case it cannot be instantiated using the
-                        <code>new</code> keyword but instead a single instance of the class is automatically created at run-time and is shared throughout the assembly. A
+                        <code>new</code> keyword but instead a single instance of the class is automatically created at runtime and is shared throughout the assembly. A
                         child class, record or interface can <a href="#Inheriting_types">inherit</a> from a parent class, record or interface respectively. In
                         C# a parent type is called a base type and a child a derived type. Classes and records can be marked as <a href="#abstract">abstract</a> requiring
                         a derived class for instantiation or <a href="#sealed">sealed</a> to prevent inheritance. Use of the static, abstract and sealed keywords is
@@ -2910,8 +2910,8 @@ namespace ClassExample
                     <ul>
                         <li><a href="#Constructors">constructors</a> which initialize the state of an object</li>
                         <li><a href="#Methods">methods</a> that provide the behavior of the object</li>
-                        <li><a href="#Fields">fields</a> that store data about the object and can be changed at run-time</li>
-                        <li><a href="#Constant_fields">constant fields</a> that store data when declared, cannot be changed at run-time and are inherently
+                        <li><a href="#Fields">fields</a> that store data about the object and can be changed at runtime</li>
+                        <li><a href="#Constant_fields">constant fields</a> that store data when declared, cannot be changed at runtime and are inherently
                             <a href="static">static</a></li>
                         <li><a href="#Properties">properties</a> that provide controlled access to an object's data</li>
                         <li><a href="#Indexers">indexers</a> that allows an object to be indexed like an array</li>
@@ -3497,12 +3497,9 @@ namespace Fields
     // Attempting student login before changing password, login successful
     // Attempting student login after changing password, login failed
     </code></pre>
-
-
                     <!-- !SECTION Properties -->
                     <!-- SECTION Events -->
                     <h3 id="Events">Events</h3>
-
                     <p>An event is a way for a class to communicate with other objects that something within it has occurred. This could be a button click, completion of
                         a task, change of state, etc. The class that <i>raises</i> the event is know as a <i>publisher</i> and the objects receiving the event
                         are known as <i>subscribers</i>. When a publisher declares an event, it in turn allows the declaration of a special type of multicast
@@ -3829,22 +3826,32 @@ namespace Indexers
                     <h3 id="static">static</h3>
                     <p>So far the majority of the examples involve creating an instance of a class by using the <code>new</code> keyword. This
                         allows for multiple instances of a class to be created each with its own initialized state which can be set either by arguments passed in
-                        through an instance constructor or with an object-initializer. Creating an instance of a class in this way is known as instantiation.</p>
+                        through a constructor or with an object-initializer. Creating an instance of a class in this way is known as instantiation.</p>
                     <p>In addition you can make a class static by applying the <code>static</code> keyword to the class declaration. Here the class cannot be
-                        instantiated. Instead it is created automatically during runtime and only one instance of it exists. As a static class is not assigned an instance
-                        variable identifier, to access its members the class name is used instead. For a class called <code>MyClass</code> with a method called
-                        <code>MyMethod</code> to access the method you would use <code>MyClass.MyMethod</code>.</p>
-                    <p>Class members can also be either instance types or made static through use of the <code>static</code> keyword. Note that members within a static
-                        class must always be be static whilst members in an instance class can be either instance or static. As with a static class static members are
-                        created automatically during runtime and are accessed using the class name.  To initialize a static field a static constructor must be used which
-                        cannot have values passed in. Within a class, static members can only access other static members.</p>
-                    <p>A static method can be useful when it is to perform simple functions that don't have to store or retrieve data from within the class, for example
-                        squaring a number. As the method is created as soon as the program is running it can be shared from multiple locations throughout the programs
-                        code without the necessity to create a new class instance every time. The .NET <code>System.Math</code> class which contains numerous small math
-                        functions is an example of a static class.</p>
-                    <p>It is important to note that whereas each instance of an object carries has its own copy of an instance member static members are shared by all
-                        code in an assembly. If a static filed or property's value is changed in one instance of its containing class then the value will be changed for
-                        all instances</p>
+                        instantiated but is instead created automatically during runtime and only one instance of it exists. As a static class is not assigned an instance
+                        variable identifier it is accessed by its class name instead.</p>
+                    <p>The following members can also be made static using the static the <code>static</code> keyword.</p>
+                    <ul>
+                        <li><a href="#Constructors">constructors</a></li>
+                        <li><a href="#Methods">methods</a></li>
+                        <li><a href="#Fields">fields</a></li>
+                        <li><a href="#Properties">properties</a></li>
+                        <li><a href="#Events">events</a></li>
+                    </ul>
+                    <p>Static members belong to the type and can't be accessed though an instance. Instead they are accessed through the type by using the type's
+                        identifier in the form <code>TypeName.Member</code>. Within
+                        a type, instance members can access static members but static members can only access other static members. As with a static class, static members
+                        are created automatically at runtime and only one instance of the member exists. This means that if the value of a static member is changed
+                        through its type or an instance of that type, then the value will be changed in all instances that contain it. Static fields that do not have
+                        initializers and that are not assigned a value in a constructor will be assigned their default values. All members in a static class must always
+                        be be static.</p>
+                    <p> A static constructor can't have access modifiers or parameters and can't be inherited or overloaded, so a type can only have one. It is called
+                        automatically at runtime after any static field initializers are executed and before any instances are created or any static members are accessed.
+                        A static constructor can't be directly called and a developer can't control when it will be executed.</p>
+                    <p>A static method can be useful when it is to perform simple functions that don't have to store or retrieve data from within the class. As it is
+                        automatically created at runtime, it can be shared from multiple locations throughout the program without the necessity to create a new instance
+                        every time. The .NET <code>System.Math</code> class which contains numerous small math functions is an example of a static class.
+                    </p>
                     <p>In the following example, <code>InstanceClass</code> contains both instance and static, fields and methods. Whilst <code>InstanceMethod</code> can
                         access both <code>instanceField</code> and <code>staticField</code>, <code>StaticMethod</code> can only access <code>staticField</code>.</p>
                     <p> Next <code>MyClass</code> contains an instance property <code>InstanceProperty</code> and a static property <code>StaticProperty</code>.
@@ -3858,145 +3865,157 @@ namespace Indexers
                         <code>MyMathFunction.SquareNumber</code> to display the square of 3.</p>
 <pre><code>using System;
 
-namespace StaticExample
-{
-    public class InstanceClass
+    namespace StaticExample
     {
-        private int _instanceField;
-        private static int _staticField;
-
-        public void InstanceMethod(int value)
+        public class InstanceClass
         {
-            // An instance method can access both
-            // static and instance fields
-            _staticField = value;
-            _instanceField = value;
+            private int _instanceField;
+            private static int _staticField;
+
+            public void InstanceMethod(int value)
+            {
+                // An instance method can access both
+                // static and instance fields
+                _staticField = value;
+                _instanceField = value;
+            }
+
+            public static void StaticMethod(int value)
+            {
+                _staticField = value;
+
+                // Syntax error, a static method cannot access an instance field
+                //_instanceField = value;
+            }
         }
 
-        public static void StaticMethod(int value)
+        // MyClass requires an instance to be created
+        // before any instance members within it can be used
+        // Static members can be used without an instance
+        public class MyClass
         {
-            _staticField = value;
+            public int InstanceProperty { get; set; }
 
-            // Syntax error, a static method cannot access an instance field
-            //_instanceField = value;
+            public static int StaticProperty { get; set; }
+
+            public int GetInstanceProperty()
+            {
+                return InstanceProperty;
+            }
+
+            public void SetInstanceProperty(int value)
+            {
+                InstanceProperty = value;
+            }
+
+            public int GetStaticProperty()
+            {
+                return StaticProperty;
+            }
+
+            public void SetStaticProperty(int value)
+            {
+                StaticProperty = value;
+            }
+        }
+
+        // A static class cannot be instantiated and can only contain static members
+        public static class MyMathFunctions
+        {
+            private static readonly double _PI;
+
+            static MyMathFunctions()
+            {
+                _PI = 3.1415;
+            }
+
+            public static double PI =&gt; _PI;
+
+            public static int SquareNumber(int value)
+            {
+                return value * value;
+            }
+
+            // Syntax error, a static class can't declare instance members
+            //public void InstanceMethod() { }
+        }
+
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                var nl = Environment.NewLine;
+
+                // Set MyClass.StaticProperty
+                MyClass.StaticProperty = 1;
+
+                // Syntax error, an instance of a class must be created to
+                // use an instance member even if it contains static members
+                //MyClass.InstanceProperty = 1;
+
+                MyClass myClass1 = new();
+                MyClass myClass2 = new();
+
+                // Display the initial values of the instance and
+                // static properties in instanceClass1 and instanceClass2
+                // Both instance values will be 0 as they were set when the
+                // instance was created. The static property is shared by all
+                // instances and was set to 1 by MyClass.StaticProperty = 1; above
+                Console.WriteLine("Display initial static and instance property");
+                Console.WriteLine($"values of the two instances of MyClass{nl}");
+                Console.WriteLine($"myClass1 InstanceProperty: {myClass1.GetInstanceProperty()}");
+                Console.WriteLine($"myClass2 InstanceProperty: {myClass2.GetInstanceProperty()}");
+                Console.WriteLine($"myClass1 StaticProperty: {myClass1.GetStaticProperty()}");
+                Console.WriteLine($"myClass2 StaticProperty: {myClass2.GetStaticProperty()}");
+
+                // Change the instance and static properties in myClassInstance2
+                Console.WriteLine($"{nl}The instance and static properties are changed in myClassInstance2");
+
+
+                // Each instance of MyClass has its own instance of
+                // InstanceProperty so only myClassInstance1's is changed
+                myClass1.SetInstanceProperty(2);
+
+                // Both instances of MyClass share StaticProperty so changing
+                // the value in myClassInstance1 changes it for both
+                myClass1.SetStaticProperty(3);
+                Console.WriteLine($"values of the two instances of MyClass are now{nl}");
+                Console.WriteLine($"myClass1 InstanceProperty: {myClass1.GetInstanceProperty()}");
+                Console.WriteLine($"myClass2 InstanceProperty: {myClass2.GetInstanceProperty()}");
+                Console.WriteLine($"myClass1 StaticProperty: {myClass1.GetStaticProperty()}");
+                Console.WriteLine($"myClass2 StaticProperty: {myClass2.GetStaticProperty()}");
+
+                // The MyMathFunctions Square method and PI property and can
+                // be accessed without creating an instance of MyMathFunctions
+                Console.WriteLine($"{nl}The square of 3 is {MyMathFunctions.SquareNumber(3)}");
+                var area = MyMathFunctions.PI * 4 * 4;
+                Console.WriteLine($"Area of a circle with radius 4 = {area}");
+
+                // Syntax error, a static class cannot be instantiated
+                //MyMathFunctions staticClass;
+            }
         }
     }
 
-    // MyClass requires an instance to be created
-    // before any instance members within it can be used
-    // Static members can be used without an instance
-    public class MyClass
-    {
-        public int InstanceProperty { get; set; }
+    // The example writes the following to the console
+    // Display initial static and instance property
+    // values of the two instances of MyClass
 
-        public static int StaticProperty { get; set; }
+    // myClass1 InstanceProperty: 0
+    // myClass2 InstanceProperty: 0
+    // myClass1 StaticProperty: 1
+    // myClass2 StaticProperty: 1
 
-        public int GetInstanceProperty()
-        {
-            return InstanceProperty;
-        }
+    // The instance and static properties are changed in myClassInstance2
+    // values of the two instances of MyClass are now
 
-        public void SetInstanceProperty(int value)
-        {
-            InstanceProperty = value;
-        }
+    // myClass1 InstanceProperty: 2
+    // myClass2 InstanceProperty: 0
+    // myClass1 StaticProperty: 3
+    // myClass2 StaticProperty: 3
 
-        public int GetStaticProperty()
-        {
-            return StaticProperty;
-        }
-
-        public void SetStaticProperty(int value)
-        {
-            StaticProperty = value;
-        }
-    }
-
-    // A static class cannot be instantiated and can only contain static members
-    public static class MyMathFunctions
-    {
-        public static int SquareNumber(int value)
-        {
-            return value * value;
-        }
-
-        // Syntax error, a static class can't declare instance members
-        //public void InstanceMethod() { }
-    }
-
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            var nl = Environment.NewLine;
-
-            // Set MyClass.StaticProperty
-            MyClass.StaticProperty = 1;
-
-            // Syntax error, an instance of a class must be created to
-            // use an instance member even if it contains static members
-            //MyClass.InstanceProperty = 1;
-
-            MyClass myClass1 = new();
-            MyClass myClass2 = new();
-
-            // Display the initial values of the instance and
-            // static properties in instanceClass1 and instanceClass2
-            // Both instance values will be 0 as they were set when the
-            // instance was created. The static property is shared by all
-            // instances and was set to 1 by MyClass.StaticProperty = 1; above
-            Console.WriteLine("Display initial static and instance property");
-            Console.WriteLine($"values of the two instances of MyClass{nl}");
-            Console.WriteLine($"myClass1 InstanceProperty: {myClass1.GetInstanceProperty()}");
-            Console.WriteLine($"myClass2 InstanceProperty: {myClass2.GetInstanceProperty()}");
-            Console.WriteLine($"myClass1 StaticProperty: {myClass1.GetStaticProperty()}");
-            Console.WriteLine($"myClass2 StaticProperty: {myClass2.GetStaticProperty()}");
-
-            // Change the instance and static properties in myClassInstance2
-            Console.WriteLine($"{nl}The instance and static properties are changed in myClassInstance2");
-
-
-            // Each instance of MyClass has its own instance of
-            // InstanceProperty so only myClassInstance1's is changed
-            myClass1.SetInstanceProperty(2);
-
-            // Both instances of MyClass share StaticProperty so changing
-            // the value in myClassInstance1 changes it for both
-            myClass1.SetStaticProperty(3);
-            Console.WriteLine($"values of the two instances of MyClass are now{nl}");
-            Console.WriteLine($"myClass1 InstanceProperty: {myClass1.GetInstanceProperty()}");
-            Console.WriteLine($"myClass2 InstanceProperty: {myClass2.GetInstanceProperty()}");
-            Console.WriteLine($"myClass1 StaticProperty: {myClass1.GetStaticProperty()}");
-            Console.WriteLine($"myClass2 StaticProperty: {myClass2.GetStaticProperty()}");
-
-            // The MyMathFunctions.Square method can be called
-            // without creating an instance of MyMathFunctions
-            Console.WriteLine($"{nl}The square of 3 is {MyMathFunctions.SquareNumber(3)}");
-
-            // Syntax error, a static class cannot be instantiated
-            //MyMathFunctions staticClass;
-        }
-    }
-}
-
-// The example writes the following to the console
-// Display initial static and instance property
-// values of the two instances of MyClass
-
-// myClass1 InstanceProperty: 0
-// myClass2 InstanceProperty: 0
-// myClass1 StaticProperty: 1
-// myClass2 StaticProperty: 1
-
-// The instance and static properties are changed in myClassInstance2
-// values of the two instances of MyClass are now
-
-// myClass1 InstanceProperty: 2
-// myClass2 InstanceProperty: 0
-// myClass1 StaticProperty: 3
-// myClass2 StaticProperty: 3
-
-// The square of 3 is 9
+    // The square of 3 is 9
+    // Area of a circle with radius 4 = 50.264
 </code></pre>
                     <!-- !SECTION static -->
                     <!-- SECTION Structures (struct) -->
@@ -4206,10 +4225,11 @@ namespace Delegates
                         <li>Instance constructors</li>
                         <li>Finalizers</li>
                     </ul>
-                    <p>Also events can only be invoked from within the class they are declared so to <a href="Raising_base_class_events_in_a_derived_class">raise a base
+                    <p>Also events can only be invoked from within the class they are declared so to <a href="#Raising_base_class_events_in_a_derived_class">raise a base
                         class event from a derived class</a> a common pattern is to declare a method in the base class that can be called from the derived class to invoke
                         the event. The availability of all other members in a derived class is dependent on the <a href="#Scope_and_Access_Modifiers">accessibility</a> of
-                        a member in the base class. Apart from classes only interfaces can be inherited.</p>
+                        a member in the base class. Apart from classes only interfaces can be inherited. A class that is marked as <a href="#static">static</a> or
+                        <a href="#sealed">sealed</a> can't be inherited.</p>
                     <p>The following example demonstrates the syntax for inheriting a class. First base class <code>A</code> is declared as normal. Derived Class
                         <code>B</code> is then declared followed by a colon, then the name of the class to be inherited, followed by the code block for class
                         <code>B</code>.</p>
@@ -4541,12 +4561,12 @@ namespace Sealed
                     <!-- SECTION base keyword -->
                     <h3 id="base_keyword">base keyword</h3>
                     <p>Although constructors cannot be inherited those in the base class are still called after the derived constructor is called but before the enclosed
-                        code of the derived class constructor is run. Additionally the <code>base</code> keyword can be used in a derived class to call constructors and
-                        overridden instance members within the base class. Only those in the immediate base class in the derived class declaration can be accessed. Lastly
-                        if a base class is provided with one or more parameterized constructors then the compiler forgoes providing the default parameterless constructor.
-                        As a result when inheriting such a class you will then need to provide the derived class with at least one constructor with the same signature as
-                        one of the constructors in the base class. The constructor in the derived class must call the constructor in the base class by using the
-                        <code>base</code> keyword and pass the arguments provided to it on to the base class constructor.</p>
+                        code of the derived class constructor is executed. Additionally the <code>base</code> keyword can be used in a derived class to call constructors
+                        and overridden instance members within the base class. Only those in the immediate base class in the derived class declaration can be accessed.
+                        Lastly if a base class is provided with one or more parameterized constructors then the compiler forgoes providing the default parameterless
+                        constructor. As a result when inheriting such a class you will then need to provide the derived class with at least one constructor with the same
+                        signature as one of the constructors in the base class. The constructor in the derived class must call the constructor in the base class by using
+                        the <code>base</code> keyword and pass the arguments provided to it on to the base class constructor.</p>
                     <p>In this example <code>BaseClass</code> has a parameterless constructor that writes to the console when it is called, then sets a value in a
                         a field called <code>_Field</code>. It also has a parameterized constructor that takes a value which it uses to set <code>_Field</code>
                         and a virtual method <code>GetFieldValue</code> that returns the value of <code>_Field</code>. <code>DerivedClass</code> inherits from
@@ -5118,7 +5138,7 @@ namespace ActionsAndFuncs
                         an extensive library of code that our project will have access to through a reference automatically added by Visual Studio. Under each project
                         in the Solution Explorer is a <i>Dependencies</i> node which when expanded reveals a <i>Frameworks</i> node and under this
                         <i>Microsoft.NETCore.App.Ref</i> which is the <i>.NETCore framework</i>. Expanding this reveals many nodes, most of which represent a library
-                        (.dll) file prefixed with System. These include types such as the run-time, file access, memory management, collections, etc available to you so
+                        (.dll) file prefixed with System. These include types such as the runtime, file access, memory management, collections, etc available to you so
                         that you don't have to create these yourself. In addition to the .NETCore framework a project can have a reference to other projects within the
                         solution and applications external to it.</p>
                     <p>The following example demonstrates how to create a new project, add a second project to the solution of the first and then create a reference of
