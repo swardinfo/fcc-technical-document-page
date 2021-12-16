@@ -41,7 +41,7 @@
                 <li><a class="nav-link" href="#Classes_and_Other_User_Defined_Types">Classes and Other User Defined Types</a></li>
                 <li><a class="nav-link" href="#Anonymous_functions">Anonymous functions</a></li>
                 <li><a class="nav-link" href="#Dependencies_and_Namespaces">Dependencies and Namespaces</a></li>
-                <li><a class="nav-link" href="#Scope_and_Access_Modifiers">Scope and Access Modifiers</a></li>
+                <li><a class="nav-link" href="#Scope_and_Modifiers">Scope and Modifiers</a></li>
                 <li><a class="nav-link" href="#Object-oriented_Programming">Object-oriented Programming</a></li>
                 <li><a class="nav-link" href="#Keywords_and_Specifications">Keywords and Specifications</a></li>
                 <li><a class="nav-link" href="#References">References</a></li>
@@ -189,8 +189,9 @@ namespace HelloWorld
                         <a href="#Code_Syntax">code&nbsp;syntax</a> rules it must follow. <code>static void Main(string[] args)</code> is also the start of a
                         <a href="#Methods">method</a>.</p>
                     <p>Following <code>static void Main(string[] args)</code> is a pair of braces <code>{ }</code> that form a
-                        <a href="#Code_Syntax">code block</a>. The program executes all the <a href="#Code_Syntax">statements</a> it finds within these. Here there is
-                        only one, <code>Console.WriteLine("Hello World!");</code>. This tells the computer to write a line followed by a carriage return to the
+                        <a href="#Code_Syntax">code block</a>. The program runs or <i>executes</i> all the <a href="#Code_Syntax">statements</a> it finds within these.
+                        Statements are executed from top to bottom in the order they appear unless a statement directs execution to another part of the program. Here
+                        there is only one, <code>Console.WriteLine("Hello World!");</code>. This tells the computer to write a line followed by a carriage return to the
                         <i>command window</i> and that the text to be written is located within the round brackets <code>( )</code>, which in this case is
                         <span class="nowrap"><b>'Hello World!'</b></span>. As there are no further lines in our code before the closing brace <code>}</code>, the
                         program exits. At this point the window of a program would normally close but the Visual Studio has an option to keep console application windows
@@ -609,7 +610,7 @@ namespace MultipleCatchBlocks
                         be used and cannot be changed later. The compiler then checks if the value stored in the variable is of the correct type and will tell you if it
                         is wrong. A <i>constant</i> is similar to a variable, except it must be assigned a value when declared and that value cannot be changed. A
                         <i>literal</i> is the representation in code of the data that is assigned to a variable. Variables and constants can only be declared once within
-                        the same <a href="#Scope_and_Access_Modifiers">scope</a></p>
+                        the same <a href="#Scope">scope</a></p>
                     <p>C# has two basic categories of variables, the <i>value type</i> and the <i>reference type</i>, into which all variables are grouped. A value type
                         stores its own data where as a reference type stores the address to where its data is located. You can think of these as a house and a contact in
                         an address book. The value type is like the house which has an address and physically stores its own contents where as the reference type is like
@@ -638,12 +639,12 @@ namespace MultipleCatchBlocks
                     <p>The following applies to variables</p>
                     <ul>
                         <li>A variable must be declared with a type before it can be used</li>
-                        <li>A <a href="#Scope_and_Access_Modifiers">local variable</a> can only be declared once within the same scope</li>
-                        <li>A <a href="#Scope_and_Access_Modifiers">local variable</a> must be assigned a value before it can be used</li>
+                        <li>A <a href="#Scope">local variable</a> can only be declared once within the same scope</li>
+                        <li>A <a href="#Scope">local variable</a> must be assigned a value before it can be used</li>
                         <li>A variable's type cannot be changed</li>
                         <li>A constant must be assigned a value when declared</li>
                         <li>A constant's type and value cannot be changed</li>
-                        <li>A <a href="#Scope_and_Access_Modifiers">local variable</a> can be implicitly or explicitly declared</li>
+                        <li>A <a href="#Scope">local variable</a> can be implicitly or explicitly declared</li>
                         <li>A <a href="#Access_modifiers">local variable's accessibility</a> cannot be changed with an <a href="#Access_modifiers">access modifier
                         </a></li>
                     </ul>
@@ -2672,7 +2673,7 @@ namespace Enumerators
                         type can contain multiple members with the same identifier, known as <a href="#Parameters,_signatures_and_overloading">overloading</a>, provided
                         that each has a unique <a href="#Parameters,_signatures_and_overloading">signature</a>. Accessibility to a type from code outside of the assembly,
                         and to members both from outside the assembly and from other types within the assembly, is controlled through the use of
-                        <a href="#Scope_and_Access_Modifiers">access modifier</a> keywords.</p>
+                        <a href="#Access_Modifiers">access modifier</a> keywords.</p>
                     <p></p>
                     <p>Classes, structs and records can be instantiated with use of the <code>new</code> keyword. That is multiple instances of these types can be
                         created, each with its own state. A class can also be made <a href="#static">static</a> in which case it cannot be instantiated using the
@@ -2683,7 +2684,7 @@ namespace Enumerators
                         mutually exclusive. As well as inheritance a class, struct or record can implement an interface.</p>
                     <!-- SECTION Classes -->
                     <h3 id="Classes">Classes</h3>
-                    <p>A class within a namespace is declared by specifying an optional <a href="#Scope_and_Access_Modifiers">access modifier</a> keyword, followed by the
+                    <p>A class within a namespace is declared by specifying an optional <a href="#Access_Modifiers">access modifier</a> keyword, followed by the
                         <code>class</code> keyword, followed by an identifier that is unique within the same <a href="#Dependencies_and_Namespaces">namespace</a>,
                         followed by a code block defined by a pair of braces. If the access modifier keyword is omitted the default access is internal. A class can also
                         be marked with either the <a href="#static">static</a>, <a href="#abstract">abstract</a> or <a href="#sealed">sealed</a> keywords. Whilst multiple
@@ -2921,7 +2922,7 @@ namespace ClassExample
                     </ul>
                     <p>Members are declared within the type that defines the object. All members within an object can access each other irrespective of the location at
                         which they are declared. Access to members external to the object is controlled through the use of
-                        <a href="#Scope_and_Access_Modifiers">access modifier</a> keywords and the access level of the object that contains them. If omitted a member's
+                        <a href="#Access_Modifiers">access modifier</a> keywords and the access level of the object that contains them. If omitted a member's
                         access level will be private by default. Members can also be marked with the <a href="#static">static</a>,
                         <a href="#abstract">abstract</a> or <a href="#sealed">sealed</a> keywords which are mutually exclusive. A calling object accesses the member of
                         another in the same <a href="#namespace">namespace</a> through the object's identifier if it is an instance, or the type's identifier if it is
@@ -2982,11 +2983,22 @@ namespace ClassExample
                     <!-- TODO add passing array to a method -->
                     <!-- SECTION Methods -->
                     <h3 id="Methods">Methods</h3>
-                    <p>A method provides the behavior of an object. This could be reading a file, calculating a value, writing to the screen, etc. It is declared using
-                        an optional <a href="#Access_modifiers">access modifier</a>, followed by the <i>return type</i> or the <code>void</code> keyword if it doesn't
-                        return a value. This is followed by an identifier that is unique within the method's containing type, followed by a pair of brackets that can
-                        optionally contain <a href="#Parameters,_signatures_and_overloading">parameters</a>, followed by a pair of braces that define a code block which
-                        is the body of the method.</p>
+                    <p>A method provides the behavior of an object. This could be reading a file, calculating a value, writing to the screen, etc. A method is essentially
+                        a container for one or more <a href="#Code_Syntax">statements</a>. A statement can cause the program to direct execution to a method know as
+                        <i>calling</i> a method. A method consists of two parts, the <a href="#Parameters,_signatures_and_overloading">signature</a> and the body that
+                        contains the statements. A method can take in, known as <i>passing in</i>, data for processing by its statements and return data to the statement
+                        that called it. Access modifiers and the number and types of data    It is declared using
+                        an optional <a href="#Access_modifiers">access modifier</a>, followed by the <i>return type</i>, the method identifier, a pair of brackets that can
+                        optionally contain <a href="#Parameters,_signatures_and_overloading">parameters</a>,  followed by a pair of braces that define a code block which
+                        is the body of the method.
+                         This is followed by an identifier that is unique
+                         within the method's containing type, followed by a
+
+                        or the <code>void</code> keyword if it doesn't
+                        return a value.
+
+
+                    </p>
                     <p>For a method that returns a value, the statements in the body are executed until a return statement is reached. This is defined by the
                         <code>return</code> keyword followed by a variable or literal of the type in the method declaration followed by a semicolon. Program execution,
                          along with the returned value  will then be passed back to the code that called the method.</p>
@@ -3814,14 +3826,6 @@ namespace Indexers
 
 
 
-
-
-
-
-
-
-
-
                     <!-- SECTION static -->
                     <h3 id="static">static</h3>
                     <p>So far the majority of the examples involve creating an instance of a class by using the <code>new</code> keyword. This
@@ -4227,7 +4231,7 @@ namespace Delegates
                     </ul>
                     <p>Also events can only be invoked from within the class they are declared so to <a href="#Raising_base_class_events_in_a_derived_class">raise a base
                         class event from a derived class</a> a common pattern is to declare a method in the base class that can be called from the derived class to invoke
-                        the event. The availability of all other members in a derived class is dependent on the <a href="#Scope_and_Access_Modifiers">accessibility</a> of
+                        the event. The availability of all other members in a derived class is dependent on the <a href="#Scope_and_Modifiers">accessibility</a> of
                         a member in the base class. Apart from classes only interfaces can be inherited. A class that is marked as <a href="#static">static</a> or
                         <a href="#sealed">sealed</a> can't be inherited.</p>
                     <p>The following example demonstrates the syntax for inheriting a class. First base class <code>A</code> is declared as normal. Derived Class
@@ -5799,9 +5803,9 @@ namespace ImportingSystemTypes
                 </article>
             </section>
             <!-- !SECTION Dependencies and Namespaces -->
-            <!-- SECTION Scope and Access Modifiers -->
-            <section class="main-section" id="Scope_and_Access_Modifiers">
-                <header><h2>Scope and Access Modifiers</h2></header>
+            <!-- SECTION Scope and Modifiers -->
+            <section class="main-section" id="Scope_and_Modifiers">
+                <header><h2>Scope and Modifiers</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
 <!-- TODO Fix method parameter passing ing argument -->
@@ -6001,6 +6005,66 @@ namespace Scope
 // Method2 field2 = New value
 </code></pre>
                     <!-- !SECTION Scope -->
+                    <!-- SECTION Modifiers -->
+                    <h3 id="Modifiers">Modifiers</h3>
+                    <p>Modifiers are used to change the behavior of a types and members. Access modifiers are grouped into their own category.</p>
+                    <p>Following is a list of the modifiers and which types and members they apply to</p>
+                    <ul>
+                        <li><a href="#abstract">abstract</a> - classes, methods, properties</li>
+                        <li><a href="#const">const</a> - fields, local variables</li>
+                        <li><a href="#extern">extern</a> - methods, constructors, properties, events, indexers, finalizers </li>
+                        <li><a href="#Overriding_a_virtual_member">override</a> - methods, properties, events, indexers</li>
+                        <li><a href="#partial">partial</a> - classes, structures, interfaces</li>
+                        <li><a href="#readonly">readonly</a> - fields</li>
+                        <li><a href="#sealed">sealed</a> classes, methods, properties, events, indexers</li>
+                        <li><a href="#static">static</a> - classes, methods, constructors, fields, properties, events</li>
+                        <li><a href="#unsafe">unsafe</a> - </li>
+                        <li><a href="#virtual">virtual</a> -  methods, properties, events, indexers</li>
+                        <li><a href="#volatile">volatile</a> - fields</li>
+                    </ul>
+                    <p>In addition access modifiers can be used to change the accessibility of members and variables, details of which are in
+                        <a href="#Access_Modifiers">Scope and Modifiers</a>.</p>
+                    <p><i><em>Note:</em> the behavior of modifiers may change when combined and some modifiers are mutually exclusive as detailed in the relevant
+                        sections </i></p>
+                    <!-- !SECTION Modifiers -->
+
+                    <!-- SECTION extern -->
+                    <h3 id="extern">extern</h3>
+                    <p>The <code>extern</code> modifier is outside the scope of this guide. For more information, please see the
+                        <a href="#References">Microsoft C# reference documentation</a></p>
+                    <p>CodeExample</p>
+                    <!-- !SECTION extern -->
+
+                    <!-- SECTION partial -->
+                    <h3 id="partial">partial</h3>
+                    <p>The <code>partial</code> keyword allows a class, struct or interface definition to be split across multiple code files</p>
+                    <p>The following example demonstrates a class that is split across two files called xxx and xxx</p>
+<pre><code>using System;
+
+namespace Namespace
+{
+    class Program
+    {
+        static void Main()
+        {
+
+        }
+    }
+}
+</code></pre>
+                    <!-- !SECTION partial -->
+
+                    <!-- SECTION unsafe -->
+                    <h3 id="unsafe">unsafe</h3>
+                    <p>The <code>unsafe</code> modifier is outside the scope of this guide. For more information, please see the
+                        <a href="#References">Microsoft C# reference documentation</a></p>
+                    <!-- !SECTION unsafe -->
+
+                    <!-- SECTION volatile -->
+                    <h3 id="volatile">volatile</h3>
+                    <p>The <code>volatile</code> modifier is outside the scope of this guide. For more information, please see the
+                        <a href="#References">Microsoft C# reference documentation</a></p>
+                    <!-- !SECTION volatile -->
 <!-- TODO using private with collections -->
 <!-- TODO add info about private field accessibility -->
                     <!-- SECTION Access modifiers -->
@@ -6022,8 +6086,7 @@ namespace Scope
                     <p>Types declared directly within a namespace (i.e. not nested), can only be declared public or internal where internal is the default level. The
                         following types can be be declared in a namespace <code>class</code>, <code>struct</code>, <code>interface</code>, <code>delegate</code>,
                         <code>record</code> and <code>enum</code>.</p>
-                    <p>The following list shows containing types, which access modifiers can be applied to the members and nested types within them and their default
-                        access level.</p>
+                    <p>The following list shows containing types, which access modifiers can be applied to members and nested types and the default access levels.</p>
                     <ul>
                         <li><i>class or record</i> - <code>public</code>, <code>protected internal</code>, <code>protected</code>,
                             <code>internal</code>, <code>private protected</code>, <code>private(default)</code></li>
@@ -6239,7 +6302,7 @@ namespace AccessModifiers
                     <!-- !SECTION Access modifiers -->
                 </article>
             </section>
-            <!-- !SECTION Scope and Access Modifiers -->
+            <!-- !SECTION Scope and Modifiers -->
             <!-- SECTION Object-oriented Programming -->
             <section class="main-section" id="Object-oriented_Programming">
                 <header><h2>Object-oriented Programming</h2></header>
