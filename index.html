@@ -224,9 +224,8 @@ namespace HelloWorld
                     <p>A statement is the part of the code that becomes the instructions in the program that tells the computer what to do. A declaration instructs the
                         compiler to create a placeholder for an <a href="#Object">object</a> that is to exist and become part of the program. In some cases a declaration
                         can also be a statement. The object must then be initialized if it is a value type or instantiated if it is a reference type before it can be
-                        used.
-                        A directive is an
-                        instruction for the compiler that while not directly part of our program will effect how our program will be built and run.</p>
+                        used. A directive is an instruction for the compiler that while not directly part of our program will effect how our program will be built and
+                        run.</p>
                     <p>For someone with no experience in C#, reading a list of rules and specifications is likely to lead to more confusion than understanding, so the
                         best way forward is to dive into some examples and see what's going on.</p>
                     <p>The following example illustrates both valid and invalid syntax</p>
@@ -454,24 +453,28 @@ namespace Comments
             <section class="main-section" id="Errors_and_Exception_Handling">
                 <header><h2>Errors and Exception Handling</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
-                <article>
-                    <p>As the program code grows the likelihood that a error will be introduced grows with it. There are three different kinds of errors, syntax errors,
-                        runtime errors and logical errors.</p>
-                    <h3 id="Syntax_errors">Syntax error</h3>
+                <!-- SECTION Errors types -->
+                <article class="main-article">
+                    <p>As the program code grows the likelihood that a error will be introduced grows with it. C# provides tools for handling these depending on the kind
+                        of error that is encountered.</p>
+                    <h3 id="Error_types">Error types</h3>
+                    <p>There are three different kinds of errors, syntax errors, runtime errors and logical errors.</p>
+                    <h4 id="Syntax_errors">Syntax error</h4>
                     <p>As the title suggests, syntax errors occur when the syntax is wrong and this will prevent the code from being compiled. This could be caused by a
                         spelling mistake, a missing semi colon, an incorrect use of a language element, etc. The code editor will identify such errors with a
                         <u class="error">red wavy underline</u>. These are the easiest errors to fix as in most cases, hovering the mouse over the error will result in a
                         popup dialog in the code editor, identifying the issue along with suggestions on how to fix it.</p>
-                    <h3 id="Runtime_errors">Runtime error</h3>
+                    <h4 id="Runtime_errors">Runtime error</h4>
                     <p>A runtime error occurs after the program has been compiled and run. Whilst syntactically correct, when the code is executed it will result
                         in an error that causes the program to crash, most often in the form of an unhandled <a href="#Exception_Handling">exception</a>. As such errors
                         are at a fixed point in the code, these can be usually be fixed fairly easily by either correcting the error through debugging or by providing
                         appropriate <a href="#Exception_Handling">exception handling</a>.</p>
-                    <h3 id="Logical_errors">Logical error</h3>
+                    <h4 id="Logical_errors">Logical error</h4>
                     <p>These are errors that occur while the program is running but don't cause the program to crash. Instead the program will produce an unexpected
                         result. For example the sum of a list of numbers may be far more than expected because an expression may mistakenly multiplies instead of adding
                         the values. These are often the hardest errors to debug as they most often they result from incorrect assumptions on what the program is doing.
                     </p>
+                <!-- !SECTION Errors types -->
                     <!-- SECTION Exception handling -->
                     <h3 id="Exception_Handling">Exception handling</h3>
                     <p>An <code>exception</code> is an error from which the program cannot recover. C# has a number of built in exceptions that are thrown for various
@@ -498,7 +501,7 @@ namespace Exception
 </code></pre>
                     <!-- !SECTION Exception handling -->
                     <!-- SECTION throw -->
-                    <h3 id="throw">throw</h3>
+                    <h3 id="throw_statement">throw statement</h3>
                     <p>Sometimes you may wish to check for invalid conditions specific to your own program. When these occur you can respond by throwing an exception of
                     your own choice using the <code>throw</code> keyword. You can also include a custom message with the exception. The following throws an
                     <code>ArgumentException</code> with the message <i>y cannot be zero</i>.</p>
@@ -518,7 +521,7 @@ namespace Throw
 
 // When run, the example results in
 // System.ArgumentException: 'y cannot be zero'
-    </code></pre>
+</code></pre>
                     <!-- !SECTION throw -->
                     <!-- SECTION try-catch -->
                     <h3 id="try-catch">try-catch</h3>
@@ -527,7 +530,6 @@ namespace Throw
                         program execution stops before any further code within the <code>try</code> block is run. Program execution then passes to a catch block that
                         targets the exception. If none is found, program execution passes back to the calling code until an appropriate catch block is found. If a
                         <code>catch</code> block is not found then the program ends with an <i>unhandled exception</i></p>.
-
                     <p>Following shows how the <code>DivideByZeroException</code> in the previous example could be handled. When run, instead of resulting in an unhandled
                         exception dialog box, <i>Attempted to divide by zero.</i> is written to the console.</p>
 <pre><code>using System;
@@ -561,7 +563,7 @@ namespace TryCatch
                     <!-- !SECTION try-catch -->
                     <!-- SECTION multiple catch blocks -->
                     <h3 id="multiple_catch_blocks">multiple catch blocks</h3>
-                    <p>It is also possible to have multiple catch blocks so as to catch different exceptions. An exception is only caught by the first catch block that
+                    <p>It is possible to have multiple catch blocks so as to catch different exceptions. An exception is only caught by the first catch block that
                         can handle it. If there is the possibility that the exception could be caught by more than one, the catch blocks should be ordered most to least
                         specific. In the following example the first block catches the <code>DivideByZeroException</code> and the second <code>Exception</code>
                         catches all exceptions. This means that if <code>DivideByZeroException</code> code block had not been present then the divide by zero exception
@@ -2936,9 +2938,9 @@ namespace ClassExample
                         and methods can be <a href="#Parameters,_signatures_and_overloading">overloaded</a>. That is a type can contain multiple versions with the same
                         identifier provided that they overload a member of the same type and each overload has a unique signature.</p>
                     <p>Properties, indexers, methods and events in a <a href="#Inheriting_types">base</a> type can be marked marked
-                        <a href="#abstract">abstract</a> or <a href="Overriding_a_virtual_member">virtual</a> though marking an event a virtual is not recommended as the
+                        <a href="#abstract">abstract</a> or <a href="#virtualo">virtual</a> though marking an event a virtual is not recommended as the
                         C# compiler does not handle them correctly producing unpredictable results. In a <a href="#Inheriting_types">derived</a> type a virtual base
-                        member can optionally be <a href="#Overriding_a_virtual_member">overridden</a> where as an abstract base member <em>must</em> be overridden by a
+                        member can optionally be <a href="#override">overridden</a> where as an abstract base member <em>must</em> be overridden by a
                         member with the same signature that is marked with the <code>override</code> keyword. A type that contains an abstract member must also be marked
                         abstract. A member marked as <code>override</code> can also be marked with the <code>sealed</code> keyword preventing it from being overridden in
                         any further derived type. Where members in both a base and derived type have the same identifier and where neither are marked as either virtual or
@@ -2983,26 +2985,20 @@ namespace ClassExample
                     <!-- TODO add passing array to a method -->
                     <!-- SECTION Methods -->
                     <h3 id="Methods">Methods</h3>
-                    <p>A method provides the behavior of an object. This could be reading a file, calculating a value, writing to the screen, etc. A method is essentially
-                        a container for one or more <a href="#Code_Syntax">statements</a>. A statement can cause the program to direct execution to a method know as
-                        <i>calling</i> a method. A method consists of two parts, the <a href="#Parameters,_signatures_and_overloading">signature</a> and the body that
-                        contains the statements. A method can take in, known as <i>passing in</i>, data for processing by its statements and return data to the statement
-                        that called it. Access modifiers and the number and types of data    It is declared using
-                        an optional <a href="#Access_modifiers">access modifier</a>, followed by the <i>return type</i>, the method identifier, a pair of brackets that can
-                        optionally contain <a href="#Parameters,_signatures_and_overloading">parameters</a>,  followed by a pair of braces that define a code block which
-                        is the body of the method.
-                         This is followed by an identifier that is unique
-                         within the method's containing type, followed by a
-
-                        or the <code>void</code> keyword if it doesn't
-                        return a value.
-
-
-                    </p>
+                    <p>A method provides the behavior of an object. This could be reading a file, calculating a value, writing to the screen, etc. It does this by acting
+                        as a container for one or more <a href="#Code_Syntax">statements</a>, which a statement elsewhere in the program can pass the execution flow to,
+                        known as <i>invoking</i> or <i>calling</i> a method.</p>
+                        <p>A method consists of two parts, the
+                        <a href="#Parameters,_signatures_and_overloading">signature</a> and the body that contains the statements. The signature defines the methods name,
+                        values known as <i>parameters</i> that can be <i>passed in</i> to the method for processing by the statements it contains and a return type for
+                        returning a value
+                        back to the statement that called
+                        it. If a method is not required to return a value then the type is replaced with the <code>void</code> keyword. Optional
+                        <a href="#Modifiers">modifiers</a> can be applied to a method that can change its accessibility and behavior.</p>
                     <p>For a method that returns a value, the statements in the body are executed until a return statement is reached. This is defined by the
                         <code>return</code> keyword followed by a variable or literal of the type in the method declaration followed by a semicolon. Program execution,
-                         along with the returned value  will then be passed back to the code that called the method.</p>
-                    <p>For a method that does not return a value, execution will be passed back to the calling code either when a return statement or the closing brace is
+                         along with the returned value  will then be passed back to the statement that called the method.</p>
+                    <p>For a method that does not return a value, execution will be passed back to the calling statement, either when a return statement or the closing brace is
                         reached. In this case a return statement is defined just with the <code>return</code> keyword followed by a semicolon.</p>
                     <p>In both cases a method can contain multiple return statements allowing for multiple exit points from different paths back to the calling code. In
                         this case, a method that has a return type but that does not have a return statement for all possible paths will produces a syntax error. Methods
@@ -3110,9 +3106,8 @@ namespace Methods
                         the class can still add and remove items from the list.</p>
                     <p><em>Note:</em><i> Whilst a <a href="#Strings">string</a> is a reference type as it is immutable declaring it <code>readonly</code> prevents it
                         from being assigned to after initialization.</i></p>
-                    <p>By convention fields are normally declared at the top of a class before any other code and are usually prefixed with 'm' or an underscore such as
-                        <code>mField</code> or <code>_Field</code>. Access to a field by code external to the type is in the
-                        form of <code>instance.field</code>.</p>
+                    <p>By convention fields are normally declared at the top of a class before any other code. Access to a field by code external to the type is in the
+                        form of <code>instance.Field</code>.</p>
                     <p>The following example demonstrates field declaration and use.</p>
 <pre><code>using System;
 using System.Collections.Generic;
@@ -3533,7 +3528,7 @@ namespace Fields
                         any type can now be specified. There are still advantages for doing so, particularly where more complex types are employed and for reasons of
                         <a href="#Polymorphism_implementation">polymorphism</a>. If there is a requirement to return a value then a reference type should be used.</p>
                     <p>An event can't be invoked from outside the class that contains it so an additional method is required to call the event. It is common that such a
-                        method be marked <code>virtual</code> so they can be <a href="#Overriding_a_virtual_member">overridden</a> if the class can be inherited. The
+                        method be marked <code>virtual</code> so they can be <a href="#override">overridden</a> if the class can be inherited. The
                         naming convention for such a method is the name of the event prefixed with <i>On</i> such as <code>OnEvent</code>. The naming convention for
                         subscriber event handlers is the instance or type identifier followed by an underscore followed by the event identifier such as
                         <code>instance_SomeEvent</code>. An event handler can also be in the form of a <a href="#Lambda_Expression">lambda expression</a>.</p>
@@ -3826,202 +3821,7 @@ namespace Indexers
 
 
 
-                    <!-- SECTION static -->
-                    <h3 id="static">static</h3>
-                    <p>So far the majority of the examples involve creating an instance of a class by using the <code>new</code> keyword. This
-                        allows for multiple instances of a class to be created each with its own initialized state which can be set either by arguments passed in
-                        through a constructor or with an object-initializer. Creating an instance of a class in this way is known as instantiation.</p>
-                    <p>In addition you can make a class static by applying the <code>static</code> keyword to the class declaration. Here the class cannot be
-                        instantiated but is instead created automatically during runtime and only one instance of it exists. As a static class is not assigned an instance
-                        variable identifier it is accessed by its class name instead.</p>
-                    <p>The following members can also be made static using the static the <code>static</code> keyword.</p>
-                    <ul>
-                        <li><a href="#Constructors">constructors</a></li>
-                        <li><a href="#Methods">methods</a></li>
-                        <li><a href="#Fields">fields</a></li>
-                        <li><a href="#Properties">properties</a></li>
-                        <li><a href="#Events">events</a></li>
-                    </ul>
-                    <p>Static members belong to the type and can't be accessed though an instance. Instead they are accessed through the type by using the type's
-                        identifier in the form <code>TypeName.Member</code>. Within
-                        a type, instance members can access static members but static members can only access other static members. As with a static class, static members
-                        are created automatically at runtime and only one instance of the member exists. This means that if the value of a static member is changed
-                        through its type or an instance of that type, then the value will be changed in all instances that contain it. Static fields that do not have
-                        initializers and that are not assigned a value in a constructor will be assigned their default values. All members in a static class must always
-                        be be static.</p>
-                    <p> A static constructor can't have access modifiers or parameters and can't be inherited or overloaded, so a type can only have one. It is called
-                        automatically at runtime after any static field initializers are executed and before any instances are created or any static members are accessed.
-                        A static constructor can't be directly called and a developer can't control when it will be executed.</p>
-                    <p>A static method can be useful when it is to perform simple functions that don't have to store or retrieve data from within the class. As it is
-                        automatically created at runtime, it can be shared from multiple locations throughout the program without the necessity to create a new instance
-                        every time. The .NET <code>System.Math</code> class which contains numerous small math functions is an example of a static class.
-                    </p>
-                    <p>In the following example, <code>InstanceClass</code> contains both instance and static, fields and methods. Whilst <code>InstanceMethod</code> can
-                        access both <code>instanceField</code> and <code>staticField</code>, <code>StaticMethod</code> can only access <code>staticField</code>.</p>
-                    <p> Next <code>MyClass</code> contains an instance property <code>InstanceProperty</code> and a static property <code>StaticProperty</code>.
-                        <code>MyClass</code> also contains methods that can separately set and get the property values. The static property is first set without
-                        an instance of <code>MyClass</code> through the use of <code>MyClass.StaticProperty</code>. Next 2 instances of <code>MyClass</code>,
-                        <code>myClass1</code> and <code>myClass2</code> are created and when the values of the properties are displayed it can be seen that
-                        <code>InstanceProperty</code> has the value 0 and the <code>StaticProperty</code> the value 1. Next <code>myClass1</code> is used to change only
-                        the instance property in <code>myClass1</code> has changed whereas the the static property in both now has the value 3. This shows you that each
-                        instance has its own copy of <code>InstanceProperty</code> whereas both share <code>StaticProperty</code>.</p>
-                    <p>Lastly the static class <code>MyMathFunctions</code> has the static method <code>SquareNumber</code> which is called directly using
-                        <code>MyMathFunction.SquareNumber</code> to display the square of 3.</p>
-<pre><code>using System;
 
-    namespace StaticExample
-    {
-        public class InstanceClass
-        {
-            private int _instanceField;
-            private static int _staticField;
-
-            public void InstanceMethod(int value)
-            {
-                // An instance method can access both
-                // static and instance fields
-                _staticField = value;
-                _instanceField = value;
-            }
-
-            public static void StaticMethod(int value)
-            {
-                _staticField = value;
-
-                // Syntax error, a static method cannot access an instance field
-                //_instanceField = value;
-            }
-        }
-
-        // MyClass requires an instance to be created
-        // before any instance members within it can be used
-        // Static members can be used without an instance
-        public class MyClass
-        {
-            public int InstanceProperty { get; set; }
-
-            public static int StaticProperty { get; set; }
-
-            public int GetInstanceProperty()
-            {
-                return InstanceProperty;
-            }
-
-            public void SetInstanceProperty(int value)
-            {
-                InstanceProperty = value;
-            }
-
-            public int GetStaticProperty()
-            {
-                return StaticProperty;
-            }
-
-            public void SetStaticProperty(int value)
-            {
-                StaticProperty = value;
-            }
-        }
-
-        // A static class cannot be instantiated and can only contain static members
-        public static class MyMathFunctions
-        {
-            private static readonly double _PI;
-
-            static MyMathFunctions()
-            {
-                _PI = 3.1415;
-            }
-
-            public static double PI =&gt; _PI;
-
-            public static int SquareNumber(int value)
-            {
-                return value * value;
-            }
-
-            // Syntax error, a static class can't declare instance members
-            //public void InstanceMethod() { }
-        }
-
-        class Program
-        {
-            static void Main(string[] args)
-            {
-                var nl = Environment.NewLine;
-
-                // Set MyClass.StaticProperty
-                MyClass.StaticProperty = 1;
-
-                // Syntax error, an instance of a class must be created to
-                // use an instance member even if it contains static members
-                //MyClass.InstanceProperty = 1;
-
-                MyClass myClass1 = new();
-                MyClass myClass2 = new();
-
-                // Display the initial values of the instance and
-                // static properties in instanceClass1 and instanceClass2
-                // Both instance values will be 0 as they were set when the
-                // instance was created. The static property is shared by all
-                // instances and was set to 1 by MyClass.StaticProperty = 1; above
-                Console.WriteLine("Display initial static and instance property");
-                Console.WriteLine($"values of the two instances of MyClass{nl}");
-                Console.WriteLine($"myClass1 InstanceProperty: {myClass1.GetInstanceProperty()}");
-                Console.WriteLine($"myClass2 InstanceProperty: {myClass2.GetInstanceProperty()}");
-                Console.WriteLine($"myClass1 StaticProperty: {myClass1.GetStaticProperty()}");
-                Console.WriteLine($"myClass2 StaticProperty: {myClass2.GetStaticProperty()}");
-
-                // Change the instance and static properties in myClassInstance2
-                Console.WriteLine($"{nl}The instance and static properties are changed in myClassInstance2");
-
-
-                // Each instance of MyClass has its own instance of
-                // InstanceProperty so only myClassInstance1's is changed
-                myClass1.SetInstanceProperty(2);
-
-                // Both instances of MyClass share StaticProperty so changing
-                // the value in myClassInstance1 changes it for both
-                myClass1.SetStaticProperty(3);
-                Console.WriteLine($"values of the two instances of MyClass are now{nl}");
-                Console.WriteLine($"myClass1 InstanceProperty: {myClass1.GetInstanceProperty()}");
-                Console.WriteLine($"myClass2 InstanceProperty: {myClass2.GetInstanceProperty()}");
-                Console.WriteLine($"myClass1 StaticProperty: {myClass1.GetStaticProperty()}");
-                Console.WriteLine($"myClass2 StaticProperty: {myClass2.GetStaticProperty()}");
-
-                // The MyMathFunctions Square method and PI property and can
-                // be accessed without creating an instance of MyMathFunctions
-                Console.WriteLine($"{nl}The square of 3 is {MyMathFunctions.SquareNumber(3)}");
-                var area = MyMathFunctions.PI * 4 * 4;
-                Console.WriteLine($"Area of a circle with radius 4 = {area}");
-
-                // Syntax error, a static class cannot be instantiated
-                //MyMathFunctions staticClass;
-            }
-        }
-    }
-
-    // The example writes the following to the console
-    // Display initial static and instance property
-    // values of the two instances of MyClass
-
-    // myClass1 InstanceProperty: 0
-    // myClass2 InstanceProperty: 0
-    // myClass1 StaticProperty: 1
-    // myClass2 StaticProperty: 1
-
-    // The instance and static properties are changed in myClassInstance2
-    // values of the two instances of MyClass are now
-
-    // myClass1 InstanceProperty: 2
-    // myClass2 InstanceProperty: 0
-    // myClass1 StaticProperty: 3
-    // myClass2 StaticProperty: 3
-
-    // The square of 3 is 9
-    // Area of a circle with radius 4 = 50.264
-</code></pre>
-                    <!-- !SECTION static -->
                     <!-- SECTION Structures (struct) -->
                     <h3 id="Structures_struct">Structures (struct)</h3>
                     <p>A <i>structure</i> usually referred to by its keyword <code>struct</code> is similar to a class with the following main differences.</p>
@@ -4340,101 +4140,7 @@ namespace InheritanceExample
 // The cat has 4 legs and is meowing Loudly
 </code></pre>
                     <!-- !SECTION Inheriting types -->
-                    <!-- SECTION Overriding a virtual member -->
-                    <h3 id="Overriding_a_virtual_member">Overriding a virtual member</h3>
-                    <p>The implementation of a member in a derived class can be overridden provided that the member in the base class is marked with the
-                        <code>virtual</code> keyword or has overridden a member in a previous base class. To do so the member in the derived class must be marked with the
-                        <code>override</code> keyword. Base class members are not virtual by default and attempting to override a member not marked as virtual results in
-                        an error.</p>
-                    <p><em>Note:</em> <i>Microsoft has advised not to declare an event as <code>virtual</code> as the compiler does not handle these correctly. Instead a
-                        method should be created in the base class that invokes the event. This method can then be called from the derived class to raise the event.</i>
-                    </p>
-                    <p>In the following example a base class <code>LogAnalyzer</code> is created that has a method <code>AnalyzeLogMessage()</code> and a virtual method
-                        <code>DisplayMessage()</code>. Derived class <code>LogAnalyzer1</code> inherits <code>LogAnalyzer</code> and overrides the virtual method
-                        providing its own implementation. <code>LogAnalyzer2</code> inherits <code>LogAnalyzer1</code> and overrides the virtual method that it had
-                        overridden. <code>LogAnalyzer3</code> also inherits <code>LogAnalyzer</code>. It does not override the virtual method but it shows that attempting
-                        to override the non virtual method results in a syntax error. When <code>DisplayMessage()</code> is called from each of the derived class
-                        instances <code>LogAnalyzer1</code> and <code>LogAnalyzer2</code> each display the message in their own overridden methods whereas
-                        <code>LogAnalyzer3</code> displays the message from the base class.</p>
-<pre><code>using System;
 
-namespace OverridingVirtualMembers
-{
-    public class LogAnalyzer
-    {
-        public void AnalyzeLogMessage()
-        {
-            Console.WriteLine("Analyzing log message");
-        }
-
-        public virtual void DisplayMessage()
-        {
-            Console.WriteLine("Log message has occurred");
-        }
-    }
-
-    public class LogAnalyzer1 : LogAnalyzer
-    {
-        public override void DisplayMessage()
-        {
-            Console.WriteLine("Log message type 1 has occurred");
-        }
-    }
-
-    public class LogAnalyzer2 : LogAnalyzer1
-    {
-        public override void DisplayMessage()
-        {
-            Console.WriteLine("Log message type 2 has occurred");
-        }
-    }
-
-    public class LogAnalyzer3 : LogAnalyzer
-    {
-        // Syntax error, can't override a member that
-        // is not marked virtual, abstract or override
-        //public override void AnalyzeLogMessage() { }
-    }
-
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            LogAnalyzer1 logAnalyzer1 = new();
-            LogAnalyzer2 logAnalyzer2 = new();
-            LogAnalyzer3 logAnalyzer3 = new();
-
-            Console.WriteLine("Using logAnalyzer1");
-            logAnalyzer1.AnalyzeLogMessage();
-            logAnalyzer1.DisplayMessage();
-
-            Console.WriteLine();
-            Console.WriteLine("Using logAnalyzer2");
-            logAnalyzer2.AnalyzeLogMessage();
-            logAnalyzer2.DisplayMessage();
-
-            Console.WriteLine();
-            Console.WriteLine("Using logAnalyzer3");
-            logAnalyzer3.AnalyzeLogMessage();
-            logAnalyzer3.DisplayMessage();
-        }
-    }
-}
-
-// The example writes the following to the console
-// Using logAnalyzer1
-// Analyzing log message
-// Log message type 1 has occurred
-
-// Using logAnalyzer2
-// Analyzing log message
-// Log message type 2 has occurred
-
-// Using logAnalyzer3
-// Analyzing log message
-// Log message has occurred
-</code></pre>
-                    <!-- !SECTION Overriding a virtual member -->
                     <!-- TODO add derived class event example -->
                     <!-- SECTION Raising base class events in a derived class -->
                     <h3 id="Raising_base_class_events_in_a_derived_class">Raising base class events in a derived class</h3>
@@ -4522,44 +4228,7 @@ namespace Namespace
     // Log message type 2 has occurred
 </code></pre>
                     <!-- !SECTION Polymorphism implementation -->
-                    <!-- SECTION sealed -->
-                    <h3 id="sealed">sealed</h3>
-                    <p>To prevent a class from being inherited it can be marked with the <code>sealed</code> keyword. A member that is being overridden in a class can
-                        also be marked as <code>sealed</code> which prevents it from being overridden in any further derived classes.</p>
-<pre><code>using System;
 
-namespace Sealed
-{
-    public sealed class A
-    {
-        public void Method1() { }
-
-        // Syntax error, a virtual member is invalid in a sealed class
-        //public virtual void Method2() { }
-    }
-
-    // Syntax error, a derived class cannot inherit a sealed class
-    //public class B : A { }
-
-    public class C
-    {
-        public virtual void Method1() { }
-    }
-
-    public class D : C
-    {
-        public sealed override void Method1() { }
-    }
-
-    public class E : D
-    {
-        // Syntax error, 'E.Method1()' cannot override
-        // inherited member 'D.Method1()' because it is sealed
-        //public override void Method1() { }
-    }
-}
-</code></pre>
-                    <!-- !SECTION sealed -->
 <!-- TODO Rewrite the following -->
 <!-- TODO using base in override -->
                     <!-- SECTION base keyword -->
@@ -4677,86 +4346,7 @@ namespace BaseKeyword
 // Base Class instance 2
 </code></pre>
                     <!-- !SECTION base keyword -->
-                    <!-- SECTION abstract -->
-                    <h3 id="abstract">abstract</h3>
-                    <p> An <i>abstract</i> class is used when it makes sense to declare a common base class but where the implementation is specific to each derived class.
-                        A base class and its members can be declared abstract by marking them with the <code>abstract</code> keyword. It cannot be instantiated so to be
-                        used, a derived class must be created that inherits it and overrides all abstract members it contains. Abstract classes can be inherited by
-                        sealed, abstract and non abstract classes and can inherit from an abstract or non abstract base class that is not a sealed class. Abstract members
-                        cannot declare an implementation and within a derived class are treated the same as a virtual member. Any class that contains an abstract member
-                        must be marked with the <code>abstract</code>keyword. An abstract class can contain both abstract and non abstract members.</p>
-                    <p>In the following example an abstract class <code>PriceCalculator</code> is declared with an abstract method called <code>CalculateAmount</code>.
-                        Two derived classes that inherit from <code>PriceCalculator</code> are declared. The first <code>ItemsPriceCalculator</code> has two properties,
-                        <code>ItemPrice</code> and <code>Quantity</code> and overrides <code>CalculateAmount</code> to return an amount by multiplying these two
-                        properties. The second class <code>HoursPriceCalculator</code> has three properties, <code>StartTime</code>, <code>FinishTime</code> and
-                        <code>HourlyRate</code>. In this case the overridden <code>CalculateAmount</code> first subtracts <code>StartTime</code> from
-                        <code>FinishTime</code> then multiplies thy result by <code>HourlyRate</code> and then returns the amount. Lastly as can be seen, attempting to
-                        instantiate <code>PriceCalculator</code> results in a syntax error.</p>
 
-
-<pre><code>using System;
-using System.Globalization;
-
-namespace Abstract
-{
-    public abstract class PriceCalculator
-    {
-        public abstract double CalculateAmount();
-    }
-
-    public class ItemsPriceCalculator : PriceCalculator
-    {
-        public double ItemPrice { get; set; }
-
-        public int Quantity { get; set; }
-
-        public override double CalculateAmount()
-        {
-            return ItemPrice * Quantity;
-        }
-    }
-
-    public class HoursPriceCalculator : PriceCalculator
-    {
-        public  DateTime StartTime { get; set; }
-
-        public  DateTime FinishTime { get; set; }
-
-        public double HourlyRate { get; set; }
-
-        public override double CalculateAmount()
-        {
-            var timeTaken = FinishTime - StartTime;
-            return timeTaken.TotalHours * HourlyRate;
-        }
-    }
-
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            ItemsPriceCalculator itemsPriceCalculator = new();
-            itemsPriceCalculator.Quantity = 6;
-            itemsPriceCalculator.ItemPrice = 3.10;
-            Console.WriteLine($"The price of the items is {itemsPriceCalculator.CalculateAmount().ToString("C", CultureInfo.CurrentCulture)}");
-
-            HoursPriceCalculator hoursPriceCalculator = new();
-            hoursPriceCalculator.StartTime = new DateTime(2021, 11, 4, 9, 0, 0);
-            hoursPriceCalculator.FinishTime = new DateTime(2021, 11, 4, 17, 0, 0);
-            hoursPriceCalculator.HourlyRate = 30;
-            Console.WriteLine($"The price of the hours is {hoursPriceCalculator.CalculateAmount().ToString("C", CultureInfo.CurrentCulture)}");
-
-            // Syntax error, can't create an instance of an abstract class
-            //PriceCalculator priceCalculator = new();
-        }
-    }
-}
-
-// The example writes the following to the console
-// The price of the items is $18.60
-// The price of the hours is $240.00
-</code></pre>
-                    <!-- !SECTION abstract -->
                     <!-- SECTION Overriding object members -->
                     <h3 id="Overriding_object_members">Overriding object members</h3>
                     <p>All classes in C#, even the ones you write, are ultimately derived from the <i>object</i> class. This means that even if you don't explicitly use
@@ -4852,9 +4442,9 @@ namespace OverridingObjectMembers
                         <span class="nowrap">auto-property,</span> it differs in that the compiler does not create an instance backing field.</i></p>
                     <p>Whereas a class can only inherit a single base class it can implement multiple interfaces. This is done in the same manner, i.e. the class name is
                         followed by a colon then the name of all interfaces in a comma separated list. If a class also inherits a base class its name must come first in
-                        the list. A class can also explicitly implement a member of an interface. An interface can inherit from and be inherited by another interface.
-                        Implemented members in an interface can be overridden. When this is done explicit interface implementation syntax must be used. Explicitly
-                        implemented members and default implemented members in an interface can only be accessed through an instance of the interface.</p>
+                        the list. A class can also explicitly implement a member of an interface. An interface can be derived from or be the base for by another
+                        interface. Implemented members in an interface can be overridden. When this is done explicit interface implementation syntax must be used.
+                        Explicitly implemented members and default implemented members in an interface can only be accessed through an instance of the interface.</p>
                     <p>Whilst on the surface an interface may seem to provide much of the same function as an abstract class, the important distinction is that a class
                         can contain a state and so can represent a thing where as an interface cannot and is used to represent a behavior.</p>
                     <p>In the following example the <code>Car</code> class inherits the base class <code>Vehicle</code> and overrides the <code>ApplyBrakes</code>
@@ -5814,19 +5404,22 @@ namespace ImportingSystemTypes
                     <p>Scope is the accessibility of a variable from one part of the code to another. In C# scope is arranged like the layers of an onion. Variables in an
                         outer scope can be accessed from those within but not vise versa. In computer science this is known as encapsulation and inner scopes that are
                         contained within outer scopes are said to be nested.</p>
-                    <p>A local <a href="#Variables,_Constants,_Types_and_Literals">variable</a> is a variable declared in a method, property or indexer or one of its
-                        nested code blocks. The variable is only accessible after it has been declared and only within the same code block or a nested code block. A local
-                        variable within the same block or a nested code block cannot be declared with the same name.
-
-
-                        An argument that is passed into a method or indexer
-                        is accessible outside the member and becomes a local variable within the member.</p>
+                    <p>A local <a href="#Variables,_Constants,_Types_and_Literals">variable</a> is a variable declared in a <a href="#Methods">method</a>,
+                        <a href="#Properties">property accessor</a>, <a href="#Indexers">indexer accessor</a>, <a href="#Constructors">constructor</a>,
+                        <a href="#Anonymous_functions">anonymous function</a> or operator or one of its nested code blocks. A nested code block include those of
+                        <a href="#if_else_statements">if</a>, <a href="#if_else_statements">else</a>, <a href="#switch_statement">switch</a>,
+                        <a href="#while_statement">while</a>, <a href="#do_statement">do</a>, <a href="#for_statement">for</a>, <a href="#foreach_statement">foreach</a>,
+                        <a href="#try-catch">try</a> and using statements. An argument that is passed into a method or indexer is accessible outside the member and
+                        becomes a local variable within the member. The variable is only accessible after it has been declared and only within the same code block or a
+                        nested code block. A local variable within the same block or a nested code block cannot be declared with the same name.</p>
                     <p>A local variable in the same container (enclosing type) as a field can be declared with the same name and any type. When this is done the field is
-                        said to be hidden by the local variable. In this case, to then access the field the <code>this</code> name qualifier this must be used. For
-                        example if in a class a field <code>int someName</code> exists and in a method <code>string someName;</code> to access the field you would use
-                        <code>var x = this.someName</code>. By convention fields are usually prefixed with 'm' or an underscore such as <code>mField</code> or
-                        <code>_Field</code>and local variables are written in 'camel Case' such as <code>localVariable</code> which helps to prevent to prevent naming
-                        conflicts.</p>
+                        said to be hidden by the local variable. To access a hidden field, the <code>this</code> name qualifier keyword must be used. For example if a
+                        class contains a field called <code>int someName</code> and a method that contains a local variable called <code>string someName;</code>, to
+                        access the field within the method you would use <code>var x = this.someName</code>. To avoid possible confusion or naming conflicts you should
+                        avoid declaring field and local variables with the same name. A common convention is to name local variables with <i>camelCase</i>,
+                        <code>int someName</code>, public fields with with <i>PascalCase</i>, <code>public int SomeName</code> and private fields with <i>camelCase</i>
+                        prefixed with an underscore, <code>private int _someName</code>. Which ever convention you or the team you work for chose, it is important that it
+                        be consistent throughout all the code you write.</p>
                     <p>Following are examples of scope.</p>
 <pre><code>using System;
 
@@ -6013,7 +5606,7 @@ namespace Scope
                         <li><a href="#abstract">abstract</a> - classes, methods, properties</li>
                         <li><a href="#const">const</a> - fields, local variables</li>
                         <li><a href="#extern">extern</a> - methods, constructors, properties, events, indexers, finalizers </li>
-                        <li><a href="#Overriding_a_virtual_member">override</a> - methods, properties, events, indexers</li>
+                        <li><a href="#override">override</a> - methods, properties, events, indexers</li>
                         <li><a href="#partial">partial</a> - classes, structures, interfaces</li>
                         <li><a href="#readonly">readonly</a> - fields</li>
                         <li><a href="#sealed">sealed</a> classes, methods, properties, events, indexers</li>
@@ -6027,14 +5620,191 @@ namespace Scope
                     <p><i><em>Note:</em> the behavior of modifiers may change when combined and some modifiers are mutually exclusive as detailed in the relevant
                         sections </i></p>
                     <!-- !SECTION Modifiers -->
+                    <!-- SECTION abstract -->
+                    <h3 id="abstract">abstract</h3>
+                    <p> An <i>abstract</i> class is used when it makes sense to declare a common base class but where the implementation is specific to each derived class.
+                        A base class and its members can be declared abstract by marking them with the <code>abstract</code> keyword. It cannot be instantiated so to be
+                        used, a derived class must be created that inherits it and overrides all abstract members it contains. Abstract classes can be inherited by
+                        sealed, abstract and non abstract classes and can inherit from an abstract or non abstract base class that is not a sealed class. Abstract members
+                        cannot declare an implementation and within a derived class are treated the same as a virtual member. Any class that contains an abstract member
+                        must be marked with the <code>abstract</code>keyword. An abstract class can contain both abstract and non abstract members.</p>
+                    <p>In the following example an abstract class <code>PriceCalculator</code> is declared with an abstract method called <code>CalculateAmount</code>.
+                        Two derived classes that inherit from <code>PriceCalculator</code> are declared. The first <code>ItemsPriceCalculator</code> has two properties,
+                        <code>ItemPrice</code> and <code>Quantity</code> and overrides <code>CalculateAmount</code> to return an amount by multiplying these two
+                        properties. The second class <code>HoursPriceCalculator</code> has three properties, <code>StartTime</code>, <code>FinishTime</code> and
+                        <code>HourlyRate</code>. In this case the overridden <code>CalculateAmount</code> first subtracts <code>StartTime</code> from
+                        <code>FinishTime</code> then multiplies thy result by <code>HourlyRate</code> and then returns the amount. Lastly as can be seen, attempting to
+                        instantiate <code>PriceCalculator</code> results in a syntax error.</p>
+<pre><code>using System;
+using System.Globalization;
 
+namespace Abstract
+{
+public abstract class PriceCalculator
+{
+public abstract double CalculateAmount();
+}
+
+public class ItemsPriceCalculator : PriceCalculator
+{
+public double ItemPrice { get; set; }
+
+public int Quantity { get; set; }
+
+public override double CalculateAmount()
+{
+return ItemPrice * Quantity;
+}
+}
+
+public class HoursPriceCalculator : PriceCalculator
+{
+public  DateTime StartTime { get; set; }
+
+public  DateTime FinishTime { get; set; }
+
+public double HourlyRate { get; set; }
+
+public override double CalculateAmount()
+{
+var timeTaken = FinishTime - StartTime;
+return timeTaken.TotalHours * HourlyRate;
+}
+}
+
+class Program
+{
+static void Main(string[] args)
+{
+ItemsPriceCalculator itemsPriceCalculator = new();
+itemsPriceCalculator.Quantity = 6;
+itemsPriceCalculator.ItemPrice = 3.10;
+Console.WriteLine($"The price of the items is {itemsPriceCalculator.CalculateAmount().ToString("C", CultureInfo.CurrentCulture)}");
+
+HoursPriceCalculator hoursPriceCalculator = new();
+hoursPriceCalculator.StartTime = new DateTime(2021, 11, 4, 9, 0, 0);
+hoursPriceCalculator.FinishTime = new DateTime(2021, 11, 4, 17, 0, 0);
+hoursPriceCalculator.HourlyRate = 30;
+Console.WriteLine($"The price of the hours is {hoursPriceCalculator.CalculateAmount().ToString("C", CultureInfo.CurrentCulture)}");
+
+// Syntax error, can't create an instance of an abstract class
+//PriceCalculator priceCalculator = new();
+}
+}
+}
+
+// The example writes the following to the console
+// The price of the items is $18.60
+// The price of the hours is $240.00
+</code></pre>
+                    <!-- !SECTION abstract -->
+                    <!-- SECTION const -->
+                    <h3 id="const">const</h3>
+                    <p>A field or local <a href="Variables,_Constants,_Types_and_Literals">variable</a> marked with the <code>const</code> keyword causes it to become a
+                        constant which can only be initialized when declared and then can't changed. A field marked this way is called a
+                        <a href="#Constant_fields">constant field</a>.</p>
+                    <!-- !SECTION const -->
                     <!-- SECTION extern -->
                     <h3 id="extern">extern</h3>
                     <p>The <code>extern</code> modifier is outside the scope of this guide. For more information, please see the
                         <a href="#References">Microsoft C# reference documentation</a></p>
-                    <p>CodeExample</p>
                     <!-- !SECTION extern -->
+                    <!-- SECTION override -->
+                    <h3 id="override">override</h3>
+                    <p>The implementation of a <a href="#Methods">method</a>, <a href="#Properties">property</a>, <a href="#Indexers">indexer</a> or
+                        <a href="#Events">event</a> that is marked as marked with with either the <a href="#virtual">virtual</a> or <code>override</code> keyword in a
+                        base <a href="#Classes">class</a> or <a href="#Records">record</a> can be overridden in a derived class or record respectively. To do so the
+                        member in the derived type must be marked with the <code>override</code> keyword. Base members are not virtual by default and
+                        attempting to override a member not marked as virtual results in an error.</p>
+                    <p><em>Note:</em> <i>Microsoft has advised not to declare an event as <code>virtual</code> as the compiler does not handle these correctly. Instead a
+                        method should be created in the base type that invokes the event. This method can then be called from the derived type to raise the event.</i>
+                    </p>
+                    <p>In the following example a base class <code>LogAnalyzer</code> is created that has a method <code>AnalyzeLogMessage()</code> and a virtual method
+                        <code>DisplayMessage()</code>. Derived class <code>LogAnalyzer1</code> inherits <code>LogAnalyzer</code> and overrides the virtual method
+                        providing its own implementation. <code>LogAnalyzer2</code> inherits <code>LogAnalyzer1</code> and overrides the virtual method that it had
+                        overridden. <code>LogAnalyzer3</code> also inherits <code>LogAnalyzer</code>. It does not override the virtual method but it shows that attempting
+                        to override the non virtual method results in a syntax error. When <code>DisplayMessage()</code> is called from each of the derived class
+                        instances <code>LogAnalyzer1</code> and <code>LogAnalyzer2</code> each display the message in their own overridden methods whereas
+                        <code>LogAnalyzer3</code> displays the message from the base class.</p>
+<pre><code>using System;
 
+namespace OverridingVirtualMembers
+{
+    public class LogAnalyzer
+    {
+        public void AnalyzeLogMessage()
+        {
+            Console.WriteLine("Analyzing log message");
+        }
+
+        public virtual void DisplayMessage()
+        {
+            Console.WriteLine("Log message has occurred");
+        }
+    }
+
+    public class LogAnalyzer1 : LogAnalyzer
+    {
+        public override void DisplayMessage()
+        {
+            Console.WriteLine("Log message type 1 has occurred");
+        }
+    }
+
+    public class LogAnalyzer2 : LogAnalyzer1
+    {
+        public override void DisplayMessage()
+        {
+            Console.WriteLine("Log message type 2 has occurred");
+        }
+    }
+
+    public class LogAnalyzer3 : LogAnalyzer
+    {
+        // Syntax error, can't override a member that
+        // is not marked virtual, abstract or override
+        //public override void AnalyzeLogMessage() { }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            LogAnalyzer1 logAnalyzer1 = new();
+            LogAnalyzer2 logAnalyzer2 = new();
+            LogAnalyzer3 logAnalyzer3 = new();
+
+            Console.WriteLine("Using logAnalyzer1");
+            logAnalyzer1.AnalyzeLogMessage();
+            logAnalyzer1.DisplayMessage();
+
+            Console.WriteLine();
+            Console.WriteLine("Using logAnalyzer2");
+            logAnalyzer2.AnalyzeLogMessage();
+            logAnalyzer2.DisplayMessage();
+
+            Console.WriteLine();
+            Console.WriteLine("Using logAnalyzer3");
+            logAnalyzer3.AnalyzeLogMessage();
+            logAnalyzer3.DisplayMessage();
+        }
+    }
+}
+
+// The example writes the following to the console
+// Using logAnalyzer1
+// Analyzing log message
+// Log message type 1 has occurred
+
+// Using logAnalyzer2
+// Analyzing log message
+// Log message type 2 has occurred
+
+// Using logAnalyzer3
+// Analyzing log message
+// Log message has occurred
+</code></pre>
+                    <!-- !SECTION override -->
                     <!-- SECTION partial -->
                     <h3 id="partial">partial</h3>
                     <p>The <code>partial</code> keyword allows a class, struct or interface definition to be split across multiple code files</p>
@@ -6053,13 +5823,257 @@ namespace Namespace
 }
 </code></pre>
                     <!-- !SECTION partial -->
+                    <!-- SECTION readonly -->
+                    <h3 id="readonly">readonly</h3>
+                    <p>A <a href="#Fields">field</a> that is marked <a href="">readonly</a> can only be set when declared or through a
+                        <a href="#Constructors">constructor</a>.</p>
+                    <!-- !SECTION readonly -->
+                    <!-- SECTION sealed -->
+                    <h3 id="sealed">sealed</h3>
+                    <p>To prevent a class from being inherited it can be marked with the <code>sealed</code> keyword. A member that is being overridden in a class can
+                        also be marked as <code>sealed</code> which prevents it from being overridden in any further derived classes.</p>
+<pre><code>using System;
 
+namespace Sealed
+{
+    public sealed class A
+    {
+        public void Method1() { }
+
+        // Syntax error, a virtual member is invalid in a sealed class
+        //public virtual void Method2() { }
+    }
+
+    // Syntax error, a derived class cannot inherit a sealed class
+    //public class B : A { }
+
+    public class C
+    {
+        public virtual void Method1() { }
+    }
+
+    public class D : C
+    {
+        public sealed override void Method1() { }
+    }
+
+    public class E : D
+    {
+        // Syntax error, 'E.Method1()' cannot override
+        // inherited member 'D.Method1()' because it is sealed
+        //public override void Method1() { }
+    }
+}
+</code></pre>
+                    <!-- !SECTION sealed -->
+                    <!-- SECTION static -->
+                    <h3 id="static">static</h3>
+                    <p>So far the majority of the examples involve creating an instance of a class by using the <code>new</code> keyword. This
+                        allows for multiple instances of a class to be created each with its own initialized state which can be set either by arguments passed in
+                        through a constructor or with an object-initializer. Creating an instance of a class in this way is known as instantiation.</p>
+                    <p>In addition you can make a class static by applying the <code>static</code> keyword to the class declaration. Here the class cannot be
+                        instantiated but is instead created automatically during runtime and only one instance of it exists. As a static class is not assigned an instance
+                        variable identifier it is accessed by its class name instead.</p>
+                    <p>The following members can also be made static using the static the <code>static</code> keyword.</p>
+                    <ul>
+                        <li><a href="#Constructors">constructors</a></li>
+                        <li><a href="#Methods">methods</a></li>
+                        <li><a href="#Fields">fields</a></li>
+                        <li><a href="#Properties">properties</a></li>
+                        <li><a href="#Events">events</a></li>
+                    </ul>
+                    <p>Static members belong to the type and can't be accessed though an instance. Instead they are accessed through the type by using the type's
+                        identifier in the form <code>TypeName.Member</code>. Within
+                        a type, instance members can access static members but static members can only access other static members. As with a static class, static members
+                        are created automatically at runtime and only one instance of the member exists. This means that if the value of a static member is changed
+                        through its type or an instance of that type, then the value will be changed in all instances that contain it. Static fields that do not have
+                        initializers and that are not assigned a value in a constructor will be assigned their default values. All members in a static class must always
+                        be be static.</p>
+                    <p> A static constructor can't have access modifiers or parameters and can't be inherited or overloaded, so a type can only have one. It is called
+                        automatically at runtime after any static field initializers are executed and before any instances are created or any static members are accessed.
+                        A static constructor can't be directly called and a developer can't control when it will be executed.</p>
+                    <p>A static method can be useful when it is to perform simple functions that don't have to store or retrieve data from within the class. As it is
+                        automatically created at runtime, it can be shared from multiple locations throughout the program without the necessity to create a new instance
+                        every time. The .NET <code>System.Math</code> class which contains numerous small math functions is an example of a static class.
+                    </p>
+                    <p>In the following example, <code>InstanceClass</code> contains both instance and static, fields and methods. Whilst <code>InstanceMethod</code> can
+                        access both <code>instanceField</code> and <code>staticField</code>, <code>StaticMethod</code> can only access <code>staticField</code>.</p>
+                    <p> Next <code>MyClass</code> contains an instance property <code>InstanceProperty</code> and a static property <code>StaticProperty</code>.
+                        <code>MyClass</code> also contains methods that can separately set and get the property values. The static property is first set without
+                        an instance of <code>MyClass</code> through the use of <code>MyClass.StaticProperty</code>. Next 2 instances of <code>MyClass</code>,
+                        <code>myClass1</code> and <code>myClass2</code> are created and when the values of the properties are displayed it can be seen that
+                        <code>InstanceProperty</code> has the value 0 and the <code>StaticProperty</code> the value 1. Next <code>myClass1</code> is used to change only
+                        the instance property in <code>myClass1</code> has changed whereas the the static property in both now has the value 3. This shows you that each
+                        instance has its own copy of <code>InstanceProperty</code> whereas both share <code>StaticProperty</code>.</p>
+                    <p>Lastly the static class <code>MyMathFunctions</code> has the static method <code>SquareNumber</code> which is called directly using
+                        <code>MyMathFunction.SquareNumber</code> to display the square of 3.</p>
+<pre><code>using System;
+
+namespace StaticExample
+{
+    public class InstanceClass
+    {
+        private int _instanceField;
+        private static int _staticField;
+
+        public void InstanceMethod(int value)
+        {
+            // An instance method can access both
+            // static and instance fields
+            _staticField = value;
+            _instanceField = value;
+        }
+
+        public static void StaticMethod(int value)
+        {
+            _staticField = value;
+
+            // Syntax error, a static method cannot access an instance field
+            //_instanceField = value;
+        }
+    }
+
+    // MyClass requires an instance to be created
+    // before any instance members within it can be used
+    // Static members can be used without an instance
+    public class MyClass
+    {
+        public int InstanceProperty { get; set; }
+
+        public static int StaticProperty { get; set; }
+
+        public int GetInstanceProperty()
+        {
+            return InstanceProperty;
+        }
+
+        public void SetInstanceProperty(int value)
+        {
+            InstanceProperty = value;
+        }
+
+        public int GetStaticProperty()
+        {
+            return StaticProperty;
+        }
+
+        public void SetStaticProperty(int value)
+        {
+            StaticProperty = value;
+        }
+    }
+
+    // A static class cannot be instantiated and can only contain static members
+    public static class MyMathFunctions
+    {
+        private static readonly double _PI;
+
+        static MyMathFunctions()
+        {
+            _PI = 3.1415;
+        }
+
+        public static double PI =&gt; _PI;
+
+        public static int SquareNumber(int value)
+        {
+            return value * value;
+        }
+
+        // Syntax error, a static class can't declare instance members
+        //public void InstanceMethod() { }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var nl = Environment.NewLine;
+
+            // Set MyClass.StaticProperty
+            MyClass.StaticProperty = 1;
+
+            // Syntax error, an instance of a class must be created to
+            // use an instance member even if it contains static members
+            //MyClass.InstanceProperty = 1;
+
+            MyClass myClass1 = new();
+            MyClass myClass2 = new();
+
+            // Display the initial values of the instance and
+            // static properties in instanceClass1 and instanceClass2
+            // Both instance values will be 0 as they were set when the
+            // instance was created. The static property is shared by all
+            // instances and was set to 1 by MyClass.StaticProperty = 1; above
+            Console.WriteLine("Display initial static and instance property");
+            Console.WriteLine($"values of the two instances of MyClass{nl}");
+            Console.WriteLine($"myClass1 InstanceProperty: {myClass1.GetInstanceProperty()}");
+            Console.WriteLine($"myClass2 InstanceProperty: {myClass2.GetInstanceProperty()}");
+            Console.WriteLine($"myClass1 StaticProperty: {myClass1.GetStaticProperty()}");
+            Console.WriteLine($"myClass2 StaticProperty: {myClass2.GetStaticProperty()}");
+
+            // Change the instance and static properties in myClassInstance2
+            Console.WriteLine($"{nl}The instance and static properties are changed in myClassInstance2");
+
+
+            // Each instance of MyClass has its own instance of
+            // InstanceProperty so only myClassInstance1's is changed
+            myClass1.SetInstanceProperty(2);
+
+            // Both instances of MyClass share StaticProperty so changing
+            // the value in myClassInstance1 changes it for both
+            myClass1.SetStaticProperty(3);
+            Console.WriteLine($"values of the two instances of MyClass are now{nl}");
+            Console.WriteLine($"myClass1 InstanceProperty: {myClass1.GetInstanceProperty()}");
+            Console.WriteLine($"myClass2 InstanceProperty: {myClass2.GetInstanceProperty()}");
+            Console.WriteLine($"myClass1 StaticProperty: {myClass1.GetStaticProperty()}");
+            Console.WriteLine($"myClass2 StaticProperty: {myClass2.GetStaticProperty()}");
+
+            // The MyMathFunctions Square method and PI property and can
+            // be accessed without creating an instance of MyMathFunctions
+            Console.WriteLine($"{nl}The square of 3 is {MyMathFunctions.SquareNumber(3)}");
+            var area = MyMathFunctions.PI * 4 * 4;
+            Console.WriteLine($"Area of a circle with radius 4 = {area}");
+
+            // Syntax error, a static class cannot be instantiated
+            //MyMathFunctions staticClass;
+        }
+    }
+}
+
+// The example writes the following to the console
+// Display initial static and instance property
+// values of the two instances of MyClass
+
+// myClass1 InstanceProperty: 0
+// myClass2 InstanceProperty: 0
+// myClass1 StaticProperty: 1
+// myClass2 StaticProperty: 1
+
+// The instance and static properties are changed in myClassInstance2
+// values of the two instances of MyClass are now
+
+// myClass1 InstanceProperty: 2
+// myClass2 InstanceProperty: 0
+// myClass1 StaticProperty: 3
+// myClass2 StaticProperty: 3
+
+// The square of 3 is 9
+// Area of a circle with radius 4 = 50.264
+</code></pre>
+                    <!-- !SECTION static -->
                     <!-- SECTION unsafe -->
                     <h3 id="unsafe">unsafe</h3>
                     <p>The <code>unsafe</code> modifier is outside the scope of this guide. For more information, please see the
                         <a href="#References">Microsoft C# reference documentation</a></p>
                     <!-- !SECTION unsafe -->
-
+                    <!-- SECTION virtual -->
+                    <h3 id="virtual">virtual</h3>
+                    <p>A <a href="#Methods">method</a>, <a href="#Properties">property</a>, <a href="#Indexers">indexer</a> or <a href="#Events">event</a> that is marked
+                        <code>virtual</code> can be <i>overridden</i> in a <a href="#Inheriting_types">derived</a> <a href="#Classes">class</a> or
+                        <a href="#Records">record</a>. See <a href="#override">override</a>.</p>
+                    <p><em>Note:</em> <i>Microsoft has advised not to declare an event as <code>virtual</code> as the compiler does not handle these correctly.</i>
+                    <!-- !SECTION virtual -->
                     <!-- SECTION volatile -->
                     <h3 id="volatile">volatile</h3>
                     <p>The <code>volatile</code> modifier is outside the scope of this guide. For more information, please see the
@@ -6761,10 +6775,10 @@ var c = '\u0123' \\ the <i>g</i> character
                         warranty whatsoever.</p>
                     <p>The website may hyperlink to and integrate websites and services run by others. Stephen Ward does not make any warranty about services run by
                         others, or content they may provide. Use of services run by others may be governed by other terms between you and the one running the service.</p>
+                    <h3 id="Notice_of_Non-Affiliation_and_Disclaimer">Notice of Non-Affiliation and Disclaimer</h3>
+                    <p>Stephen Ward is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Microsoft or any of its subsidiaries
+                        or its affiliates.</p>
                 </article>
-                <h3 id="Notice_of_Non-Affiliation_and_Disclaimer">Notice of Non-Affiliation and Disclaimer</h3>
-                <p>Stephen Ward is not not affiliated, associated, authorized, endorsed by, or in any way officially connected with Microsoft or any of its subsidiaries
-                    or its affiliates.</p>
             </section>
             <!-- !SECTION Terms and Conditions -->
 
