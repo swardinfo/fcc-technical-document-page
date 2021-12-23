@@ -2608,7 +2608,7 @@ namespace Dictionaries
                         names to assign the underlying constant values to variables. You can declare the type and value of each constant or allow the editor to declare
                         them for you. The default type for the value is an integer and the list is zero based. A value in an enum is accessed through the enums
                         identifier, followed by a period, followed by the the name of one of the constants.</p>
-                        <p>The following example demonstrates enumerator declaration and use.</p>
+                    <p>The following example demonstrates enumerator declaration and use.</p>
 <pre><code>using System;
 
 namespace Enumerators
@@ -2633,7 +2633,6 @@ namespace Enumerators
             var underlyingMonthType = Enum.GetUnderlyingType(monthType);
             Console.WriteLine($"Month is {month}, value is {(long)month}," +
                 $" Type is {monthType.Name}, underlying type is {underlyingMonthType}");
-
         }
     }
 }
@@ -2668,7 +2667,7 @@ namespace Enumerators
                         <li><a href="#Interfaces">interfaces</a> can't be instantiated but instead are used to define behaviors that can be implemented by other types
                         </li>
                     </ul>
-                    <p>A type can contain <a href="#Members">members</a> which include <a href="#Constructors">constructors</a>, <a href="#Methods">methods</a>,
+                    <p>A type can contain <a href="#Members">members</a> which include <a href="#Methods">methods</a>, <a href="#Constructors">constructors</a>,
                         <a href="#Fields">fields</a>, <a href="#Constant_fields">constant fields</a>, <a href="#Properties">properties</a>,
                         <a href="#Indexers">indexers</a>, <a href="#Events">events</a>, <a href="#Finalizers">finalizers</a> and other
                         nested types. Combined these are used to define an object through encapsulation and storage of its data and by providing the object's behavior. A
@@ -2909,16 +2908,17 @@ namespace ClassExample
                     <h3 id="Members">Members</h3>
                     <p>The state of an object is held by the members it contains. These provide <a href="#Encapsulation">encapsulation</a> and storage of its data,
                         as well as the object's behavior.</p>
-                    <p>The members that a type can contain include</p>
+                    <p>Following is a list of all possible members</p>
                     <ul>
-                        <li><a href="#Constructors">constructors</a> which initialize the state of an object</li>
                         <li><a href="#Methods">methods</a> that provide the behavior of the object</li>
+                        <li><a href="#Constructors">constructors</a> which initialize the state of an object</li>
                         <li><a href="#Fields">fields</a> that store data about the object and can be changed at runtime</li>
                         <li><a href="#Constant_fields">constant fields</a> that store data when declared, cannot be changed at runtime and are inherently
                             <a href="static">static</a></li>
                         <li><a href="#Properties">properties</a> that provide controlled access to an object's data</li>
                         <li><a href="#Indexers">indexers</a> that allows an object to be indexed like an array</li>
                         <li><a href="#Events">events</a> that communicate changes in the object's state to other objects or to itself</li>
+                        <li><a href="#Operators">operators</a> that when overloaded are considered a type member</li>
                         <li><a href="#Finalizers">finalizers</a> that performs cleanup of an object when it is no longer in use </li>
                         <li>nested type which is the declaration of another type within the containing type</li>
                     </ul>
@@ -2950,38 +2950,7 @@ namespace ClassExample
                         with a <u class="warning">warning</u>. This can be removed by marking the member with the <code>new</code> keyword.
                     </p>
                     <!-- !SECTION Members -->
-<!-- TODO finish constructors -->
-                    <!-- SECTION Constructors -->
 
-                    <h3 id="Constructors">Constructors</h3>
-                    <p>A constructor is used to set the data and provide other actions that initialize the state of an object. It can take two forms, an instance
-                        constructor that is used to instantiate a type depending on
-                        whether the type can be instantiated. An instance constructor is called when an instance of the class
-                        or struct is created and can be used to initialize the state of its data or
-                        perform setup procedures. It can take in <a href="#Parameters,_signatures_and_overloading">parameters</a> and an instance type can contain
-                        multiple
-                         instance constructor <a href="#Parameters,_signatures_and_overloading">overloads</a>. An instance constructor can also be marked with an
-                        access modifier. If an instance constructor is not declared the
-                        compiler will provide a default parameterless constructor with an empty code block. If any instance constructors are provided then the compiler
-                        will not add the default constructor, so in this case if a parameterless is required it will need ot be added in code. To create an instance of a
-                        type the <code>new</code> keyword is used to call an instance constructor. An instance constructor cannot access a field marked static readonly
-                        and a static class cannot contain an instance constructor.
-                    </p>
-
-                    <p>A static constructor can be used to initialize static data or perform setup procedures. An instance type can contain a static constructor but a
-                        static constructor cannot be used to create an instance of a type.
-                    </p>
-                        <!-- A
-                         constructor's identifier
-                        is the same as that of the class and it can take in parameters . -->
-
-
-
-
-
-
-
-                    <!-- !SECTION Constructors -->
                     <!-- TODO add passing array to a method -->
                     <!-- SECTION Methods -->
                     <h3 id="Methods">Methods</h3>
@@ -3085,6 +3054,38 @@ namespace Methods
 // 5 x 6 = 30
 </code></pre>
                     <!-- !SECTION Methods -->
+                    <!-- TODO finish constructors -->
+                    <!-- SECTION Constructors -->
+
+                    <h3 id="Constructors">Constructors</h3>
+                    <p>When a A constructor is used to set the data and provide other actions that initialize the state of an object. It can take two forms, an instance
+                        constructor that is used to instantiate a type depending on
+                        whether the type can be instantiated. An instance constructor is called when an instance of the class
+                        or struct is created and can be used to initialize the state of its data or
+                        perform setup procedures. It can take in <a href="#Parameters,_signatures_and_overloading">parameters</a> and an instance type can contain
+                        multiple
+                         instance constructor <a href="#Parameters,_signatures_and_overloading">overloads</a>. An instance constructor can also be marked with an
+                        access modifier. If an instance constructor is not declared the
+                        compiler will provide a default parameterless constructor with an empty code block. If any instance constructors are provided then the compiler
+                        will not add the default constructor, so in this case if a parameterless is required it will need ot be added in code. To create an instance of a
+                        type the <code>new</code> keyword is used to call an instance constructor. An instance constructor cannot access a field marked static readonly
+                        and a static class cannot contain an instance constructor.
+                    </p>
+
+                    <p>A static constructor can be used to initialize static data or perform setup procedures. An instance type can contain a static constructor but a
+                        static constructor cannot be used to create an instance of a type.
+                    </p>
+                        <!-- A
+                         constructor's identifier
+                        is the same as that of the class and it can take in parameters . -->
+
+
+
+
+
+
+
+                    <!-- !SECTION Constructors -->
                     <!-- SECTION Fields -->
                     <h3 id="Fields">Fields</h3>
                     <p>A variable declared inside a type but outside any other member is called a field and is used to store data about an object. They are declared using
@@ -3524,9 +3525,10 @@ namespace Fields
                     <p><code>EventHandler</code> is used when the event does not include event data. It declares <code>EventArgs</code> as the second parameter which is
                         set to the <code>EventArg.Empty</code> field when invoking the event.</p>
                     <p><code>EventHandler&lt;TEventArgs&gt;</code> can be used to send event data. Originally it was required that the return data type be derived from
-                        <code>EventArgs</code> which is why <i>TEventArgs</i> is still mentioned in much of the online documentation, but that constraint has been removed and
-                        any type can now be specified. There are still advantages for doing so, particularly where more complex types are employed and for reasons of
-                        <a href="#Polymorphism_implementation">polymorphism</a>. If there is a requirement to return a value then a reference type should be used.</p>
+                        <code>EventArgs</code> which is why <i>TEventArgs</i> is still mentioned in much of the online documentation, but that constraint has been removed
+                        and any type can now be specified. An <code>EventArgs</code> derived type is still advantageous, particularly where more complex types are
+                        employed and for reasons of <a href="#Polymorphism_implementation">polymorphism</a>. If there is a requirement to return a value then a reference
+                        type should be used.</p>
                     <p>An event can't be invoked from outside the class that contains it so an additional method is required to call the event. It is common that such a
                         method be marked <code>virtual</code> so they can be <a href="#override">overridden</a> if the class can be inherited. The
                         naming convention for such a method is the name of the event prefixed with <i>On</i> such as <code>OnEvent</code>. The naming convention for
@@ -3544,7 +3546,6 @@ namespace Fields
                         to pass the stop time to the <code>_clock_Stopped</code> event handler. <code>StoppedEventArgs</code> has a <code>DateTime</code> type
                         <code>Time</code> property that is set by the constructor. The example also employs <code>Console.ReadKey</code> to test whether the user has
                         pressed the <kbd>enter</kbd> key to end the program.</p>
-
 <pre><code>using System;
 using System.Timers;
 
@@ -3557,16 +3558,16 @@ namespace Events
         // An event that can be raised when the clock is started
         // EventHandler&lt;TEventArgs&gt; delegate type is declared
         // The EventArgs parameter is the DateTime type
-        public event EventHandler&lt;DateTime&gt; Started = (s, e) =&gt; { };
+        public event EventHandler&lt;DateTime&gt; Started;
 
         // An event that can be raised when the clock is stopped
         // The EventArgs parameter is the custom StoppedEventArgs type
-        public event EventHandler&lt;StoppedEventArgs&gt; Stopped = (s, e) =&gt; { };
+        public event EventHandler&lt;StoppedEventArgs&gt; Stopped;
 
         // An event that can be raised when the clock ticked. It does
         // not have event data so EventHandler delegate is declared
         // as it declares dataless EventArgs for the second parameter
-        public event EventHandler Ticked = (s, e) =&gt; { };
+        public event EventHandler Ticked;
 
         // A method to call to invoke the Started event
         protected virtual void OnStarted()
@@ -3696,8 +3697,10 @@ namespace CancelEvent
 {
     public class ApplicationManager
     {
+        bool ExitingCalled;
+
         // An event with CancelEventArgs type parameter
-        public event CancelEventHandler Exiting = (s, e) =&gt; { };
+        public event CancelEventHandler Exiting;
 
         public bool AllowExit { get; set; }
 
@@ -3710,11 +3713,22 @@ namespace CancelEvent
 
         public void Exit()
         {
-            CancelEventArgs args = new();
-            OnExiting(args);
-            // Use the CancelEventArgs.Cancel property set by the
-            // Exiting event handler to set the AllowExit property
-            AllowExit = args.Cancel;
+            // We don't want to call an event while
+            // we're still working on a previous one
+            if (!ExitingCalled)
+            {
+                ExitingCalled = true;
+                CancelEventArgs args = new();
+                OnExiting(args);
+                if (args.Cancel)
+                {
+                    ExitingCalled = false;
+                    return;
+                }
+                // Use the CancelEventArgs.Cancel property set by the
+                // Exiting event handler to set the AllowExit property
+                AllowExit = true;
+            }
         }
     }
 
@@ -3729,12 +3743,12 @@ namespace CancelEvent
             {
                 Console.WriteLine("Are you sure you want to exit the program");
                 Console.WriteLine("Press y to confirm ending the program or any other key to cancel");
-                // Set the CancelEventArgs.Cancel property
-                e.Cancel = Console.ReadKey(true).Key == ConsoleKey.Y;
+                // Set the CancelEventArgs.Cancel property true if user does not press 'y'
+                e.Cancel = Console.ReadKey(true).Key != ConsoleKey.Y;
             };
 
-            // Loop until the user presses the 'y' key which sets AllowExit
-            // to true through the Exiting event CancelEventArgs.Cancel property
+            // Loop until the user presses the 'y' key which sets AllowExit to true
+            // depending on the Exiting event CancelEventArgs.Cancel property
             while (!_applicationManager.AllowExit)
             {
                 Console.Clear();
@@ -3803,6 +3817,7 @@ namespace Indexers
                     <h3 id="Finalizers">Finalizers</h3>
                     <p>A finalizer is used to perform any cleanup of the class when it is no longer in use. The compiler adds a default finalizer to each instance of a
                         class that is created. As implementing a finalizer is a rare and complex subject it won't be discussed in this guide.</p>
+                    <p><em>Note:</em><i>In earlier versions of the C# standard a 'finalizer' was called a 'destructor'.</i></p>
                     <!-- !SECTION Finalizers -->
 <!-- TODO finnish signatures info and add example  -->
 <!-- TODO add info about parameters, passing by reference, optional arguments, passing an array -->
@@ -5603,13 +5618,13 @@ namespace Scope
                     <p>Modifiers are used to change the behavior of a types and members. Access modifiers are grouped into their own category.</p>
                     <p>Following is a list of the modifiers and which types and members they apply to</p>
                     <ul>
-                        <li><a href="#abstract">abstract</a> - classes, methods, properties</li>
+                        <li><a href="#abstract">abstract</a> - classes, records, methods, properties</li>
                         <li><a href="#const">const</a> - fields, local variables</li>
                         <li><a href="#extern">extern</a> - methods, constructors, properties, events, indexers, finalizers </li>
                         <li><a href="#override">override</a> - methods, properties, events, indexers</li>
                         <li><a href="#partial">partial</a> - classes, structures, interfaces</li>
                         <li><a href="#readonly">readonly</a> - fields</li>
-                        <li><a href="#sealed">sealed</a> classes, methods, properties, events, indexers</li>
+                        <li><a href="#sealed">sealed</a> classes, records, methods, properties, events, indexers</li>
                         <li><a href="#static">static</a> - classes, methods, constructors, fields, properties, events</li>
                         <li><a href="#unsafe">unsafe</a> - </li>
                         <li><a href="#virtual">virtual</a> -  methods, properties, events, indexers</li>
@@ -5717,7 +5732,8 @@ Console.WriteLine($"The price of the hours is {hoursPriceCalculator.CalculateAmo
                         member in the derived type must be marked with the <code>override</code> keyword. Base members are not virtual by default and
                         attempting to override a member not marked as virtual results in an error.</p>
                     <p><em>Note:</em> <i>Microsoft has advised not to declare an event as <code>virtual</code> as the compiler does not handle these correctly. Instead a
-                        method should be created in the base type that invokes the event. This method can then be called from the derived type to raise the event.</i>
+                        method should be created in the base type that <a href="#Events">invokes the event</a>. This method can then be called from the derived type to
+                        raise the event.</i>
                     </p>
                     <p>In the following example a base class <code>LogAnalyzer</code> is created that has a method <code>AnalyzeLogMessage()</code> and a virtual method
                         <code>DisplayMessage()</code>. Derived class <code>LogAnalyzer1</code> inherits <code>LogAnalyzer</code> and overrides the virtual method
@@ -5807,20 +5823,79 @@ namespace OverridingVirtualMembers
                     <!-- !SECTION override -->
                     <!-- SECTION partial -->
                     <h3 id="partial">partial</h3>
-                    <p>The <code>partial</code> keyword allows a class, struct or interface definition to be split across multiple code files</p>
-                    <p>The following example demonstrates a class that is split across two files called xxx and xxx</p>
-<pre><code>using System;
+                    <p>The <code>partial</code> keyword allows a class, struct or interface definition to be split across multiple code files. Often this is used to place
+                        the boilerplate code of a class into one file and the rest in another.</p>
+                    <p>The following example demonstrates a class called <code>MyClass</code> that is split across two files called <i>MyClass_Part_1.cs</i> which holds
+                        the boilerplate code and <i>MyClass_Part_2.cs</i> which holds the business logic. The <code>Program</code> class is able to access the members
+                        that are located in the separate files of the instance of <code>MyClass</code> called <code>myClass</code> as normal using
+                        <code>myClass.Member</code></p>
+<pre><code>// MyClass_Part_1.cs
+// A file to hold the boiler plate code of MyClass
 
-namespace Namespace
+using System;
+
+namespace PartialModifier
 {
-    class Program
+    public partial class MyClass
     {
-        static void Main()
-        {
+        public string FirstName { get; set; }
 
+        public string LastName { get; set; }
+
+        public DateTime Modified { get; private set; }
+
+        private void InitializeMyClass()
+        {
+            Modified = DateTime.Now;
         }
     }
 }
+
+// -----------------------------------------------------------------------
+
+// MyClass_Part_2.cs
+// A file to hold the business logic code for MyClass
+
+using System;
+
+namespace PartialModifier
+{
+    public partial class MyClass
+    {
+        public MyClass(string firstName, string lastName)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            InitializeMyClass();
+        }
+
+        public string GetFullName() => $"{FirstName} {LastName}";
+    }
+}
+
+// -----------------------------------------------------------------------
+
+// Program.cs
+// The main file of the program
+
+using System;
+
+namespace PartialModifier
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            MyClass myClass = new("John", "Smith");
+            Console.WriteLine($"Name: {myClass.GetFullName()}");
+            Console.WriteLine($"Last updated: {myClass.Modified:dd MMMM yyyy}");
+        }
+    }
+}
+
+// This example writes the following to the console
+// Name: John Smith
+// Last updated: 23 December 2021
 </code></pre>
                     <!-- !SECTION partial -->
                     <!-- SECTION readonly -->
@@ -6072,7 +6147,7 @@ namespace StaticExample
                     <p>A <a href="#Methods">method</a>, <a href="#Properties">property</a>, <a href="#Indexers">indexer</a> or <a href="#Events">event</a> that is marked
                         <code>virtual</code> can be <i>overridden</i> in a <a href="#Inheriting_types">derived</a> <a href="#Classes">class</a> or
                         <a href="#Records">record</a>. See <a href="#override">override</a>.</p>
-                    <p><em>Note:</em> <i>Microsoft has advised not to declare an event as <code>virtual</code> as the compiler does not handle these correctly.</i>
+                    <p><em>Note:</em> <i>Microsoft has advised not to declare an event as <code>virtual</code> as the compiler does not handle these correctly.</i></p>
                     <!-- !SECTION virtual -->
                     <!-- SECTION volatile -->
                     <h3 id="volatile">volatile</h3>
