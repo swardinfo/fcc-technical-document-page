@@ -202,6 +202,7 @@ namespace HelloWorld
 <!-- TODO rewrite this -->
 <!-- TODO add expression bodied members -->
 <!-- TODO add syntax errors when uncommenting -->
+<!-- TODO add local function syntax -->
             <!-- SECTION Code Syntax -->
             <section class="main-section" id="Code_Syntax">
                 <header><h2>Code Syntax</h2></header>
@@ -2952,6 +2953,7 @@ namespace ClassExample
                     <!-- !SECTION Members -->
 
                     <!-- TODO add passing array to a method -->
+                    <!-- TODO add local function syntax -->
                     <!-- SECTION Methods -->
                     <h3 id="Methods">Methods</h3>
                     <p>A method provides the behavior of an object. This could be reading a file, calculating a value, writing to the screen, etc. It does this by acting
@@ -5619,10 +5621,14 @@ namespace Scope
                     <p>Following is a list of the modifiers and which types and members they apply to</p>
                     <ul>
                         <li><a href="#abstract">abstract</a> - classes, records, methods, properties</li>
+                        <li><a href="#async">async</a> - </li>
                         <li><a href="#const">const</a> - fields, local variables</li>
                         <li><a href="#extern">extern</a> - methods, constructors, properties, events, indexers, finalizers </li>
+                        <li><a href="#in">in</a> - </li>
+                        <li><a href="#new">new</a> - </li>
+                        <li><a href="#out">out</a> - </li>
                         <li><a href="#override">override</a> - methods, properties, events, indexers</li>
-                        <li><a href="#partial">partial</a> - classes, structures, interfaces</li>
+                        <li><a href="#partial">partial</a> - classes, structures, interfaces, methods</li>
                         <li><a href="#readonly">readonly</a> - fields</li>
                         <li><a href="#sealed">sealed</a> classes, records, methods, properties, events, indexers</li>
                         <li><a href="#static">static</a> - classes, methods, constructors, fields, properties, events</li>
@@ -5713,6 +5719,11 @@ Console.WriteLine($"The price of the hours is {hoursPriceCalculator.CalculateAmo
 // The price of the hours is $240.00
 </code></pre>
                     <!-- !SECTION abstract -->
+                    <!-- SECTION async -->
+                    <h3 id="async">async</h3>
+                    <p>The <code>async</code> modifier is outside the scope of this guide. For more information, please see the
+                        <a href="#References">Microsoft C# reference documentation</a></p>
+                    <!-- !SECTION async -->
                     <!-- SECTION const -->
                     <h3 id="const">const</h3>
                     <p>A field or local <a href="Variables,_Constants,_Types_and_Literals">variable</a> marked with the <code>const</code> keyword causes it to become a
@@ -5721,9 +5732,106 @@ Console.WriteLine($"The price of the hours is {hoursPriceCalculator.CalculateAmo
                     <!-- !SECTION const -->
                     <!-- SECTION extern -->
                     <h3 id="extern">extern</h3>
-                    <p>The <code>extern</code> modifier is outside the scope of this guide. For more information, please see the
-                        <a href="#References">Microsoft C# reference documentation</a></p>
+                    <p>The <code>extern</code> modifier allows a C# program to run code that is implemented in an external library. This could be one of the native code
+                        libraries that contain many of the common functions used by the operating system and which may be in another programming language such as C or
+                        C++. Similar to the <a href="abstract">abstract</a> modifier, <code>extern</code> allows you to create the declaration only, which points to the
+                        implementation in the external library. The <code>extern</code> modifier is often used with the <code>DllImport</code> attribute which in turn is
+                        used to import the external library.</p>
+                    <p>In the following example <code>extern</code> is used to declare a method called <code>MessageBox</code> which is implemented by a method of the
+                        same name in a Windows library called <i>user32.dll</i>. The example also makes use of the <i>local function</i> syntax which wraps the
+                        <code>MessageBox</code> method within another called <code>DisplayMessageBox</code>. When the user presses the <kbd>x</kbd> key, a message box is
+                        displayed asking the user if they want to end the program which loops until the user clicks the <i>Yes</i> button.</p>
+<pre><code>using System;
+using System.Runtime.InteropServices;
+
+namespace Extern
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            bool exit = false;
+            // Loop until the user presses the 'y' in the message box
+            while (!exit)
+            {
+                Console.Clear();
+                Console.WriteLine("Press x to exit the program");
+                // Wait until the user presses the 'x' key
+                while (Console.ReadKey(true).Key != ConsoleKey.X) { }
+                exit = DisplayMessageBox("Are you sure you want to exit the program?", "Exit program?");
+            }
+            Console.WriteLine("You have exited the program");
+        }
+
+        public static bool DisplayMessageBox(string message, string caption)
+        {
+            // Declare a nested 'MsgBox' method that is implemented
+            // by the 'MessageBox' method in 'User32.dll'
+            [DllImport("User32.dll", EntryPoint = "MessageBox", CharSet = CharSet.Unicode)]
+            static extern int MessageBox(IntPtr h, string message, string caption, int type);
+
+            // Call the 'MsgBox' method with type set to 4 which displays
+            // yes and no buttons. If the user presses yes the method returns 6.
+            return MessageBox((IntPtr)0, message, caption, 4) == 6;
+        }
+    }
+}
+    </code></pre>
                     <!-- !SECTION extern -->
+                    <!-- SECTION in -->
+                    <h3 id="in">in</h3>
+                    <p></p>
+                    <p>CodeExample</p>
+<pre><code>using System;
+
+namespace Namespace
+{
+    class Program
+    {
+        static void Main()
+        {
+
+        }
+    }
+}
+</code></pre>
+                    <!-- !SECTION in -->
+                    <!-- SECTION new -->
+                    <h3 id="new">new</h3>
+                    <p></p>
+                    <p>CodeExample</p>
+<pre><code>using System;
+
+namespace Namespace
+{
+    class Program
+    {
+        static void Main()
+        {
+
+        }
+    }
+}
+</code></pre>
+                    <!-- !SECTION new -->
+                    <!-- SECTION out -->
+                    <h3 id="out">out</h3>
+                    <p></p>
+                    <p>CodeExample</p>
+<pre><code>using System;
+
+namespace Namespace
+{
+    class Program
+    {
+        static void Main()
+        {
+
+        }
+    }
+}
+</code></pre>
+                    <!-- !SECTION out -->
                     <!-- SECTION override -->
                     <h3 id="override">override</h3>
                     <p>The implementation of a <a href="#Methods">method</a>, <a href="#Properties">property</a>, <a href="#Indexers">indexer</a> or
@@ -5825,10 +5933,19 @@ namespace OverridingVirtualMembers
                     <h3 id="partial">partial</h3>
                     <p>The <code>partial</code> keyword allows a class, struct or interface definition to be split across multiple code files. Often this is used to place
                         the boilerplate code of a class into one file and the rest in another.</p>
+                    <p>Additionally, within a partial type, a method can also be marked as
+                        <code>partial</code> in which case the declaration of the method is placed in one file and the implementation in another, provided that both the
+                        declaration and the implementation both start with the <code>partial</code> keyword and both have the same
+                        <a href="#Parameters,_signatures_and_overloading">signature</a>. A common use for a partial method is a class designer that automatically declares
+                        methods that the developer can then decide whether or not to implement. A partial method's implementation is optional provided it does not have an
+                        <a href="#Access_modifiers">access modifier</a>, it returns <code>void</code>, it does not have any <a href="#out">out</a> parameters and it does
+                        not have the <a href="#extern">extern</a>, <a href="#new">new</a>, <a href="#override">override</a>, <a href="#sealed">sealed</a> or
+                        <a href="#virtual">virtual</a> modifier.</p>
                     <p>The following example demonstrates a class called <code>MyClass</code> that is split across two files called <i>MyClass_Part_1.cs</i> which holds
                         the boilerplate code and <i>MyClass_Part_2.cs</i> which holds the business logic. The <code>Program</code> class is able to access the members
                         that are located in the separate files of the instance of <code>MyClass</code> called <code>myClass</code> as normal using
-                        <code>myClass.Member</code></p>
+                        <code>myClass.Member</code>. It also has a method called <code>PartialMethod</code> which is declared in <i>MyClass_Part_1.cs</i>, implemented
+                        in <i>MyClass_Part_2.cs</i> and which can be accessed in the <code>Program</code> class.</p>
 <pre><code>// MyClass_Part_1.cs
 // A file to hold the boiler plate code of MyClass
 
@@ -5848,6 +5965,8 @@ namespace PartialModifier
         {
             Modified = DateTime.Now;
         }
+
+        public partial void PartialMethod(string value);
     }
 }
 
@@ -5870,6 +5989,11 @@ namespace PartialModifier
         }
 
         public string GetFullName() =&gt; $"{FirstName} {LastName}";
+
+        public partial void PartialMethod(string value)
+        {
+            Console.WriteLine(value);
+        }
     }
 }
 
@@ -5889,6 +6013,7 @@ namespace PartialModifier
             MyClass myClass = new("John", "Smith");
             Console.WriteLine($"Name: {myClass.GetFullName()}");
             Console.WriteLine($"Last updated: {myClass.Modified:dd MMMM yyyy}");
+            myClass.PartialMethod("The partial method was called");
         }
     }
 }
@@ -5896,6 +6021,7 @@ namespace PartialModifier
 // This example writes the following to the console
 // Name: John Smith
 // Last updated: 23 December 2021
+// The partial method was called
 </code></pre>
                     <!-- !SECTION partial -->
                     <!-- SECTION readonly -->
@@ -6853,6 +6979,7 @@ var c = '\u0123' \\ the <i>g</i> character
                     <h3 id="Notice_of_Non-Affiliation_and_Disclaimer">Notice of Non-Affiliation and Disclaimer</h3>
                     <p>Stephen Ward is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Microsoft or any of its subsidiaries
                         or its affiliates.</p>
+                    <p>Microsoft, Visual C#, Visual Studio, IntelliSense and Windows are trademarks of the Microsoft group of companies.</p>
                 </article>
             </section>
             <!-- !SECTION Terms and Conditions -->
