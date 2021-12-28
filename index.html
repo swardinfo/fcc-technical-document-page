@@ -4,15 +4,17 @@
         <!--meta-->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
         <!--title-->
         <title>C# Documentation</title>
-
+        <!-- favicons -->
+        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
         <!--css-->
         <link rel="stylesheet" href="css/style.css">
-
     </head>
-
     <body>
         <!-- SECTION Main menu -->
         <!-- project requirement - nav element with a corresponding id="navbar" -->
@@ -1570,7 +1572,7 @@ namespace ConditionalOperator
 </code></pre>
                     <!-- !SECTION Conditional operator -->
                     <!-- SECTION Conditional and operator -->
-                    <h3 id="Conditional_and_operator">Conditional and operator &&</h3>
+                    <h3 id="Conditional_and_operator">Conditional 'and' operator &&</h3>
                     <p>In the expression <code>x = a && b</code> <code>x</code> is true if both <code>a</code> and <code>b</code> are true otherwise <code>x</code> is
                         false. If <code>a</code> is false <code>b</code> is not evaluated. This is useful in a situation where, if <code>a</code> is false evaluating
                         <code>b</code> would produce an invalid condition that could result in an exception.</p>
@@ -1609,7 +1611,7 @@ namespace ConditionalAndOperator
 </code></pre>
                     <!-- !SECTION Conditional and operator -->
                     <!-- SECTION Conditional or operator -->
-                    <h3 id="Conditional_or_operator">Conditional or operator ||</h3>
+                    <h3 id="Conditional_or_operator">Conditional 'or' operator ||</h3>
                     <p>In the expression <code>x = a || b</code>, <code>x</code> is true if either <code>a</code> or <code>b</code> are true otherwise <code>x</code> is
                         false. If <code>a</code> is true <code>b</code> is not evaluated. This is useful in a situation where, if <code>a</code> is true evaluating
                         <code>b</code> would produce an invalid condition that could result in an exception.</p>
@@ -2951,28 +2953,25 @@ namespace ClassExample
                         with a <u class="warning">warning</u>. This can be removed by marking the member with the <code>new</code> keyword.
                     </p>
                     <!-- !SECTION Members -->
-
                     <!-- TODO add passing array to a method -->
                     <!-- TODO add local function syntax -->
                     <!-- SECTION Methods -->
                     <h3 id="Methods">Methods</h3>
                     <p>A method provides the behavior of an object. This could be reading a file, calculating a value, writing to the screen, etc. It does this by acting
-                        as a container for one or more <a href="#Code_Syntax">statements</a>, which a statement elsewhere in the program can pass the execution flow to,
-                        known as <i>invoking</i> or <i>calling</i> a method.</p>
-                        <p>A method consists of two parts, the
-                        <a href="#Parameters,_signatures_and_overloading">signature</a> and the body that contains the statements. The signature defines the methods name,
-                        values known as <i>parameters</i> that can be <i>passed in</i> to the method for processing by the statements it contains and a return type for
-                        returning a value
-                        back to the statement that called
-                        it. If a method is not required to return a value then the type is replaced with the <code>void</code> keyword. Optional
-                        <a href="#Modifiers">modifiers</a> can be applied to a method that can change its accessibility and behavior.</p>
+                        as a container for one or more <a href="#Code_Syntax">statements</a>. Statements elsewhere in the program can pass the execution flow to a method
+                        known as <i>invoking</i> or <i>calling</i> a method and statements within a method can call other methods.</p>
+                    <p>A method consists of two parts, the <a href="#Parameters,_signatures_and_overloading">signature</a> and the body that contains the statements. The
+                        signature defines the methods name, values known as <i>parameters</i> that can be <i>passed in</i> to the method for processing by the statements
+                        it contains and a return type for returning a value back to the statement that called it. If a method is not required to return a value then the
+                        type is replaced with the <code>void</code> keyword. Optional <a href="#Modifiers">modifiers</a> can be applied to a method and its parameters
+                        that can change accessibility and behavior.</p>
                     <p>For a method that returns a value, the statements in the body are executed until a return statement is reached. This is defined by the
                         <code>return</code> keyword followed by a variable or literal of the type in the method declaration followed by a semicolon. Program execution,
                          along with the returned value  will then be passed back to the statement that called the method.</p>
                     <p>For a method that does not return a value, execution will be passed back to the calling statement, either when a return statement or the closing brace is
                         reached. In this case a return statement is defined just with the <code>return</code> keyword followed by a semicolon.</p>
                     <p>In both cases a method can contain multiple return statements allowing for multiple exit points from different paths back to the calling code. In
-                        this case, a method that has a return type but that does not have a return statement for all possible paths will produces a syntax error. Methods
+                        this case, a method that has a return type but that does not have a return statement for all possible paths will produce a syntax error. Methods
                         with a single expression can be implemented in the form of an an <a href="#The_lambda_and_body_definition_operator">expression-bodied member</a>
                         and a class can contain multiple <a href="#Parameters,_signatures_and_overloading">overloads</a> of a method.</p>
                     <p>Access to a method by code external to the type is in the form of <code>instance.Method(parameters)</code> for an instance of a type and
@@ -3060,7 +3059,13 @@ namespace Methods
                     <!-- SECTION Constructors -->
 
                     <h3 id="Constructors">Constructors</h3>
-                    <p>When a A constructor is used to set the data and provide other actions that initialize the state of an object. It can take two forms, an instance
+                    <p>When an object is instantiated a constructor is called to set the data and provide other actions that initialize its state. The syntax is similar
+                        to that of a method except that it does not return a value and its identifier is always that of the type that contains it.
+
+
+
+                        It can take
+                         two forms, an instance
                         constructor that is used to instantiate a type depending on
                         whether the type can be instantiated. An instance constructor is called when an instance of the class
                         or struct is created and can be used to initialize the state of its data or
@@ -4034,6 +4039,7 @@ namespace Delegates
 // 5 x 3 = 15
 </code></pre>
                     <!-- !SECTION Delegates -->
+<!-- TODO add inheriting interfaces and records -->
                     <!-- SECTION Inheriting types -->
                     <h3 id="Inheriting_types">Inheriting types</h3>
                     <p>Inheritance is one of the main concepts in Object Oriented Programming. It allows you to create a parent class with common features that multiple
@@ -5615,6 +5621,7 @@ namespace Scope
 // Method2 field2 = New value
 </code></pre>
                     <!-- !SECTION Scope -->
+<!-- TODO complete which members modifiers apply to -->
                     <!-- SECTION Modifiers -->
                     <h3 id="Modifiers">Modifiers</h3>
                     <p>Modifiers are used to change the behavior of a types and members. Access modifiers are grouped into their own category.</p>
@@ -5741,6 +5748,7 @@ Console.WriteLine($"The price of the hours is {hoursPriceCalculator.CalculateAmo
                         same name in a Windows library called <i>user32.dll</i>. The example also makes use of the <i>local function</i> syntax which wraps the
                         <code>MessageBox</code> method within another called <code>DisplayMessageBox</code>. When the user presses the <kbd>x</kbd> key, a message box is
                         displayed asking the user if they want to end the program which loops until the user clicks the <i>Yes</i> button.</p>
+                    <p><i><em>Note:</em> due to the use of user32.dll this example will only work with the Windows operating system.</i></p>
 <pre><code>using System;
 using System.Runtime.InteropServices;
 
@@ -5778,6 +5786,7 @@ namespace Extern
 }
     </code></pre>
                     <!-- !SECTION extern -->
+<!-- TODO complete in section -->
                     <!-- SECTION in -->
                     <h3 id="in">in</h3>
                     <p></p>
@@ -5796,6 +5805,7 @@ namespace Namespace
 }
 </code></pre>
                     <!-- !SECTION in -->
+<!-- TODO complete new section -->
                     <!-- SECTION new -->
                     <h3 id="new">new</h3>
                     <p></p>
@@ -5814,6 +5824,7 @@ namespace Namespace
 }
 </code></pre>
                     <!-- !SECTION new -->
+<!-- TODO complete out section -->
                     <!-- SECTION out -->
                     <h3 id="out">out</h3>
                     <p></p>
