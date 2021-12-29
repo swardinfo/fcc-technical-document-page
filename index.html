@@ -357,7 +357,7 @@ World!");
                         <code>using</code> directive and namespaces are in (<a href="#Namespaces_and_References">Namespaces and References</a>).</p>
                     <p>Following the namespace declaration is an opening brace <code>{</code> which is the beginning of a code block and its closing brace
                         <code>}</code> is the last line in the example. All code blocks must have an opening and closing brace. Nested within this code block is a
-                        <a href="#Classes">class</a> as declared by <code>public class MyClass</code> and its associated code block. Nested within this is a
+                        <a href="#class">class</a> as declared by <code>public class MyClass</code> and its associated code block. Nested within this is a
                         <a href="#Constructor">constructor</a> declaration <code>MyClass() { }</code> , a <a href="#Methods">method</a> declaration
                         <code>static void Main(string[] args)</code> and their code blocks.</p>
                     <p>There are two main ways in which a program can be compiled for use. The first is as a class library to be used by other applications and the second
@@ -1705,13 +1705,13 @@ namespace NullCoalescingAssignmentOperator
 // b = 1
 </code></pre>
                     <!-- !SECTION The null-coalescing assignment operator -->
-                    <!-- SECTION The Lambda and Expression body definition operator -->
-                    <h3 id="The_lambda_and_body_definition_operator">The lambda and body definition operator =&gt;</h3>
-                    <p>The <code>=&gt;</code> operator has two uses, as part of a <i>lambda expression</i> or an <i>Expression-bodied member</i> definition.</p>
+                    <!-- SECTION The Lambda and expression body definition operator -->
+                    <h3 id="The_lambda_and_expression-body_definition_operator">The lambda and expression-body definition operator =&gt;</h3>
+                    <p>The <code>=&gt;</code> operator has two uses, as part of a <i>lambda expression</i> or an <i>expression-bodied member</i> definition.</p>
                     <p>A lambda expression is comprised of a set of input parameters on the left which are then passed into the body on the right which are separated
                         using the <code>=&gt;</code> operator. They are used to create <a href="#Anonymous_functions">anonymous functions</a>.</p>
                     <p>An expression-bodied member definition provides a shorthand method of writing the body of a member. In this case the <code>=&gt;</code> operator is
-                        used to separate the name of the member and its body. Supported members are:</p>
+                        used to separate the name of the member and its body which can only contain a single expression. Supported members are:</p>
                     <ul>
                         <li><a href="#Constructors">Constructors</a></li>
                         <li><a href="#Properties">Read-only Properties</a></li>
@@ -1720,7 +1720,7 @@ namespace NullCoalescingAssignmentOperator
                         <li><a href="#Methods">Methods</a></li>
                         <li><a href="#Finalizers">Finalizers</a></li>
                     </ul>
-                    <!-- !SECTION The Lambda and Expression body definition operator -->
+                    <!-- !SECTION The Lambda and expression body definition operator -->
 <!-- TODO add info about operator -->
                     <!-- SECTION Namespace alias qualifier operator -->
                     <h3 id="Namespace_alias_qualifier_operator">Namespace alias qualifier operator ::</h3>
@@ -2659,15 +2659,15 @@ namespace Enumerators
                     </p>
                     <p>The types that can be used to define an object with a state include</p>
                     <ul>
-                        <li><a href="#Classes">classes</a> are reference types used to define complex objects and usually accounts for the majority of types in an
+                        <li><a href="#class">classes</a> are reference types used to define complex objects and usually accounts for the majority of types in an
                             assembly</li>
-                        <li><a href="#Structures_struct">structures (struct)</a> are value types used to define simple data focused objects with little behavior
+                        <li><a href="#struct">struct (structures)</a> are value types used to define simple data focused objects with little behavior
                         </li>
-                        <li><a href="#Records">records</a> are reference types that can behave like a value type and are used mostly with data that once set doesn't
+                        <li><a href="#record">records</a> are reference types that can behave like a value type and are used mostly with data that once set doesn't
                             change</li>
-                        <li><a href="#Delegates">delegates</a> are a type used to represent a reference to a method that can be passed as an argument to another method
+                        <li><a href="#delegate">delegates</a> are a type used to represent a reference to a method that can be passed as an argument to another method
                         </li>
-                        <li><a href="#Interfaces">interfaces</a> can't be instantiated but instead are used to define behaviors that can be implemented by other types
+                        <li><a href="#interface">interfaces</a> can't be instantiated but instead are used to define behaviors that can be implemented by other types
                         </li>
                     </ul>
                     <p>A type can contain <a href="#Members">members</a> which include <a href="#Methods">methods</a>, <a href="#Constructors">constructors</a>,
@@ -2686,8 +2686,8 @@ namespace Enumerators
                         C# a parent type is called a base type and a child a derived type. Classes and records can be marked as <a href="#abstract">abstract</a> requiring
                         a derived class for instantiation or <a href="#sealed">sealed</a> to prevent inheritance. Use of the static, abstract and sealed keywords is
                         mutually exclusive. As well as inheritance a class, struct or record can implement an interface.</p>
-                    <!-- SECTION Classes -->
-                    <h3 id="Classes">Classes</h3>
+                    <!-- SECTION class -->
+                    <h3 id="class">class</h3>
                     <p>A class within a namespace is declared by specifying an optional <a href="#Access_Modifiers">access modifier</a> keyword, followed by the
                         <code>class</code> keyword, followed by an identifier that is unique within the same <a href="#Dependencies_and_Namespaces">namespace</a>,
                         followed by a code block defined by a pair of braces. If the access modifier keyword is omitted the default access is internal. A class can also
@@ -2906,7 +2906,7 @@ namespace ClassExample
 // Square 2 area changed and is now 15
 // Square 3 area changed and is now 100
 </code></pre>
-                    <!-- !SECTION Classes -->
+                    <!-- !SECTION class -->
                     <!-- SECTION Members -->
                     <h3 id="Members">Members</h3>
                     <p>The state of an object is held by the members it contains. These provide <a href="#Encapsulation">encapsulation</a> and storage of its data,
@@ -2937,9 +2937,9 @@ namespace ClassExample
                         require the passing in of arguments to parameters contained in brackets that follow the member identifier. Visual Studio's IntelliSense can assist
                         you as it will display a suggestion box that lists the namespaces, types and members to choose from as you enter them.</p>
                     <p>All members except fields, constant fields and events that have a single expression support implementation through the use of
-                        <a href="#The_lambda_and_body_definition_operator">expression-bodied members which makes for a much more concise code</a>.  Constructors, indexers
-                        and methods can be <a href="#Parameters,_signatures_and_overloading">overloaded</a>. That is a type can contain multiple versions with the same
-                        identifier provided that they overload a member of the same type and each overload has a unique signature.</p>
+                        <a href="#The_lambda_and_expression-body_definition_operator">expression-bodied members which makes for a much more concise code</a>.
+                        Constructors, indexers and methods can be <a href="#Parameters,_signatures_and_overloading">overloaded</a>. That is a type can contain multiple
+                        versions with the same identifier provided that they overload a member of the same type and each overload has a unique signature.</p>
                     <p>Properties, indexers, methods and events in a <a href="#Inheriting_types">base</a> type can be marked marked
                         <a href="#abstract">abstract</a> or <a href="#virtualo">virtual</a> though marking an event a virtual is not recommended as the
                         C# compiler does not handle them correctly producing unpredictable results. In a <a href="#Inheriting_types">derived</a> type a virtual base
@@ -2972,8 +2972,8 @@ namespace ClassExample
                         reached. In this case a return statement is defined just with the <code>return</code> keyword followed by a semicolon.</p>
                     <p>In both cases a method can contain multiple return statements allowing for multiple exit points from different paths back to the calling code. In
                         this case, a method that has a return type but that does not have a return statement for all possible paths will produce a syntax error. Methods
-                        with a single expression can be implemented in the form of an an <a href="#The_lambda_and_body_definition_operator">expression-bodied member</a>
-                        and a class can contain multiple <a href="#Parameters,_signatures_and_overloading">overloads</a> of a method.</p>
+                        with a single expression can be implemented in the form of an an <a href="#The_lambda_and_expression-body_definition_operator">expression-bodied
+                        member</a> and a class can contain multiple <a href="#Parameters,_signatures_and_overloading">overloads</a> of a method.</p>
                     <p>Access to a method by code external to the type is in the form of <code>instance.Method(parameters)</code> for an instance of a type and
                        <code>TypeName.Method(parameters)</code> for a <a href="static">static</a> type.</p>
                     <p>The following shows examples of method declaration and use.</p>
@@ -3055,43 +3055,118 @@ namespace Methods
 // 5 x 6 = 30
 </code></pre>
                     <!-- !SECTION Methods -->
-                    <!-- TODO finish constructors -->
                     <!-- SECTION Constructors -->
-
                     <h3 id="Constructors">Constructors</h3>
-                    <p>When an object is instantiated a constructor is called to set the data and provide other actions that initialize its state. The syntax is similar
-                        to that of a method except that it does not return a value and its identifier is always that of the type that contains it.
+                    <p>When an object is created a constructor is called that can be used to set its data and provide other actions that initialize the object's
+                        state. The syntax for a constructor is similar to that of a <a href="#Methods">method</a> in that it has a
+                        <a href="#Parameters,_signatures_and_overloading">signature</a> that can take in parameters and is a container for one or more
+                        <a href="#Code_Syntax">statements</a>. Unlike a method it cannot return a value, its identifier is always that of the type that contains it and
+                        it can only be called once when the object is created.</p>
+                    <p>A constructor can be marked with with various <a href="#Modifiers">modifiers</a> that change its behavior and an instance constructor can be
+                        <a href="#Parameters,_signatures_and_overloading">overloaded</a>. By using the <code>this</code> keyword, a constructor can call another
+                        overloaded constructor when an object is created. In an instance type, if no constructors are declared the compiler will provide a default
+                        parameterless constructor with an empty code block. If constructors are declared then the compiler will not declare the default constructor, so in
+                        this case if a parameterless constructor is required it will need to be explicitly declared. To create an instance of a type the <code>new</code>
+                        keyword is used to call an instance constructor. Constructors with a single expression can be implemented in the form of an an
+                        <a href="#The_lambda_and_expression-body_definition_operator">expression-bodied member</a></p>
+                    <p>Both instance and static constructors can be declared in <a href="#class">classes</a>, <a href="#struct">structs</a> and
+                        <a href="#record">records</a> whereas only static constructors can be declared in an <a href="#interface">interface</a>. A class or record can
+                        declare both parameterless and parameterized constructors whereas a struct can only declare parameterized constructors (<em>Note:</em> <i>
+                        parameterized constructors will be allowed in structs beginning with C# 10.0</i>). An instance constructor cannot access a field marked static
+                        readonly and a static class cannot contain an instance constructor. An instance type can contain a static constructor but a static constructor
+                        cannot be used to create an instance of a type.</p>
+                    <p>The following example demonstrates the declaration and usage of constructors. The first class called <code>DefaultClass</code> does not explicitly
+                        declare a constructor so the compiler declares a default parameterless constructor that can be called to instantiate it.
+                        <code>ParameterizedClass</code> explicitly declares a single parameterized constructor. As this prevents the compiler from implicitly declaring a
+                        parameterless constructor, when an attempt is made to instantiate the class using one, it results in a syntax error. The <code>Person</code> class
+                        has four explicitly declared overloaded constructors. The first is parameterless so creating an instance of <code>Person</code>using a
+                        parameterless constructor is permitted and it sets the values of the two <a href="#Fields">fields</a> <code>_firstName</code> and
+                        <code>_lastName</code> to <i>First name</i> and <i>Last name</i> respectively. The second constructor has two parameters and sets
+                        <code>_firstName</code> and <code>_lastName</code> to the values passed in. The third constructor has one parameter and makes use of the
+                        expression-bodied member syntax setting only the value of the <code>_firstName</code> field. The fourth constructor has three parameters,
+                        <code>id</code>, <code>firstName</code> and  <code>lastName</code>. Using the <code>this</code> keyword it calls the second constructor, passing
+                        in <code>firstName</code> and <code>lastName</code> then uses <code>id</code> to set the <code>_id</code> field using expression-bodied syntax.</p>
+<pre><code>using System;
 
+    namespace Constructors
+    {
+        // If no constructors are declared the compiler
+        // implicitly declares a default parameterless constructor
+        public class DefaultClass { }
 
+        // If a constructor is explicitly declared the
+        // compiler won't declare a default constructor
+        public class ParameterizedClass
+        {
+            public ParameterizedClass(int value) { }
+        }
 
-                        It can take
-                         two forms, an instance
-                        constructor that is used to instantiate a type depending on
-                        whether the type can be instantiated. An instance constructor is called when an instance of the class
-                        or struct is created and can be used to initialize the state of its data or
-                        perform setup procedures. It can take in <a href="#Parameters,_signatures_and_overloading">parameters</a> and an instance type can contain
-                        multiple
-                         instance constructor <a href="#Parameters,_signatures_and_overloading">overloads</a>. An instance constructor can also be marked with an
-                        access modifier. If an instance constructor is not declared the
-                        compiler will provide a default parameterless constructor with an empty code block. If any instance constructors are provided then the compiler
-                        will not add the default constructor, so in this case if a parameterless is required it will need ot be added in code. To create an instance of a
-                        type the <code>new</code> keyword is used to call an instance constructor. An instance constructor cannot access a field marked static readonly
-                        and a static class cannot contain an instance constructor.
-                    </p>
+        // The 'Person' class declares three overloaded constructors
+        public class Person
+        {
+            private string _firstName;
+            private string _lastName;
+            private int _id;
 
-                    <p>A static constructor can be used to initialize static data or perform setup procedures. An instance type can contain a static constructor but a
-                        static constructor cannot be used to create an instance of a type.
-                    </p>
-                        <!-- A
-                         constructor's identifier
-                        is the same as that of the class and it can take in parameters . -->
+            // An explicitly declared parameterless
+            // constructor that initializes both fields
+            public Person()
+            {
+                _firstName = "First name";
+                _lastName = "Last name";
+            }
 
+            // A constructor with two parameters that initializes
+            // both fields using the arguments passed in
+            public Person(string firstName, string lastName)
+            {
+                _firstName = firstName;
+                _lastName = lastName;
+            }
 
+            // A constructor that uses expression-bodied syntax which
+            // initializes one field only using the argument passed in
+            public Person(string firstName) =&gt; _firstName = firstName;
 
+            // Calls the constructor with two parameters and then
+            // sets the '_id' field using expression-bodied syntax
+            public Person(int id, string firstName, string lastName)
+                : this(firstName, lastName) =&gt; _id = id;
+        }
 
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                // This object is instantiated using
+                // the default parameterless constructor
+                DefaultClass defaultClass = new();
 
+                // Syntax error, this class has only one
+                // constructor that requires a constructor
+                //ParameterizedClass parameterizedClass = new();
 
+                // Instantiated using the explicitly
+                // declared parameterless constructor
+                Person person1 = new();
 
+                // A second instance using the overloaded
+                // constructor with two parameters
+                Person person2 = new("John", "Smith");
+
+                // A third instance using the overloaded
+                // constructor with one parameter
+                Person person3 = new("Susan");
+
+                // A fourth instance using the overloaded
+                // constructor with four parameters
+                Person person4 = new(1, "Susan", "Smith");
+            }
+        }
+    }
+
+    // This example does not write anything to the console
+</code></pre>
                     <!-- !SECTION Constructors -->
                     <!-- SECTION Fields -->
                     <h3 id="Fields">Fields</h3>
@@ -3303,7 +3378,7 @@ namespace Fields
                         objects instantiation. As with <code>set</code> a property can be made write-only by only using <code>init</code>. The <code>set</code> and
                         <code>init</code> keywords are mutually exclusive. Collectively <code>set</code>,
                         <code>init</code> and <code>get</code> are called <i>accessors</i>. An accessor that has a single expression can be implemented in the form of an
-                        <a href="#The_lambda_and_body_definition_operator">expression-bodied member</a>.</p>
+                        <a href="#The_lambda_and_expression-body_definition_operator">expression-bodied member</a>.</p>
                     <p>The default access for accessors is that of the property containing them, but can be changed through the use of access modifiers provided
                         that</p>
                     <ul>
@@ -3518,7 +3593,7 @@ namespace Fields
                     <p>An event is a way for a class to communicate with other objects that something within it has occurred. This could be a button click, completion of
                         a task, change of state, etc. The class that <i>raises</i> the event is know as a <i>publisher</i> and the objects receiving the event
                         are known as <i>subscribers</i>. When a publisher declares an event, it in turn allows the declaration of a special type of multicast
-                        <a href="#Delegates">delegate</a> and provides methods that a subscriber can use to add or remove instances of the delegate. When an event is
+                        <a href="#delegate">delegate</a> and provides methods that a subscriber can use to add or remove instances of the delegate. When an event is
                         raised the delegate is then used to invoke a method within the subscriber which in this case is known as an <i>event handler</i>. By being
                         multicast the delegate allows multiple objects to subscribe to the same event or for a subscriber to use the same event handler to handle the same
                         type of event from multiple publishers.</p>
@@ -3844,8 +3919,8 @@ namespace Indexers
 
 
 
-                    <!-- SECTION Structures (struct) -->
-                    <h3 id="Structures_struct">Structures (struct)</h3>
+                    <!-- SECTION struct -->
+                    <h3 id="struct">struct</h3>
                     <p>A <i>structure</i> usually referred to by its keyword <code>struct</code> is similar to a class with the following main differences.</p>
                     <ul>
                         <li>A struct is a value type</li>
@@ -3968,15 +4043,15 @@ namespace Structs
 // Box4 Width: 5, Height: 6, Length: 7, Volume: 210
 // Box6 Width: 0, Height: 0, Length: 0, Volume: 0
 </code></pre>
-                    <!-- !SECTION Structures (struct) -->
+                    <!-- !SECTION struct -->
 <!-- TODO add content about records -->
-                    <!-- SECTION Records -->
-                    <h3 id="Records">Records</h3>
+                    <!-- SECTION record -->
+                    <h3 id="record">record</h3>
 
-                    <!-- !SECTION Records -->
+                    <!-- !SECTION record -->
 
-                    <!-- SECTION Delegates -->
-                    <h3 id="Delegates">Delegates</h3>
+                    <!-- SECTION delegate -->
+                    <h3 id="delegate">delegate</h3>
                     <p>A delegate allows you to create a reference to a method that can then be passed as a parameter. It does this by declaring the
                         <a href="Parameters,_signatures_and_overloading">signature</a> of the method which in this case includes the return type. It is declared using an
                         optional <a href="#Access_modifiers">access modifier</a>, followed by the <code>delegate</code> keyword, then the <i>return type</i>, then an
@@ -4038,7 +4113,7 @@ namespace Delegates
 // 2 + 3 = 5
 // 5 x 3 = 15
 </code></pre>
-                    <!-- !SECTION Delegates -->
+                    <!-- !SECTION delegate -->
 <!-- TODO add inheriting interfaces and records -->
                     <!-- SECTION Inheriting types -->
                     <h3 id="Inheriting_types">Inheriting types</h3>
@@ -4429,8 +4504,8 @@ namespace OverridingObjectMembers
 // This person is Denise Jones
 </code></pre>
                     <!-- !SECTION Overriding object members -->
-                    <!-- SECTION Interfaces -->
-                    <h3 id="Interfaces">Interfaces</h3>
+                    <!-- SECTION interface -->
+                    <h3 id="interface">interface</h3>
                     <p>"An interface is a contract" has to be one of the worst explanations as to what an interface is, yet it still persists throughout much of the
                         literature you may find on line, including that of Microsoft's own C# reference. So what is an interface.</p>
                     <p>Take a computer manufacturer. They can't anticipate every printer, keyboard, mouse, etc, that will be plugged into their devices. To allow for
@@ -4558,7 +4633,7 @@ namespace Interface
 // Car slows
 // Dog barks
 </code></pre>
-                    <!-- !SECTION Interfaces -->
+                    <!-- !SECTION interface -->
                 </article>
             </section>
             <!-- !SECTION Classes and Other User Defined Types -->
@@ -4567,7 +4642,7 @@ namespace Interface
                 <header><h2>Anonymous functions</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
-                    <p>An anonymous function allows you to create a <a href="#Delegates">delegate</a> an assign it a method in one line of code(<i>in-line</i>), without
+                    <p>An anonymous function allows you to create a <a href="#delegate">delegate</a> an assign it a method in one line of code(<i>in-line</i>), without
                         the need for a separate named method. They can be declared with one of two basic syntaxes, <a href="#Anonymous_methods">anonymous methods</a> and
                         <a href="Lambda_Expression">lambda expressions</a> with the latter replacing the former. C# also provides two types of built-in delegates,
                         <a href="#Action_and_Func">Action</a> and  <a href="#Action_and_Func">Func</a>, that allow the in-line declaration of an anonymous function
@@ -4575,7 +4650,7 @@ namespace Interface
                     <!-- SECTION Anonymous methods -->
                     <h3 id="Anonymous_methods">Anonymous methods</h3>
                     <p>Whilst anonymous methods have largely been replace by lambda expressions, they remain in the C# language for backwards compatibility so are
-                        presented here for reference. As with a <a href="#Delegates">named method</a> a delegate is first declared with the required return type and
+                        presented here for reference. As with a <a href="#delegate">named method</a> a delegate is first declared with the required return type and
                         <a href="Parameters,_signatures_and_overloading">signature</a>. The delegate instance is then declared and assigned an anonymous method by using
                         the <code>delegate</code> keyword, followed by the same signature as the delegate, followed by a code block.</p>
                     <p>The following example demonstrates anonymous method declaration and use.</p>
@@ -4607,7 +4682,7 @@ namespace AnonymousMethods
                     <!-- !SECTION Anonymous methods -->
                     <!-- SECTION Lambda expressions -->
                     <h3 id="Lambda_Expression">Lambda expressions</h3>
-                    <p>Lambda expressions allow for a more concise in-line syntax than anonymous methods. As with a <a href="#Delegates">named method</a> a delegate is
+                    <p>Lambda expressions allow for a more concise in-line syntax than anonymous methods. As with a <a href="#delegate">named method</a> a delegate is
                         first declared with the required <a href="Parameters,_signatures_and_overloading">signature</a>. The delegate instance is then
                         declared and assigned an anonymous method by using a pair of brackets containing the same signature as the delegate, followed by the lambda
                         operator <code>=&gt;</code>, followed by the lambda body. In most cases both the parameter types and the return type are inferred by the compiler.
@@ -4684,9 +4759,9 @@ namespace LambdaExpressions
                     <!-- !SECTION Lambda expressions -->
                     <!-- SECTION Action and Func -->
                     <h3 id="Action_and_Func">Action and Func</h3>
-                    <p>C# also has two built in <a href="#Delegates">delegates</a>, <code>Action</code> that returns <code>void</code> and <code>Func</code> that returns
+                    <p>C# also has two built in <a href="#delegate">delegates</a>, <code>Action</code> that returns <code>void</code> and <code>Func</code> that returns
                         a declared type. Both provide the in-line declaration of an anonymous function without the need for a separate declaration of a delegate or a
-                        <a href="#Delegates">named method</a>. An <code>Action</code> or <code>Func</code> can also be passed as a parameter to a method or another
+                        <a href="#delegate">named method</a>. An <code>Action</code> or <code>Func</code> can also be passed as a parameter to a method or another
                         <code>Action</code> or <code>Func</code>. The <code>Action </code> syntax is <code>Action&lt;in T1, ... in T16t&gt;</code> and the
                         <code>Func</code> syntax is <code>Func&lt;in T1, ... in T16, out TResult&gt;</code>. Both provide
                         <a href="#Parameters,_signatures_and_overloading">overloads</a> for up to 16 input parameters of any type with <code>Func</code> allowing for one
@@ -5847,7 +5922,7 @@ namespace Namespace
                     <h3 id="override">override</h3>
                     <p>The implementation of a <a href="#Methods">method</a>, <a href="#Properties">property</a>, <a href="#Indexers">indexer</a> or
                         <a href="#Events">event</a> that is marked as marked with with either the <a href="#virtual">virtual</a> or <code>override</code> keyword in a
-                        base <a href="#Classes">class</a> or <a href="#Records">record</a> can be overridden in a derived class or record respectively. To do so the
+                        base <a href="#class">class</a> or <a href="#record">record</a> can be overridden in a derived class or record respectively. To do so the
                         member in the derived type must be marked with the <code>override</code> keyword. Base members are not virtual by default and
                         attempting to override a member not marked as virtual results in an error.</p>
                     <p><em>Note:</em> <i>Microsoft has advised not to declare an event as <code>virtual</code> as the compiler does not handle these correctly. Instead a
@@ -6282,8 +6357,8 @@ namespace StaticExample
                     <!-- SECTION virtual -->
                     <h3 id="virtual">virtual</h3>
                     <p>A <a href="#Methods">method</a>, <a href="#Properties">property</a>, <a href="#Indexers">indexer</a> or <a href="#Events">event</a> that is marked
-                        <code>virtual</code> can be <i>overridden</i> in a <a href="#Inheriting_types">derived</a> <a href="#Classes">class</a> or
-                        <a href="#Records">record</a>. See <a href="#override">override</a>.</p>
+                        <code>virtual</code> can be <i>overridden</i> in a <a href="#Inheriting_types">derived</a> <a href="#class">class</a> or
+                        <a href="#record">record</a>. See <a href="#override">override</a>.</p>
                     <p><em>Note:</em> <i>Microsoft has advised not to declare an event as <code>virtual</code> as the compiler does not handle these correctly.</i></p>
                     <!-- !SECTION virtual -->
                     <!-- SECTION volatile -->
@@ -6299,8 +6374,8 @@ namespace StaticExample
                         member has a default access level which, depending on the context, can be changed either by the access level of the container or by the use of an
                         access modifier keyword. A local variable's accessibility is always restricted to the scope in which it is contained and cannot be modified.
                         Except for <code>protected internal</code> and <code>private protected</code> only one access modifier keyword can be applied to a type or a
-                        member. For information about accessibility of the accessors for a property or indexer see Classes. Following is the list of access modifier
-                        keywords and the access level provided by them.</p>
+                        member. For information about accessibility of the accessors for a property or indexer see <a href="#class">class</a>. Following is the list of
+                        access modifier keywords and the access level provided by them.</p>
                     <ul>
                         <li><i>public</i> - the same assembly or another assembly that references it</li>
                         <li><i>protected internal</i> - the same assembly or in a derived class in another assembly</li>
