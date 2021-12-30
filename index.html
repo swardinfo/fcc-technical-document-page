@@ -77,6 +77,7 @@
                 </article>
             </section>
             <!-- !SECTION Introduction -->
+            <!-- TODO Add C# version used in guide -->
             <!-- SECTION C# Language -->
             <section class="main-section" id="C_Sharp_and_Dot_NET">
                 <header><h2>C Sharp and Dot NET</h2></header>
@@ -2946,11 +2947,8 @@ namespace ClassExample
                         member can optionally be <a href="#override">overridden</a> where as an abstract base member <em>must</em> be overridden by a
                         member with the same signature that is marked with the <code>override</code> keyword. A type that contains an abstract member must also be marked
                         abstract. A member marked as <code>override</code> can also be marked with the <code>sealed</code> keyword preventing it from being overridden in
-                        any further derived type. Where members in both a base and derived type have the same identifier and where neither are marked as either virtual or
-                        override, the the derived member will hide the base member. The two members don't have to be of the same type or have the same signature. For
-                        example a property in a base class can be hidden by a method. Access to a hidden member can still be obtained through use of the
-                        <a href="#base_keyword">base</a> keyword. When a member is hidden the code editor will indicate this on the hiding member in the derived class
-                        with a <u class="warning">warning</u>. This can be removed by marking the member with the <code>new</code> keyword.
+                        any further derived type. Where members in both a base and derived type have the same identifier under certain conditions the derived member may
+                        hide the base member, please see <a href="#Inheriting_types">inheriting types</a>.
                     </p>
                     <!-- !SECTION Members -->
                     <!-- TODO add passing array to a method -->
@@ -4117,20 +4115,31 @@ namespace Delegates
 <!-- TODO add inheriting interfaces and records -->
                     <!-- SECTION Inheriting types -->
                     <h3 id="Inheriting_types">Inheriting types</h3>
-                    <p>Inheritance is one of the main concepts in Object Oriented Programming. It allows you to create a parent class with common features that multiple
-                        different child classes can inherit and expand upon. In C# a parent class is called a base class and a child a derived class. C# only allows
-                        single inheritance, that is a derived class can only inherit from one base class but it does allow for multiple generations which means a base
-                        class can be inherited by a second which it turn can inherited by a third and so on. As a result members that are in the base class will be
-                        available in each generation of derived classes with the following exceptions.</p>
+                    <p>Inheritance is one of the main concepts in Object Oriented Programming. It allows you to create a parent type with common features that multiple
+                        different child types can inherit and expand upon. In C# a parent type is called a base type and a child a derived type and
+                        <a href="#class">classes</a>, <a href="#record">records</a> and <a href="#interface">interfaces</a> can be inherited. C# only allows
+                        single inheritance, that is a derived type can only inherit from one base type but it does allow for multiple generations which means a base
+                        type can be inherited by a second which it turn can inherited by a third and so on. As a result members that are in the base type will be
+                        available in each generation of derived types with the following exceptions.</p>
                     <ul>
                         <li>Static constructors</li>
                         <li>Instance constructors</li>
                         <li>Finalizers</li>
                     </ul>
-                    <p>Also events can only be invoked from within the class they are declared so to <a href="#Raising_base_class_events_in_a_derived_class">raise a base
-                        class event from a derived class</a> a common pattern is to declare a method in the base class that can be called from the derived class to invoke
-                        the event. The availability of all other members in a derived class is dependent on the <a href="#Scope_and_Modifiers">accessibility</a> of
-                        a member in the base class. Apart from classes only interfaces can be inherited. A class that is marked as <a href="#static">static</a> or
+                    <p>Also events can only be invoked from within the type they are declared so to <a href="#Raising_base_class_events_in_a_derived_class">raise a base
+                        type event from a derived type</a> a common pattern is to declare a method in the base type that can be called from the derived type to invoke
+                        the event. The availability of all other members in a derived type is dependent on the <a href="#Scope_and_Modifiers">accessibility</a> of
+                        a member in the base type. Where members in both a base and derived type have the same identifier, where neither are marked as either virtual or
+                        override and where the member in the base type has an accessibility modifier other than private, the the derived member will hide the base
+                        member. The two members don't have to be of the same type or have the same signature. For example a property in a base type can be hidden by a
+                        method. Access to a hidden member can still be obtained through use of the <a href="#base_keyword">base</a> keyword. When a member is hidden the
+                        code editor will indicate this on the hiding member in the derived type with a <u class="warning">warning</u>. This can be removed by marking the
+                        member with the <code>new</code> keyword.
+
+
+
+                        Apart from classes only interfaces can be inherited.
+                         A class that is marked as <a href="#static">static</a> or
                         <a href="#sealed">sealed</a> can't be inherited.</p>
                     <p>The following example demonstrates the syntax for inheriting a class. First base class <code>A</code> is declared as normal. Derived Class
                         <code>B</code> is then declared followed by a colon, then the name of the class to be inherited, followed by the code block for class
@@ -4240,6 +4249,7 @@ namespace InheritanceExample
                     <!-- !SECTION Inheriting types -->
 
                     <!-- TODO add derived class event example -->
+                    <!-- TODO change to refer to types and that only applicable to classes and records -->
                     <!-- SECTION Raising base class events in a derived class -->
                     <h3 id="Raising_base_class_events_in_a_derived_class">Raising base class events in a derived class</h3>
                     <p>An event can only be invoked within the class it is declared. A common pattern to invoke a base class event in a derived class is to declare a
@@ -5068,9 +5078,8 @@ namespace MyCompany.ViewModels
                     <!-- SECTION Global namespace -->
                     <h3 id="Global_namespace">Global namespace</h3>
                     <p>The area outside any namespace declaration in a file is the <i>global namespace</i> and any type declared within it is accessible throughout the
-                        assembly. Where two types have
-                        the same identifier, a type declared in a local namespace or type will hide a type declared in the global namespace. In this case the global type
-                        can still be accessed by prefixing its identifier with the <code>global</code> keyword followed by the
+                        assembly. Where two types have the same identifier, a type declared in a local namespace or type will hide a type declared in the global
+                        namespace. In this case the global type can still be accessed by prefixing its identifier with the <code>global</code> keyword followed by the
                         <a href="#Namespace_alias_qualifier_operator"><i>namespace alias qualifier</i></a> <code>::</code> in the form <code>global::MyType</code>.</p>
                     <p>The following example demonstrates how to access a type in the global namespace.</p>
 <pre><code>using System;
@@ -5510,14 +5519,15 @@ namespace ImportingSystemTypes
                         <a href="#try-catch">try</a> and using statements. An argument that is passed into a method or indexer is accessible outside the member and
                         becomes a local variable within the member. The variable is only accessible after it has been declared and only within the same code block or a
                         nested code block. A local variable within the same block or a nested code block cannot be declared with the same name.</p>
-                    <p>A local variable in the same container (enclosing type) as a field can be declared with the same name and any type. When this is done the field is
-                        said to be hidden by the local variable. To access a hidden field, the <code>this</code> name qualifier keyword must be used. For example if a
-                        class contains a field called <code>int someName</code> and a method that contains a local variable called <code>string someName;</code>, to
-                        access the field within the method you would use <code>var x = this.someName</code>. To avoid possible confusion or naming conflicts you should
-                        avoid declaring field and local variables with the same name. A common convention is to name local variables with <i>camelCase</i>,
-                        <code>int someName</code>, public fields with with <i>PascalCase</i>, <code>public int SomeName</code> and private fields with <i>camelCase</i>
-                        prefixed with an underscore, <code>private int _someName</code>. Which ever convention you or the team you work for chose, it is important that it
-                        be consistent throughout all the code you write.</p>
+                    <p>A local variable can have the same name as a member within a container (enclosing type). When this is done the member is hidden by the local
+                        variable. To access a hidden member, the <code>this</code> name qualifier keyword must be used. For example if a class contains both a property
+                        called <code>someName</code> and a method containing a local variable called <code>someName</code>, to access the property from within the method
+                        you would use <code>this.someName</code>. To avoid possible confusion or naming conflicts you should avoid declaring local variables with the same
+                        name as a member in the same enclosing type. A common convention is to name local variables with <i>camelCase</i>, <code>int someName;</code>
+                        private fields with <i>camelCase</i> prefixed with an underscore, <code>int _someName;</code>, private static fields with <i>camelCase</i>
+                        prefixed with an 's' followed by an underscore, <code>private static int s_someName</code> and all other members with with <i>PascalCase</i>,
+                        <code>public int SomeName { get; set; }</code>. Which ever convention you or the team you work for chose, it is important that it be consistent
+                        throughout all the code you write.</p>
                     <p>Following are examples of scope.</p>
 <pre><code>using System;
 
@@ -5703,12 +5713,12 @@ namespace Scope
                     <p>Following is a list of the modifiers and which types and members they apply to</p>
                     <ul>
                         <li><a href="#abstract">abstract</a> - classes, records, methods, properties</li>
-                        <li><a href="#async">async</a> - </li>
+                        <li><a href="#async">async</a> - method, lambda expression, anonymous method</li>
                         <li><a href="#const">const</a> - fields, local variables</li>
                         <li><a href="#extern">extern</a> - methods, constructors, properties, events, indexers, finalizers </li>
-                        <li><a href="#in">in</a> - </li>
+                        <li><a href="#in">in</a> - parameters, generics</li>
                         <li><a href="#new">new</a> - </li>
-                        <li><a href="#out">out</a> - </li>
+                        <li><a href="#out">out</a> - parameters, generics </li>
                         <li><a href="#override">override</a> - methods, properties, events, indexers</li>
                         <li><a href="#partial">partial</a> - classes, structures, interfaces, methods</li>
                         <li><a href="#readonly">readonly</a> - fields</li>
@@ -5718,8 +5728,8 @@ namespace Scope
                         <li><a href="#virtual">virtual</a> -  methods, properties, events, indexers</li>
                         <li><a href="#volatile">volatile</a> - fields</li>
                     </ul>
-                    <p>In addition access modifiers can be used to change the accessibility of members and variables, details of which are in
-                        <a href="#Access_Modifiers">Scope and Modifiers</a>.</p>
+                    <p>In addition, accessibility to members from outside of a type or an assembly can be changed with the use of
+                        <a href="#Access_modifiers">access modifiers</a>.</p>
                     <p><i><em>Note:</em> the behavior of modifiers may change when combined and some modifiers are mutually exclusive as detailed in the relevant
                         sections </i></p>
                     <!-- !SECTION Modifiers -->
@@ -5861,62 +5871,25 @@ namespace Extern
 }
     </code></pre>
                     <!-- !SECTION extern -->
-<!-- TODO complete in section -->
                     <!-- SECTION in -->
                     <h3 id="in">in</h3>
-                    <p></p>
-                    <p>CodeExample</p>
-<pre><code>using System;
-
-namespace Namespace
-{
-    class Program
-    {
-        static void Main()
-        {
-
-        }
-    }
-}
-</code></pre>
+                    <p>When used with a parameter the <code>in</code> modifier keyword allows an argument to be passed by reference to a method but prevents it from being
+                        modified, please see <a href="#Parameters,_signatures_and_overloading">Parameters, signatures and overloading</a>. Use of the <code>in</code>
+                        modifier with generics is outside the scope of this guide. For more information, please see the <a href="#References">Microsoft C# reference
+                        documentation</a></p>
                     <!-- !SECTION in -->
-<!-- TODO complete new section -->
                     <!-- SECTION new -->
                     <h3 id="new">new</h3>
-                    <p></p>
-                    <p>CodeExample</p>
-<pre><code>using System;
-
-namespace Namespace
-{
-    class Program
-    {
-        static void Main()
-        {
-
-        }
-    }
-}
-</code></pre>
+                    <p>Where members in both a base and derived type have the same identifier under certain conditions the derived member may hide the base member
+                        resulting in a waring from the compiler. Marking the member in the derived type with the <code>new</code> modifier keyword suppresses the warning,
+                        please see <a href="#Inheriting_types">inheriting types</a></p>
                     <!-- !SECTION new -->
-<!-- TODO complete out section -->
                     <!-- SECTION out -->
                     <h3 id="out">out</h3>
-                    <p></p>
-                    <p>CodeExample</p>
-<pre><code>using System;
-
-namespace Namespace
-{
-    class Program
-    {
-        static void Main()
-        {
-
-        }
-    }
-}
-</code></pre>
+                    <p>When used with a parameter the <code>out</code> modifier keyword allows an argument to be passed by reference back to the calling statement,
+                        please see <a href="#Parameters,_signatures_and_overloading">Parameters, signatures and overloading</a>. Use of the <code>out</code> modifier with
+                        generics is outside the scope of this guide. For more information, please see the <a href="#References">Microsoft C# reference documentation</a>
+                    </p>
                     <!-- !SECTION out -->
                     <!-- SECTION override -->
                     <h3 id="override">override</h3>
@@ -6367,12 +6340,14 @@ namespace StaticExample
                         <a href="#References">Microsoft C# reference documentation</a></p>
                     <!-- !SECTION volatile -->
 <!-- TODO using private with collections -->
+<!-- TODO Add filenames to code example -->
 <!-- TODO add info about private field accessibility -->
                     <!-- SECTION Access modifiers -->
                     <h3 id="Access_modifiers">Access modifiers</h3>
                     <p> Accessibility level declares where a type or type's members can be used by other code within your assembly or other assemblies. Each type or
                         member has a default access level which, depending on the context, can be changed either by the access level of the container or by the use of an
-                        access modifier keyword. A local variable's accessibility is always restricted to the scope in which it is contained and cannot be modified.
+                        access modifier keyword. A local variable's accessibility is always restricted to the <a href="#Scope">scope</a> in which it is contained and
+                        cannot be modified.
                         Except for <code>protected internal</code> and <code>private protected</code> only one access modifier keyword can be applied to a type or a
                         member. For information about accessibility of the accessors for a property or indexer see <a href="#class">class</a>. Following is the list of
                         access modifier keywords and the access level provided by them.</p>
