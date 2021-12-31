@@ -77,7 +77,6 @@
                 </article>
             </section>
             <!-- !SECTION Introduction -->
-            <!-- TODO Add C# version used in guide -->
             <!-- SECTION C# Language -->
             <section class="main-section" id="C_Sharp_and_Dot_NET">
                 <header><h2>C Sharp and Dot NET</h2></header>
@@ -98,7 +97,8 @@
                         phrase <i>during runtime</i>, is often used to refer to the time in which the code is running.</p>
                     <p>.NET also provides a large quantity of pre written code we can use that provides many of the basic functions such as file I/O, network access,
                         collections, user interfaces, etc, so we don't have to write our own. Whenever a console, WinForms or WPF application is created the .NET
-                        framework is added by default and can be accessed through the System namespace. At the time of this writing the current version is .Net 5.0.</p>
+                        framework is added by default and can be accessed through the System namespace.</p>
+                    <p> The .Net version used throughout this guide is 5.0 and the C# version is 9.0.</p>
                     <p>Links to the reference documentation for C# and .NET can be found in <a href="#References">References</a></p>
                     <!-- !SECTION .NET -->
                 </article>
@@ -636,7 +636,7 @@ namespace MultipleCatchBlocks
                         reference type can only refer to one location at a time but two reference type variables can refer to the same location. The result is that changing
                         the contents of one will affect the contents of the other.</p>
                     <p><em>Note:</em><i> Various type <a href="#Classes_and_Other_User_Defined_Types">members</a> allow the
-                        <a href="#Parameters,_signatures_and_overloading">passing in</a> of a variable as an argument. When this occurs, what can happen to the variable
+                        <a href="#Signatures,_parameters_and_overloading">passing in</a> of a variable as an argument. When this occurs, what can happen to the variable
                         depends on whether it is a value or reference type and whether any keywords are present to change this behavior</i></p>
                     <p>C# has a number of built-in types of which each has a dedicated <a href="#Value_type_keywords">keyword</a>.</p>
                     <!-- !SECTION Reference type -->
@@ -2675,8 +2675,8 @@ namespace Enumerators
                         <a href="#Fields">fields</a>, <a href="#Constant_fields">constant fields</a>, <a href="#Properties">properties</a>,
                         <a href="#Indexers">indexers</a>, <a href="#Events">events</a>, <a href="#Finalizers">finalizers</a> and other
                         nested types. Combined these are used to define an object through encapsulation and storage of its data and by providing the object's behavior. A
-                        type can contain multiple members with the same identifier, known as <a href="#Parameters,_signatures_and_overloading">overloading</a>, provided
-                        that each has a unique <a href="#Parameters,_signatures_and_overloading">signature</a>. Accessibility to a type from code outside of the assembly,
+                        type can contain multiple members with the same identifier, known as <a href="#Signatures,_parameters_and_overloading">overloading</a>, provided
+                        that each has a unique <a href="#Signatures,_parameters_and_overloading">signature</a>. Accessibility to a type from code outside of the assembly,
                         and to members both from outside the assembly and from other types within the assembly, is controlled through the use of
                         <a href="#Access_Modifiers">access modifier</a> keywords.</p>
                     <p></p>
@@ -2939,7 +2939,7 @@ namespace ClassExample
                         you as it will display a suggestion box that lists the namespaces, types and members to choose from as you enter them.</p>
                     <p>All members except fields, constant fields and events that have a single expression support implementation through the use of
                         <a href="#The_lambda_and_expression-body_definition_operator">expression-bodied members which makes for a much more concise code</a>.
-                        Constructors, indexers and methods can be <a href="#Parameters,_signatures_and_overloading">overloaded</a>. That is a type can contain multiple
+                        Constructors, indexers and methods can be <a href="#Signatures,_parameters_and_overloading">overloaded</a>. That is a type can contain multiple
                         versions with the same identifier provided that they overload a member of the same type and each overload has a unique signature.</p>
                     <p>Properties, indexers, methods and events in a <a href="#Inheriting_types">base</a> type can be marked marked
                         <a href="#abstract">abstract</a> or <a href="#virtualo">virtual</a> though marking an event a virtual is not recommended as the
@@ -2948,7 +2948,7 @@ namespace ClassExample
                         member with the same signature that is marked with the <code>override</code> keyword. A type that contains an abstract member must also be marked
                         abstract. A member marked as <code>override</code> can also be marked with the <code>sealed</code> keyword preventing it from being overridden in
                         any further derived type. Where members in both a base and derived type have the same identifier under certain conditions the derived member may
-                        hide the base member, please see <a href="#Inheriting_types">inheriting types</a>.
+                        hide the base member, please see <a href="#Inheriting_types">Inheriting types</a>.
                     </p>
                     <!-- !SECTION Members -->
                     <!-- TODO add passing array to a method -->
@@ -2958,7 +2958,7 @@ namespace ClassExample
                     <p>A method provides the behavior of an object. This could be reading a file, calculating a value, writing to the screen, etc. It does this by acting
                         as a container for one or more <a href="#Code_Syntax">statements</a>. Statements elsewhere in the program can pass the execution flow to a method
                         known as <i>invoking</i> or <i>calling</i> a method and statements within a method can call other methods.</p>
-                    <p>A method consists of two parts, the <a href="#Parameters,_signatures_and_overloading">signature</a> and the body that contains the statements. The
+                    <p>A method consists of two parts, the <a href="#Signatures,_parameters_and_overloading">signature</a> and the body that contains the statements. The
                         signature defines the methods name, values known as <i>parameters</i> that can be <i>passed in</i> to the method for processing by the statements
                         it contains and a return type for returning a value back to the statement that called it. If a method is not required to return a value then the
                         type is replaced with the <code>void</code> keyword. Optional <a href="#Modifiers">modifiers</a> can be applied to a method and its parameters
@@ -2971,7 +2971,7 @@ namespace ClassExample
                     <p>In both cases a method can contain multiple return statements allowing for multiple exit points from different paths back to the calling code. In
                         this case, a method that has a return type but that does not have a return statement for all possible paths will produce a syntax error. Methods
                         with a single expression can be implemented in the form of an an <a href="#The_lambda_and_expression-body_definition_operator">expression-bodied
-                        member</a> and a class can contain multiple <a href="#Parameters,_signatures_and_overloading">overloads</a> of a method.</p>
+                        member</a> and a class can contain multiple <a href="#Signatures,_parameters_and_overloading">overloads</a> of a method.</p>
                     <p>Access to a method by code external to the type is in the form of <code>instance.Method(parameters)</code> for an instance of a type and
                        <code>TypeName.Method(parameters)</code> for a <a href="static">static</a> type.</p>
                     <p>The following shows examples of method declaration and use.</p>
@@ -3057,11 +3057,11 @@ namespace Methods
                     <h3 id="Constructors">Constructors</h3>
                     <p>When an object is created a constructor is called that can be used to set its data and provide other actions that initialize the object's
                         state. The syntax for a constructor is similar to that of a <a href="#Methods">method</a> in that it has a
-                        <a href="#Parameters,_signatures_and_overloading">signature</a> that can take in parameters and is a container for one or more
+                        <a href="#Signatures,_parameters_and_overloading">signature</a> that can take in parameters and is a container for one or more
                         <a href="#Code_Syntax">statements</a>. Unlike a method it cannot return a value, its identifier is always that of the type that contains it and
                         it can only be called once when the object is created.</p>
                     <p>A constructor can be marked with with various <a href="#Modifiers">modifiers</a> that change its behavior and an instance constructor can be
-                        <a href="#Parameters,_signatures_and_overloading">overloaded</a>. By using the <code>this</code> keyword, a constructor can call another
+                        <a href="#Signatures,_parameters_and_overloading">overloaded</a>. By using the <code>this</code> keyword, a constructor can call another
                         overloaded constructor when an object is created. In an instance type, if no constructors are declared the compiler will provide a default
                         parameterless constructor with an empty code block. If constructors are declared then the compiler will not declare the default constructor, so in
                         this case if a parameterless constructor is required it will need to be explicitly declared. To create an instance of a type the <code>new</code>
@@ -3858,7 +3858,7 @@ namespace CancelEvent
                         the type of indexer, followed by square brackets that contain one or more indexes separated by commas, with each consisting of the type of index
                         and an index identifier. Accessors are then used to set and/or get the instances from the backing field using the indexes that are passed in. The
                         same rules as as those for read/write and accessibility of properties and accessors also apply to indexers except that an indexer cannot be static
-                        and an indexer cannot be auto-indexed. Indexers can be <a href="#Parameters,_signatures_and_overloading">overloaded</a>.</p>
+                        and an indexer cannot be auto-indexed. Indexers can be <a href="#Signatures,_parameters_and_overloading">overloaded</a>.</p>
                     <p>Access to an indexer by code external to the type is in the form of <code>instance.Indexer[index]</code></p>
                     <p>The following example declares a string collection which uses an indexer to index instances of itself. The <code>Program</code> class creates a new
                         <code>StringCollection</code> instance, assigns the string "Hello World" to the instance at index 0 in the collection, then retrieves the same and
@@ -3899,17 +3899,17 @@ namespace Indexers
                         class that is created. As implementing a finalizer is a rare and complex subject it won't be discussed in this guide.</p>
                     <p><em>Note:</em><i>In earlier versions of the C# standard a 'finalizer' was called a 'destructor'.</i></p>
                     <!-- !SECTION Finalizers -->
-<!-- TODO finnish signatures info and add example  -->
+<!-- TODO finish signatures info and add example  -->
 <!-- TODO add info about parameters, passing by reference, optional arguments, passing an array -->
-                    <!-- SECTION Parameters, signatures and overloading -->
+                    <!-- SECTION Signatures parameters and overloading -->
 
-                    <h3 id="Parameters,_signatures_and_overloading">Parameters, signatures and overloading</h3>
+                    <h3 id="Signatures,_parameters_and_overloading">Signatures, parameters and overloading</h3>
                     <p>  A method, constructor and indexer have a signature which is declared by its identifier and the type, number, passing mode and left right order of
                         its parameters. Access modifiers and a method's return type are not part of the signature.</p>
                     <p></p>
 
 
-                    <!-- !SECTION Parameters, signatures and overloading -->
+                    <!-- !SECTION Signatures parameters and overloading -->
 
 
 
@@ -4051,10 +4051,10 @@ namespace Structs
                     <!-- SECTION delegate -->
                     <h3 id="delegate">delegate</h3>
                     <p>A delegate allows you to create a reference to a method that can then be passed as a parameter. It does this by declaring the
-                        <a href="Parameters,_signatures_and_overloading">signature</a> of the method which in this case includes the return type. It is declared using an
+                        <a href="Signatures,_parameters_and_overloading">signature</a> of the method which in this case includes the return type. It is declared using an
                         optional <a href="#Access_modifiers">access modifier</a>, followed by the <code>delegate</code> keyword, then the <i>return type</i>, then an
                         identifier that is unique within the <a href="#Dependencies_and_Namespaces">namespace</a>, followed by a pair of brackets that can optionally
-                        contain <a href="#Parameters,_signatures_and_overloading">parameters</a>. Delegates are created using the delegate's identifier, followed by an
+                        contain <a href="#Signatures,_parameters_and_overloading">parameters</a>. Delegates are created using the delegate's identifier, followed by an
                         identifier unique within the local scope and then assigning it a named method which can be either an instance or static. This can then be
                         used to invoke the method as if it was called directly. The <code>delegate</code> keyword can also be used as an operator to create
                         <a href="#Anonymous_functions">anonymous methods</a> that don't require the declaration of a named method for assignment.</p>
@@ -4116,31 +4116,26 @@ namespace Delegates
                     <!-- SECTION Inheriting types -->
                     <h3 id="Inheriting_types">Inheriting types</h3>
                     <p>Inheritance is one of the main concepts in Object Oriented Programming. It allows you to create a parent type with common features that multiple
-                        different child types can inherit and expand upon. In C# a parent type is called a base type and a child a derived type and
+                        different child types can inherit and expand upon. In C# a parent type is called a base type, a child a derived type and
                         <a href="#class">classes</a>, <a href="#record">records</a> and <a href="#interface">interfaces</a> can be inherited. C# only allows
                         single inheritance, that is a derived type can only inherit from one base type but it does allow for multiple generations which means a base
-                        type can be inherited by a second which it turn can inherited by a third and so on. As a result members that are in the base type will be
+                        type can be inherited by a second which it turn can inherited by a third and so on. As a result, members that are in the base type will be
                         available in each generation of derived types with the following exceptions.</p>
                     <ul>
                         <li>Static constructors</li>
                         <li>Instance constructors</li>
                         <li>Finalizers</li>
                     </ul>
-                    <p>Also events can only be invoked from within the type they are declared so to <a href="#Raising_base_class_events_in_a_derived_class">raise a base
-                        type event from a derived type</a> a common pattern is to declare a method in the base type that can be called from the derived type to invoke
-                        the event. The availability of all other members in a derived type is dependent on the <a href="#Scope_and_Modifiers">accessibility</a> of
-                        a member in the base type. Where members in both a base and derived type have the same identifier, where neither are marked as either virtual or
-                        override and where the member in the base type has an accessibility modifier other than private, the the derived member will hide the base
-                        member. The two members don't have to be of the same type or have the same signature. For example a property in a base type can be hidden by a
-                        method. Access to a hidden member can still be obtained through use of the <a href="#base_keyword">base</a> keyword. When a member is hidden the
-                        code editor will indicate this on the hiding member in the derived type with a <u class="warning">warning</u>. This can be removed by marking the
-                        member with the <code>new</code> keyword.
-
-
-
-                        Apart from classes only interfaces can be inherited.
-                         A class that is marked as <a href="#static">static</a> or
-                        <a href="#sealed">sealed</a> can't be inherited.</p>
+                    <p>Events can only be invoked from within the type they are declared so to <a href="#Raising_base_class_events_in_a_derived_class">raise a base type
+                        event from a derived type</a> a common pattern is to declare a method in the base type that can be called from the derived type to invoke the
+                        event. The availability of all other members in a derived type is dependent on the <a href="#Scope_and_Modifiers">accessibility</a> of a member in
+                        the base type. Where members in both a base and derived type have the same identifier, where neither are marked as either virtual or override and
+                        where the member in the base type has an accessibility modifier other than private, the the derived member will hide the base member. The two
+                        members don't have to be of the same type or have the same <a href="#Signatures,_parameters_and_overloading">signature</a>. For example a property
+                        in a base type can be hidden by a method. Access to a hidden member can still be obtained through use of the <a href="#base_keyword">base</a>
+                        keyword. When a member is hidden the code editor will indicate this on the hiding member in the derived type with a
+                        <u class="warning">warning</u>. This can be removed by marking the member with the <code>new</code> keyword. A class that is marked as
+                        <a href="#static">static</a> or <a href="#sealed">sealed</a> can't be inherited.</p>
                     <p>The following example demonstrates the syntax for inheriting a class. First base class <code>A</code> is declared as normal. Derived Class
                         <code>B</code> is then declared followed by a colon, then the name of the class to be inherited, followed by the code block for class
                         <code>B</code>.</p>
@@ -4247,8 +4242,6 @@ namespace InheritanceExample
 // The cat has 4 legs and is meowing Loudly
 </code></pre>
                     <!-- !SECTION Inheriting types -->
-
-                    <!-- TODO add derived class event example -->
                     <!-- TODO change to refer to types and that only applicable to classes and records -->
                     <!-- SECTION Raising base class events in a derived class -->
                     <h3 id="Raising_base_class_events_in_a_derived_class">Raising base class events in a derived class</h3>
@@ -4258,16 +4251,69 @@ namespace InheritanceExample
                     <p>CodeExample</p>
 <pre><code>using System;
 
-namespace Namespace
+namespace CallingBaseClassEvents
 {
+    public class BaseClass
+    {
+        // An event to raise when the program is closing.
+        public event EventHandler ProgramClosing;
+
+        // A method to call to invoke the ProgramClosing event.
+        protected virtual void OnProgramClosing(EventArgs e)
+        {
+            // Raise the ProgramClosing event.
+            ProgramClosing.Invoke(this, e);
+        }
+    }
+
+    public class ProgramManager : BaseClass
+    {
+        protected override void OnProgramClosing(EventArgs e)
+        {
+            // Do any program closing processing here.
+
+            // Call the OnProgramClosing method in the base class.
+            base.OnProgramClosing(e);
+
+            // Do any program closed processing here.
+        }
+
+        // The method to call to close the program.
+        public void CloseProgram()
+        {
+            OnProgramClosing(EventArgs.Empty);
+        }
+    }
+
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
+            ProgramManager programManager = new();
 
+            // Subscribe to the ProgramManager.ProgramClosing event and
+            // declare an event handler using a lambda expression.
+            programManager.ProgramClosing += (s, e) =&gt;
+            {
+                Console.WriteLine("The program is exiting");
+            };
+
+            Console.WriteLine("Press return to exit the program");
+
+            // Wait until the user presses the 'enter' key.
+            while (Console.ReadKey(true).Key != ConsoleKey.Enter) { }
+
+            programManager.CloseProgram();
+
+            Console.WriteLine("The program has exited");
         }
     }
 }
+
+// The example writes the following to the console
+// Press return to exit the program
+// The program is exiting
+// The program has exited
 </code></pre>
                     <!-- !SECTION Raising base class events in a derived class -->
                     <!-- SECTION Polymorphism implementation -->
@@ -4661,7 +4707,7 @@ namespace Interface
                     <h3 id="Anonymous_methods">Anonymous methods</h3>
                     <p>Whilst anonymous methods have largely been replace by lambda expressions, they remain in the C# language for backwards compatibility so are
                         presented here for reference. As with a <a href="#delegate">named method</a> a delegate is first declared with the required return type and
-                        <a href="Parameters,_signatures_and_overloading">signature</a>. The delegate instance is then declared and assigned an anonymous method by using
+                        <a href="Signatures,_parameters_and_overloading">signature</a>. The delegate instance is then declared and assigned an anonymous method by using
                         the <code>delegate</code> keyword, followed by the same signature as the delegate, followed by a code block.</p>
                     <p>The following example demonstrates anonymous method declaration and use.</p>
 <pre><code>using System;
@@ -4693,7 +4739,7 @@ namespace AnonymousMethods
                     <!-- SECTION Lambda expressions -->
                     <h3 id="Lambda_Expression">Lambda expressions</h3>
                     <p>Lambda expressions allow for a more concise in-line syntax than anonymous methods. As with a <a href="#delegate">named method</a> a delegate is
-                        first declared with the required <a href="Parameters,_signatures_and_overloading">signature</a>. The delegate instance is then
+                        first declared with the required <a href="Signatures,_parameters_and_overloading">signature</a>. The delegate instance is then
                         declared and assigned an anonymous method by using a pair of brackets containing the same signature as the delegate, followed by the lambda
                         operator <code>=&gt;</code>, followed by the lambda body. In most cases both the parameter types and the return type are inferred by the compiler.
                         This means that declaration of parameter types is usually not required but can be included if needed. In any case,
@@ -4774,7 +4820,7 @@ namespace LambdaExpressions
                         <a href="#delegate">named method</a>. An <code>Action</code> or <code>Func</code> can also be passed as a parameter to a method or another
                         <code>Action</code> or <code>Func</code>. The <code>Action </code> syntax is <code>Action&lt;in T1, ... in T16t&gt;</code> and the
                         <code>Func</code> syntax is <code>Func&lt;in T1, ... in T16, out TResult&gt;</code>. Both provide
-                        <a href="#Parameters,_signatures_and_overloading">overloads</a> for up to 16 input parameters of any type with <code>Func</code> allowing for one
+                        <a href="#Signatures,_parameters_and_overloading">overloads</a> for up to 16 input parameters of any type with <code>Func</code> allowing for one
                         return value of any type and both can be assigned a body in the form of either an <a href="#Anonymous_methods">anonymous method</a> or a
                         <a href="#Lambda_Expression">lambda expression</a>.</p>
                     <p>The following example demonstrates both <code>Func</code> and <code>Action</code> declaration and use.</p>
@@ -5706,7 +5752,6 @@ namespace Scope
 // Method2 field2 = New value
 </code></pre>
                     <!-- !SECTION Scope -->
-<!-- TODO complete which members modifiers apply to -->
                     <!-- SECTION Modifiers -->
                     <h3 id="Modifiers">Modifiers</h3>
                     <p>Modifiers are used to change the behavior of a types and members. Access modifiers are grouped into their own category.</p>
@@ -5717,14 +5762,15 @@ namespace Scope
                         <li><a href="#const">const</a> - fields, local variables</li>
                         <li><a href="#extern">extern</a> - methods, constructors, properties, events, indexers, finalizers </li>
                         <li><a href="#in">in</a> - parameters, generics</li>
-                        <li><a href="#new">new</a> - </li>
+                        <li><a href="#new">new</a> - methods, fields, properties, events, indexers, nested types</li>
                         <li><a href="#out">out</a> - parameters, generics </li>
                         <li><a href="#override">override</a> - methods, properties, events, indexers</li>
                         <li><a href="#partial">partial</a> - classes, structures, interfaces, methods</li>
                         <li><a href="#readonly">readonly</a> - fields</li>
                         <li><a href="#sealed">sealed</a> classes, records, methods, properties, events, indexers</li>
                         <li><a href="#static">static</a> - classes, methods, constructors, fields, properties, events</li>
-                        <li><a href="#unsafe">unsafe</a> - </li>
+                        <li><a href="#unsafe">unsafe</a> - class, struct, record, delegate, interface, method, constructor, field, property, indexer, event, operator,
+                            finalizer</li>
                         <li><a href="#virtual">virtual</a> -  methods, properties, events, indexers</li>
                         <li><a href="#volatile">volatile</a> - fields</li>
                     </ul>
@@ -5874,7 +5920,7 @@ namespace Extern
                     <!-- SECTION in -->
                     <h3 id="in">in</h3>
                     <p>When used with a parameter the <code>in</code> modifier keyword allows an argument to be passed by reference to a method but prevents it from being
-                        modified, please see <a href="#Parameters,_signatures_and_overloading">Parameters, signatures and overloading</a>. Use of the <code>in</code>
+                        modified, please see <a href="#Signatures,_parameters_and_overloading">Signatures parameters and overloading</a>. Use of the <code>in</code>
                         modifier with generics is outside the scope of this guide. For more information, please see the <a href="#References">Microsoft C# reference
                         documentation</a></p>
                     <!-- !SECTION in -->
@@ -5882,12 +5928,12 @@ namespace Extern
                     <h3 id="new">new</h3>
                     <p>Where members in both a base and derived type have the same identifier under certain conditions the derived member may hide the base member
                         resulting in a waring from the compiler. Marking the member in the derived type with the <code>new</code> modifier keyword suppresses the warning,
-                        please see <a href="#Inheriting_types">inheriting types</a></p>
+                        please see <a href="#Inheriting_types">Inheriting types</a></p>
                     <!-- !SECTION new -->
                     <!-- SECTION out -->
                     <h3 id="out">out</h3>
                     <p>When used with a parameter the <code>out</code> modifier keyword allows an argument to be passed by reference back to the calling statement,
-                        please see <a href="#Parameters,_signatures_and_overloading">Parameters, signatures and overloading</a>. Use of the <code>out</code> modifier with
+                        please see <a href="#Signatures,_parameters_and_overloading">Signatures parameters and overloading</a>. Use of the <code>out</code> modifier with
                         generics is outside the scope of this guide. For more information, please see the <a href="#References">Microsoft C# reference documentation</a>
                     </p>
                     <!-- !SECTION out -->
@@ -5995,7 +6041,7 @@ namespace OverridingVirtualMembers
                     <p>Additionally, within a partial type, a method can also be marked as
                         <code>partial</code> in which case the declaration of the method is placed in one file and the implementation in another, provided that both the
                         declaration and the implementation both start with the <code>partial</code> keyword and both have the same
-                        <a href="#Parameters,_signatures_and_overloading">signature</a>. A common use for a partial method is a class designer that automatically declares
+                        <a href="#Signatures,_parameters_and_overloading">signature</a>. A common use for a partial method is a class designer that automatically declares
                         methods that the developer can then decide whether or not to implement. A partial method's implementation is optional provided it does not have an
                         <a href="#Access_modifiers">access modifier</a>, it returns <code>void</code>, it does not have any <a href="#out">out</a> parameters and it does
                         not have the <a href="#extern">extern</a>, <a href="#new">new</a>, <a href="#override">override</a>, <a href="#sealed">sealed</a> or
@@ -6339,18 +6385,16 @@ namespace StaticExample
                     <p>The <code>volatile</code> modifier is outside the scope of this guide. For more information, please see the
                         <a href="#References">Microsoft C# reference documentation</a></p>
                     <!-- !SECTION volatile -->
-<!-- TODO using private with collections -->
-<!-- TODO Add filenames to code example -->
-<!-- TODO add info about private field accessibility -->
                     <!-- SECTION Access modifiers -->
                     <h3 id="Access_modifiers">Access modifiers</h3>
-                    <p> Accessibility level declares where a type or type's members can be used by other code within your assembly or other assemblies. Each type or
+                    <p> Accessibility level declares where a type or type's members can be used by other code within an assembly or other assemblies that reference it.
+                        Each type or
                         member has a default access level which, depending on the context, can be changed either by the access level of the container or by the use of an
                         access modifier keyword. A local variable's accessibility is always restricted to the <a href="#Scope">scope</a> in which it is contained and
                         cannot be modified.
                         Except for <code>protected internal</code> and <code>private protected</code> only one access modifier keyword can be applied to a type or a
-                        member. For information about accessibility of the accessors for a property or indexer see <a href="#class">class</a>. Following is the list of
-                        access modifier keywords and the access level provided by them.</p>
+                        member. For information about accessibility of the accessors for properties see <a href="#Properties">Properties</a> and for indexers see
+                        <a href="#Indexers">Indexers</a>. Following is the list of access modifier keywords and the access level provided by them.</p>
                     <ul>
                         <li><i>public</i> - the same assembly or another assembly that references it</li>
                         <li><i>protected internal</i> - the same assembly or in a derived class in another assembly</li>
@@ -6362,7 +6406,7 @@ namespace StaticExample
                     <p>Types declared directly within a namespace (i.e. not nested), can only be declared public or internal where internal is the default level. The
                         following types can be be declared in a namespace <code>class</code>, <code>struct</code>, <code>interface</code>, <code>delegate</code>,
                         <code>record</code> and <code>enum</code>.</p>
-                    <p>The following list shows containing types, which access modifiers can be applied to members and nested types and the default access levels.</p>
+                    <p>The following list shows containing types, which access modifiers can be applied to members and nested types, and the default access levels.</p>
                     <ul>
                         <li><i>class or record</i> - <code>public</code>, <code>protected internal</code>, <code>protected</code>,
                             <code>internal</code>, <code>private protected</code>, <code>private(default)</code></li>
@@ -6370,13 +6414,18 @@ namespace StaticExample
                             <code>internal</code>, <code>private protected</code>, <code>private</code>*</li>
                         <li><i>struct</i> - <code>public</code>, <code>internal</code>, <code>private(default)</code></li>
                     </ul>
-                    <p>Enum members do not have any declared accessibility. An enum member's accessibility  is determined by the accessibility of the enum type container
-                        and access modifiers cannot be applied to them.</p>
-                    <p>The following example demonstrates various accessibility scenarios. It contains two projects. The first is a class library library called
-                        ClassLibrary that has one file with several classes within the namespace <code>ClassLibrary</code>. The second is an executable called
-                        AccessModifiers that has a reference to ClassLibrary and one file with several classes within the namespace <code>AccessModifiers</code>.</p>
-<pre><code>// This code is in a class library
-// project called ClassLibrary
+                    <p>* A member in an interface that is marked <code>private</code> must have a default implementation.</p>
+                    <p>Enum members do not have any declared accessibility and access modifiers cannot be applied to them. An enum member's accessibility  is determined
+                        by the accessibility of the enum container type.</p>
+                    <p>Even though not required, for code readability and to avoid errors, it is advisable to apply default level access modifiers to types and members.
+                    </p>
+                    <p>The following example demonstrates various accessibility scenarios. It contains two projects. The first is a class library called
+                        <i>ClassLibrary</i> that has one file called <i>PublicBase.cs</i> with several classes within the namespace <code>ClassLibrary</code>. The second
+                        is an executable called <i>AccessModifiers</i> that has a reference to ClassLibrary and one file called <i>Program.cs</i> with several classes
+                        within the namespace <code>AccessModifiers</code>.</p>
+<pre><code>// PublicBase.cs
+// A class library referenced by Program.cs
+
 namespace ClassLibrary
 {
     public class PublicBase
@@ -6396,8 +6445,9 @@ namespace ClassLibrary
 
 // ---------------------------------------------------------------------------------------------------
 
-// This code is in a project called
-// AccessModifiers that references ClassLibrary
+// Program.cs
+// The main file of the program
+
 using System;
 
 namespace AccessModifiers
