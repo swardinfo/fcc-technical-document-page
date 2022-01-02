@@ -39,7 +39,7 @@
                 <li><a class="nav-link" href="#Decision_Making_Statements">Decision Making Statements</a></li>
                 <li><a class="nav-link" href="#Iteration_Statements">Iteration Statements</a></li>
                 <li><a class="nav-link" href="#Arrays_and_Data_Structures">Arrays and Data Structures</a></li>
-                <li><a class="nav-link" href="#Enumerators">Enumerators</a></li>
+                <li><a class="nav-link" href="#Enumerators_and_tuples">Enumerators and tuples</a></li>
                 <li><a class="nav-link" href="#Classes_and_Other_User_Defined_Types">Classes and Other User Defined Types</a></li>
                 <li><a class="nav-link" href="#Anonymous_functions">Anonymous functions</a></li>
                 <li><a class="nav-link" href="#Dependencies_and_Namespaces">Dependencies and Namespaces</a></li>
@@ -233,99 +233,103 @@ namespace HelloWorld
                     <p>For someone with no experience in C#, reading a list of rules and specifications is likely to lead to more confusion than understanding, so the
                         best way forward is to dive into some examples and see what's going on.</p>
                     <p>The following example illustrates both valid and invalid syntax</p>
-<pre><code>// This is a comment
+<pre><code>// This is a comment.
 
-// using directive
+// using directive.
 using System;
 
-// namespace declaration
-namespace MyProgram
+// namespace declaration.
+namespace CodeSyntax
 {
     // class declaration
     public class MyClass
     {
-        // Constructor declaration with empty code block
-        MyClass() {  }
+        // Constructor declaration with empty code block.
+        MyClass() { }
 
-        // Method declaration
+        // Method declaration.
         static void Main(string[] args)
         {
-            // Single statement
+            // Single statement.
             Console.WriteLine("Hello World!");
 
-            // Single statements, declaring and assigning variables
+            // Single statements, declaring and assigning variables.
             int k;
             k = 0;
             int j = 0;
+            bool a = true;
 
-            // while statement with code block
+            // while statement with code block.
             while (true)
             {
                 k = 1;
                 break;
-                // Unreachable code
+                // Unreachable code.
                 j = 2;
             }
 
-            // These two 'if' statements are equivalent
+            // These two 'if' statements are equivalent.
             if (a)
             {
-                x = 1;
+                k = 1;
             }
 
             if (a)
-                x = 1; // Embedded statement
+                k = 1; // Embedded statement.
 
-            // The following results in the error
-
-            if (a)
-                <u class="error">var y = 1;</u> // Invalid, embedded statement cannot be a declaration
-
-            // The  Console.WriteLine("Hello World!"); from above rearranged
+            // The  Console.WriteLine("Hello World!"); from above rearranged.
+            // Whilst this is a  valid statement human readability is poor.
             Console
                 .
                     WriteLine
 
                 ("Hello World")
-                                ;  // The semicolon here determines the end of the statement
+                                ;  // The semicolon here determines the end of the statement.
 
-            // Invalid statement, can't put space in keyword
-            <u class="error">Con</u> <u class="error">sole</u>.WriteLine ("Hello World") ;
-
-            // Invalid statement, can't put line break in keyword
-            <u class="error">Con</u>
-                <u class="error">sole</u>.WriteLine ("Hello World") ;
-
-            // Invalid string statement, can't put line break in regular string
-            Console.WriteLine("<u class="error">Hello</u>
-                                <u class="error">World!</u>");
-
-            // OK string statement, can put line break in verbatim string
+            // OK string statement, can put line break in verbatim string.
+            //
             Console.WriteLine(@"Hello
 World!");
-            // This produces
+
+            // This produces.
             // Hello
             // World
 
             // Creating or instantiating an object
-            // using a constructor
+            // using a constructor.
             AnotherClass class1 = new();
 
             // Creating or instantiating an object
             // using a constructor and assign a value
-            // to Property in an object initializer
+            // to Property in an object initializer.
             AnotherClass class2 = new()
             {
-                Property = 1;
-            }
-        }
+                Property = 1
+            };
 
-        // Declare a nested class within MyClass
-        public class AnotherClass
-        {
-            // Declare a property
-            public int Property { get; set; }
+            // The following results in the error.
+
+            if (a)
+                var y = 1; // Invalid, embedded statement cannot be a declaration.
+
+            // Invalid statement, can't put space in keyword.
+            Con sole.WriteLine("Hello World");
+
+            // Invalid statement, can't put line break in keyword.
+            Con
+                sole.WriteLine("Hello World");
+
+            // Invalid string statement, can't put line break in regular string.
+            Console.WriteLine("Hello
+                                World!");
         }
+    }
+
+    // Declare a nested class within MyClass.
+    public class AnotherClass
+    {
+        // Declare a property.
+        public int Property { get; set; }
     }
 }
 </code></pre>
@@ -335,8 +339,8 @@ World!");
                         a reserved word called a <i>keyword</i> in C#. <a href="#Keywords_and_Specifications">Keywords</a> are directly used by the compiler as
                         instructions. The next word <code>System</code> is an <i>identifier</i>. Identifiers are used to name types such as
                         <a href="#Classes_and_Other_User_Defined_Types">classes, interfaces, structs, records,</a>
-                        <a href="#Anonymous_functions">delegates,</a> <a href="#Enumerators">enums</a> and their
-                        <a href="#Classes_and_Other_User_Defined_Types">members</a> and <a href="#Variables,_Constants,_Types_and_Literals">variables,</a> or
+                        <a href="#Anonymous_functions">delegates,</a> <a href="#Enumerators">enums</a>, <a href="#tuple">tuples</a> and their
+                        <a href="#Classes_and_Other_User_Defined_Types">members</a>, and <a href="#Variables,_Constants,_Types_and_Literals">variables</a> or
                         <a href="#Namespaces">namespaces</a>.</p>
 
                     <p>The rules for identifiers are</p>
@@ -351,6 +355,10 @@ World!");
                     </ul>
                     <p>By being case sensitive it is valid for two identifiers to differ by case only, e.g. <code><b>n</b>ame</code> and <code><b>N</b>ame</code> are two
                         different identifiers.</p>
+                    <p>There may also be situations where using a specific identifier may result in a <i>naming conflict</i> with an identifier in built-in types. In
+                        particular all types, even those you define yourself, are provided by .NET with a number of standard <a href="Members">members</a>. Unless these
+                        are specifically being overridden the identifiers, <code>Equals</code>, <code>GetHashCode</code>, <code>GetType</code> and <code>ToString</code>
+                        should be avoided. </p>
                     <p>More recently C# has introduced the discard variable which is used when the output of an expression is not required. This is an advanced subject
                         that won't be discussed in this guide but is mentioned here for completeness. The identifier for the discard variable is the <code>_</code>
                         character by itself. Unlike other variables, multiple discard variable identifiers can be declared within the same scope.</p>
@@ -371,8 +379,8 @@ World!");
                     </ul>
                     <p><code>Console.WriteLine("Hello World!");</code> , a single line statement, is the first in the <code>public void MyMethod()</code> code block. In
                         this context, the dot <code>.</code> between <code>Console</code> and <code>WriteLine ("Hello World")</code> is called the Member access operator.
-                        It allows access to a <a href="">member</a>, here a method called <code>WriteLine</code> in a class called <code>Console</code>. The round brackets
-                        <code>( )</code> allow parameters to be passed into the method, here the <a href="#Characters_and_Strings">string</a> literal
+                        It allows access to a <a href="">member</a>, here a method called <code>WriteLine</code> in a class called <code>Console</code>. The round
+                        brackets <code>( )</code> allow parameters to be passed into the method, here the <a href="#Characters_and_Strings">string</a> literal
                         <code>"Hello World!"</code>. All single line statements must end with a semicolon <code>;</code> . Following are three further examples of single
                         line statements showing how <a href="#Variables,_Constants,_Types_and_Literals">variables</a> can be declared and assigned.</p>
                     <p> The <code>while (true)</code> statement also called a <a href="#while_statement">while</a> loop, together with the braces and enclosed code form a
@@ -396,7 +404,7 @@ World!");
             </section>
             <!-- !SECTION Code Syntax -->
             <!-- SECTION Comments and Task Lists - Section -->
-            <!-- NOTE Ignore TODO in this section -->
+            <!-- NOTE Ignore all TODO in this section -->
             <section class="main-section" id="Comments_and_Task_Lists">
                 <header><h2>Comments and Task Lists</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
@@ -633,8 +641,11 @@ namespace MultipleCatchBlocks
                     <!-- SECTION Reference type -->
                     <h3 id="Reference_type">Reference type</h3>
                     <p>Providing it is of the same type a reference type can be changed to refer to a different location in memory and its size in memory can change. A
-                        reference type can only refer to one location at a time but two reference type variables can refer to the same location. The result is that changing
-                        the contents of one will affect the contents of the other.</p>
+                        reference type can only refer to one location at a time but two reference type variables can refer to the same location. The result is that
+                        changing the contents of one will affect the contents of the other.</p>
+                    <p>Another important distinction is equality when comparing two variables of the same type. In most cases if the two are value types then they will be
+                        equal if the values they contain are the same whereas two reference types will be the same if they both refer to the same location in memory. A
+                        notable exception is the <a href="#record">record</a> which is a reference type with value type equality.</p>
                     <p><em>Note:</em><i> Various type <a href="#Classes_and_Other_User_Defined_Types">members</a> allow the
                         <a href="#Signatures,_parameters_and_overloading">passing in</a> of a variable as an argument. When this occurs, what can happen to the variable
                         depends on whether it is a value or reference type and whether any keywords are present to change this behavior</i></p>
@@ -1205,10 +1216,10 @@ namespace StringBuilderExample
 <pre><code>int i = 1 + 2;
 </code></pre>
                     <p>Following is a list of expressions that demonstrates the result of the operators. The examples are shown in order of arithmetic precedence.
-                        Parentheses <code>( )</code> can be used to change the order.</p>
+                        Round brackets <code>( )</code> can be used to change the order.</p>
                     <!-- !SECTION Expression example -->
                     <!-- SECTION Assignment operator -->
-                    <h3 id="Assignment_operator">Assignment operator</h3>
+                    <h3 id="Assignment_operator">Assignment operator <code>=</code></h3>
                     <p>Assigns a value to a variable</p>
 <pre><code>using System;
 
@@ -1543,7 +1554,7 @@ namespace CompoundAssignmentOperators
 </code></pre>
                     <!-- !SECTION Compound assignment operators -->
                     <!-- SECTION Conditional operator -->
-                    <h3 id="Conditional_operator">Conditional operator ?:</h3>
+                    <h3 id="Conditional_operator">Conditional operator <code>?:</code></h3>
                     <p>The conditional operator <code>?:</code>, also known as the ternary conditional operator takes the form <code>x = predicate ? a : b</code>. If the
                         predicate is true then the expression returns <code>a</code> else it returns <code>b</code>. Both <code>a</code> and <code>b</code> must be of the
                         same type. The conditional operator can also be used as a shorthand way to replace combined <code>if</code> and <code>else</code> statements.
@@ -1573,7 +1584,7 @@ namespace ConditionalOperator
 </code></pre>
                     <!-- !SECTION Conditional operator -->
                     <!-- SECTION Conditional and operator -->
-                    <h3 id="Conditional_and_operator">Conditional 'and' operator &&</h3>
+                    <h3 id="Conditional_and_operator">Conditional 'and' operator <code>&&</code></h3>
                     <p>In the expression <code>x = a && b</code> <code>x</code> is true if both <code>a</code> and <code>b</code> are true otherwise <code>x</code> is
                         false. If <code>a</code> is false <code>b</code> is not evaluated. This is useful in a situation where, if <code>a</code> is false evaluating
                         <code>b</code> would produce an invalid condition that could result in an exception.</p>
@@ -1612,7 +1623,7 @@ namespace ConditionalAndOperator
 </code></pre>
                     <!-- !SECTION Conditional and operator -->
                     <!-- SECTION Conditional or operator -->
-                    <h3 id="Conditional_or_operator">Conditional 'or' operator ||</h3>
+                    <h3 id="Conditional_or_operator">Conditional 'or' operator <code>||</code></h3>
                     <p>In the expression <code>x = a || b</code>, <code>x</code> is true if either <code>a</code> or <code>b</code> are true otherwise <code>x</code> is
                         false. If <code>a</code> is true <code>b</code> is not evaluated. This is useful in a situation where, if <code>a</code> is true evaluating
                         <code>b</code> would produce an invalid condition that could result in an exception.</p>
@@ -1651,7 +1662,7 @@ namespace ConditionalOrOperator
 </code></pre>
                     <!-- !SECTION Conditional or operator -->
                     <!-- SECTION The null-coalescing operator -->
-                    <h3 id="The_null-coalescing_operator">The null-coalescing operator ??</h3>
+                    <h3 id="The_null-coalescing_operator">The null-coalescing operator <code>??</code></h3>
                     <p>The null-coalescing operator <code>??</code> returns the left-hand operand if it not null otherwise it evaluates the right-hand expression and
                         returns the result</p>
 <pre><code>using System;
@@ -1679,7 +1690,7 @@ namespace NullCoalescingOperator
 </code></pre>
                     <!-- !SECTION The null-coalescing operator -->
                     <!-- SECTION The null-coalescing assignment operator -->
-                    <h3 id="The_null-coalescing_assignment_operator">The null-coalescing assignment operator ??=</h3>
+                    <h3 id="The_null-coalescing_assignment_operator">The null-coalescing assignment operator <code>??=</code></h3>
                     <p>The null-coalescing assignment operator <code>??=</code> evaluates and assigns the-right hand expression to the left-hand variable only if the
                         variable is null</p>
 <pre><code>using System;
@@ -1707,7 +1718,7 @@ namespace NullCoalescingAssignmentOperator
 </code></pre>
                     <!-- !SECTION The null-coalescing assignment operator -->
                     <!-- SECTION The Lambda and expression body definition operator -->
-                    <h3 id="The_lambda_and_expression-body_definition_operator">The lambda and expression-body definition operator =&gt;</h3>
+                    <h3 id="The_lambda_and_expression-body_definition_operator">The lambda and expression-body definition operator <code>=&gt;</code></h3>
                     <p>The <code>=&gt;</code> operator has two uses, as part of a <i>lambda expression</i> or an <i>expression-bodied member</i> definition.</p>
                     <p>A lambda expression is comprised of a set of input parameters on the left which are then passed into the body on the right which are separated
                         using the <code>=&gt;</code> operator. They are used to create <a href="#Anonymous_functions">anonymous functions</a>.</p>
@@ -2603,15 +2614,17 @@ namespace Dictionaries
                 </article>
             </section>
             <!-- !SECTION Arrays and Data Structures -->
-            <!-- SECTION Enumerators -->
-            <section class="main-section" id="Enumerators">
-                <header><h2>Enumerators</h2></header>
+            <!-- SECTION Enumerators and tuples -->
+            <section class="main-section" id="Enumerators_and_tuples">
+                <header><h2>Enumerators and tuples</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
-                    <p>The keyword <code>enum</code> is used to declare an enumerator which provides a list of named constants. The code editor allows you to use these
+                    <!-- SECTION Enumerators -->
+                    <h3 id="Enumerators">Enumerators</h3>
+                    <p>The <code>enum</code> keyword is used to declare an enumerator which provides a list of named constants. The code editor allows you to use these
                         names to assign the underlying constant values to variables. You can declare the type and value of each constant or allow the editor to declare
                         them for you. The default type for the value is an integer and the list is zero based. A value in an enum is accessed through the enums
-                        identifier, followed by a period, followed by the the name of one of the constants.</p>
+                        identifier, followed by a period, followed by the the name of one of the constants. An enum is a value type.</p>
                     <p>The following example demonstrates enumerator declaration and use.</p>
 <pre><code>using System;
 
@@ -2645,14 +2658,189 @@ namespace Enumerators
 // Day is Tue, value is 2, Type is Day, underlying type is System.Int32
 // Month is Nov, value is 10, Type is Month, underlying type is System.Int64
 </code></pre>
+                    <!-- !SECTION Enumerators -->
+                    <!-- SECTION tuple -->
+                    <h3 id="tuple">tuple</h3>
+                    <p>A <code>ValueTuple</code> type, commonly called a <i>tuple</i>, is a mutable value type that provides a concise syntax for creating a structure
+                        that groups multiple different types together. It does this by creating a <a href="#Access_modifiers">public</a> <a href="#Fields">field</a>
+                        element for each type.</p>
+                    <p>The tuple syntax is in the from of a set of round brackets containing a comma separated list of at least two <i>elements</i>, with optional
+                        identifiers. The compiler provides each element with a default identifier in the form <code>Itemn</code> where n is the position of the element in
+                        the list. Optional identifiers are in addition to default identifiers such that an element of a tuple called <code>t</code> can be accessed in the
+                        form of either <code>t.Itemn</code> or <code>t.OptionalName</code>. An element can't be optionally named  with a default identifier that is
+                        normally used for another element, i.e. naming the the first element <code>Item2</code> results in a syntax error. Additionally, tuples contain a
+                        number of <a href="#Members">members</a> and the use of their identifiers will also result in an error. By convention, as the elements are public,
+                        they are normally named using <i>PascalCase</i>. Elements can also be assigned values when being declared. A common use for a tuple is the return
+                        type for a <a href="#Methods">method</a> where only a single type is allowed, as multiple types can be returned wrapped in the one
+                        <code>ValueTuple</code> type.</p>
+                    <p><em>Note:</em><i> If an optional identifier is provided IntelliSense won't provide an option for the default identifier but it can still be entered
+                        manually.</i></p>
+                    <p>There are a number of different ways to declare and assign values to a tuple as demonstrated in the following example.</p>
+<pre><code>using System;
+
+namespace TupleDeclaration
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Explicitly declare a tuple with
+            // 2 elements of type string and int.
+            (string, int) t1;
+
+            // Assign values to t1.
+            t1 = ("Some text", 1);
+            Console.WriteLine($"Item1: {t1.Item1}, Item2: {t1.Item2}");
+
+            // Implicitly declare a tuple with 2 elements of
+            // type string and int and assign values to it.
+            var t2 = ("My dog has fleas", true);
+            Console.WriteLine($"{t2.Item1}: {t2.Item2}");
+
+            // Explicitly declare a tuple with named elements and assign values to them
+            (string Name, int Age) person1 = ("Andrew", 21);
+            Console.WriteLine($"Person name: {person1.Name}, Age: {person1.Age}");
+
+            // The default element name can also be used
+            Console.WriteLine($"Person name: {person1.Item1}, Age: {person1.Item2}");
+
+            // Both names and values can be implicitly assigned in the definition
+            var vehicle = (Color: "Red", Wheels: 3);
+            Console.WriteLine($"Vehicle color: {vehicle.Color}, Wheels: {vehicle.Wheels}");
+
+            var windows = 6;
+            var doors = 2;
+
+            // The types, values and names can be inferred from existing variables.
+            var house = (windows, doors);
+            Console.WriteLine($"My house has {house.windows} windows and {house.doors} doors");
+
+            // A tuple can be assigned types and values from another provided that
+            // both tuples have the same number of elements and for each element
+            // the types are implicitly convertible. The names are not assigned.
+            (string A, double B) person2 = person1;
+            Console.WriteLine($"Person name: {person2.A}, Age: {person2.B}");
+        }
+    }
+}
+
+// The example writes the following to the console.
+// Item1: Some text, Item2: 1
+// My dog has fleas: True
+// Person name: Andrew, Age: 21
+// Person name: Andrew, Age: 21
+// Vehicle color: Red, Wheels: 3
+// My house has 6 windows and 2 doors
+// Person name: Andrew, Age: 21
+</code></pre>
+
+                    <p>Deconstruction allows the elements of a tuple to be separated into separate variables through use of the
+                        <a href="#Assignmet_operator">assignment operator</a> <code>=</code>.</p>
+
+<pre><code>using System;
+
+namespace TupleDeconstruction
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var person = ("Andrew", 21);
+
+            // Deconstruction makes available for use
+            // the individual elements of a tuple
+
+            // The vales of each element can be individually extracted.
+            // Note that the original element names are not available
+            var name1 = person.Item1;
+            var age1 = person.Item2;
+            Console.WriteLine($"Person name: {name1}, Age: {age1}");
+
+            // The types of each variable can be explicitly declared.
+            (string name2, int age2) = person;
+            Console.WriteLine($"Person name: {name2}, Age: {age2}");
+
+            // The types can be implicitly inferred using var.
+            var (name3, age3) = person;
+            Console.WriteLine($"Person name: {name3}, Age: {age3}");
+
+            // Individual elements can be implicitly inferred using var.
+            (string name4, var age4) = person;
+            Console.WriteLine($"Person name: {name4}, Age: {age4}");
+
+            var name5 = string.Empty;
+            var age5 = 0;
+
+            // Existing variables of the correct type can be used.
+            (name5, age5) = person;
+            Console.WriteLine($"Person name: {name5}, Age: {age5}");
+
+            // Discards can be used for elements that are not required
+            var (name6, _) = person;
+            Console.WriteLine($"Person name: {name6}");
+        }
+    }
+}
+
+// The example writes the following to the console
+// Person name: Andrew, Age: 21
+// Person name: Andrew, Age: 21
+// Person name: Andrew, Age: 21
+// Person name: Andrew, Age: 21
+// Person name: Andrew, Age: 21
+// Person name: Andrew
+</code></pre>
+                    <p><a href="#Equality_operators">Equality operators</a> can be used to compare two tuples provided that both tuples have the same number of elements
+                        and the type of each element in each corresponding position is the same.</p>
+<pre><code>using System;
+
+namespace TupleEquality
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            (string Name, int Age) person1 = ("Andrew", 21);
+
+            (string Name, int Age) person2 = ("Andrew", 21);
+            Console.WriteLine($"person1 == person2: {person1 == person2}");
+            Console.WriteLine($"person1 != person2: {person1 != person2}");
+
+            (string Name, int Age) person3 = ("John", 33);
+            Console.WriteLine($"person1 == person 3: {person1 == person3}");
+            Console.WriteLine($"person1 != person 3: {person1 != person3}");
+
+            (int id, string Name, int Age) person4 = (1, "Andrew", 21);
+            // Syntax error, the number of elements are different
+            //Console.WriteLine($"person1 == person4: {person1 == person4}");
+            //Console.WriteLine($"person1 == person4: {person1 != person4}");
+
+            (string Name, string Age) person5 = ("Andrew", "21");
+            // Syntax error, person1.Item2 is an int and person5.Item is a string
+            //Console.WriteLine($"person1 == person5: {person1 == person5}");
+            //Console.WriteLine($"person1 == person5: {person1 != person5}");
+        }
+    }
+}
+
+// The example writes the following to the console
+// person1 == person2: True
+// person1 != person2: False
+// person1 == person 3: False
+// person1 != person 3: True
+</code></pre>
+
+                    <!-- !SECTION tuple -->
                 </article>
             </section>
-            <!-- !SECTION Enumerators -->
+            <!-- !SECTION Enumerators and tuples -->
             <!-- SECTION Classes and Other User Defined Types -->
             <section class="main-section" id="Classes_and_Other_User_Defined_Types">
                 <header><h2>Classes and Other User Defined Types</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
+                    <!-- SECTION User defined types -->
+                    <h3 id="User_defined_types">User defined types</h3>
                     <p>C# is an <a href="#Object-oriented_Programming">Object-oriented programming language (OOP)</a> and objects can be created using types. A type is a
                         kind of template and when a program runs, objects, also called instances, can be created based on a type. This allows multiple instances to be
                         created each with their own state. Within a C# project, types can be combined with other resources such as media and text files, which are then
@@ -2664,8 +2852,7 @@ namespace Enumerators
                             assembly</li>
                         <li><a href="#struct">struct (structures)</a> are value types used to define simple data focused objects with little behavior
                         </li>
-                        <li><a href="#record">records</a> are reference types that can behave like a value type and are used mostly with data that once set doesn't
-                            change</li>
+                        <li><a href="#record">records</a> are reference types that can behave like a value type and are used mostly with immutable data</li>
                         <li><a href="#delegate">delegates</a> are a type used to represent a reference to a method that can be passed as an argument to another method
                         </li>
                         <li><a href="#interface">interfaces</a> can't be instantiated but instead are used to define behaviors that can be implemented by other types
@@ -2687,6 +2874,7 @@ namespace Enumerators
                         C# a parent type is called a base type and a child a derived type. Classes and records can be marked as <a href="#abstract">abstract</a> requiring
                         a derived class for instantiation or <a href="#sealed">sealed</a> to prevent inheritance. Use of the static, abstract and sealed keywords is
                         mutually exclusive. As well as inheritance a class, struct or record can implement an interface.</p>
+                    <!-- !SECTION User defined types -->
                     <!-- SECTION class -->
                     <h3 id="class">class</h3>
                     <p>A class within a namespace is declared by specifying an optional <a href="#Access_Modifiers">access modifier</a> keyword, followed by the
@@ -2935,8 +3123,8 @@ namespace ClassExample
                         static, followed by a period, followed by the member's identifier such as <code>object.Member</code> or <code>Type.Member</code> respectively. If
                         an object needs to access a static member of an object in another namespace then the fully qualified name is required in the form of
                         <code>Namespace.Type.Member</code>. This can be negated through the use of a <a href="#using">using</a> directive. Some members also
-                        require the passing in of arguments to parameters contained in brackets that follow the member identifier. Visual Studio's IntelliSense can assist
-                        you as it will display a suggestion box that lists the namespaces, types and members to choose from as you enter them.</p>
+                        require the passing in of arguments to parameters contained in round brackets that follow the member identifier. Visual Studio's IntelliSense can
+                        assist you as it will display a suggestion box that lists the namespaces, types and members to choose from as you enter them.</p>
                     <p>All members except fields, constant fields and events that have a single expression support implementation through the use of
                         <a href="#The_lambda_and_expression-body_definition_operator">expression-bodied members which makes for a much more concise code</a>.
                         Constructors, indexers and methods can be <a href="#Signatures,_parameters_and_overloading">overloaded</a>. That is a type can contain multiple
@@ -4045,6 +4233,12 @@ namespace Structs
 <!-- TODO add content about records -->
                     <!-- SECTION record -->
                     <h3 id="record">record</h3>
+                    <p>A <code>record</code> provides all the same functionality of a class with some notable differences. It is a
+                        <a href="#Reference_type">reference type</a> with <a href="#Value_type">value type</a> equality. Two record variables are equal if their
+                        definitions are identical and all field values are the same. A record also provides <i>positional syntax</i> for declaring immutable
+                        <a href="#Properties">properties</a> through the use of <i>positional parameters</i>. This results in the compiler automatically creating a
+                        <a href="#Access_modifiers">public</a> auto-implemented property with an <code>init</code> setter for each parameter and a constructor that sets
+                        the properties from the parameters. This allows for a much more concise syntax.  </p>
 
                     <!-- !SECTION record -->
 
@@ -4053,10 +4247,10 @@ namespace Structs
                     <p>A delegate allows you to create a reference to a method that can then be passed as a parameter. It does this by declaring the
                         <a href="Signatures,_parameters_and_overloading">signature</a> of the method which in this case includes the return type. It is declared using an
                         optional <a href="#Access_modifiers">access modifier</a>, followed by the <code>delegate</code> keyword, then the <i>return type</i>, then an
-                        identifier that is unique within the <a href="#Dependencies_and_Namespaces">namespace</a>, followed by a pair of brackets that can optionally
-                        contain <a href="#Signatures,_parameters_and_overloading">parameters</a>. Delegates are created using the delegate's identifier, followed by an
-                        identifier unique within the local scope and then assigning it a named method which can be either an instance or static. This can then be
-                        used to invoke the method as if it was called directly. The <code>delegate</code> keyword can also be used as an operator to create
+                        identifier that is unique within the <a href="#Dependencies_and_Namespaces">namespace</a>, followed by a pair of round brackets that can
+                        optionally contain <a href="#Signatures,_parameters_and_overloading">parameters</a>. Delegates are created using the delegate's identifier,
+                        followed by an identifier unique within the local scope and then assigning it a named method which can be either an instance or static. This can
+                        then be used to invoke the method as if it was called directly. The <code>delegate</code> keyword can also be used as an operator to create
                         <a href="#Anonymous_functions">anonymous methods</a> that don't require the declaration of a named method for assignment.</p>
                     <p>A common use for delegates is in <a href="#Events">events</a> in which a method known as an <i>event handler</i> is invoked by a special kind of
                         multicast delegate that is declared by the event.</p>
@@ -4740,10 +4934,10 @@ namespace AnonymousMethods
                     <h3 id="Lambda_Expression">Lambda expressions</h3>
                     <p>Lambda expressions allow for a more concise in-line syntax than anonymous methods. As with a <a href="#delegate">named method</a> a delegate is
                         first declared with the required <a href="Signatures,_parameters_and_overloading">signature</a>. The delegate instance is then
-                        declared and assigned an anonymous method by using a pair of brackets containing the same signature as the delegate, followed by the lambda
+                        declared and assigned an anonymous method by using a pair of round brackets containing the same signature as the delegate, followed by the lambda
                         operator <code>=&gt;</code>, followed by the lambda body. In most cases both the parameter types and the return type are inferred by the compiler.
                         This means that declaration of parameter types is usually not required but can be included if needed. In any case,
-                        inclusion can assist with human readability of the code. Where only one parameter without a type declaration exists, the brackets become
+                        inclusion can assist with human readability of the code. Where only one parameter without a type declaration exists, the round brackets become
                         optional. The body can be in two forms, an <i>expression lambda</i> which can consist of an expression or a method call and a
                         <i>statement lambda</i> which consists of a statement block which can contain multiple statements.</p>
                     <p>The following example demonstrates various lambda expression declarations and use.</p>
