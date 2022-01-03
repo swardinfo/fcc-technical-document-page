@@ -4087,7 +4087,6 @@ namespace Indexers
                         class that is created. As implementing a finalizer is a rare and complex subject it won't be discussed in this guide.</p>
                     <p><em>Note:</em><i>In earlier versions of the C# standard a 'finalizer' was called a 'destructor'.</i></p>
                     <!-- !SECTION Finalizers -->
-<!-- TODO finish signatures info and add example  -->
                     <!-- SECTION Parameters, signatures and overloading -->
                     <h3 id="Parameters,_signatures_and_overloading">Parameters, signatures and overloading</h3>
                     <p>A <a href="#class">class</a>, <a href="#struct">struct</a>, <a href="#record">record</a> or <a href="#interface">interface</a>, may contain
@@ -4284,17 +4283,114 @@ namespace Parameters
 // 0 divided by 3 = 0
 </code></pre>
                     <!-- !SECTION Parameters -->
+                    <!-- SECTION Signatures -->
+                    <h4 id="Signatures">Signatures</h4>
+                    <p>Multiple overloads of a member with the same name can exist within a type, provided that each has a unique signature defined by the combination of
+                        certain elements in its declaration. These are as follows.</p>
+                    <ul>
+                        <li><a href="#Methods">Method</a> - method name, number, type and order of parameters, parameter passing mode(ref, value, in, out)</li>
+                        <li><a href="#Methods">Instance constructor</a> - number, type and order of parameters, parameter passing mode(ref, value, in, out)</li>
+                        <li><a href="#Methods">Indexer</a> - number, type and order of parameters</li>
+                        <li><a href="#Methods">Operator</a> - operator name, number, type and order of parameters</li>
+                    </ul>
+                    <p>Only one of <code>ref</code>, <code>in</code> or <code>out</code> modifiers can be used together with a parameter of the same name that has no
+                        modifier.</p>
+                    <p>Notably the signature does not include the parameter's name, the use of the <code>params</code> or <code>this</code> keywords, or whether it is
+                        optional. It also does not include the <a href="#access_modifiers">accessibility</a> of the member. A method's return type is not part of its
+                        signature in the context of overloading but is in the context of use in <a href="#delegate">delegate</a>, in which case the method's return type
+                        and signature must match that of the delegate.</p>
+                    <!-- !SECTION Signatures -->
+                    <!-- SECTION Overloading -->
+                    <h3 id="Overloading">Overloading</h3>
+                    <p>Overloading allows multiple versions of a member with the same name but unique signatures to exist within the same type. You can then choose which
+                        overload to call both internally or externally to the type.
+                    </p>
+                    <p>The following example demonstrates overloading of a method</p>
+<pre><code>using System;
 
+namespace OverloadingMethods
+{
+    public class Person
+    {
+        // GetDetails has four valid overloads.
 
+        // Signature is the name GetDetails and
+        // the single string type parameter.
+        public string GetDetails(string firstName) => firstName;
 
+        // Syntax error, parameter differs only by name to last example.
+        //public string GetDetails(string lastName) => lastName;
+
+        // An overload of GetDetails with two string parameters.
+        public string GetDetails(string firstName, string lastName) => $"{firstName} {lastName}";
+
+        // An overload of GetDetails with a single double parameter.
+        public double GetDetails(double salary) => salary;
+
+        // An overload of GetDetails with a single int parameter.
+        public double GetDetails(int salary) => salary;
+
+        // Syntax error, this differs from the
+        // previous example only by return type
+        //public int GetDetails(int age) => age;
+
+        // Syntax error, the implementation code block is not part of the signature.
+        //public string GetDetails(string firstName, string lastName) { }
+
+        // Syntax error, making the lastName optional
+        // does not make the signature unique.
+        //public string GetDetails(string firstName, string lastName = "") => $"{firstName} {lastName}";
+
+        public void DisplayDetails(string firstName, string[] hobbies) { }
+
+        // Syntax error, the use of the params keyword on the
+        // hobbies array does not make this signature unique
+        //public void DisplayDetails(string firstName, params string[] hobbies) { }
+
+        public void Method(int value) { }
+
+        // Uncommenting only one of the following three
+        // methods in addition to the previous is OK.
+        // Uncommenting two or more whether the previous
+        // method exists or not will result in a syntax error.
+
+        //public void Method(ref int value) { }
+
+        //public void Method(out int value) { value = default; }
+
+        //public void Method(in int value) { }
+    }
+
+    public class AnotherPerson
+    {
+        public string Name { get; set; }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Person p = new();
+            Console.WriteLine($"Name: {p.GetDetails("Tony")}");
+            Console.WriteLine($"Name: {p.GetDetails("Tony", "Jones")}");
+            int iSalary = 30;
+            Console.WriteLine($"Hourly rate: {p.GetDetails(iSalary)}");
+            double dSalary = 30.5;
+            Console.WriteLine($"Hourly rate: {p.GetDetails(dSalary)}");
+            int age = 25;
+        }
+    }
+}
+
+// The example writes the following to the console
+// Name: Tony
+// Name: Tony
+// Name: Tony Jones
+// Hourly rate: 30
+// Hourly rate: 30.5
+</code></pre>
+                    <!-- !SECTION Overloading -->
                     <!-- !SECTION Parameters, signatures and overloading -->
-
-
-
-
-
-
-
                     <!-- SECTION struct -->
                     <h3 id="struct">struct</h3>
                     <p>A <i>structure</i> usually referred to by its keyword <code>struct</code> is similar to a class with the following main differences.</p>
