@@ -647,7 +647,7 @@ namespace MultipleCatchBlocks
                         be equal if the values they contain are the same whereas two reference types will be the same if they both refer to the same location in memory. A
                         notable exception is the <a href="#record">record</a> which is a reference type with value type equality.</p>
                     <p><em>Note:</em><i> Various type <a href="#Classes_and_Other_User_Defined_Types">members</a> allow the
-                        <a href="#Signatures,_parameters_and_overloading">passing in</a> of a variable as an argument. When this occurs, what can happen to the variable
+                        <a href="#Parameters,_signatures_and_overloading">passing in</a> of a variable as an argument. When this occurs, what can happen to the variable
                         depends on whether it is a value or reference type and whether any keywords are present to change this behavior</i></p>
                     <p>C# has a number of built-in types of which each has a dedicated <a href="#Value_type_keywords">keyword</a>.</p>
                     <!-- !SECTION Reference type -->
@@ -2862,8 +2862,8 @@ namespace TupleEquality
                         <a href="#Fields">fields</a>, <a href="#Constant_fields">constant fields</a>, <a href="#Properties">properties</a>,
                         <a href="#Indexers">indexers</a>, <a href="#Events">events</a>, <a href="#Finalizers">finalizers</a> and other
                         nested types. Combined these are used to define an object through encapsulation and storage of its data and by providing the object's behavior. A
-                        type can contain multiple members with the same identifier, known as <a href="#Signatures,_parameters_and_overloading">overloading</a>, provided
-                        that each has a unique <a href="#Signatures,_parameters_and_overloading">signature</a>. Accessibility to a type from code outside of the assembly,
+                        type can contain multiple members with the same identifier, known as <a href="#Parameters,_signatures_and_overloading">overloading</a>, provided
+                        that each has a unique <a href="#Parameters,_signatures_and_overloading">signature</a>. Accessibility to a type from code outside of the assembly,
                         and to members both from outside the assembly and from other types within the assembly, is controlled through the use of
                         <a href="#Access_Modifiers">access modifier</a> keywords.</p>
                     <p></p>
@@ -3127,7 +3127,7 @@ namespace ClassExample
                         assist you as it will display a suggestion box that lists the namespaces, types and members to choose from as you enter them.</p>
                     <p>All members except fields, constant fields and events that have a single expression support implementation through the use of
                         <a href="#The_lambda_and_expression-body_definition_operator">expression-bodied members which makes for a much more concise code</a>.
-                        Constructors, indexers and methods can be <a href="#Signatures,_parameters_and_overloading">overloaded</a>. That is a type can contain multiple
+                        Constructors, indexers and methods can be <a href="#Parameters,_signatures_and_overloading">overloaded</a>. That is a type can contain multiple
                         versions with the same identifier provided that they overload a member of the same type and each overload has a unique signature.</p>
                     <p>Properties, indexers, methods and events in a <a href="#Inheriting_types">base</a> type can be marked marked
                         <a href="#abstract">abstract</a> or <a href="#virtualo">virtual</a> though marking an event a virtual is not recommended as the
@@ -3146,7 +3146,7 @@ namespace ClassExample
                     <p>A method provides the behavior of an object. This could be reading a file, calculating a value, writing to the screen, etc. It does this by acting
                         as a container for one or more <a href="#Code_Syntax">statements</a>. Statements elsewhere in the program can pass the execution flow to a method
                         known as <i>invoking</i> or <i>calling</i> a method and statements within a method can call other methods.</p>
-                    <p>A method consists of two parts, the <a href="#Signatures,_parameters_and_overloading">signature</a> and the body that contains the statements. The
+                    <p>A method consists of two parts, the <a href="#Parameters,_signatures_and_overloading">signature</a> and the body that contains the statements. The
                         signature defines the methods name, values known as <i>parameters</i> that can be <i>passed in</i> to the method for processing by the statements
                         it contains and a return type for returning a value back to the statement that called it. If a method is not required to return a value then the
                         type is replaced with the <code>void</code> keyword. Optional <a href="#Modifiers">modifiers</a> can be applied to a method and its parameters
@@ -3159,7 +3159,7 @@ namespace ClassExample
                     <p>In both cases a method can contain multiple return statements allowing for multiple exit points from different paths back to the calling code. In
                         this case, a method that has a return type but that does not have a return statement for all possible paths will produce a syntax error. Methods
                         with a single expression can be implemented in the form of an an <a href="#The_lambda_and_expression-body_definition_operator">expression-bodied
-                        member</a> and a class can contain multiple <a href="#Signatures,_parameters_and_overloading">overloads</a> of a method.</p>
+                        member</a> and a class can contain multiple <a href="#Parameters,_signatures_and_overloading">overloads</a> of a method.</p>
                     <p>Access to a method by code external to the type is in the form of <code>instance.Method(parameters)</code> for an instance of a type and
                        <code>TypeName.Method(parameters)</code> for a <a href="static">static</a> type.</p>
                     <p>The following shows examples of method declaration and use.</p>
@@ -3245,11 +3245,11 @@ namespace Methods
                     <h3 id="Constructors">Constructors</h3>
                     <p>When an object is created a constructor is called that can be used to set its data and provide other actions that initialize the object's
                         state. The syntax for a constructor is similar to that of a <a href="#Methods">method</a> in that it has a
-                        <a href="#Signatures,_parameters_and_overloading">signature</a> that can take in parameters and is a container for one or more
+                        <a href="#Parameters,_signatures_and_overloading">signature</a> that can take in parameters and is a container for one or more
                         <a href="#Code_Syntax">statements</a>. Unlike a method it cannot return a value, its identifier is always that of the type that contains it and
                         it can only be called once when the object is created.</p>
                     <p>A constructor can be marked with with various <a href="#Modifiers">modifiers</a> that change its behavior and an instance constructor can be
-                        <a href="#Signatures,_parameters_and_overloading">overloaded</a>. By using the <code>this</code> keyword, a constructor can call another
+                        <a href="#Parameters,_signatures_and_overloading">overloaded</a>. By using the <code>this</code> keyword, a constructor can call another
                         overloaded constructor when an object is created. In an instance type, if no constructors are declared the compiler will provide a default
                         parameterless constructor with an empty code block. If constructors are declared then the compiler will not declare the default constructor, so in
                         this case if a parameterless constructor is required it will need to be explicitly declared. To create an instance of a type the <code>new</code>
@@ -4046,7 +4046,7 @@ namespace CancelEvent
                         the type of indexer, followed by square brackets that contain one or more indexes separated by commas, with each consisting of the type of index
                         and an index identifier. Accessors are then used to set and/or get the instances from the backing field using the indexes that are passed in. The
                         same rules as as those for read/write and accessibility of properties and accessors also apply to indexers except that an indexer cannot be static
-                        and an indexer cannot be auto-indexed. Indexers can be <a href="#Signatures,_parameters_and_overloading">overloaded</a>.</p>
+                        and an indexer cannot be auto-indexed. Indexers can be <a href="#Parameters,_signatures_and_overloading">overloaded</a>.</p>
                     <p>Access to an indexer by code external to the type is in the form of <code>instance.Indexer[index]</code></p>
                     <p>The following example declares a string collection which uses an indexer to index instances of itself. The <code>Program</code> class creates a new
                         <code>StringCollection</code> instance, assigns the string "Hello World" to the instance at index 0 in the collection, then retrieves the same and
@@ -4088,16 +4088,206 @@ namespace Indexers
                     <p><em>Note:</em><i>In earlier versions of the C# standard a 'finalizer' was called a 'destructor'.</i></p>
                     <!-- !SECTION Finalizers -->
 <!-- TODO finish signatures info and add example  -->
-<!-- TODO add info about parameters, passing by reference, optional arguments, passing an array -->
-                    <!-- SECTION Signatures parameters and overloading -->
+                    <!-- SECTION Parameters, signatures and overloading -->
+                    <h3 id="Parameters,_signatures_and_overloading">Parameters, signatures and overloading</h3>
+                    <p>A <a href="#class">class</a>, <a href="#struct">struct</a>, <a href="#record">record</a> or <a href="#interface">interface</a>, may contain
+                        multiple versions, or <i>overloading</i>, of a method, instance constructor, indexer or operator, provided that each has a unique <i>signature</i>
+                        defined in part by its <i>parameters</i>.</p>
+                    <p><em>Note:</em> <i>unless otherwise stated, member will refer to a method, instance constructor, indexer or operator for the remainder of this
+                        section.</i></p>
+                    <!-- SECTION Parameters -->
+                    <h4 id="Parameters">Parameters</h4>
+                    <p>A parameter is a <a href="#Variables,_Constants,_Types_and_Literals">variable</a> declared as part of a member that allows a value from a calling
+                        statement to be made available, or <i>passed in</i>, for use by the statements within the member. The corresponding value in the calling statement
+                        is called an <i>argument</i>. Parameters are passed in, in the form of a comma separated list within a pair of round brackets that can contain
+                        zero or more parameters. Arguments in the calling statement are also in the form of a comma separated list and must ether be in the same order as
+                        the list of parameters or in the form of named arguments. Parameters can be made optional in which case arguments can be omitted subject to
+                        certain conditions. A parameter is defined by a type and an identifier and can be marked with a modifying keyword some of which are,
+                        <code>ref</code>, <code>in</code>, <code>out</code> and <code>params</code>. Other than for a parameter marked <code>out</code>, all arguments
+                        passed in must be initialized first. A parameter marked <code>out</code> must be initialized before the called code returns.</p>
+                    <p>With no modifier the default passing mode is to pass an argument into a parameter by value. If a value type is passed in by value, changing its
+                        value within the called member will not affect the argument that was passed in. If a reference type is passed in by value, while it can't be
+                        changed to refer to another object, the data it contains can still be changed.</p>
+                    <p>A value type that is passed in by reference can be changed within the called member and a reference type passed in by reference can be changed to
+                        refer to a different object. Both the argument in the calling code and the parameter in the called member must be marked with the <code>ref</code>
+                        keyword.</p>
+                    <p>If a parameter in the called member is marked with the <code>in</code> keyword, it becomes readonly and attempting to change a value type marked
+                        this way or changing a reference type to refer to another object will result in a syntax error. The data of a reference type can still be changed.
+                        Only the parameter in the called member is required to to be marked in.</p>
+                    <p>An argument marked with the <code>out</code> keyword causes a value to be passed by reference. It does not have to be initialized first but must be
+                        assigned a value in the called member. Both the argument and the parameter must be marked with the <code>out</code> keyword. The variable for the
+                        argument can either be declared before or within the calling statement and can be assigned a type either explicitly or implicitly using the
+                        <code>var</code> keyword. If implicitly declared before the calling statement, it must be assigned a value.</p>
+                    <p>A parameter can be made optional by assigning it a default value in the called member parameter list using the assignment operator <code>=</code>.
+                        The calling statement can then optionally assign an argument for the value. If an argument is omitted then the default value is used. The default
+                        value assigned must be a constant expression, an expression in the form new ValueTYpe() or an expression in the form default(ValueType). All
+                        optional parameters must come after all other parameters other than one marked with the <code>params</code> keyword. If an optional argument in
+                        the calling statement is provided then all preceding optional arguments must also be provided.</p>
+                    <p>A parameter marked with the <code>params</code> keyword allows a single-dimensional array of arguments to be passed in. The parameter marked this
+                        way must come after all other parameters in the list. Arguments passed in from the calling statement are optional and can be either in the form of
+                        a comma separated list or an externally declared array of the parameter type.</p>
+                    <p>Named arguments allows the calling statement to assign values in an order different to the called member's parameter list. This is done by using
+                        the parameter's identifier followed by a colon, optional whitespace and then a literal or a variable of the correct type. Named arguments can be
+                        combined with positional arguments provided they precede all positional arguments or are used in their correct positions.</p>
+                    <p>The following example demonstrates the declaration and use of parameters and arguments.</p>
+<pre><code>using System;
 
-                    <h3 id="Signatures,_parameters_and_overloading">Signatures, parameters and overloading</h3>
-                    <p>  A method, constructor and indexer have a signature which is declared by its identifier and the type, number, passing mode and left right order of
-                        its parameters. Access modifiers and a method's return type are not part of the signature.</p>
-                    <p></p>
+namespace Parameters
+{
+    public class Person
+    {
+
+        // DisplayDetails has five valid overloads.
+
+        // By default arguments are passed in by value.
+        public void DisplayAge(int age)
+        {
+            Console.WriteLine($"Age: {age}");
+            age = 0;
+        }
+
+        // The 'ref' keyword causes values to be passed in by reference.
+        public void DisplaySalary(ref double salary)
+        {
+            Console.WriteLine($"Hourly rate: {salary}");
+            salary = 0;
+        }
+
+        // A reference type passed by value can't be changed to refer
+        // to another object but the data it contains can be changed
+        public void DisplayHobbies(string[] hobbies)
+        {
+            hobbies[0] = "Gaming";
+            hobbies = new string[2] { "Singing", "Writing" };
+            Console.Write("Hobbies in method are: ");
+            foreach (string hobby in hobbies)
+                Console.Write($"{hobby} ");
+        }
+
+        // The 'in' keyword passes values by
+        // reference but prevents them being changed.
+        public void DisplayNameAndAge(string firstName, in int age)
+        {
+            Console.WriteLine($"Name: {firstName} Age: {age}");
+            // Syntax error, 'in' keyword makes 'age' read-only
+            //age = 0;
+        }
+
+        // The job parameter has a default value so is optional.
+        public void DisplayJob(string firstName, string job = "Not specified")
+        {
+            Console.WriteLine($"Name: {firstName} Job: {job}");
+        }
+
+        // The 'params' keyword allows an array of parameters to be passed in.
+        public void DisplayColors(string firstName, params string[] colors)
+        {
+            Console.Write($"Name: {firstName} Favorite colors are: ");
+            foreach (string color in colors)
+                Console.Write($"{color} ");
+        }
+
+        // Result is calculated and the method returns true only if y != 0.
+        public bool Divide(double x, double y, out double result)
+        {
+            result = default;
+            if (y == 0)
+                return false;
+            result = x / y;
+            return true;
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var nl = Environment.NewLine;
+            Person p = new();
+
+            int age = 25;
+            // Default passed by value, age is unchanged
+            p.DisplayAge(age);
+            Console.WriteLine($"age returned as: {age}");
 
 
-                    <!-- !SECTION Signatures parameters and overloading -->
+            double salary = 30.5;
+            // The 'ref' keyword is required to pass by reference.
+            // Salary has changed.
+            p.DisplaySalary(ref salary);
+            Console.WriteLine($"salary returned as: {salary}");
+
+            string[] hobbies = { "Music", "Sports", "Painting" };
+            // A reference type passed by value still refers to the
+            // local variable but the data it contains can be changed
+            Console.Write($"Hobbies before are: ");
+            foreach (string hobby in hobbies)
+                Console.Write($"{hobby} ");
+            Console.WriteLine();
+            p.DisplayHobbies(hobbies);
+            Console.WriteLine();
+            Console.Write($"Hobbies returned are: ");
+            foreach (string hobby in hobbies)
+                Console.Write($"{hobby} ");
+            Console.WriteLine();
+
+            // The 'in' keyword is not required to pass
+            // a value into a parameter marked with 'in'
+
+            p.DisplayNameAndAge("Fred", 22);
+
+            // Provide an argument for the optional parameter
+
+            p.DisplayJob("Debbie", "Developer");
+
+            // No argument provided for the optional parameter
+
+            p.DisplayJob("Peter");
+
+            // params allows optional arguments to
+            // passed as a comma separated list
+            p.DisplayColors("Jenny", "Red", "Green", "Blue");
+            Console.WriteLine();
+
+            string[] colors = { "Magenta", "Yellow", "Cyan" };
+            // params also allows an array to be passed in
+            p.DisplayColors("Rachel", colors);
+            Console.WriteLine();
+
+            // The return variable is declared in the calling statement.
+            // This returns false so nothing is written to the console.
+            if (p.Divide(3, 0, out var result1))
+                Console.WriteLine($"3 divided by 0 = {result1}");
+
+            // The return variable is declared outside the calling statement.
+            // This uses named arguments so the order doesn't matter
+            double result2;
+            if (p.Divide(y: 3, x: 0, result: out result2))
+                Console.WriteLine($"0 divided by 3 = {result2}");
+        }
+    }
+}
+
+// The example writes the following to the console
+// Age: 25
+// age returned as: 25
+// Hourly rate: 30.5
+// salary returned as: 0
+// Hobbies before are: Music Sports Painting
+// Hobbies in method are: Singing Writing
+// Hobbies returned are: Gaming Sports Painting
+// Name: Fred Age: 22
+// Name: Debbie Job: Developer
+// Name: Peter Job: Not specified
+// Name: Jenny Favorite colors are: Red Green Blue
+// Name: Rachel Favorite colors are: Magenta Yellow Cyan
+// 0 divided by 3 = 0
+</code></pre>
+                    <!-- !SECTION Parameters -->
+
+
+
+                    <!-- !SECTION Parameters, signatures and overloading -->
 
 
 
@@ -4332,10 +4522,10 @@ namespace Structs
                     <!-- SECTION delegate -->
                     <h3 id="delegate">delegate</h3>
                     <p>A delegate allows you to create a reference to a method that can then be passed as a parameter. It does this by declaring the
-                        <a href="Signatures,_parameters_and_overloading">signature</a> of the method which in this case includes the return type. It is declared using an
+                        <a href="Parameters,_signatures_and_overloading">signature</a> of the method which in this case includes the return type. It is declared using an
                         optional <a href="#Access_modifiers">access modifier</a>, followed by the <code>delegate</code> keyword, then the <i>return type</i>, then an
                         identifier that is unique within the <a href="#Dependencies_and_Namespaces">namespace</a>, followed by a pair of round brackets that can
-                        optionally contain <a href="#Signatures,_parameters_and_overloading">parameters</a>. Delegates are created using the delegate's identifier,
+                        optionally contain <a href="#Parameters,_signatures_and_overloading">parameters</a>. Delegates are created using the delegate's identifier,
                         followed by an identifier unique within the local scope and then assigning it a named method which can be either an instance or static. This can
                         then be used to invoke the method as if it was called directly. The <code>delegate</code> keyword can also be used as an operator to create
                         <a href="#Anonymous_functions">anonymous methods</a> that don't require the declaration of a named method for assignment.</p>
@@ -4412,7 +4602,7 @@ namespace Delegates
                         event. The availability of all other members in a derived type is dependent on the <a href="#Scope_and_Modifiers">accessibility</a> of a member in
                         the base type. Where members in both a base and derived type have the same identifier, where neither are marked as either virtual or override and
                         where the member in the base type has an accessibility modifier other than private, the the derived member will hide the base member. The two
-                        members don't have to be of the same type or have the same <a href="#Signatures,_parameters_and_overloading">signature</a>. For example a property
+                        members don't have to be of the same type or have the same <a href="#Parameters,_signatures_and_overloading">signature</a>. For example a property
                         in a base type can be hidden by a method. Access to a hidden member can still be obtained through use of the <a href="#base_keyword">base</a>
                         keyword. When a member is hidden the code editor will indicate this on the hiding member in the derived type with a
                         <u class="warning">warning</u>. This can be removed by marking the member with the <code>new</code> keyword. A class that is marked as
@@ -4988,7 +5178,7 @@ namespace Interface
                     <h3 id="Anonymous_methods">Anonymous methods</h3>
                     <p>Whilst anonymous methods have largely been replace by lambda expressions, they remain in the C# language for backwards compatibility so are
                         presented here for reference. As with a <a href="#delegate">named method</a> a delegate is first declared with the required return type and
-                        <a href="Signatures,_parameters_and_overloading">signature</a>. The delegate instance is then declared and assigned an anonymous method by using
+                        <a href="Parameters,_signatures_and_overloading">signature</a>. The delegate instance is then declared and assigned an anonymous method by using
                         the <code>delegate</code> keyword, followed by the same signature as the delegate, followed by a code block.</p>
                     <p>The following example demonstrates anonymous method declaration and use.</p>
 <pre><code>using System;
@@ -5020,7 +5210,7 @@ namespace AnonymousMethods
                     <!-- SECTION Lambda expressions -->
                     <h3 id="Lambda_Expression">Lambda expressions</h3>
                     <p>Lambda expressions allow for a more concise in-line syntax than anonymous methods. As with a <a href="#delegate">named method</a> a delegate is
-                        first declared with the required <a href="Signatures,_parameters_and_overloading">signature</a>. The delegate instance is then
+                        first declared with the required <a href="Parameters,_signatures_and_overloading">signature</a>. The delegate instance is then
                         declared and assigned an anonymous method by using a pair of round brackets containing the same signature as the delegate, followed by the lambda
                         operator <code>=&gt;</code>, followed by the lambda body. In most cases both the parameter types and the return type are inferred by the compiler.
                         This means that declaration of parameter types is usually not required but can be included if needed. In any case,
@@ -5101,7 +5291,7 @@ namespace LambdaExpressions
                         <a href="#delegate">named method</a>. An <code>Action</code> or <code>Func</code> can also be passed as a parameter to a method or another
                         <code>Action</code> or <code>Func</code>. The <code>Action </code> syntax is <code>Action&lt;in T1, ... in T16t&gt;</code> and the
                         <code>Func</code> syntax is <code>Func&lt;in T1, ... in T16, out TResult&gt;</code>. Both provide
-                        <a href="#Signatures,_parameters_and_overloading">overloads</a> for up to 16 input parameters of any type with <code>Func</code> allowing for one
+                        <a href="#Parameters,_signatures_and_overloading">overloads</a> for up to 16 input parameters of any type with <code>Func</code> allowing for one
                         return value of any type and both can be assigned a body in the form of either an <a href="#Anonymous_methods">anonymous method</a> or a
                         <a href="#Lambda_Expression">lambda expression</a>.</p>
                     <p>The following example demonstrates both <code>Func</code> and <code>Action</code> declaration and use.</p>
@@ -6201,7 +6391,7 @@ namespace Extern
                     <!-- SECTION in -->
                     <h3 id="in">in</h3>
                     <p>When used with a parameter the <code>in</code> modifier keyword allows an argument to be passed by reference to a method but prevents it from being
-                        modified, please see <a href="#Signatures,_parameters_and_overloading">Signatures parameters and overloading</a>. Use of the <code>in</code>
+                        modified, please see <a href="#Parameters,_signatures_and_overloading">Signatures parameters and overloading</a>. Use of the <code>in</code>
                         modifier with generics is outside the scope of this guide. For more information, please see the <a href="#References">Microsoft C# reference
                         documentation</a></p>
                     <!-- !SECTION in -->
@@ -6214,7 +6404,7 @@ namespace Extern
                     <!-- SECTION out -->
                     <h3 id="out">out</h3>
                     <p>When used with a parameter the <code>out</code> modifier keyword allows an argument to be passed by reference back to the calling statement,
-                        please see <a href="#Signatures,_parameters_and_overloading">Signatures parameters and overloading</a>. Use of the <code>out</code> modifier with
+                        please see <a href="#Parameters,_signatures_and_overloading">Signatures parameters and overloading</a>. Use of the <code>out</code> modifier with
                         generics is outside the scope of this guide. For more information, please see the <a href="#References">Microsoft C# reference documentation</a>
                     </p>
                     <!-- !SECTION out -->
@@ -6322,7 +6512,7 @@ namespace OverridingVirtualMembers
                     <p>Additionally, within a partial type, a method can also be marked as
                         <code>partial</code> in which case the declaration of the method is placed in one file and the implementation in another, provided that both the
                         declaration and the implementation both start with the <code>partial</code> keyword and both have the same
-                        <a href="#Signatures,_parameters_and_overloading">signature</a>. A common use for a partial method is a class designer that automatically declares
+                        <a href="#Parameters,_signatures_and_overloading">signature</a>. A common use for a partial method is a class designer that automatically declares
                         methods that the developer can then decide whether or not to implement. A partial method's implementation is optional provided it does not have an
                         <a href="#Access_modifiers">access modifier</a>, it returns <code>void</code>, it does not have any <a href="#out">out</a> parameters and it does
                         not have the <a href="#extern">extern</a>, <a href="#new">new</a>, <a href="#override">override</a>, <a href="#sealed">sealed</a> or
