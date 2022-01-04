@@ -2887,6 +2887,9 @@ namespace TupleEquality
                         a derived class for instantiation or <a href="#sealed">sealed</a> to prevent inheritance. Use of the static, abstract and sealed keywords is
                         mutually exclusive. As well as inheritance a class, struct or record can implement an interface.</p>
                     <!-- !SECTION User defined types -->
+<!-- TODO finish the following -->
+<!-- TODO add brief about overriding and virtual -->
+<!-- TODO add brief about polymorphism -->
                     <!-- SECTION class -->
                     <h3 id="class">class</h3>
                     <p>A class within a namespace is declared by specifying an optional <a href="#Access_Modifiers">access modifier</a> keyword, followed by the
@@ -2909,10 +2912,6 @@ namespace TupleEquality
                     <p><em>Note:</em><i> The Class template provided by Visual Studio in the Add New Item dialog creates a file with a class without an access modifier.
                         The file will also include using directives for various namespaces dependent on the project's type. Adding a class to a folder will result in a
                         <a href="#Dependencies_and_Namespaces">namespace</a> of the form <code>namespace ProjectName.FolderName</code>.</i></p>
-<!-- TODO finish the following -->
-<!-- TODO add brief about overriding and virtual -->
-<!-- TODO add brief about polymorphism -->
-
                     <p>The following example demonstrates ways in which a class can be declared. </p>
 <pre><code>using System;
 
@@ -3151,7 +3150,6 @@ namespace ClassExample
                         hide the base member, please see <a href="#Inheriting_types">Inheriting types</a>.
                     </p>
                     <!-- !SECTION Members -->
-                    <!-- TODO add passing array to a method -->
                     <!-- TODO add local function syntax -->
                     <!-- SECTION Methods -->
                     <h3 id="Methods">Methods</h3>
@@ -4147,9 +4145,6 @@ namespace Parameters
 {
     public class Person
     {
-
-        // DisplayDetails has five valid overloads.
-
         // By default arguments are passed in by value.
         public void DisplayAge(int age)
         {
@@ -4328,30 +4323,30 @@ namespace OverloadingMethods
 
         // Signature is the name GetDetails and
         // the single string type parameter.
-        public string GetDetails(string firstName) => firstName;
+        public string GetDetails(string firstName) =&gt; firstName;
 
         // Syntax error, parameter differs only by name to last example.
-        //public string GetDetails(string lastName) => lastName;
+        //public string GetDetails(string lastName) =&gt; lastName;
 
         // An overload of GetDetails with two string parameters.
-        public string GetDetails(string firstName, string lastName) => $"{firstName} {lastName}";
+        public string GetDetails(string firstName, string lastName) =&gt; $"{firstName} {lastName}";
 
         // An overload of GetDetails with a single double parameter.
-        public double GetDetails(double salary) => salary;
+        public double GetDetails(double salary) =&gt; salary;
 
         // An overload of GetDetails with a single int parameter.
-        public double GetDetails(int salary) => salary;
+        public double GetDetails(int salary) =&gt; salary;
 
         // Syntax error, this differs from the
         // previous example only by return type
-        //public int GetDetails(int age) => age;
+        //public int GetDetails(int age) =&gt; age;
 
         // Syntax error, the implementation code block is not part of the signature.
         //public string GetDetails(string firstName, string lastName) { }
 
         // Syntax error, making the lastName optional
         // does not make the signature unique.
-        //public string GetDetails(string firstName, string lastName = "") => $"{firstName} {lastName}";
+        //public string GetDetails(string firstName, string lastName = "") =&gt; $"{firstName} {lastName}";
 
         public void DisplayDetails(string firstName, string[] hobbies) { }
 
@@ -4554,7 +4549,7 @@ namespace Structs
             // An overloaded constructor in a record with positional
             // parameters must use 'this' syntax to set the prime constructor.
             public Person(string FirstName, string LastName, int ID, int Age, string job)
-                : this(FirstName, LastName, ID, Age) => Job = job;
+                : this(FirstName, LastName, ID, Age) =&gt; Job = job;
 
             // Accessibility changed to 'internal'.
             internal int ID { get; init; } = ID;
@@ -4566,7 +4561,7 @@ namespace Structs
             public string Job { get; init; } = "None";
 
             // Declare a method
-            public string GetFullName() => $"{FirstName} {LastName}";
+            public string GetFullName() =&gt; $"{FirstName} {LastName}";
         }
 
         class Program
