@@ -56,7 +56,6 @@
         <main id="main-doc">
             <!-- project requirement - several section elements, each with a class of main-section. There should be a minimum of 5 -->
             <!-- project requirement - section with class of main-section, id corresponds to header text, spaces replaced with underscores -->
-            <!-- TODO rewrite Introduction -->
             <!-- SECTION Introduction -->
             <section class="main-section" id="Introduction">
                 <header><h2>Introduction</h2></header>
@@ -70,10 +69,10 @@
                         logical thinking, basic algebra, knowing the difference between integers and floating point numbers, etc. You should also know how to install and
                         upgrade software and operating systems on a computer, and have an internet connection. It would also be useful to know some of the basics of how a
                         computer works such as CPU's, memory, file systems, etc.</p>
-                    <p>Lastly and perhaps most importantly is theory of mind, what the user maybe thinking when they use your program.
-                        This should be a constant consideration as you create your application. For example, entering a letter in a program when a number is required may
-                        be invalid. But then having a popup error message with each wrong keystroke that needs to be cancelled will quickly lead to frustration and your
-                        program ending up in the trash.</p>
+                    <p>Lastly and perhaps most importantly is theory of mind, what the user maybe thinking when they use your program. This should be a constant
+                        consideration as you create your application. For example, entering a letter in a program when a number is required may be invalid. But then
+                        having a popup error message with each wrong keystroke that needs to be cancelled, will quickly lead to frustration and your program ending up in
+                        the trash.</p>
                 </article>
             </section>
             <!-- !SECTION Introduction -->
@@ -1733,23 +1732,36 @@ namespace NullCoalescingAssignmentOperator
                         <li><a href="#Finalizers">Finalizers</a></li>
                     </ul>
                     <!-- !SECTION The Lambda and expression body definition operator -->
-<!-- TODO add info about operator -->
                     <!-- SECTION Namespace alias qualifier operator -->
-                    <h3 id="Namespace_alias_qualifier_operator">Namespace alias qualifier operator ::</h3>
-                    <p>Explanation</p>
-                    <p>CodeExample</p>
-<pre><code>using System;
+                    <h3 id="Namespace_alias_qualifier_operator">Namespace alias qualifier operator <code>::</code></h3>
+                    <p>The namespace alias qualifier operator is used to access members in an aliased namespace. These could be a user defined alias, an extern alias or
+                        the <code>global</code> alias. It takes the form of <code>alias::Member</code>.</p>
+                    <p>The following example demonstrates use of the namespace alias qualifier operator</p>
+<pre><code>using lists = System.Collections.Generic;
 
-namespace Namespace
+namespace AliasQualifier
 {
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
+            // Use Namespace alias qualifier operator to
+            // access System.Collections.Generic namespace
+            lists::List&lt;string&gt; trees = new();
+            trees.AddRange(new string[] { "Pine", "Birch", "Oak"});
 
+            // Use Namespace alias qualifier operator and
+            // global keyword to access System namespace
+            foreach (string tree in trees)
+                global::System.Console.WriteLine(tree);
         }
     }
 }
+
+// The example writes the following to the console
+// Pine
+// Birch
+// Oak
 </code></pre>
                     <!-- !SECTION Namespace alias qualifier operator -->
                 </article>
@@ -6118,7 +6130,6 @@ namespace ImportingSystemTypes
                 <header><h2>Scope and Modifiers</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
-<!-- TODO Fix method parameter passing ing argument -->
                     <!-- SECTION Scope -->
                     <h3 id="Scope">Scope</h3>
                     <p>Scope is the accessibility of a variable from one part of the code to another. In C# scope is arranged like the layers of an onion. Variables in an
@@ -6129,7 +6140,7 @@ namespace ImportingSystemTypes
                         <a href="#Anonymous_functions">anonymous function</a> or operator or one of its nested code blocks. A nested code block include those of
                         <a href="#if_else_statements">if</a>, <a href="#if_else_statements">else</a>, <a href="#switch_statement">switch</a>,
                         <a href="#while_statement">while</a>, <a href="#do_statement">do</a>, <a href="#for_statement">for</a>, <a href="#foreach_statement">foreach</a>,
-                        <a href="#try-catch">try</a> and using statements. An argument that is passed into a method or indexer is accessible outside the member and
+                        <a href="#try-catch">try</a> and using statements. A <a href="#Parameters">parameter</a> passed into a method, constructor, indexer or operator
                         becomes a local variable within the member. The variable is only accessible after it has been declared and only within the same code block or a
                         nested code block. A local variable within the same block or a nested code block cannot be declared with the same name.</p>
                     <p>A local variable can have the same name as a member within a container (enclosing type). When this is done the member is hidden by the local
