@@ -6415,57 +6415,57 @@ using System.Globalization;
 
 namespace Abstract
 {
-public abstract class PriceCalculator
-{
-public abstract double CalculateAmount();
-}
+    public abstract class PriceCalculator
+    {
+        public abstract double CalculateAmount();
+    }
 
-public class ItemsPriceCalculator : PriceCalculator
-{
-public double ItemPrice { get; set; }
+    public class ItemsPriceCalculator : PriceCalculator
+    {
+        public double ItemPrice { get; set; }
 
-public int Quantity { get; set; }
+        public int Quantity { get; set; }
 
-public override double CalculateAmount()
-{
-return ItemPrice * Quantity;
-}
-}
+        public override double CalculateAmount()
+        {
+            return ItemPrice * Quantity;
+        }
+    }
 
-public class HoursPriceCalculator : PriceCalculator
-{
-public  DateTime StartTime { get; set; }
+    public class HoursPriceCalculator : PriceCalculator
+    {
+        public DateTime StartTime { get; set; }
 
-public  DateTime FinishTime { get; set; }
+        public DateTime FinishTime { get; set; }
 
-public double HourlyRate { get; set; }
+        public double HourlyRate { get; set; }
 
-public override double CalculateAmount()
-{
-var timeTaken = FinishTime - StartTime;
-return timeTaken.TotalHours * HourlyRate;
-}
-}
+        public override double CalculateAmount()
+        {
+            var timeTaken = FinishTime - StartTime;
+            return timeTaken.TotalHours * HourlyRate;
+        }
+    }
 
-class Program
-{
-static void Main(string[] args)
-{
-ItemsPriceCalculator itemsPriceCalculator = new();
-itemsPriceCalculator.Quantity = 6;
-itemsPriceCalculator.ItemPrice = 3.10;
-Console.WriteLine($"The price of the items is {itemsPriceCalculator.CalculateAmount().ToString("C", CultureInfo.CurrentCulture)}");
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            ItemsPriceCalculator itemsPriceCalculator = new();
+            itemsPriceCalculator.Quantity = 6;
+            itemsPriceCalculator.ItemPrice = 3.10;
+            Console.WriteLine($"The price of the items is {itemsPriceCalculator.CalculateAmount().ToString("C", CultureInfo.CurrentCulture)}");
 
-HoursPriceCalculator hoursPriceCalculator = new();
-hoursPriceCalculator.StartTime = new DateTime(2021, 11, 4, 9, 0, 0);
-hoursPriceCalculator.FinishTime = new DateTime(2021, 11, 4, 17, 0, 0);
-hoursPriceCalculator.HourlyRate = 30;
-Console.WriteLine($"The price of the hours is {hoursPriceCalculator.CalculateAmount().ToString("C", CultureInfo.CurrentCulture)}");
+            HoursPriceCalculator hoursPriceCalculator = new();
+            hoursPriceCalculator.StartTime = new DateTime(2021, 11, 4, 9, 0, 0);
+            hoursPriceCalculator.FinishTime = new DateTime(2021, 11, 4, 17, 0, 0);
+            hoursPriceCalculator.HourlyRate = 30;
+            Console.WriteLine($"The price of the hours is {hoursPriceCalculator.CalculateAmount().ToString("C", CultureInfo.CurrentCulture)}");
 
-// Syntax error, can't create an instance of an abstract class
-//PriceCalculator priceCalculator = new();
-}
-}
+            // Syntax error, can't create an instance of an abstract class
+            //PriceCalculator priceCalculator = new();
+        }
+    }
 }
 
 // The example writes the following to the console
