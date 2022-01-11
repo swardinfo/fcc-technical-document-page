@@ -96,7 +96,7 @@
                         phrase <i>during runtime</i>, is often used to refer to the time in which the code is running.</p>
                     <p>.NET also provides a large quantity of pre written code we can use that provides many of the basic functions such as file I/O, network access,
                         collections, user interfaces, etc, so we don't have to write our own. Whenever a console, WinForms or WPF application is created the .NET
-                        framework is added by default and can be accessed through the System namespace.</p>
+                        framework is added by default and can be accessed through the System <a href="#Namespaces">namespace</a>.</p>
                     <p> The .Net version used throughout this guide is 5.0 and the C# version is 9.0.</p>
                     <p>Links to the reference documentation for C# and .NET can be found in <a href="#References">References</a></p>
                     <!-- !SECTION .NET -->
@@ -192,9 +192,10 @@ namespace HelloWorld
                         <a href="#Methods">method</a>.</p>
                     <p>Following <code>static void Main(string[] args)</code> is a pair of braces <code>{ }</code> that form a
                         <a href="#Code_Syntax">code block</a>. The program runs or <i>executes</i> all the <a href="#Code_Syntax">statements</a> it finds within these.
-                        Statements are executed from top to bottom in the order they appear unless a statement directs execution to another part of the program. Here
+                        Statements are executed from top to bottom, left to right in the order they appear unless a statement redirects execution to another part of the
+                        program. Here
                         there is only one, <code>Console.WriteLine("Hello World!");</code>. This tells the computer to write a line followed by a carriage return to the
-                        <i>command window</i> and that the text to be written is located within the round brackets <code>( )</code>, which in this case is
+                        <i>command window</i>. The text to be written is located within the round brackets <code>( )</code>, which in this case is
                         <span class="nowrap"><b>'Hello World!'</b></span>. As there are no further lines in our code before the closing brace <code>}</code>, the
                         program exits. At this point the window of a program would normally close but the Visual Studio has an option to keep console application windows
                         open so that you can see the results. This option is turned on by default.</p>
@@ -204,7 +205,6 @@ namespace HelloWorld
 <!-- TODO rewrite this -->
 <!-- TODO add expression bodied members -->
 <!-- TODO add syntax errors when uncommenting -->
-<!-- TODO add local function syntax -->
             <!-- SECTION Code Syntax -->
             <section class="main-section" id="Code_Syntax">
                 <header><h2>Code Syntax</h2></header>
@@ -224,14 +224,85 @@ namespace HelloWorld
                     <p>There are varying conventions on how to format code. The one used throughout this guide is to place code blocks containing instructions directly
                         under the beginning of the instruction they belong to and indent everything within them. An empty code block may be placed on the same line after
                         the instruction. The IDE has tools to aid with code formatting styles such as this.</p>
-                    <p>A statement is the part of the code that becomes the instructions in the program that tells the computer what to do. A declaration instructs the
-                        compiler to create a placeholder for an <a href="#Object">object</a> that is to exist and become part of the program. In some cases, a declaration
-                        can also be a statement. The object must then be initialized if it is a value type or instantiated if it is a reference type before it can be
-                        used. A directive is an instruction for the compiler that while not directly part of our program will affect how our program will be built and
-                        run.</p>
-                    <p>For someone with no experience in C#, reading a list of rules and specifications is likely to lead to more confusion than understanding, so the
+                    <p>A statement is the part of the code that becomes the instructions in the program that tells the computer what to do. The program executes the
+                        statements as they appear top to bottom, left to right unless a statement redirects execution to another part of the program. In most cases the
+                        program flow will return to the statement that produced the redirection and continue to next statement until the last statement is reached, at
+                        which point the program ends. For a program that requires user participation, <a href="#Iteration_Statements">iteration statements</a> that
+                        require user input can be introduced to prevent it from exiting until instructed by the user. A declaration instructs the compiler to create a
+                        placeholder for an <a href="#Object">object</a> that is to exist and become part of the program. In some cases, a declaration can also be a
+                        statement. Before an object can be used, if it is a <a href="#Value_type">value type</a> it must then be initialized or if it is a
+                        <a href="#Reference_type">reference type</a> it must be created, known as being <i>instantiated</i>. A directive is an instruction for the
+                        compiler that while not directly part of our program will affect how our program will be built and run.</p>
+                    <p>For those with no experience in C#, reading a list of rules and specifications is likely to lead to more confusion than understanding, so the
                         best way forward is to dive into some examples and see what's going on.</p>
                     <p>The following example illustrates both valid and invalid syntax</p>
+                    <p>The first line is a <a href="#Comments_and_Task_Lists">comment</a>. The two forward slashes <code>//</code> at the beginning
+                        indicates that this is a single line comment.</p>
+                    <p>The line <code>using System;</code> is a using directive and must always end with a semicolon <code>;</code>. The first word <code>using</code> is
+                        a reserved word called a <i>keyword</i> in C#. <a href="#Keywords_and_Specifications">Keywords</a> are directly used by the compiler as
+                        instructions. The next word <code>System</code> is an <i>identifier</i>. Identifiers are used to name types such as <a href="#class">classes</a>,
+                        <a href="#interface">interfaces</a>, <a href="#struct">structs</a>, <a href="#record">records</a>, <a href="#Anonymous_functions">delegates,
+                        </a> <a href="#Enumerators">enums</a>, <a href="#tuple">tuples</a>, a type's <a href="#Members">members</a>, as well as
+                        <a href="#Variables,_Constants,_Types_and_Literals">variables</a> and <a href="#Namespaces">namespaces</a>.</p>
+
+                    <p>The rules for identifiers are</p>
+                    <ul>
+                        <li>Identifiers must begin with a letter or the <code>_</code> character</li>
+                        <li>Identifiers can only contain letters, numbers or the <code>_</code> character</li>
+                        <li>Identifiers shouldn't contain two or more consecutive <code>_</code> characters as these are reserved for
+                            compiler generated identifiers</li>
+                        <li>Identifiers are case sensitive</li>
+                        <li>Identifiers can only be declared once within the same <a href="#Scope">scope</a></li>
+                        <li>A keyword can't be used as an identifier</li>
+                    </ul>
+                    <p>By being case sensitive it is valid for two identifiers to differ by case only, e.g., <code><b>n</b>ame</code> and <code><b>N</b>ame</code> are two
+                        different identifiers.</p>
+                    <p>There may also be situations where using a specific identifier may result in a <i>naming conflict</i> with an identifier in built-in types. In
+                        particular all types, even those you define yourself, are provided by .NET with a number of standard <a href="Members">members</a>. Unless these
+                        are specifically being overridden the identifiers, <code>Equals</code>, <code>GetHashCode</code>, <code>GetType</code> and <code>ToString</code>
+                        should be avoided. </p>
+                    <p>More recently C# has introduced the discard variable which is used when the output of an <a href="#Expressions_and_Operators">expression</a> is not
+                        required. This is an advanced subject
+                        that won't be discussed in this guide but is mentioned here for completeness. The identifier for the discard variable is the <code>_</code>
+                        character by itself. Unlike other variables, multiple discard variable identifiers can be declared within the same scope.</p>
+                    <p><code>namespace MyProgram</code> is a namespace declaration. Namespaces are used to organize objects into logical groups. Details of the
+                        <code>using</code> directive and namespaces are in <a href="#Namespaces">Dependencies and Namespaces</a>.</p>
+                    <p>Following the namespace declaration is an opening brace <code>{</code> which is the beginning of a code block and its closing brace
+                        <code>}</code> is the last line in the example. All code blocks must have an opening and closing brace. Nested within this code block is a
+                        <a href="#class">class</a> as declared by <code>public class MyClass</code> and its associated code block. Nested within this is a
+                        <a href="#Constructor">constructor</a> declaration <code>MyClass() { }</code>, a <a href="#Methods">method</a> declaration
+                        <code>static void Main(string[] args)</code> and their code blocks.</p>
+                    <p>There are two main ways in which a program can be compiled for use. The first is as a class library to be used by other applications and the
+                        second as an application that can be started directly. For the latter the program must have an entry point method and as mentioned in
+                        (<a href="#Create_a_Hello_World_Project">Create a Hello World Project</a>), for C# it is the method <code>static void Main(string[] args)</code>.
+                        There are several rules that it must follow but the main ones that are of concern are</p>
+                    <ul>
+                        <li>There can only be one <code>static void Main(string[] args)</code> method within the program</li>
+                        <li>It must have the <code>static</code> keyword </li>
+                    </ul>
+                    <p><code>Console.WriteLine("Hello World!");</code> , a single line statement, is the first in the <code>public void MyMethod()</code> code block. In
+                        this context, the dot <code>.</code> between <code>Console</code> and <code>WriteLine ("Hello World")</code> is called the Member access operator.
+                        It allows access to a <a href="">member</a>, here a method called <code>WriteLine</code> in a class called <code>Console</code>. The round
+                        brackets <code>( )</code> allow parameters to be passed into the method, here the <a href="#Characters_and_Strings">string</a> literal
+                        <code>"Hello World!"</code>. All single line statements must end with a semicolon <code>;</code> . Following are three further examples of single
+                        line statements showing how <a href="#Variables,_Constants,_Types_and_Literals">variables</a> can be declared and assigned.</p>
+                    <p> The <code>while (true)</code> statement also called a <a href="#while_statement">while</a> loop, together with the braces and enclosed code form a
+                        code block. No semicolon is required after the closing brace. Within the code block is first an assignment statement, followed by a
+                        <code>break</code> statement then another assignment statement. As the <a href="#break">break</a> statement causes the program to leave the while
+                        loop before reaching the second assignment statement and, it can't be executed and is known as unreachable code. This won't prevent the program
+                        from being built or run but will cause a warning in the the code editor and should be rectified.</p>
+                    <p>Next are two <code>if</code> statements. An if statement is a <a href="#Decision_Making_Statements">decision making statement</a>. Some statements
+                        allow for a single statement known as an embedded statement, such as <code>x = 1;</code> in the example, to be placed directly after it without
+                        the need for braces. Together they form a compound statement so the first two <code>if</code> statements are equivalent. An embedded statement
+                        cannot be a declaration or labelled statement so the last <code>if</code> statement example is invalid.</p>
+                    <p>As mentioned above, but for a few exceptions, the compiler ignores line breaks, tabs and whitespace, so a statement does not need to be on a single
+                        line. <code>Console.WriteLine ("Hello World");</code> can be rearranged to produce the following valid code example as it's the semicolon that
+                        instructs the compiler where the end of the statement is. <a href="#keywords">Keywords</a> and identifiers can't contain whitespace or line breaks
+                        so the following two examples are invalid. For the remainder of this guide, <i>statement</i> will refer to a statement that ends with a semicolon,
+                        even if that statement spans multiple lines.</p>
+                    <p>Regular <a href="#Characters_and_Strings">string</a> literals such as "Hello World!" can't contain line breaks so the first string statement
+                        example is invalid. Verbatim <a href="#Characters_and_Strings">string</a> literals, prefixed with an <code>@</code> symbol, as in the second
+                        example can contain line breaks and produces the result as shown.</p>
 <pre><code>// This is a comment.
 
 // using directive.
@@ -332,73 +403,6 @@ World!");
     }
 }
 </code></pre>
-                    <p>In the example above, the first line is a <a href="#Comments_and_Task_Lists">comment</a>. The two forward slashes <code>//</code> at the beginning
-                        indicates that this is a single line comment.</p>
-                    <p>The line <code>using System;</code> is a using directive and must always end with a semicolon <code>;</code>. The first word <code>using</code> is
-                        a reserved word called a <i>keyword</i> in C#. <a href="#Keywords_and_Specifications">Keywords</a> are directly used by the compiler as
-                        instructions. The next word <code>System</code> is an <i>identifier</i>. Identifiers are used to name types such as
-                        <a href="#Classes_and_Other_User_Defined_Types">classes, interfaces, structs, records,</a>
-                        <a href="#Anonymous_functions">delegates,</a> <a href="#Enumerators">enums</a>, <a href="#tuple">tuples</a> and their
-                        <a href="#Classes_and_Other_User_Defined_Types">members</a>, and <a href="#Variables,_Constants,_Types_and_Literals">variables</a> or
-                        <a href="#Namespaces">namespaces</a>.</p>
-
-                    <p>The rules for identifiers are</p>
-                    <ul>
-                        <li>Identifiers must begin with a letter or the <code>_</code> character</li>
-                        <li>Identifiers can only contain letters, numbers or the <code>_</code> character</li>
-                        <li>Identifiers shouldn't contain two or more consecutive <code>_</code> characters as these are reserved for
-                            compiler generated identifiers</li>
-                        <li>Identifiers are case sensitive</li>
-                        <li>Identifiers can only be declared once within the same <a href="#Scope">scope</a></li>
-                        <li>A keyword can't be used as an identifier</li>
-                    </ul>
-                    <p>By being case sensitive it is valid for two identifiers to differ by case only, e.g., <code><b>n</b>ame</code> and <code><b>N</b>ame</code> are two
-                        different identifiers.</p>
-                    <p>There may also be situations where using a specific identifier may result in a <i>naming conflict</i> with an identifier in built-in types. In
-                        particular all types, even those you define yourself, are provided by .NET with a number of standard <a href="Members">members</a>. Unless these
-                        are specifically being overridden the identifiers, <code>Equals</code>, <code>GetHashCode</code>, <code>GetType</code> and <code>ToString</code>
-                        should be avoided. </p>
-                    <p>More recently C# has introduced the discard variable which is used when the output of an expression is not required. This is an advanced subject
-                        that won't be discussed in this guide but is mentioned here for completeness. The identifier for the discard variable is the <code>_</code>
-                        character by itself. Unlike other variables, multiple discard variable identifiers can be declared within the same scope.</p>
-                    <p><code>namespace MyProgram</code> is a namespace declaration. Namespaces are used to organize objects into logical groups. Details of the
-                        <code>using</code> directive and namespaces are in (<a href="#Namespaces_and_References">Namespaces and References</a>).</p>
-                    <p>Following the namespace declaration is an opening brace <code>{</code> which is the beginning of a code block and its closing brace
-                        <code>}</code> is the last line in the example. All code blocks must have an opening and closing brace. Nested within this code block is a
-                        <a href="#class">class</a> as declared by <code>public class MyClass</code> and its associated code block. Nested within this is a
-                        <a href="#Constructor">constructor</a> declaration <code>MyClass() { }</code> , a <a href="#Methods">method</a> declaration
-                        <code>static void Main(string[] args)</code> and their code blocks.</p>
-                    <p>There are two main ways in which a program can be compiled for use. The first is as a class library to be used by other applications and the second
-                        as an application that can be started directly. For the latter the program must have an entry point method and as mentioned in
-                        (<a href="#Create_a_Hello_World_Project">Create a Hello World Project</a>), for C# it is the method <code>static void Main(string[] args)</code>.
-                        There are several rules that it must follow but the main ones that are of concern are</p>
-                    <ul>
-                        <li>There can only be one <code>static void Main(string[] args)</code> method within the program</li>
-                        <li>It must have the <code>static</code> keyword </li>
-                    </ul>
-                    <p><code>Console.WriteLine("Hello World!");</code> , a single line statement, is the first in the <code>public void MyMethod()</code> code block. In
-                        this context, the dot <code>.</code> between <code>Console</code> and <code>WriteLine ("Hello World")</code> is called the Member access operator.
-                        It allows access to a <a href="">member</a>, here a method called <code>WriteLine</code> in a class called <code>Console</code>. The round
-                        brackets <code>( )</code> allow parameters to be passed into the method, here the <a href="#Characters_and_Strings">string</a> literal
-                        <code>"Hello World!"</code>. All single line statements must end with a semicolon <code>;</code> . Following are three further examples of single
-                        line statements showing how <a href="#Variables,_Constants,_Types_and_Literals">variables</a> can be declared and assigned.</p>
-                    <p> The <code>while (true)</code> statement also called a <a href="#while_statement">while</a> loop, together with the braces and enclosed code form a
-                        code block. No semicolon is required after the closing brace. Within the code block is first an assignment statement, followed by a
-                        <code>break</code> statement then another assignment statement. As the <a href="#break">break</a> statement causes the program to leave the while
-                        loop before reaching the second assignment statement and, it can't be executed and is known as unreachable code. This won't prevent the program
-                        from being built or run but will cause a warning in the the code editor and should be rectified.</p>
-                    <p>Next are two <code>if</code> statements. An if statement is a <a href="#Decision_Making_Statements">decision making statement</a>. Some statements
-                        allow for a single statement known as an embedded statement, such as <code>x = 1;</code> in the example, to be placed directly after it without
-                        the need for braces. Together they form a compound statement so the first two <code>if</code> statements are equivalent. An embedded statement
-                        cannot be a declaration or labelled statement so the last <code>if</code> statement example is invalid.</p>
-                    <p>As mentioned above, but for a few exceptions, the compiler ignores line breaks, tabs and whitespace, so a statement does not need to be on a single
-                        line. <code>Console.WriteLine ("Hello World");</code> can be rearranged to produce the following valid code example as it's the semicolon that
-                        instructs the compiler where the end of the statement is. <a href="#keywords">Keywords</a> and identifiers can't contain whitespace or line breaks
-                        so the following two examples are invalid. For the remainder of this guide, <i>statement</i> will refer to a statement that ends with a semicolon,
-                        even if that statement spans multiple lines.</p>
-                    <p>Regular <a href="#Characters_and_Strings">string</a> literals such as "Hello World!" can't contain line breaks so the first string statement
-                        example is invalid. Verbatim <a href="#Characters_and_Strings">string</a> literals, prefixed with an <code>@</code> symbol, as in the second
-                        example can contain line breaks and produces the result as shown.</p>
                 </article>
             </section>
             <!-- !SECTION Code Syntax -->
@@ -1039,7 +1043,6 @@ namespace Characters
 // a       b
 </code></pre>
                     <!-- !SECTION Characters -->
-<!-- TODO Add info somewhere about creating datetime and ToString("C", CultureInfo.CurrentCulture) -->
                     <!-- SECTION Strings -->
                     <h3 id="Strings">Strings</h3>
                     <p>A string is a sequence of Unicode (UTF-16) characters that represent text. The maximum length of a string is based on a memory size of 2GB which
@@ -2337,14 +2340,12 @@ namespace ArrayAccess
                         <li><i>SortedSet&lt;T&gt;</i> - A sorted set for mathematical functions</li>
                     </ul>
                     <!-- !SECTION Collections -->
-<!-- TODO correct anonymous expression and link note -->
                     <!-- SECTION List<T> -->
                     <h4 id="List_T">List&lt;T&gt;</h4>
                     <p>A <i>List&lt;T&gt;</i> is a strongly typed generic collection of objects accessed by an int type <i>index</i>. Unlike an array, a list does
                         not have a fixed size and as such does not have to be declared. It provides a number of useful methods for manipulating its data such as add,
                         remove, sort, find and clear.</p>
-                    <p><em>Note:</em> <i>The Find method uses an anonymous expression, details of which are in
-                            <a href="#Anonymous_functions">Anonymous functions</a></i></p>
+                    <p><em>Note:</em> <i>The Find method uses an <a href="#Lambda_expressions">lambda expression</a></i></p>
                     <p>The following example demonstrates List declaration and use </p>
 <pre><code>using System;
 using System.Collections.Generic;
@@ -2860,7 +2861,7 @@ namespace TupleEquality
                     </p>
                     <p>The types that can be used to define an object with a state include</p>
                     <ul>
-                        <li><a href="#class">classes</a> are reference types used to define complex objects and usually accounts for the majority of types in an
+                        <li><a href="#class">classes</a> are reference types used to define complex objects and usually account for the majority of types in an
                             assembly</li>
                         <li><a href="#struct">struct (structures)</a> are value types used to define simple data focused objects with little behavior
                         </li>
@@ -2892,12 +2893,15 @@ namespace TupleEquality
 <!-- TODO add brief about polymorphism -->
                     <!-- SECTION class -->
                     <h3 id="class">class</h3>
+                    <p>A class is a used to define a type that can be instantiated into an <a href="Object-oriented_Programming">object</a>. It does this by acting as a
+                        container to encapsulate <a href="#Members">members</a> that define its state and behavior. It is a <a href="#Reference_type">reference type</a>
+                        which when declared at run-time contains <code>null</code> until an instance is created using the <code>new</code> keyword. At this time its
+                        members can be called to define its initial state. <a href="#Modifiers">Modifier keywords</a> can be applied to a class and its members to alter
+                        its behavior and accessibility.</p>
                     <p>A class within a namespace is declared by specifying an optional <a href="#Access_Modifiers">access modifier</a> keyword, followed by the
                         <code>class</code> keyword, followed by an identifier that is unique within the same <a href="#Dependencies_and_Namespaces">namespace</a>,
-                        followed by a code block defined by a pair of braces. If the access modifier keyword is omitted the default access is internal. A class can also
-                        be marked with either the <a href="#static">static</a>, <a href="#abstract">abstract</a> or <a href="#sealed">sealed</a> keywords. Whilst multiple
-                        classes can be added to a single file, unless a class is nested, the convention is that each should occupy its own
-                        file.</p>
+                        followed by a code block defined by a pair of braces. If the access modifier keyword is omitted the default access is internal. Whilst multiple
+                        classes can be added to a single file, unless a class is nested, the convention is that each should occupy its own file.</p>
                     <p>To add a class file in Visual Studio</p>
                     <ol>
                         <li>In the <b>Solution Explorer</b> right click the project or a folder within it that you wish to add the class to.</li>
@@ -3150,7 +3154,6 @@ namespace ClassExample
                         hide the base member, please see <a href="#Inheriting_types">Inheriting types</a>.
                     </p>
                     <!-- !SECTION Members -->
-                    <!-- TODO add local function syntax -->
                     <!-- SECTION Methods -->
                     <h3 id="Methods">Methods</h3>
                     <p>A method provides the behavior of an object. This could be reading a file, calculating a value, writing to the screen, etc. It does this by acting
@@ -3811,7 +3814,7 @@ namespace Fields
                         method be marked <code>virtual</code> so they can be <a href="#override">overridden</a> if the class can be inherited. The
                         naming convention for such a method is the name of the event prefixed with <i>On</i> such as <code>OnEvent</code>. The naming convention for
                         subscriber event handlers is the instance or type identifier followed by an underscore followed by the event identifier such as
-                        <code>instance_SomeEvent</code>. An event handler can also be in the form of a <a href="#Lambda_Expression">lambda expression</a>.</p>
+                        <code>instance_SomeEvent</code>. An event handler can also be in the form of a <a href="#Lambda_expressions">lambda expression</a>.</p>
                     <p><em>Note:</em> <i>When an event has multiple subscribers the order in which they receive the event is not always guarantied. A subscriber should
                         not rely on another having already handled the event.</i></p>
                     <p>In the following example the <code>Clock</code> class declares <code>Started</code>, <code>Stopped</code> and <code>Ticked</code> events and the
@@ -3961,7 +3964,7 @@ namespace Events
                         be set in the event handler to indicate if the event should be cancelled.</p>
                     <p>In the following example the <code>ApplicationManager</code> class declares an <code>Exiting</code> event that in turn declares a
                         <code>CancelEventHandler</code> type delegate. The <code>Program</code> class subscribes to the <code>Exiting</code> event and declares an event
-                        handler for this using a <a href="#Lambda_Expression">lambda expression</a>. Within the <code>Main</code> method are two while loops, one testing
+                        handler for this using a <a href="#Lambda_expressions">lambda expression</a>. Within the <code>Main</code> method are two while loops, one testing
                         if the user presses the <kbd>x</kbd> key, nested in another that tests if the <code>AllowExit</code> property is true. When the <kbd>x</kbd> key is
                         pressed, <code>Exit</code> is called which calls <code>OnExiting</code> which invokes the <code>Exiting</code> event. Within the
                         <code>Exiting</code> event handler in <code>Program</code>, the <code>CancelEventArgs.Cancel</code> property is set <code>true</code> or
@@ -4097,6 +4100,46 @@ namespace Indexers
                         class that is created. As implementing a finalizer is a rare and complex subject it won't be discussed in this guide.</p>
                     <p><em>Note:</em><i>In earlier versions of the C# standard a 'finalizer' was called a 'destructor'.</i></p>
                     <!-- !SECTION Finalizers -->
+                    <!-- SECTION Local functions -->
+                    <h3 id="Local_functions">Local functions</h3>
+                    <p>A local function is a private <a href="#Methods">method</a> that can be nested and can only be called from within another member. They can be
+                        declared in the following.</p>
+                    <ul>
+                        <li>Methods</li>
+                        <li>Constructors</li>
+                        <li>Property accessors</li>
+                        <li>Event accessors</li>
+                        <li>Anonymous methods</li>
+                        <li>Lambda expressions</li>
+                        <li>Finalizers</li>
+                        <li>Other local functions</li>
+                    </ul>
+                    <p>A local functions can't be declared inside an expression-bodied member.</p>
+                    <p>The following example demonstrates declaration and usage of local functions.</p>
+<pre><code>using System;
+
+namespace LocalFunctions
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Declare a locale function
+            int Square(int x) =&gt; x * x;
+
+            Console.WriteLine($"The square of 2 is {Square(2)}");
+            Console.WriteLine($"The square of 3 is {Square(3)}");
+            Console.WriteLine($"The square of 4 is {Square(4)}");
+        }
+    }
+}
+
+// This example writes the following to the console
+// The square of 2 is 4
+// The square of 3 is 9
+// The square of 4 is 16
+</code></pre>
+                    <!-- !SECTION Local functions -->
                     <!-- SECTION Parameters, signatures and overloading -->
                     <h3 id="Parameters,_signatures_and_overloading">Parameters, signatures and overloading</h3>
                     <p>A <a href="#class">class</a>, <a href="#struct">struct</a>, <a href="#record">record</a> or <a href="#interface">interface</a>, may contain
@@ -5272,9 +5315,9 @@ namespace Interface
                 <header><h2>Anonymous functions</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
-                    <p>An anonymous function allows you to create a <a href="#delegate">delegate</a> an assign it a method in one line of code(<i>in-line</i>), without
+                    <p>An anonymous function allows you to create a <a href="#delegate">delegate</a> and assign it a method in one line of code(<i>in-line</i>), without
                         the need for a separate named method. They can be declared with one of two basic syntaxes, <a href="#Anonymous_methods">anonymous methods</a> and
-                        <a href="Lambda_Expression">lambda expressions</a> with the latter replacing the former. C# also provides two types of built-in delegates,
+                        <a href="Lambda_expressions">lambda expressions</a> with the latter replacing the former. C# also provides two types of built-in delegates,
                         <a href="#Action_and_Func">Action</a> and  <a href="#Action_and_Func">Func</a>, that allow the in-line declaration of an anonymous function
                         without the need for the separate declaration of a delegate or a named method. </p>
                     <!-- SECTION Anonymous methods -->
@@ -5311,7 +5354,7 @@ namespace AnonymousMethods
 </code></pre>
                     <!-- !SECTION Anonymous methods -->
                     <!-- SECTION Lambda expressions -->
-                    <h3 id="Lambda_Expression">Lambda expressions</h3>
+                    <h3 id="Lambda_expressions">Lambda expressions</h3>
                     <p>Lambda expressions allow for a more concise in-line syntax than anonymous methods. As with a <a href="#delegate">named method</a> a delegate is
                         first declared with the required <a href="Parameters,_signatures_and_overloading">signature</a>. The delegate instance is then
                         declared and assigned an anonymous method by using a pair of round brackets containing the same signature as the delegate, followed by the lambda
@@ -5396,7 +5439,7 @@ namespace LambdaExpressions
                         <code>Func</code> syntax is <code>Func&lt;in T1, ... in T16, out TResult&gt;</code>. Both provide
                         <a href="#Parameters,_signatures_and_overloading">overloads</a> for up to 16 input parameters of any type with <code>Func</code> allowing for one
                         return value of any type and both can be assigned a body in the form of either an <a href="#Anonymous_methods">anonymous method</a> or a
-                        <a href="#Lambda_Expression">lambda expression</a>.</p>
+                        <a href="#Lambda_expressions">lambda expression</a>.</p>
                     <p>The following example demonstrates both <code>Func</code> and <code>Action</code> declaration and use.</p>
 
 <pre><code>using System;
@@ -6331,9 +6374,9 @@ namespace Scope
                     <p>Following is a list of the modifiers and which types and members they apply to</p>
                     <ul>
                         <li><a href="#abstract">abstract</a> - classes, records, methods, properties</li>
-                        <li><a href="#async">async</a> - method, lambda expression, anonymous method</li>
+                        <li><a href="#async">async</a> - method, lambda expression, anonymous method, local functions</li>
                         <li><a href="#const">const</a> - fields, local variables</li>
-                        <li><a href="#extern">extern</a> - methods, constructors, properties, events, indexers, finalizers </li>
+                        <li><a href="#extern">extern</a> - methods, constructors, properties, events, indexers, finalizers, local functions</li>
                         <li><a href="#in">in</a> - parameters, generics</li>
                         <li><a href="#new">new</a> - methods, fields, properties, events, indexers, nested types</li>
                         <li><a href="#out">out</a> - parameters, generics </li>
@@ -6341,9 +6384,9 @@ namespace Scope
                         <li><a href="#partial">partial</a> - classes, structures, interfaces, methods</li>
                         <li><a href="#readonly">readonly</a> - fields</li>
                         <li><a href="#sealed">sealed</a> classes, records, methods, properties, events, indexers</li>
-                        <li><a href="#static">static</a> - classes, methods, constructors, fields, properties, events</li>
+                        <li><a href="#static">static</a> - classes, methods, constructors, fields, properties, events, local functions</li>
                         <li><a href="#unsafe">unsafe</a> - class, struct, record, delegate, interface, method, constructor, field, property, indexer, event, operator,
-                            finalizer</li>
+                            finalizer, local functions</li>
                         <li><a href="#virtual">virtual</a> -  methods, properties, events, indexers</li>
                         <li><a href="#volatile">volatile</a> - fields</li>
                     </ul>
@@ -6448,11 +6491,12 @@ Console.WriteLine($"The price of the hours is {hoursPriceCalculator.CalculateAmo
                         C++. Similar to the <a href="abstract">abstract</a> modifier, <code>extern</code> allows you to create the declaration only, which points to the
                         implementation in the external library. The <code>extern</code> modifier is often used with the <code>DllImport</code> attribute which in turn is
                         used to import the external library.</p>
-                    <p>In the following example <code>extern</code> is used to declare a method called <code>MessageBox</code> which is implemented by a method of the
-                        same name in a Windows library called <i>user32.dll</i>. The example also makes use of the <i>local function</i> syntax which wraps the
-                        <code>MessageBox</code> method within another called <code>DisplayMessageBox</code>. When the user presses the <kbd>x</kbd> key, a message box is
-                        displayed asking the user if they want to end the program which loops until the user clicks the <i>Yes</i> button.</p>
-                    <p><i><em>Note:</em> due to the use of user32.dll this example will only work with the Windows operating system.</i></p>
+                    <p>In the following example a <a href="#Access_modifiers">private</a> method called <code>MessageBox</code> is declared with the <code>extern</code>
+                        modifier and <code>DllImport</code> attribute that imports the method implementation from the Windows <i>User32.dll</i> library. When the user
+                        presses the <kbd>x</kbd> key, an overloaded <code>public</code> <code>MessageBox</code> method is called which in turn calls the
+                        <code>private</code> <code>MessageBox</code> which then displays a message box asking the user if they want to end the program. The program
+                        execution loops until the user clicks the <i>Yes</i> button.</p>
+                    <p><i><em>Note:</em> due to the use of user32.dll, this example will only work with the Windows operating system.</i></p>
 <pre><code>using System;
 using System.Runtime.InteropServices;
 
@@ -6470,22 +6514,22 @@ namespace Extern
                 Console.WriteLine("Press x to exit the program");
                 // Wait until the user presses the 'x' key
                 while (Console.ReadKey(true).Key != ConsoleKey.X) { }
-                exit = DisplayMessageBox("Are you sure you want to exit the program?", "Exit program?");
+                exit = MessageBox("Are you sure you want to exit the program?", "Exit program?");
             }
             Console.WriteLine("You have exited the program");
         }
 
-        public static bool DisplayMessageBox(string message, string caption)
+        public static bool MessageBox(string message, string caption)
         {
-            // Declare a nested 'MsgBox' method that is implemented
-            // by the 'MessageBox' method in 'User32.dll'
-            [DllImport("User32.dll", EntryPoint = "MessageBox", CharSet = CharSet.Unicode)]
-            static extern int MessageBox(IntPtr h, string message, string caption, int type);
-
-            // Call the 'MsgBox' method with type set to 4 which displays
+            // Call the 'MessageBox' method with type set to 4 which displays
             // yes and no buttons. If the user presses yes the method returns 6.
             return MessageBox((IntPtr)0, message, caption, 4) == 6;
         }
+
+        // Declare a 'MessageBox' method that is implemented
+        // by the 'MessageBox' method in 'User32.dll'
+        [DllImport("User32.dll", EntryPoint = "MessageBox", CharSet = CharSet.Unicode)]
+        private static extern int MessageBox(IntPtr h, string message, string caption, int type);
     }
 }
     </code></pre>
