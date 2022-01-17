@@ -5309,7 +5309,7 @@ namespace CancelEvent
     // and implements ISound and IMotion
     public class Car : Vehicle, ISound, IMotion
     {
-        public string Sound { get; set; }
+        public string Sound { get; set; } = string.Empty;
 
         public void Move()
         {
@@ -5326,7 +5326,7 @@ namespace CancelEvent
     // Declare Dog class that implements ISound and IMotion
     public class Dog : IMotion, ISound
     {
-        public string Sound { get; set; }
+        public string Sound { get; set; } = string.Empty;
 
         public void Move()
         {
