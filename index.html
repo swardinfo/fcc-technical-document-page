@@ -4861,6 +4861,11 @@ namespace CancelEvent
     // more accessible than its internal base class D
     // even though D inherits from public class C
     //public class E : D { }
+
+    class Program
+    {
+        static void Main(string[] args) { }
+    }
 }
 </code></pre>
                     <p>The following example creates a base class called <code>Animal</code> with a public property <code>Legs</code> that provides access to a private
@@ -4882,14 +4887,14 @@ namespace CancelEvent
     // and adds the property 'Flying'
     public class Bird : Animal
     {
-        public string Flying { get; set; }
+        public string Flying { get; set; } = "Fast";
     }
 
     // The derived class 'Cat' inherits 'Animal'
     // and adds the property 'Meowing'
     public class Cat : Animal
     {
-        public string Meowing { get; set; }
+        public string Meowing { get; set; } = "Quietly";
     }
 
     class Program
