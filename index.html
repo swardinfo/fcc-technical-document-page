@@ -5208,9 +5208,9 @@ namespace CancelEvent
 {
     public class Person
     {
-        public string FirstName { get; set; }
+        public string? FirstName { get; set; }
 
-        public string LastName { get; set; }
+        public string? LastName { get; set; }
 
         public override string ToString()
         {
@@ -5229,11 +5229,16 @@ namespace CancelEvent
             };
 
             Console.WriteLine($"This person is {person.ToString()}");
+
+            // As the default method for a type derived from a
+            // System.Object is ToString it can be omitted in this case
+            Console.WriteLine($"This person is {person}");
         }
     }
 }
 
 // The example writes the following to the console
+// This person is Denise Jones
 // This person is Denise Jones
 </code></pre>
                     <!-- !SECTION Overriding object members -->
