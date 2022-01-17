@@ -6153,7 +6153,17 @@ namespace Aliases
                         all have this enabled by default when a new project is created. This adds a number of <a href="#Importing_types">global using</a> directives to
                         import various namespaces appropriate to the type of project. These are automatically generated in a file not accessible by the code editor, each
                         time the project is built. This is important as there is currently no easy way to see which using directives are added and this can result in an
-                        ambiguous reference error.</p>
+                        ambiguous reference error. At the time of this writing the namespaces that are added to a <i>Console app</i> with <i>Implicit global usings</i>
+                        enabled are</p>
+                    <ul>
+                        <li>System</li>
+                        <li>System.Collections.Generic</li>
+                        <li>System.IO</li>
+                        <li>System.Linq</li>
+                        <li>System.Net.Http</li>
+                        <li>System.Threading</li>
+                        <li>System.Threading.Tasks</li>
+                    </ul>
                     <p>The following example demonstrates importing and using various System types.</p>
 <pre><code>namespace NameSpace1
 {
