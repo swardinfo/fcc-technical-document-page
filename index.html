@@ -180,9 +180,7 @@ Console.WriteLine("Hello, World!");
                         simpler for new C# programmers to get started learning and writing code". Unfortunately for any real world applications there is very little use
                         for such top-level statements. In my opinion the way in which such code must be written is also at odds with normal coding conventions and quite
                         frankly, the extra boiler plate code is not that hard to understand. So next, delete the existing code and replace it with the following.</p>
-<pre><code>using System;
-
-namespace HelloWorld
+<pre><code>namespace HelloWorld
 {
     class Program
     {
@@ -451,9 +449,7 @@ World!");
                           or if it is a reference type it must be created, known as being instantiated. A directive is an instruction for the compiler that while not
                            directly part of our program will affect how our program will be built and run.</p>
                     <p>CodeExample</p>
-<pre><code>using System;
-
-namespace Namespace
+<pre><code>namespace Namespace
 {
     class Program
     {
@@ -490,9 +486,7 @@ namespace Namespace
                         be added to the Task List. There are four predefined task tokens, <code>HACK</code>, <code>TODO</code>, <code>UNDONE</code>,
                         <code>UnresolvedMergeConflict</code> and custom tokens can also be added. Task tokens are not case sensitive. To see the task list, in the menu
                         click <b>View</b> then <b>Task List</b>.</p>
-<pre><code>using System;
-
-namespace Comments
+<pre><code>namespace Comments
 {
     class Program
     {
@@ -563,9 +557,7 @@ namespace Comments
                         running in debug mode and then stop and highlight the statement <code>var z = x / y;</code> and display an <i>Exception Unhandled</i> dialog box
                         with the message <i>System.DivideByZeroException: 'Attempted to divide by zero.'</i> of which <code>DivideByZeroException</code> is the exception.
                         To stop the program and clear the exception press <kbd>Shift</kbd> + <kbd>F5</kbd>.</p>
-<pre><code>using System;
-
-namespace Exception
+<pre><code>namespace Exception
 {
     class Program
     {
@@ -586,9 +578,7 @@ namespace Exception
                     <p>Sometimes you may wish to check for invalid conditions specific to your own program. When these occur, you can respond by throwing an exception of
                     your own choice using the <code>throw</code> keyword. You can also include a custom message with the exception. The following throws an
                     <code>ArgumentException</code> with the message <i>y cannot be zero</i>.</p>
-<pre><code>using System;
-
-namespace Throw
+<pre><code>namespace Throw
 {
     class Program
     {
@@ -613,9 +603,7 @@ namespace Throw
                         <code>catch</code> block is not found then the program ends with an <i>unhandled exception</i></p>.
                     <p>Following shows how the <code>DivideByZeroException</code> in the previous example could be handled. When run, instead of resulting in an unhandled
                         exception dialog box, <i>'Attempted to divide by zero.'</i> is written to the console.</p>
-<pre><code>using System;
-
-namespace TryCatch
+<pre><code>namespace TryCatch
 {
     class Program
     {
@@ -649,9 +637,7 @@ namespace TryCatch
                         specific. In the following example the first block catches the <code>DivideByZeroException</code> and the second <code>Exception</code>
                         catches all exceptions. This means that if <code>DivideByZeroException</code> code block had not been present then the divide by zero exception
                         would have been caught by the <code>Exception</code> code block.</p>
-<pre><code>using System;
-
-namespace MultipleCatchBlocks
+<pre><code>namespace MultipleCatchBlocks
 {
     class Program
     {
@@ -771,9 +757,7 @@ namespace MultipleCatchBlocks
                         of <a href="#Keywords_and_Specifications">keywords</a> for commonly used types. In this example <code>int</code> is the keyword for
                         <code>System.Int32</code> and <code>double</code> the keyword <code>System.Double</code> (note the capital 'D'). Both can be used in code but in
                         general the keyword is favoured by most.</p>
-<pre><code>using System;
-
-namespace Variables
+<pre><code>namespace Variables
 {
     class Program
     {
@@ -896,9 +880,7 @@ namespace Variables
                         <code>i</code> in <code>i * 3 * 3</code> produces this error.</p>
                     <p><i>Operator '+' cannot be applied to operands of type 'int' and 'bool'</i> - C# does not allow the conversion of a boolean value to a number so
                         attempting a numeric addition between an <code>int</code> and a <code>bool</code> produces this error.</p>
-<pre><code>using System;
-
-namespace VariableSyntaxErrors
+<pre><code>namespace VariableSyntaxErrors
 {
     class Program
     {
@@ -977,9 +959,7 @@ namespace VariableSyntaxErrors
                     <!-- SECTION Type conversion -->
                     <h3 id="Type_conversion">Type conversion</h3>
                     <p>Following are examples of the different tools C# provides to convert built in types.</p>
-<pre><code>using System;
-
-namespace CastingAndConversion
+<pre><code>namespace CastingAndConversion
 {
     class Program
     {
@@ -1045,9 +1025,7 @@ namespace CastingAndConversion
                     <p>To perform an explicit conversion between types, use the cast expression <code>(T)E</code>. If no conversion exists from <code>E</code> to
                         <code>T</code> a compile error will occur. It also may be possible that a conversion error is not detected until the code containing it is
                         executed during runtime in which case an <a href="#Exception">exception</a> will be thrown.</p>
-<pre><code>using System;
-
-namespace ExplicitConversion
+<pre><code>namespace ExplicitConversion
 {
     class Program
     {
@@ -1090,9 +1068,7 @@ namespace ExplicitConversion
                     <p>Character literals consists of a single character in a pair of single quotes, such as <code>'a'</code>. Escape sequences consist of a single
                         backslash followed by a sequence of characters as defined in <a href="#Character_specifications">Character specifications</a>.</p>
                     <p>The following example demonstrates declaring and using a character</p>
-<pre><code>using System;
-
-namespace Characters
+<pre><code>namespace Characters
 {
     class Program
     {
@@ -1140,9 +1116,7 @@ namespace Characters
                         <a href="#References">Microsoft Reference Documentation</a></p>
                     <p>The interpolation identifier can be used in conjunction with the verbatim identifier and the order of the identifiers doesn't matter.</p>
                     <p>Following are examples of string usage.</p>
-<pre><code>using System;
-
-namespace CharactersAndStrings
+<pre><code>namespace CharactersAndStrings
 {
     class Program
     {
@@ -1267,9 +1241,7 @@ namespace StringBuilderExample
                     <!-- SECTION Assignment operator -->
                     <h3 id="Assignment_operator">Assignment operator <code>=</code></h3>
                     <p>Assigns a value to a variable</p>
-<pre><code>using System;
-
-namespace AssignmentOperator
+<pre><code>namespace AssignmentOperator
 {
     class Program
     {
@@ -1289,9 +1261,7 @@ namespace AssignmentOperator
                     <!-- SECTION Equality operators -->
                     <h3 id="Equality_operators">Equality operators</h3>
                     <p>Evaluates whether two operands are equal</p>
-<pre><code>using System;
-
-namespace EqualityOperators
+<pre><code>namespace EqualityOperators
 {
     class Program
     {
@@ -1321,9 +1291,7 @@ namespace EqualityOperators
                     <!-- SECTION Comparison operators -->
                     <h3 id="Comparison_operators">Comparison operators</h3>
                     <p>Compares the values of two operands</p>
-<pre><code>using System;
-
-namespace ComparisonOperators
+<pre><code>namespace ComparisonOperators
 {
     class Program
     {
@@ -1365,9 +1333,7 @@ namespace ComparisonOperators
                     <!-- SECTION Arithmetic operators -->
                     <h3 id="Arithmetic_operators">Arithmetic operators</h3>
                     <p>Applies an arithmetical operation between two operands</p>
-<pre><code>using System;
-
-namespace ArithmeticOperators
+<pre><code>namespace ArithmeticOperators
 {
     class Program
     {
@@ -1461,9 +1427,7 @@ namespace ArithmeticOperators
                     <!-- SECTION Boolean logic operators -->
                     <h3 id="Boolean_logic_operators">Boolean logic operators</h3>
                     <p>Applies a boolean logic operation between two operands</p>
-<pre><code>using System;
-
-namespace BooleanLogicOperators
+<pre><code>namespace BooleanLogicOperators
 {
     class Program
     {
@@ -1533,7 +1497,6 @@ namespace BooleanLogicOperators
 // p = False
 </code></pre>
                     <!-- !SECTION Boolean logic operators -->
-                    <!-- TODO complete Bitwise and shift operators -->
                     <!-- SECTION Bitwise and shift operators -->
                     <h3 id="Bitwise_and_shift_operators">Bitwise and shift operators</h3>
                     <p>Applies operations on the individual bits of an integral numeric or <a href="Characters">character</a> type</p>
@@ -1612,9 +1575,7 @@ namespace BooleanLogicOperators
                     <!-- SECTION Compound assignment operators -->
                     <h3 id="Compound_assignment_operators">Compound assignment operators</h3>
                     <p>An expression using an operator <code>op</code> in the form <code>x op= y</code> is equivalent to <code>x = x op y</code></p>
-<pre><code>using System;
-
-namespace CompoundAssignmentOperators
+<pre><code>namespace CompoundAssignmentOperators
 {
     class Program
     {
@@ -1682,9 +1643,7 @@ namespace CompoundAssignmentOperators
                         predicate is true then the expression returns <code>a</code> else it returns <code>b</code>. Both <code>a</code> and <code>b</code> must be of the
                         same type. The conditional operator can also be used as a shorthand way to replace combined <code>if</code> and <code>else</code> statements.
                         Conditional statements can be nested though doing so can make the code hard to read.</p>
-<pre><code>using System;
-
-namespace ConditionalOperator
+<pre><code>namespace ConditionalOperator
 {
     class Program
     {
@@ -1711,9 +1670,7 @@ namespace ConditionalOperator
                     <p>In the expression <code>x = a && b</code> <code>x</code> is true if both <code>a</code> and <code>b</code> are true otherwise <code>x</code> is
                         false. If <code>a</code> is false <code>b</code> is not evaluated. This is useful in a situation where, if <code>a</code> is false evaluating
                         <code>b</code> would produce an invalid condition that could result in an exception.</p>
-<pre><code>using System;
-
-namespace ConditionalAndOperator
+<pre><code>namespace ConditionalAndOperator
 {
     class Program
     {
@@ -1750,9 +1707,7 @@ namespace ConditionalAndOperator
                     <p>In the expression <code>x = a || b</code>, <code>x</code> is true if either <code>a</code> or <code>b</code> are true otherwise <code>x</code> is
                         false. If <code>a</code> is true <code>b</code> is not evaluated. This is useful in a situation where, if <code>a</code> is true evaluating
                         <code>b</code> would produce an invalid condition that could result in an exception.</p>
-<pre><code>using System;
-
-namespace ConditionalOrOperator
+<pre><code>namespace ConditionalOrOperator
 {
     class Program
     {
@@ -1789,9 +1744,7 @@ namespace ConditionalOrOperator
                     <h3 id="Null-conditional_operators">Null-conditional operators ?. and ?[]</h3>
                     <p>Description</p>
                     <p>CodeExample</p>
-<pre><code>using System;
-
-namespace Namespace
+<pre><code>namespace Namespace
 {
     class Program
     {
@@ -1807,9 +1760,7 @@ namespace Namespace
                     <h3 id="Null-coalescing_operator">Null-coalescing operator <code>??</code></h3>
                     <p>The null-coalescing operator <code>??</code> returns the left-hand operand if it not null otherwise it evaluates the right-hand expression and
                         returns the result</p>
-<pre><code>using System;
-
-namespace NullCoalescingOperator
+<pre><code>namespace NullCoalescingOperator
 {
     class Program
     {
@@ -1835,9 +1786,7 @@ namespace NullCoalescingOperator
                     <h3 id="Null-coalescing_assignment_operator">Null-coalescing assignment operator <code>??=</code></h3>
                     <p>The null-coalescing assignment operator <code>??=</code> evaluates and assigns the-right hand expression to the left-hand variable only if the
                         variable is null</p>
-<pre><code>using System;
-
-namespace NullCoalescingAssignmentOperator
+<pre><code>namespace NullCoalescingAssignmentOperator
 {
     class Program
     {
@@ -1864,9 +1813,7 @@ namespace NullCoalescingAssignmentOperator
                     <h3 id="Null-forgiving_operator">Null-forgiving operator <code>!</code></h3>
                     <p>Description</p>
                     <p>CodeExample</p>
-<pre><code>using System;
-
-namespace Namespace
+<pre><code>namespace Namespace
 {
     class Program
     {
@@ -1937,9 +1884,7 @@ namespace AliasQualifier
                     <!-- SECTION if else statements -->
                     <h3 id="if_else_statements">if else statements</h3>
                     <p>The <code>if</code> and <code>else</code> statements allow the program execution to branch in one of two directions based on a condition.</p>
-<pre><code>using System;
-
-namespace IfElse
+<pre><code>namespace IfElse
 {
     class Program
     {
@@ -1965,9 +1910,7 @@ namespace IfElse
                     <!-- SECTION switch statement -->
                     <h3 id="switch_statement">switch statement</h3>
                     <p>The <code>switch</code> statement allows for program execution to branch in one of multiple directions based on a condition.</p>
-<pre><code>using System;
-
-namespace Switch
+<pre><code>namespace Switch
 {
     class Program
     {
@@ -2007,9 +1950,7 @@ namespace Switch
                     <h3 id="while_statement">while statement</h3>
                     <p>The <code>while</code> statement iterates until a condition is met. If the condition already exists, program execution won't enter the
                         <code>while</code> loop.</p>
-<pre><code>using System;
-
-namespace WhileLoop
+<pre><code>namespace WhileLoop
 {
     class Program
     {
@@ -2040,9 +1981,7 @@ namespace WhileLoop
                     <h3 id="do_statement">do statement</h3>
                     <p>The <code>do</code> statement iterates until a condition is met. At least one iteration of the <code>do</code> loop is guaranteed to be executed
                         before testing for the condition.</p>
-<pre><code>using System;
-
-namespace DoWhileLoop
+<pre><code>namespace DoWhileLoop
 {
     class Program
     {
@@ -2066,9 +2005,7 @@ namespace DoWhileLoop
                     <!-- SECTION for statement -->
                     <h3 id="for_statement">for statement</h3>
                     <p>The <code>for</code> statement iterates a set number of times based on an exit condition.</p>
-<pre><code>using System;
-
-namespace ForLoop
+<pre><code>namespace ForLoop
 {
     class Program
     {
@@ -2089,9 +2026,7 @@ namespace ForLoop
                     <!-- SECTION foreach statement -->
                     <h3 id="foreach_statement">foreach statement</h3>
                     <p>The <code>foreach</code> statement iterates through all members of a collection.</p>
-<pre><code>using System;
-
-namespace ForEachLoop
+<pre><code>namespace ForEachLoop
 {
     class Program
     {
@@ -2113,9 +2048,7 @@ namespace ForEachLoop
                     <!-- SECTION break -->
                     <h3 id="break">break</h3>
                     <p>The <code>break</code> keyword gives you a way of conditionally exiting a loop before completion.</p>
-<pre><code>using System;
-
-namespace Break
+<pre><code>namespace Break
 {
     class Program
     {
@@ -2140,9 +2073,7 @@ namespace Break
                     <h3 id="continue">continue</h3>
                     <p>The <code>continue</code> keyword gives you a way of conditionally skipping an iteration. The following example uses the <code>%</code> operator in
                         conjunction with the <code>continue</code> keyword to skip all even numbers.</p>
-<pre><code>using System;
-
-namespace Continue
+<pre><code>namespace Continue
 {
     class Program
     {
@@ -2189,9 +2120,7 @@ namespace Continue
                         element values. If not initialized the default value for the elements in a single-dimensional or multi-dimensional array will be 0 for numeric
                         types and null for reference types. As a jagged array stores other arrays the default type is always null.</p>
                         <p>The following example demonstrates the declaration and initialization of an array.</p>
-<pre><code>using System;
-
-namespace Arrays
+<pre><code>namespace Arrays
 {
     class Program
     {
@@ -2315,9 +2244,7 @@ namespace Arrays
                     <p>Arrays are normally zero index based so the elements in a dimension of length n will be accessed by index values of 0 through n-1. Whilst it is
                         possible to create an array that is not zero based its use is rare.</p>
                     <p>The following example demonstrates how to access an array.</p>
-<pre><code>using System;
-
-namespace ArrayAccess
+<pre><code>namespace ArrayAccess
 {
     class Program
     {
@@ -2807,9 +2734,7 @@ namespace Dictionaries
                         them for you. The default type for the value is an integer and the list is zero based. A value in an enum is accessed through the enums
                         identifier, followed by a period, followed by the identifier of one of the constants. An enum is a value type.</p>
                     <p>The following example demonstrates enumerator declaration and use.</p>
-<pre><code>using System;
-
-namespace Enumerators
+<pre><code>namespace Enumerators
 {
     class Program
     {
@@ -2857,9 +2782,7 @@ namespace Enumerators
                     <p><em>Note:</em><i> If an optional identifier is provided IntelliSense won't provide an option for the default identifier but it can still be entered
                         manually.</i></p>
                     <p>There are a number of different ways to declare and assign values to a tuple as demonstrated in the following example.</p>
-<pre><code>using System;
-
-namespace TupleDeclaration
+<pre><code>namespace TupleDeclaration
 {
     class Program
     {
@@ -2918,9 +2841,7 @@ namespace TupleDeclaration
                     <p>Deconstruction allows the elements of a tuple to be separated into separate variables through use of the
                         <a href="#Assignmet_operator">assignment operator</a> <code>=</code>.</p>
 
-<pre><code>using System;
-
-namespace TupleDeconstruction
+<pre><code>namespace TupleDeconstruction
 {
     class Program
     {
@@ -2973,9 +2894,7 @@ namespace TupleDeconstruction
 </code></pre>
                     <p><a href="#Equality_operators">Equality operators</a> can be used to compare two tuples provided that both tuples have the same number of elements
                         and the type of each element in each corresponding position is the same.</p>
-<pre><code>using System;
-
-namespace TupleEquality
+<pre><code>namespace TupleEquality
 {
     class Program
     {
@@ -3085,9 +3004,7 @@ namespace TupleEquality
                         The file will also include using directives for various namespaces dependent on the project's type. Adding a class to a folder will result in a
                         <a href="#Dependencies_and_Namespaces">namespace</a> of the form <code>namespace ProjectName.FolderName</code>.</i></p>
                     <p>The following example demonstrates ways in which a class can be declared. </p>
-<pre><code>using System;
-
-namespace ClassDeclaration
+<pre><code>namespace ClassDeclaration
 {
     // The syntax for declaring a class is first
     // an optional access modifier followed by
@@ -3135,9 +3052,7 @@ namespace ClassDeclaration
                         changes the <code>Width</code> property directly on the <code>square2</code> instance and <code>Height</code> on <code>square3</code> through the
                         <code>SetHeight</code> method. This triggers the <code>AreaChanged</code> event in each which then calls the <code>Square_AreaChanged</code> event
                         handler which in turn writes the updated values to the console.</p>
-<pre><code>using System;
-
-namespace ClassExample
+<pre><code>namespace ClassExample
 {
     class Square
     {
@@ -3355,9 +3270,7 @@ namespace ClassExample
                     <p>Access to a method by code external to the type is in the form of <code>instance.Method(parameters)</code> for an instance of a type and
                        <code>TypeName.Method(parameters)</code> for a <a href="static">static</a> type.</p>
                     <p>The following shows examples of method declaration and use.</p>
-<pre><code>using System;
-
-namespace Methods
+<pre><code>namespace Methods
 {
     public class MyClass
     {
@@ -3464,9 +3377,7 @@ namespace Methods
                         expression-bodied member syntax setting only the value of the <code>_firstName</code> field. The fourth constructor has three parameters,
                         <code>id</code>, <code>firstName</code> and  <code>lastName</code>. Using the <code>this</code> keyword it calls the second constructor, passing
                         in <code>firstName</code> and <code>lastName</code> then uses <code>id</code> to set the <code>_id</code> field using expression-bodied syntax.</p>
-<pre><code>using System;
-
-    namespace Constructors
+<pre><code>    namespace Constructors
     {
         // If no constructors are declared the compiler
         // implicitly declares a default parameterless constructor
@@ -3685,9 +3596,7 @@ namespace Fields
                             members, a constant field cannot be accessed by code through an instance of the type but through the type itself.</p>
                         <p>Access to a property by code external to the type is in the form of <code>Type.CONSTANT</code>.</p>
                         <p>The following example demonstrates constant field declaration and use.</p>
-<pre><code>using System;
-
-    namespace ConstantFields
+<pre><code>    namespace ConstantFields
     {
         public class MathConstants
         {
@@ -3783,9 +3692,7 @@ namespace Fields
                          a type and
                         <code>TypeName.Property</code> for a <a href="static">static</a> type.</p>
                     <p>The following example demonstrates property declaration and use.</p>
-<pre><code>using System;
-
-    namespace Properties
+<pre><code>    namespace Properties
     {
         public enum SkillLevel { None, Beginner, Intermediate, Expert }
 
@@ -4243,9 +4150,7 @@ namespace CancelEvent
                     <p>The following example declares a string collection which uses an indexer to index instances of itself. The <code>Program</code> class creates a new
                         <code>StringCollection</code> instance, assigns the string "Hello World" to the instance at index 0 in the collection, then retrieves the same and
                         finally writes its value to the console.</p>
-<pre><code>using System;
-
-namespace Indexers
+<pre><code>namespace Indexers
 {
     class StringCollection
     {
@@ -4295,9 +4200,7 @@ namespace Indexers
                     </ul>
                     <p>A local functions can't be declared inside an expression-bodied member.</p>
                     <p>The following example demonstrates declaration and usage of local functions.</p>
-<pre><code>using System;
-
-namespace LocalFunctions
+<pre><code>namespace LocalFunctions
 {
     class Program
     {
@@ -4361,9 +4264,7 @@ namespace LocalFunctions
                         the parameter's identifier followed by a colon, optional whitespace and then a literal or a variable of the correct type. Named arguments can be
                         combined with positional arguments provided they precede all positional arguments or are used in their correct positions.</p>
                     <p>The following example demonstrates the declaration and use of parameters and arguments.</p>
-<pre><code>using System;
-
-namespace Parameters
+<pre><code>namespace Parameters
 {
     public class Person
     {
@@ -4535,9 +4436,7 @@ namespace Parameters
                         which overload to call both internally or externally to the type.
                     </p>
                     <p>The following example demonstrates overloading of a method</p>
-<pre><code>using System;
-
-namespace OverloadingMethods
+<pre><code>namespace OverloadingMethods
 {
     public class Person
     {
@@ -4642,9 +4541,7 @@ namespace OverloadingMethods
                     <p>The following example declares a struct called <code>Box</code> with <code>Width</code>, <code>Height</code> and <code>Depth</code> fields and a
                         method called <code>GetVolume</code>. It demonstrates several ways to declare and assign values to a struct and then writes the values to the
                         console.</p>
-<pre><code>using System;
-
-namespace Structs
+<pre><code>namespace Structs
 {
     public struct Box
     {
@@ -4760,9 +4657,7 @@ namespace Structs
                         provide your own accessor implementation. Additionally the prime constructor can be overloaded using the <code>this</code>
                         keyword. In both of these cases you then need to set the property values using the values of the positional parameters.</p>
                     <p>The following example demonstrates how to declare and use records.</p>
-<pre><code>using System;
-
-    namespace Records
+<pre><code>    namespace Records
     {
         // Declare a record with four positional parameters. The compiler
         // creates auto-properties and a prime constructor to set them
@@ -4857,9 +4752,7 @@ namespace Structs
                     <p>A common use for delegates is in <a href="#Events">events</a> in which a method known as an <i>event handler</i> is invoked by a special kind of
                         multicast delegate that is declared by the event.</p>
                     <p>The following example demonstrates delegate declaration and use.</p>
-<pre><code>using System;
-
-namespace Delegates
+<pre><code>namespace Delegates
 {
     // A 'delegate' declares the method signature including return type
     // Delegate 'Calculate' takes in two int's and returns an int
@@ -4935,9 +4828,7 @@ namespace Delegates
                     <p>The following example demonstrates the syntax for inheriting a class. First base class <code>A</code> is declared as normal. Derived Class
                         <code>B</code> is then declared followed by a colon, then the identifier of the class to be inherited, followed by the code block for class
                         <code>B</code>.</p>
-<pre><code>using System;
-
-namespace InheritanceSyntax
+<pre><code>namespace InheritanceSyntax
 {
     // Base class A is fist declared
     class A { }
@@ -4955,9 +4846,7 @@ namespace InheritanceSyntax
                     <p>This illustrates that relying on the default accessibility for a class or interface can easily lead to unexpected errors so it is advisable to
                         always use the <code>internal</code> keyword if that is your intention. This is important as the default template provided by Visual Studio does
                         not provide an accessibility keyword so if you see an 'Inconsistent accessibility' error, check that the base class has been declared public.</p>
-<pre><code>using System;
-
-namespace InheritanceAccessibility
+<pre><code>namespace InheritanceAccessibility
 {
     // Base class A default accessibility is internal
     class A { }
@@ -4985,9 +4874,7 @@ namespace InheritanceAccessibility
                         <code>Cat</code> setting values for both <code>Legs</code> and <code>Meowing</code>. A message describing each is then written to the console with
                         their corresponding properties.</p>
 
-<pre><code>using System;
-
-namespace InheritanceExample
+<pre><code>namespace InheritanceExample
 {
     // Declare a base class called 'Animal'
     public class Animal
@@ -5045,9 +4932,7 @@ namespace InheritanceExample
                         virtual method in the base class to invoke the event. This can then be overridden in the derived class where it can be used to indirectly call the
                         base class event. This also allows for additional code to be added and executed within the method before or after the event is raised.</p>
                     <p>CodeExample</p>
-<pre><code>using System;
-
-namespace CallingBaseClassEvents
+<pre><code>namespace CallingBaseClassEvents
 {
     public class BaseClass
     {
@@ -5207,9 +5092,7 @@ namespace CallingBaseClassEvents
                         <code>DerivedClass2</code> from <code>BaseClass2</code> without providing a parameterized constructor with the same signature as that of the base
                         class results in a syntax error.</p>
 
-<pre><code>using System;
-
-namespace BaseKeyword
+<pre><code>namespace BaseKeyword
 {
     public class BaseClass
     {
@@ -5322,9 +5205,7 @@ namespace BaseKeyword
                         a result it is not uncommon to override <code>ToString()</code> with something more meaningful. In the following example the
                         <code>ToString()</code> <a href="#Methods">method</a> is overridden to return the combined <code>FirstName</code> and <code>LastName</code>
                         properties values as the full name which is then written to the console.</p>
-<pre><code>using System;
-
-namespace OverridingObjectMembers
+<pre><code>namespace OverridingObjectMembers
 {
     public class Person
     {
@@ -5404,9 +5285,7 @@ namespace OverridingObjectMembers
                         and so implement the <code>IMotion</code> and <code>ISound</code> interfaces which respectively include the <code>Move</code> method and
                         <code>Sound</code> property. As can be seen whilst the base class <code>Vehicle</code> must come first in the declaration list, the order of the
                         interface declaration is does not matter.</p>
-<pre><code>using System;
-
-namespace Interface
+<pre><code>namespace Interface
 {
     // Declare interface IMotion
     public interface IMotion
@@ -5508,9 +5387,7 @@ namespace Interface
                         <a href="Parameters,_signatures_and_overloading">signature</a>. The delegate instance is then declared and assigned an anonymous method by using
                         the <code>delegate</code> keyword, followed by the same signature as the delegate, followed by a code block.</p>
                     <p>The following example demonstrates anonymous method declaration and use.</p>
-<pre><code>using System;
-
-namespace AnonymousMethods
+<pre><code>namespace AnonymousMethods
 {
     // Delegate 'Calculate' takes in two int's and returns an int
     public delegate int Calculate(int value1, int value2);
@@ -5545,9 +5422,7 @@ namespace AnonymousMethods
                         optional. The body can be in two forms, an <i>expression lambda</i> which can consist of an expression or a method call and a
                         <i>statement lambda</i> which consists of a statement block which can contain multiple statements.</p>
                     <p>The following example demonstrates various lambda expression declarations and use.</p>
-<pre><code>using System;
-
-namespace LambdaExpressions
+<pre><code>namespace LambdaExpressions
 {
     // 'CalculateTwoValues' takes in two int's and returns an int
     public delegate int CalculateTwoValues(int value1, int value2);
@@ -5623,9 +5498,7 @@ namespace LambdaExpressions
                         <a href="#Lambda_expressions">lambda expression</a>.</p>
                     <p>The following example demonstrates both <code>Func</code> and <code>Action</code> declaration and use.</p>
 
-<pre><code>using System;
-
-namespace ActionsAndFuncs
+<pre><code>namespace ActionsAndFuncs
 {
     class Program
     {
@@ -5746,9 +5619,7 @@ namespace ActionsAndFuncs
                         namespace can be made throughout the assembly and don't even have to be in the same file. Two types with the same identifier cannot be declared
                         within the same namespace even if they are declared in different files.</p>
                     <p>The following example demonstrates namespace declaration and usage.</p>
-<pre><code>using System;
-
-// All types declared in this namespace
+<pre><code>// All types declared in this namespace
 // code block belong to NameSpace1
 namespace NameSpace1
 {
@@ -5907,9 +5778,7 @@ namespace NamespaceExample
                         in which the class is added. If you want to use the root namespace instead and want to avoid editing the namespace, add the new class to the root
                         project then move the file to your desired folder. The following shows the code generated by adding a class called <i>MainViewModel</i> to a
                         folder called <i>ViewModels</i> in a project called <i>MyCompany</i>.</p>
-<pre><code>using System;
-
-namespace MyCompany.ViewModels
+<pre><code>namespace MyCompany.ViewModels
 {
     class MainViewModel
     {
@@ -5924,9 +5793,7 @@ namespace MyCompany.ViewModels
                         namespace. In this case the global type can still be accessed by prefixing its identifier with the <code>global</code> keyword followed by the
                         <a href="#Namespace_alias_qualifier_operator"><i>namespace alias qualifier</i></a> <code>::</code> in the form <code>global::MyType</code>.</p>
                     <p>The following example demonstrates how to access a type in the global namespace.</p>
-<pre><code>using System;
-
-    // MyClass declared in the global namespace
+<pre><code>    // MyClass declared in the global namespace
     public class MyClass
     {
         public void WriteMessage()
@@ -6138,9 +6005,7 @@ namespace ImportingTypes
                         allows the static members to be accessed directly without the need for the type's identifier. Instance members that are also in the type will
                         still require an instance to be created to access them and inherited members are not imported.</p>
                     <p>The following example demonstrates importing and using static members.</p>
-<pre><code>using System;
-
-namespace NameSpace1
+<pre><code>namespace NameSpace1
 {
     public class MathClass
     {
@@ -6192,9 +6057,7 @@ namespace ImportingStaticMembers
                         result in a much shorter name to use. This is of particular use where access to the type is through many namespace levels. The
                         <code>using</code> keyword is used to create the alias for a namespace or a type.</p>
                     <p>The following example demonstrates creating and using aliases.</p>
-<pre><code>using System;
-
-namespace NameSpace1
+<pre><code>namespace NameSpace1
 {
     // This MyClass is declared to belong to NameSpace1
     public class MyClass { }
@@ -6382,9 +6245,7 @@ namespace ImportingSystemTypes
                         <i>PascalCase</i>, <code>public int SomeName { get; set; }</code>. Which ever convention you or the team you work for chose, it is important that
                         it be consistent throughout all the code you write.</p>
                     <p>Following are examples of scope.</p>
-<pre><code>using System;
-
-namespace Scope
+<pre><code>namespace Scope
 {
     public class MyClass
     {
@@ -6763,9 +6624,7 @@ namespace Extern
                         to override the non virtual method results in a syntax error. When <code>DisplayMessage()</code> is called from each of the derived class
                         instances <code>LogAnalyzer1</code> and <code>LogAnalyzer2</code> each display the message in their own overridden methods whereas
                         <code>LogAnalyzer3</code> displays the message from the base class.</p>
-<pre><code>using System;
-
-namespace OverridingVirtualMembers
+<pre><code>namespace OverridingVirtualMembers
 {
     public class LogAnalyzer
     {
@@ -6946,9 +6805,7 @@ namespace PartialModifier
                     <h3 id="sealed">sealed</h3>
                     <p>To prevent a class from being inherited it can be marked with the <code>sealed</code> keyword. A member that is being overridden in a class can
                         also be marked as <code>sealed</code> which prevents it from being overridden in any further derived classes.</p>
-<pre><code>using System;
-
-namespace Sealed
+<pre><code>namespace Sealed
 {
     public sealed class A
     {
@@ -7021,9 +6878,7 @@ namespace Sealed
                         instance has its own copy of <code>InstanceProperty</code> whereas both share <code>StaticProperty</code>.</p>
                     <p>Lastly the static class <code>MyMathFunctions</code> has the static method <code>SquareNumber</code> which is called directly using
                         <code>MyMathFunction.SquareNumber</code> to display the square of 3.</p>
-<pre><code>using System;
-
-namespace StaticExample
+<pre><code>namespace StaticExample
 {
     public class InstanceClass
     {
