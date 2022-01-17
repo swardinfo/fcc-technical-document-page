@@ -4536,15 +4536,21 @@ namespace CancelEvent
 {
     public struct Box
     {
+        // As of .NET 6 a parameterless constructor is allowed in
+        // structs provided all fields and properties are set within it
+        public Box()
+        {
+            Width = 0;
+            Height = 0;
+            Depth = 0;
+        }
+
         public Box(int width, int height, int depth)
         {
             Width = width;
             Height = height;
             Depth = depth;
         }
-
-        // Syntax error, a struct cannot contain a parameterless constructor
-        //public Box() { }
 
         // Syntax error, a structs constructor must assign values to all instance fields
         //public Box(double width)
