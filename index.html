@@ -2437,9 +2437,7 @@ namespace AliasQualifier
                         remove, sort, find and clear.</p>
                     <p><em>Note:</em> <i>The Find method uses an <a href="#Lambda_expressions">lambda expression</a></i></p>
                     <p>The following example demonstrates List declaration and use </p>
-<pre><code>using System.Collections.Generic;
-
-namespace Lists
+<pre><code>namespace Lists
 {
     class Program
     {
@@ -2574,9 +2572,7 @@ namespace Lists
                         index.  Like a List, a Dictionary does not have a fixed size and as such does not have to be declared. Methods include add, remove, contains,
                         clear.</p>
                     <p>The following example demonstrates Dictionary declaration and use</p>
-<pre><code>using System.Collections.Generic;
-
-namespace Dictionaries
+<pre><code>namespace Dictionaries
 {
     class Program
     {
@@ -3687,185 +3683,185 @@ namespace Dictionaries
                          a type and
                         <code>TypeName.Property</code> for a <a href="static">static</a> type.</p>
                     <p>The following example demonstrates property declaration and use.</p>
-<pre><code>    namespace Properties
+<pre><code>namespace Properties
+{
+    public enum SkillLevel { None, Beginner, Intermediate, Expert }
+
+    public class Student
     {
-        public enum SkillLevel { None, Beginner, Intermediate, Expert }
+        private string? _firstName;
+        private string? _lastName;
+        private int _courseLength;
+        private string? _password;
+        private string? _courseName;
+        private DateTime _created;
 
-        public class Student
+        public Student(long id, string courseName, int courseLength,  DateTime enrollmentDate, string password)
         {
-            private string _firstName;
-            private string _lastName;
-            private int _courseLength;
-            private string _password;
-            private string _courseName;
-            private DateTime _created;
+            ID = id;
+            CourseName = courseName;
+            CourseLength = courseLength;
+            EnrollmentDate = enrollmentDate;
+            Password = password;
+            Created = DateTime.Now;
+            Modified = Created;
+        }
 
-            public Student(long id, string courseName, int courseLength,  DateTime enrollmentDate, string password)
+        // A manually-implemented property with full accessor code blocks.
+        public string? FirstName
+        {
+            get
             {
-                ID = id;
-                CourseName = courseName;
-                CourseLength = courseLength;
-                EnrollmentDate = enrollmentDate;
-                Password = password;
-                Created = DateTime.Now;
-                Modified = Created;
+                return _firstName;
             }
-
-            // A manually-implemented property with full accessor code blocks.
-            public string FirstName
+            set
             {
-                get
-                {
-                    return _firstName;
-                }
-                set
-                {
-                    _firstName = value;
-                }
-            }
-
-            // Accessors with a single expression
-            // implemented as expression-bodied members
-            // The get does not require the return
-            // keyword and neither accessor
-            // requires braces to define a code block.
-            public string LastName
-            {
-                get =&gt; _lastName;
-                set =&gt; _lastName = value;
-            }
-
-            // A property with a expression-bodied get and
-            // an inti accessor with a full code block accessor.
-            public int CourseLength
-            {
-                get =&gt; _courseLength;
-                init
-                {
-                    if (value &lt;= 0)
-                        throw new ArgumentOutOfRangeException(nameof(value), "Must be more than zero");
-                    _courseLength = value;
-                }
-            }
-
-            // A read-only property can only be initialized in the constructor
-            // but still allows code within the expression to be run.
-            // This property does not use a backing field.
-            public DateTime ExpectedCompletionDate =&gt; EnrollmentDate.AddYears(CourseLength);
-
-            // A write only property is actively discouraged
-            // within Microsoft's reference documentation.
-            public string Password { set =&gt; _password = value; }
-
-            // A read/write property with have an access modifier.
-            // It can be read externally but only set within the class.
-            public string CourseName
-            {
-                get =&gt; _courseName;
-                private set =&gt; _courseName = value;
-            }
-
-            // A manually-implemented property with an init accessor.
-            public DateTime Created
-            {
-                get =&gt; _created;
-                init =&gt; _created = value;
-            }
-
-            // An auto-implemented property has its own hidden backing
-            // field and can be initialized as part of its declaration.
-            public SkillLevel ProgrammingSkillLevel { get; set; } = SkillLevel.Beginner;
-
-            // An auto-implemented read-only property.
-            public long ID { get; }
-
-            // An auto-implemented read/write property with an access modifier
-            public DateTime Modified { get; private set; }
-
-            // An auto-implemented read/write property with an init accessor
-            public DateTime EnrollmentDate { get; init; }
-
-            // Syntax error, an auto-implemented property must have a get
-            //public string Password2 { set; }
-
-            // Syntax error, only one accessor can have an access modifier
-            //public string User { internal get; private set; }
-
-            // Syntax error, an accessor access modifier must be
-            // more restrictive than the property containing it
-            //public string Password2 { public get; set; }
-
-            public string LogIn(string password)
-            {
-                // Syntax error, can't read a write only property
-                //if (password == Password)
-
-                // This accesses the _password field so is OK
-                if (password == _password)
-                    return ("login successful");
-                return "login failed";
-            }
-
-            public void Update(string courseName)
-            {
-                CourseName = courseName;
-                Modified = DateTime.Now;
+                _firstName = value;
             }
         }
 
-        class Program
+        // Accessors with a single expression
+        // implemented as expression-bodied members
+        // The get does not require the return
+        // keyword and neither accessor
+        // requires braces to define a code block.
+        public string? LastName
         {
-            static void Main(string[] args)
+            get =&gt; _lastName;
+            set =&gt; _lastName = value;
+        }
+
+        // A property with a expression-bodied get and
+        // an inti accessor with a full code block accessor.
+        public int CourseLength
+        {
+            get =&gt; _courseLength;
+            init
             {
-                string nl = Environment.NewLine;
-
-                Student student = new(1, "Programming in Java masters", 2, new DateTime(2021, 12, 5), "password")
-                {
-                    // Assign values to properties in an object initializer
-                    FirstName = "Jane",
-                    LastName = "Robinson",
-                    ProgrammingSkillLevel = SkillLevel.Intermediate,
-                    Created = new DateTime(2021, 12, 4)
-                };
-
-                Console.WriteLine($"ID: {student.ID}, {student.FirstName} {student.LastName}");
-                Console.WriteLine($"Course: {student.CourseName}, Length: {student.CourseLength} years");
-                Console.WriteLine($"Enrolled: {student.EnrollmentDate:dd MMM yyyy}");
-                Console.WriteLine($"Expected Finish Date: {student.ExpectedCompletionDate:dd MMM yyyy}");
-                Console.WriteLine($"Current Skill Level {student.ProgrammingSkillLevel}");
-                Console.WriteLine($"Record created: {student.Created:dd MMM yyyy}{nl}");
-
-                student.Update("Programming in C# masters");
-                Console.WriteLine($"ID: {student.ID}, {student.FirstName} {student.LastName}");
-                Console.WriteLine($"Course: {student.CourseName}, Length: {student.CourseLength} years");
-                Console.WriteLine($"Last updated: {student.Modified:dd MMM yyyy}{nl}");
-
-                // Syntax error, can only assign a value to a property with an
-                // init accessor in a constructor or an object initializer
-                //student1.Created = DateTime.Now;
-
-                Console.WriteLine($"Attempting student login before changing password, {student.LogIn("password")}");
-                // Assign a value to a write only property
-                student.Password = "NewPassword";
-                Console.WriteLine($"Attempting student login after changing password, {student.LogIn("password")}");
+                if (value &lt;= 0)
+                    throw new ArgumentOutOfRangeException(nameof(value), "Must be more than zero");
+                _courseLength = value;
             }
+        }
+
+        // A read-only property can only be initialized in the constructor
+        // but still allows code within the expression to be run.
+        // This property does not use a backing field.
+        public DateTime ExpectedCompletionDate =&gt; EnrollmentDate.AddYears(CourseLength);
+
+        // A write only property is actively discouraged
+        // within Microsoft's reference documentation.
+        public string Password { set =&gt; _password = value; }
+
+        // A read/write property with have an access modifier.
+        // It can be read externally but only set within the class.
+        public string? CourseName
+        {
+            get =&gt; _courseName;
+            private set =&gt; _courseName = value;
+        }
+
+        // A manually-implemented property with an init accessor.
+        public DateTime Created
+        {
+            get =&gt; _created;
+            init =&gt; _created = value;
+        }
+
+        // An auto-implemented property has its own hidden backing
+        // field and can be initialized as part of its declaration.
+        public SkillLevel ProgrammingSkillLevel { get; set; } = SkillLevel.Beginner;
+
+        // An auto-implemented read-only property.
+        public long ID { get; }
+
+        // An auto-implemented read/write property with an access modifier
+        public DateTime Modified { get; private set; }
+
+        // An auto-implemented read/write property with an init accessor
+        public DateTime EnrollmentDate { get; init; }
+
+        // Syntax error, an auto-implemented property must have a get
+        //public string Password2 { set; }
+
+        // Syntax error, only one accessor can have an access modifier
+        //public string User { internal get; private set; }
+
+        // Syntax error, an accessor access modifier must be
+        // more restrictive than the property containing it
+        //public string Password2 { public get; set; }
+
+        public string LogIn(string password)
+        {
+            // Syntax error, can't read a write only property
+            //if (password == Password)
+
+            // This accesses the _password field so is OK
+            if (password == _password)
+                return ("login successful");
+            return "login failed";
+        }
+
+        public void Update(string courseName)
+        {
+            CourseName = courseName;
+            Modified = DateTime.Now;
         }
     }
 
-    // The example prints the following to the console
-    // ID: 1, Jane Robinson
-    // Course: Programming in Java masters, Length: 2 years
-    // Enrolled: 05 Dec 2021
-    // Expected Finish Date: 05 Dec 2023
-    // Current Skill Level Intermediate
-    // Record created: 04 Dec 2021
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string nl = Environment.NewLine;
 
-    // ID: 1, Jane Robinson
-    // Course: Programming in C# masters, Length: 2 years
-    // Last updated: 09 Dec 2021
+            Student student = new(1, "Programming in Java masters", 2, new DateTime(2021, 12, 5), "password")
+            {
+                // Assign values to properties in an object initializer
+                FirstName = "Jane",
+                LastName = "Robinson",
+                ProgrammingSkillLevel = SkillLevel.Intermediate,
+                Created = new DateTime(2021, 12, 4)
+            };
 
-    // Attempting student login before changing password, login successful
-    // Attempting student login after changing password, login failed
+            Console.WriteLine($"ID: {student.ID}, {student.FirstName} {student.LastName}");
+            Console.WriteLine($"Course: {student.CourseName}, Length: {student.CourseLength} years");
+            Console.WriteLine($"Enrolled: {student.EnrollmentDate:dd MMM yyyy}");
+            Console.WriteLine($"Expected Finish Date: {student.ExpectedCompletionDate:dd MMM yyyy}");
+            Console.WriteLine($"Current Skill Level {student.ProgrammingSkillLevel}");
+            Console.WriteLine($"Record created: {student.Created:dd MMM yyyy}{nl}");
+
+            student.Update("Programming in C# masters");
+            Console.WriteLine($"ID: {student.ID}, {student.FirstName} {student.LastName}");
+            Console.WriteLine($"Course: {student.CourseName}, Length: {student.CourseLength} years");
+            Console.WriteLine($"Last updated: {student.Modified:dd MMM yyyy}{nl}");
+
+            // Syntax error, can only assign a value to a property with an
+            // init accessor in a constructor or an object initializer
+            //student1.Created = DateTime.Now;
+
+            Console.WriteLine($"Attempting student login before changing password, {student.LogIn("password")}");
+            // Assign a value to a write only property
+            student.Password = "NewPassword";
+            Console.WriteLine($"Attempting student login after changing password, {student.LogIn("password")}");
+        }
+    }
+}
+
+// The example prints the following to the console
+// ID: 1, Jane Robinson
+// Course: Programming in Java masters, Length: 2 years
+// Enrolled: 05 Dec 2021
+// Expected Finish Date: 05 Dec 2023
+// Current Skill Level Intermediate
+// Record created: 04 Dec 2021
+
+// ID: 1, Jane Robinson
+// Course: Programming in C# masters, Length: 2 years
+// Last updated: 09 Dec 2021
+
+// Attempting student login before changing password, login successful
+// Attempting student login after changing password, login failed
     </code></pre>
                     <!-- !SECTION Properties -->
                     <!-- SECTION Events -->
@@ -5009,57 +5005,55 @@ namespace CancelEvent
                         created that adds an instance of the base and the two derived classes. A foreach loop then loops through the list using a
                         <code>LogAnalyzer</code> type iterator calling the <code>DisplayMessage</code> method which at runtime is replaced by the overridden version of
                         each item.</p>
-<pre><code>using System.Collections.Generic;
-
-    namespace Polymorphism
+<pre><code>namespace Polymorphism
+{
+    public class LogAnalyzer
     {
-        public class LogAnalyzer
+        public virtual void DisplayMessage()
         {
-            public virtual void DisplayMessage()
-            {
-                Console.WriteLine("Log message has occurred");
-            }
-        }
-
-        public class LogAnalyzer1 : LogAnalyzer
-        {
-            public override void DisplayMessage()
-            {
-                Console.WriteLine("Log message type 1 has occurred");
-            }
-        }
-
-        public class LogAnalyzer2 : LogAnalyzer1
-        {
-            public override void DisplayMessage()
-            {
-                Console.WriteLine("Log message type 2 has occurred");
-            }
-        }
-
-        class Program
-        {
-            static void Main(string[] args)
-            {
-                List&lt;LogAnalyzer&gt; logAnalyzers = new()
-                {
-                    new LogAnalyzer(),
-                    new LogAnalyzer1(),
-                    new LogAnalyzer2(),
-                };
-
-                foreach (LogAnalyzer logAnalyzer in logAnalyzers)
-                {
-                    logAnalyzer.DisplayMessage();
-                }
-            }
+            Console.WriteLine("Log message has occurred");
         }
     }
 
-    // The example writes the following to the console
-    // Log message has occurred
-    // Log message type 1 has occurred
-    // Log message type 2 has occurred
+    public class LogAnalyzer1 : LogAnalyzer
+    {
+        public override void DisplayMessage()
+        {
+            Console.WriteLine("Log message type 1 has occurred");
+        }
+    }
+
+    public class LogAnalyzer2 : LogAnalyzer1
+    {
+        public override void DisplayMessage()
+        {
+            Console.WriteLine("Log message type 2 has occurred");
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List&lt;LogAnalyzer&gt; logAnalyzers = new()
+            {
+                new LogAnalyzer(),
+                new LogAnalyzer1(),
+                new LogAnalyzer2(),
+            };
+
+            foreach (LogAnalyzer logAnalyzer in logAnalyzers)
+            {
+                logAnalyzer.DisplayMessage();
+            }
+        }
+    }
+}
+
+// The example writes the following to the console
+// Log message has occurred
+// Log message type 1 has occurred
+// Log message type 2 has occurred
 </code></pre>
                     <!-- !SECTION Polymorphism implementation -->
 
