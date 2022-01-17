@@ -4487,7 +4487,7 @@ namespace CancelEvent
 
     public class AnotherPerson
     {
-        public string Name { get; set; }
+        public string? Name { get; set; }
     }
 
     class Program
@@ -4501,7 +4501,6 @@ namespace CancelEvent
             Console.WriteLine($"Hourly rate: {p.GetDetails(iSalary)}");
             double dSalary = 30.5;
             Console.WriteLine($"Hourly rate: {p.GetDetails(dSalary)}");
-            int age = 25;
         }
     }
 }
