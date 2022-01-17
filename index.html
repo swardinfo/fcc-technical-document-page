@@ -1364,7 +1364,7 @@ namespace ComparisonOperators
                     <!-- !SECTION Comparison operators -->
                     <!-- SECTION Arithmetic operators -->
                     <h3 id="Arithmetic_operators">Arithmetic operators</h3>
-                    <p>Appliers an arithmetical operation between two operands</p>
+                    <p>Applies an arithmetical operation between two operands</p>
 <pre><code>using System;
 
 namespace ArithmeticOperators
@@ -1533,6 +1533,82 @@ namespace BooleanLogicOperators
 // p = False
 </code></pre>
                     <!-- !SECTION Boolean logic operators -->
+                    <!-- TODO complete Bitwise and shift operators -->
+                    <!-- SECTION Bitwise and shift operators -->
+                    <h3 id="Bitwise_and_shift_operators">Bitwise and shift operators</h3>
+                    <p>Applies operations on the individual bits of an integral numeric or <a href="Characters">character</a> type</p>
+<pre><code>namespace BitwiseAndShiftOperators
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Define variables with binary literals
+            int a = 0b_0000_1111_0000_1111_0000_1111_0000_1111;
+
+            // Bitwise complement operator ~ produces a bitwise complement.
+            int b = ~a;
+            Console.WriteLine($"before: {ConvertToString(a, 32)}");
+            Console.WriteLine($"after:  {ConvertToString(b, 32)}\n");
+
+            byte c = 0b_0000_0110;
+            byte d = 0b_0000_1010;
+
+            // Left-shift operator &lt;&lt; shifts the bits left by the specified amount.
+            int e = c &lt;&lt; 2;
+            Console.WriteLine($"before: {ConvertToString(c, 8)}");
+            Console.WriteLine($"after:  {ConvertToString(e, 8)}\n");
+
+            // Right-shift operator &gt;&gt; shifts the bits right by the specified amount.
+            int f = c &gt;&gt; 2;
+            Console.WriteLine($"before: {ConvertToString(c, 8)}");
+            Console.WriteLine($"after:  {ConvertToString(f, 8)}\n");
+
+            Console.WriteLine($"a:      {ConvertToString(c, 8)}");
+            Console.WriteLine($"b:      {ConvertToString(d, 8)}\n");
+
+            // Logical AND operator &amp; produces logical AND of 2 operands.
+            int g = c &&amp; d;
+            Console.WriteLine($"AND:    {ConvertToString(g, 8)}");
+
+            // Logical OR operator | produces logical OR of 2 operands.
+            int h = c | d;
+            Console.WriteLine($"OR:     {ConvertToString(h, 8)}");
+
+            // Logical exclusive OR operator ^ produces logical
+            // exclusive OR, also known as XOR, of 2 operands.
+            int i = c ^ d;
+            Console.WriteLine($"XOR:    {ConvertToString(i, 8)}");
+        }
+
+        // Returns a string representation of the binary value
+        // left padded with the specified number of zeros
+        static string ConvertToString (int value, int padding)
+        {
+            var s = Convert.ToString(value, 2);
+            return s.PadLeft(padding, '0');
+        }
+    }
+}
+
+// The example writes the following to the console
+// before: 00001111000011110000111100001111
+// after: 11110000111100001111000011110000
+
+// before: 00000110
+// after: 00011000
+
+// before: 00000110
+// after: 00000001
+
+// a: 00000110
+// b: 00001010
+
+// AND: 00000010
+// OR: 00001110
+// XOR: 00001100
+</code></pre>
+                    <!-- !SECTION Bitwise and shift operators -->
                     <!-- SECTION Compound assignment operators -->
                     <h3 id="Compound_assignment_operators">Compound assignment operators</h3>
                     <p>An expression using an operator <code>op</code> in the form <code>x op= y</code> is equivalent to <code>x = x op y</code></p>
@@ -7650,6 +7726,7 @@ namespace AccessModifiers
                         <li><b>double</b> : ±5.0 x 10-324 to ±1.7 x 10308, 15-digit precision (8 byte, 64 bits)</li>
                         <li><b>decimal</b> : ±1.0 x 10-28 to  ±7.9 x 1028, 28-bit precision (16 byte, 128 bits)</li>
                     </ul>
+                    <p>The default value for all integer and floating-point types is 0.</p>
                     <!-- !SECTION C# Value type range and size -->
                     <!-- SECTION C# Built-in reference types -->
                     <h4 id="Built-in_reference_types">Built-in reference types</h4>
@@ -7668,7 +7745,9 @@ namespace AccessModifiers
                         <li>User-defined type of form <b>delegate T D(...)</b></li>
                         <li>User-defined type of form <b>record T R(...)</b></li>
                     </ul>
-                    <p>The default value for all integer and floating-point types is 0.</p>
+                    <!-- !SECTION C# User defined reference types -->
+                    <!-- SECTION Literals -->
+                    <h4 id="Literals">Literals</h4>
                     <p>A literal is interpreted by the compiler both by the way it is written and the context in which it is used. A compile error will result if a
                         literal is outside the range for the type it is being assigned to.</p>
                     <p>In the following</p>
@@ -7758,7 +7837,7 @@ var o = 2.3m; // decimal
 var p = 3e9m; // decimal
 var q = -2.1e-3m; // decimal
 </code></pre>
-                    <!-- !SECTION C# User defined reference types -->
+                    <!-- !SECTION Literals -->
                     <!-- SECTION C# Character specifications -->
                     <h4 id="Character_specifications">Character specifications</h4>
                     <p>Single character, one of:</p>
