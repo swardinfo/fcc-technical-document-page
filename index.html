@@ -1708,6 +1708,25 @@ namespace ConditionalOrOperator
 // z = True
 </code></pre>
                     <!-- !SECTION Conditional or operator -->
+                    <!-- TODO complete Null-conditional operators ?. and ?[] -->
+                    <!-- SECTION Null-conditional operators ?. and ?[] -->
+                    <h3 id="Null-conditional_operators">Null-conditional operators ?. and ?[]</h3>
+                    <p>Description</p>
+                    <p>CodeExample</p>
+<pre><code>using System;
+
+namespace Namespace
+{
+    class Program
+    {
+        static void Main()
+        {
+
+        }
+    }
+}
+</code></pre>
+                    <!-- !SECTION Null-conditional operators ?. and ?[] -->
                     <!-- SECTION Null-coalescing operator -->
                     <h3 id="Null-coalescing_operator">Null-coalescing operator <code>??</code></h3>
                     <p>The null-coalescing operator <code>??</code> returns the left-hand operand if it not null otherwise it evaluates the right-hand expression and
@@ -1766,7 +1785,7 @@ namespace NullCoalescingAssignmentOperator
                     <!-- !SECTION Null-coalescing assignment operator -->
                     <!-- TODO complete Null-forgiving operator -->
                     <!-- SECTION Null-forgiving operator -->
-                    <h3 id="Null-forgiving operator">Null-forgiving operator <code>!</code></h3>
+                    <h3 id="Null-forgiving_operator">Null-forgiving operator <code>!</code></h3>
                     <p>Description</p>
                     <p>CodeExample</p>
 <pre><code>using System;
@@ -7665,17 +7684,19 @@ namespace AccessModifiers
 bool test = false;
 </code></pre>
                     <p>Integer literals consist of combinations of the following.</p>
-                    <p class="no-bottom-margin">decimal digits:</p>
+                    <p class="no-bottom-margin">decimal digits without any prefix:</p>
                     <p><i>0 1 2 3 4 5 6 7 8 9</i></p>
-                    <p class="no-bottom-margin">hex digits:</p>
+                    <p class="no-bottom-margin">hex digits with <code>0x</code> or <code>0X</code> prefix:</p>
                     <p><i>0 1 2 3 4 5 6 7 8 9 A B C D E F a b c d e f</i></p>
+                    <p class="no-bottom-margin">binary digits with <code>0b</code> or <code>0B</code> prefix:</p>
+                    <p><i>0 1</i></p>
                     <p class="no-bottom-margin">unsigned, long and unsigned long identification suffix, one of:</p>
                     <p><i>U  u  L  l  UL  Ul  uL  ul  LU  Lu  lU  lu</i></p>
                     <p class="no-bottom-margin">sign prefix, one of:</p>
                     <p><i>+ -</i></p>
-                    <p class="no-bottom-margin">hexadecimal identification prefix, one of:</p>
-                    <p><i>0x hex-digits&emsp;0X hex-digits</i></p>
-                    <p>Integer literals type are interpreted in the following order</p>
+                    <p class="no-bottom-margin">digit separator:</p>
+                    <p><i>_</i></p>
+                    <p>Integer literals type are interpreted in the following order in which the value can be represented</p>
                     <ul>
                         <li>No suffix : <i>int, uint, long, ulong</i></li>
                         <li>Suffixed with <i>U</i> or <i>u</i> : <i>uint, ulong</i></li>
@@ -7695,6 +7716,7 @@ var j = 9223372036854775807L; // long
 var k = 9223372036854775808L; // ulong
 var l = 1UL; // ulong
 var hex = 0xF81A; // int
+var binary = 0b_0100_1010
 </code></pre>
                     <p>A value outside of the range of the ulong type results in a compile error</p>
 <pre><code>var tooBig = 18446744073709551616; // compile error: Integral constant too large
