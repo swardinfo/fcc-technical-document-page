@@ -1187,8 +1187,7 @@ its now {now:HH:mm}");
                         C# provides StringBuilder which like a string, also represents a sequence of characters but unlike a string is mutable allowing changes to the
                         sequence. When the operations to the StringBuilder sequence have been completed it can be converted to a string.</p>
                     <p>The following example demonstrates how to use StringBuilder</p>
-<pre><code>using System;
-using System.Text;
+<pre><code>using System.Text;
 
 namespace StringBuilderExample
 {
@@ -2438,8 +2437,7 @@ namespace AliasQualifier
                         remove, sort, find and clear.</p>
                     <p><em>Note:</em> <i>The Find method uses an <a href="#Lambda_expressions">lambda expression</a></i></p>
                     <p>The following example demonstrates List declaration and use </p>
-<pre><code>using System;
-using System.Collections.Generic;
+<pre><code>using System.Collections.Generic;
 
 namespace Lists
 {
@@ -2576,8 +2574,7 @@ namespace Lists
                         index.  Like a List, a Dictionary does not have a fixed size and as such does not have to be declared. Methods include add, remove, contains,
                         clear.</p>
                     <p>The following example demonstrates Dictionary declaration and use</p>
-<pre><code>using System;
-using System.Collections.Generic;
+<pre><code>using System.Collections.Generic;
 
 namespace Dictionaries
 {
@@ -3481,10 +3478,7 @@ namespace Dictionaries
                     <p>By convention fields are normally declared at the top of a class before any other code. Access to a field by code external to the type is in the
                         form of <code>instance.Field</code>.</p>
                     <p>The following example demonstrates field declaration and use.</p>
-<pre><code>using System;
-using System.Collections.Generic;
-
-namespace Fields
+<pre><code>namespace Fields
 {
     public class Person
     {
@@ -3492,16 +3486,17 @@ namespace Fields
         // and are only shown here for demonstrative purposes
 
         // This field has been declared public and can be accessed
-        // from any code outside this class both in and outside
-        // the assembly that contains it. As it has not been initialized
-        // it will have the default string value i.e. an empty string
-        public string ID;
+        // from any code outside this class both in and outside the
+        // assembly that contains it. It is a reference type and will
+        // need a value assigned to it in this case an empty string
+        public string ID = string.Empty;
 
-        // A private field with default string value i.e. an empty string
-        private string _name;
+        // A private field string that has been made nullable
+        // and so does not have to be assigned a value
+        private string? _name;
 
-        // With no access modifier this field is private
-        // It has the default value of 0
+        // With no access modifier this field is private. It is a value type so
+        // does not have to be initialized and will have the default value of 0
         int _age;
 
         // A private field of type double which is initialized to 55.4
@@ -3511,7 +3506,7 @@ namespace Fields
         // value can only be set through the constructor
         public readonly string Details;
 
-        // A public read only field of type List&lt;T&gt;. As it is a mutable
+        // A public read only field of type List &lt;T&gt;. As it is a mutable
         // reference type the data it contains can still be modified
         // from any code outside this class both in and outside
         // the assembly that contains it
@@ -3913,28 +3908,27 @@ namespace Fields
                         to pass the stop time to the <code>_clock_Stopped</code> event handler. <code>StoppedEventArgs</code> has a <code>DateTime</code> type
                         <code>Time</code> property that is set by the constructor. The example also employs <code>Console.ReadKey</code> to test whether the user has
                         pressed the <kbd>enter</kbd> key to end the program.</p>
-<pre><code>using System;
-using System.Timers;
-
-namespace Events
+<pre><code>namespace Events
 {
     public class Clock
     {
-        Timer _timer;
+        // The fully qualified name is required as the implicit global using
+        // 'global using global::System.Threading' also contains a type called Timer
+        System.Timers.Timer _timer = new System.Timers.Timer();
 
         // An event that can be raised when the clock is started
-        // EventHandler&lt;TEventArgs&gt; delegate type is declared
+        // EventHandler &lt;TEventArgs&gt; delegate type is declared
         // The EventArgs parameter is the DateTime type
-        public event EventHandler&lt;DateTime&gt; Started;
+        public event EventHandler&lt;DateTime&gt;? Started;
 
         // An event that can be raised when the clock is stopped
         // The EventArgs parameter is the custom StoppedEventArgs type
-        public event EventHandler&lt;StoppedEventArgs&gt; Stopped;
+        public event EventHandler&lt;StoppedEventArgs&gt;? Stopped;
 
         // An event that can be raised when the clock ticked. It does
         // not have event data so EventHandler delegate is declared
         // as it declares dataless EventArgs for the second parameter
-        public event EventHandler Ticked;
+        public event EventHandler? Ticked;
 
         // A method to call to invoke the Started event
         protected virtual void OnStarted()
@@ -3964,7 +3958,7 @@ namespace Events
         }
 
         // Event handler for Timer.Elapsed event
-        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        private void Timer_Elapsed(object? sender, System.Timers.ElapsedEventArgs e)
         {
             OnTicked();
         }
@@ -4031,18 +4025,21 @@ namespace Events
         }
 
         // Event handler for Clock.Started event
-        private static void _clock_Started(object sender, DateTime e)
+        private static void _clock_Started(object? sender, DateTime e)
         {
             Console.WriteLine($"The clock started at {e:T}");
         }
 
         // Event handler for Clock.Ticked event
-        private static void _clock_Ticked(object sender, EventArgs e)
+        private static void _clock_Ticked(object? sender, EventArgs e)
         {
             Console.Write($"\rCurrent time: {DateTime.Now:T}");
         }
     }
 }
+
+// The example writes the current time to the
+// console until the user presses the enter key
 </code></pre>
                     <p>There are situations where you may wish to cancel an event. One such scenario is when closing a program and you want to give the user the
                         opportunity to save unsaved data before this occurs. C# .NET provides the <code>CancelEventHandler</code> delegate to achieve this which passes
@@ -4057,8 +4054,7 @@ namespace Events
                         <code>false</code> depending if the <kbd>y</kbd> key is pressed, then passed back to <code>OnExiting</code> then to <code>Exit</code> where it
                         sets the <code>AllowExit</code> property. Execution passes back to the while loops which it exits if <code>AllowExit</code> is true and the
                         program then terminates.</p>
-<pre><code>using System;
-using System.ComponentModel;
+<pre><code>using System.ComponentModel;
 
 namespace CancelEvent
 {
@@ -5009,8 +5005,7 @@ namespace CancelEvent
                         created that adds an instance of the base and the two derived classes. A foreach loop then loops through the list using a
                         <code>LogAnalyzer</code> type iterator calling the <code>DisplayMessage</code> method which at runtime is replaced by the overridden version of
                         each item.</p>
-<pre><code>using System;
-    using System.Collections.Generic;
+<pre><code>using System.Collections.Generic;
 
     namespace Polymorphism
     {
@@ -6472,8 +6467,7 @@ namespace ImportingSystemTypes
                         <code>HourlyRate</code>. In this case the overridden <code>CalculateAmount</code> first subtracts <code>StartTime</code> from
                         <code>FinishTime</code> then multiplies thy result by <code>HourlyRate</code> and then returns the amount. Lastly as can be seen, attempting to
                         instantiate <code>PriceCalculator</code> results in a syntax error.</p>
-<pre><code>using System;
-using System.Globalization;
+<pre><code>using System.Globalization;
 
 namespace Abstract
 {
@@ -6559,8 +6553,7 @@ namespace Abstract
                         <code>private</code> <code>MessageBox</code> which then displays a message box asking the user if they want to end the program. The program
                         execution loops until the user clicks the <i>Yes</i> button.</p>
                     <p><i><em>Note:</em> due to the use of user32.dll, this example will only work with the Windows operating system.</i></p>
-<pre><code>using System;
-using System.Runtime.InteropServices;
+<pre><code>using System.Runtime.InteropServices;
 
 namespace Extern
 {
