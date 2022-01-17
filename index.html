@@ -138,7 +138,6 @@
                     </ul>
                     <p>All examples in this document can be created and run on the community version which can be downloaded and installed free from the
                         <a href="https://visualstudio.microsoft.com/" rel="external nofollow noopener noreferrer" target="_blank"> Visual Studio</a> web page.</p>
-
                     <p><em>Note:</em> <i>Whilst the code editor in Visual Studio provides color coding for different elements of the code only the
                         <u class="error">red wavy underline</u> used to indicate syntax errors will be shown in this guide.</i></p>
                 </article>
@@ -176,6 +175,25 @@ Console.WriteLine("Hello, World!");
                     <p>The console, a <i>command window</i> in Windows, opens displaying the words <b>'Hello World!'</b>. Congratulations, you have now created and run
                         your first C# program. The remainder of the text tells you the program finished but the IDE has kept the console open so that you can see the
                         result. Press any key to close the console.</p>
+                    <p>This form of the Console App, new to Visual Studio 2022 and .NET 6.0, uses top-level statements. This hides some of the boiler plate code that is
+                        required by a C# program. The purpose of this, according to Microsoft, is to "let you write simple programs for small utilities" and to "make it
+                        simpler for new C# programmers to get started learning and writing code". Unfortunately for any real world applications there is very little use
+                        for such top-level statements. In my opinion the way in which such code must be written is also at odds with normal coding conventions and quite
+                        frankly, the extra boiler plate code is not that hard to understand. So next, delete the existing code and replace it with the following.</p>
+<pre><code>using System;
+
+namespace HelloWorld
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+        }
+    }
+}
+</code></pre>
+                    <p>Now press <kbd>F5</kbd> and once again the console opens displaying the words <b>'Hello World!'</b>. You can now close the console.</p>
                     <p>By pressing <kbd>F5</kbd> the compiler built then ran the program with the debugger attached known as running in <i>debug mode</i>. The program
                         starts running at the line <code>static void Main(string[] args)</code>. This is known as the <a href="Program_Execution">entry point</a> and is
                         also the start of a <a href="#Methods">method</a>.</p>
@@ -197,6 +215,12 @@ Console.WriteLine("Hello, World!");
                 <header><h2>Code Syntax and Program Execution</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
+                    <p>Firstly, all code examples use the <a href="#Create_a_Hello_World_Project">.NET 6 Console App</a> template which includes the following defaults.
+                    </p>
+                    <ul>
+                        <li><a href="#Reference_type">Project wide nullable aware context</a> is enabled</li>
+                        <li><a href="#Importing_types">Implicit global usings</a> is enabled</li>
+                    </ul>
                     <p>Some of the terms that will be mentioned in this section have not yet been covered and links are provided to their details, so consider this as a
                         reference to come back to as you become more familiar with them.</p>
                     <p>C# consists of text and symbols each of which tells the compiler how to convert our code into a program. The <i>syntax</i> is the set of rules that
@@ -205,7 +229,6 @@ Console.WriteLine("Hello, World!");
                     <!-- TODO complete Code syntax -->
                     <!-- SECTION Code syntax -->
                     <h3 id="Code_syntax">Code syntax</h3>
-
                     <p>First a quick look at the structure of the code which we'll go to into detail throughout this guide. In general, a program takes the form of a list
                         of instructions with one per line, though C# allows for an instruction to span multiple lines if required. C# also allows for multiple
                         instructions to be enclosed within a pair of braces <code>{ }</code> (<i>also known as curly brackets</i>) called a <i>code block</i>. A code
@@ -5619,9 +5642,8 @@ namespace ActionsAndFuncs
                         naming conflicts. The <code>static</code> modifier keyword can be applied to the <code>using</code> directive to
                         <a href="#Importing_static_members">import static members</a> and nested types. A type declared outside of any namespace is in the
                         <a href="#Global_namespace"><i>global</i></a> namespace. Types that are in the .NetCore library can be imported using the
-                        <a href="#Importing_system_types">System namespace</a></p>
+                        <a href="#Importing_system_types">System namespace</a>.</p>
                     <!-- !SECTION Namespaces -->
-
                     <!-- SECTION namespace -->
                     <h3 id="namespace">namespace</h3>
                     <p>The <code>namespace</code> keyword followed by a code block is used to declare that all <a href="#Classes_and_Other_User_Defined_Types">types</a>
@@ -5873,19 +5895,26 @@ namespace MyCompany.ViewModels
     // MyClass in global namespace
 </code></pre>
                     <!-- !SECTION Global namespace -->
+                    <!-- TODO Add ambiguous reference error -->
                     <!-- SECTION Importing types -->
                     <h3 id="Importing_types">Importing types</h3>
-                    <p>The <code>using</code> directive imports all types from a another namespace which can be in any file in the containing assembly or others that the
-                        assembly references. Imported types can then be accessed directly by their identifiers as if they were in the same namespace which makes
-                        the code easier to read. A <code>using</code> directive must precede all other code within a namespace. A <code>using</code> directive that is
-                        placed in the <a href="#Global_namespace">global namespace</a> makes the types in that namespace available in all other namespaces declared within
-                        the same file.  A type in a nested namespace is not
-                        imported and if a <code>using</code> directive to specifically target its namespace not included, it will need to be accessed using its fully
-                        qualified name.</p>
+                    <p>The <code>using</code> keyword followed by a <a href="#namespace">namespace</a> identifier creates a namespace directive. This imports all types
+                        from the namespace which can be in any file in the containing assembly or others that the assembly references. Imported types can then
+                        be accessed directly by their identifiers as if they were in the same namespace, which makes the code easier to read. Multiple namespaces can be
+                        imported into a file but if two or more namespaces each contain a type with the same identifier, attempting to declare a variable of such a type
+                        will result in an ambiguous reference error. In this case it will be necessary to use the fully qualified name for each type. A
+                        <code>using</code> directive can be placed in either the <a href="#Global_namespace">global namespace</a> or within a namespace but must precede
+                        all other code within it. A <code>using</code> directive that is placed in the <a href="#Global_namespace">global namespace</a> makes the types in
+                        that namespace available in all other namespaces declared within the same file. A type in a nested namespace is not imported and if a
+                        <code>using</code> directive to specifically target its namespace is not included, it will necessary to access its containing types using their
+                        fully qualified names.</p>
+                    <p>The <code>global</code> keyword can be applied to a using directive. This allows it to be placed in just a single file in an assembly yet allow its
+                        types to be imported into all code files within the same assembly. A global using directive can only be placed in the global namespace and must
+                        precede all non-global using directives.</p>
                     <p>If you know a type's identifier but don't know its namespace, Visual Studio provides a shortcut for adding this. After entering the type's
                         identifier, with the mouse hovering over it, press <kbd>Ctrl</kbd> + <kbd>.</kbd> and IntelliSense will suggest the correct using directive, most
-                        likely at the top of the list. Click on the suggestion and it will added to the code. Please note that the full identifier must be entered with the
-                        correct case and the project must have a <a href="#Dependencies">reference</a> to the project containing the type.</p>
+                        likely at the top of the list. Click on the suggestion and it will added to the code. Please note that the full identifier must be entered with
+                        the correct case and the project must have a <a href="#Dependencies">reference</a> to the project containing the type.</p>
                     <p>To remove unused <i>using</i> directives, right click anywhere in the code editor and click <b>Remove and Sort Usings</b>.</p>
                     <p>The following example demonstrate importing types with the <code>using</code> directive.</p>
 <pre><code>// This code is in a file called Class5
@@ -6150,18 +6179,23 @@ namespace Aliases
                     <h3 id="Importing_system_types">Importing system types</h3>
                     <p>The <code>System</code> namespace and the namespaces nested within it, contain most of the C# built-in types that are part of the
                         .NetCore library. These include primitive value types such as <code>System.Int32</code> and reference types such as <code>System.String</code> and
-                        access to these without a fully qualified name requires a <code>using System;</code> directive. Many of the C#
+                        access to these without a fully qualified name requires a <code>using System;</code> directive. Some of the C#
                         <a href="Keywords">keywords</a> are special built-in <a href="#Aliases">aliases</a> for these types but unlike other aliases, don't require an
                         explicit <code>using</code> directive. For example the <code>int</code> keyword can be used anywhere in code and is the alias for
                         <code>System.Int32</code>, both of which can be used interchangeably. Other system types such as <code>DateTime</code> which provides many tools
                         to access and manipulate dates and times and <code>Console</code> which has been used extensively throughout this guide, do require an explicit
-                        <code>using System;</code> directive.</p>
+                        <code>using System;</code> directive or use of their fully qualified names.</p>
                     <p>Nested within <code>System</code> are many other namespaces such as <code>System.Collections.Generic</code> that contains the
                         <a href="#List_T">List&lt;T&gt;</a> and <a href="#Dictionary_TKey_TValue">Dictionary&lt;TKey, TValue&gt;</a> types, <code>System.IO</code> that
                         contains types that allow you to access and manipulate files and <code>System.Threading</code> that provides tools for creating multi-threaded
                         programs. All the namespaces available in the .NetCore library can be viewed under the <a href="#Dependencies">dependencies</a> node in the
                         solution explorer and information about them and the types they contain can be found on the <a href="References">Microsoft C# reference
                         documentation</a> website.</p>
+                    <p>Starting with Visual Studio 2022 and .NET 6.0, an option called <i>Implicit global usings</i> is available in most of the project templates but not
+                        all have this enabled by default when a new project is created. This adds a number of <a href="#Importing_types">global using</a> directives to
+                        import various namespaces appropriate to the type of project. These are automatically generated in a file not accessible by the code editor, each
+                        time the project is built. This is important as there is currently no easy way to see which using directives are added and this can result in an
+                        ambiguous reference error.</p>
                     <p>The following example demonstrates importing and using various System types.</p>
 <pre><code>namespace NameSpace1
 {
