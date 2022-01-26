@@ -669,6 +669,7 @@ World!");
                 </article>
             </section>
             <!-- !SECTION Errors and Exception Handling -->
+            <!-- TODO add nullability -->
             <!-- SECTION Variables, Constants, Types and Literals -->
             <section class="main-section" id="Variables,_Constants,_Types_and_Literals">
                 <header><h2>Variables, Constants, Types and Literals</h2></header>
@@ -679,7 +680,7 @@ World!");
                         be used and cannot be changed later. The compiler then checks if the value stored in the variable is of the correct type and will tell you if it
                         is wrong. A <i>constant</i> is similar to a variable, except it must be assigned a value when declared and that value cannot be changed. A
                         <i>literal</i> is the representation in code of the data that is assigned to a variable. Variables and constants can only be declared once within
-                        the same <a href="#Scope">scope</a></p>
+                        the same <a href="#Scope">scope</a>.</p>
                     <p>C# has two basic categories of variables, the <i>value type</i> and the <i>reference type</i>, into which all variables are grouped. A value type
                         stores its own data where as a reference type stores the address to where its data is located. You can think of these as a house and a contact in
                         an address book. The value type is like the house which has an address and physically stores its own contents whereas the reference type is like
@@ -706,16 +707,21 @@ World!");
                         assist the developer a project as a whole  or each C# code file as required, can be set as having a <i>nullable aware context</i>. This does not
                         affect run-time but provides a warning in the code editor when a reference type variable is initialized with or assigned a non-null value.
                         Starting with .NET 6.0 this option is turned on by default at the project level in all new projects.</p>
-                    <p> A reference type can also be declared a <i>nullable type</i> with the inclusion of a postfix <code>?</code>. When this is done, a variable of type
-                        <code>T?</code> is the same as a non-nullable type but can be initialized or assigned <code>null</code> without a warning but must then be checked
-                        against <code>null</code> before dereferencing. Some restrictions apply to a nullable type. It can't be used as a
-                        <a href="#Inheriting_types">base type</a>, implemented as an <a href="#interface">interface</a>, used as part of an object's instantiation, as
-                        part of type testing or be the type of a member access expression. There may also be occasions where the compiler is unable to determine that a
-                        variable or expression that is being assigned to a non-nullable type variable can't be null. In this case you can apply the
-                        <a href="#Null-forgiving_operator">null-forgiving operator</a> <code>!</code> in the form of <code>m!</code>.</p>
-                    <p><em>Note:</em><i> Various type's <a href="#Members">members</a> allow the <a href="#Parameters,_signatures_and_overloading">passing in</a> of a
-                        variable as an argument. When this occurs, what can happen to the variable depends on whether it is a value or reference type and whether any
-                        keywords are present to change this behavior</i></p>
+                    <p> A reference type can also be declared a <i>nullable type</i> with the inclusion of a postfix <code>?</code>. Whilst this does not change the type
+                        during runtime, in a nullable aware context making a variable nullable suppresses the warning that would otherwise appear when a non-nullable
+                        variable is not initialized or is assigned null as its value. Some restrictions apply to a nullable type.
+                    <ul>
+                        <li>It must be checked and confirmed not to be null before dereferencing.</li>
+                        <li>It can't be used as a <a href="#Inheriting_types">base type</a> or implemented as an <a href="#interface">interface</a>.</li>
+                        <li>It can't be used as an object's initialization.</li>
+                        <li>It can't be used as part of type testing or be the type of a member access expression.</li>
+                    </ul>
+                        There may also be occasions where the compiler is unable to determine that a variable or expression that is being assigned to a non-nullable type
+                        variable can't be null. In this case you can apply the <a href="#Null-forgiving_operator">null-forgiving operator</a> <code>!</code> in the form
+                        of <code>m!</code>.</p>
+                    <p><em>Note:</em><i> Various type's <a href="#Members">members</a> allow the <a href="#Parameters,_signatures_and_overloading">passing in</a> of
+                        variables as arguments. When this occurs, how the variable is affected depends on whether it is a value or reference type and whether any
+                        <a href="#Modifiers">modifiers</a> have been applied.</i></p>
                     <p>C# has a number of built-in types of which each has a dedicated <a href="#Value_type_keywords">keyword</a>.</p>
                     <!-- !SECTION Reference type -->
                     <!-- SECTION Variable declaration and assignment -->
@@ -723,7 +729,7 @@ World!");
                     <p>The following applies to variables</p>
                     <ul>
                         <li>A variable must be declared with a type before it can be used</li>
-                        <li>A <a href="#Scope">local variable</a> can only be declared once within the same scope</li>amelia
+                        <li>A <a href="#Scope">local variable</a> can only be declared once within the same scope</li>
                         <li>A <a href="#Scope">local variable</a> must be assigned a value before it can be used</li>
                         <li>A variable's type cannot be changed</li>
                         <li>A constant must be assigned a value when declared</li>
@@ -732,6 +738,12 @@ World!");
                         <li>A <a href="#Access_modifiers">local variable's accessibility</a> cannot be changed with an <a href="#Access_modifiers">access modifier
                         </a></li>
                     </ul>
+                    <!-- TODO complete Variable lifetime -->
+                    <!-- SECTION Variable lifetime -->
+                    <h3 id="Variable_lifetime">Variable lifetime</h3>
+                    <p>C# is a managed language which means that, unlike  other programing languages in which you must remove a variable from memory once it is no longer
+                        in use, C# does this for you through the use of the inbuilt garbage collector. </p>
+                    <!-- !SECTION Variable lifetime -->
                     <p>In the following the first few examples demonstrate explicit declaration where you tell the editor what the variable's type is before it is used.
                         The first statement <code>int i;</code> declares the variable <code>i</code> to be a type of integer and then in <code>i = 1;</code> the
                         <code>=</code> <a href="#Assignment_operator">operator</a> assigns the literal value 1 to it. In <code>double j = 2.4</code> both the floating
@@ -1741,8 +1753,8 @@ namespace StringBuilderExample
                     <!-- TODO complete Null-conditional operators ?. and ?[] -->
                     <!-- SECTION Null-conditional operators ?. and ?[] -->
                     <h3 id="Null-conditional_operators">Null-conditional operators ?. and ?[]</h3>
-                    <p>Description</p>
-                    <p>CodeExample</p>
+                    <p>The null-conditional operator <code>?.</code> accesses a type member and <code>?[]</code> accesses an a element providing the operand to which they
+                        are applied is not null.</p>
 <pre><code>namespace Namespace
 {
     class Program
@@ -1810,7 +1822,8 @@ namespace StringBuilderExample
                     <!-- TODO complete Null-forgiving operator -->
                     <!-- SECTION Null-forgiving operator -->
                     <h3 id="Null-forgiving_operator">Null-forgiving operator <code>!</code></h3>
-                    <p>Description</p>
+                    <p>The null-forgiving operator allows you to inform the compiler that a value can't be <code>null</code> in situations where it is not able to do so
+                        itself.</p>
                     <p>CodeExample</p>
 <pre><code>namespace Namespace
 {
@@ -2437,30 +2450,30 @@ namespace AliasQualifier
                         remove, sort, find and clear.</p>
                     <p><em>Note:</em> <i>The Find method uses an <a href="#Lambda_expressions">lambda expression</a></i></p>
                     <p>The following example demonstrates List declaration and use </p>
-<pre><code>namespace Lists
+<pre><code>using System.Collections.Generic;
+
+namespace Lists
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var nl = Environment.NewLine;
-
-            // Create a list of strings
-            List &lt;string&gt; animals = new();
+            // Create a list of integers
+            List&lt;int&gt; integers = new();
 
             // Add items to the list
-            animals.Add("dog");
-            animals.Add("cat");
-            animals.Add("lizard");
-            animals.Add("ball");
-            animals.Add("emu");
-            animals.Add("emu");
-            animals.Add("boat");
-            animals.Add("salmon");
+            integers.Add(1);
+            integers.Add(2);
+            integers.Add(3);
+
+            // A range of items can be added by passing in an enumerable type
+            integers.AddRange(new int[] { 4, 5, 6 });
 
             // Use a foreach loop to print the items to the console
-            Console.WriteLine("A list of animals");
-            foreach (var item in animals) { Console.Write(item + " "); }
+            foreach (int item in integers) { Console.Write($"{item} "); }
+
+            // A list can be initialized when declared
+            List&lt;string&gt; animals = new() { "dog", "cat", "lizard", "ball", "emu", "emu", "boat", "salmon"};
 
             // The 'Find' method returns the first item that
             // matches the conditions specified by the
@@ -2470,11 +2483,11 @@ namespace AliasQualifier
             // 'Remove' removes the specified item
             // This searches for 'boat' and if found removes it
             // from the list
-            var notAnAnimal = animals.Find(item =&gt; item == "boat");
+            string? notAnAnimal = animals.Find(item =&gt; item == "boat");
             if (notAnAnimal != null)
                 animals.Remove(notAnAnimal);
-            Console.WriteLine($"{nl}{nl}Find 'boat' then remove it");
-            foreach (var item in animals) { Console.Write(item + " "); }
+            Console.WriteLine($"\n\nFind 'boat' then remove it");
+            foreach (string item in animals) { Console.Write(item + " "); }
 
             // Create a variable to store the index value
             int index = 0;
@@ -2488,49 +2501,49 @@ namespace AliasQualifier
                 index = animals.IndexOf("lizard");
                 animals[index] = "duck";
             }
-            Console.WriteLine($"{nl}{nl}If list has 'lizard' replace it with 'duck'");
-            foreach (var item in animals) { Console.Write(item + " "); }
+            Console.WriteLine($"\n\nIf list has 'lizard' replace it with 'duck'");
+            foreach (string item in animals) { Console.Write(item + " "); }
 
             // 'Insert' inserts an item at a specific index
             // This inserts 'shark' at the current index of 'duck'
             // as found from the previous example. All items after
             // and including 'duck' are moved after 'shark'
             animals.Insert(index, "shark");
-            Console.WriteLine($"{nl}{nl}Insert 'shark' before 'duck'");
-            foreach (var item in animals) { Console.Write(item + " "); }
+            Console.WriteLine($"\n\nInsert 'shark' before 'duck'");
+            foreach (string item in animals) { Console.Write(item + " "); }
 
             // 'RemoveAt' removes an at a specified index
             // The following removes 'ball'
             index = animals.IndexOf("ball");
             if (index != 0)
                 animals.RemoveAt(index);
-            Console.WriteLine($"{nl}{nl}Remove 'ball'");
-            foreach (var item in animals) { Console.Write(item + " "); }
+            Console.WriteLine($"\n\nRemove 'ball'");
+            foreach (string item in animals) { Console.Write(item + " "); }
 
             // 'Remove' removes the first occurrence of a specific item
             // It returns false if the removal was unsuccessful or the
             // item wasn't found. The following removes the first 'emu'
             // then prints the updated list to the console
             var removed = animals.Remove("emu") ? "'emu' was removed" : "'emu' was NOT removed";
-            Console.WriteLine($"{nl}{nl}{removed}");
-            foreach (var item in animals) { Console.Write(item + " "); }
+            Console.WriteLine($"\n\n{removed}");
+            foreach (string item in animals) { Console.Write(item + " "); }
 
             // 'Sort' sorts the list based on the comparer argument
             // passed in. If none is supplied then the default
             // comparer is used. The following alphabetically sorts the list
             animals.Sort();
-            Console.WriteLine($"{nl}{nl}Sort the list");
-            foreach (var item in animals) { Console.Write(item + " "); }
+            Console.WriteLine($"\n\nSort the list");
+            foreach (string item in animals) { Console.Write(item + " "); }
 
             // 'Reverse' reverses the order of the list
             animals.Reverse();
-            Console.WriteLine($"{nl}{nl}The list has been reversed");
-            foreach (var item in animals) { Console.Write(item + " "); }
+            Console.WriteLine($"\n\nThe list has been reversed");
+            foreach (string item in animals) { Console.Write(item + " "); }
 
             // 'Clear' removes all items from the list
             // The 'Count' property is the number of items the list.
             animals.Clear();
-            Console.WriteLine($"{nl}{nl}Clear the list");
+            Console.WriteLine($"\n\nClear the list");
             Console.WriteLine($"There are {animals.Count} items in the list");
             Console.WriteLine();
         }
@@ -2538,8 +2551,7 @@ namespace AliasQualifier
 }
 
 // The example writes the following to the console
-// A list of animals
-// dog cat lizard ball emu emu boat salmon
+// 1 2 3 4 5 6
 
 // Find 'boat' then remove it
 // dog cat lizard ball emu emu salmon
@@ -5861,7 +5873,6 @@ namespace NamespaceExample
     // MyClass in global namespace
 </code></pre>
                     <!-- !SECTION Global namespace -->
-                    <!-- TODO Add ambiguous reference error -->
                     <!-- SECTION Importing types -->
                     <h3 id="Importing_types">Importing types</h3>
                     <p>The <code>using</code> keyword followed by a <a href="#namespace">namespace</a> identifier creates a namespace directive. This imports all types
