@@ -1128,7 +1128,7 @@ World!");
                         <a href="#References">Microsoft Reference Documentation</a></p>
                     <p>The interpolation identifier can be used in conjunction with the verbatim identifier and the order of the identifiers doesn't matter.</p>
                     <p>Following are examples of string usage.</p>
-<pre><code>namespace CharactersAndStrings
+<pre><code>namespace Strings
 {
     class Program
     {
@@ -1165,7 +1165,7 @@ its now {now:HH:mm}");
             // Create a variable that is set to Environment.NewLine
             // and use it in an interpolated string to write a
             // blank line before the next line of text
-            var nl = Environment.NewLine;
+            string nl = Environment.NewLine;
             Console.WriteLine($"{nl}This sentence is written after a blank line");
         }
     }
@@ -2584,13 +2584,15 @@ namespace Lists
                         index.  Like a List, a Dictionary does not have a fixed size and as such does not have to be declared. Methods include add, remove, contains,
                         clear.</p>
                     <p>The following example demonstrates Dictionary declaration and use</p>
-<pre><code>namespace Dictionaries
+<pre><code>using System.Collections.Generic;
+
+namespace Dictionaries
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var nl = Environment.NewLine;
+            string nl = Environment.NewLine;
 
             // Create a list of strings
             Dictionary&lt;string, int&gt; fruit = new();
@@ -4335,14 +4337,12 @@ namespace CancelEvent
     {
         static void Main(string[] args)
         {
-            var nl = Environment.NewLine;
             Person p = new();
 
             int age = 25;
             // Default passed by value, age is unchanged
             p.DisplayAge(age);
             Console.WriteLine($"age returned as: {age}");
-
 
             double salary = 30.5;
             // The 'ref' keyword is required to pass by reference.
@@ -6978,7 +6978,7 @@ namespace PartialModifier
     {
         static void Main(string[] args)
         {
-            var nl = Environment.NewLine;
+            string nl = Environment.NewLine;
 
             // Set MyClass.StaticProperty
             MyClass.StaticProperty = 1;
@@ -7153,7 +7153,7 @@ namespace AccessModifiers
         // accessed within the base or a derived class
         protected void ProtectedMethod()
         {
-            var nl = Environment.NewLine;
+            string nl = Environment.NewLine;
             Console.WriteLine($"base ProtectedMethod{nl}");
             PrivateMethod();
         }
@@ -7162,7 +7162,7 @@ namespace AccessModifiers
         // accessed from within the base class
         private void PrivateMethod()
         {
-            var nl = Environment.NewLine;
+            string nl = Environment.NewLine;
             Console.WriteLine($"base PrivateMethod{nl}");
             // Within the same class any member can be accessed
             // within another no matter what its access level is
@@ -7198,7 +7198,7 @@ namespace AccessModifiers
     {
         public void PublicMethod()
         {
-            var nl = Environment.NewLine;
+            string nl = Environment.NewLine;
             Console.WriteLine($"derived PublicMethod{nl}");
             PublicProperty = "derived publicProperty";
             ProtectedInternalProperty = "derived protectedInternalProperty";
@@ -7245,7 +7245,7 @@ namespace AccessModifiers
     {
         static void Main(string[] args)
         {
-            var nl = Environment.NewLine;
+            string nl = Environment.NewLine;
 
             // Only the internal, protected internal and public properties
             // from BaseClass, BaseClass.Nested2 and DerivedClass
