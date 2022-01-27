@@ -1096,13 +1096,12 @@ World!");
 // 3
 </code></pre>
                     <!-- !SECTION Type conversion -->
-                    <!-- TODO complete Boxing and unboxing -->
                     <!-- SECTION Boxing and unboxing -->
                     <h3 id="#Boxing_and_unboxing">Boxing and unboxing</h3>
                     <p>Boxing is the converting of a value type to an <code>object</code> type and unboxing is the converting from an <code>object</code> type to a value
-                        type. This is possible as <a href="#Polymorphism">polymorphism</a> is a core principle of C#. This is the ability to substitute any
-                        <a href="#Inheriting_types">inherited</a> derived type with a base type and the <code>object</code> type is the ultimate base type for all other
-                        types. Boxing is an implicit operation whereas unboxing is explicit which means that the latter will require a cast. Boxing and unboxing have
+                        type. This is possible as <a href="#Polymorphism">polymorphism</a>, the ability to substitute any <a href="#Inheriting_types">inherited</a>
+                        derived type with a base type, is a core principle of C# and the <code>object</code> type is the ultimate base type for all other types. Boxing is
+                        an implicit operation whereas unboxing is explicit which means that the latter will require a cast. Boxing and unboxing have
                         mostly been replaced by generic types and should be avoided due to performance issues. Boxing requires a new
                         object to be created in memory and the combined boxing and unboxing operations can take up to 24 times longer than that of the equivalent
                         assignment of simple value and reference types. Additionally, due to the explicit cast when unboxing, knowledge is required of the type that was
