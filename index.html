@@ -535,7 +535,8 @@ World!");
                     <p>As the title suggests, syntax errors occur when the syntax is wrong and this will prevent the code from being compiled. This could be caused by a
                         spelling mistake, a missing semi colon, an incorrect use of a language element, etc. The code editor will identify such errors with a
                         <u class="error">red wavy underline</u>. These are the easiest errors to fix as in most cases, hovering the mouse over the error will result in a
-                        popup dialog in the code editor, identifying the issue along with suggestions on how to fix it.</p>
+                        popup dialog in the code editor, identifying the issue along with suggestions on how to fix it. Syntax errors are also sometimes called
+                        compile-time errors.</p>
                     <h4 id="Runtime_errors">Runtime error</h4>
                     <p>A runtime error occurs after the program has been compiled and is running. Whilst syntactically correct, when the code is executed, it will result
                         in an error that can't be resolved and stops the program from functioning. When this occurs, the runtime looks for the reason the error occurs and
@@ -669,7 +670,8 @@ World!");
                 </article>
             </section>
             <!-- !SECTION Errors and Exception Handling -->
-            <!-- TODO add nullability -->
+            <!-- TODO complete variable lifetime -->
+            <!-- TODO add something about generics -->
             <!-- SECTION Variables, Constants, Types and Literals -->
             <section class="main-section" id="Variables,_Constants,_Types_and_Literals">
                 <header><h2>Variables, Constants, Types and Literals</h2></header>
@@ -677,53 +679,89 @@ World!");
                 <article>
                     <p>Variables are used to represent data in memory using a symbolic name. Every variable has a <i>type</i> that determines what type of data can be
                         stored and a <i>value</i> which is the actual data. C# is a strongly typed language which means the variable's type must be declared before it can
-                        be used and cannot be changed later. The compiler then checks if the value stored in the variable is of the correct type and will tell you if it
-                        is wrong. A <i>constant</i> is similar to a variable, except it must be assigned a value when declared and that value cannot be changed. A
-                        <i>literal</i> is the representation in code of the data that is assigned to a variable. Variables and constants can only be declared once within
-                        the same <a href="#Scope">scope</a>.</p>
-                    <p>C# has two basic categories of variables, the <i>value type</i> and the <i>reference type</i>, into which all variables are grouped. A value type
-                        stores its own data where as a reference type stores the address to where its data is located. You can think of these as a house and a contact in
-                        an address book. The value type is like the house which has an address and physically stores its own contents whereas the reference type is like
-                        the contact that only stores the address to where the house is located.</p>
-                    <!-- SECTION Value type -->
-                    <h3 id="Value_type">Value type</h3>
+                        be used and cannot be changed later. When an attempt is made to store a value in a variable the compiler will check if it is of the correct type
+                        and if not, indicate this as a <a href="#Syntax_errors">syntax error</a> and prevent the program from being compiled. Storing a value is said to
+                        be assigning a value and a variable that has been assigned a value is said to be initialized. A <i>constant</i> is similar to a variable, except
+                        it must be initialized when it is declared and that value cannot be changed. A <i>literal</i> is the representation in code of the data that is
+                        assigned to a variable. Variables and constants can only be declared once within the same <a href="#Scope">scope</a>. Throughout much of
+                        Microsoft's online documentation generically types may be referred to with a single <code>T</code> and where appropriate the same will be done
+                        within this document.</p>
+                    <p>C# has two basic categories of variables, the <i>value type</i> and the <i>reference type</i>, into which all variables types are grouped. A value
+                        type stores its own data where as a reference type stores the address to where its data is located. You can think of these as a person and a
+                        contact in an address book. The value type is like the person that has a name and physical body whereas the reference type is like the contact
+                        that only stores the name of the person and the address to where they live.</p>
+                    <p>C# has a number of built-in types within these two categories of which each has a dedicated <a href="#C_Sharp_Specifications">keyword</a> and you
+                        can also create your own <a href="User_defined_types">user defined types</a>.</p>
                     <p>C# allocates memory based on the smallest size unit of an 8-bit byte. For efficiency reasons, each value type uses a fixed number of bytes. For an
                         integer C# provides a number of options based on size and whether negative values are allowed. The most commonly used is the <i>int</i> which has
-                        a memory allocation of 4 bytes or 32 bits and can have negative values. It has a range from -2147483648 to 2147483647. When you write
-                        <code>int i = 1;</code> you are telling the compiler to reserve a 4-byte section of memory, that its address will be referred to by the variable
-                        with the identifier <code>i</code> and to store the value <code>1</code> in it. But for a few exceptions, operations on one value type variable
-                        cannot affect the data of another. A value type variable cannot be changed to refer to data in another memory location.</p>
-                    <!-- !SECTION Value type -->
-                    <!-- SECTION Reference type -->
-                    <h3 id="Reference_type">Reference type</h3>
+                        a memory allocation of 4 bytes, or 32 bits, and can have negative values. It has a range from -2147483648 to 2147483647. When you write
+                        <code>int i = 1;</code> this declares an <code>int</code> type variable with the identifier <code>i</code> and assigns the value <code>1</code> to
+                        it. In essence you are telling the compiler to reserve a 4-byte section of memory, that its address will be referred to by the variable with the
+                        identifier <code>i</code> and to store the value <code>1</code> in it. But for a few exceptions, operations on one value type variable cannot
+                        affect the data of another. A value type variable cannot be changed to refer to data in another memory location.</p>
                     <p>Providing it is of the same type a reference type can be changed to refer to a different location in memory and its size in memory can change. A
                         reference type can only refer to one location at a time but two reference type variables can refer to the same location. The result is that
                         changing the contents of one will affect the contents of the other.</p>
-                    <p>Another important distinction is equality when comparing two variables of the same type. In most cases if the two are value types, then they will
-                        be equal if the values they contain are the same whereas two reference types will be the same if they both refer to the same location in memory. A
-                        notable exception is the <a href="#record">record</a> which is a reference type with value type equality.</p>
-                    <p>If an attempt is made to access a <a href="#Members">member</a> of a reference type, known as <i>dereferencing</i>, and the reference type has not
-                        been initialized or has been set to <code>null</code>, a <a href="#Errors_ans_Exception_Handling">NullReferenceException</a> will be thrown. To
-                        assist the developer a project as a whole  or each C# code file as required, can be set as having a <i>nullable aware context</i>. This does not
-                        affect run-time but provides a warning in the code editor when a reference type variable is initialized with or assigned a non-null value.
-                        Starting with .NET 6.0 this option is turned on by default at the project level in all new projects.</p>
-                    <p> A reference type can also be declared a <i>nullable type</i> with the inclusion of a postfix <code>?</code>. Whilst this does not change the type
-                        during runtime, in a nullable aware context making a variable nullable suppresses the warning that would otherwise appear when a non-nullable
-                        variable is not initialized or is assigned null as its value. Some restrictions apply to a nullable type.
-                    <ul>
-                        <li>It must be checked and confirmed not to be null before dereferencing.</li>
-                        <li>It can't be used as a <a href="#Inheriting_types">base type</a> or implemented as an <a href="#interface">interface</a>.</li>
-                        <li>It can't be used as an object's initialization.</li>
-                        <li>It can't be used as part of type testing or be the type of a member access expression.</li>
-                    </ul>
-                        There may also be occasions where the compiler is unable to determine that a variable or expression that is being assigned to a non-nullable type
-                        variable can't be null. In this case you can apply the <a href="#Null-forgiving_operator">null-forgiving operator</a> <code>!</code> in the form
-                        of <code>m!</code>.</p>
+                    <p>Variables can be compared for equality and depending on the type, various <a href="#Equality_operators">equality operators</a> can be applied. When
+                        two variables are compared, how value and reference types are evaluated differs. In most cases if the two are value types then they will be equal
+                        if the values they contain are the same, whereas two reference types will be the same if they both refer to the same location in memory. A notable
+                        exception is the <a href="#record">record</a> which is a reference type with value type equality.</p>
                     <p><em>Note:</em><i> Various type's <a href="#Members">members</a> allow the <a href="#Parameters,_signatures_and_overloading">passing in</a> of
                         variables as arguments. When this occurs, how the variable is affected depends on whether it is a value or reference type and whether any
                         <a href="#Modifiers">modifiers</a> have been applied.</i></p>
-                    <p>C# has a number of built-in types of which each has a dedicated <a href="#Value_type_keywords">keyword</a>.</p>
-                    <!-- !SECTION Reference type -->
+
+
+
+
+                    <p>C# is a managed language which means that, unlike  other programing languages in which you must explicitly remove a variable from memory once it is
+                        no longer
+                        in use, C# does this for you through the use of the inbuilt garbage collector. </p>
+
+
+
+
+                    <!-- SECTION null -->
+                    <h3 id="null">null</h3>
+                    <p>In c# when a reference type variable has been declared but does not refer to an object its value will be <i>null</i>. Using the previous analogy,
+                        this is like a contact in an address book which only has the person's name but without any address information. Within the context of nullability,
+                        a type that can be assigned null is said to be nullable and one that isn't, non-nullable. A nullable type can also be assigned null through use of
+                        the <code>null</code> keyword. If an attempt is made to access a <a href="#Members">member</a> of a nullable type, known as <i>dereferencing</i>,
+                        or an element of an array where either has a value of null, a <a href="#Errors_ans_Exception_Handling">NullReferenceException</a> will be thrown.
+                        A normal value type can't be assigned null and attempting to do so will result in a syntax error. Normal value types have a default value when
+                        declared which for the built-in types is <code>false</code> for a <code>bool</code> and <code>0</code> for all numeric types. A value type can be
+                        made nullable when declared by using the <code>?</code> suffix in the form <code>T? a;</code>. It can then be assigned null
+                        with the <code>null</code> value being in addition to the type's existing range of possible values. </p>
+                    <p>More recently C# introduced <i>nullable aware context</i> and <i>nullable reference types</i> to help in avoiding null reference exceptions.
+                        Similarly, as with value types, in a nullable aware context a reference type declared in the form <code>T a;</code> is non-nullable and
+                        <code>T? a;</code> is nullable. Unlike the value type however, both the nullable and non-nullable types can still be assigned null but in a
+                        nullable aware context, assigning a non-nullable type null will result in a warning in the code editor. The nullable aware context also produces
+                        other warnings such as 'dereferencing of a
+                        possibly null reference'. It should be noted that there are situations even within the nullable aware context
+                         in which the compiler is unable to determine that a non-nullable type has been initialized null and will be unable to produce a warning.
+
+                         There may also be occasions where the compiler is unable to determine that a variable or expression that is being assigned to a non-nullable type
+                        variable can't be null. In this case you can apply the <a href="#Null-forgiving_operator">null-forgiving operator</a> <code>!</code> in the form
+                        of <code>T!</code> to suppress the warning. Some restrictions apply to a nullable type.</p>
+                        <ul>
+                            <li>It must be checked and confirmed not to be null before dereferencing.</li>
+                            <li>It can't be used as a <a href="#Inheriting_types">base type</a> or implemented as an <a href="#interface">interface</a>.</li>
+                            <li>It can't be used as an object's initialization.</li>
+                            <li>It can't be used as part of type testing or be the type of a member access expression.</li>
+                        </ul>
+
+                        <p>Nullable aware context can be applied to each code file as required through use of nullable
+                            annotation or globally to the project as a whole in the project's properties.
+
+
+                            There are four levels nullable aware context, <code>disable</code>, <code>enable</code>, <code>warnings</code> and <code>annotations</code>, details of which are
+                            in the C# online documentation along with examples of the various null reference warnings and how code can be corrected to prevent the errors
+                            they pose. Starting with the current .NET 6.0, most of Visual Studio's project
+                             templates have nullable aware context set to <code>enabled</code> at the project level when a new
+                            project is created.</p>
+                            <p><em>Note:</em><i> Declaring a variable as nullable when the nullable aware context is disabled will result in a warning.</i></p>
+                    <!-- !SECTION null -->
+
+
                     <!-- SECTION Variable declaration and assignment -->
                     <h3 id="Variable_declaration_and_assignment">Variable declaration and assignment</h3>
                     <p>The following applies to variables</p>
@@ -737,12 +775,11 @@ World!");
                         <li>A <a href="#Scope">local variable</a> can be implicitly or explicitly declared</li>
                         <li>A <a href="#Access_modifiers">local variable's accessibility</a> cannot be changed with an <a href="#Access_modifiers">access modifier
                         </a></li>
+                        <li>A value type and value cannot be assigned <code>null</code></li>
                     </ul>
                     <!-- TODO complete Variable lifetime -->
                     <!-- SECTION Variable lifetime -->
                     <h3 id="Variable_lifetime">Variable lifetime</h3>
-                    <p>C# is a managed language which means that, unlike  other programing languages in which you must remove a variable from memory once it is no longer
-                        in use, C# does this for you through the use of the inbuilt garbage collector. </p>
                     <!-- !SECTION Variable lifetime -->
                     <p>In the following the first few examples demonstrate explicit declaration where you tell the editor what the variable's type is before it is used.
                         The first statement <code>int i;</code> declares the variable <code>i</code> to be a type of integer and then in <code>i = 1;</code> the
@@ -1058,6 +1095,23 @@ World!");
 // 3
 </code></pre>
                     <!-- !SECTION Type conversion -->
+                    <!-- TODO complete Boxing and unboxing -->
+                    <!-- SECTION Boxing and unboxing -->
+                    <h3 id="#Boxing_and_unboxing">Boxing and unboxing</h3>
+                    <p>Description</p>
+                    <p>CodeExample</p>
+<pre><code>namespace Namespace
+{
+    class Program
+    {
+        static void Main()
+        {
+
+        }
+    }
+}
+</code></pre>
+                    <!-- !SECTION Boxing and unboxing -->
                 </article>
             </section>
             <!-- !SECTION Variables, Constants, Types and Literals -->
@@ -1754,7 +1808,7 @@ namespace StringBuilderExample
                     <!-- SECTION Null-conditional operators ?. and ?[] -->
                     <h3 id="Null-conditional_operators">Null-conditional operators ?. and ?[]</h3>
                     <p>The null-conditional operator <code>?.</code> accesses a type member and <code>?[]</code> accesses an a element providing the operand to which they
-                        are applied is not null.</p>
+                        are applied is not null. If the operand is null the operator returns null.</p>
 <pre><code>namespace Namespace
 {
     class Program
@@ -7600,7 +7654,7 @@ namespace AccessModifiers
                         <li><b>double</b> : ±5.0 x 10-324 to ±1.7 x 10308, 15-digit precision (8 byte, 64 bits)</li>
                         <li><b>decimal</b> : ±1.0 x 10-28 to  ±7.9 x 1028, 28-bit precision (16 byte, 128 bits)</li>
                     </ul>
-                    <p>The default value for all integer and floating-point types is 0.</p>
+                    <p>The default value a bool is <code>false</code> for all numeric types is <code>0</code>.</p>
                     <!-- !SECTION C# Value type range and size -->
                     <!-- SECTION C# Built-in reference types -->
                     <h4 id="Built-in_reference_types">Built-in reference types</h4>
