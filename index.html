@@ -713,7 +713,8 @@ World!");
 
 
 
-                    <p>C# is a managed language which means that, unlike  other programing languages in which you must explicitly remove a variable from memory once it is
+                    <p>C# is a managed language which means that, unlike unmanaged programing languages in which you must explicitly remove a variable from memory once it
+                        is
                         no longer
                         in use, C# does this for you through the use of the inbuilt garbage collector. </p>
 
@@ -1098,18 +1099,50 @@ World!");
                     <!-- TODO complete Boxing and unboxing -->
                     <!-- SECTION Boxing and unboxing -->
                     <h3 id="#Boxing_and_unboxing">Boxing and unboxing</h3>
-                    <p>Description</p>
-                    <p>CodeExample</p>
-<pre><code>namespace Namespace
+                    <p>Boxing is the converting of a value type to an <code>object</code> type and unboxing is the converting from an <code>object</code> type to a value
+                        type. This is possible as <a href="#Polymorphism">polymorphism</a> is a core principle of C#. This is the ability to substitute any
+                        <a href="#Inheriting_types">inherited</a> derived type with a base type and the <code>object</code> type is the ultimate base type for all other
+                        types. Boxing is an implicit operation whereas unboxing is explicit which means that the latter will require a cast. Boxing and unboxing have
+                        mostly been replaced by generic types and should be avoided due to performance issues. Boxing requires a new
+                        object to be created in memory and the combined boxing and unboxing operations can take up to 24 times longer than that of the equivalent
+                        assignment of simple value and reference types. Additionally, due to the explicit cast when unboxing, knowledge is required of the type that was
+                        originally boxed. The main use of boxing and unboxing now is when dealing with legacy code.</p>
+                    <p> The following example demonstrate
+                        boxing and unboxing a value type to and from an object.</p>
+<pre><code>namespace BoxingUnboxing
 {
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
+            int i = 1;
 
+            // The value type 'i' is boxed into object 'o'.
+            // This is an implicit operation so a cast is not required.
+            object o = 1;
+
+            // The previously boxed object 'o' is unboxed back into a
+            // value type. Here the conversion is explicit requiring a cast.
+            int j = (int)o;
+
+            // Syntax error, cannot cast type 'int' to 'short'
+            //short s = (short)o;
+
+            Console.WriteLine($"i = {i}");
+            Console.WriteLine($"o = {o}");
+
+            i = 2;
+            // When the value of 'i' is changed the value 'o' remains unchanged
+            // demonstrating that 'o' is a copy of the original value of 'i'
+            Console.WriteLine($"o = {o}");
         }
     }
 }
+
+// The example writes the following to the console
+// i = 1
+// o = 1
+// o = 1
 </code></pre>
                     <!-- !SECTION Boxing and unboxing -->
                 </article>
