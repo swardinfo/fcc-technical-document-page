@@ -27,9 +27,6 @@
                 <!-- project requirement - each nav-link element should contain text corresponding header text in each section -->
                 <!-- project requirement - clicking nav-link element navigates page to the corresponding main-doc section -->
                 <li><a class="nav-link" href="#Introduction">Introduction</a></li>
-                <li><a class="nav-link" href="#C_Sharp_and_Dot_NET">C Sharp and Dot NET</a></li>
-                <li><a class="nav-link" href="#Integrated_Development_Environment">Integrated Development Environment</a></li>
-                <li><a class="nav-link" href="#Create_a_Hello_World_Project">Create a Hello World Project</a></li>
                 <li><a class="nav-link" href="#Code_Syntax_and_Program_Execution">Code Syntax and Program Execution</a></li>
                 <li><a class="nav-link" href="#Errors_and_Exception_Handling">Errors and Exception Handling</a></li>
                 <li><a class="nav-link" href="#Variables,_Constants,_Types_and_Literals">Variables, Constants, Types and Literals</a></li>
@@ -38,7 +35,7 @@
                 <li><a class="nav-link" href="#Decision_Making_Statements">Decision Making Statements</a></li>
                 <li><a class="nav-link" href="#Iteration_Statements">Iteration Statements</a></li>
                 <li><a class="nav-link" href="#Arrays_and_Data_Structures">Arrays and Data Structures</a></li>
-                <li><a class="nav-link" href="#Enumerators_and_tuples">Enumerators and tuples</a></li>
+                <li><a class="nav-link" href="#Enumerators_and_Tuples">Enumerators and Tuples</a></li>
                 <li><a class="nav-link" href="#Classes_and_Other_User_Defined_Types">Classes and Other User Defined Types</a></li>
                 <li><a class="nav-link" href="#Anonymous_functions">Anonymous functions</a></li>
                 <li><a class="nav-link" href="#Dependencies_and_Namespaces">Dependencies and Namespaces</a></li>
@@ -72,15 +69,6 @@
                         consideration as you create your program. For example, entering a letter in a program when a number is required may be invalid. But then having a
                         popup error message with each wrong keystroke that needs to be cancelled, will quickly lead to frustration and your program ending up in the
                         trash.</p>
-                </article>
-            </section>
-            <!-- !SECTION Introduction -->
-            <!-- SECTION C# Language -->
-            <section class="main-section" id="C_Sharp_and_Dot_NET">
-                <header><h2>C Sharp and Dot NET</h2></header>
-                <a class="back-to-top" href="#">Back to top</a>
-                <article>
-                    <p><em>Note:</em><i> The correct title for this section is <b>C# and .NET</b> but has been changed due to technical limitations</i></p>
                     <!-- SECTION The C# language -->
                     <h3 id="The_C_sharp_language">The C# language</h3>
                     <p>C# is a high level computer language created and maintained by Microsoft for the purpose of developing computer programs. A computer uses binary,
@@ -99,14 +87,8 @@
                     <p> The .Net version used throughout this guide is 6.0 and the C# version is 10.0.</p>
                     <p>For more information on C# and .NET see the <a href="#References">Microsoft C# reference documentation</a></p>
                     <!-- !SECTION .NET -->
-                </article>
-            </section>
-            <!-- !SECTION C# Language -->
-            <!-- SECTION Integrated Development Environment -->
-            <section class="main-section" id="Integrated_Development_Environment">
-                <header><h2>Integrated Development Environment</h2></header>
-                <a class="back-to-top" href="#">Back to top</a>
-                <article>
+                    <!-- SECTION Integrated Development Environment -->
+                    <h3 id="Integrated_Development_Environment">Integrated Development Environment</h3>
                     <p>An Integrated Development Environment or <i>IDE</i> is a program that contains various tools that assist the developer to write, run and test a
                         program. The IDE used in this guide is
                         <a href="https://visualstudio.microsoft.com/" rel="external nofollow noopener noreferrer" target="_blank"> Microsoft's Visual Studio 2022</a>.
@@ -140,14 +122,9 @@
                         <a href="https://visualstudio.microsoft.com/" rel="external nofollow noopener noreferrer" target="_blank"> Visual Studio</a> web page.</p>
                     <p><em>Note:</em> <i>Whilst the code editor in Visual Studio provides color coding for different elements of the code only the
                         <u class="error">red wavy underline</u> used to indicate <a href="#Syntax_errors">syntax errors</a> will be shown in this guide.</i></p>
-                </article>
-            </section>
-            <!-- !SECTION Integrated Development Environment -->
-            <!-- SECTION Create a Hello World Project -->
-            <section class="main-section" id="Create_a_Hello_World_Project">
-                <header><h2>Create a Hello World Project</h2></header>
-                <a class="back-to-top" href="#">Back to top</a>
-                <article>
+                    <!-- !SECTION Integrated Development Environment -->
+                    <!-- SECTION Create a Hello World Project -->
+                    <h3 id="Create_a_Hello_World_Project">Create a Hello World Project</h3>
                     <p>This guide assumes that the Visual Studio has already been installed, updated and the default settings have not been changed.</p>
                     <p>To create a new project</p>
                     <ol>
@@ -188,9 +165,10 @@ Console.WriteLine("Hello, World!");
                         <a href="#Program_structure">top-level statements</a> which also hides some of the boiler plate code that is required by a C# program. The
                         remaining code examples guide will include the boiler plate code as demonstrated in the <a href="#Program_structure">Program structure</a>
                         section.</p>
+                    <!-- !SECTION Create a Hello World Project -->
                 </article>
             </section>
-            <!-- !SECTION Create a Hello World Project -->
+            <!-- !SECTION Introduction -->
             <!-- TODO complete Program execution -->
             <!-- SECTION Code Syntax and Program Execution -->
             <section class="main-section" id="Code_Syntax_and_Program_Execution">
@@ -349,7 +327,7 @@ namespace ProgramStructure
                         a reserved word called a <i>keyword</i> in C#. <a href="#Keywords_and_Specifications">Keywords</a> are directly used by the compiler as
                         instructions. The next word <code>System</code> is an <i>identifier</i>. Identifiers are used to name types such as <a href="#class">classes</a>,
                         <a href="#interface">interfaces</a>, <a href="#struct">structs</a>, <a href="#record">records</a>, <a href="#Anonymous_functions">delegates,
-                        </a> <a href="#Enumerators">enums</a>, <a href="#tuple">tuples</a>, a type's <a href="#Members">members</a>, as well as
+                        </a> <a href="#Enumerators">enums</a>, <a href="#Tuple">tuples</a>, a type's <a href="#Members">members</a>, as well as
                         <a href="#Variables,_Constants,_Types_and_Literals">variables</a> and <a href="#Namespaces">namespaces</a>.</p>
                         <p><em>Note:</em><i> As with many C# reference texts the words <b>name</b> and <b>identifier</b> are used interchangeably throughout this
                             guide.</i></p>
@@ -3167,9 +3145,9 @@ namespace Dictionaries
                 </article>
             </section>
             <!-- !SECTION Arrays and Data Structures -->
-            <!-- SECTION Enumerators and tuples -->
-            <section class="main-section" id="Enumerators_and_tuples">
-                <header><h2>Enumerators and tuples</h2></header>
+            <!-- SECTION Enumerators and Tuples -->
+            <section class="main-section" id="Enumerators_and_Tuples">
+                <header><h2>Enumerators and Tuples</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
                     <!-- SECTION Enumerators -->
@@ -3210,8 +3188,8 @@ namespace Dictionaries
 // Month is Nov, value is 10, Type is Month, underlying type is System.Int64
 </code></pre>
                     <!-- !SECTION Enumerators -->
-                    <!-- SECTION tuple -->
-                    <h3 id="tuple">tuple</h3>
+                    <!-- SECTION Tuple -->
+                    <h3 id="Tuple">Tuple</h3>
                     <p>A <code>ValueTuple</code> type, commonly called a <i>tuple</i>, is a mutable value type that provides a concise syntax for creating a structure
                         that groups multiple different types together. It does this by creating a <a href="#Access_modifiers">public</a> <a href="#Fields">field</a>
                         element for each type.</p>
@@ -3375,10 +3353,10 @@ namespace Dictionaries
 // person1 != person 3: True
 </code></pre>
 
-                    <!-- !SECTION tuple -->
+                    <!-- !SECTION Tuple -->
                 </article>
             </section>
-            <!-- !SECTION Enumerators and tuples -->
+            <!-- !SECTION Enumerators and Tuples -->
             <!-- SECTION Classes and Other User Defined Types -->
             <section class="main-section" id="Classes_and_Other_User_Defined_Types">
                 <header><h2>Classes and Other User Defined Types</h2></header>
