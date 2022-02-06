@@ -181,11 +181,11 @@ Console.WriteLine("Hello, World!");
                         <a href="#null">project wide nullable aware context</a> and <a href="#Importing_system_types">implicit global usings</a> are enabled.</i></p>
                     <!-- SECTION Program structure -->
                     <h3 id="Program_structure">Program structure</h3>
-                    <p>A C# project may consist of multiple sources of code along with other other resources such as media and text files which are then compiled to
-                        create an <i>assembly</i>. This can be in the form of either a class library (.dll) which contains discrete units of code that can be individually
-                        used by other projects or an executable (.exe) file that can be started and run directly. An application may consist of one or more of these.</p>
+                    <p>A C# project may consist of multiple sources of code along with other resources such as media and text files which are then compiled to create an
+                        <i>assembly</i>. This can be in the form of either a class library (.dll) which contains discrete units of code that can be individually used by
+                        other projects or an executable (.exe) file that can be started and run directly. An application may consist of one or more of these.</p>
                     <p>In Visual Studio when a C# project is first created it creates a <i>Solution</i> that includes the project and other files required by the compiler
-                        to to build the assembly. These can be viewed in the <i>Solution Explorer</i> window which can be accessed via the <i>Solution Explorer</i> tab on
+                        to build the assembly. These can be viewed in the <i>Solution Explorer</i> window which can be accessed via the <i>Solution Explorer</i> tab on
                         the right side of Visual Studio. If the tab is not visible, click on <b>View</b> then <b>Solution Explorer</b> in the menu. The Solution Explorer
                         appears similar to that of tree view of the File Explorer. Under the Solution root node is listed each project and under these each of the folders
                         and files they contain. To a large extent, you can customize the folder and file locations to suit your own requirements. When the compiler first
@@ -208,9 +208,9 @@ Console.WriteLine("Hello, World!");
                         <li>It must be a method with the name <code>Main</code></li>
                         <li>It must be marked with the <a href="#static">static</a> modifier</li>
                     </ul>
-                    <p>When a file has no top level statements and an explicit main method as shown in the example, the compiler will use it as the the single entry
-                        point. If the file also has any top level statements then the explicitly entered main method will be ignored and the compiler will produce a
-                        warning of this. All code preceding the main method in the example are either <a href="#Code_syntax">directives</a> or
+                    <p>When a file has no top level statements and an explicit main method as shown in the example, the compiler will use it as the single entry point. If
+                        the file also has any top level statements, then the explicitly entered main method will be ignored and the compiler will produce a warning of
+                        this. All code preceding the main method in the example are either <a href="#Code_syntax">directives</a> or
                         <a href="#Code_syntax">declarations</a> so don't create an issue.</p>
                     <p>Top level statements were designed for simple applications and supposedly making it easier to teaching someone new to C# without having to see the
                         boiler plate code. Realistically however, the vast majority of code you work with won't contain them so they won't be explored in this guide. For
@@ -233,7 +233,7 @@ namespace ProgramStructure
                     <!-- NOTE Ignore all TODO in this section -->
                     <!-- SECTION Comments and Task Lists -->
                     <h3 id="Comments_and_Task_Lists">Comments and Task Lists</h3>
-                    <p>Comments have several purposes, they provide information to developers as to what the code does and can also aid in debugging.</p>
+                    <p>Comments provide information to developers as to what the code does and can also aid in debugging.</p>
                     <p>The following example demonstrates the use of comments.</p>
                     <p>A comment can be in two forms, single line comments that start with two forward slashes <code>//</code> and extend to the end of the line or
                         delimited comments that start with a slash followed by an asterisk <code>/*</code>, end with an asterisk followed by a forward slash
@@ -321,7 +321,7 @@ namespace ProgramStructure
                         convention used throughout this guide is to place code blocks containing statements directly under the beginning of the statement they belong to
                         and indent everything within them. An empty code block may be placed on the same line after the statement. The IDE has tools to aid with code
                         formatting styles such as these.</p>
-                    <p>The first example doesn't contain too much code and when run, simply opens the console and nothing more. There's still a lot going on here so lets
+                    <p>The first example doesn't contain too much code and when run, simply opens the console and nothing more. There's still a lot going on here so let's
                         break it down.</p>
                     <p>The line <code>using System;</code> is a using directive and must always end with a semicolon <code>;</code>. The first word <code>using</code> is
                         a reserved word called a <i>keyword</i> in C#. <a href="#Keywords_and_Specifications">Keywords</a> are directly used by the compiler as
@@ -389,7 +389,7 @@ namespace CodeSyntaxExample1
                     <p>New to .NET 6 are <a href="#Importing_system_types">implicit global usings</a>. This option adds a number of
                         <a href="#using_and_importing_types">global using</a> directives to import various namespaces appropriate to the type of project. It is turned on
                         by default in the .NET 6 Console App new project template. As with top level statements, implicit global usings are in a hidden file and are
-                        unavailable in the code editor. Throughout the remainder of this guide it will be assumed that implicit global usings is enabled and unless
+                        unavailable in the code editor. Throughout the remainder of this guide, it will be assumed that implicit global usings is enabled and unless
                         pertinent to a code example, the hidden using statements will not be shown. For a list of all the hidden using statements for the
                         .NET 6 Console App, please see <a href="#Importing_system_types">importing system types</a>.</p>
                     <p>In the next example, <code>Console.WriteLine("Hello World!");</code> , a single line statement, is the first in the
@@ -404,13 +404,13 @@ namespace CodeSyntaxExample1
                         <a href="#Parameters,_signatures_and_overloading">signature</a> for the method. This includes the required and optional parameters and a
                         description of what the method does as well as each parameter as they are entered. If there are
                         <a href="#Parameters,_signatures_and_overloading">overloads</a> for the method, the number available and up/down arrows will be displayed allowing
-                        you to cycle through and find the correct one. Additionally a scrollable list will be displayed showing the possible arguments that can be
+                        you to cycle through and find the correct one. Additionally, a scrollable list will be displayed showing the possible arguments that can be
                         entered. If variables or parameters from the containing method have been previously declared, they will appear at the top of the list, which in
-                        this this example includes <code>args</code> from <code>Main(string[] args)</code>. To view all overloads after the statement has been written,
-                        place the cursor anywhere within the round brackets and press <b>Ctrl + Shift + Space</b>, then use the arrow keys to navigate to each argument to
-                        see the description for the associated parameter. To view the argument list, place the cursor just before any argument and press
-                        <b>Ctrl + Space</b>.</p>
-                    <p>Visual Studio has a number of built in <i>code snippets</i> that allows you to use shortcuts to enter frequently used code. One such snippet is for
+                        this example includes <code>args</code> from <code>Main(string[] args)</code>. To view all overloads after the statement has been written, place
+                        the cursor anywhere within the round brackets and press <b>Ctrl + Shift + Space</b>, then use the arrow keys to navigate to each argument to see
+                        the description for the associated parameter. To view the argument list, place the cursor just before any argument and press <b>Ctrl + Space</b>.
+                    </p>
+                    <p>Visual Studio has a number of built-in <i>code snippets</i> that allows you to use shortcuts to enter frequently used code. One such snippet is for
                         <code>Console.WriteLine();</code>. To use the shortcut type <b>c</b> then <b>w</b> then press the <b>tab</b> key twice. In addition to the
                         in-built snippets you can add your own. For more information on the built-in snippets and how to create a user snippet, please see the
                         <a href="#References">Microsoft C# reference documentation</a>.</p>
@@ -420,14 +420,14 @@ namespace CodeSyntaxExample1
                         code block. No semicolon is required after the closing brace. Within the code block is an assignment statement, followed by a <code>break</code>
                         statement followed by another assignment statement. As the <a href="#break">break</a> statement causes the program to leave the while loop before
                         reaching the second assignment statement, it can't be executed and is known as unreachable code. This won't prevent the program from being built
-                        or run but will result in a warning in the the code editor and should be rectified.</p>
+                        or run but will result in a warning in the code editor and should be rectified.</p>
                     <p>Next are three <code>if</code> statements which are <a href="#Decision_Making_Statements">decision making statements</a>. Some statements like
                         these allow for a single statement known as an embedded statement, to be placed directly after it without the need for braces. The second
                         <code>if</code> statement followed directly by <code>k = 1;</code> demonstrate this. Together they form a compound statement so the first two
                         <code>if</code> statements here are equivalent. An embedded statement cannot be a declaration or labelled statement so the last <code>if</code>
                         statement example is invalid and uncommenting it results in a <a href="#Syntax_errors">syntax error</a>.</p>
                     <p>Two more warnings are present in the code. Variables <code>i</code> and <code>j</code> are
-                        assigned values but they are not used any where used anywhere in the code and results in a warning for each. As such declarations and assignments
+                        assigned values but they are not used anywhere in the code which results in a warning for each. As such declarations and assignments
                         are common so are the warnings and as decisions change while the code is written, it is possible that orphan variables can be left scattered
                         throughout. It is important then that periodic reviews are made and unused code removed before such warnings become unmanageable. Note that while
                         variables <code>a</code> and <code>i</code> both appear in the if statements, <code>a</code> is used to test them so does not produce a warning
@@ -638,9 +638,9 @@ World!");
                     <p>As the title suggests, syntax errors occur when the syntax is wrong and this will prevent the code from being compiled. This could be caused by a
                         spelling mistake, a missing semi colon, an incorrect use of a language element, etc. The code editor will identify such errors with a
                         <u class="error">red wavy underline</u>. These are the easiest errors to fix as in most cases, hovering the mouse over the error will result in a
-                        popup dialog in the code editor, identifying the issue along with suggestions on how to fix it. Additionally the error will appear in the
+                        popup dialog in the code editor, identifying the issue along with suggestions on how to fix it. Additionally, the error will appear in the
                         <i>Error List</i> usually located at the bottom of the code editor. You can then select the error and by pressing F1, the link to help for it will
-                        be opened in a browser. To view the error list you may need to click on the <b>Error List</b> tab or if it is not there, you can open it by
+                        be opened in a browser. To view the error list, you may need to click on the <b>Error List</b> tab or if it is not there, you can open it by
                         clicking on <b>View</b> in the menu then <b>Error List</b>. Syntax errors are also sometimes called compiler errors and compile-time errors.</p>
                     <p>The following example demonstrates a syntax error.</p>
 <pre><code>namespace SyntaxError
@@ -649,7 +649,7 @@ World!");
     {
         static void Main(string[] args)
         {
-            // The following results in the compiler error .
+            // The following results in the compiler error.
             // CS0103: The name 'number' does not exist in the current context
             var x = <u class="error">number</u>;
         }
@@ -810,7 +810,7 @@ World!");
                     <!-- TODO complete Filtered_exceptions -->
                     <!-- SECTION Filtered_exceptions -->
                     <h3 id="Filtered_exceptions">Filtered_exceptions</h3>
-                    <p>The <code>when</code> keyword can be used to filter exceptions to give a more fine grained response.</p>
+                    <p>The <code>when</code> keyword can be used to filter exceptions to give a more fine-grained response.</p>
                     <p>In the following example all catch blocks catch Exception but each use <code>when</code> to catch a specific condition based on the exception's
                         message.</p>
 <pre><code>namespace CatchWhen
@@ -862,7 +862,7 @@ World!");
                         assigned to a variable. Variables and constants can only be declared once within the same <a href="#Scope">scope</a>. Throughout much of
                         <a href="#References">Microsoft C# reference documentation</a>, generically types may be referred to with a single <code>T</code> and where
                         appropriate, the same will be done within this document.</p>
-                    <p>C# has two basic categories of variables, the <i>value type</i> and the <i>reference type</i>, into which all variables types are grouped. A value
+                    <p>C# has two basic categories of variables, the <i>value type</i> and the <i>reference type</i>, into which all variable types are grouped. A value
                         type stores its own data where as a reference type stores the address to where its data is located. You can think of these as a person and a
                         contact in an address book. The value type is like the person that has a name and physical body whereas the reference type is like the contact
                         that only stores the name of the person and the address to where they live.</p>
@@ -879,7 +879,7 @@ World!");
                         reference type can only refer to one location at a time but two reference type variables can refer to the same location. The result is that
                         changing the contents of one will affect the contents of the other.</p>
                     <p>Variables can be compared for equality and depending on the type, various <a href="#Equality_operators">equality operators</a> can be applied. When
-                        two variables are compared, how value and reference types are evaluated differs. In most cases if the two are value types then they will be equal
+                        two variables are compared, how value and reference types are evaluated differs. In most cases if the two are value types, then they will be equal
                         if the values they contain are the same, whereas two reference types will be the same if they both refer to the same location in memory. A notable
                         exception is the <a href="#record">record</a> which is a reference type with value type equality.</p>
                     <p><em>Note:</em><i> Various type's <a href="#Members">members</a> allow the <a href="#Parameters,_signatures_and_overloading">passing in</a> of
@@ -927,7 +927,7 @@ World!");
                     <p>Every computer has a finite amount of memory and when an object is no longer in use, it is essential to reclaim the memory it occupies or the
                         memory will become filled with unused objects. This must be done while a variable is still in <a href="#Scope">scope</a> otherwise it will become
                         unreachable and without a reference to it the memory, can no longer be reclaimed resulting in a <i>memory leak</i>. With an unmanaged programming
-                        language you are required to explicity keep track of unreferenced objects and free up memory yourself but with a managed language, much of this
+                        language, you are required to explicity keep track of unreferenced objects and free up memory yourself but with a managed language, much of this
                         work is automatically done for you. C#, being a managed language, provides a memory management system called the <i>garbage collector</i> that
                         automatically tracks objects and when they are no longer referenced, marks them for garbage collection. When the memory is actually reclaimed is
                         completely under the control of the garbage collector.</p>
@@ -1087,7 +1087,7 @@ World!");
                     <p><i>Use of unassigned local variable 'k'</i> - C# requires variables declared within a local <a href="#Scope">scope</a> to be assigned a value
                         before they can be used. Here <code>int k;</code> declares that a variable <code>k</code> of type <code>int</code> but does not assign it a value.
                         When declaring a variable a value can simultaneously be assigned to it through the use of the <code>=</code>
-                        <a href="#Assignment_operator">operator</a> as in <code>int k = 1;</code>. Alternatively a variable can be assigned a value after being declared
+                        <a href="#Assignment_operator">operator</a> as in <code>int k = 1;</code>. Alternatively, a variable can be assigned a value after being declared
                         and before being used such as adding <code>k = 1;</code> after <code>int k;</code> and before <code>j = i + k;</code> Note that it is only
                         variables on the right side of the <code>=</code> operator that need to have a value assigned so the use of the <code>j</code> which is declared
                         but not assigned a value on the left side is valid. C# also has has the <code>default</code> keyword which allows any variable to be assigned its
@@ -1193,7 +1193,7 @@ World!");
                     <!-- !SECTION Variable declaration and assignment syntax errors -->
                     <!-- SECTION Type conversion -->
                     <h3 id="Type_conversion">Type conversion</h3>
-                    <p>Following are examples of the different tools C# provides to convert built in types.</p>
+                    <p>Following are examples of the different tools C# provides to convert built-in types.</p>
 <pre><code>namespace CastingAndConversion
 {
     class Program
@@ -2545,7 +2545,7 @@ namespace AliasQualifier
                         created and can't be changed. An array can be recreated by using the <code>new</code> keyword which deletes and replaces the existing array
                         <em>and its data</em> with a new one. There are a number of different ways in which to create an array which can also include initializing the
                         element values. If not initialized the default value for the elements in a single-dimensional or multi-dimensional array will be 0 for numeric
-                        types and <a href="#null">null</a> for reference types. As a jagged array stores other arrays the default type is always null.</p>
+                        types and <a href="#null">null</a> for reference types. As a jagged array stores other arrays, the default type is always null.</p>
                         <p>The following example demonstrates the declaration and initialization of an array.</p>
 <pre><code>namespace Arrays
 {
@@ -2611,7 +2611,7 @@ namespace AliasQualifier
 
             // Several ways to declare an empty array. The array will not be null
             // but will not be able to store any elements. An empty array has
-            // very little uses and most can now replaced by newer data structure types
+            // few uses and most can now be replaced by newer data structure types
             int[] emptyArray1 = { };
             int[] emptyArray2 = new int[] { };
             int[] emptyArray3 = new int[0];
@@ -2620,20 +2620,20 @@ namespace AliasQualifier
             // Declare a multi-dimensional array with 2 dimensions
             int[,] arr11;
 
-            // Create a 2 dimensional array of length 4 in the first
+            // Create a 2-dimensional array of length 4 in the first
             // and length 2 in the second. You can think of this as having
             // 4 rows and 2 columns
             arr11 = new int[4, 2];
 
-            // Create and initialize a 2 dimensional array
+            // Create and initialize a 2-dimensional array
             arr11 = new int[4, 2] { { 1, 2 }, { 3, 4 }, { 5, 6 }, { 7, 8 } };
 
-            // Create and initialize a 2 dimensional array
+            // Create and initialize a 2-dimensional array
             // Here the lengths are inferred from
             // from the block inside the braces
             arr11 = new int[,] { { 1, 2 }, { 3, 4 }, { 5, 6 }, { 7, 8 } };
 
-            // Declare, create and initialize a 2 dimensional string array
+            // Declare, create and initialize a 2-dimensional string array
             string[,] arr12 = new string[3, 2] { { "red", "cyan" }, { "green", "magenta" }, { "blue", "yellow" } };
 
             // Declare, create and initialize a 3 dimensional 'int' array
@@ -2642,7 +2642,7 @@ namespace AliasQualifier
 
             // Declares and creates a jagged array. The first array
             // is a single-dimensional array with 3 elements
-            // each of which is a 2 dimensional array
+            // each of which is a 2-dimensional array
             int[][,] arr14 = new int[3][,];
 
             // Each single-dimensional element of arr13 must also
@@ -3436,7 +3436,7 @@ namespace Dictionaries
     // which are the classes members
 
     // Public class declaration. This class can be
-    // accessed both by the the assembly that
+    // accessed both by the assembly that
     // contains it and any assembly that references it
     public class PublicClass
     {
@@ -3629,10 +3629,10 @@ namespace Dictionaries
                         <li><a href="#Constant_fields">constant fields</a> that store data when declared, cannot be changed at runtime and are inherently
                             <a href="static">static</a></li>
                         <li><a href="#Properties">properties</a> that provide controlled access to an object's data</li>
-                        <li><a href="#Indexers">indexers</a> that allows an object to be indexed like an array</li>
+                        <li><a href="#Indexers">indexers</a> that allow an object to be indexed like an array</li>
                         <li><a href="#Events">events</a> that communicate changes in the object's state to other objects or to itself</li>
                         <li><a href="#Operators">operators</a> that when overloaded are considered a type member</li>
-                        <li><a href="#Finalizers">finalizers</a> that performs cleanup of an object when it is no longer in use </li>
+                        <li><a href="#Finalizers">finalizers</a> that perform cleanup of an object when it is no longer in use </li>
                         <li>nested type which is the declaration of another type within the containing type</li>
                     </ul>
                     <p>Members are declared within the type that defines the object. All members within an object can access each other irrespective of the location at
@@ -3650,14 +3650,14 @@ namespace Dictionaries
                         <a href="#The_lambda_and_expression-body_definition_operator">expression-bodied members which makes for a much more concise code</a>.
                         Constructors, indexers and methods can be <a href="#Parameters,_signatures_and_overloading">overloaded</a>. That is a type can contain multiple
                         versions with the same identifier provided that they overload a member of the same type and each overload has a unique signature.</p>
-                    <p>Properties, indexers, methods and events in a <a href="#Inheriting_types">base</a> type can be marked marked
-                        <a href="#abstract">abstract</a> or <a href="#virtualo">virtual</a> though marking an event a virtual is not recommended as the
-                        C# compiler does not handle them correctly producing unpredictable results. In a <a href="#Inheriting_types">derived</a> type a virtual base
-                        member can optionally be <a href="#override">overridden</a> where as an abstract base member <em>must</em> be overridden by a
-                        member with the same signature that is marked with the <code>override</code> keyword. A type that contains an abstract member must also be marked
-                        abstract. A member marked as <code>override</code> can also be marked with the <code>sealed</code> keyword preventing it from being overridden in
-                        any further derived type. Where members in both a base and derived type have the same identifier under certain conditions the derived member may
-                        hide the base member, please see <a href="#Inheriting_types">Inheriting types</a>.
+                    <p>Properties, indexers, methods and events in a <a href="#Inheriting_types">base</a> type can be marked <a href="#abstract">abstract</a>
+                        or <a href="#virtualo">virtual</a> though marking an event a virtual is not recommended as the C# compiler does not handle them correctly
+                        producing unpredictable results. In a <a href="#Inheriting_types">derived</a> type a virtual base member can optionally be
+                        <a href="#override">overridden</a> where as an abstract base member <em>must</em> be overridden by a member with the same signature that is marked
+                        with the <code>override</code> keyword. A type that contains an abstract member must also be marked abstract. A member marked as
+                        <code>override</code> can also be marked with the <code>sealed</code> keyword preventing it from being overridden in any further derived type.
+                        Where members in both a base and derived type have the same identifier under certain conditions the derived member may hide the base member,
+                        please see <a href="#Inheriting_types">Inheriting types</a>.
                     </p>
                     <!-- !SECTION Members -->
 <!-- TODO fix this mess -->
@@ -3673,14 +3673,16 @@ namespace Dictionaries
                         define the <a href="#Parameters,_signatures_and_overloading">signature</a> of the method which is used in determining the
                         <a href="#Parameters,_signatures_and_overloading">overloading</a> of a method and its use with a <a href="#delegate">delegation</a>. A method can
                         optionally return a value of the type specified in the header back to the calling statement. To indicate that no value is to be returned the
-                        return type must be set to void <code>void</code>. Optional attributes and <a href="#Modifiers">modifiers</a> can be applied to a method and its
+                        return type must be set to <code>void</code>. Optional attributes and <a href="#Modifiers">modifiers</a> can be applied to a method and its
                         parameters that can change accessibility and behavior. The body contains the implementation of the method and can consist of either a code block
                         or when marked with either the <a href="#abstract">abstract</a> or <a href="#extern">extern</a> modifier, a semicolon indicating that the method
                         implementation is to be declared in a <a href="#Inheriting_types">derived</a> class or an external library respectively.</p>
                     <p>Statements within a method are normally executed from top to bottom until either a return statement or the end of the method is reached, in which
                         case execution is returned to the calling statement. If an <a href="">exception</a> occurs or is <a href="#throw">exception is thrown</a> program return flow will
-                        depend on whether the the exception has been handled by a catch block. This could be be anywhere from the calling statement right back to the
-                        Main method,  where the program starts and will ultimately exit. If the      </p>
+                        depend on whether the exception has been handled by a catch block. This could be anywhere from the calling statement right back to the Main
+                        method,  where the program starts and will ultimately exit. If the      </p>
+
+
                     <p>For a method that returns a value, the statements in the body are executed until a return statement is reached. This is defined by the
                         <code>return</code> keyword followed by a variable or literal of the type in the method declaration followed by a semicolon. Program execution,
                          along with the returned value  will then be passed back to the statement that called the method.</p>
@@ -3688,7 +3690,7 @@ namespace Dictionaries
                         reached. In this case a return statement is defined just with the <code>return</code> keyword followed by a semicolon.</p>
                     <p>In both cases a method can contain multiple return statements allowing for multiple exit points from different paths back to the calling code. In
                         this case, a method that has a return type but that does not have a return statement for all possible paths will produce a
-                        <a href="#Syntax_errors">syntax error</a>. Methods with a single expression can be implemented in the form of an an
+                        <a href="#Syntax_errors">syntax error</a>. Methods with a single expression can be implemented in the form of an
                         <a href="#The_lambda_and_expression-body_definition_operator">expression-bodied member</a> and a class can contain multiple
                         <a href="#Parameters,_signatures_and_overloading">overloads</a> of a method.</p>
                     <p>Access to a method by code external to the type is in the form of <code>instance.Method(parameters)</code> for an instance of a type and
@@ -3777,12 +3779,12 @@ namespace Dictionaries
                         <a href="#Parameters,_signatures_and_overloading">signature</a> that can take in parameters and is a container for one or more
                         <a href="#Code_Syntax">statements</a>. Unlike a method it cannot return a value, its identifier is always that of the type that contains it and
                         it can only be called once when the object is created.</p>
-                    <p>A constructor can be marked with with various <a href="#Modifiers">modifiers</a> that change its behavior and an instance constructor can be
+                    <p>A constructor can be marked with various <a href="#Modifiers">modifiers</a> that change its behavior and an instance constructor can be
                         <a href="#Parameters,_signatures_and_overloading">overloaded</a>. By using the <code>this</code> keyword, a constructor can call another
                         overloaded constructor when an object is created. In an instance type, if no constructors are declared the compiler will provide a default
                         parameterless constructor with an empty code block. If constructors are declared then the compiler will not declare the default constructor, so in
                         this case if a parameterless constructor is required it will need to be explicitly declared. To create an instance of a type the <code>new</code>
-                        keyword is used to call an instance constructor. Constructors with a single expression can be implemented in the form of an an
+                        keyword is used to call an instance constructor. Constructors with a single expression can be implemented in the form of an
                         <a href="#The_lambda_and_expression-body_definition_operator">expression-bodied member</a></p>
                     <p>Both instance and static constructors can be declared in <a href="#class">classes</a>, <a href="#struct">structs</a> and
                         <a href="#record">records</a> whereas only static constructors can be declared in an <a href="#interface">interface</a>. A class or record can
@@ -3894,7 +3896,7 @@ namespace Dictionaries
                     <p>A variable field does not have to be initialized with a value and if not, will be initialized by the compiler to the default value for its type.
                         When the program is run, field initialization occurs in the order of</p>
                     <p><i>declaration &gt; constructor &gt; object initializer</i>.</p>
-                    <p>This means that setting a field's value in a constructor will overwrite a value set in the declaration and setting it's value in an
+                    <p>This means that setting a field's value in a constructor will overwrite a value set in the declaration and setting its value in an
                         object-initializer will overwrite the value set both in the field declaration, a constructor or an init accessor of a property.</p>
                     <p>A variable field can be made readonly through the use of the <code>readonly</code> keyword in which case it can only be initialized either by
                         declaration or in a constructor. How this effects a variable though depends on whether it is a value or a reference type. As a value type contains
@@ -4063,57 +4065,47 @@ namespace Dictionaries
                     <!-- !SECTION Constant fields -->
                     <!-- SECTION Properties -->
                     <h3 id="Properties">Properties</h3>
-                    <p>A property is a way of allowing external code to have controlled access to data within an object. It does this by providing special methods
-                        that can read from and write to the data, most often a single field which in this context is known as a <i>backing field</i>. The data the
-                        property accesses must be of the same type as the property's declared type. Whilst the
-                        default access level for a property is private, an optional <a href="#Access_modifiers">access modifier</a> is normally applied to allow for
-                        access outside its containing type. Declaration of a property can take one of two forms, <i>manually-implemented</i> or
-                        <i>auto-implemented</i>.</p>
-                    <p>Manually-implemented properties can be declared using an optional access modifier, followed by the property's type,
-                        followed by an identifier that is unique within the property's containing type, followed by a pair of braces that define a code block which is the
-                        body of the property. This can contain one or both of two special methods which include a <i>getter</i> declared using the <code>get</code>
-                        keyword to read data from the object and a <i>setter</i> declared using either the <code>set</code> or <code>init</code> keywords to write
-                        data to the object. Collectively <code>get</code>, <code>set</code> and <code>init</code> are called <i>accessors</i> with <code>set</code> and
-                        <code>init</code> being mutually exclusive. A property can be made read/write by using both a getter and a setter, read-only by only using a
-                        getter or write-only by only using a setter, though the latter is an extremely rare situation.  </p>
+                    <p>A property is a way of allowing external code to have controlled access to data within an object. It does this by providing special methods that
+                        can read from and write to the data, most often a single field which in this context is known as a <i>backing field</i>. The data the property
+                        accesses must be of the same type as the property's declared type. Whilst the default access level for a property is private, an optional
+                        <a href="#Access_modifiers">access modifier</a> is normally applied to allow for access outside its containing type. Declaration of a property can
+                        take one of two forms, <i>manually-implemented</i> or <i>auto-implemented</i>.</p>
+                    <p>Manually-implemented properties can be declared using an optional access modifier, followed by the property's type, followed by an identifier that
+                        is unique within the property's containing type, followed by a pair of braces that define a code block which is the body of the property. This can
+                        contain one or both of two special methods which include a <i>getter</i> declared using the <code>get</code> keyword to read data from the object
+                        and a <i>setter</i> declared using either the <code>set</code> or <code>init</code> keywords to write data to the object. Collectively
+                        <code>get</code>, <code>set</code> and <code>init</code> are called <i>accessors</i> with <code>set</code> and <code>init</code> being mutually
+                        exclusive. A property can be made read/write by using both a getter and a setter, read-only by only using a getter or write-only by only using a
+                        setter, though the latter is an extremely rare situation.</p>
                     <p>Both the getter and the setter each have their own code block. Within the setter code block the <code>value</code> keyword is used to hold the
-                        value passed in to the property which is to be assigned
-                        to the data, in the form of <code>data = value;</code>. Other statements can be placed in the setter to to
-                        validate the value before it is written to the data or to perform an action before or after this is done. This could include
-                        <a href="#Events">raising an event</a> to communicate to other objects that the property's value has changed.  Within getter code block  this usually
-                         takes the form of <code>return backingField</code>. As
-                        with <code>set</code>, other code can also be placed within the <code>get</code> code block. In both cases such code should be limited and where
-                        more complex procedures are required a <a href="#Methods">method</a> should be utilized. An alternative to <code>set</code> is <code>init</code>
-                        which can only be called by the constructor or an object-initializer, which makes the property read-only after it has been initialized during the
-                        objects instantiation. As with <code>set</code> a property can be made write-only by only using <code>init</code>. The <code>set</code> and
-                        <code>init</code> keywords are mutually exclusive. Collectively <code>set</code>,
-                        <code>init</code> and <code>get</code> are called <i>accessors</i>. An accessor that has a single expression can be implemented in the form of an
-                        <a href="#The_lambda_and_expression-body_definition_operator">expression-bodied member</a>.</p>
-                    <p>The default access for accessors is that of the property containing them, but can be changed through the use of access modifiers provided
-                        that</p>
+                        value passed in to the property which is to be assigned to the data, in the form of <code>data = value;</code>. Other statements can be placed in
+                        the setter to validate the value before it is written to the data or to perform an action before or after this is done. This could include
+                        <a href="#Events">raising an event</a> to communicate to other objects that the property's value has changed.  Within getter code block this
+                        usually takes the form of <code>return backingField</code>. As with <code>set</code>, other code can also be placed within the <code>get</code>
+                        code block. In both cases such code should be limited and where more complex procedures are required a <a href="#Methods">method</a> should be
+                        utilized. An alternative to <code>set</code> is <code>init</code> which can only be called by the constructor or an object-initializer, which
+                        makes the property read-only after it has been initialized during the object's instantiation. As with <code>set</code> a property can be made
+                        write-only by only using <code>init</code>. The <code>set</code> and <code>init</code> keywords are mutually exclusive. Collectively
+                        <code>set</code>, <code>init</code> and <code>get</code> are called <i>accessors</i>. An accessor that has a single expression can be implemented
+                        in the form of an <a href="#The_lambda_and_expression-body_definition_operator">expression-bodied member</a>.</p>
+                    <p>The default access for accessors is that of the property containing them, but can be changed through the use of access modifiers provided that</p>
                     <ul>
                         <li>the property is read/write</li>
                         <li>only one of the accessors has the access modifier applied</li>
                         <li>the access modifier is more restrictive than the property container</li>
                     </ul>
-                    <p>This means for example, if a property is public and and the <code>set</code> accessor is made private then the property can be read from outside
-                         the class but
-                         ony set by other members
-                        within it. </p>
+                    <p>This means for example, if a property is public and the <code>set</code> accessor is made private then the property can be read from outside the
+                        class but only set by other members within it. </p>
                     <p><em>Note:</em><i> Applying an access modifier to a <code>get</code> accessor is not recommended and making an <code>init</code> accessor private
-                         has the effect that the property can only be initialized in a constructor and <b>not</b> an
-                        object-initializer. </i></p>
+                         has the effect that the property can only be initialized in a constructor and <b>not</b> an object-initializer. </i></p>
                     <p>Auto-implemented properties have accessors that are declared without an implementation code block and without declaring a separate  backing field
-                        allowing the
-                        property to be written with one line of code. During runtime the compiler creates a hidden private backing field that can only be accessed through
-                         the
-                        property. An advantage of an auto-implemented property is that it can be initialized through the declaration. For a read/write property either
-                        both accessors must be manually-implemented or auto-implemented. An auto-implemented property must always have a <code>get</code> accessor so
-                        it cannot be write-only.</p>
+                        allowing the property to be written with one line of code. During runtime the compiler creates a hidden private backing field that can only be
+                        accessed through the property. An advantage of an auto-implemented property is that it can be initialized through the declaration. For a
+                        read/write property either both accessors must be manually-implemented or auto-implemented. An auto-implemented property must always have a
+                        <code>get</code> accessor so it cannot be write-only.</p>
                     <p>Whilst the order of getters and setters in both manually-implemented or auto-implemented properties doesn't matter, by convention getters are
-                        normally declared first. Access to a property by code external to the type is in the form of <code>instance.Property</code> for an instance of
-                         a type and
-                        <code>TypeName.Property</code> for a <a href="static">static</a> type.</p>
+                        normally declared first. Access to a property by code external to the type is in the form of <code>instance.Property</code> for an instance of a
+                        type and <code>TypeName.Property</code> for a <a href="static">static</a> type.</p>
                     <p>The following example demonstrates property declaration and use.</p>
 <pre><code>namespace Properties
 {
@@ -4299,16 +4291,16 @@ namespace Dictionaries
                     <!-- SECTION Events -->
                     <h3 id="Events">Events</h3>
                     <p>An event is a way for a class to communicate with other objects that something within it has occurred. This could be a button click, completion of
-                        a task, change of state, etc. The class that <i>raises</i> the event is know as a <i>publisher</i> and the objects receiving the event
+                        a task, change of state, etc. The class that <i>raises</i> the event is known as a <i>publisher</i> and the objects receiving the event
                         are known as <i>subscribers</i>. When a publisher declares an event, it in turn allows the declaration of a special type of multicast
                         <a href="#delegate">delegate</a> and provides methods that a subscriber can use to add or remove instances of the delegate. When an event is
-                        raised the delegate is then used to invoke a method within the subscriber which in this case is known as an <i>event handler</i>. By being
-                        multicast the delegate allows multiple objects to subscribe to the same event or for a subscriber to use the same event handler to handle the same
+                        raised, the delegate is then used to invoke a method within the subscriber which in this case is known as an <i>event handler</i>. By being
+                        multicast, the delegate allows multiple objects to subscribe to the same event or for a subscriber to use the same event handler to handle the same
                         type of event from multiple publishers.</p>
                     <p>Whilst a delegate can declare a signature that defines a return type, a multicast delegate only returns a value from the last event handler that
-                        was invoked. For this reason the standard event delegate signature is one that returns void and contains two parameters. The first parameter is an
-                        object that refers to the instance that raised the event. The second is a type that can optionally contain event data including values that can be
-                        changed in the event handler to effectively supply a return value. A common type for containing event data is one that is
+                        was invoked. For this reason, the standard event delegate signature is one that returns void and contains two parameters. The first parameter is
+                        an object that refers to the instance that raised the event. The second is a type that can optionally contain event data including values that can
+                        be changed in the event handler to effectively supply a return value. A common type for containing event data is one that is
                         <a href="#Inheriting_types">derived</a> from the <code>EventArgs</code> class.</p>
                     <p>C# .NET provides many built-in delegates for use with events which are suffixed with <i>EventHandler</i>. There two most common are
                         <code>EventHandler</code> and <code>EventHandler&lt;TEventArgs&gt;</code>.</p>
@@ -4604,9 +4596,9 @@ namespace CancelEvent
                     <!-- !SECTION Indexers -->
                     <!-- SECTION Finalizers -->
                     <h3 id="Finalizers">Finalizers</h3>
-                    <p>A finalizer is used to perform any cleanup of the class when it is no longer in use. The compiler adds a default finalizer to each instance of a
+                    <p>A finalizer is used to perform any clean-up of the class when it is no longer in use. The compiler adds a default finalizer to each instance of a
                         class that is created. As implementing a finalizer is a rare and complex subject it won't be discussed in this guide.</p>
-                    <p><em>Note:</em><i>In earlier versions of the C# standard a 'finalizer' was called a 'destructor'.</i></p>
+                    <p><em>Note:</em> <i>In earlier versions of the C# standard a 'finalizer' was called a 'destructor'.</i></p>
                     <!-- !SECTION Finalizers -->
                     <!-- SECTION Local functions -->
                     <h3 id="Local_functions">Local functions</h3>
@@ -4622,7 +4614,7 @@ namespace CancelEvent
                         <li>Finalizers</li>
                         <li>Other local functions</li>
                     </ul>
-                    <p>A local functions can't be declared inside an expression-bodied member.</p>
+                    <p>A local function can't be declared inside an expression-bodied member.</p>
                     <p>The following example demonstrates declaration and usage of local functions.</p>
 <pre><code>namespace LocalFunctions
 {
@@ -4658,7 +4650,7 @@ namespace CancelEvent
                     <p>A parameter is a <a href="#Variables,_Constants,_Types_and_Literals">variable</a> declared as part of a member that allows a value from a calling
                         statement to be made available, or <i>passed in</i>, for use by the statements within the member. The corresponding value in the calling statement
                         is called an <i>argument</i>. Parameters are passed in, in the form of a comma separated list within a pair of round brackets that can contain
-                        zero or more parameters. Arguments in the calling statement are also in the form of a comma separated list and must ether be in the same order as
+                        zero or more parameters. Arguments in the calling statement are also in the form of a comma separated list and must either be in the same order as
                         the list of parameters or in the form of named arguments. Parameters can be made optional in which case arguments can be omitted subject to
                         certain conditions. A parameter is defined by a type and an identifier and can be marked with a modifying keyword some of which are,
                         <code>ref</code>, <code>in</code>, <code>out</code> and <code>params</code>. Other than for a parameter marked <code>out</code>, all arguments
@@ -4671,7 +4663,7 @@ namespace CancelEvent
                         keyword.</p>
                     <p>If a parameter in the called member is marked with the <code>in</code> keyword, it becomes readonly and attempting to change a value type marked
                         this way or changing a reference type to refer to another object will result in a <a href="#Syntax_errors">syntax error</a>. The data of a
-                        reference type can still be changed. Only the parameter in the called member is required to to be marked in.</p>
+                        reference type can still be changed. Only the parameter in the called member is required to be marked in.</p>
                     <p>An argument marked with the <code>out</code> keyword causes a value to be passed by reference. It does not have to be initialized first but must be
                         assigned a value in the called member. Both the argument and the parameter must be marked with the <code>out</code> keyword. The variable for the
                         argument can either be declared before or within the calling statement and can be assigned a type either explicitly or implicitly using the
@@ -4692,7 +4684,7 @@ namespace CancelEvent
 {
     public class Person
     {
-        // By default arguments are passed in by value.
+        // By default, arguments are passed in by value.
         public void DisplayAge(int age)
         {
             Console.WriteLine($"Age: {age}");
@@ -4951,7 +4943,7 @@ namespace CancelEvent
                         <li>A constructor in a struct must initialize all instance fields</li>
                         <li>A struct cannot have a parameterless constructor (<em>Note:</em> <i>will be allowed beginning with C# 10.0</i>) </li>
                         <li>A struct cannot have a finalizer</li>
-                        <li>A struct cannot inherit or be inherited by a another class or struct</li>
+                        <li>A struct cannot inherit or be inherited by another class or struct</li>
                     </ul>
                     <p>A struct is normally used to create a basic data type with little or no functionality. Within C# <code>int</code>, <code>double</code>,
                         <code>char</code> and <code>bool</code> are all examples of structs. As a struct is a value type so all instance fields it contains must be
@@ -5078,10 +5070,10 @@ namespace CancelEvent
                         <a href="#Access_modifiers">public</a> auto-implemented property with an <code>init</code> setter for each parameter and a prime
                         <a href="#Constructors">constructor</a> that sets the properties from those parameters. It provides nondestructive mutation through use of the
                         <code>with</code> keyword and a destructor method that makes available for use, all properties created using the positional parameters. It also
-                        provides a <code>ToString</code> method that returns the identifier of the record type and all public properties and there values.</p>
+                        provides a <code>ToString</code> method that returns the identifier of the record type and all public properties and their values.</p>
                     <p>Whilst the main purpose of a record is to create immutable data, you can declare and provide your own implementation of the auto-implemented
                         by using the same identifiers as those of the positional parameters. This allows you to change accessibility, property accessor mutability or
-                        provide your own accessor implementation. Additionally the prime constructor can be overloaded using the <code>this</code>
+                        provide your own accessor implementation. Additionally, the prime constructor can be overloaded using the <code>this</code>
                         keyword. In both of these cases you then need to set the property values using the values of the positional parameters.</p>
                     <p>The following example demonstrates how to declare and use records.</p>
 <pre><code>    namespace Records
@@ -5235,7 +5227,7 @@ namespace CancelEvent
                         different child types can inherit and expand upon. In C# a parent type is called a base type, a child a derived type and
                         <a href="#class">classes</a>, <a href="#record">records</a> and <a href="#interface">interfaces</a> can be inherited. C# only allows
                         single inheritance, that is a derived type can only inherit from one base type but it does allow for multiple generations which means a base
-                        type can be inherited by a second which it turn can inherited by a third and so on. As a result, members that are in the base type will be
+                        type can be inherited by a second which in turn can inherited by a third and so on. As a result, members that are in the base type will be
                         available in each generation of derived types with the following exceptions.</p>
                     <ul>
                         <li>Static constructors</li>
@@ -5246,12 +5238,12 @@ namespace CancelEvent
                         event from a derived type</a> a common pattern is to declare a method in the base type that can be called from the derived type to invoke the
                         event. The availability of all other members in a derived type is dependent on the <a href="#Scope_and_Modifiers">accessibility</a> of a member in
                         the base type. Where members in both a base and derived type have the same identifier, where neither are marked as either virtual or override and
-                        where the member in the base type has an accessibility modifier other than private, the the derived member will hide the base member. The two
-                        members don't have to be of the same type or have the same <a href="#Parameters,_signatures_and_overloading">signature</a>. For example a property
-                        in a base type can be hidden by a method. Access to a hidden member can still be obtained through use of the <a href="#base_keyword">base</a>
-                        keyword. When a member is hidden the code editor will indicate this on the hiding member in the derived type with a
-                        <u class="warning">warning</u>. This can be removed by marking the member with the <code>new</code> keyword. A class that is marked as
-                        <a href="#static">static</a> or <a href="#sealed">sealed</a> can't be inherited.</p>
+                        where the member in the base type has an accessibility modifier other than private, the derived member will hide the base member. The two members
+                        don't have to be of the same type or have the same <a href="#Parameters,_signatures_and_overloading">signature</a>. For example, a property in a
+                        base type can be hidden by a method. Access to a hidden member can still be obtained through use of the <a href="#base_keyword">base</a> keyword.
+                        When a member is hidden the code editor will indicate this on the hiding member in the derived type with a <u class="warning">warning</u>. This
+                        can be removed by marking the member with the <code>new</code> keyword. A class that is marked as <a href="#static">static</a> or
+                        <a href="#sealed">sealed</a> can't be inherited.</p>
                     <p>The following example demonstrates the syntax for inheriting a class. First base class <code>A</code> is declared as normal. Derived Class
                         <code>B</code> is then declared followed by a colon, then the identifier of the class to be inherited, followed by the code block for class
                         <code>B</code>.</p>
@@ -5264,7 +5256,7 @@ namespace CancelEvent
     class B : A { }
 }
 </code></pre>
-                    <p>It is important to note that a derived class cannot be made more accessible than a base class. In this next example base class <code>A</code>
+                    <p>It is important to note that a derived class cannot be made more accessible than a base class. In this next example, base class <code>A</code>
                         does not have an accessibility keyword applied so it will be internal by default. When derived public class <code>B</code> then attempts to
                         inherit internal class <code>A</code> this results in a <a href="#Syntax_errors">syntax error</a>. Following this base public class <code>C</code>
                         is declared then derived class <code>D</code> inherits class <code>C</code>. Although <code>D</code> is internal by default, this is allowed as
@@ -5498,10 +5490,10 @@ namespace CancelEvent
                     <!-- SECTION base keyword -->
                     <h3 id="base_keyword">base keyword</h3>
                     <p>Although constructors cannot be inherited those in the base class are still called after the derived constructor is called but before the enclosed
-                        code of the derived class constructor is executed. Additionally the <code>base</code> keyword can be used in a derived class to call constructors
+                        code of the derived class constructor is executed. Additionally, the <code>base</code> keyword can be used in a derived class to call constructors
                         and overridden instance members within the base class. Only those in the immediate base class in the derived class declaration can be accessed.
-                        Lastly if a base class is provided with one or more parameterized constructors then the compiler forgoes providing the default parameterless
-                        constructor. As a result when inheriting such a class you will then need to provide the derived class with at least one constructor with the same
+                        Lastly if a base class is provided with one or more parameterized constructors, then the compiler forgoes providing the default parameterless
+                        constructor. As a result, when inheriting such a class you will then need to provide the derived class with at least one constructor with the same
                         signature as one of the constructors in the base class. The constructor in the derived class must call the constructor in the base class by using
                         the <code>base</code> keyword and pass the arguments provided to it on to the base class constructor.</p>
                     <p>In this example <code>BaseClass</code> has a parameterless constructor that writes to the console when it is called, then sets a value in a
@@ -5675,7 +5667,7 @@ namespace CancelEvent
                     <!-- SECTION interface -->
                     <h3 id="interface">interface</h3>
                     <p>"An interface is a contract" has to be one of the worst explanations as to what an interface is, yet it still persists throughout much of the
-                        literature you may find on line, including that of Microsoft's own C# reference. So what is an interface.</p>
+                        literature you may find on line, including that of Microsoft's own C# reference. So, what is an interface.</p>
                     <p>Take a computer manufacturer. They can't anticipate every printer, keyboard, mouse, etc, that will be plugged into their devices. To allow for
                         this, the industry as a whole has created a set of specifications of which various devices must adhere to, so that they are compatible. For a
                         keyboard this may be the signals it must produce when a key is pressed, but it is not the computer manufacturer's job to tell the keyboard
@@ -5688,7 +5680,7 @@ namespace CancelEvent
                         <li><a href="#Indexers">Indexers</a></li>
                         <li><a href="#Events">Events</a></li>
                     </ul>
-                    <p>Members that are not implemented are public by default and access modifiers cannot be applied to them. Additionally interfaces can contain members
+                    <p>Members that are not implemented are public by default and access modifiers cannot be applied to them. Additionally, interfaces can contain members
                         that are implemented which is called default implementation. These are</p>
                     <ul>
                         <li><a href="#Constant_fields">Constant fields</a></li>
@@ -5706,7 +5698,7 @@ namespace CancelEvent
                     <p>An interface cannot contain an instance field or instance auto-property as an interface cannot have an instance state.</p>
                     <p><em>Note:</em> <i>whilst the declaration of a property in an interface is written with the same syntax as an instance
                         <span class="nowrap">auto-property,</span> it differs in that the compiler does not create an instance backing field.</i></p>
-                    <p>Whereas a class can only inherit a single base class it can implement multiple interfaces. This is done in the same manner, i.e. the class
+                    <p>Whereas a class can only inherit a single base class it can implement multiple interfaces. This is done in the same manner, i.e., the class
                         identifier is followed by a colon then the identifiers of all interfaces in a comma separated list. If a class also inherits a base class its
                         identifier must come first in the list. A class can also explicitly implement a member of an interface. An interface can be derived from or be the
                         base for by another interface. Implemented members in an interface can be overridden. When this is done explicit interface implementation syntax
@@ -5816,7 +5808,7 @@ namespace CancelEvent
                         without the need for the separate declaration of a delegate or a named method. </p>
                     <!-- SECTION Anonymous methods -->
                     <h3 id="Anonymous_methods">Anonymous methods</h3>
-                    <p>Whilst anonymous methods have largely been replace by lambda expressions, they remain in the C# language for backwards compatibility so are
+                    <p>Whilst anonymous methods have largely been replaced by lambda expressions, they remain in the C# language for backwards compatibility so are
                         presented here for reference. As with a <a href="#delegate">named method</a> a delegate is first declared with the required return type and
                         <a href="Parameters,_signatures_and_overloading">signature</a>. The delegate instance is then declared and assigned an anonymous method by using
                         the <code>delegate</code> keyword, followed by the same signature as the delegate, followed by a code block.</p>
@@ -5922,7 +5914,7 @@ namespace CancelEvent
                     <!-- !SECTION Lambda expressions -->
                     <!-- SECTION Action and Func -->
                     <h3 id="Action_and_Func">Action and Func</h3>
-                    <p>C# also has two built in <a href="#delegate">delegates</a>, <code>Action</code> that returns <code>void</code> and <code>Func</code> that returns
+                    <p>C# also has two built-in <a href="#delegate">delegates</a>, <code>Action</code> that returns <code>void</code> and <code>Func</code> that returns
                         a declared type. Both provide the in-line declaration of an anonymous function without the need for a separate declaration of a delegate or a
                         <a href="#delegate">named method</a>. An <code>Action</code> or <code>Func</code> can also be passed as a parameter to a method or another
                         <code>Action</code> or <code>Func</code>. The <code>Action </code> syntax is <code>Action&lt;in T1, ... in T16t&gt;</code> and the
@@ -5975,11 +5967,11 @@ namespace CancelEvent
                 <article>
                     <!-- SECTION Dependencies -->
                     <h3 id="Dependencies">Dependencies</h3>
-                    <p>A C# project may consist of multiple sources of code along with other other resources such as media and text files which are then compiled to
-                        create an <i>assembly</i>. This can be in the form of either an executable (.exe) or library (.dll) file and a program may consist of one or more
-                        of these. When multiple assemblies are used, in order for one to be able to access the components of another it must have a reference to it. The
-                        reference is a hierarchal such that if assembly A references assembly B then A can access B's components but not vise versa. If B was then to
-                        attempt to reference A as well this would cause a circular reference error and would prevent either assembly from compiling. Accessibility of a
+                    <p>A C# project may consist of multiple sources of code along with other resources such as media and text files which are then compiled to create an
+                        <i>assembly</i>. This can be in the form of either an executable (.exe) or library (.dll) file and a program may consist of one or more of these.
+                        When multiple assemblies are used, in order for one to be able to access the components of another it must have a reference to it. The reference
+                        is a hierarchal such that if assembly A references assembly B then A can access B's components but not vice versa. If B was then to attempt to
+                        reference A as well this would cause a circular reference error and would prevent either assembly from compiling. Accessibility of a
                         <a href="#Classes_and_Other_User_Defined_Types">type</a> or type's <a href="#Members">members</a> also depends on the program of
                         <a href="#Access_modifiers">access modifiers</a>.</p>
                     <p>For most project types such as a Console, Windows Forms, WPF programs, etc, these will also include the <i>.NETCore framework</i> which is an
@@ -6022,7 +6014,7 @@ namespace CancelEvent
                         external assemblies are referenced. Namespaces assist with this by compartmentally organizing types in a way that is similar to file system. For
                         example, in order to have two files on a drive called <i>MyFile.txt</i> you may put one in a folder called <i>MyFolder1</i> and the other in
                         <i>MyFolder2</i>. In a command window the two files are then referred to by <i>MyFolder1\MyFile.txt</i> and <i>MyFolder2\MyFile.txt</i>.
-                        Namespaces are the same except that the backslashes (or forward slashes) are replaced with a dot. Like a file system namespaces are hierarchical
+                        Namespaces are the same except that the backslashes (or forward slashes) are replaced with a dot. Like a file system, namespaces are hierarchical
                         and a sublevel namespace is known as a nested namespace.</p>
                     <p>A type is defined by its identifier and the namespace it is declared in. Two classes with identical identifiers and members
                         declared in different namespaces are treated as two different types, each identified by their <i>fully qualified</i> name in the form
@@ -6302,9 +6294,9 @@ namespace NamespaceExample
                         types to be imported into all code files within the same assembly. A global using directive can only be placed in the global namespace and must
                         precede all non-global using directives.</p>
                     <p>If you know a type's identifier but don't know its namespace, Visual Studio provides a shortcut for adding this. After entering the type's
-                        identifier, with the mouse hovering over it, press <b><kbd>Ctrl</kbd> + <kbd>.</kbd></b> and IntelliSense will suggest the correct using directive, most
-                        likely at the top of the list. Click on the suggestion and it will added to the code. Please note that the full identifier must be entered with
-                        the correct case and the project must have a <a href="#Dependencies">reference</a> to the project containing the type.</p>
+                        identifier, with the mouse hovering over it, press <b><kbd>Ctrl</kbd> + <kbd>.</kbd></b> and IntelliSense will suggest the correct using
+                        directive, most likely at the top of the list. Click on the suggestion and it will be added to the code. Please note that the full identifier must
+                        be entered with the correct case and the project must have a <a href="#Dependencies">reference</a> to the project containing the type.</p>
                     <p>To remove unused <i>using</i> directives, right click anywhere in the code editor and click <b>Remove and Sort Usings</b>.</p>
                     <p>The following example demonstrate importing types with the <code>using</code> directive.</p>
 <pre><code>// Class5.cs
@@ -6567,7 +6559,7 @@ namespace Aliases
                         .NetCore library. These include primitive value types such as <code>System.Int32</code> and reference types such as <code>System.String</code> and
                         access to these without a fully qualified name requires a <code>using System;</code> directive. Some of the C#
                         <a href="Keywords">keywords</a> are special built-in <a href="#Aliases">aliases</a> for these types but unlike other aliases, don't require an
-                        explicit <code>using</code> directive. For example the <code>int</code> keyword can be used anywhere in code and is the alias for
+                        explicit <code>using</code> directive. For example, the <code>int</code> keyword can be used anywhere in code and is the alias for
                         <code>System.Int32</code>, both of which can be used interchangeably. Other system types such as <code>DateTime</code> which provides many tools
                         to access and manipulate dates and times and <code>Console</code> which has been used extensively throughout this guide, do require an explicit
                         <code>using System;</code> directive or use of their fully qualified names.</p>
@@ -6663,11 +6655,11 @@ namespace ImportingSystemTypes
                     <!-- SECTION Scope -->
                     <h3 id="Scope">Scope</h3>
                     <p>Scope is the accessibility of a variable from one part of the code to another. In C# scope is arranged like the layers of an onion. Variables in an
-                        outer scope can be accessed from those within but not vise versa. In computer science this is known as encapsulation and inner scopes that are
+                        outer scope can be accessed from those within but not vice versa. In computer science this is known as encapsulation and inner scopes that are
                         contained within outer scopes are said to be nested.</p>
                     <p>A local <a href="#Variables,_Constants,_Types_and_Literals">variable</a> is a variable declared in a <a href="#Methods">method</a>,
                         <a href="#Properties">property accessor</a>, <a href="#Indexers">indexer accessor</a>, <a href="#Constructors">constructor</a>,
-                        <a href="#Anonymous_functions">anonymous function</a> or operator or one of its nested code blocks. A nested code block include those of
+                        <a href="#Anonymous_functions">anonymous function</a> or operator or one of its nested code blocks. A nested code block includes those of
                         <a href="#if_else_statements">if</a>, <a href="#if_else_statements">else</a>, <a href="#switch_statement">switch</a>,
                         <a href="#while_statement">while</a>, <a href="#do_statement">do</a>, <a href="#for_statement">for</a>, <a href="#foreach_statement">foreach</a>,
                         <a href="#try-catch">try</a> and using statements. A <a href="#Parameters">parameter</a> passed into a method, constructor, indexer or operator
@@ -6679,8 +6671,8 @@ namespace ImportingSystemTypes
                         you would use <code>this.someName</code>. To avoid possible confusion or naming conflicts you should avoid declaring local variables with the same
                         identifier as a member in the same enclosing type. A common convention is to name local variables with <i>camelCase</i>,
                         <code>int someName;</code> private fields with <i>camelCase</i> prefixed with an underscore, <code>int _someName;</code>, private static fields
-                        with <i>camelCase</i> prefixed with an 's' followed by an underscore, <code>private static int s_someName</code> and all other members with with
-                        <i>PascalCase</i>, <code>public int SomeName { get; set; }</code>. Which ever convention you or the team you work for chose, it is important that
+                        with <i>camelCase</i> prefixed with an 's' followed by an underscore, <code>private static int s_someName</code> and all other members with
+                        <i>PascalCase</i>, <code>public int SomeName { get; set; }</code>. Whichever convention you or the team you work for chose, it is important that
                         it be consistent throughout all the code you write.</p>
                     <p>Following are examples of scope.</p>
 <pre><code>namespace Scope
@@ -6890,9 +6882,9 @@ namespace ImportingSystemTypes
                     <p> An <i>abstract</i> class is used when it makes sense to declare a common base class but where the implementation is specific to each derived class.
                         A base class and its members can be declared abstract by marking them with the <code>abstract</code> keyword. It cannot be instantiated so to be
                         used, a derived class must be created that inherits it and overrides all abstract members it contains. Abstract classes can be inherited by
-                        sealed, abstract and non abstract classes and can inherit from an abstract or non abstract base class that is not a sealed class. Abstract members
+                        sealed, abstract and non-abstract classes and can inherit from an abstract or non-abstract base class that is not a sealed class. Abstract members
                         cannot declare an implementation and within a derived class are treated the same as a virtual member. Any class that contains an abstract member
-                        must be marked with the <code>abstract</code> keyword. An abstract class can contain both abstract and non abstract members.</p>
+                        must be marked with the <code>abstract</code> keyword. An abstract class can contain both abstract and non-abstract members.</p>
                     <p>In the following example an abstract class <code>PriceCalculator</code> is declared with an abstract method called <code>CalculateAmount</code>.
                         Two derived classes that inherit from <code>PriceCalculator</code> are declared. The first <code>ItemsPriceCalculator</code> has two properties,
                         <code>ItemPrice</code> and <code>Quantity</code> and overrides <code>CalculateAmount</code> to return an amount by multiplying these two
@@ -6970,7 +6962,7 @@ namespace Abstract
                     <!-- SECTION const -->
                     <h3 id="const">const</h3>
                     <p>A field or local <a href="Variables,_Constants,_Types_and_Literals">variable</a> marked with the <code>const</code> keyword causes it to become a
-                        constant which can only be initialized when declared and then can't changed. A field marked this way is called a
+                        constant which can only be initialized when declared and then can't be changed later. A field marked this way is called a
                         <a href="#Constant_fields">constant field</a>.</p>
                     <!-- !SECTION const -->
                     <!-- SECTION extern -->
@@ -7032,7 +7024,7 @@ namespace Extern
                     <!-- SECTION new -->
                     <h3 id="new">new</h3>
                     <p>Where members in both a base and derived type have the same identifier under certain conditions the derived member may hide the base member
-                        resulting in a waring from the compiler. Marking the member in the derived type with the <code>new</code> modifier keyword suppresses the warning,
+                        resulting in a warning from the compiler. Marking the member in the derived type with the <code>new</code> modifier keyword suppresses the warning,
                         please see <a href="#Inheriting_types">Inheriting types</a></p>
                     <!-- !SECTION new -->
                     <!-- SECTION out -->
@@ -7045,11 +7037,11 @@ namespace Extern
                     <!-- SECTION override -->
                     <h3 id="override">override</h3>
                     <p>The implementation of a <a href="#Methods">method</a>, <a href="#Properties">property</a>, <a href="#Indexers">indexer</a> or
-                        <a href="#Events">event</a> that is marked as marked with with either the <a href="#virtual">virtual</a> or <code>override</code> keyword in a
-                        base <a href="#class">class</a> or <a href="#record">record</a> can be overridden in a derived class or record respectively. To do so the
-                        member in the derived type must be marked with the <code>override</code> keyword. Base members are not virtual by default and
-                        attempting to override a member not marked as virtual results in an error.</p>
-                    <p><em>Note:</em> <i>Microsoft has advised not to declare an event as <code>virtual</code> as the compiler does not handle these correctly. Instead a
+                        <a href="#Events">event</a> that is marked with either the <a href="#virtual">virtual</a> or <code>override</code> keyword in a base
+                        <a href="#class">class</a> or <a href="#record">record</a> can be overridden in a derived class or record respectively. To do so the member in the
+                        derived type must be marked with the <code>override</code> keyword. Base members are not virtual by default and attempting to override a member
+                        not marked as virtual results in an error.</p>
+                    <p><em>Note:</em> <i>Microsoft has advised not to declare an event as <code>virtual</code> as the compiler does not handle these correctly. Instead, a
                         method should be created in the base type that <a href="#Events">invokes the event</a>. This method can then be called from the derived type to
                         raise the event.</i>
                     </p>
@@ -7057,7 +7049,7 @@ namespace Extern
                         <code>DisplayMessage()</code>. Derived class <code>LogAnalyzer1</code> inherits <code>LogAnalyzer</code> and overrides the virtual method
                         providing its own implementation. <code>LogAnalyzer2</code> inherits <code>LogAnalyzer1</code> and overrides the virtual method that it had
                         overridden. <code>LogAnalyzer3</code> also inherits <code>LogAnalyzer</code>. It does not override the virtual method but it shows that attempting
-                        to override the non virtual method results in a <a href="#Syntax_errors">syntax error</a>. When <code>DisplayMessage()</code> is called from each
+                        to override the non-virtual method results in a <a href="#Syntax_errors">syntax error</a>. When <code>DisplayMessage()</code> is called from each
                         of the derived class instances <code>LogAnalyzer1</code> and <code>LogAnalyzer2</code> each display the message in their own overridden methods
                         whereas <code>LogAnalyzer3</code> displays the message from the base class.</p>
 <pre><code>namespace OverridingVirtualMembers
@@ -7277,7 +7269,7 @@ namespace PartialModifier
                     <p>So far the majority of the examples involve creating an instance of a class by using the <code>new</code> keyword. This
                         allows for multiple instances of a class to be created each with its own initialized state which can be set either by arguments passed in
                         through a constructor or with an object-initializer. Creating an instance of a class in this way is known as instantiation.</p>
-                    <p>In addition you can make a class static by applying the <code>static</code> keyword to the class declaration. Here the class cannot be
+                    <p>In addition, you can make a class static by applying the <code>static</code> keyword to the class declaration. Here the class cannot be
                         instantiated but is instead created automatically during runtime and only one instance of it exists. As a static class is not assigned an instance
                         variable identifier it is accessed by its class identifier instead.</p>
                     <p>The following members can also be made static using the static the <code>static</code> keyword.</p>
@@ -7288,20 +7280,19 @@ namespace PartialModifier
                         <li><a href="#Properties">properties</a></li>
                         <li><a href="#Events">events</a></li>
                     </ul>
-                    <p>Static members belong to the type and can't be accessed though an instance. Instead they are accessed through the type by using the type's
+                    <p>Static members belong to the type and can't be accessed through an instance. Instead, they are accessed through the type by using the type's
                         identifier in the form <code>TypeName.Member</code>. Within
                         a type, instance members can access static members but static members can only access other static members. As with a static class, static members
                         are created automatically at runtime and only one instance of the member exists. This means that if the value of a static member is changed
                         through its type or an instance of that type, then the value will be changed in all instances that contain it. Static fields that do not have
                         initializers and that are not assigned a value in a constructor will be assigned their default values. All members in a static class must always
-                        be be static.</p>
+                        be static.</p>
                     <p> A static constructor can't have access modifiers or parameters and can't be inherited or overloaded, so a type can only have one. It is called
                         automatically at runtime after any static field initializers are executed and before any instances are created or any static members are accessed.
                         A static constructor can't be directly called and a developer can't control when it will be executed.</p>
                     <p>A static method can be useful when it is to perform simple functions that don't have to store or retrieve data from within the class. As it is
                         automatically created at runtime, it can be shared from multiple locations throughout the program without the necessity to create a new instance
-                        every time. The .NET <code>System.Math</code> class which contains numerous small math functions is an example of a static class.
-                    </p>
+                        every time. The .NET <code>System.Math</code> class which contains numerous small math functions is an example of a static class.</p>
                     <p>In the following example, <code>InstanceClass</code> contains both instance and static, fields and methods. Whilst <code>InstanceMethod</code> can
                         access both <code>instanceField</code> and <code>staticField</code>, <code>StaticMethod</code> can only access <code>staticField</code>.</p>
                     <p> Next <code>MyClass</code> contains an instance property <code>InstanceProperty</code> and a static property <code>StaticProperty</code>.
@@ -7309,7 +7300,7 @@ namespace PartialModifier
                         an instance of <code>MyClass</code> through the use of <code>MyClass.StaticProperty</code>. Next 2 instances of <code>MyClass</code>,
                         <code>myClass1</code> and <code>myClass2</code> are created and when the values of the properties are displayed it can be seen that
                         <code>InstanceProperty</code> has the value 0 and the <code>StaticProperty</code> the value 1. Next <code>myClass1</code> is used to change only
-                        the instance property in <code>myClass1</code> has changed whereas the the static property in both now has the value 3. This shows you that each
+                        the instance property in <code>myClass1</code> has changed whereas the static property in both now has the value 3. This shows you that each
                         instance has its own copy of <code>InstanceProperty</code> whereas both share <code>StaticProperty</code>.</p>
                     <p>Lastly the static class <code>MyMathFunctions</code> has the static method <code>SquareNumber</code> which is called directly using
                         <code>MyMathFunction.SquareNumber</code> to display the square of 3.</p>
@@ -7502,7 +7493,7 @@ namespace PartialModifier
                         <li><i>private</i> - the same class or a derived class nested within a base class only</li>
                     </ul>
                     <p>Types declared directly within a namespace (i.e. not nested), can only be declared public or internal where internal is the default level. The
-                        following types can be be declared in a namespace <code>class</code>, <code>struct</code>, <code>interface</code>, <code>delegate</code>,
+                        following types can be declared in a namespace <code>class</code>, <code>struct</code>, <code>interface</code>, <code>delegate</code>,
                         <code>record</code> and <code>enum</code>.</p>
                     <p>The following list shows containing types, which access modifiers can be applied to members and nested types, and the default access levels.</p>
                     <ul>
@@ -7748,7 +7739,7 @@ namespace AccessModifiers
                     <h3 id="Object">Object</h3>
                     <p>An object combines data and behavior to represent everyday things such as a number, a spreadsheet, a person or even something less tangible such as
                         the relationship between a part's name and its quantity in a database. During runtime multiple objects are created from a type definition each
-                        with their own own internal state. This allows different versions (instances) of an object to exist. For example two number type objects could be
+                        with their own own internal state. This allows different versions (instances) of an object to exist. For example, two number type objects could be
                         created, one with a value of 5 and another with 7. Three techniques employed by C# to define an object are:</p>
                     <ul>
                         <li>Properties - a particular state of an object such as color, the number of columns, what a thing is made of.</li>
@@ -7773,10 +7764,10 @@ namespace AccessModifiers
                     <!-- !SECTION Encapsulation -->
                     <!-- SECTION Inheritance -->
                     <h3 id="Inheritance">Inheritance</h3>
-                    <p>Many things in life have similarities. For example a car and a motorbike both have an engine, wheels and brakes but where as a motorbike has
+                    <p>Many things in life have similarities. For example, a car and a motorbike both have an engine, wheels and brakes but whereas a motorbike has
                         handle bars a car has a steering wheel. This makes it difficult to use one object to represent both but rather than create two objects duplicating
-                        much of the same functionality we can use the concept of inheritance. Here, first an parent object containing all the common traits is created
-                        then separate child objects based on the parent are created, each adding just their own differences. Using the previous example we could create a
+                        much of the same functionality we can use the concept of inheritance. Here, first a parent object containing all the common traits is created
+                        then separate child objects based on the parent are created, each adding just their own differences. Using the previous example, we could create a
                         vehicle object that has the engine, brakes and wheels properties then from that create a motorbike object that adds handle bars and a car object
                         that adds a steering wheel. By having a common inherited wheels property the number of wheels can be set at runtime to 2 for a motorbike and 4 for
                         car or even 3 if it is a three-wheeler.</p>
@@ -7787,21 +7778,21 @@ namespace AccessModifiers
                     <!-- SECTION Abstraction -->
                     <h3 id="Abstraction">Abstraction</h3>
                     <p>Abstraction is the process of determining and extracting from a complex problem just the information we require to define a solution. For example
-                        what does it take to eat food. Here we need to ask an expert in this case lets consider what a child would say. They'd probably say something
+                        what does it take to eat food? Here we need to ask an expert in this case let's consider what a child would say. They'd probably say something
                         like, you  put food in your mouth chew it then swallow. That's it. Now of course the human body is an extremely complex organism, to actually
                         eat food the brain has to send signals to the jaw muscles to chew the food, then to the tongue to swallow it. From there it goes into the stomach
                         where it is mixed with acid, then into the small intestine ... But for the purposes of survival all the user has to be concerned with is food,
-                        mouth, chew, swallow. Of course had we omitted the chew step then the choke method may have kicked in resulting in a premature end to our program.
-                        It is important then to extract exactly what is required, no less, no more and this is an essential design step before the first line of code is
-                        even written.</p>
+                        mouth, chew, swallow. Of course, had we omitted the chew step then the choke method may have kicked in resulting in a premature end to our
+                        program. It is important then to extract exactly what is required, no less, no more and this is an essential design step before the first line of
+                        code is even written.</p>
                     <p>Another term you may come across is abstraction layers which is the dividing of a problem into the various layers of complexity. Take for instance
                         what is involved in writing and running a program. As mentioned in the C Sharp Language section all a computer knows is ones and zeroes but even
-                        that is not the lowest level. If we go further we get down to the quantum level where the state of electrons are controlled by transistors. This
+                        that is not the lowest level. If we go further, we get down to the quantum level where the state of electrons is controlled by transistors. This
                         is the hardware abstraction layer limited mainly to the manufacturer. Above the ones and zeroes, or binary abstraction layer, is the assembly
                         language which is a set of instructions in a pseudo human language provided by hardware manufacturers as to what the hardware does. This is the
-                        language used by by those creating the compiler that translates the C# language we write into the binary language amd ultimately into the quantum
-                        state of the hardware. This does not mean that someone writing in C# is completely separated from the other layers. For example as you use the
-                        code editor the the compiler is constantly interpreting what you write and if it can't, it will warn you that there is a
+                        language used by those creating the compiler that translates the C# language we write into the binary language and ultimately into the quantum
+                        state of the hardware. This does not mean that someone writing in C# is completely separated from the other layers. For example, as you use the
+                        code editor the compiler is constantly interpreting what you write and if it can't, it will warn you that there is a
                         <a href="#Syntax_errors">syntax error</a>.</p>
                     <!-- !SECTION Abstraction -->
                     <!-- SECTION Polymorphism -->
