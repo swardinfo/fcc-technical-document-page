@@ -66,8 +66,8 @@
                         upgrade software and operating systems on a computer, and have an internet connection. It would also be useful to know some of the basics of how a
                         computer works such as CPU's, memory, file systems, etc.</p>
                     <p>Lastly and perhaps most importantly is theory of mind, what the user maybe thinking when they use your program. This should be a constant
-                        consideration as you create your program. For example, entering a letter in a program when a number is required may be invalid. But then having a
-                        popup error message with each wrong keystroke that needs to be cancelled, will quickly lead to frustration and your program ending up in the
+                        consideration as you create your program. For example, entering a letter in a program when a number is required may be invalid. But having an
+                        error message popup with each wrong keystroke that needs to be cancelled, will quickly lead to frustration and your program ending up in the
                         trash.</p>
                     <!-- SECTION The C# language -->
                     <h3 id="The_C_sharp_language">The C# language</h3>
@@ -209,7 +209,8 @@ Console.WriteLine("Hello, World!");
                     </ul>
                     <p>When a file has no top level statements and an explicit <code>Main</code> method as shown in the example, the compiler will use it as the single
                         entry point. If the file also has any top level statements, then the explicitly entered <code>Main</code> method will be ignored and the compiler
-                        will produce a warning of this. All code preceding the <code>Main</code> method in the example are either <a href="#Code_syntax">directives</a>
+                        will produce a warning of this. When top-level statements are present they are contained within the hidden <code>Main</code> method implicitly
+                        created by the compiler. All code preceding the <code>Main</code> method in the example are either <a href="#Code_syntax">directives</a>
                         or <a href="#Code_syntax">declarations</a> so don't create an issue.</p>
                     <p>Top level statements were designed for simple applications and supposedly making it easier to teaching someone new to C# without having to see the
                         boiler plate code. Realistically however, the vast majority of code you work with won't contain them so they won't be explored in this guide. For
