@@ -196,22 +196,21 @@ Console.WriteLine("Hello, World!");
                         of multiple files in which the code from one will reference or be referenced from that in another. Most commonly a file will contain a single
                         <a href="#class">class</a>.</p>
                     <p>The Visual Studio 2022 <i>Console App</i> template creates a project that allows the use of top-level statements. This removes some of the
-                        <i>boiler plate</i> code required
-                        by a C# program and allows <a href="#Code_syntax">statements</a> to be entered directly into a file without it, as demonstrated in the
-                        <a href="#Create_a_Hello_World_Project">Create a Hello World Project</a> example. The code is then implicitly generated when the program is
-                        compiled and is inaccessible from the code editor. The example below shows how the code looks with the boiler plate code in place with further
-                        details as to its meaning in the <a href="#Code_syntax">Code syntax</a> section. All executable programs must have an entry point, which here is
-                        <code>static void Main(string[] args)</code>, and is sometimes referred to as the <i>main method</i>. There are several rules that it must follow
-                        but the main ones that are of concern are</p>
+                        <i>boiler plate</i> code required by a C# program and allows <a href="#Code_syntax">statements</a> to be entered directly into a file without it,
+                        as demonstrated in the <a href="#Create_a_Hello_World_Project">Create a Hello World Project</a> example. The code is then implicitly generated
+                        when the program is compiled and is inaccessible from the code editor. The example below shows how the code looks with the boiler plate code in
+                        place with further details as to its meaning in the <a href="#Code_syntax">Code syntax</a> section. All executable programs must have an entry
+                        point, which here is <code>static void Main(string[] args)</code>, which in most documentation is usually referred to just as the
+                        <code>Main</code> method. There are several rules that it must follow but the main ones that are of concern are</p>
                     <ul>
                         <li>There can only be entry point within a program</li>
                         <li>It must be a method with the name <code>Main</code></li>
                         <li>It must be marked with the <a href="#static">static</a> modifier</li>
                     </ul>
-                    <p>When a file has no top level statements and an explicit main method as shown in the example, the compiler will use it as the single entry point. If
-                        the file also has any top level statements, then the explicitly entered main method will be ignored and the compiler will produce a warning of
-                        this. All code preceding the main method in the example are either <a href="#Code_syntax">directives</a> or
-                        <a href="#Code_syntax">declarations</a> so don't create an issue.</p>
+                    <p>When a file has no top level statements and an explicit <code>Main</code> method as shown in the example, the compiler will use it as the single
+                        entry point. If the file also has any top level statements, then the explicitly entered <code>Main</code> method will be ignored and the compiler
+                        will produce a warning of this. All code preceding the <code>Main</code> method in the example are either <a href="#Code_syntax">directives</a>
+                        or <a href="#Code_syntax">declarations</a> so don't create an issue.</p>
                     <p>Top level statements were designed for simple applications and supposedly making it easier to teaching someone new to C# without having to see the
                         boiler plate code. Realistically however, the vast majority of code you work with won't contain them so they won't be explored in this guide. For
                         more information on entry point requirements and top level statements please see the
@@ -606,6 +605,29 @@ World!");
                           program. In some cases, a declaration can also be a statement. Before an object can be used, if it is a value type it must then be initialized
                           or if it is a reference type it must be created, known as being instantiated. A directive is an instruction for the compiler that while not
                            directly part of our program will affect how our program will be built and run.</p>
+
+
+
+                           <p>Statements within a method are normally executed from top to bottom until either a return statement or the end of the method is reached, in which
+                            case <a href="#Program_Execution">program execution</a> is returned to the caller. If an <a href="#throw">exception is thrown</a> from within a
+                            method, program return will depend on whether the exception has been handled by a catch block within the method. If not, execution is immediately
+                            returned to the caller and continue back through all callers until either caught in a try-catch block or the program exits from the Main method
+                            with an unhandled exception. If either an <code>Application.Exit()</code> or <code>Environment.Exit()</code> method is encountered then the
+                            application will terminate immediately.</p>
+
+
+                        <p>For a method that returns a value, all paths  the statements in the body are executed until a return statement is reached. This is defined by the
+                            <code>return</code> keyword followed by a variable or literal of the return type in the method declaration followed by a semicolon. Program execution,
+                             along with the returned value  will then be passed back to the statement that called the method.</p>
+                        <p>For a method that does not return a value, execution will be passed back to the calling statement, either when a return statement or the closing brace is
+                            reached. In this case a return statement is defined just with the <code>return</code> keyword followed by a semicolon.</p>
+                        <p>In both cases a method can contain multiple return statements allowing for multiple exit points from different paths back to the calling code. In
+                            this case, a method that has a return type but that does not have a return statement for all possible paths will produce a
+                            <a href="#Syntax_errors">syntax error</a>.   </p>
+                        <p>Access to a method by code external to the type is in the form of <code>instance.Method(parameters)</code> for an instance of a type and
+                           <code>TypeName.Method(parameters)</code> for a <a href="static">static</a> type.</p>
+
+
                     <p>CodeExample</p>
 <pre><code>namespace Namespace
 {
@@ -3665,36 +3687,40 @@ namespace Dictionaries
                     <h3 id="Methods">Methods</h3>
                     <p>A method provides the behavior of an object. This could be reading a file, calculating a value, writing to the screen, etc. It does this by acting
                         as a container for one or more <a href="#Code_Syntax">statements</a>. Statements elsewhere in the program can pass the execution flow to a method
-                        known as <i>invoking</i> or <i>calling</i> a method and a statement in a method can call another method.</p>
+                        known as <i>invoking</i> or <i>calling</i> a method and a statement in a method can call another method. The statement that calls a method is
+                        known as the <i>caller</i>.</p>
 
                     <p>A method declaration consists of two parts, the <i>header</i> and the <i>body</i>. The header must have a return type, an identifier and a pair of
                         round brackets that can optionally enclose values, known as <a href="#Parameters,_signatures_and_overloading">parameters</a>, that can be
                         <i>passed in</i> to the method for use by the statements it contains. The identifier, parameters and, depending on the context, the return type
                         define the <a href="#Parameters,_signatures_and_overloading">signature</a> of the method which is used in determining the
-                        <a href="#Parameters,_signatures_and_overloading">overloading</a> of a method and its use with a <a href="#delegate">delegation</a>. A method can
-                        optionally return a value of the type specified in the header back to the calling statement. To indicate that no value is to be returned the
-                        return type must be set to <code>void</code>. Optional attributes and <a href="#Modifiers">modifiers</a> can be applied to a method and its
-                        parameters that can change accessibility and behavior. The body contains the implementation of the method and can consist of either a code block
-                        or when marked with either the <a href="#abstract">abstract</a> or <a href="#extern">extern</a> modifier, a semicolon indicating that the method
-                        implementation is to be declared in a <a href="#Inheriting_types">derived</a> class or an external library respectively.</p>
+                        <a href="#Parameters,_signatures_and_overloading">overloading</a> of a method and its use with a <a href="#delegate">delegate</a>. A class can
+                        contain multiple <a href="#Parameters,_signatures_and_overloading">overloads</a> of a method. If no value is to be returned then the return type
+                        must be declared as <code>void</code> otherwise the method must return a value of the type declared in the header. Optional attributes and
+                        <a href="#Modifiers">modifiers</a> can be applied to a method and its parameters that can change accessibility and behavior. The body contains the
+                        implementation of the method and can consist of either a code block or when marked with either the <a href="#abstract">abstract</a> or
+                        <a href="#extern">extern</a> modifier, a semicolon indicating that the method implementation is to be declared in a
+                        <a href="#Inheriting_types">derived</a> class or an external library respectively. Methods with a single expression can be implemented in the form
+                        of an <a href="#The_lambda_and_expression-body_definition_operator">expression-bodied member</a>.</p>
                     <p>Statements within a method are normally executed from top to bottom until either a return statement or the end of the method is reached, in which
-                        case execution is returned to the calling statement. If an <a href="">exception</a> occurs or is <a href="#throw">exception is thrown</a> program return flow will
-                        depend on whether the exception has been handled by a catch block. This could be anywhere from the calling statement right back to the Main
-                        method,  where the program starts and will ultimately exit. If the      </p>
+                        case <a href="#Program_Execution">program execution</a> is returned to the caller. If an <a href="#throw">exception is thrown</a> from within a
+                        method, program return will depend on whether the exception has been handled by a catch block within the method. If not, execution is immediately
+                        returned to the caller and continue back through all callers until either caught in a try-catch block or the program exits from the Main method
+                        with an unhandled exception. If either an <code>Application.Exit()</code> or <code>Environment.Exit()</code> method is encountered then the
+                        application will terminate immediately.</p>
 
 
-                    <p>For a method that returns a value, the statements in the body are executed until a return statement is reached. This is defined by the
-                        <code>return</code> keyword followed by a variable or literal of the type in the method declaration followed by a semicolon. Program execution,
+                    <p>For a method that returns a value, all paths  the statements in the body are executed until a return statement is reached. This is defined by the
+                        <code>return</code> keyword followed by a variable or literal of the return type in the method declaration followed by a semicolon. Program execution,
                          along with the returned value  will then be passed back to the statement that called the method.</p>
                     <p>For a method that does not return a value, execution will be passed back to the calling statement, either when a return statement or the closing brace is
                         reached. In this case a return statement is defined just with the <code>return</code> keyword followed by a semicolon.</p>
                     <p>In both cases a method can contain multiple return statements allowing for multiple exit points from different paths back to the calling code. In
                         this case, a method that has a return type but that does not have a return statement for all possible paths will produce a
-                        <a href="#Syntax_errors">syntax error</a>. Methods with a single expression can be implemented in the form of an
-                        <a href="#The_lambda_and_expression-body_definition_operator">expression-bodied member</a> and a class can contain multiple
-                        <a href="#Parameters,_signatures_and_overloading">overloads</a> of a method.</p>
+                        <a href="#Syntax_errors">syntax error</a>.   </p>
                     <p>Access to a method by code external to the type is in the form of <code>instance.Method(parameters)</code> for an instance of a type and
-                       <code>TypeName.Method(parameters)</code> for a <a href="static">static</a> type.</p>
+                       <code>TypeName.Method(parameters)</code> for a <a href="static">static</a> type. To call an instance method an object must first be instantiated
+                        from the type that contains it.</p>
                     <p>The following shows examples of method declaration and use.</p>
 <pre><code>namespace Methods
 {
