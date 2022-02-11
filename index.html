@@ -579,22 +579,24 @@ World!");
 }
 </code></pre>
                     <!-- !SECTION Code syntax -->
-                    <!-- TODO complete Program execution -->
+                    <!-- TODO complete Program execution code example -->
                     <!-- SECTION Program execution -->
                     <h3 id="Program_execution">Program execution</h3>
-                    <p>All <a href="#Code_syntax">statements</a> in C# programs are executed with respect to a <a href="#Methods">method.</a> Normal execution starts with
-                        the first and ends after the last statement in the <code>Main</code> method <span class="nowrap"><a href="#Code_syntax">code block.</a></span>
-                        Abnormal execution can result in the program prematurely exiting or becoming unresponsive.</p>
+                    <p>All <a href="#Code_syntax">statements</a> in C# programs are executed with respect to a <a href="#Methods">method.</a> For example a
+                        <a href="#Properties">property</a> is a method with a special syntax and an <a href="#Events">event</a> merely calls a delegate to a method that
+                        acts as the event handler. Normal execution starts with the first and ends after the last statement in the <code>Main</code> method
+                        <span class="nowrap"><a href="#Code_syntax">code block.</a></span> Abnormal execution can result in the program prematurely exiting or becoming
+                        unresponsive.</p>
                     <p>Within a code block, statements are executed from top to bottom. If the statement is a <a href="#Conditional_Statements">conditional statement</a>,
                         alternate paths will be introduced in which one will be chosen dependent on the result of testing the condition. If an
                         <a href="#Iteration_Statements">iterative statement</a>, the statements it contains will be repeatedly executed until a condition is met that
-                        allow execution to <a href="#break">break</a> out of the loop. A statement can  also pass execution on to another method known as <i>calling</i>
+                        allow execution to <a href="#break">break</a> out of the loop. A statement can also pass execution on to another method known as <i>calling</i>
                         or <i>invoking</i>, with the method that contains the statement known as the <code>caller</code> and the invoked method said to be <i>nested</i>
                         within the caller. In normal circumstances, execution is returned to the caller through a return statement or, if the invoked method returns
                         <code>void</code>, the end of the method is reached. Program execution can continually call and be returned from methods until it ultimately
                         returns to the <code>Main</code> method where, assuming there have been no errors, the program exits normally.</p>
                     <p>Invoking a method is in the form of <code>instance.Method(parameters)</code> for an instance of a type and <code>TypeName.Method(parameters)</code>
-                        for a <a href="#static">static</a> type.</p>
+                        for a <a href="#static">static</a> type. To call an instance method an object must first be instantiated from the type that contains it.</p>
                     <p>The <a href="#dot_NET">CLR</a> handles method calls by using a <i>stack</i> which in this context is known as the
                         <span class="nowrap"><i>call stack</i>.</span> This can be thought of as a stack of paper where each sheet represents a method. When a method is
                         called it is placed on top, known as <i>pushed</i>, and its statements are executed until returned to the caller. The returning method is then
@@ -3705,14 +3707,16 @@ namespace Dictionaries
                         please see <a href="#Inheriting_types">Inheriting types.</a>
                     </p>
                     <!-- !SECTION Members -->
-<!-- TODO fix this mess -->
                     <!-- SECTION Methods -->
                     <h3 id="Methods">Methods</h3>
-                    <p>A method provides the behavior of an object. This could be reading a file, calculating a value, writing to the screen, etc. It does this by acting
-                        as a container for one or more <a href="#Code_Syntax">statements.</a> Statements elsewhere in the program can pass the execution flow to a method
-                        known as <i>invoking</i> or <i>calling</i> a method and a statement in a method can call another method. The statement that calls a method is
-                        known as the <i>caller</i>.</p>
-
+                    <p>Methods provide the behavior of an object and are the basis for all <a href="#Program_execution">program execution</a> in C#. This could be reading
+                        a file, calculating a value, writing to the screen, etc. It does this by acting as a container for one or more
+                        <a href="#Code_Syntax">statements.</a></p>
+                    <p>A statement in a method can pass program execution on to another method known as <i>calling</i> or <i>invoking</i>, with the method that
+                        contains the statement known as the <code>caller</code>. In normal circumstances, execution is returned to the caller through a return statement
+                        or, if the invoked method returns <code>void</code>, the end of the method is reached. Invoking a method is in the form of
+                        <code>instance.Method(parameters)</code> for an instance of a type and <code>TypeName.Method(parameters)</code> for a
+                        <a href="#static">static</a> type. To call an instance method an object must first be instantiated from the type that contains it.</p>
                     <p>A method declaration consists of two parts, the <i>header</i> and the <i>body</i>. The header must have a return type, an identifier and a pair of
                         round brackets that can optionally enclose values, known as <a href="#Parameters,_signatures_and_overloading">parameters</a>, that can be
                         <i>passed in</i> to the method for use by the statements it contains. The identifier, parameters and, depending on the context, the return type
@@ -3725,25 +3729,6 @@ namespace Dictionaries
                         <a href="#extern">extern</a> modifier, a semicolon indicating that the method implementation is to be declared in a
                         <a href="#Inheriting_types">derived</a> class or an external library respectively. Methods with a single expression can be implemented in the form
                         of an <a href="#The_lambda_and_expression-body_definition_operator">expression-bodied member.</a></p>
-                    <p>Statements within a method are normally executed from top to bottom until either a return statement or the end of the method is reached, in which
-                        case <a href="#Program_Execution">program execution</a> is returned to the caller. If an <a href="#throw">exception is thrown</a> from within a
-                        method, program return will depend on whether the exception has been handled by a catch block within the method. If not, execution is immediately
-                        returned to the caller and continue back through all callers until either caught in a try-catch block or the program exits from the Main method
-                        with an unhandled exception. If either an <code>Application.Exit()</code> or <code>Environment.Exit()</code> method is encountered then the
-                        application will terminate immediately.</p>
-
-
-                    <p>For a method that returns a value, all paths  the statements in the body are executed until a return statement is reached. This is defined by the
-                        <code>return</code> keyword followed by a variable or literal of the return type in the method declaration followed by a semicolon. Program execution,
-                         along with the returned value  will then be passed back to the statement that called the method.</p>
-                    <p>For a method that does not return a value, execution will be passed back to the calling statement, either when a return statement or the closing brace is
-                        reached. In this case a return statement is defined just with the <code>return</code> keyword followed by a semicolon.</p>
-                    <p>In both cases a method can contain multiple return statements allowing for multiple exit points from different paths back to the calling code. In
-                        this case, a method that has a return type but that does not have a return statement for all possible paths will produce a
-                        <a href="#Syntax_errors">syntax error.</a>   </p>
-                    <p>Access to a method by code external to the type is in the form of <code>instance.Method(parameters)</code> for an instance of a type and
-                       <code>TypeName.Method(parameters)</code> for a <a href="static">static</a> type. To call an instance method an object must first be instantiated
-                        from the type that contains it.</p>
                     <p>The following shows examples of method declaration and use.</p>
 <pre><code>namespace Methods
 {
