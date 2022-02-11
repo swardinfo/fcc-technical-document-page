@@ -132,16 +132,16 @@
                     <p>This guide assumes that the Visual Studio has already been installed, updated and the default settings have not been changed.</p>
                     <p>To create a new project</p>
                     <ol>
-                        <li>Start Visual Studio then click <b>Create a new project</b>.</li>
+                        <li>Start Visual Studio then click <b>Create a new project.</b></li>
                         <li> On the <span class="nowrap"><b>Create a new project</b></span> page in the search box at the top type
                             <span class="nowrap"><b>console app</b></span>.</li>
                         <li>A project template titled <span class="nowrap"><b>Console App</b></span> should appear at the top of the list. It
                             has an icon that looks like a document with C# in the top right corner. Select <span class="nowrap"><b>Console App</b></span> then
-                            choose <b>Next</b>. (Hint: if <span class="nowrap"><b>Console App</b></span> is not at the top, click <b>Clear all</b> and search
+                            choose <b>Next.</b> (Hint: if <span class="nowrap"><b>Console App</b></span> is not at the top, click <b>Clear all</b> and search
                             again)</li>
                         <li>On the <span class="nowrap"><b>Configure your new project</b></span> page type <b>HelloWorld</b>
                             in the <span class="nowrap"><b>Project name</b></span> box. Leave the <b>Location</b> and <span class="nowrap"><b>Solution name</b></span> as
-                            filled in by the IDE and choose <b>Next</b>.</li>
+                            filled in by the IDE and choose <b>Next.</b></li>
                         <li>In the <span class="nowrap"><b>Additional information</b></span> page make sure <b>.NET6.0(Long-term support)</b> is selected in the dropdown
                             selector then choose <b>Create</b></li>
                     </ol>
@@ -152,10 +152,10 @@
 <pre><code>// See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 </code></pre>
-                    <p>To run the program press <b>F5</b>.</p>
-                    <p>The console, a <i>command window</i> in Windows, opens displaying the words <b>'Hello World!'</b>. Congratulations, you have now created and run
-                        your first C# program. The remainder of the text tells you the program finished but the IDE has kept the console open so that you can see the
-                        result. Press any key to close the console.</p>
+                    <p>To run the program press <b>F5.</b></p>
+                    <p>The console, a <i>command window</i> in Windows, opens displaying the words <span class="nowrap"><b>'Hello World!'</b> .</span> Congratulations,
+                        you have now created and run your first C# program. The remainder of the text tells you the program finished but the IDE has kept the console open
+                        so that you can see the result. Press any key to close the console.</p>
                     <p>By pressing <b>F5</b> the compiler built then ran the program with the debugger attached known as running in <i>debug mode</i>. The program runs or
                         <a href="#Program_execution">executes</a> all the instructions, known as <a href="#Code_Syntax">statements</a>, it finds within the code file. As
                         can be seen there are two lines of text in the example. The first is a comment as marked by the two forward slashes at the beginning of the line.
@@ -247,12 +247,13 @@ namespace ProgramStructure
                     <p>As comments are ignored by the compiler when building the program, a technique often applied when debugging code is to <i>commented out</i> suspect
                         <a href="#Code_syntax">statements.</a></p>
                     <p>To comment out multiple lines, first select all the lines by placing the cursor in front of the first statement, then drag the mouse diagonally
-                        down to the end of the last statement. Then while pressing <b>Ctrl</b> press and release <b>k</b> then press <b>c</b>. To uncomment, again with
-                        all lines selected, while pressing <b>Ctrl</b> press and release <b>k</b> then press <b>u</b>.</p>
+                        down to the end of the last statement. Then while pressing <b>Ctrl</b> press and release <b>k</b> then
+                        <span class="nowrap">press <b>c</b> .</span> To uncomment, again with all lines selected, while pressing <b>Ctrl</b> press and release <b>k</b>
+                        then <span class="nowrap">press <b>u</b>.</span></p>
                     <p>The comment, <code>// TODO: This comment will be added to the tasks list</code>, is interpreted by the code editor as a task to
                         be added to the Task List. There are four predefined task tokens, <code>HACK</code>, <code>TODO</code>, <code>UNDONE</code>,
                         <code>UnresolvedMergeConflict</code> and custom tokens can also be added. Task tokens are not case sensitive. To see the task list, in the menu
-                        click <b>View</b> then <b>Task List</b>.</p>
+                        click <b>View</b> then <span class="nowrap"><b>Task List</b>.</span></p>
                     <p><i>Documentation comments</i> provide information that is displayed by IntelliSense when entering code and can be applied to
                         <a href="#User_defined_types">user defined types</a> or the <a href="#Members">members</a> they contain. They are similar to single line comments
                         but instead start with three forward slashes <code>///</code> and can contain XML tags that provide special meaning to IntelliSense. Visual Studio
@@ -414,7 +415,7 @@ namespace CodeSyntaxExample1
                         this example includes <code>args</code> from <span class="nowrap"><code>Main(string[] args)</code>.</span> To view all overloads after the
                         statement has been written, place the cursor anywhere within the round brackets and press <b>Ctrl + Shift + Space</b>, then use the arrow keys to
                         navigate to each argument to see the description for the associated parameter. To view the argument list, place the cursor just before any
-                        argument and press <b>Ctrl + Space</b>.</p>
+                        argument and press <span class="nowrap"><b>Ctrl + Space</b>.</span></p>
                     <p>Visual Studio has a number of built-in <i>code snippets</i> that allows you to use shortcuts to enter frequently used code. One such snippet is for
                         <span class="nowrap"><code>Console.WriteLine();</code>.</span> To use the shortcut type <b>c</b> then <b>w</b> then press the <b>tab</b> key
                         twice. In addition to the in-built snippets you can add your own. For more information on the built-in snippets and how to create a user snippet,
@@ -586,14 +587,14 @@ World!");
                         Abnormal execution can result in the program prematurely exiting or becoming unresponsive.</p>
                     <p>Within a code block, statements are executed from top to bottom. If the statement is a <a href="#Conditional_Statements">conditional statement</a>,
                         alternate paths will be introduced in which one will be chosen dependent on the result of testing the condition. If an
-                        <a href="Iteration_Statements">iterative statement</a>, the statements it contains will be repeatedly executed until a condition is met that allow
-                        execution to <a href="#break">break</a> out of the loop. A statement can  also pass execution on to another method known as <i>calling</i> or
-                        <i>invoking</i>, with the method that contains the statement known as the <code>caller</code> and the invoked method said to be <i>nested</i>
+                        <a href="#Iteration_Statements">iterative statement</a>, the statements it contains will be repeatedly executed until a condition is met that
+                        allow execution to <a href="#break">break</a> out of the loop. A statement can  also pass execution on to another method known as <i>calling</i>
+                        or <i>invoking</i>, with the method that contains the statement known as the <code>caller</code> and the invoked method said to be <i>nested</i>
                         within the caller. In normal circumstances, execution is returned to the caller through a return statement or, if the invoked method returns
                         <code>void</code>, the end of the method is reached. Program execution can continually call and be returned from methods until it ultimately
                         returns to the <code>Main</code> method where, assuming there have been no errors, the program exits normally.</p>
                     <p>Invoking a method is in the form of <code>instance.Method(parameters)</code> for an instance of a type and <code>TypeName.Method(parameters)</code>
-                        for a <a href="static">static</a> type.</p>
+                        for a <a href="#static">static</a> type.</p>
                     <p>The <a href="#dot_NET">CLR</a> handles method calls by using a <i>stack</i> which in this context is known as the
                         <span class="nowrap"><i>call stack</i>.</span> This can be thought of as a stack of paper where each sheet represents a method. When a method is
                         called it is placed on top, known as <i>pushed</i>, and its statements are executed until returned to the caller. The returning method is then
@@ -617,7 +618,7 @@ World!");
                         <a href="#try-catch">catch block</a> to handle the the exception is reached. If one is not found, the program will exit resulting in an unhandled
                         exception. If a call to an <code>Exit</code> method is encountered the program exits immediately without returning to the caller.
                         <code>Exit</code> can be used in a conditional statement that tests if the program has an error that has put it into a non-recoverable state. This
-                        way, along with other code, <code>Exit</code> can allow for the program to exit gracefully. For a console application <a href="">Exit</a> is in
+                        way, along with other code, <code>Exit</code> can allow for the program to exit gracefully. For a console application <code>Exit</code> is in
                         the Environment <a href="#Namespaces">namespace</a> so the <a href="#Namespaces">fully qualified</a> name is
                          <span class="nowrap"><code>Environment.Exit</code>.</span></p>
                     <p>Without intervention a program will simply run its course and exit. To prevent this and allow for user input, a pattern often employed is to use an
@@ -627,7 +628,7 @@ World!");
                     <p>The Console type provides such a loop in the method <span class="nowrap"><code>Console.ReadLine</code>.</span> When executed, this method waits for
                         input from the user, writing each <a href="#character">character</a> to the console as it's typed. Depending on the operating system, when the
                         return key is pressed, this will produce a carriage return, new line or a combination of both. If any of these are encountered, execution is
-                        returned to the caller with a string value containing the characters entered.</p>
+                        returned to the caller with a <a href="#string">string</a> value containing the characters entered.</p>
                     <p>A computer has a finite amount of memory and if totally consumed this could result in the operating system crashing. As this could occur from too
                         many many nested method calls, the CLR will protect the system by throwing a <span class="nowrap"><code>StackOverflowException</code>.</span> One
                         notable cause for this is a pattern called a recursive algorithm where a method calls itself. If no safeguards are put in place the stack is
@@ -671,7 +672,7 @@ World!");
                         popup dialog in the code editor, identifying the issue along with suggestions on how to fix it. Additionally, the error will appear in the
                         <i>Error List</i> usually located at the bottom of the code editor. You can then select the error and by pressing F1, the link to help for it will
                         be opened in a browser. To view the error list, you may need to click on the <b>Error List</b> tab or if it is not there, you can open it by
-                        clicking on <b>View</b> in the menu then <b>Error List</b>. Syntax errors are also sometimes called compiler errors and compile-time errors.</p>
+                        clicking on <b>View</b> in the menu then <b>Error List.</b> Syntax errors are also sometimes called compiler errors and compile-time errors.</p>
                     <p>The following example demonstrates a syntax error.</p>
 <pre><code>namespace SyntaxError
 {
@@ -729,7 +730,7 @@ World!");
                         attempting to divide by zero. By pressing <b>F5</b> the program will start running in debug mode and then stop and highlight the statement
                         <code>var z = x / y;</code> and display an <i>Exception Unhandled</i> dialog box with the message <i>System.DivideByZeroException: 'Attempted to
                         divide by zero.'</i> of which <code>DivideByZeroException</code> is the exception. To stop the program and clear the exception press
-                        <b>Shift</b> + <b>F5</b>.</p>
+                        <b>Shift</b> + <b>F5.</b></p>
 <pre><code>namespace Exception
 {
     class Program
@@ -6040,22 +6041,22 @@ namespace CancelEvent
                     <p>The following example demonstrates how to create a new project, add a second project to the solution of the first and then create a reference of
                         the second project to the first.</p>
                     <ol>
-                        <li>Start the IDE then click <b>Create a new project</b>.</li>
+                        <li>Start the IDE then click <b>Create a new project.</b></li>
                         <li> On the <span class="nowrap"><b>Create a new project</b></span> page in the search box at the top type
                             <span class="nowrap"><b>'console core'</b></span>.</li>
                         <li>A project template titled <span class="nowrap"><b>Console App</b></span> should appear at the top of the list. It has an icon that looks like
-                            a document with C# in the top right corner. Select <span class="nowrap"><b>Console App</b></span> then choose <b>Next</b>.
+                            a document with C# in the top right corner. Select <span class="nowrap"><b>Console App</b></span> then choose <b>Next.</b>
                             (Hint: if <span class="nowrap"><b>Console App</b></span> is not at the top, click <b>Clear all</b> and search again)</li>
                         <li>On the <span class="nowrap"><b>Configure your new project</b></span> page type <b>'ProjectA'</b> in the
                             <span class="nowrap"><b>Project name</b></span> box. Leave the <b>Location</b> and <span class="nowrap"><b>Solution name</b></span> as filled
-                            in by the IDE and choose <b>Next</b>.</li>
+                            in by the IDE and choose <b>Next.</b></li>
                         <li>In the <span class="nowrap"><b>Additional information</b></span> page make sure <b>.NET5.0(Current)</b> is selected in the dropdown selector
                             then choose <b>Create</b></li>
                         <li>When the code editor has loaded right click the <b>Solution</b> node in the Solution Explorer then in the context menu hover the mouse over
                             <b>add</b> then in the new context menu that opens, click new project.</li>
                         <li>A project template called <b>ClassLibrary</b> : <i>A project for creating a class library that targets .NET Standard or .NET Core</i> should be
                             at the top of the list. If not, scroll down till you find the template then click on it to highlight it then click <b>Next</b></li>
-                        <li>Repeat steps 4 and 5 using the project name <b>'ProjectB'</b>.</li>
+                        <li>Repeat steps 4 and 5 using the project name <b>'ProjectB'.</b></li>
                         <li>In <i>Solution Explorer</i> right click the <b>Dependencies</b> node under <b>ProjectA</b> and click <b>Add Project Reference</b> in the
                             context menu.</li>
                         <li>In the <b>Reference Manager - ProjectA</b> dialog box select the <b>Projects</b> node on the left pane.</li>
@@ -6355,7 +6356,7 @@ namespace NamespaceExample
                         identifier, with the mouse hovering over it, press <b><kbd>Ctrl</kbd> + <kbd>.</kbd></b> and IntelliSense will suggest the correct using
                         directive, most likely at the top of the list. Click on the suggestion and it will be added to the code. Please note that the full identifier must
                         be entered with the correct case and the project must have a <a href="#Dependencies">reference</a> to the project containing the type.</p>
-                    <p>To remove unused <i>using</i> directives, right click anywhere in the code editor and click <b>Remove and Sort Usings</b>.</p>
+                    <p>To remove unused <i>using</i> directives, right click anywhere in the code editor and click <b>Remove and Sort Usings.</b></p>
                     <p>The following example demonstrate importing types with the <code>using</code> directive.</p>
 <pre><code>// Class5.cs
 namespace NameSpace5
