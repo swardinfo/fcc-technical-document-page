@@ -32,7 +32,7 @@
                 <li><a class="nav-link" href="#Variables,_Constants,_Types_and_Literals">Variables, Constants, Types and Literals</a></li>
                 <li><a class="nav-link" href="#Characters_and_Strings">Characters and Strings</a></li>
                 <li><a class="nav-link" href="#Expressions_and_Operators">Expressions and Operators</a></li>
-                <li><a class="nav-link" href="#Decision_Making_Statements">Decision Making Statements</a></li>
+                <li><a class="nav-link" href="#Conditional_Statements">Conditional Statements</a></li>
                 <li><a class="nav-link" href="#Iteration_Statements">Iteration Statements</a></li>
                 <li><a class="nav-link" href="#Arrays_and_Data_Structures">Arrays and Data Structures</a></li>
                 <li><a class="nav-link" href="#Enumerators_and_Tuples">Enumerators and Tuples</a></li>
@@ -425,11 +425,11 @@ namespace CodeSyntaxExample1
                         statement followed by another assignment statement. As the <a href="#break">break</a> statement causes the program to leave the while loop before
                         reaching the second assignment statement, it can't be executed and is known as unreachable code. This won't prevent the program from being built
                         or run but will result in a warning in the code editor and should be rectified.</p>
-                    <p>Next are three <code>if</code> statements which are <a href="#Decision_Making_Statements">decision making statements</a>. Some statements like
-                        these allow for a single statement known as an embedded statement, to be placed directly after it without the need for braces. The second
-                        <code>if</code> statement followed directly by <code>k = 1;</code> demonstrate this. Together they form a compound statement so the first two
-                        <code>if</code> statements here are equivalent. An embedded statement cannot be a declaration or labelled statement so the last <code>if</code>
-                        statement example is invalid and uncommenting it results in a <a href="#Syntax_errors">syntax error</a>.</p>
+                    <p>Next are three <code>if</code> statements which are <a href="#Conditional_Statements">conditional statements</a>. Some statements like these allow
+                        for a single statement known as an embedded statement, to be placed directly after it without the need for braces. The second <code>if</code>
+                        statement followed directly by <code>k = 1;</code> demonstrate this. Together they form a compound statement so the first two <code>if</code>
+                        statements here are equivalent. An embedded statement cannot be a declaration or labelled statement so the last <code>if</code> statement example
+                        is invalid and uncommenting it results in a <a href="#Syntax_errors">syntax error</a>.</p>
                     <p>Two more warnings are present in the code. Variables <code>i</code> and <code>j</code> are
                         assigned values but they are not used anywhere in the code which results in a warning for each. As such declarations and assignments
                         are common so are the warnings and as decisions change while the code is written, it is possible that orphan variables can be left scattered
@@ -580,59 +580,59 @@ World!");
                     <!-- TODO complete Program execution -->
                     <!-- SECTION Program execution -->
                     <h3 id="Program_execution">Program execution</h3>
-                    <p>All C# executable programs (.exe files) must have an entry point.  The program executes the
-                        statements as they appear top to bottom, left to right unless a statement redirects execution to another part of the program. In most cases the
-                        program flow will return to the statement that produced the redirection and continue to next statement until the last statement is reached, at
-                        which point the program ends.
-
-                        This is known as the <i>entry point</i> and there are several
-                        <a href="#Code_Syntax">code&nbsp;syntax</a> rules it must follow. <code>static void Main(string[] args)</code> is also the start of a
-                        <a href="#Methods">method</a>.
-
-
-                        Statements are executed from top to bottom,
-                        left to right in the order they appear unless a statement redirects execution to another part of the program.
-                        In most cases the
-
-
-                        program flow will return to the statement that produced the redirection and continue to next statement until the last statement is reached, at
-                        which point the program ends. For a program that requires user participation, <a href="#Iteration_Statements">iteration statements</a> that
-                        require user input can be introduced to prevent it from exiting until instructed by the user. A declaration instructs the compiler to create a
-                        placeholder for an <a href="#Object">object</a> that is to exist and become part of the program. In some cases, a declaration can also be a
-                        statement. Before an object can be used, if it is a <a href="#Value_type">value type</a> it must then be initialized or if it is a
-                        <a href="#Reference_type">reference type</a> it must be created, known as being <i>instantiated</i>. A directive is an instruction for the
-                        compiler that while not directly part of our program will affect how our program will be built and run.
-
-
-
-                        For a program that requires user participation, iteration statements that require user input can be introduced to prevent it from exiting until
-                         instructed by the user. A declaration instructs the compiler to create a placeholder for an object that is to exist and become part of the
-                          program. In some cases, a declaration can also be a statement. Before an object can be used, if it is a value type it must then be initialized
-                          or if it is a reference type it must be created, known as being instantiated. A directive is an instruction for the compiler that while not
-                           directly part of our program will affect how our program will be built and run.</p>
-
-
-
-                           <p>Statements within a method are normally executed from top to bottom until either a return statement or the end of the method is reached, in which
-                            case <a href="#Program_Execution">program execution</a> is returned to the caller. If an <a href="#throw">exception is thrown</a> from within a
-                            method, program return will depend on whether the exception has been handled by a catch block within the method. If not, execution is immediately
-                            returned to the caller and continue back through all callers until either caught in a try-catch block or the program exits from the Main method
-                            with an unhandled exception. If either an <code>Application.Exit()</code> or <code>Environment.Exit()</code> method is encountered then the
-                            application will terminate immediately.</p>
-
-
-                        <p>For a method that returns a value, all paths  the statements in the body are executed until a return statement is reached. This is defined by the
-                            <code>return</code> keyword followed by a variable or literal of the return type in the method declaration followed by a semicolon. Program execution,
-                             along with the returned value  will then be passed back to the statement that called the method.</p>
-                        <p>For a method that does not return a value, execution will be passed back to the calling statement, either when a return statement or the closing brace is
-                            reached. In this case a return statement is defined just with the <code>return</code> keyword followed by a semicolon.</p>
-                        <p>In both cases a method can contain multiple return statements allowing for multiple exit points from different paths back to the calling code. In
-                            this case, a method that has a return type but that does not have a return statement for all possible paths will produce a
-                            <a href="#Syntax_errors">syntax error</a>.   </p>
-                        <p>Access to a method by code external to the type is in the form of <code>instance.Method(parameters)</code> for an instance of a type and
-                           <code>TypeName.Method(parameters)</code> for a <a href="static">static</a> type.</p>
-
-
+                    <p>All <a href="#Code_syntax">statements</a> in C# programs are executed with respect to a <a href="#Methods">method</a>. Normal execution starts with
+                        the first and ends after the last statement in the <code>Main</code> method <span class="nowrap"><a href="#Code_syntax">code block</a>.</span>
+                        Abnormal execution can result in the program prematurely exiting or becoming unresponsive.</p>
+                    <p>Within a code block, statements are executed from top to bottom. If the statement is a <a href="#Conditional_Statements">conditional statement</a>,
+                        alternate paths will be introduced in which one will be chosen dependent on the result of testing the condition. If an
+                        <a href="Iteration_Statements">iterative statement</a>, the statements it contains will be repeatedly executed until a condition is met that allow
+                        execution to <a href="#break">break</a> out of the loop. A statement can  also pass execution on to another method known as <i>calling</i> or
+                        <i>invoking</i>, with the method that contains the statement known as the <code>caller</code> and the invoked method said to be <i>nested</i>
+                        within the caller. In normal circumstances, execution is returned to the caller through a return statement or, if the invoked method returns
+                        <code>void</code>, the end of the method is reached. Program execution can continually call and be returned from methods until it ultimately
+                        returns to the <code>Main</code> method where, assuming there have been no errors, the program exits normally.</p>
+                    <p>Invoking a method is in the form of <code>instance.Method(parameters)</code> for an instance of a type and <code>TypeName.Method(parameters)</code>
+                        for a <a href="static">static</a> type.</p>
+                    <p>The <a href="#dot_NET">CLR</a> handles method calls by using a <i>stack</i> which in this context is known as the
+                        <span class="nowrap"><i>call stack</i>.</span> This can be thought of as a stack of paper where each sheet represents a method. When a method is
+                        called it is placed on top, known as <i>pushed</i>, and its statements are executed until returned to the caller. The returning method is then
+                        removed, known as <i>popped</i>, and execution resumes with the statement that called the method. <a href="#Code_syntax">Declarations</a> and
+                        statements, including conditional and iterative statements, being part of a method are not individually added to the call stack. In computer
+                        science a stack is implemented using a <i>Last In First Out</i> memory structure or <span class="nowrap"><i>LIFO</i>.</span> How the return from a
+                        called method is treated depends on whether the method returns a value and which of the following is encountered.</p>
+                    <ul>
+                        <li>A return statement is executed.</li>
+                        <li>The end of the method is reached.</li>
+                        <li>An <span class="nowrap"><a href="#Exceptions">exception is thrown</a>.</span></li>
+                        <li>An Exit statement is executed.</li>
+                    </ul>
+                    <p>If a method returns a value then a return statement must be present for all possible return paths. Reaching the end of the method without
+                        encountering one will result in a syntax error and the program won't compile. Here the return statement takes the form of <code>return T</code>
+                        where T is literal of <a href="#Variables,_Constants,_Types_and_Literals">variable</a> of the return type declared in the method's
+                        <span class="nowrap"><a href="#Methods">header</a>.</span> If a method does not return a value, i.e. the return type is <code>void</code>, then
+                        execution will be returned to the caller when either a return statement or the end of the method is reached. In this case the method can contain
+                        any number of return statements including none with the return statement taking the form of <span class="nowrap"><code>return;</code>.</span></p>
+                    <p>If an exception is thrown, further execution is halted and the methods are popped off the call stack until one containing a
+                        <a href="#try-catch">catch block</a> to handle the the exception is reached. If one is not found, the program will exit resulting in an unhandled
+                        exception. If a call to an <code>Exit</code> method is encountered the program exits immediately without returning to the caller.
+                        <code>Exit</code> can be used in a conditional statement that tests if the program has an error that has put it into a non-recoverable state. This
+                        way, along with other code, <code>Exit</code> can allow for the program to exit gracefully. For a console application <a href="">Exit</a> is in
+                        the Environment <a href="#Namespaces">namespace</a> so the <a href="#Namespaces">fully qualified</a> name is
+                        <span class="nowrap"><code>Environment.Exit</code>.</span></p>
+                    <p>Without intervention a program will simply run its course and exit. To prevent this and allow for user input, a pattern often employed is to use an
+                        infinite loop containing a conditional statement that upon detecting a specific character, breaks out of the loop then executes the remaining
+                        statements as normal. Care must be taken however, because if the condition cannot be met, the loop cannot be broken and the program will become
+                        unresponsive requiring the user to manually force the program to quit.</p>
+                    <p>The Console type provides such a loop in the method <span class="nowrap"><code>Console.ReadLine</code>.</span> When executed, this method waits for
+                        input from the user, writing each <a href="#character">character</a> to the console as it's typed. Depending on the operating system, when the
+                        return key is pressed, this will produce a carriage return, new line or a combination of both. If any of these are encountered, execution is
+                        returned to the caller with a string value containing the characters entered.</p>
+                    <p>A computer has a finite amount of memory and if totally consumed this could result in the operating system crashing. As this could occur from too
+                        many many nested method calls, the CLR will protect the system by throwing a <span class="nowrap"><code>StackOverflowException</code>.</span> One
+                        notable cause for this is a pattern called a recursive algorithm where a method calls itself. If no safeguards are put in place the stack is
+                        filled with instances of the method until it overflows.</p>
+                    <p><em>Note:</em> <i> A <code>StackOverflowException</code> can't be caught in a try-catch so it is important that careful consideration be made when
+                        utilizing such patterns.</i></p>
                     <p>CodeExample</p>
 <pre><code>namespace Namespace
 {
@@ -649,6 +649,8 @@ World!");
                 </article>
             </section>
             <!-- !SECTION Code Syntax and Program Execution -->
+<!-- TODO Add custom exceptions and using in built preferred. Custom exceptions should end with exception -->
+<!-- TODO add info about source of exception, .NET, runtime, third-party -->
 <!-- TODO Fix red wavy line font size too large in code examples -->
             <!-- SECTION Errors and Exception Handling -->
             <section class="main-section" id="Errors_and_Exception_Handling">
@@ -716,15 +718,17 @@ World!");
 </code></pre>
                     <!-- !SECTION Logical errors -->
                     <!-- !SECTION Errors types -->
-                    <!-- SECTION Exception handling -->
+                    <!-- SECTION Exceptions -->
                     <h3 id="Exceptions">Exceptions</h3>
-                    <p>When an error that is caused by and cannot be resolved by the current executing statement occurs an exception is thrown. At this point the
-                        execution flow reverses until either exception handling, in the form of a <a href="#try-catch">try-catch</a> statement is reached, or the program
-                        exits in which case the operating system may report the program has exited with an unhandled exception. C# has a number of built-in exceptions
-                        that are thrown for various error conditions and you can also throw. Following is an example that shows the result of attempting to divide by
-                        zero. By pressing <b>F5</b> the program will start running in debug mode and then stop and highlight the statement <code>var z = x / y;</code>
-                        and display an <i>Exception Unhandled</i> dialog box with the message <i>System.DivideByZeroException: 'Attempted to divide by zero.'</i> of which
-                        <code>DivideByZeroException</code> is the exception. To stop the program and clear the exception press <b>Shift</b> + <b>F5</b>.</p>
+                    <p>When an error that is caused by and cannot be resolved by the current executing statement occurs, an exception is thrown. This could be due to code
+                        in the CLR, a third-party library or the current application. At this point the CLR searches back up the stack until either exception handling, in
+                        the form of a <a href="#try-catch">try-catch</a> statement is reached, or the program exits in which case the operating system may report the
+                        program has exited with an unhandled exception. C# has a number of built-in exceptions that are thrown for various error conditions. You can also
+                        create your own custom exceptions though the built-in types should be used where possible. Following is an example that shows the result of
+                        attempting to divide by zero. By pressing <b>F5</b> the program will start running in debug mode and then stop and highlight the statement
+                        <code>var z = x / y;</code> and display an <i>Exception Unhandled</i> dialog box with the message <i>System.DivideByZeroException: 'Attempted to
+                        divide by zero.'</i> of which <code>DivideByZeroException</code> is the exception. To stop the program and clear the exception press
+                        <b>Shift</b> + <b>F5</b>.</p>
 <pre><code>namespace Exception
 {
     class Program
@@ -740,7 +744,7 @@ World!");
 
 // When run, the example results in a DivideByZeroException
 </code></pre>
-                    <!-- !SECTION Exception handling -->
+                    <!-- !SECTION Exceptions -->
                     <!-- SECTION throw -->
                     <h3 id="throw">throw</h3>
                     <p>Sometimes you may wish to check for invalid conditions specific to your own program. When these occur, you can respond by throwing an exception of
@@ -761,6 +765,8 @@ World!");
 // When run, the example results in
 // System.ArgumentException: 'y cannot be zero'
 </code></pre>
+                    <p> As the name suggests, an exception should only be used for exceptional circumstances and should not be used to control program execution. Instead,
+                        conditional statements should always be employed to look for potential errors.</p>
                     <!-- !SECTION throw -->
                     <!-- SECTION try-catch -->
                     <h3 id="try-catch">try-catch</h3>
@@ -2330,9 +2336,10 @@ namespace AliasQualifier
                 </article>
             </section>
             <!-- !SECTION Expressions and Operators -->
-            <!-- SECTION Decision Making Statements -->
-            <section class="main-section" id="Decision_Making_Statements">
-                <header><h2>Decision Making Statements</h2></header>
+            <!-- SECTION Conditional Statements -->
+            <section class="main-section" id="Conditional_Statements">
+                <header><h2>Conditional Statements</h2></header>
+                <p>Conditional statements change program execution by providing alternate paths, one of which will be chosen dependent on a condition.</p>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
                     <!-- SECTION if else statements -->
@@ -2393,7 +2400,8 @@ namespace AliasQualifier
                     <!-- !SECTION switch statement -->
                 </article>
             </section>
-            <!-- !SECTION Decision Making Statements -->
+            <!-- !SECTION Conditional Statements -->
+<!-- TODO Add yield statement -->
             <!-- SECTION Iteration Statements -->
             <section class="main-section" id="Iteration_Statements">
                 <header><h2>Iteration Statements</h2></header>
