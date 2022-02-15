@@ -28,7 +28,7 @@
                 <!-- project requirement - clicking nav-link element navigates page to the corresponding main-doc section -->
                 <li><a class="nav-link" href="#Introduction">Introduction</a></li>
                 <li><a class="nav-link" href="#Code_Syntax_and_Program_Execution">Code Syntax and Program Execution</a></li>
-                <li><a class="nav-link" href="#Errors_and_Exception_Handling">Errors and Exception Handling</a></li>
+                <li><a class="nav-link" href="#Errors,_Exception_Handling_and_Debugging">Errors, Exception Handling and Debugging</a></li>
                 <li><a class="nav-link" href="#Variables,_Constants,_Types_and_Literals">Variables, Constants, Types and Literals</a></li>
                 <li><a class="nav-link" href="#Characters_and_Strings">Characters and Strings</a></li>
                 <li><a class="nav-link" href="#Expressions_and_Operators">Expressions and Operators</a></li>
@@ -52,6 +52,10 @@
         <main id="main-doc">
             <!-- project requirement - several section elements, each with a class of main-section. There should be a minimum of 5 -->
             <!-- project requirement - section with class of main-section, id corresponds to header text, spaces replaced with underscores -->
+<!-- TODO Remove under construction when finished -->
+            <div class="under-construction">
+                <p>Under Construction</p>
+            </div>
             <!-- SECTION Introduction -->
             <section class="main-section" id="Introduction">
                 <header><h2>Introduction</h2></header>
@@ -68,26 +72,29 @@
                     <p>Lastly and perhaps most importantly is theory of mind, what the user maybe thinking when they use your program. This should be a constant
                         consideration as you create your program. For example, entering a letter in a program when a number is required may be invalid. But having an
                         error message popup with each wrong keystroke that then needs to be cancelled...  This sort of user interface, (<i>UI</i>), will quickly lead to
-                        frustration and result in your program ending up in the  trash.</p>
+                        frustration and result in your program ending up in the trash.</p>
+                    <p>Throughout this guide, numerous links are provided to provide pathways to related information.</p>
                     <!-- SECTION The C# language -->
                     <h3 id="The_C_sharp_language">The C# language</h3>
                     <p>A written language is a system for using a combination of words and symbols to provide a means of communicating abstract ideas between two
                         entities. A computer language allows you to take abstractions from ideas and turn them into concrete implementations that can be interpreted by a
                         computer. As a developer, unless you only ever write software for yourself, your job is as a kind of ghostwriter who uses a computer language to
                         tell someone elses story.</p>
-                    <p>C# is a high level computer language, created and maintained by Microsoft, for the purpose of developing computer programs. A computer uses binary,
-                        the language of ones and zeros. To put it at its simplest, all a computer can do is, like a light switch, turn things on or off, albeit at
-                        billions of times a second. For any person trying to write in ones and zeros, this soon becomes an impossible task. A high level programming
-                        language is a type of shorthand that is human readable making it easier for a developer to read and write code.</p>
+                    <p>C# is a high level computer language, created by Microsoft and now maintained by the .NET Foundation as part of .NET, for the purpose of developing
+                        computer programs. A computer uses binary, the language of ones and zeros. To put it at its simplest, all a computer can do is, like a light
+                        switch, turn things on or off, albeit at billions of times a second. For any person trying to write in ones and zeros, this soon becomes an
+                        impossible task. A high level programming language is a type of shorthand that is human readable making it easier for a developer to read and
+                        write code.</p>
                     <!-- !SECTION The C# language -->
                     <!-- SECTION .NET -->
                     <h3 id="dot_NET">.NET</h3>
-                    <p>.NET is an open-source, cross platform framework created and maintained by Microsoft. It provides the <i>Common Language Runtime</i>(CLR) which
-                        will run our code and other services such as memory management, debugging, garbage collection, etc, making our job of writing code easier. The
-                        phrase <i>during runtime</i>, is often used to refer to the time in which the code is running.</p>
+                    <p>.NET is an open-source, cross platform framework created by Microsoft, now maintained by the .NET Foundation and distributed under the MIT License.
+                        It provides the <i>Common Language Runtime</i>(CLR) which will run our code and other services such as memory management, debugging, garbage
+                        collection, etc, making our job of writing code easier. The phrase <i>during runtime</i>, is often used to refer to the time in which the code is
+                        running.</p>
                     <p>.NET also provides a large quantity of pre written code we can use that provides many of the basic functions such as file I/O, network access,
-                        collections, user interfaces, etc, so we don't have to write our own. Whenever a console, WinForms or WPF program is created the .NET framework is
-                        added by default and can be accessed through the System <a href="#Namespaces">namespace.</a></p>
+                        collections, user interfaces, etc, so we don't have to write our own. Whenever a console, WinForms or WPF program is created the .NET is added to
+                        the available frameworks by default and can be accessed through the System <a href="#Namespaces">namespace.</a></p>
                     <p> The .Net version used throughout this guide is 6.0 and the C# version is 10.0.</p>
                     <p>For more information on C# and .NET see the <a href="#References">Microsoft C# reference documentation</a></p>
                     <!-- !SECTION .NET -->
@@ -113,9 +120,9 @@
                         program. On completion, the compiler will report if the result was successful or produce a list of errors that must be corrected before the code
                         can be run.</p>
                     <p>The debugger aids the developer in finding errors in the code. Not every program will be written perfectly first time and the errors that prevent
-                        it from functioning correctly are known as bugs. If we were just to write, compile and run the program, then we would not have much to go on as to
-                        where a bug may exist. The debugger allows you to step through the code one line at a time to find the problem. This is known as running the
-                        program with the debugger attached.</p>
+                        it from functioning correctly are known as bugs. If all you could do were to write, compile and run the program, then you would not have much to
+                        go on . The debugger allows you to step through the code one line at a time to find the problem. This is known as running the program with the
+                        debugger attached.</p>
                     <p>At the time of this writing there are three versions of Visual Studio.</p>
                     <ul>
                         <li>Community</li>
@@ -173,7 +180,7 @@ Console.WriteLine("Hello, World!");
                 </article>
             </section>
             <!-- !SECTION Introduction -->
-            <!-- TODO complete Program execution -->
+            <!-- TODO complete Program execution code example -->
             <!-- SECTION Code Syntax and Program Execution -->
             <section class="main-section" id="Code_Syntax_and_Program_Execution">
                 <header><h2>Code Syntax and Program Execution</h2></header>
@@ -205,17 +212,17 @@ Console.WriteLine("Hello, World!");
                         when the program is compiled and is inaccessible from the code editor. The example below shows how the code looks with the boiler plate code in
                         place with further details as to its meaning in the <a href="#Code_syntax">Code syntax</a> section. All executable programs must have an entry
                         point, which here is <code>static void Main(string[] args)</code>, which in most documentation is usually referred to just as the
-                        <code>Main</code> method. There are several rules that it must follow but the main ones that are of concern are</p>
+                        <i>Main method</i>. There are several rules that it must follow but the main ones that are of concern are</p>
                     <ul>
                         <li>There can only be entry point within a program</li>
                         <li>It must be a method with the name <code>Main</code></li>
                         <li>It must be marked with the <a href="#static">static</a> modifier</li>
                     </ul>
-                    <p>When a file has no top level statements and an explicit <code>Main</code> method as shown in the example, the compiler will use it as the single
-                        entry point. If the file also has any top level statements, then the explicitly entered <code>Main</code> method will be ignored and the compiler
-                        will produce a warning of this. When top-level statements are present they are contained within the hidden <code>Main</code> method implicitly
-                        created by the compiler. All code preceding the <code>Main</code> method in the example are either <a href="#Code_syntax">directives</a>
-                        or <a href="#Code_syntax">declarations</a> so don't create an issue.</p>
+                    <p>When a file has no top level statements and an explicit Main method as shown in the example, the compiler will use it as the single entry point. If
+                        the file also has any top level statements, then the explicitly entered Main method will be ignored and the compiler will produce a warning of
+                        this. When top-level statements are present they are contained within the hidden Main method implicitly created by the compiler. All code
+                        preceding the Main method in the example are either <a href="#Code_syntax">directives</a> or <a href="#Code_syntax">declarations</a> so don't
+                        create an issue.</p>
                     <p>Top level statements were designed for simple applications and supposedly making it easier to teaching someone new to C# without having to see the
                         boiler plate code. Realistically however, the vast majority of code you work with won't contain them so they won't be explored in this guide. For
                         more information on entry point requirements and top level statements please see the
@@ -315,10 +322,10 @@ namespace ProgramStructure
                         block can be empty or it can contain any combination of statements, declarations, directives, comments and other code blocks. Each instruction,
                         depending on its type, must be followed by either a code block, a semicolon <code>;</code> or a carriage return. The compiler ignores comments and
                         whitespace other than as separators for words and symbols.</p>
-                    <p>A statement is the part of the code that becomes the instructions that tells the computer what to do. The program
-                        <a href="#Program_Execution">executes</a> the statements as they appear top to bottom unless a statement redirects execution to another part of
-                        the program. A declaration instructs the compiler to create a placeholder for an <a href="#Object">object</a> that is to exist and become part of
-                        the program. In some cases, a declaration can also be a statement. Before an object can be used, if it is a
+                    <p>A statement is the part of the code that becomes the instructions that tells the computer what to do. The program runs or
+                        <a href="#Program_Execution">executes</a> statements as they appear, top to bottom, unless a statement redirects execution to another part of the
+                        program. A declaration instructs the compiler to create a placeholder for an <a href="#Object">object</a> that is to exist and become part of the
+                        program. In some cases, a declaration can also be a statement. Before an object can be used, if it is a
                         <a href="#Variables,_Constants,_Types_and_Literals">value type</a> it must be initialized or if it is a
                         <a href="#Variables,_Constants,_Types_and_Literals">reference type</a> it must be created, also known as being <i>instantiated</i>. A directive is
                         an instruction for the compiler that while not directly part of our program will affect how our program will be built and run.</p>
@@ -398,15 +405,17 @@ namespace CodeSyntaxExample1
                         pertinent to a code example, the hidden using statements will not be shown. For a list of all the hidden using statements for the
                         .NET 6 Console App, please see <a href="#Importing_system_types">importing system types.</a></p>
                     <p>In the next example, <code>Console.WriteLine("Hello World!");</code> , a single line statement, is the first in the
-                        <code>Main</code> method code block. In this context, the dot <code>.</code> between <code>Console</code> and
+                        Main method code block. In this context, the dot <code>.</code> between <code>Console</code> and
                         <code>WriteLine ("Hello World")</code> is called the <a href="#Member_access_operator">member access operator.</a> It allows access to a
                         <a href="">member</a>, here a <a href="#Methods">method</a> called <code>WriteLine</code> in a class called
                         <span class="nowrap"><code>Console</code>.</span> The round brackets <code>( )</code> allow
-                        <a href="#Parameters,_signatures_and_overloading">arguments</a> to be passed to the parameters of a method being called. Here the
+                        <a href="#Parameters,_signatures_and_overloading">arguments</a> to be passed to the parameters of a
+                        <a href="#Program_execution">called method</a>. Here the
                         <a href="#string">string</a> <a href="Variables,_Constants,_Types_and_Literals">literal</a> <code>"Hello World!"</code> is being passed into the
                         <a href="#null">nullable</a> <code>string?</code> parameter <span class="nowrap"><code>value</code>.</span> All single line statements must end
                         with a semicolon <code>;</code></p>
-                    <p>When entering the code for calling a method, as you type the opening round bracket <code>(</code>, IntelliSense will display a panel with the
+                    <p>When entering the code for <a href="#Program_execution">calling a method</a>, as you type the opening round bracket <code>(</code>,
+                         IntelliSense will display a panel with the
                         <a href="#Parameters,_signatures_and_overloading">signature</a> for the method. This includes the required and optional parameters and a
                         description of what the method does as well as each parameter as they are entered. If there are
                         <a href="#Parameters,_signatures_and_overloading">overloads</a> for the method, the number available and up/down arrows will be displayed allowing
@@ -582,28 +591,31 @@ World!");
                     <!-- TODO complete Program execution code example -->
                     <!-- SECTION Program execution -->
                     <h3 id="Program_execution">Program execution</h3>
-                    <p>All <a href="#Code_syntax">statements</a> in C# programs are executed with respect to a <a href="#Methods">method.</a> For example a
-                        <a href="#Properties">property</a> is a method with a special syntax and an <a href="#Events">event</a> merely calls a delegate to a method that
-                        acts as the event handler. Normal execution starts with the first and ends after the last statement in the <code>Main</code> method
-                        <span class="nowrap"><a href="#Code_syntax">code block.</a></span> Abnormal execution can result in the program prematurely exiting or becoming
+                    <p>When a <a href="#Code_syntax">statement</a> is run it is said to be executed. Normal program execution starts with the first and ends after the
+                        last statement has been executed in the <a href="#Program_structure">Main method</a>
+                        <span class="nowrap"><a href="#Code_syntax">code block.</a></span> Abnormal execution can result in the program exiting prematurely or becoming
                         unresponsive.</p>
                     <p>Within a code block, statements are executed from top to bottom. If the statement is a <a href="#Conditional_Statements">conditional statement</a>,
-                        alternate paths will be introduced in which one will be chosen dependent on the result of testing the condition. If an
+                        alternate paths will be introduced in which one will be chosen dependent on the condition for that path being true. If an
                         <a href="#Iteration_Statements">iterative statement</a>, the statements it contains will be repeatedly executed until a condition is met that
-                        allow execution to <a href="#break">break</a> out of the loop. A statement can also pass execution on to another method known as <i>calling</i>
-                        or <i>invoking</i>, with the method that contains the statement known as the <code>caller</code> and the invoked method said to be <i>nested</i>
-                        within the caller. In normal circumstances, execution is returned to the caller through a return statement or, if the invoked method returns
-                        <code>void</code>, the end of the method is reached. Program execution can continually call and be returned from methods until it ultimately
-                        returns to the <code>Main</code> method where, assuming there have been no errors, the program exits normally.</p>
-                    <p>Invoking a method is in the form of <code>instance.Method(parameters)</code> for an instance of a type and <code>TypeName.Method(parameters)</code>
-                        for a <a href="#static">static</a> type. To call an instance method an object must first be instantiated from the type that contains it.</p>
+                        allows execution to <a href="#break">break</a> out of the loop. A statement can also pass execution on to another
+                        <a href="#Methods">method</a> known as <i>calling</i> or <i>invoking</i>, with the statement known as a <i>method call</i> and the method that
+                        contains it known as the <i>calling method</i> or simply the <i>caller</i>. The <i>invoked</i> or <i>called</i> method is said to be <i>nested</i>
+                        within the caller. In normal circumstances, execution is returned to the method call through a return statement if the method returns a value or
+                        if the called method returns <code>void</code>, a return statement or the end of the method is reached. Program execution can continually call and
+                        be returned from methods until the last statement in the Main method has been executed where, assuming there have been no errors, the program
+                        exits normally.</p>
+                    <p>A method call is in the form of <code>instance.Method(parameters)</code> for an instance of a type and <code>TypeName.Method(parameters)</code>
+                        for a <a href="#static">static</a> type. To call an instance method an object must first be instantiated from the type that contains it. All
+                        <a href="">statements</a> in C# programs are executed with respect to a <a href="#Methods">method.</a> For example a
+                        <a href="#Properties">property</a> is a method with a special syntax and an <a href="#Events">event</a> merely calls a
+                        <a href="#delegate">delegate</a> to a method that acts as the event handler.</p>
                     <p>The <a href="#dot_NET">CLR</a> handles method calls by using a <i>stack</i> which in this context is known as the
                         <span class="nowrap"><i>call stack</i>.</span> This can be thought of as a stack of paper where each sheet represents a method. When a method is
                         called it is placed on top, known as <i>pushed</i>, and its statements are executed until returned to the caller. The returning method is then
-                        removed, known as <i>popped</i>, and execution resumes with the statement that called the method. <a href="#Code_syntax">Declarations</a> and
-                        statements, including conditional and iterative statements, being part of a method are not individually added to the call stack. In computer
-                        science a stack is implemented using a <i>Last In First Out</i> memory structure or <span class="nowrap"><i>LIFO</i>.</span> How the return from a
-                        called method is treated depends on whether the method returns a value and which of the following is encountered.</p>
+                        removed, known as <i>popped</i>, and execution resumes with the method call. In computer science a stack is implemented using a
+                        <i>Last In First Out</i> memory structure or <span class="nowrap"><i>LIFO</i>.</span> How the return from a called method is treated depends on
+                        whether the method returns a value and which of the following is encountered.</p>
                     <ul>
                         <li>A return statement is executed.</li>
                         <li>The end of the method is reached.</li>
@@ -612,16 +624,16 @@ World!");
                     </ul>
                     <p>If a method returns a value then a return statement must be present for all possible return paths. Reaching the end of the method without
                         encountering one will result in a syntax error and the program won't compile. Here the return statement takes the form of <code>return T</code>
-                        where T is literal of <a href="#Variables,_Constants,_Types_and_Literals">variable</a> of the return type declared in the method's
+                        where T is literal or <a href="#Variables,_Constants,_Types_and_Literals">variable</a> of the return type declared in the method's
                         <span class="nowrap"><a href="#Methods">header.</a></span> If a method does not return a value, i.e. the return type is <code>void</code>, then
                         execution will be returned to the caller when either a return statement or the end of the method is reached. In this case the method can contain
-                        any number of return statements including none with the return statement taking the form of <span class="nowrap"><code>return;</code>.</span></p>
+                        any number of return statements including none, with the return statement taking the form of <span class="nowrap"><code>return;</code>.</span></p>
                     <p>If an exception is thrown, further execution is halted and the methods are popped off the call stack until one containing a
                         <a href="#try-catch">catch block</a> to handle the the exception is reached. If one is not found, the program will exit resulting in an unhandled
                         exception. If a call to an <code>Exit</code> method is encountered the program exits immediately without returning to the caller.
                         <code>Exit</code> can be used in a conditional statement that tests if the program has an error that has put it into a non-recoverable state. This
                         way, along with other code, <code>Exit</code> can allow for the program to exit gracefully. For a console application <code>Exit</code> is in
-                        the Environment <a href="#Namespaces">namespace</a> so the <a href="#Namespaces">fully qualified</a> name is
+                        the <code>Environment</code> <a href="#Namespaces">namespace</a> so the <a href="#Namespaces">fully qualified</a> name is
                          <span class="nowrap"><code>Environment.Exit</code>.</span></p>
                     <p>Without intervention a program will simply run its course and exit. To prevent this and allow for user input, a pattern often employed is to use an
                         infinite loop containing a conditional statement that upon detecting a specific character, breaks out of the loop then executes the remaining
@@ -632,9 +644,9 @@ World!");
                         return key is pressed, this will produce a carriage return, new line or a combination of both. If any of these are encountered, execution is
                         returned to the caller with a <a href="#string">string</a> value containing the characters entered.</p>
                     <p>A computer has a finite amount of memory and if totally consumed this could result in the operating system crashing. As this could occur from too
-                        many many nested method calls, the CLR will protect the system by throwing a <span class="nowrap"><code>StackOverflowException</code>.</span> One
+                        many nested method calls, the CLR will protect the system by throwing a <span class="nowrap"><code>StackOverflowException</code>.</span> One
                         notable cause for this is a pattern called a recursive algorithm where a method calls itself. If no safeguards are put in place the stack is
-                        filled with instances of the method until it overflows.</p>
+                        filled with calls to the method until it overflows.</p>
                     <p><em>Note:</em> <i> A <code>StackOverflowException</code> can't be caught in a try-catch so it is important that careful consideration be made when
                         utilizing such patterns.</i></p>
                     <p>CodeExample</p>
@@ -656,25 +668,26 @@ World!");
 <!-- TODO Add custom exceptions and using in built preferred. Custom exceptions should end with exception -->
 <!-- TODO add info about source of exception, .NET, runtime, third-party -->
 <!-- TODO Fix red wavy line font size too large in code examples -->
-            <!-- SECTION Errors and Exception Handling -->
-            <section class="main-section" id="Errors_and_Exception_Handling">
-                <header><h2>Errors and Exception Handling</h2></header>
+            <!-- SECTION Errors, Exception Handling and Debugging -->
+            <section class="main-section" id="Errors,_Exception_Handling_and_Debugging">
+                <header><h2>Errors, Exception Handling and Debugging</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article class="main-article">
                     <p>As the program code grows the likelihood that a error will be introduced grows with it. C# provides tools for handling these depending on the kind
                         of error that is encountered.</p>
-                    <!-- SECTION Errors types -->
+                    <!-- SECTION Error types -->
                     <h3 id="Error_types">Error types</h3>
                     <p>There are three different kinds of errors, syntax errors, runtime errors and logical errors.</p>
                     <!-- SECTION Syntax errors -->
                     <h4 id="Syntax_errors">Syntax errors</h4>
-                    <p>As the title suggests, syntax errors occur when the syntax is wrong and this will prevent the code from being compiled. This could be caused by a
-                        spelling mistake, a missing semi colon, an incorrect use of a language element, etc. The code editor will identify such errors with a
-                        <u class="error">red wavy underline</u>. These are the easiest errors to fix as in most cases, hovering the mouse over the error will result in a
-                        popup dialog in the code editor, identifying the issue along with suggestions on how to fix it. Additionally, the error will appear in the
-                        <i>Error List</i> usually located at the bottom of the code editor. You can then select the error and by pressing F1, the link to help for it will
-                        be opened in a browser. To view the error list, you may need to click on the <b>Error List</b> tab or if it is not there, you can open it by
-                        clicking on <b>View</b> in the menu then <b>Error List.</b> Syntax errors are also sometimes called compiler errors and compile-time errors.</p>
+                    <p>As the title suggests, syntax errors occur when the <a href="#Code_syntax">syntax</a> is wrong and this will prevent the code from being
+                        <a href="#Integrated_Development_Environment">compiled</a>. This could be caused by a
+                        spelling mistake, a missing semi colon, an incorrect use of a language element, etc. These are the easiest errors to fix as the
+                        <a href="#Code_editor">code editor</a>, much like a word processor, identifies such errors with a <u class="error">red wavy underline</u>. Syntax
+                        errors are also sometimes called compile errors or compile-time errors. Additionally, the code editor will provide warnings with a
+                        <u class="warning">green wavy underline</u>. Whilst these won't prevent the program from compiling, they indicate problems that most likely will
+                        result in issues when the program is run and should be addressed. As well as highlighting errors and warnings, the code editor provides a number
+                        of other tools to assist the developer in debugging.</p>
                     <p>The following example demonstrates a syntax error.</p>
 <pre><code>namespace SyntaxError
 {
@@ -693,18 +706,20 @@ World!");
                     <!-- SECTION Runtime errors -->
                     <h4 id="Runtime_errors">Runtime error</h4>
                     <p>A runtime error occurs after the program has been compiled and is running. Whilst syntactically correct, when the code is executed, it will result
-                        in an error that can't be resolved and stops the program from functioning. The runtime then looks for the reason the error occurred and
-                        reports it in the form of an <a href="#Exceptions">exception.</a> As such errors are at a fixed point in the code, these can usually be fixed
-                        fairly easily by either correcting the error through debugging or by providing appropriate <a href="#try-catch">exception handling.</a> See
-                        <a href="#Exceptions">Exceptions</a> for an example of a runtime error.</p>
+                        in an error that can't be resolved and stops the program from functioning. The <a href="#dot_NET">CLR</a> then looks for the reason the error
+                        occurred and reports it in the form of an <a href="#Exceptions">exception.</a> As such errors are at a fixed point in the code, these can usually
+                        be fixed fairly easily by either correcting the error through <a href="#Debugging">debugging</a> or by providing appropriate
+                        <a href="#try-catch">exception handling.</a> See <a href="#Exceptions">Exceptions</a> for an example of a runtime error.</p>
                     <!-- !SECTION Runtime errors -->
                     <!-- SECTION Logical errors -->
                     <h4 id="Logical_errors">Logical error</h4>
                     <p>These are errors that occur while the program is running but don't cause the program to crash. Instead, the program will produce an unexpected
                         result. For example, the sum of a list of numbers may be far more than expected because an expression may mistakenly multiply instead of adding
                         the values. These are often the hardest errors to debug as they most often they result from incorrect assumptions on what the program is doing
-                        and could be buried deep within thousands or even millions of lines of code.</p>
-                    <p>The following is an example of a logical error. The numbers are multiplied when they should be added.</p>
+                        and could be buried deep within thousands or even millions of lines of code. As with runtime errors, a number of
+                        <a href="#Debugging">debugging</a> techniques can be used to correct the issues.</p>
+                    <p>The following is an example of a logical error. The numbers are multiplied when they should be added. The expected result from adding 3 + 5 is 7,
+                        but the program produces 15, the result of multiplication.</p>
 <pre><code>namespace LogicalErrors
 {
     internal class Program
@@ -721,7 +736,7 @@ World!");
 // 3 + 5 = 15
 </code></pre>
                     <!-- !SECTION Logical errors -->
-                    <!-- !SECTION Errors types -->
+                    <!-- !SECTION Error types -->
                     <!-- SECTION Exceptions -->
                     <h3 id="Exceptions">Exceptions</h3>
                     <p>When an error that is caused by and cannot be resolved by the current executing statement occurs, an exception is thrown. This could be due to code
@@ -880,9 +895,175 @@ World!");
 // A second exception
 </code></pre>
                     <!-- !SECTION Filtered_exceptions -->
+                    <!-- TODO complete Debugging -->
+                    <!-- SECTION Debugging -->
+                    <h3 id="Debugging">Debugging</h3>
+                    <p>Unlike computers, we humans make mistakes and as developers these can create problems, or <i>bugs,</i> that prevent our programs from
+                        operating correctly. Debugging is the process of analyzing the program and removing such <a href="#Error_types">errors.</a> Visual Studio provides
+                        several tools to help with this. Some of these are the <a href="#Code_editor">code editor,</a>
+                        <a href="#Debugger_and_breakpoints">debugger which is used in conjunction with break points,</a> <a href="#Locals_window">locals window,</a>
+                        <a href="#Watch_window">watch window</a> and <a href="#Call_stack_window">call stack window.</a> While these tools can greatly assist by
+                        highlighting errors and even making suggestions as how
+                        to fix them, they cannot fix bugs automatically. Ultimately it is up to you to understand what is happening and to choose the correct solution to
+                        each specific issue. This is a skill that can only be learnt with continual practice.</p>
+                    <p>Debugging follows a repeated pattern, "what do you expect the code to do?", run the code, "what did the code do?". The way this is achieved is by
+                        writing small, well defined pieces of code to which a single assumption can be applied. The program is then run to determine if it met that
+                        assumption and if not, appropriate corrections are applied until it does. This is then repeated for each piece of code to be added until the
+                        program is completed.</p>
+                    <!-- TODO complete Code editor -->
+                    <!-- SECTION Code editor -->
+                    <h4 id="Code_editor">Code editor</h4>
+                    <p>The code editor highlights syntax errors that prevent the program from compiling with a red wavy underline. It also provides warnings of code that
+                        won't prevent the program from compiling but can cause issues during runtime and need to be addressed. These are highlighted with a
+                        <u class="warning">green wavy underline</u>. By hovering the mouse over the highlighted code, a popup dialog will provide information on the
+                        problem, usually with a link indicating the error number. When clicked, this opens a help page for the error in the
+                        <a href="#References">Microsoft C# reference documentation.</a> It may also provide a <i>'Show potential fixes'</i> link that can be opened by
+                        clicking or by using the shortcut <b>Alt + Enter.</b> When opened, a list of fixes is shown and when hovering over each of these, another popup
+                        showing the the suggested change is displayed.</p>
+                    <p>The same information can also be found in the <i>Error List</i> usually located at the bottom of the code editor. After selecting an error you can
+                        display help information by either clicking the error number or pressing F1. To view the error list, you may need to click on the
+                        <b>Error List</b> tab or if it is not displayed, open it by clicking on <b>View</b> then <b>Error List.</b> in the menu.</p>
+                    <p>CodeExample</p>
+<pre><code>namespace Namespace
+
+{
+    class Program
+    {
+        static void Main()
+        {
+
+        }
+    }
+}
+</code></pre>
+                    <!-- !SECTION Code editor -->
+                    <!-- TODO complete Debugger -->
+                    <!-- SECTION Debugger -->
+                    <h3 id="Debugger_and_breakpoints">Debugger and breakpoints</h3>
+                    <p>There are two ways a program can be configured when it is being built, for <i>Debug</i> or for <i>Release.</i> Debug configuration adds extra
+                        information to the build specifically for use by the debugger. The release configuration removes the debug information and optimizes the program
+                        for performance. Debug or release configurations can be selected from a dropdown list in the Visual Studio toolbar and it is important to make
+                        sure this is set to <b>Debug</b> when starting a debug session.</p>
+                    <p>When running a program it may end unexpectedly without providing any information. Worse, it may run through to the end and exit normally but the
+                        function it provides may not be as expected. The debugger provides extra information and allows you to step through the code one line at a time
+                        allowing you to locate exactly where the code is going wrong. Breakpoints can be assigned to any
+                        line and can assist you by instructing the debugger to pause at the line prior to executing it. From here you can then step through the
+                        program and examine the current state of the variables that are in scope. Breakpoints and the current debugger state appear as icons in the left
+                        margin just to the left of the line numbers. When using the debugger this is known as running the program with the debugger attached and there are
+                        a number of ways you can control it.</p>
+                    <ul>
+                        <li>Start debugging (<b>F5</b>)</li>
+                        <li>Stop debugging (<b>Shift + F5</b>)</li>
+                        <li>Step into (<b>F11</b>)</li>
+                        <li>Step over (<b>F10</b>)</li>
+                        <li>Step out (<b>Shift + F11</b>)</li>
+                        <li>Run to</li>
+                        <li>Run to cursor (<b>Ctrl + F10</b>)</li>
+                        <li>Start without debugging (<b>Ctrl + F5</b>)</li>
+                    </ul>
+                    <p>The debugger can be started by clicking on the solid green triangle in the toolbar that looks like a play icon or by pressing <b>F5.</b> When the
+                        program is running a red square that looks like a <i>stop icon</i> will appear and clicking it or pressing <b>Shift + F5</b> will stop the
+                        debugger. If an exception is thrown, program execution will usually be paused at the statement in which it occurs, highlighting it and placing
+                        a yellow arrow in the left margin pointing to it. This indicates an attempt was made to execute the statement which resulted in the error. A popup
+                        dialog will be displayed next to the statement with the name of the exception and other information pertaining to it. If the statement is the true
+                        source of the exception then it can be corrected and the program rerun.</p>
+                    <p>Of course it may be that the source of the exception is elsewhere. For example, while dividing a number by zero will result in a
+                        <i>DivideByZeroException,</i> the place where the denominator became zero may be somewhere prior to the exception. To solve this you can place a
+                        breakpoint prior to where you suspect this may be occurring, then by stepping through one line at a time and inspecting each variable's value as
+                        it changes, you can determine the defective statement. To achieve this, click in the left margin next to the required location. A red dot will
+                        appear indicating the breakpoint and the accompanying line of code will be highlighted in red. When the program is rerun it will pause at the
+                        selected line highlighting it in yellow and placing a yellow arrow pointing to it in the left margin. At this point all code prior to the line has
+                        been executed but not the line itself. A breakpoint can also be set while the program is running.</p>
+                    <p>With the program paused, by hovering the mouse over any variable in the local scope a popup dialog will indicate its current value. For example if
+                        MethodA calls MethodB and a breakpoint is placed on a statement in MethodB, only the values of the variables in MethodB's local scope can be
+                        observed. Similarly, if a method contains an if statement and a breakpoint is placed on a line outside it, the values of the variables within it
+                        can't be observed as program execution has not entered its local scope. </p>
+                    <p>Step into executes one line at a time. By pressing <b>F11,</b> the currently highlighted line will be executed and the program advanced to the next
+                        line, highlighting it and advancing the arrow in the left margin. The local variable values can be rechecked and the program state evaluated. This
+                        process can be repeated until the problem is found, an exception is thrown or the program ends. If the program isn't running, pressing <b>F11</b>
+                        will start it with the debugger attached and pause the program at the opening brace of the Main method. By default, only your code is shown being
+                        executed but this can be changed in Visual Studio's options.</p>
+                    <p>Step over allows you to skip over methods that may not be of interest so that you can quickly get to the relevant part of the code. When you are at
+                        a method call, pressing <b>F10</b> will execute the statements it contains but without stepping through them individually. The program is then
+                        advanced to the next method call. Pressing <b>F10</b> on any statement, other than a method call, has the same effect as pressing <b>F11</b>.</p>
+                    <p>Step out allows you to skip the remaining statements in a method. When paused at a line within a method, pressing <b>Shift + F11</b> will advance
+                        the program back to the method call.</p>
+                    <p>Run to allows you to advance the program to a specific line of code. With the program paused, when the mouse is hovered over a line of code a green
+                        popup <i>skip forward</i> or <i>next</i> icon will appear. Clicking it will advance the program to that point.</p>
+                    <p>Run to cursor will advance the program to the current cursor position in the code and is achieved by pressing <b>Ctrl + F10.</b> This can be used
+                        whether or not the program is already running and whether or not the program is paused.</p>
+                    <p>When using step over, step out, run to or run to cursor, if a breakpoint is present then it will take priority and the program will not advance
+                        past it. </p>
+                    <p>To run the program normally, the empty triangle icon to the right of the project name can be clicked or the shortcut <b>Ctrl + F5</b> can be
+                        pressed. The program then runs and any breakpoints are ignored.</p>
+                    <p>CodeExample</p>
+<pre><code>namespace Namespace
+{
+    class Program
+    {
+        static void Main()
+        {
+
+        }
+    }
+}
+</code></pre>
+                    <!-- !SECTION Debugger -->
+                    <!-- TODO complete Locals window -->
+                    <!-- SECTION Locals window -->
+                    <h4 id="Locals_window">Locals window</h4>
+                    <p>Description</p>
+                    <p>CodeExample</p>
+<pre><code>namespace Namespace
+{
+    class Program
+    {
+        static void Main()
+        {
+
+        }
+    }
+}
+</code></pre>
+                    <!-- !SECTION Locals window -->
+                    <!-- TODO complete Watch window -->
+                    <!-- SECTION Watch window -->
+                    <h4 id="Watch_window">Watch window</h4>
+                    <p>Description</p>
+                    <p>CodeExample</p>
+<pre><code>namespace Namespace
+{
+    class Program
+    {
+        static void Main()
+        {
+
+        }
+    }
+}
+</code></pre>
+                    <!-- !SECTION Watch window -->
+                    <!-- TODO complete Call stack window -->
+                    <!-- SECTION Call stack window -->
+                    <h4 id="Call_stack_window">Call stack window</h4>
+                    <p>Description</p>
+                    <p>CodeExample</p>
+<pre><code>namespace Namespace
+{
+    class Program
+    {
+        static void Main()
+        {
+
+        }
+    }
+}
+</code></pre>
+                    <!-- !SECTION Call stack window -->
+                    <!-- !SECTION Debugging -->
                 </article>
             </section>
-            <!-- !SECTION Errors and Exception Handling -->
+            <!-- !SECTION Errors, Exception Handling and Debugging -->
             <!-- TODO complete variable lifetime -->
             <!-- TODO add something about generics -->
             <!-- SECTION Variables, Constants, Types and Literals -->
@@ -2411,6 +2592,7 @@ namespace AliasQualifier
             </section>
             <!-- !SECTION Conditional Statements -->
 <!-- TODO Add yield statement -->
+<!-- TODO Add infinite while loop -->
             <!-- SECTION Iteration Statements -->
             <section class="main-section" id="Iteration_Statements">
                 <header><h2>Iteration Statements</h2></header>
@@ -4503,13 +4685,12 @@ namespace Dictionaries
                         be set in the event handler to indicate if the event should be cancelled.</p>
                     <p>In the following example the <code>ApplicationManager</code> class declares an <code>Exiting</code> event that in turn declares a
                         <code>CancelEventHandler</code> type delegate. The <code>Program</code> class subscribes to the <code>Exiting</code> event and declares an event
-                        handler for this using a <a href="#Lambda_expressions">lambda expression.</a> Within the <code>Main</code> method are two while loops, one testing
-                        if the user presses the <b>x</b> key, nested in another that tests if the <code>AllowExit</code> property is true. When the <b>x</b> key is
-                        pressed, <code>Exit</code> is called which calls <code>OnExiting</code> which invokes the <code>Exiting</code> event. Within the
-                        <code>Exiting</code> event handler in <code>Program</code>, the <code>CancelEventArgs.Cancel</code> property is set <code>true</code> or
-                        <code>false</code> depending if the <b>y</b> key is pressed, then passed back to <code>OnExiting</code> then to <code>Exit</code> where it
-                        sets the <code>AllowExit</code> property. Execution passes back to the while loops which it exits if <code>AllowExit</code> is true and the
-                        program then terminates.</p>
+                        handler for this using a <a href="#Lambda_expressions">lambda expression.</a> Within the Main method are two while loops, one testing if the user
+                        presses the <b>x</b> key, nested in another that tests if the <code>AllowExit</code> property is true. When the <b>x</b> key is pressed,
+                        <code>Exit</code> is called which calls <code>OnExiting</code> which invokes the <code>Exiting</code> event. Within the <code>Exiting</code> event
+                        handler in <code>Program</code>, the <code>CancelEventArgs.Cancel</code> property is set <code>true</code> or <code>false</code> depending if the
+                        <b>y</b> key is pressed, then passed back to <code>OnExiting</code> then to <code>Exit</code> where it sets the <code>AllowExit</code> property.
+                        Execution passes back to the while loops which it exits if <code>AllowExit</code> is true and the program then terminates.</p>
 <pre><code>using System.ComponentModel;
 
 namespace CancelEvent
