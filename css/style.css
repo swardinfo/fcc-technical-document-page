@@ -291,6 +291,78 @@ u.warning::after {
     transform: rotate(-3deg);
 }
 
+.play-button {
+    display: inline-block;
+    position: relative;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 12px solid #1E7C1E;
+    vertical-align: middle;
+    margin-left: 3px;
+    margin-right: 2px;
+    margin-bottom: 2px;
+}
+
+.play-button-light-fill {
+    display: inline-block;
+    position: absolute;
+    top: -6px;
+    left: -11px;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 8px solid #DAE4DD;
+    vertical-align: middle;
+}
+
+.stop-button {
+    display: inline-block;
+    width: 11px;
+    height: 12px;
+    background-color: #CC434D;
+    border: 1px solid #C00A16;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-bottom: -1px;
+}
+
+.next-button-triangle {
+    display: inline-block;
+    position: relative;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 10px solid #6FB76F;
+    vertical-align: middle;
+    margin-left: 3px;
+    margin-right: 6px;
+    margin-bottom: 2px;
+}
+
+.next-button-bar {
+    display: inline-block;
+    position: absolute;
+    top: -6px;
+    left: 2px;
+    width: 1px;
+    height: 12px;
+    background-color: #6FB76F;
+    vertical-align: middle;
+}
+
+.red-dot {
+    display: inline-block;
+    position: relative;
+    height: 12px;
+    width: 12px;
+    background-color: #C55159;
+    border: 1px solid #F05A64;
+    border-radius: 6px;
+    vertical-align: middle;
+    margin-left: 3px;
+    margin-right: 2px;
+    margin-bottom: 2px;
+}
+
+
 /* project requirement - technical Documentation page should use at least one media query */
 @media only screen and (min-width: 800px) {
 

@@ -903,9 +903,8 @@ World!");
                         several tools to help with this. Some of these are the <a href="#Code_editor">code editor,</a>
                         <a href="#Debugger_and_breakpoints">debugger which is used in conjunction with break points,</a> <a href="#Locals_window">locals window,</a>
                         <a href="#Watch_window">watch window</a> and <a href="#Call_stack_window">call stack window.</a> While these tools can greatly assist by
-                        highlighting errors and even making suggestions as how
-                        to fix them, they cannot fix bugs automatically. Ultimately it is up to you to understand what is happening and to choose the correct solution to
-                        each specific issue. This is a skill that can only be learnt with continual practice.</p>
+                        highlighting errors and even making suggestions as how to fix them, they cannot fix bugs automatically. Ultimately it is up to you to understand
+                        what is happening and to choose the correct solution to each specific issue. This is a skill that can only be learnt with continual practice.</p>
                     <p>Debugging follows a repeated pattern, "what do you expect the code to do?", run the code, "what did the code do?". The way this is achieved is by
                         writing small, well defined pieces of code to which a single assumption can be applied. The program is then run to determine if it met that
                         assumption and if not, appropriate corrections are applied until it does. This is then repeated for each piece of code to be added until the
@@ -961,41 +960,48 @@ World!");
                         <li>Run to cursor (<b>Ctrl + F10</b>)</li>
                         <li>Start without debugging (<b>Ctrl + F5</b>)</li>
                     </ul>
-                    <p>The debugger can be started by clicking on the solid green triangle in the toolbar that looks like a play icon or by pressing <b>F5.</b> When the
-                        program is running a red square that looks like a <i>stop icon</i> will appear and clicking it or pressing <b>Shift + F5</b> will stop the
-                        debugger. If an exception is thrown, program execution will usually be paused at the statement in which it occurs, highlighting it and placing
-                        a yellow arrow in the left margin pointing to it. This indicates an attempt was made to execute the statement which resulted in the error. A popup
-                        dialog will be displayed next to the statement with the name of the exception and other information pertaining to it. If the statement is the true
-                        source of the exception then it can be corrected and the program rerun.</p>
-                    <p>Of course it may be that the source of the exception is elsewhere. For example, while dividing a number by zero will result in a
-                        <i>DivideByZeroException,</i> the place where the denominator became zero may be somewhere prior to the exception. To solve this you can place a
+                    <p>The debugger can be started by clicking on the <i>Start Debugging</i> button <span class="play-button"></span> in the toolbar or by pressing
+                        <b>F5.</b> When the program is running a <i>Stop Debugging</i> <span class="stop-button"></span> button will appear in the toolbar and clicking it
+                        or pressing <span class="nowrap"><b>Shift + F5</b></span> will stop the debugger. If an exception is thrown, program execution will usually be
+                         paused at the statement in
+                        which it occurs, highlighting it and placing a yellow arrow in the left margin pointing to it. This indicates an attempt was made to execute the
+                        statement which resulted in the error. A popup dialog will be displayed next to the statement with the name of the exception and other information
+                        pertaining to it. If the statement is the true source of the exception then it can be corrected and the program rerun.</p>
+                    <p>More often than not, the source of the exception is elsewhere. For example, dividing a number by zero will result in a
+                        <i>DivideByZeroException,</i> but the place where the denominator became zero may be somewhere prior to the exception. To solve this you can
+                         place a
                         breakpoint prior to where you suspect this may be occurring, then by stepping through one line at a time and inspecting each variable's value as
-                        it changes, you can determine the defective statement. To achieve this, click in the left margin next to the required location. A red dot will
+                        it changes, you can determine the defective statement. To achieve this, either with the program running or stopped, click in the left margin next
+                         to the required location.  A red dot <span class="red-dot"></span> will
                         appear indicating the breakpoint and the accompanying line of code will be highlighted in red. When the program is rerun it will pause at the
-                        selected line highlighting it in yellow and placing a yellow arrow pointing to it in the left margin. At this point all code prior to the line has
-                        been executed but not the line itself. A breakpoint can also be set while the program is running.</p>
-                    <p>With the program paused, by hovering the mouse over any variable in the local scope a popup dialog will indicate its current value. For example if
+                        selected line, highlighting it in yellow and placing a yellow arrow pointing to it in the left margin. At this point all code prior to the line
+                         has been executed but not the line itself.</p>
+                    <p>With the program paused, by hovering the mouse over any variable in the local scope, a popup dialog will indicate its current value. For example if
                         MethodA calls MethodB and a breakpoint is placed on a statement in MethodB, only the values of the variables in MethodB's local scope can be
                         observed. Similarly, if a method contains an if statement and a breakpoint is placed on a line outside it, the values of the variables within it
                         can't be observed as program execution has not entered its local scope. </p>
                     <p>Step into executes one line at a time. By pressing <b>F11,</b> the currently highlighted line will be executed and the program advanced to the next
-                        line, highlighting it and advancing the arrow in the left margin. The local variable values can be rechecked and the program state evaluated. This
+                        line. The local variable values can be rechecked and the program state evaluated. This
                         process can be repeated until the problem is found, an exception is thrown or the program ends. If the program isn't running, pressing <b>F11</b>
                         will start it with the debugger attached and pause the program at the opening brace of the Main method. By default, only your code is shown being
                         executed but this can be changed in Visual Studio's options.</p>
                     <p>Step over allows you to skip over methods that may not be of interest so that you can quickly get to the relevant part of the code. When you are at
                         a method call, pressing <b>F10</b> will execute the statements it contains but without stepping through them individually. The program is then
-                        advanced to the next method call. Pressing <b>F10</b> on any statement, other than a method call, has the same effect as pressing <b>F11</b>.</p>
-                    <p>Step out allows you to skip the remaining statements in a method. When paused at a line within a method, pressing <b>Shift + F11</b> will advance
+                        advanced to the next method call. Pressing <b>F10</b> on any statement, other than a method call, will execute it.</p>
+                    <p>Step out allows you to skip the remaining statements in a method. When paused at a line within a method, pressing
+                        <span class="nowrap"><b>Shift + F11</b></span> will advance
                         the program back to the method call.</p>
-                    <p>Run to allows you to advance the program to a specific line of code. With the program paused, when the mouse is hovered over a line of code a green
-                        popup <i>skip forward</i> or <i>next</i> icon will appear. Clicking it will advance the program to that point.</p>
-                    <p>Run to cursor will advance the program to the current cursor position in the code and is achieved by pressing <b>Ctrl + F10.</b> This can be used
+                    <p>Run to allows you to advance the program to a specific line of code. With the program paused, when the mouse is hovered over a line of code,
+                        the run to button <span class="next-button-triangle"><span class="next-button-bar"></span></span> will appear. Clicking it will advance the
+                         program to that point.</p>
+                    <p>Run to cursor will advance the program to the current cursor position in the code and is achieved by pressing
+                        <span class="nowrap"><b>Ctrl + F10.</b></span> This can be used
                         whether or not the program is already running and whether or not the program is paused.</p>
-                    <p>When using step over, step out, run to or run to cursor, if a breakpoint is present then it will take priority and the program will not advance
-                        past it. </p>
-                    <p>To run the program normally, the empty triangle icon to the right of the project name can be clicked or the shortcut <b>Ctrl + F5</b> can be
-                        pressed. The program then runs and any breakpoints are ignored.</p>
+                    <p>When using step over, step out, run to or run to cursor, if a breakpoint is present it will take priority and the program will pause at the
+                        breakpoint. </p>
+                    <p>To run the program normally click the <i>Start without debugging</i> button
+                        <span class="play-button"><span class="play-button-light-fill"></span></span>
+                        or use the shortcut <span class="nowrap"><b>Ctrl + F5</b></span>. The program then runs and any breakpoints are ignored.</p>
                     <p>CodeExample</p>
 <pre><code>namespace Namespace
 {
