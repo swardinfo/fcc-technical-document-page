@@ -362,6 +362,49 @@ u.warning::after {
     margin-bottom: 2px;
 }
 
+.yellow-arrow-point {
+    display: inline-block;
+    position: relative;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 9px solid #1E1E1E;
+    vertical-align: middle;
+    margin-left: 8px;
+    margin-right: 2px;
+    margin-bottom: 2px;
+    z-index: 10;
+}
+
+.yellow-arrow-point-fill {
+    display: inline-block;
+    position: absolute;
+    top: -6px;
+    left: -8px;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 5px solid #FFDB80;
+    vertical-align: middle;
+    z-index: 10;
+}
+
+.yellow-arrow-tail {
+    display: inline-block;
+    position: absolute;
+    top: -4px;
+    left: -14px;
+    width: 8px;
+    height: 8px;
+    background-color: #FFDB80;
+    border-top: 1px solid #1E1E1E;
+    border-bottom: 1px solid #1E1E1E;
+    border-left: 1px solid #1E1E1E;
+    border-right: 3px solid #FFDB80;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-bottom: -1px;
+    z-index: 5;
+}
+
 
 /* project requirement - technical Documentation page should use at least one media query */
 @media only screen and (min-width: 800px) {
