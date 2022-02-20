@@ -28,7 +28,8 @@
                 <!-- project requirement - clicking nav-link element navigates page to the corresponding main-doc section -->
                 <li><a class="nav-link" href="#Introduction">Introduction</a></li>
                 <li><a class="nav-link" href="#Code_Syntax_and_Program_Execution">Code Syntax and Program Execution</a></li>
-                <li><a class="nav-link" href="#Errors,_Exception_Handling_and_Debugging">Errors, Exception Handling and Debugging</a></li>
+                <li><a class="nav-link" href="#Errors_and_Exception_Handling">Errors and Exception Handling</a></li>
+                <li><a class="nav-link" href="#Debugging">Debugging</a></li>
                 <li><a class="nav-link" href="#Variables,_Constants,_Types_and_Literals">Variables, Constants, Types and Literals</a></li>
                 <li><a class="nav-link" href="#Characters_and_Strings">Characters and Strings</a></li>
                 <li><a class="nav-link" href="#Expressions_and_Operators">Expressions and Operators</a></li>
@@ -671,8 +672,8 @@ World!");
 <!-- TODO add info about source of exception, .NET, runtime, third-party -->
 <!-- TODO Fix red wavy line font size too large in code examples -->
             <!-- SECTION Errors, Exception Handling and Debugging -->
-            <section class="main-section" id="Errors,_Exception_Handling_and_Debugging">
-                <header><h2>Errors, Exception Handling and Debugging</h2></header>
+            <section class="main-section" id="Errors_and_Exception_Handling">
+                <header><h2>Errors and Exception Handling</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article class="main-article">
                     <p>As the program code grows the likelihood that a error will be introduced grows with it. C# provides tools for handling these depending on the kind
@@ -898,13 +899,20 @@ World!");
 // A second exception
 </code></pre>
                     <!-- !SECTION Filtered_exceptions -->
-                    <!-- TODO complete Debugging -->
-                    <!-- SECTION Debugging -->
-                    <h3 id="Debugging">Debugging</h3>
+                </article>
+            </section>
+            <!-- !SECTION Errors, Exception Handling and Debugging -->
+            <!-- TODO complete Debugging -->
+            <!-- SECTION Debugging -->
+            <section class="main-section" id="Debugging">
+                <header><h2>Debugging</h2></header>
+                <a class="back-to-top" href="#">Back to top</a>
+                <article>
                     <p>Unlike computers, we humans make mistakes and as developers these can create problems, or <i>bugs,</i> that prevent our programs from
                         operating correctly. Debugging is the process of analyzing the program and removing such <a href="#Error_types">errors.</a> Visual Studio provides
                         several tools to help with this. Some of these are the <a href="#Code_editor">code editor,</a>
-                        <a href="#Debugger_and_breakpoints">debugger which is used in conjunction with break points,</a> <a href="#Locals_window">locals window,</a>
+                        <a href="#Debugger_and_breakpoints">debugger which is used in conjunction with break points,</a>, <a href="#Immediate_window">Immediate window</a>
+                         <a href="#Locals_window">locals window,</a>
                         <a href="#Watch_window">watch window</a> and <a href="#Call_stack_window">call stack window.</a> While these tools can greatly assist by
                         highlighting errors and even making suggestions as how to fix them, they cannot fix bugs automatically. Ultimately it is up to you to understand
                         what is happening and to choose the correct solution to each specific issue. This is a skill that can only be learnt with continual practice.</p>
@@ -1028,6 +1036,25 @@ World!");
 }
 </code></pre>
                     <!-- !SECTION Debugger and breakpoints -->
+                    <!-- TODO complete Immediate window -->
+                    <!-- SECTION Immediate window -->
+                    <h3 id="Immediate_window">Immediate window</h3>
+                    <p>The immediate window allows you to change the value of a variable when the debugger is running. If not visible, it can be opened by selecting
+                        <span class="nowrap"><b>Debug</b> &gt; <b>Windows</b> &gt; <b>Immediate</b></span> from the menu bar or by pressing
+                        <span class="nowrap"><b>Ctrl + Alt + I.</b></span>.</p>
+                    <p>CodeExample</p>
+<pre><code>namespace Namespace
+{
+    class Program
+    {
+        static void Main()
+        {
+
+        }
+    }
+}
+</code></pre>
+                    <!-- !SECTION Immediate window -->
                     <!-- TODO complete Locals window -->
                     <!-- SECTION Locals window -->
                     <h4 id="Locals_window">Locals window</h4>
@@ -1079,10 +1106,9 @@ World!");
 }
 </code></pre>
                     <!-- !SECTION Call stack window -->
-                    <!-- !SECTION Debugging -->
                 </article>
             </section>
-            <!-- !SECTION Errors, Exception Handling and Debugging -->
+            <!-- !SECTION Debugging -->
             <!-- TODO complete variable lifetime -->
             <!-- TODO add something about generics -->
             <!-- SECTION Variables, Constants, Types and Literals -->
@@ -1128,7 +1154,7 @@ World!");
                         this is like a contact in an address book which only has the person's name but without any address information. Within the context of nullability,
                         a type that can be assigned null is said to be nullable and one that isn't, non-nullable. A nullable type can also be assigned null through use of
                         the <code>null</code> keyword. If an attempt is made to access a <a href="#Members">member</a> of a nullable type, known as <i>dereferencing</i>,
-                        or an element of an array where either has a value of null, a <a href="#Errors_ans_Exception_Handling">NullReferenceException</a> will be thrown.
+                        or an element of an array where either has a value of null, a <a href="#Errors_and_Exception_Handling">NullReferenceException</a> will be thrown.
                         A normal value type can't be assigned null and attempting to do so will result in a <a href="#Syntax_errors">syntax error.</a> Normal value types
                         have a default value when declared which for the built-in types is <code>false</code> for a <code>bool</code> and <code>0</code> for all numeric
                         types. A value type can be made nullable when declared by using the <code>?</code> suffix in the
