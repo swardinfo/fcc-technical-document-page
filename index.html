@@ -671,34 +671,34 @@ World!");
                     <h4 id="Code_editor">Code editor</h4>
                     <p>The <a href="#Program_structure">program structure</a> of a C# application consists of one or more code files that can be browsed in the
                         <a href="#Program_structure">Solution Explorer.</a> These can be opened in the <i>Code Editor</i> which provides many tools to assist in writing
-                        and debugging code such as code formatting and <i>IntelliSense,</i> which provides autocompletion options you can choose
-                        from as you enter your code. For example when
-                        entering the code for <a href="#Program_execution">calling a method</a>, as you type the opening round bracket <code>(</code>, IntelliSense will
-                        display a panel with the <a href="#Parameters,_signatures_and_overloading">signature</a> for the method. This includes the required and optional
-                        parameters and a description of what the method does as well as each parameter as they are entered. If there are
+                        and <a href="#Debugging">debugging</a> code such as code formatting and <i>IntelliSense,</i> which provides autocompletion options you can choose
+                        from as you enter your code. For example when entering the code for <a href="#Program_execution">calling a method</a>, as you type the opening
+                        round bracket <code>(</code>, IntelliSense will display a panel with the <a href="#Parameters,_signatures_and_overloading">signature</a> for the
+                        <a href="#Methods">method</a>. This includes the required and optional <a href="#Parameters,_signatures_and_overloading">parameters</a> and a
+                        description of what the method does as well as each parameter as they are entered. If there are
                         <a href="#Parameters,_signatures_and_overloading">overloads</a> for the method, the number available and up/down arrows will be displayed allowing
                         you to cycle through and find the correct one. Additionally, a scrollable list will be displayed showing the possible arguments that can be
-                        entered. If variables or parameters from the containing method have been previously declared, they will appear at the top of the list, which in
-                        the following example includes <code>args</code> from <span class="nowrap"><code>Main(string[] args)</code>.</span> To view all overloads after
-                        the statement has been written, place the cursor anywhere within the round brackets and press <b>Ctrl + Shift + Space</b>, then use the arrow keys
-                        to navigate to each argument to see the description for the associated parameter. To view the argument list, place the cursor just before any
-                        argument and press <span class="nowrap"><b>Ctrl + Space</b>.</span></p>
-                    <p>Popup help information is provided when hovering over types or identifiers. In the following example, hovering over <code>string</code> will result
-                        in a popup dialog with information on what a string is.</p>
-                    <p>To aid in debugging, the code editor highlights syntax errors that prevent the program from compiling with a
+                        entered. If <a href="#Variables,_Constants,_Types_and_Literals">variables</a> or parameters from the containing method have been previously
+                        declared, they will appear at the top of the list, which in the following example includes <code>args</code> from
+                        <span class="nowrap"><code>Main(string[] args)</code>.</span> To view all overloads after the statement has been written, place the cursor
+                        anywhere within the round brackets and press <b>Ctrl + Shift + Space</b>, then use the arrow keys to navigate to each argument to see the
+                        description for the associated parameter. To view the argument list, place the cursor just before any argument and press
+                        <span class="nowrap"><b>Ctrl + Space</b>.</span></p>
+                    <p>Popup help information is provided when hovering over types or <a href="#Code_syntax">identifiers</a>. In the example below, hovering over
+                        <code>string</code> will result in the following popup dialog about the <a href="string">string</a> type.
+<pre><code>class System.String
+
+Represents text as a sequence of UTF-16 code units.
+</code></pre>
+                    <p>To aid in debugging, the code editor highlights <a href="#Syntax_errors">syntax errors</a> that prevent the program from compiling with a
                         <u class="error">red wavy underline</u>. It also provides <a href="#Syntax_errors">warnings</a> of code that won't prevent the program from
-                        compiling but can cause issues during runtime and need to be
-                        addressed. These are highlighted with a <u class="warning">green wavy underline</u>. Information on each error and warning can be found
-                        as an entry in the
-                        <i>Error List,</i> usually located at the bottom of the code editor. After selecting an
-                        entry you can display help information by either clicking the error number or pressing <b>F1</b>, which in most cases will be a help page on
-                        the <a href="#References">Microsoft C# reference documentation</a> website.
-
-
-                        Double clicking an entry or by selecting it and pressing
+                        compiling but can cause issues during runtime and need to be addressed. These are highlighted with a <u class="warning">green wavy underline</u>.
+                        Information on each error and warning can be found as an entry in the <i>Error List,</i> usually located at the bottom of the code editor. After
+                        selecting an entry you can display help information by either clicking the error number or pressing <b>F1</b>, which in most cases will be a help
+                        page on the <a href="#References">Microsoft C# reference documentation</a> website. Double clicking an entry or by selecting it and pressing
                         <b>enter</b> will move the cursor to the associated statement, opening its containing code file if necessary. The error list also provides various
-                        filters, sorting and search ability to narrow down specific entries. To view the error list, you may need to click on the
-                        <b>Error List</b> tab or if it is not displayed, open it by clicking on <span class="nowrap"><b>View</b> &gt; <b>Error List</b></span> in the menu.</p>
+                        filters, sorting and search ability to narrow down specific entries. To view the error list, you may need to click on the  <b>Error List</b> tab
+                        or if it is not displayed, open it by clicking on <span class="nowrap"><b>View</b> &gt; <b>Error List</b></span> in the menu.</p>
                     <p>In the following example, the identifier <code>WriteLine</code> has been misspelt in the statement <code>Console.WriteLin("Hello World!")</code>
                         resulting in the syntax error as shown. The statement <code>int x = 1</code> results in two warnings with both <code>int</code> and <code>i</code>
                         being underlined, due to the statement appearing after a return statement and the variable <code>x</code> not being used.</p>
@@ -722,9 +722,8 @@ World!");
 </code></pre>
                     <p>By hovering the mouse over the underlined code, a popup dialog will provide information on the problem, usually with a link indicating the error
                         number. As with the error list, clicking this opens the help information. After a short pause, the dialog may also provide a
-                        <i>'Show potential fixes'</i> link that
-                        can be opened by clicking it or by using the shortcut <b>Alt + Enter.</b> When opened, a list of fixes is shown and when hovering over each of these,
-                        another popup showing the suggested change is displayed.</p>
+                        <i>'Show potential fixes'</i> link that can be opened by clicking it or by using the shortcut <b>Alt + Enter.</b> When opened, a list of fixes is
+                        shown and when hovering over each of these, another popup showing the suggested change is displayed.</p>
                     <p>By hovering over the syntax error in the above example the following popup dialog will be displayed.</p>
 <pre><code><span class="code-link">CS0117</span>: 'Console' does not contain a definition for 'WriteLin'
 
@@ -740,19 +739,19 @@ Represents a 32-bit signed integer.
 
 <span class="code-link">Show potential fixes</span> (Alt+Enter or Ctrl+.)
 </code></pre>
-                    <p>Two solutions are presented for this waring, the first is to remove the statement and the second to suppress the warning. In this case its decided
-                        that neither are what will be required for the code that is yet to be written and that the real solution is to remove the <code>return</code>
-                        statement. As you can see, whilst IntelliSense can provide a number of potentially useful solutions, it can't mind read your intent so it is up to
-                        you to make the final decisions.</p>
+                    <p>Two solutions are presented for this warning, the first is to remove the statement and the second to suppress the warning. In this case it's
+                        decided that neither are what will be required for the code that is yet to be written and that the real solution is to remove the
+                        <code>return</code> statement. As you can see, whilst IntelliSense can provide a number of potentially useful solutions, it can't mind read your
+                        intent so it is up to you to make the final decisions.</p>
                     <p>This leaves the last warning regarding the unused variable 'x'. Due to the necessity of assigning variables before they are used elsewhere in
                         code, warnings like these will be frequent and can be temporarily safely ignored as your program evolves. Then, as you complete the various
-                        sections of code containing such variables, if such warnings persist you should access whether a logical error has been introduced or remove the
-                        variable if in the end it was not required.</p>
+                        sections of code containing such variables, if such warnings persist you should access whether a <a href="#Logical_errors">logical error</a> has
+                        been introduced or remove the variable if in the end it was not required.</p>
                     <!-- !SECTION Code editor -->
                     <!-- SECTION Debugging -->
                     <h3 id="Debugging">Debugging</h3>
-                    <p>Unlike computers, we humans make mistakes and as developers these can create problems, or <i>bugs,</i> that prevent our programs from
-                        operating correctly. Debugging is the process of analyzing the program and removing such <a href="#Error_types">errors.</a> Visual Studio provides
+                    <p>Unlike computers, we humans make mistakes and as developers these can create problems, or <i>bugs,</i> that prevent our programs from operating
+                        correctly. Debugging is the process of analyzing the program and removing such <a href="#Error_types">errors.</a> Visual Studio provides
                         several tools to help with this. Some of these are the <a href="#Code_editor">code editor,</a>
                         <a href="#Debugger_and_breakpoints">debugger which is used in conjunction with break points,</a> <a href="#Immediate_window">Immediate window</a>
                          <a href="#Locals_window">locals window,</a>
