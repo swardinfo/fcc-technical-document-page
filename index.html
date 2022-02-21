@@ -700,9 +700,9 @@ World!");
                         display help information by either clicking the error number or pressing F1. To view the error list, you may need to click on the
                         <b>Error List</b> tab or if it is not displayed, open it by clicking on <b>View</b> then <b>Error List.</b> in the menu.</p>
                     <p>In the following example in the line <code>Console.WriteLin("Hello World!")</code> the identifier <code>WriteLine</code> has been misspelt
-                        resulting in a syntax error. By hovering over the identifier a popup message will display</p>
-                    <p>CS0117: 'Console' does not contain a definition for 'WriteLin'</p>
-                    <p>Show potential fixes (Alt+Enter or Ctrl+.)</p>
+                        resulting in a syntax error as shown. </p>
+
+
 <pre><code>namespace CodeEditorErrors
 {
     class Program
@@ -713,6 +713,12 @@ World!");
         }
     }
 }
+</code></pre>
+
+                    <p>By hovering over the identifier the following popup message will be displayed.</p>
+
+<pre><code><span class="code-link">CS0117</span>: 'Console' does not contain a definition for 'WriteLin'
+<span class="code-link">Show potential fixes</span> (Alt+Enter or Ctrl+.)
 </code></pre>
                     <!-- !SECTION Code editor -->
                     <!-- TODO complete Debugger and breakpoints -->
@@ -883,7 +889,6 @@ World!");
             <!-- !SECTION Debugging -->
 <!-- TODO Add custom exceptions and using in built preferred. Custom exceptions should end with exception -->
 <!-- TODO add info about source of exception, .NET, runtime, third-party -->
-<!-- TODO Fix red wavy line font size too large in code examples -->
             <!-- SECTION Errors, Exception Handling and Debugging -->
             <section class="main-section" id="Errors_and_Exception_Handling">
                 <header><h2>Errors and Exception Handling</h2></header>

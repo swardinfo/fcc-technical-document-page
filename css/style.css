@@ -27,6 +27,7 @@
     --code-warning-url: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='6px' height='3px' viewBox='0 0 32 16'><path fill='none' stroke='%23008000' stroke-width='6px' d='M 0,8 C 4,0 12,0 16,8 20,16 28,16 32,8' /></svg>") repeat-x top left;
     --code-font-family: 'ubuntu-mono', 'Courier New', Courier, monospace;
     --code-font-weight: normal;
+    --code-link-color: #006CBE;
 
     /* Code dark theme */
     /* --code-bg-color: #1E1E1E;
@@ -175,20 +176,43 @@ u {
     list-style-type: none;
 } */
 
+u.error, u.warning {
+    display: inline-block;
+    position: relative;
+}
+
+u.error::after, u.warning::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 19px;
+}
+
+u.error::after {
+    background: var(--code-error-url);
+}
+
+u.warning::after {
+    background: var(--code-warning-url);
+}
+
 code {
     display: inline-block;
     color: var(--code-color);
     background-color: var(--code-bg-color);
-
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    /* font-family: Arial, Helvetica, sans-serif; */
     font-family: var(--code-font-family);
     padding: 1px 6px;
 }
 
-/* code u {
+code u {
     font-size: 14px;
-} */
+}
+
+code u.error::after {
+    top: 17px;
+}
 
 pre {
     display: block;
@@ -240,31 +264,12 @@ pre {
     font-weight: var(--code-font-weight);
 }
 
-u.error, u.warning {
-    display: inline-block;
-    position: relative;
+.code-link {
+    color: var(--code-link-color);
+    font-family: var(--code-font-family);
+    font-size: 14px;
+    font-weight: var(--code-font-weight);
 }
-
-u.error::after, u.warning::after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: -1px;
-    top: 19px;
-}
-
-u.error::after {
-    background: var(--code-error-url);
-}
-
-u.warning::after {
-    background: var(--code-warning-url);
-}
-
-/* .code-em {
-    font-weight: bold;
-} */
 
 #main-doc {
     max-width: 90%;
