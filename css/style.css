@@ -208,9 +208,10 @@ code {
 
 code u {
     font-size: 14px;
+    font-family: var(--code-font-family);
 }
 
-code u.error::after {
+code u.error::after, code u.warning::after {
     top: 17px;
 }
 
@@ -365,6 +366,10 @@ pre {
     margin-left: 3px;
     margin-right: 2px;
     margin-bottom: 2px;
+}
+
+.white-cross {
+    color: #FFF;
 }
 
 .yellow-arrow-point {
