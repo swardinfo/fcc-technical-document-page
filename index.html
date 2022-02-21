@@ -69,7 +69,7 @@
                         step guide into computer programming. Whilst someone with no programming skills may get some benefit, this guide it is aimed at those who have
                         experience with other languages and want to see what C# has to offer.</p>
                     <p>So what do you need to know. Firstly, developing a program in almost any programming language will require some basic maths skills, such as,
-                        logical thinking, basic algebra, knowing the difference between integers and floating point numbers, etc. You should also know how to install and
+                        logical thinking, basic algebra, knowing the difference between integers and floating-point numbers, etc. You should also know how to install and
                         upgrade software and operating systems on a computer, and have an internet connection. It would also be useful to know some of the basics of how a
                         computer works such as CPU's, memory, file systems, etc.</p>
                     <p>Lastly and perhaps most importantly is theory of mind, what the user maybe thinking when they use your program. This should be a constant
@@ -81,8 +81,8 @@
                     <h3 id="The_C_sharp_language">The C# language</h3>
                     <p>A written language is a system for using a combination of words and symbols to provide a means of communicating abstract ideas between two
                         entities. A computer language allows you to take abstractions from ideas and turn them into concrete implementations that can be interpreted by a
-                        computer. As a developer, unless you only ever write software for yourself, your job is as a kind of ghostwriter who uses a computer language to
-                        tell someone elses story.</p>
+                        computer. As a developer, unless you only ever write software for yourself, your job is as a kind of ghost writer who uses a computer language to
+                        tell someone else's story.</p>
                     <p>C# is a high level computer language, created by Microsoft and now maintained by the .NET Foundation as part of .NET, for the purpose of developing
                         computer programs. A computer uses binary, the language of ones and zeros. To put it at its simplest, all a computer can do is, like a light
                         switch, turn things on or off, albeit at billions of times a second. For any person trying to write in ones and zeros, this soon becomes an
@@ -422,7 +422,7 @@ namespace CodeSyntaxExample1
                         code editor</a> with entering the arguments for the method's <a href="#Parameters,_signatures_and_overloading">signature.</a></p>
                     <p>Visual Studio has a number of built-in <i>code snippets</i> that allows you to use shortcuts to enter frequently used code. One such snippet is for
                         <span class="nowrap"><code>Console.WriteLine();</code>.</span> To use the shortcut type <b>c</b> then <b>w</b> then press the <b>tab</b> key
-                        twice. In addition to the in-built snippets you can add your own. For more information on the built-in snippets and how to create a user snippet,
+                        twice. In addition to the in-built snippets, you can add your own. For more information on the built-in snippets and how to create a user snippet,
                         please see the <a href="#References">Microsoft C# reference documentation.</a></p>
                     <p>Following are three further examples of single line statements showing how <a href="#Variables,_Constants,_Types_and_Literals">variables</a> can be
                         declared and assigned values.</p>
@@ -602,7 +602,7 @@ World!");
                         exits normally.</p>
                     <p>A method call is in the form of <code>instance.Method(parameters)</code> for an instance of a type and <code>TypeName.Method(parameters)</code>
                         for a <a href="#static">static</a> type. To call an instance method an object must first be instantiated from the type that contains it. All
-                        <a href="">statements</a> in C# programs are executed with respect to a <a href="#Methods">method.</a> For example a
+                        <a href="">statements</a> in C# programs are executed with respect to a <a href="#Methods">method.</a> For example, a
                         <a href="#Properties">property</a> is a method with a special syntax and an <a href="#Events">event</a> merely calls a
                         <a href="#delegate">delegate</a> to a method that acts as the event handler.</p>
                     <p>The <a href="#dot_NET">CLR</a> handles method calls by using a <i>stack</i> which in this context is known as the
@@ -617,14 +617,14 @@ World!");
                         <li>An <span class="nowrap"><a href="#Exceptions">exception is thrown.</a></span></li>
                         <li>An Exit statement is executed.</li>
                     </ul>
-                    <p>If a method returns a value then a return statement must be present for all possible return paths. Reaching the end of the method without
+                    <p>If a method returns a value, then a return statement must be present for all possible return paths. Reaching the end of the method without
                         encountering one will result in a syntax error and the program won't compile. Here the return statement takes the form of <code>return T</code>
                         where T is literal or <a href="#Variables,_Constants,_Types_and_Literals">variable</a> of the return type declared in the method's
                         <span class="nowrap"><a href="#Methods">header.</a></span> If a method does not return a value, i.e. the return type is <code>void</code>, then
                         execution will be returned to the caller when either a return statement or the end of the method is reached. In this case the method can contain
                         any number of return statements including none, with the return statement taking the form of <span class="nowrap"><code>return;</code>.</span></p>
                     <p>If an exception is thrown, further execution is halted and the methods are popped off the call stack until one containing a
-                        <a href="#try-catch">catch block</a> to handle the the exception is reached. If one is not found, the program will exit resulting in an unhandled
+                        <a href="#try-catch">catch block</a> to handle the exception is reached. If one is not found, the program will exit resulting in an unhandled
                         exception. If a call to an <code>Exit</code> method is encountered the program exits immediately without returning to the caller.
                         <code>Exit</code> can be used in a conditional statement that tests if the program has an error that has put it into a non-recoverable state. This
                         way, along with other code, <code>Exit</code> can allow for the program to exit gracefully. For a console application <code>Exit</code> is in
@@ -672,7 +672,7 @@ World!");
                     <p>The <a href="#Program_structure">program structure</a> of a C# application consists of one or more code files that can be browsed in the
                         <a href="#Program_structure">Solution Explorer.</a> These can be opened in the <i>Code Editor</i> which provides many tools to assist in writing
                         and <a href="#Debugging">debugging</a> code such as code formatting and <i>IntelliSense,</i> which provides autocompletion options you can choose
-                        from as you enter your code. For example when entering the code for <a href="#Program_execution">calling a method</a>, as you type the opening
+                        from as you enter your code. For example, when entering the code for <a href="#Program_execution">calling a method</a>, as you type the opening
                         round bracket <code>(</code>, IntelliSense will display a panel with the <a href="#Parameters,_signatures_and_overloading">signature</a> for the
                         <a href="#Methods">method</a>. This includes the required and optional <a href="#Parameters,_signatures_and_overloading">parameters</a> and a
                         description of what the method does as well as each parameter as they are entered. If there are
@@ -694,7 +694,7 @@ Represents text as a sequence of UTF-16 code units.
                         <u class="error">red wavy underline</u>. It also provides <a href="#Syntax_errors">warnings</a> of code that won't prevent the program from
                         compiling but can cause issues during runtime and need to be addressed. These are highlighted with a <u class="warning">green wavy underline</u>.
                         Information on each error and warning can be found as an entry in the <i>Error List,</i> usually located at the bottom of the code editor. After
-                        selecting an entry you can display help information by either clicking the error number or pressing <b>F1</b>, which in most cases will be a help
+                        selecting an entry, you can display help information by either clicking the error number or pressing <b>F1</b>, which in most cases will be a help
                         page on the <a href="#References">Microsoft C# reference documentation</a> website. Double clicking an entry or by selecting it and pressing
                         <b>enter</b> will move the cursor to the associated statement, opening its containing code file if necessary. The error list also provides various
                         filters, sorting and search ability to narrow down specific entries. To view the error list, you may need to click on the  <b>Error List</b> tab
@@ -766,7 +766,7 @@ Represents a 32-bit signed integer.
                     <!-- TODO complete Debugger and breakpoints -->
                     <!-- SECTION Debugger and breakpoints -->
                     <h3 id="Debugger_and_breakpoints">Debugger and breakpoints</h3>
-                    <p>When running a program it may end unexpectedly without providing any information. Worse, it may run through to the end and exit normally but the
+                    <p>When running a program, it may end unexpectedly without providing any information. Worse, it may run through to the end and exit normally but the
                         function it provides may not be as expected. The debugger provides extra information and allows you to step through the code one line at a time
                         allowing you to locate exactly where the code is going wrong. Breakpoints can be assigned to any
                         line and can assist you by instructing the debugger to pause at the line prior to executing it. From here you can step through the
@@ -802,15 +802,15 @@ Represents a 32-bit signed integer.
                         running or paused, a <i>Stop Debugging</i> <span class="stop-button"></span> button will appear in the toolbar.
                         Clicking it or pressing <span class="nowrap"><b>Shift + F5</b></span> will stop the debugger.</p>
                     <p> If an exception is thrown, a popup dialog will be displayed next to the statement with the name of the exception and other information pertaining
-                        to it. If the statement is the true source of an exception then it can be corrected and the program rerun. More often than not, the source of the
+                        to it. If the statement is the true source of an exception, then it can be corrected and the program rerun. More often than not, the source of the
                         exception is elsewhere. For example, dividing a number by zero will result in a <i>DivideByZeroException,</i> but the place where the denominator
-                        became zero may be somewhere prior to the exception. To solve this you can place a breakpoint prior to where you suspect this may be occurring,
+                        became zero may be somewhere prior to the exception. To solve this, you can place a breakpoint prior to where you suspect this may be occurring,
                         then by stepping through one line at a time and inspecting each variable's value as it changes, you can determine the defective statement. To set
                         a breakpoint, click in the left margin next to the required location and a red dot <span class="red-dot"></span> will appear indicating the
-                        breakpoint and the accompanying line of code will be highlighted in red. When the program is rerun it will pause at the selected line with all
+                        breakpoint and the accompanying line of code will be highlighted in red. When the program is rerun, it will pause at the selected line with all
                         code prior to the line having been executed but not the line itself.</p>
                     <p>With the program paused and hovering the mouse over any variable in the local scope, a popup dialog will indicate its current value. It should be
-                        noted that variables outside the local scope of the current location can't be observed. For example if MethodA calls MethodB and the program is
+                        noted that variables outside the local scope of the current location can't be observed. For example, if MethodA calls MethodB and the program is
                         paused within MethodB, only the values of the variables in MethodB's code block can be observed. Similarly, if the program is paused on a line
                         inside a method but outside of an if statement's it contains, the values of the variables within the if statement's code block can't be observed
                         until program execution enters it.</p>
@@ -830,7 +830,7 @@ Represents a 32-bit signed integer.
                     <p>Run to cursor will advance the program to the current cursor position in the code and is achieved by pressing
                         <span class="nowrap"><b>Ctrl + F10.</b></span> This can be used whether or not the program is already running and whether or not the program is
                         paused.</p>
-                    <p>When using step over, step out, run to or run to cursor, if a breakpoint is present it will take priority and the program will pause at the
+                    <p>When using step over, step out, run to or run to cursor, if a breakpoint is present, it will take priority and the program will pause at the
                         breakpoint. </p>
                     <p>To run the program normally click the <i>Start without debugging</i> button
                         <span class="play-button"><span class="play-button-light-fill"></span></span> or use the shortcut <span class="nowrap"><b>Ctrl + F5.</b></span>
@@ -840,7 +840,7 @@ Represents a 32-bit signed integer.
                         configuration to ensure it is functioning correctly prior to deployment. To do this, change the configuration in the dropdown selector in the
                         toolbar to release and click on the <i>Start Debugging</i> button <span class="play-button"></span> or press <b>F5.</b> A release version of the
                         program will be built and run which you can then test as you did with the debug version.</p>
-                    <p>By default Visual Studio creates the following folders to store the two program versions when they are built.</p>
+                    <p>By default, Visual Studio creates the following folders to store the two program versions when they are built.</p>
                     <p>SolutionFolder\ProjectFolder\bin\Debug</p>
                     <p>SolutionFolder\ProjectFolder\bin\Release</p>
                     <p>CodeExample</p>
@@ -936,7 +936,7 @@ Represents a 32-bit signed integer.
                 <header><h2>Errors and Exception Handling</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article class="main-article">
-                    <p>As the program code grows the likelihood that a error will be introduced grows with it. C# provides tools for handling these depending on the kind
+                    <p>As the program code grows the likelihood that an error will be introduced grows with it. C# provides tools for handling these depending on the kind
                         of error that is encountered.</p>
                     <!-- SECTION Error types -->
                     <h3 id="Error_types">Error types</h3>
@@ -1203,7 +1203,7 @@ Represents a 32-bit signed integer.
                         <a href="#Modifiers">modifiers</a> have been applied.</i></p>
                     <!-- SECTION null -->
                     <h3 id="null">null</h3>
-                    <p>In c#, when a reference type variable has been declared but does not refer to an object, its value will be <i>null</i>. Using the previous analogy,
+                    <p>In C#, when a reference type variable has been declared but does not refer to an object, its value will be <i>null</i>. Using the previous analogy,
                         this is like a contact in an address book which only has the person's name but without any address information. Within the context of nullability,
                         a type that can be assigned null is said to be nullable and one that isn't, non-nullable. A nullable type can also be assigned null through use of
                         the <code>null</code> keyword. If an attempt is made to access a <a href="#Members">member</a> of a nullable type, known as <i>dereferencing</i>,
@@ -1244,7 +1244,7 @@ Represents a 32-bit signed integer.
                     <p>Every computer has a finite amount of memory and when an object is no longer in use, it is essential to reclaim the memory it occupies or the
                         memory will become filled with unused objects. This must be done while a variable is still in <a href="#Scope">scope</a> otherwise it will become
                         unreachable and without a reference to it the memory, can no longer be reclaimed resulting in a <i>memory leak</i>. With an unmanaged programming
-                        language, you are required to explicity keep track of unreferenced objects and free up memory yourself but with a managed language, much of this
+                        language, you are required to explicitly keep track of unreferenced objects and free up memory yourself but with a managed language, much of this
                         work is automatically done for you. C#, being a managed language, provides a memory management system called the <i>garbage collector</i> that
                         automatically tracks objects and when they are no longer referenced, marks them for garbage collection. When the memory is actually reclaimed is
                         completely under the control of the garbage collector.</p>
@@ -1294,7 +1294,7 @@ Represents a 32-bit signed integer.
                     <p>C# also allows for <i>implicit</i> declaration through the use of the <code>var</code> keyword. This tells the compiler to determine the type of
                         variable to store based on the expression on the right side of the <code>=</code> operator. In the statement <code>var n = 3;</code> the compiler
                         interprets the 3 as an integer and based on its size assigns <code>n</code> a type of <code>int</code> and the value 3. In
-                        <code>var d = 3.0</code> 3.0 is interpreted as a floating point number and <code>d</code> is assigned a type of <code>double</code> with a value
+                        <code>var d = 3.0</code> 3.0 is interpreted as a floating-point number and <code>d</code> is assigned a type of <code>double</code> with a value
                         <code>3.0</code> . With <code>var x = i + n;</code> summing an <code>int</code> with an <code>int</code> results in an <code>int</code> so
                         <code>x</code> will be an <span class="nowrap"><code>int</code>.</span> In <code>var y = i + d;</code>summing an <code>int</code> with a
                         <code>double</code> will result in a <code>double</code> so <code>y</code> is a <span class="nowrap"><code>double</code>.</span> As can be seen
@@ -1408,13 +1408,13 @@ Represents a 32-bit signed integer.
                         <a href="#Assignment_operator">operator</a> as in <span class="nowrap"><code>int k = 1;</code>.</span> Alternatively, a variable can be assigned a
                         value after being declared and before being used such as adding <code>k = 1;</code> after <code>int k;</code> and before
                         <span class="nowrap"><code>j = i + k;</code> .</span> Note that it is only variables on the right side of the <code>=</code> operator that need to
-                        have a value assigned so the use of the <code>j</code> which is declared but not assigned a value on the left side is valid. C# also has has the
+                        have a value assigned so the use of the <code>j</code> which is declared but not assigned a value on the left side is valid. C# also has the
                         <code>default</code> keyword which allows any variable to be assigned its default value such as
                         <span class="nowrap"><code>int k = default;</code> .</span> In this case <code>k</code>  would have a value of 0.</p>
                     <p><i>Cannot implicitly convert type 'double' to 'int'. An explicit conversion exists (Are you missing a cast?)</i> - In all the following cases
                         an attempt is being made to assign a variable of type <code>int</code> a value of type <span class="nowrap"><code>double</code>.</span> C# does
                         not allow the assignment of a value to a variable that could unwittingly result in a conversion that produces a loss of information. By assigning
-                        a floating point <code>double</code> to an <code>int</code>, the fractional part after the decimal point could be lost. As can be seen from the
+                        a floating-point <code>double</code> to an <code>int</code>, the fractional part after the decimal point could be lost. As can be seen from the
                         examples it may not be obvious at first that a conversion is occurring.</p>
                     <p><code>i = <u class="error">d</u>;</code> an attempt is being made to assign the value in <code>d</code> which was declared a
                         <code>double</code> to <code>i</code> which was declared an <span class="nowrap"><code>int</code>.</span></p>
@@ -2256,10 +2256,10 @@ namespace StringBuilderExample
 // g = True
 </code></pre>
                     <!-- !SECTION Compound assignment operators -->
-                    <!-- SECTION Conditional operator -->
+                    <!-- SECTION Conditional operator ? -->
                     <h3 id="Conditional_operator">Conditional operator <code>?:</code></h3>
                     <p>The conditional operator <code>?:</code>, also known as the ternary conditional operator takes the form
-                        <span><code class="nowrap">x = predicate ? a : b</code>.</span> If the predicate is true then the expression returns <code>a</code> else it
+                        <span><code class="nowrap">x = predicate ? a : b</code>.</span> If the predicate is true then the expression returns <code>a</code>, else it
                         returns <span class="nowrap"><code>b</code>.</span> Both <code>a</code> and <code>b</code> must be of the same type. The conditional operator can
                         also be used as a shorthand way to replace combined <code>if</code> and <code>else</code> statements. Conditional statements can be nested though
                         doing so can make the code hard to read.</p>
@@ -2284,7 +2284,7 @@ namespace StringBuilderExample
 // x = Yes
 // y = No
 </code></pre>
-                    <!-- !SECTION Conditional operator -->
+                    <!-- !SECTION Conditional operator ? -->
                     <!-- SECTION Conditional and operator -->
                     <h3 id="Conditional_and_operator">Conditional 'and' operator <code>&&</code></h3>
                     <p>In the expression <code>x = a && b</code> <code>x</code> is true if both <code>a</code> and <code>b</code> are true otherwise <code>x</code> is
@@ -2438,7 +2438,7 @@ namespace MyNameSpace
                     <!-- SECTION Null-conditional operators ?. and ?[] -->
                     <h3 id="Null-conditional_operators">Null-conditional operators ?. and ?[]</h3>
                     <p>The null-conditional operator <code>?.</code> is used to access a <a href="#User_defined_types">type</a> <a href="#Memebers">member</a> and
-                        <code>?[]</code> to access an a element of an <a href="#Array">array</a> or <a href="Indexers">indexer.</a> Providing the operand to which they
+                        <code>?[]</code> to access an element of an <a href="#Array">array</a> or <a href="Indexers">indexer.</a> Providing the operand to which they
                         are applied is not <a href="#null">null</a> the member or element is returned otherwise the operator returns null.</p>
 <pre><code>namespace NullConditionalOperators
 {
@@ -2830,9 +2830,9 @@ namespace AliasQualifier
     {
         static void Main(string[] args)
         {
-            for (int i = 0; i &lt; 10; i++)
+            for (int i = 1; i &lt; 10; i++)
             {
-                // for loop skips current iteration if i is 5
+                // for loop skips current iteration if i is even
                 if (i % 2 == 0)
                     continue;
                 Console.Write(i);
@@ -2842,7 +2842,7 @@ namespace AliasQualifier
 }
 
 // The example prints the following to the console
-//  13579
+// 13579
 </code></pre>
                     <!-- !SECTION continue -->
                 </article>
@@ -3016,7 +3016,7 @@ namespace AliasQualifier
 
             // The total number of elements of an array can be found by using
             // the Length property 'array.Length'.
-            Console.WriteLine($"The array colors has {colors.Length} elements");
+            Console.WriteLine($"The array 'colors' has {colors.Length} elements");
 
             // Attempting to access an array with an index value less than 0
             // or more than the length - 1 will result in an
@@ -3141,7 +3141,7 @@ namespace AliasQualifier
 
 // The example prints the following to the console
 // red, green, blue
-// The array colors has 3 elements
+// The array 'colors' has 3 elements
 // cyan magenta yellow
 // cyan magenta yellow
 // 1 2 3 4 5 6
@@ -3188,7 +3188,7 @@ namespace AliasQualifier
                     <p>A <i>List&lt;T&gt;</i> is a strongly typed generic collection of objects accessed by an int type <i>index</i>. Unlike an array, a list does
                         not have a fixed size and as such does not have to be declared. It provides a number of useful methods for manipulating its data such as add,
                         remove, sort, find and clear.</p>
-                    <p><em>Note:</em> <i>The Find method uses an <a href="#Lambda_expressions">lambda expression</a></i></p>
+                    <p><em>Note:</em> <i>The Find method uses a <a href="#Lambda_expressions">lambda expression</a></i></p>
                     <p>The following example demonstrates List declaration and use </p>
 <pre><code>using System.Collections.Generic;
 
@@ -3478,7 +3478,7 @@ namespace Dictionaries
                     <h3 id="Enumerators">Enumerators</h3>
                     <p>The <code>enum</code> keyword is used to declare an enumerator which provides a list of named constants. The code editor allows you to use these
                         names to assign the underlying constant values to variables. You can declare the type and value of each constant or allow the editor to declare
-                        them for you. The default type for the value is an integer and the list is zero based. A value in an enum is accessed through the enums
+                        them for you. The default type for the value is an integer and the list is zero based. A value in an enum is accessed through the enum's
                         identifier, followed by a period, followed by the identifier of one of the constants. An enum is a value type.</p>
                     <p>The following example demonstrates enumerator declaration and use.</p>
 <pre><code>namespace Enumerators
@@ -3659,7 +3659,7 @@ namespace Dictionaries
             Console.WriteLine($"person1 != person 3: {person1 != person3}");
 
             (int id, string Name, int Age) person4 = (1, "Andrew", 21);
-            // Syntax error, the number of elements are different
+            // Syntax error, the number of elements is different
             //Console.WriteLine($"person1 == person4: {person1 == person4}");
             //Console.WriteLine($"person1 == person4: {person1 != person4}");
 
@@ -3958,7 +3958,7 @@ namespace Dictionaries
                         <li><a href="#Indexers">indexers</a> that allow an object to be indexed like an array</li>
                         <li><a href="#Events">events</a> that communicate changes in the object's state to other objects or to itself</li>
                         <li><a href="#Operators">operators</a> that when overloaded are considered a type member</li>
-                        <li><a href="#Finalizers">finalizers</a> that perform cleanup of an object when it is no longer in use </li>
+                        <li><a href="#Finalizers">finalizers</a> that perform clean up of an object when it is no longer in use </li>
                         <li>nested type which is the declaration of another type within the containing type</li>
                     </ul>
                     <p>Members are declared within the type that defines the object. All members within an object can access each other irrespective of the location at
@@ -4111,7 +4111,7 @@ namespace Dictionaries
                         <code>ParameterizedClass</code> explicitly declares a single parameterized constructor. As this prevents the compiler from implicitly declaring a
                         parameterless constructor, when an attempt is made to instantiate the class using one, it results in a <a href="#Syntax_errors">syntax error.</a>
                         The <code>Person</code> class has four explicitly declared overloaded constructors. The first is parameterless so creating an instance of
-                        <code>Person</code>using a parameterless constructor is permitted and it sets the values of the two <a href="#Fields">fields</a>
+                        <code>Person</code> using a parameterless constructor is permitted and it sets the values of the two <a href="#Fields">fields</a>
                         <code>_firstName</code> and <code>_lastName</code> to <i>First name</i> and <i>Last name</i> respectively. The second constructor has two
                         parameters and sets <code>_firstName</code> and <code>_lastName</code> to the values passed in. The third constructor has one parameter and makes
                         use of the expression-bodied member syntax setting only the value of the <code>_firstName</code> field. The fourth constructor has three
@@ -4875,7 +4875,7 @@ namespace CancelEvent
                         indexer is then declared using an optional <a href="#Access_modifiers">access modifier</a>, followed by the <code>this</code> keyword, followed by
                         the type of indexer, followed by square brackets that contain one or more indexes separated by commas, with each consisting of the type of index
                         and an index identifier. Accessors are then used to set and/or get the instances from the backing field using the indexes that are passed in. The
-                        same rules as as those for read/write and accessibility of properties and accessors also apply to indexers except that an indexer cannot be static
+                        same rules as those for read/write and accessibility of properties and accessors also apply to indexers except that an indexer cannot be static
                         and an indexer cannot be auto-indexed. Indexers can be <a href="#Parameters,_signatures_and_overloading">overloaded.</a></p>
                     <p>Access to an indexer by code external to the type is in the form of <code>instance.Indexer[index]</code></p>
                     <p>The following example declares a string collection which uses an indexer to index instances of itself. The <code>Program</code> class creates a new
@@ -4986,7 +4986,7 @@ namespace CancelEvent
                         <code>var</code> keyword. If implicitly declared before the calling statement, it must be assigned a value.</p>
                     <p>A parameter can be made optional by assigning it a default value in the called member parameter list using the assignment
                         <span class="nowrap">operator <code>=</code>.</span> The calling statement can then optionally assign an argument for the value. If an argument is
-                        omitted then the default value is used. The default value assigned must be a constant expression, an expression in the form new ValueTYpe() or an
+                        omitted then the default value is used. The default value assigned must be a constant expression, an expression in the form new ValueType() or an
                         expression in the form default(ValueType). All optional parameters must come after all other parameters other than one marked with the
                         <code>params</code> keyword. If an optional argument in the calling statement is provided then all preceding optional arguments must also be
                         provided.</p>
@@ -5669,6 +5669,7 @@ namespace CancelEvent
 </code></pre>
                     <!-- !SECTION Inheriting types -->
                     <!-- TODO change to refer to types and that only applicable to classes and records -->
+                    <!-- TODO add code example description -->
                     <!-- SECTION Raising base class events in a derived class -->
                     <h3 id="Raising_base_class_events_in_a_derived_class">Raising base class events in a derived class</h3>
                     <p>An event can only be invoked within the class it is declared. A common pattern to invoke a base class event in a derived class is to declare a
@@ -5746,7 +5747,7 @@ namespace CancelEvent
                         a loop. This can be done as <a href="#Polymorphism">polymorphism</a> allows you to substitute a parent for a child then when the parent's method
                         is called at runtime it will be substituted for the child's.</p>
 
-                    <p>In this example example a base class <code>LogAnalyzer</code> is declared that has a virtual <code>DisplayMessage</code> method. Derived class
+                    <p>In this example a base class <code>LogAnalyzer</code> is declared that has a virtual <code>DisplayMessage</code> method. Derived class
                         <code>LogAnalyzer1</code> inherits from <code>LogAnalyzer</code> and <code>LogAnalyzer2</code> inherits from <code>LogAnalyzer1</code> with each
                         overriding <code>DisplayMessage</code> with its own implementation. In the <code>Program</code> class a list of type <code>LogAnalyzer</code> is
                         created that adds an instance of the base and the two derived classes. A foreach loop then loops through the list using a
@@ -5815,8 +5816,8 @@ namespace CancelEvent
                         constructor. As a result, when inheriting such a class you will then need to provide the derived class with at least one constructor with the same
                         signature as one of the constructors in the base class. The constructor in the derived class must call the constructor in the base class by using
                         the <code>base</code> keyword and pass the arguments provided to it on to the base class constructor.</p>
-                    <p>In this example <code>BaseClass</code> has a parameterless constructor that writes to the console when it is called, then sets a value in a
-                        a field called <span class="nowrap"><code>_Field</code>.</span> It also has a parameterized constructor that takes a value which it uses to set
+                    <p>In this example <code>BaseClass</code> has a parameterless constructor that writes to the console when it is called, then sets a value in a field
+                        called <span class="nowrap"><code>_Field</code>.</span> It also has a parameterized constructor that takes a value which it uses to set
                         <code>_Field</code> and a virtual method <code>GetFieldValue</code> that returns the value of
                         <span class="nowrap"><code>_Field</code>.</span> <code>DerivedClass</code> inherits from <span class="nowrap"><code>BaseClass</code>.</span> It
                         too has a parameterless constructor that writes to the console when it is called, then sets a value in its own field called
@@ -6913,7 +6914,7 @@ namespace Aliases
 {
     class MyClass
     {
-        // int is a c# keyword which is a built-in alias
+        // int is a C# keyword which is a built-in alias
         // for the System.Int32 struct. C# keywords can be
         // accessed without the 'using System' directive
         int x = 1;
@@ -6946,14 +6947,14 @@ namespace ImportingSystemTypes
             // A TimeSpan is the difference between two DateTime's
             TimeSpan elapsedTime = DateTime.Now - startTime;
 
-            // double is a c# keyword which is a built-in alias
+            // double is a C# keyword which is a built-in alias
             // for the System.Double struct
             double totalSeconds = elapsedTime.TotalSeconds;
 
             // Math is a class in the System namespace.
             // Math.Round is a static method that rounds
             // a value to the nearest integer.
-            // string is a c# keyword which is a built-in
+            // string is a C# keyword which is a built-in
             // alias for the System.String class.
             string roundedSeconds = Math.Round(totalSeconds).ToString();
 
@@ -7326,7 +7327,7 @@ namespace Extern
         public static bool MessageBox(string message, string caption)
         {
             // Call the 'MessageBox' method with type set to 4 which displays
-            // yes and no buttons. If the user presses yes the method returns 6.
+            // yes and no buttons. If the user clicks yes, the method returns 6.
             return MessageBox((IntPtr)0, message, caption, 4) == 6;
         }
 
@@ -7590,7 +7591,7 @@ namespace PartialModifier
                     <!-- !SECTION sealed -->
                     <!-- SECTION static -->
                     <h3 id="static">static</h3>
-                    <p>So far the majority of the examples involve creating an instance of a class by using the <code>new</code> keyword. This
+                    <p>So far, the majority of the examples involve creating an instance of a class by using the <code>new</code> keyword. This
                         allows for multiple instances of a class to be created each with its own initialized state which can be set either by arguments passed in
                         through a constructor or with an object-initializer. Creating an instance of a class in this way is known as instantiation.</p>
                     <p>In addition, you can make a class static by applying the <code>static</code> keyword to the class declaration. Here the class cannot be
@@ -7818,7 +7819,7 @@ namespace PartialModifier
                         <li><i>private protected</i> - the same class or a derived class in the same assembly only</li>
                         <li><i>private</i> - the same class or a derived class nested within a base class only</li>
                     </ul>
-                    <p>Types declared directly within a namespace (i.e. not nested), can only be declared public or internal where internal is the default level. The
+                    <p>Types declared directly within a namespace (i.e., not nested), can only be declared public or internal where internal is the default level. The
                         following types can be declared in a namespace <code>class</code>, <code>struct</code>, <code>interface</code>, <code>delegate</code>,
                         <code>record</code> and <span class="nowrap"><code>enum</code>.</span></p>
                     <p>The following list shows containing types, which access modifiers can be applied to members and nested types, and the default access levels.</p>
@@ -8066,7 +8067,7 @@ namespace AccessModifiers
                     <h3 id="Object">Object</h3>
                     <p>An object combines data and behavior to represent everyday things such as a number, a spreadsheet, a person or even something less tangible such as
                         the relationship between a part's name and its quantity in a database. During runtime multiple objects are created from a type definition each
-                        with their own own internal state. This allows different versions (instances) of an object to exist. For example, two number type objects could be
+                        with their own internal state. This allows different versions (instances) of an object to exist. For example, two number type objects could be
                         created, one with a value of 5 and another with 7. Three techniques employed by C# to define an object are:</p>
                     <ul>
                         <li>Properties - a particular state of an object such as color, the number of columns, what a thing is made of.</li>
@@ -8092,21 +8093,21 @@ namespace AccessModifiers
                     <!-- SECTION Inheritance -->
                     <h3 id="Inheritance">Inheritance</h3>
                     <p>Many things in life have similarities. For example, a car and a motorbike both have an engine, wheels and brakes but whereas a motorbike has
-                        handle bars a car has a steering wheel. This makes it difficult to use one object to represent both but rather than create two objects duplicating
+                        handlebars a car has a steering wheel. This makes it difficult to use one object to represent both but rather than create two objects duplicating
                         much of the same functionality we can use the concept of inheritance. Here, first a parent object containing all the common traits is created
                         then separate child objects based on the parent are created, each adding just their own differences. Using the previous example, we could create a
-                        vehicle object that has the engine, brakes and wheels properties then from that create a motorbike object that adds handle bars and a car object
-                        that adds a steering wheel. By having a common inherited wheels property the number of wheels can be set at runtime to 2 for a motorbike and 4 for
-                        car or even 3 if it is a three-wheeler.</p>
+                        vehicle object that has the engine, brakes and wheels properties then from that create a motorbike object that adds handlebars and a car object
+                        that adds a steering wheel. By having a common inherited wheels property, the number of wheels can be set at runtime to 2 for a motorbike and 4
+                        for car or even 3 if it is a three-wheeler.</p>
                     <p>Other names for parent are ancestor or superclass and for child, descendant or subclass. Just to be different, C# calls a parent a base type and
                         a child a derived type which is specifically mentioned here as C# provides the <code>base</code> keyword to access a base type from a derived
                         type. Also note that structs can neither inherit or be inherited by another class or struct.</p>
                     <!-- !SECTION Inheritance -->
                     <!-- SECTION Abstraction -->
                     <h3 id="Abstraction">Abstraction</h3>
-                    <p>Abstraction is the process of determining and extracting from a complex problem just the information we require to define a solution. For example
+                    <p>Abstraction is the process of determining and extracting from a complex problem just the information we require to define a solution. For example,
                         what does it take to eat food? Here we need to ask an expert in this case let's consider what a child would say. They'd probably say something
-                        like, you  put food in your mouth chew it then swallow. That's it. Now of course the human body is an extremely complex organism, to actually
+                        like, you  put food in your mouth, chew it then swallow. That's it. Now of course the human body is an extremely complex organism, to actually
                         eat food the brain has to send signals to the jaw muscles to chew the food, then to the tongue to swallow it. From there it goes into the stomach
                         where it is mixed with acid, then into the small intestine ... But for the purposes of survival all the user has to be concerned with is food,
                         mouth, chew, swallow. Of course, had we omitted the chew step then the choke method may have kicked in resulting in a premature end to our
