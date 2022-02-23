@@ -685,7 +685,7 @@ World!");
                         description for the associated parameter. To view the argument list, place the cursor just before any argument and press
                         <span class="nowrap"><b>Ctrl + Space</b>.</span></p>
                     <p>Popup help information is provided when hovering over types or <a href="#Code_syntax">identifiers</a>. In the example below, hovering over
-                        <code>string</code> will result in the following popup dialog about the <a href="string">string</a> type.
+                        <code>string</code> will result in the following popup dialog about the <a href="#string">string</a> type.</p>
 <pre><code>class System.String
 
 Represents text as a sequence of UTF-16 code units.
@@ -751,16 +751,22 @@ Represents a 32-bit signed integer.
                     <!-- SECTION Debugging -->
                     <h3 id="Debugging">Debugging</h3>
                     <p>Unlike computers, we humans make mistakes and as developers these can create problems, or <i>bugs,</i> that prevent our programs from operating
-                        correctly. Debugging is the process of analyzing the program and removing such <a href="#Error_types">errors.</a> Visual Studio provides
-                        several tools to help with this. Some of these are the <a href="#Code_editor">code editor,</a>
-                        <a href="#Debugger_and_breakpoints">debugger which is used in conjunction with break points,</a> <a href="#Immediate_window">Immediate window</a>
-                         <a href="#Locals_window">locals window,</a>
-                        <a href="#Watch_window">watch window</a> and <a href="#Call_stack_window">call stack window.</a> While these tools can greatly assist by
-                        highlighting errors and even making suggestions as how to fix them, they cannot fix bugs automatically. Ultimately it is up to you to understand
-                        what is happening and to choose the correct solution to each specific issue. This is a skill that can only be learnt with continual practice.</p>
+                        correctly. Debugging is the process of analyzing the program and removing such <a href="#Error_types">errors.</a> Visual Studio provides several
+                        tools to help with this. Some of these are</p>
+                    <ul>
+                        <li><a href="#Code_editor">Code editor</a></li>
+                        <li><a href="#Debugger_and_breakpoints">Debugger which is used in conjunction with break points</a></li>
+                        <li><a href="#Immediate_window">Immediate window</a></li>
+                        <li><a href="#Locals_window">Locals window</a></li>
+                        <li><a href="#Watch_window">Watch window</a></li>
+                        <li><a href="#Call_stack_window">Call stack window</a></li>
+                    </ul>
+                    <p>While these tools can greatly assist by highlighting errors and even making suggestions as how to fix them, they cannot fix bugs automatically.
+                        Ultimately it is up to you to understand what is happening and to choose the correct solution to each specific issue. This is a skill that can
+                        only be learnt with continual practice.</p>
                     <p>Debugging follows a repeated pattern, "what do you expect the code to do?", run the code, "what did the code do?". The way this is achieved is by
                         writing small, well defined pieces of code to which a single assumption can be applied. The program is then run to determine if it met that
-                        assumption and if not, appropriate corrections are applied until it does. This is then repeated for each piece of code to be added until the
+                        assumption and if not, appropriate corrections are applied until it does. This is then repeated for each piece of code that is added until the
                         program is completed.</p>
                     <!-- !SECTION Debugging -->
                     <!-- TODO complete Debugger and breakpoints -->
@@ -768,93 +774,216 @@ Represents a 32-bit signed integer.
                     <h3 id="Debugger_and_breakpoints">Debugger and breakpoints</h3>
                     <p>When running a program, it may end unexpectedly without providing any information. Worse, it may run through to the end and exit normally but the
                         function it provides may not be as expected. The debugger provides extra information and allows you to step through the code one line at a time
-                        allowing you to locate exactly where the code is going wrong. Breakpoints can be assigned to any
-                        line and can assist you by instructing the debugger to pause at the line prior to executing it. From here you can step through the
-                        program and examine the current state of the variables that are in scope. Breakpoints and the current debugger state appear as icons in the left
-                        margin just to the left of the line numbers.</p>
-                    <p>There are two ways a program can be configured when it is being built; <i>Debug</i> or for <i>Release.</i> Debug configuration adds extra
-                        information to the build specifically for use by the debugger. The release configuration removes the debug information and optimizes the program
-                        for performance, for when the program is deployed. Debug or release configurations can be selected from a dropdown list in the Visual Studio
-                        toolbar. There are also two ways in which to run the program in Visual Studio; <i>With the Debugger Attached</i> and
-                        <i>Without the Debugger Attached</i>. To run a program in <i>Debug Mode</i> the program must be run both with the debugger attached and with debug
+                        allowing you to locate exactly where the code is going wrong. Breakpoints can be assigned to any line and can assist you by instructing the
+                        debugger to pause at the line prior to executing it. From here you can step through the program and examine the current state of the
+                        <a href="#Variables,_Constants,_Types_and_Literals">variables</a> that are in <a href="#Scope">scope</a>. Breakpoints and the current debugger
+                        state appear as icons in the left margin just to the left of the line numbers.</p>
+                    <p>There are two ways a program can be configured when it is being built; <i>Debug</i> and <i>Release.</i> Debug configuration adds extra information
+                        to the build, specifically for use by the debugger. The release configuration removes the debug information and optimizes the program for
+                        performance, for when the program is deployed. Debug or release configurations can be selected from the <i>Solution Configurations</i> dropdown
+                        list in the Visual Studio toolbar. There are also two ways in which to run the program in Visual Studio; <i>With the Debugger Attached</i> and
+                        <i>Without the Debugger Attached</i>. To run a program in <i>Debug Mode</i> the program must be run, both with the debugger attached and with debug
                         configuration selected.</p>
                     <p> There are a number of ways in which you can control the debugger.</p>
                     <ul>
-                        <li>Start debugging <span class="play-button"></span> (<b>F5</b>)</li>
-                        <li>Stop debugging <span class="stop-button"></span> (<span class="nowrap"><b>Shift + F5</b></span>)</li>
+                        <li><span class="nowrap">Start debugging <span class="play-button"></span></span> (<b>F5</b>)</li>
+                        <li><span class="nowrap">Stop debugging <span class="stop-button"></span></span> (<span class="nowrap"><b>Shift + F5</b></span>)</li>
                         <li>Step into (<b>F11</b>)</li>
                         <li>Step over (<b>F10</b>)</li>
                         <li>Step out (<span class="nowrap"><b>Shift + F11</b></span>)</li>
-                        <li>Run to <span class="next-button-triangle"><span class="next-button-bar"></span></span></li>
                         <li>Run to cursor (<span class="nowrap"><b>Ctrl + F10</b></span>)</li>
+                        <li><span class="nowrap">Run to <span class="next-button-triangle"><span class="next-button-bar"></span></span></span></li>
                         <li>Start without debugging (<span class="nowrap"><b>Ctrl + F5</b></span>)</li>
                     </ul>
-                    <p>With debug configuration selected, the debugger can be started in <i>debug mode</i> by clicking on the <i>Start Debugging</i> button
-                        <span class="play-button"></span> in the toolbar or by pressing <b>F5.</b> If a breakpoint is set or an exception is thrown, the program will be
-                        paused at that location, the current line will be highlighted in yellow and a yellow arrow
-                        <span class="yellow-arrow-point"><span class="yellow-arrow-point-fill"><span class="yellow-arrow-tail"></span></span></span> will be placed in the
-                        left margin pointing to it. Additionally, the <i>Start Debugging</i> button <span class="play-button"></span> will have <i>Continue</i> displayed
-                        next to it. Clicking it now or pressing <b>F5</b> will continue the program as normal if paused due to a breakpoint and stop the program if an
-                        exception was thrown. If more breakpoints are located after the first, the program will be paused at each as they are encountered.
-
-
-                        Also while
-                        running or paused, a <i>Stop Debugging</i> <span class="stop-button"></span> button will appear in the toolbar.
+                    <p>In the first code example we'll look at the <span class="nowrap"><i>Start debugging</i>,</span> <span class="nowrap"><i>Stop debugging</i>,</span>
+                        and <span class="nowrap"><i>Step into</i></span> functions.</p>
+                    <p>With debug configuration selected, the debugger can be started in <i>debug mode</i> by clicking on the
+                        <span class="nowrap"><i>Start Debugging</i> button <span class="play-button"></span></span> in the toolbar or by pressing <b>F5.</b> In the
+                        example, press <b>F5</b> now. The debugger starts and pauses the program at the statement <span class="nowrap"><code>var c = a / b</code>.</span>
+                        Next to it, a dialog is displayed indicating that an <a href="#Exceptions">exception</a> has been <a href="#throw">thrown</a> with the name of the
+                        exception, in this case DivideByZeroException, along with other information pertaining to it. When an exception is thrown or a breakpoint
+                        encountered, the debugger pauses the program at the line in the code where this occurs, highlighting it in yellow and placing a
+                        <span class="nowrap">yellow arrow
+                            <span class="yellow-arrow-point">
+                                <span class="yellow-arrow-point-fill">
+                                    <span class="yellow-arrow-tail">
+                                    </span>
+                                </span>
+                            </span>
+                        </span>
+                        in the left margin pointing to it. When the debugger is running or paused, the text to the right of the
+                        <span class="nowrap">Start Debugging button <span class="play-button"></span>,</span> that normally displays the name of the project, will change
+                        to <i>Continue.</i> Clicking it now or pressing <b>F5</b> will continue the program as normal if paused due to a breakpoint and stop the program
+                        if an exception was thrown. If multiple breakpoints have been set, the debugger will pause the program at each one it encounters. Also while
+                        running or paused, a <span class="nowrap"><i>Stop Debugging</i> button <span class="stop-button"></span></span> will appear in the toolbar.
                         Clicking it or pressing <span class="nowrap"><b>Shift + F5</b></span> will stop the debugger.</p>
-                    <p> If an exception is thrown, a popup dialog will be displayed next to the statement with the name of the exception and other information pertaining
-                        to it. If the statement is the true source of an exception, then it can be corrected and the program rerun. More often than not, the source of the
+                    <p><em>Note:</em> <i>When paused, the program being tested may have been made the active window and you may need to click on the Visual Studio IDE to
+                        regain focus. Also, if the program type is a ConsoleApp, after the program has ended or been stopped, you may also need to manually close the
+                        console window.</i></p>
+                    <p>To see what is happening in the example, stop the debugger and close the console.</p>
+                    <p>If the statement is the true source of an exception, then it can be corrected and the program rerun. More often than not, the source of the
                         exception is elsewhere. For example, dividing a number by zero will result in a <i>DivideByZeroException,</i> but the place where the denominator
                         became zero may be somewhere prior to the exception. To solve this, you can place a breakpoint prior to where you suspect this may be occurring,
                         then by stepping through one line at a time and inspecting each variable's value as it changes, you can determine the defective statement. To set
-                        a breakpoint, click in the left margin next to the required location and a red dot <span class="red-dot"></span> will appear indicating the
-                        breakpoint and the accompanying line of code will be highlighted in red. When the program is rerun, it will pause at the selected line with all
-                        code prior to the line having been executed but not the line itself.</p>
-                    <p>With the program paused and hovering the mouse over any variable in the local scope, a popup dialog will indicate its current value. It should be
-                        noted that variables outside the local scope of the current location can't be observed. For example, if MethodA calls MethodB and the program is
-                        paused within MethodB, only the values of the variables in MethodB's code block can be observed. Similarly, if the program is paused on a line
-                        inside a method but outside of an if statement's it contains, the values of the variables within the if statement's code block can't be observed
-                        until program execution enters it.</p>
+                        a breakpoint, click in the left margin next to the required location and a <span class="nowrap">red dot <span class="red-dot"></span></span> will
+                        appear indicating the breakpoint and the accompanying line of code will be highlighted in red. When the program is rerun, it will pause at the
+                        selected line with all code prior to the line having been executed but not the line itself. To remove a breakpoint, click on its
+                         <span class="nowrap">red dot <span class="red-dot"></span></span>.</p>
+                    <p>In the example, set a breakpoint next to <code>var c = a / b;</code> and start the debugger. This time the program will pause at the statement,
+                        highlighting it but having not yet executed it, no exception is thrown. When the mouse is hovered over each of the variables in the statement, a
+                        popup dialog is shown indicating their values, which are shown to be <span class="nowrap">a = 6,</span> <span class="nowrap">b = 0,</span>
+                        <span class="nowrap">c = 0.</span> Now stop the debugger, close the console and change <code>var b = 0;</code> to <code>var b = 2;</code>. Next,
+                        remove the breakpoint and set a new one on the next statement <code>Console.WriteLine($"c = {c}").</code> When the program is rerun
+                        <code>var c = a / b</code> is executed without an exception thrown and the program pauses at the breakpoint. Inspecting the variable values show
+                        they are now, <span class="nowrap">a = 6,</span> <span class="nowrap">b = 2,</span> <span class="nowrap">c = 3.</span> When <b>F5</b> is next
+                        pressed, <span class="nowrap">'c = 3'</span> is written to the console and the program exits. Close the console.</p>
+                    <p>There are various other options for inspecting values including the <a href="#Immediate_window">immediate</a>, <a href="#Locals_window">locals</a>
+                        and <a href="#Watch_window">watch</a> windows.</p>
                     <p>Step into executes the program one line at a time. By pressing <b>F11,</b> the currently highlighted line will be executed and the program advanced
-                        to the next line. The local variables can then be rechecked and the program state evaluated. This process can be repeated until the problem is
-                        found, an exception is thrown or the program ends. If the program isn't running, pressing <b>F11</b> will start the debugger and pause the program
-                        at the opening brace of the Main method. By default, only your code is shown being executed but this can be changed in Visual Studio's options.
-                    </p>
-                    <p>Step over allows you to skip over methods that may not be of interest so that you can quickly get to the relevant part of the code. When you are at
-                        a method call, pressing <b>F10</b> will execute the statements it contains but without stepping through them individually and the program is
-                        advanced to the next line. Pressing <b>F10</b> on any statement, other than a method call, will execute it.</p>
-                    <p>Step out allows you to skip the remaining statements in a method. When paused at a line within a method, pressing
-                        <span class="nowrap"><b>Shift + F11</b></span> will advance the program back to the method call.</p>
-                    <p>Run to allows you to advance the program to a specific line of code. With the program paused, when the mouse is hovered over a line of code, the
-                        run to button <span class="next-button-triangle"><span class="next-button-bar"></span></span> will appear. Clicking it will advance the program to
-                        that point.</p>
-                    <p>Run to cursor will advance the program to the current cursor position in the code and is achieved by pressing
-                        <span class="nowrap"><b>Ctrl + F10.</b></span> This can be used whether or not the program is already running and whether or not the program is
-                        paused.</p>
-                    <p>When using step over, step out, run to or run to cursor, if a breakpoint is present, it will take priority and the program will pause at the
-                        breakpoint. </p>
-                    <p>To run the program normally click the <i>Start without debugging</i> button
-                        <span class="play-button"><span class="play-button-light-fill"></span></span> or use the shortcut <span class="nowrap"><b>Ctrl + F5.</b></span>
-                        The program will then run and any breakpoints are ignored.</p>
-                    <p>When a program is built with the release configuration, the optimizations used by the compiler to improve performance can on occasion produce
-                        problems. It is important then that once you have completed debugging the program that you should build and test the program in release
-                        configuration to ensure it is functioning correctly prior to deployment. To do this, change the configuration in the dropdown selector in the
-                        toolbar to release and click on the <i>Start Debugging</i> button <span class="play-button"></span> or press <b>F5.</b> A release version of the
-                        program will be built and run which you can then test as you did with the debug version.</p>
-                    <p>By default, Visual Studio creates the following folders to store the two program versions when they are built.</p>
-                    <p>SolutionFolder\ProjectFolder\bin\Debug</p>
-                    <p>SolutionFolder\ProjectFolder\bin\Release</p>
-                    <p>CodeExample</p>
-<pre><code>namespace Namespace
+                        to the next line or if the current line is a <a href="#Program_execution">method call</a>, to the opening brace of the
+                        <a href="#Program_execution">called method's</a> code block. The variables can then be rechecked and the program state evaluated. This process can
+                        be repeated until either the problem is found, an exception is thrown or the program ends. If the program isn't running, pressing <b>F11</b> will
+                        start the debugger and pause the program at the opening brace of the <code>Main</code> method. By default, only your code is stepped through but
+                        this can be changed in Visual Studio's options.</p>
+                    <p>Using the now modified code in the example, press <b>F11</b> twice. This first starts the debugger with the program paused at the first brace after
+                        <code>static void Main(string[] args)</code> then advances it to <code>var a = 6</code>. Checking the variable values reveals them to be
+                        <span class="nowrap">a = 0,</span> <span class="nowrap">b = 0,</span> <span class="nowrap">c = 0.</span> This shows that even though the
+                        <a href="#Variable_declaration_and_assignment">declaration and assignment</a> statements for these variables have yet to be executed, the compiler
+                        has already looked at the code and having seen the <code>var</code> keyword, implicitly declared them to be of type <code>int</code> and assigned
+                        them 0, being the default value for an <code>int</code>. Pressing <b>F11</b> twice more first executes <code>var a = 6</code> then
+                        <code>var b = 2,</code> changing a and b's values to 6 and 2 respectively. As the program is now paused on <code>var c = a / b</code>, again
+                        pressing <b>F11</b> twice first executes the statement setting c to 3 then executes <code>Console.WriteLine($"c = {c}")</code> which writes
+                        <span class="nowrap">'c = 3'</span> to the console. One more press of F11 advances the program to the end where it exits and the console can now
+                        be closed.</p>
+<pre><code>namespace Debugger1
 {
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
-
+            var a = 6;
+            var b = 0;
+            var c = a / b;
+            Console.WriteLine($"c = {c}");
         }
     }
 }
 </code></pre>
+                    <p>In the next example we'll first look at how the values of <a href="#Variables,_Constants,_Types_and_Literals">variables</a> and
+                        <a href="#Parameters,_signatures_and_overloading">parameters</a> can only be observed when program execution has entered the
+                        <a href="#Scope">local scope</a> in which they reside. For example, if MethodA calls MethodB and the program is paused within MethodB, only the
+                        values of the variables and parameters in MethodB's code block can be observed. Similarly, if the program is paused on a line inside a
+                        <a href="#Methods">method</a> but outside of an <a href="#if_else_statements">if statement</a> it contains, the values of the variables
+                        <a href="#Variable_declaration_and_assignment">declared</a> within the <code>if</code> statement's code block can't be observed until
+                        <a href="#Program_execution">program execution</a> enters it. In the example, set a breakpoint on the <a href="#Program_execution">method call</a>
+                        <code>PrintSquare(a)</code> and start the debugger in debug mode. If you now attempt to observe all variables and parameters anywhere in the code,
+                        only <code>a</code> and <code>b</code> produce a popup dialog indicating their current values of 4 and 0 respectively. Now step through the code
+                        until you reach <span class="nowrap"><code>var square = x * x.</code></span> As you are now in the local scope of the <code>PrintSquare</code>
+                        method, you can observe the value of the parameter <code>x</code> which is 4 having been passed in from the method call and the variable
+                        <code>square</code> which is 0. Attempting to observe the values of any other variables or parameters will fail as they are now out of scope. At
+                        this point nothing has been written to the console. Step into the next two statements to execute them and the console will now display
+                        'The square of 4 is 16'. Step through the code until <span class="nowrap"><code>var cube = y * y * y</code></span>. You can now only observe the
+                        value of parameter <code>y</code> which is 2 and variable <code>cube</code> which is 0. Step into the the next two statements and
+                        'The cube of 2 is 8' is written to the console. Step through again until you get to <code>Console.WriteLine($"{a} / {b} = {c}")</code>. In
+                        addition to observing the values of variables <code>a</code> and <code>b,</code> you can also observe <code>c</code> which is declared in the if
+                        statement's code block, as they are all within the local scope of the <code>if</code> statement. Their values are
+                        <span class="nowrap">a = 4,</span> <span class="nowrap">b = 2,</span> <span class="nowrap">c = 2.</span> Parameters <code>x</code> and
+                        <code>y</code> and the variables <code>square</code> and <code>cube</code> are out of scope so have now become unobservable. Press <b>F5</b> which
+                        will execute the remaining statement, writing <span class="nowrap">'4 / 2 = 2'</span> to the console, an continue the program until it exits.
+                        Close the console.</p>
+                    <p>We'll now use the example to look at the behavior of <span class="nowrap"><i>Step over</i>,</span> <span><i>Step out</i>,</span>
+                        <span class="nowrap"><i>Run to cursor</i></span> and <span class="nowrap"><i>Run to</i></span>. These each provide different ways to execute
+                        sections of code without having to step through individual lines, so that you can quickly get to locations of interest. Note though that when
+                        using these, if a breakpoint is present, it will take priority and the program will pause at the breakpoint.</p>
+                    <p><i>Step over</i> allows you to skip over methods. When you are at a method call, pressing <b>F10</b> will execute the statements it contains but
+                        without stepping through them individually and the program is advanced to the line after the method call. Pressing <b>F10</b> on any statement,
+                        other than a method call, will step into it. In the example, set an additional breakpoint on
+                        <span class="nowrap"><code>var cube = y * y * y</code></span> and start the debugger. The program pauses at the first breakpoint and nothing has
+                        been written to the console. Press <b>F10</b> to step over the method call to <code>PrintSquare</code>. The program advances to
+                        <code>var b = 2</code> and looking at the console, we can see that 'The square of 4 is 16' has been written, indicating that the code within
+                        <code>PrintSquare</code> was executed without stepping through it. Pressing <b>F10</b> twice more first advances to the <code>PrintCube</code>
+                        method call then, instead of stepping over the method, the program is paused at the breakpoint within it. Pressing <b>F10</b> three more times
+                        steps through the statements in the <code>PrintCube</code> method one at a time, writing 'The cube of 2 is 8' to the console, then returns to the
+                        method call. Press <span class="nowrap"><b>Shift + F5</b></span> to stop debugging and then close the console.</p>
+                    <p><i>Step out</i> allows you to skip the remaining statements in a method. When paused at a line within a method, pressing
+                        <span class="nowrap"><b>Shift + F11</b></span> will advance the program back to the method call. In the example, remove the first breakpoint and
+                        start the debugger so that the program has paused at <span class="nowrap"><code>var cube = y * y * y</code></span>. At this point only
+                        'The square of 4 is 16' has been written to the console. Press <span class="nowrap"><b>Shift + F11.</b></span> The remaining statements are
+                        executed without being stepped through, writing 'The cube of 2 is 8' to the console and program execution returns to the method call. Stop the
+                        debugger and close the console.</p>
+                    <p><i>Run to cursor</i> will execute all code, up to but not including, the line at the current cursor position in the code and is achieved by
+                        pressing <span class="nowrap"><b>Ctrl + F10.</b></span> It doesn't matter where in the line of code the cursor is positioned and can be used
+                        whether or not the program is already running and whether or not the program is paused. In the example, with the program stopped, place the cursor
+                        anywhere on the <code>PrintSquare</code> method call and press <span class="nowrap"><b>Ctrl + F10.</b></span> The program runs and pauses at the
+                        <code>PrintSquare</code> method call. As it has not yet been executed, nothing is written to the console but observing variable <code>a</code> we
+                        can see its value has changed to 4. Now position the cursor on the <code>PrintCube</code> method call and again press
+                        <span class="nowrap"><b>Ctrl + F10.</b></span> The program advances to the method call and 'The square of 4 is 16' is written to the console.
+                        Place the cursor on <code>if (b != 0)</code> and press <span class="nowrap"><b>Ctrl + F10.</b></span> The program pauses at the breakpoint in the
+                        PrintCube method. Again place the cursor on <code>if (b != 0)</code> and press <span class="nowrap"><b>Ctrl + F10.</b></span>
+                        'The cube of 2 is 8' is written to the console and the program advances to the <code>if</code> statement. Place the cursor on the closing brace of
+                        the <code>Main</code> method and press <span class="nowrap"><b>Ctrl + F10.</b></span> <span class="nowrap">'4 / 2 = 2'</span> is written to the
+                        console and the program advances to the brace. Stop the debugger and close the console.</p>
+                    <p><i>Run to</i> allows you to advance the program to a specific line of code, but unlike run to cursor, Run to is only available while the program is
+                        running or paused. To use Run to, when the mouse is hovered over a line of code, the
+                        <span class="nowrap">Run to button <span class="next-button-triangle"><span class="next-button-bar"></span></span></span> will appear to the left.
+                        Clicking it will advance the program to that point. In the example, press <b>F11</b> to start the debugger so that the program is paused at the
+                        opening brace of the <code>Main</code> method. With the mouse hovering over the <code>PrintCube</code> method call, click the
+                        <span class="nowrap">Run to button <span class="next-button-triangle"><span class="next-button-bar"></span></span></span> that appears to the
+                        left. The program advances to <code>PrintCube</code>, with all code between it and the previous position executed without being stepped through,
+                        resulting in 'The square of 4 is 16' being written to the console. Hover over <code>if (b != 0)</code> and click the
+                        <span class="nowrap">Run to button <span class="next-button-triangle"><span class="next-button-bar"></span></span></span>. The program enters
+                        the <code>PrintCube</code> method and pauses at the breakpoint. Now hover over the closing brace of the <code>Main</code> method and again click
+                        the <span class="nowrap">Run to button <span class="next-button-triangle"><span class="next-button-bar"></span></span></span>. The remaining code
+                        between the breakpoint and the end of the program is executed resulting in both 'The cube of 2 is 8' and <span class="nowrap">'4 / 2 = 2'</span>
+                        being written to the console. Stop the debugger and close the console.</p>
+<pre><code>namespace Debugger2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var a = 4;
+            PrintSquare(a);
+            var b = 2;
+            PrintCube(b);
+            if (b != 0)
+            {
+                var c = a / b;
+                Console.WriteLine($"{a} / {b} = {c}");
+            }
+        }
+
+        static void PrintSquare(int x)
+        {
+            var square = x * x;
+            Console.WriteLine($"The square of {x} is {square}");
+        }
+
+        static void PrintCube(int y)
+        {
+            var cube = y * y * y;
+            Console.WriteLine($"The cube of {y} is {cube}");
+        }
+    }
+}
+
+// This example writes the following to the console
+// The square of 4 is 16
+// The cube of 2 is 8
+// 4 / 2 = 2
+</code></pre>
+                    <p>The program can also be run normally by clicking the
+                        <span class="nowrap"><i>Start without debugging</i> button <span class="play-button"><span class="play-button-light-fill"></span></span></span>
+                        or by pressing <span class="nowrap"><b>Ctrl + F5.</b></span> The program will then run and any breakpoints are ignored.</p>
+                    <p>When a program is built with the release configuration, the optimizations used by the compiler to improve performance, can on occasion produce
+                        problems. It is important then that, once you have completed debugging the program, you should build and test the program in release configuration
+                        to ensure it is functioning correctly, prior to deployment. To do this, change the configuration in the
+                        <a href="#Debugger_and_breakpoints">Solution Configurations</a> dropdown list in the toolbar to <i>Release</i> and click on the
+                        <span class="nowrap">Start Debugging button <span class="play-button"></span></span> or press <b>F5.</b> A release version of the program will be
+                        built and run, which you can then test as you did with the debug version.</p>
+                    <p>By default, Visual Studio creates the following folders to store the two program versions when they are built.</p>
+                    <p>SolutionFolder\ProjectFolder\bin\Debug</p>
+                    <p>SolutionFolder\ProjectFolder\bin\Release</p>
                     <!-- !SECTION Debugger and breakpoints -->
                     <!-- TODO complete Immediate window -->
                     <!-- SECTION Immediate window -->
