@@ -144,18 +144,18 @@
                     <p>This guide assumes that the Visual Studio has already been installed, updated and the default settings have not been changed.</p>
                     <p>To create a new project</p>
                     <ol>
-                        <li>Start Visual Studio then click <b>Create a new project.</b></li>
+                        <li>Start Visual Studio then click <b>Create a new project</b></li>
                         <li> On the <span class="nowrap"><b>Create a new project</b></span> page in the search box at the top type
-                            <span class="nowrap"><b>console app</b></span>.</li>
+                            <span class="nowrap"><b>console</b></span>.</li>
                         <li>A project template titled <span class="nowrap"><b>Console App</b></span> should appear at the top of the list. It
                             has an icon that looks like a document with C# in the top right corner. Select <span class="nowrap"><b>Console App</b></span> then
-                            choose <b>Next.</b> (Hint: if <span class="nowrap"><b>Console App</b></span> is not at the top, click <b>Clear all</b> and search
+                            choose <b>Next</b> (Hint: if <span class="nowrap"><b>Console App</b></span> is not at the top, click <b>Clear all</b> and search
                             again)</li>
                         <li>On the <span class="nowrap"><b>Configure your new project</b></span> page type <b>HelloWorld</b>
                             in the <span class="nowrap"><b>Project name</b></span> box. Leave the <b>Location</b> and <span class="nowrap"><b>Solution name</b></span> as
-                            filled in by the IDE and choose <b>Next.</b></li>
-                        <li>In the <span class="nowrap"><b>Additional information</b></span> page make sure <b>.NET6.0(Long-term support)</b> is selected in the dropdown
-                            selector then choose <b>Create</b></li>
+                            filled in by the IDE and choose <b>Next</b></li>
+                        <li>In the <span class="nowrap"><b>Additional information</b></span> page make sure <b>.NET6.0(Long-term support)</b> is selected in the
+                            <i>Framework</i> dropdown selector then choose <b>Create</b></li>
                     </ol>
                     <p>The main window of the IDE opens with <i>Solution Explorer</i> open on the right and the code editor on the left. The <i>Program.cs</i> code file
                         should be open in the code editor with the code as per the following example. Not shown here are the line numbers in the left column visible in
@@ -164,7 +164,7 @@
 <pre><code>// See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 </code></pre>
-                    <p>To run the program click on the <i>Start Debugging</i> button <span class="play-button"></span> in the toolbar or press <b>F5.</b></p>
+                    <p>To run the program click on the <i>Start Debugging</i> button <span class="play-button"></span> in the toolbar or press <b>F5</b></p>
                     <p>The console, a <i>command window</i> in Windows, opens displaying the words <span class="nowrap"><b>'Hello World!'</b> .</span> Congratulations,
                         you have now created and run your first C# program. The remainder of the text tells you the program finished but the IDE has kept the console open
                         so that you can see the result. Press any key to close the console.</p>
@@ -202,7 +202,7 @@ Console.WriteLine("Hello, World!");
                         other projects or an executable (.exe) file that can be started and run directly. An application may consist of one or more of these.</p>
                     <p>In Visual Studio when a C# project is first created it creates a <i>Solution</i> that includes the project and other files required by the compiler
                         to build the assembly. These can be viewed in the <i>Solution Explorer</i> window which can be accessed via the <i>Solution Explorer</i> tab on
-                        the right side of Visual Studio. If the tab is not visible, click on <b>View</b> then <b>Solution Explorer</b> in the menu. The Solution Explorer
+                        the right side of Visual Studio. If the tab is not visible, click on <b>View</b> &gt; <b>Solution Explorer</b> in the menu. The Solution Explorer
                         appears similar to that of tree view of the File Explorer. Under the Solution root node is listed each project and under these each of the folders
                         and files they contain. To a large extent, you can customize the folder and file locations to suit your own requirements. When the compiler first
                         builds a project, several other files are generated and then updated with each rebuild.</p>
@@ -261,11 +261,11 @@ namespace ProgramStructure
                     <p>To comment out multiple lines, first select all the lines by placing the cursor in front of the first statement, then drag the mouse diagonally
                         down to the end of the last statement. Then while pressing <b>Ctrl</b> press and release <b>k</b> then
                         <span class="nowrap">press <b>c</b> .</span> To uncomment, again with all lines selected, while pressing <b>Ctrl</b> press and release <b>k</b>
-                        then <span class="nowrap">press <b>u</b>.</span></p>
+                        then <span class="nowrap">press <b>u</b></span></p>
                     <p>The comment, <code>// TODO: This comment will be added to the tasks list</code>, is interpreted by the code editor as a task to
                         be added to the Task List. There are four predefined task tokens, <code>HACK</code>, <code>TODO</code>, <code>UNDONE</code>,
                         <code>UnresolvedMergeConflict</code> and custom tokens can also be added. Task tokens are not case sensitive. To see the task list, in the menu
-                        click <b>View</b> then <span class="nowrap"><b>Task List</b>.</span></p>
+                        click <b>View</b> &gt; <span class="nowrap"><b>Task List</b></span></p>
                     <p><i>Documentation comments</i> provide information that is displayed by IntelliSense when entering code and can be applied to
                         <a href="#User_defined_types">user defined types</a> or the <a href="#Members">members</a> they contain. They are similar to single line comments
                         but instead start with three forward slashes <code>///</code> and can contain XML tags that provide special meaning to IntelliSense. Visual Studio
@@ -666,7 +666,6 @@ World!");
                 <header><h2>Code Writing and Debugging</h2></header>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
-                    <!-- TODO complete Code editor -->
                     <!-- SECTION Code editor -->
                     <h4 id="Code_editor">Code editor</h4>
                     <p>The <a href="#Program_structure">program structure</a> of a C# application consists of one or more code files that can be browsed in the
@@ -681,9 +680,9 @@ World!");
                         entered. If <a href="#Variables,_Constants,_Types_and_Literals">variables</a> or parameters from the containing method have been previously
                         declared, they will appear at the top of the list, which in the following example includes <code>args</code> from
                         <span class="nowrap"><code>Main(string[] args)</code>.</span> To view all overloads after the statement has been written, place the cursor
-                        anywhere within the round brackets and press <b>Ctrl + Shift + Space</b>, then use the arrow keys to navigate to each argument to see the
-                        description for the associated parameter. To view the argument list, place the cursor just before any argument and press
-                        <span class="nowrap"><b>Ctrl + Space</b>.</span></p>
+                        anywhere within the round brackets and press <span class="nowrap"><b>Ctrl + Shift + Space</b></span>, then use the arrow keys to navigate to each
+                        argument to see the description for the associated parameter. To view the argument list, place the cursor just before any argument and press
+                        <span class="nowrap"><b>Ctrl + Space</b></span></p>
                     <p>Popup help information is provided when hovering over types or <a href="#Code_syntax">identifiers</a>. In the example below, hovering over
                         <code>string</code> will result in the following popup dialog about the <a href="#string">string</a> type.</p>
 <pre><code>class System.String
@@ -696,7 +695,7 @@ Represents text as a sequence of UTF-16 code units.
                         Information on each error and warning can be found as an entry in the <i>Error List,</i> usually located at the bottom of the code editor. After
                         selecting an entry, you can display help information by either clicking the error number or pressing <b>F1</b>, which in most cases will be a help
                         page on the <a href="#References">Microsoft C# reference documentation</a> website. Double clicking an entry or by selecting it and pressing
-                        <b>enter</b> will move the cursor to the associated statement, opening its containing code file if necessary. The error list also provides various
+                        <b>Enter</b> will move the cursor to the associated statement, opening its containing code file if necessary. The error list also provides various
                         filters, sorting and search ability to narrow down specific entries. To view the error list, you may need to click on the  <b>Error List</b> tab
                         or if it is not displayed, open it by clicking on <span class="nowrap"><b>View</b> &gt; <b>Error List</b></span> in the menu.</p>
                     <p>In the following example, the identifier <code>WriteLine</code> has been misspelt in the statement <code>Console.WriteLin("Hello World!")</code>
@@ -722,15 +721,15 @@ Represents text as a sequence of UTF-16 code units.
 </code></pre>
                     <p>By hovering the mouse over the underlined code, a popup dialog will provide information on the problem, usually with a link indicating the error
                         number. As with the error list, clicking this opens the help information. After a short pause, the dialog may also provide a
-                        <i>'Show potential fixes'</i> link that can be opened by clicking it or by using the shortcut <b>Alt + Enter.</b> When opened, a list of fixes is
-                        shown and when hovering over each of these, another popup showing the suggested change is displayed.</p>
+                        <i>'Show potential fixes'</i> link that can be opened by clicking it or by using the shortcut <span class="nowrap"><b>Alt + Enter</b></span> When
+                        opened, a list of fixes is shown and when hovering over each of these, another popup showing the suggested change is displayed.</p>
                     <p>By hovering over the syntax error in the above example the following popup dialog will be displayed.</p>
 <pre><code><span class="code-link">CS0117</span>: 'Console' does not contain a definition for 'WriteLin'
 
 <span class="code-link">Show potential fixes</span> (Alt+Enter or Ctrl+.)
 </code></pre>
                     <p>Pressing <span class="nowrap"><b>Alt + Enter</b></span> reveals only one solution, <code>Change 'WriteLin' to 'WriteLine'.</code>. Pressing
-                    <b>enter</b> accepts the change and the syntax error is resolved.</p>
+                    <b>Enter</b> accepts the change and the syntax error is resolved.</p>
                     <p>By hovering over <code><u class="warning">int</u></code> warning we get</p>
 <pre><code>readonly struct System.Int32
 Represents a 32-bit signed integer.
@@ -769,7 +768,6 @@ Represents a 32-bit signed integer.
                         assumption and if not, appropriate corrections are applied until it does. This is then repeated for each piece of code that is added until the
                         program is completed.</p>
                     <!-- !SECTION Debugging -->
-                    <!-- TODO complete Debugger and breakpoints -->
                     <!-- SECTION Debugger and breakpoints -->
                     <h3 id="Debugger_and_breakpoints">Debugger and breakpoints</h3>
                     <p>When running a program, it may end unexpectedly without providing any information. Worse, it may run through to the end and exit normally but the
@@ -798,7 +796,7 @@ Represents a 32-bit signed integer.
                     <p>In the first code example we'll look at the <span class="nowrap"><i>Start debugging</i>,</span> <span class="nowrap"><i>Stop debugging</i>,</span>
                         and <span class="nowrap"><i>Step into</i></span> functions.</p>
                     <p>With debug configuration selected, the debugger can be started in <i>debug mode</i> by clicking on the
-                        <span class="nowrap"><i>Start Debugging</i> button <span class="play-button"></span></span> in the toolbar or by pressing <b>F5.</b> In the
+                        <span class="nowrap"><i>Start Debugging</i> button <span class="play-button"></span></span> in the toolbar or by pressing <b>F5</b> In the
                         example, press <b>F5</b> now. The debugger starts and pauses the program at the statement <span class="nowrap"><code>var c = a / b</code>.</span>
                         Next to it, a dialog is displayed indicating that an <a href="#Exceptions">exception</a> has been <a href="#throw">thrown</a> with the name of the
                         exception, in this case DivideByZeroException, along with other information pertaining to it. When an exception is thrown or a breakpoint
@@ -908,20 +906,20 @@ Represents a 32-bit signed integer.
                     <p><i>Step out</i> allows you to skip the remaining statements in a method. When paused at a line within a method, pressing
                         <span class="nowrap"><b>Shift + F11</b></span> will advance the program back to the method call. In the example, remove the first breakpoint and
                         start the debugger so that the program has paused at <span class="nowrap"><code>var cube = y * y * y</code></span>. At this point only
-                        'The square of 4 is 16' has been written to the console. Press <span class="nowrap"><b>Shift + F11.</b></span> The remaining statements are
+                        'The square of 4 is 16' has been written to the console. Press <span class="nowrap"><b>Shift + F11</b></span> The remaining statements are
                         executed without being stepped through, writing 'The cube of 2 is 8' to the console and program execution returns to the method call. Stop the
                         debugger and close the console.</p>
                     <p><i>Run to cursor</i> will execute all code, up to but not including, the line at the current cursor position in the code and is achieved by
-                        pressing <span class="nowrap"><b>Ctrl + F10.</b></span> It doesn't matter where in the line of code the cursor is positioned and can be used
+                        pressing <span class="nowrap"><b>Ctrl + F10</b></span> It doesn't matter where in the line of code the cursor is positioned and can be used
                         whether or not the program is already running and whether or not the program is paused. In the example, with the program stopped, place the cursor
-                        anywhere on the <code>PrintSquare</code> method call and press <span class="nowrap"><b>Ctrl + F10.</b></span> The program runs and pauses at the
+                        anywhere on the <code>PrintSquare</code> method call and press <span class="nowrap"><b>Ctrl + F10</b></span> The program runs and pauses at the
                         <code>PrintSquare</code> method call. As it has not yet been executed, nothing is written to the console but observing variable <code>a</code> we
                         can see its value has changed to 4. Now position the cursor on the <code>PrintCube</code> method call and again press
-                        <span class="nowrap"><b>Ctrl + F10.</b></span> The program advances to the method call and 'The square of 4 is 16' is written to the console.
-                        Place the cursor on <code>if (b != 0)</code> and press <span class="nowrap"><b>Ctrl + F10.</b></span> The program pauses at the breakpoint in the
-                        PrintCube method. Again place the cursor on <code>if (b != 0)</code> and press <span class="nowrap"><b>Ctrl + F10.</b></span>
+                        <span class="nowrap"><b>Ctrl + F10</b></span> The program advances to the method call and 'The square of 4 is 16' is written to the console.
+                        Place the cursor on <code>if (b != 0)</code> and press <span class="nowrap"><b>Ctrl + F10</b></span> The program pauses at the breakpoint in the
+                        PrintCube method. Again place the cursor on <code>if (b != 0)</code> and press <span class="nowrap"><b>Ctrl + F10</b></span>
                         'The cube of 2 is 8' is written to the console and the program advances to the <code>if</code> statement. Place the cursor on the closing brace of
-                        the <code>Main</code> method and press <span class="nowrap"><b>Ctrl + F10.</b></span> <span class="nowrap">'4 / 2 = 2'</span> is written to the
+                        the <code>Main</code> method and press <span class="nowrap"><b>Ctrl + F10</b></span> <span class="nowrap">'4 / 2 = 2'</span> is written to the
                         console and the program advances to the brace. Stop the debugger and close the console.</p>
                     <p><i>Run to</i> allows you to advance the program to a specific line of code, but unlike run to cursor, Run to is only available while the program is
                         running or paused. To use Run to, when the mouse is hovered over a line of code, the
@@ -974,12 +972,12 @@ Represents a 32-bit signed integer.
 </code></pre>
                     <p>The program can also be run normally by clicking the
                         <span class="nowrap"><i>Start without debugging</i> button <span class="play-button"><span class="play-button-light-fill"></span></span></span>
-                        or by pressing <span class="nowrap"><b>Ctrl + F5.</b></span> The program will then run and any breakpoints are ignored.</p>
+                        or by pressing <span class="nowrap"><b>Ctrl + F5</b></span> The program will then run and any breakpoints are ignored.</p>
                     <p>When a program is built with the release configuration, the optimizations used by the compiler to improve performance, can on occasion produce
                         problems. It is important then that, once you have completed debugging the program, you should build and test the program in release configuration
                         to ensure it is functioning correctly, prior to deployment. To do this, change the configuration in the
                         <a href="#Debugger_and_breakpoints">Solution Configurations</a> dropdown list in the toolbar to <i>Release</i> and click on the
-                        <span class="nowrap">Start Debugging button <span class="play-button"></span></span> or press <b>F5.</b> A release version of the program will be
+                        <span class="nowrap">Start Debugging button <span class="play-button"></span></span> or press <b>F5</b> A release version of the program will be
                         built and run, which you can then test as you did with the debug version.</p>
                     <p>By default, Visual Studio creates the following folders to store the two program versions when they are built.</p>
                     <p>SolutionFolder\ProjectFolder\bin\Debug</p>
@@ -988,20 +986,61 @@ Represents a 32-bit signed integer.
                     <!-- TODO complete Immediate window -->
                     <!-- SECTION Immediate window -->
                     <h3 id="Immediate_window">Immediate window</h3>
-                    <p>The immediate window allows you to change the value of a variable when the debugger is running. If not visible, it can be opened by selecting
+                    <p>The immediate window allows you to read and change the value of a <a href="#Variables,_Constants,_Types_and_Literals">variable</a> when the
+                        <a href="#Debugger_and_breakpoints">debugger</a> is running. It also allows you to call any <a href="#Methods">method</a>
+                        allowing you to evaluate it, even if the debugger is not running. If not visible, the immediate window can be opened by selecting
                         <span class="nowrap"><b>Debug</b> &gt; <b>Windows</b> &gt; <b>Immediate</b></span> from the menu bar or by pressing
-                        <span class="nowrap"><b>Ctrl + Alt + I.</b></span>.</p>
-                    <p>CodeExample</p>
-<pre><code>namespace Namespace
+                        <span class="nowrap"><b>Ctrl + Alt + I</b></span></p>
+                    <p>To see how it works, paste the following code into a ConsoleApp.</p>
+<pre><code>namespace ImmediateWindow
 {
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
+            var a = 4;
+            PrintSquare(a);
+        }
 
+        static void PrintSquare(int x)
+        {
+            var square = x * x;
+            Console.WriteLine($"The square of {x} is {square}");
         }
     }
 }
+</code></pre>
+                    <p>Now start the debugger by pressing <b>F5</b> The program runs and 'The square of 4 is 16' is written to the console. Press
+                         <span class="nowrap"><b>Shift + F5</b></span> to stop
+                        the debugger and close the console. Set a <a href="#Debugger_and_breakpoints">breakpoint</a> on the <code>PrintSquare</code>
+                         <a href="#Program_structure">method call</a> and
+                        start the debugger so that the program is paused at the breakpoint. In the immediate window type <code>?a</code> then press <b>Enter</b> If
+                        IntelliSense opens a list after typing <code>a,</code> press the <b>Esc</b> key to close it then press <b>Enter</b> The immediate window will
+                        appear as follows displaying the value of the variable <code>a</code>.</p>
+<pre><code>?a
+5
+</code></pre>
+                    <p>Now type <code>a=5</code> and press return. The following will be displayed indicating that the value of the variable has changed. Hovering over
+                        <code>a</code> you can see that its value has changed to 5. Press <b>F5</b> to allow the program to continue and 'The square of 5 is 25' is
+                        written to the console. Stop the debugger and close the console.</p>
+                    <p><em>Note:</em> <i>It can take several seconds for the console to close when using the immediate window giving the impression it is not
+                        responding.</i></p>
+<pre><code>?a
+4
+a=5
+5
+</code></pre>
+                    <p>Now type <code>PrintSquare</code>. As you start typing IntelliSense should display a list that includes <code>PrintSquare</code> for you to select
+                        if you wish. Finish the entry by typing <code>PrintSquare(6)</code> then press <b>Enter</b> The debugger will start and 'The square of 6 is 36'
+                        will be written to the console. The immediate window will appear as follows with the last statement indicating there was no return value from the
+                        method. Stop the debugger and close the console. To clear the immediate window, right click it and click
+                        <span class="nowrap"><b>Clear All</b></span> in the context menu that appears.</p>
+<pre><code>?a
+4
+a=5
+5
+PrintSquare(6)
+Expression has been evaluated and has no value
 </code></pre>
                     <!-- !SECTION Immediate window -->
                     <!-- TODO complete Locals window -->
@@ -1140,7 +1179,7 @@ Represents a 32-bit signed integer.
                         <b>F5</b> the program will run with the debugger attached and then stop and highlight the statement
                         <code>var z = x / y;</code> and display an <i>Exception Unhandled</i> dialog box with the message <i>System.DivideByZeroException: 'Attempted to
                         divide by zero.'</i> of which <code>DivideByZeroException</code> is the exception. To stop the program and clear the exception click the
-                        <i>Stop Debugging</i> <span class="stop-button"></span> button in the toolbar or press <span class="nowrap"><b>Shift + F5.</b></span></p>
+                        <i>Stop Debugging</i> <span class="stop-button"></span> button in the toolbar or press <span class="nowrap"><b>Shift + F5</b></span></p>
 <pre><code>namespace Exception
 {
     class Program
@@ -4772,7 +4811,7 @@ namespace Dictionaries
                         handler. The <code>Clock.Stopped</code> event takes a custom type <code>StoppedEventArgs</code> derived from <code>EventArgs</code> which is used
                         to pass the stop time to the <code>_clock_Stopped</code> event handler. <code>StoppedEventArgs</code> has a <code>DateTime</code> type
                         <code>Time</code> property that is set by the constructor. The example also employs <code>Console.ReadKey</code> to test whether the user has
-                        pressed the <b>enter</b> key to end the program.</p>
+                        pressed the <b>Enter</b> key to end the program.</p>
 <pre><code>namespace Events
 {
     public class Clock
@@ -6435,22 +6474,22 @@ namespace CancelEvent
                     <p>The following example demonstrates how to create a new project, add a second project to the solution of the first and then create a reference of
                         the second project to the first.</p>
                     <ol>
-                        <li>Start the IDE then click <b>Create a new project.</b></li>
+                        <li>Start the IDE then click <b>Create a new project</b></li>
                         <li> On the <span class="nowrap"><b>Create a new project</b></span> page in the search box at the top type
                             <span class="nowrap"><b>'console core'</b></span>.</li>
                         <li>A project template titled <span class="nowrap"><b>Console App</b></span> should appear at the top of the list. It has an icon that looks like
-                            a document with C# in the top right corner. Select <span class="nowrap"><b>Console App</b></span> then choose <b>Next.</b>
+                            a document with C# in the top right corner. Select <span class="nowrap"><b>Console App</b></span> then choose <b>Next</b>
                             (Hint: if <span class="nowrap"><b>Console App</b></span> is not at the top, click <b>Clear all</b> and search again)</li>
                         <li>On the <span class="nowrap"><b>Configure your new project</b></span> page type <b>'ProjectA'</b> in the
                             <span class="nowrap"><b>Project name</b></span> box. Leave the <b>Location</b> and <span class="nowrap"><b>Solution name</b></span> as filled
-                            in by the IDE and choose <b>Next.</b></li>
+                            in by the IDE and choose <b>Next</b></li>
                         <li>In the <span class="nowrap"><b>Additional information</b></span> page make sure <b>.NET5.0(Current)</b> is selected in the dropdown selector
                             then choose <b>Create</b></li>
                         <li>When the code editor has loaded right click the <b>Solution</b> node in the Solution Explorer then in the context menu hover the mouse over
                             <b>add</b> then in the new context menu that opens, click new project.</li>
                         <li>A project template called <b>ClassLibrary</b> : <i>A project for creating a class library that targets .NET Standard or .NET Core</i> should be
                             at the top of the list. If not, scroll down till you find the template then click on it to highlight it then click <b>Next</b></li>
-                        <li>Repeat steps 4 and 5 using the project name <b>'ProjectB'.</b></li>
+                        <li>Repeat steps 4 and 5 using the project name <b>ProjectB</b></li>
                         <li>In <i>Solution Explorer</i> right click the <b>Dependencies</b> node under <b>ProjectA</b> and click <b>Add Project Reference</b> in the
                             context menu.</li>
                         <li>In the <b>Reference Manager - ProjectA</b> dialog box select the <b>Projects</b> node on the left pane.</li>
@@ -6474,10 +6513,11 @@ namespace CancelEvent
                         namespaces are accessed by chaining the namespaces together in the form <span class="nowrap"><code>Namespace1.Namespace2.MyType</code>.</span>
                         Accessible <a href="#static">static</a> <a href="#Members">members</a>, <a href="#Constant_fields">constant fields</a> and nested types within a
                         type are accessed in a similar way in the form <span class="nowrap"><code>MyNamespace.MyType.Member</code>.</span> <i>IntelliSense</i> uses
-                        namespaces to assist you by providing suggestions as you type. After typing the root namespace then pressing <b>.</b>, all the types and nested
-                        namespaces within it will appear in the suggestion box. If one of the nested namespaces is selected, the <b>.</b> can again be pressed to find all
-                        types and nested namespaces within it and the process can be repeated until no nested namespaces remain. If a type is selected, pressing
-                        <span class="nowrap">the <b>.</b></span> will display type's accessible members.</p>
+                        namespaces to assist you by providing suggestions as you type. After typing the root namespace then <span class="nowrap">pressing <b>.</b></span>,
+                        all the types and nested namespaces within it will appear in the suggestion box. If one of the nested namespaces is selected,
+                        <span class="nowrap">the <b>.</b></span> can again be pressed to find all types and nested namespaces within it and the process can be repeated
+                        until no nested namespaces remain. If a type is selected, pressing <span class="nowrap">the <b>.</b></span> will display type's accessible
+                        members.</p>
                     <p>The <code>using</code> keyword allows types from another namespace to be <a href="#using_and_importing_types"><i>imported</i></a> into a local
                         namespace so that they can be accessed directly by their identifiers and can also be used to create namespace
                         <a href="#Aliases"><i>aliases</i></a> to avoid naming conflicts. The <code>static</code> modifier keyword can be applied to the <code>using</code>
@@ -6750,7 +6790,7 @@ namespace NamespaceExample
                         identifier, with the mouse hovering over it, press <b><kbd>Ctrl</kbd> + <kbd>.</kbd></b> and IntelliSense will suggest the correct using
                         directive, most likely at the top of the list. Click on the suggestion and it will be added to the code. Please note that the full identifier must
                         be entered with the correct case and the project must have a <a href="#Dependencies">reference</a> to the project containing the type.</p>
-                    <p>To remove unused <i>using</i> directives, right click anywhere in the code editor and click <b>Remove and Sort Usings.</b></p>
+                    <p>To remove unused <i>using</i> directives, right click anywhere in the code editor and click <b>Remove and Sort Usings</b></p>
                     <p>The following example demonstrate importing types with the <code>using</code> directive.</p>
 <pre><code>// Class5.cs
 namespace NameSpace5
