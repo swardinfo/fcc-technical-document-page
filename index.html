@@ -777,15 +777,15 @@ Represents a 32-bit signed integer.
                     <p>When running a program, it may end unexpectedly without providing any information. Worse, it may run through to the end and exit normally but the
                         function it provides may not be as expected. The debugger provides extra information and allows you to step through the code one line at a time
                         allowing you to locate exactly where the code is going wrong. Breakpoints can be assigned to any line and can assist you by instructing the
-                        debugger to pause or <i>break</i> at the line prior to executing it. From here you can step through the program and examine the current state of the
-                        <a href="#Variables,_Constants,_Types_and_Literals">variables</a>, parameters and type members that are in <a href="#Scope">scope</a>.
+                        debugger to pause or <i>break</i> at the line prior to executing it. From here you can step through the program and examine the current state of
+                        the <a href="#Variables,_Constants,_Types_and_Literals">variables</a>, parameters and type members that are in <a href="#Scope">scope</a>.
                         Breakpoints and the current debugger state appear as icons in the left margin just to the left of the line numbers.</p>
                     <p>There are two ways a program can be configured when it is being built; <i>Debug</i> and <i>Release.</i> Debug configuration adds extra information
                         to the build, specifically for use by the debugger. The release configuration removes the debug information and optimizes the program for
                         performance, for when the program is deployed. Debug or release configurations can be selected from the <i>Solution Configurations</i> dropdown
                         list in the Visual Studio toolbar. There are also two ways in which to run the program in Visual Studio; <i>With the Debugger Attached</i> and
-                        <i>Without the Debugger Attached</i>. To run a program in <i>Debug Mode</i> the program must be run, both with the debugger attached and with debug
-                        configuration selected.</p>
+                        <i>Without the Debugger Attached</i>. To run a program in <i>Debug Mode</i> the program must be run, both with the debugger attached and with
+                        debug configuration selected.</p>
                     <!-- SECTION Controlling the debugger -->
                     <h4 id="Controlling_the_debugger">Controlling the debugger</h4>
                     <p> There are a number of ways in which you can control the debugger.</p>
@@ -803,13 +803,12 @@ Represents a 32-bit signed integer.
                     </ul>
                     <p>In the first code example we'll look at the <span class="nowrap"><i>Start debugging</i>,</span> <span class="nowrap"><i>Stop debugging</i>,</span>
                         <span class="nowrap"><i>Restart debugging</i>,</span> and <span class="nowrap"><i>Step into</i></span> functions.</p>
-                    <p>With debug configuration selected, the debugger can be started in <i>debug mode</i> by clicking on the
-                        <span class="nowrap"><i>Start Debugging</i> button <span class="play-button"></span></span> in the toolbar or by pressing <b>F5</b> In the
-                        example, press <b>F5</b> now. The debugger starts and pauses or <i>breaks</i> the program at the statement
-                        <span class="nowrap"><code>var c = a / b</code>.</span> Next to it, a dialog is displayed indicating that an
-                        <a href="#Exceptions">exception</a> has been <a href="#throw">thrown</a> with the name of the exception, in this case DivideByZeroException, along
-                        with other information pertaining to it. When an exception is thrown or a breakpoint encountered, the debugger breaks the program at the line in
-                        the code where this occurs, known as being in <i>break mode,</i> highlighting it in yellow and placing a
+                    <p>With debug configuration selected, the debugger can be started in <i>debug mode</i> by clicking on the <span class="nowrap"><i>Start Debugging</i>
+                        button <span class="play-button"></span></span> in the toolbar or by pressing <b>F5</b> In the example, press <b>F5</b> now. The debugger starts
+                        and pauses or <i>breaks</i> the program at the statement <span class="nowrap"><code>var c = a / b</code>.</span> Next to it, a dialog is displayed
+                        indicating that an <a href="#Exceptions">exception</a> has been <a href="#throw">thrown</a> with the name of the exception, in this case
+                        DivideByZeroException, along with other information pertaining to it. When an exception is thrown or a breakpoint encountered, the debugger breaks
+                        the program at the line in the code where this occurs, known as being in <i>break mode,</i> highlighting it in yellow and placing a
                         <span class="nowrap">yellow arrow
                             <span class="yellow-arrow-point">
                                 <span class="yellow-arrow-point-fill">
@@ -833,24 +832,29 @@ Represents a 32-bit signed integer.
                     <h4 id="Setting_breakpoints_and_inspecting_values">Setting breakpoints and inspecting values</h4>
                     <p>If the statement is the true source of an exception, then it can be corrected and the program rerun. More often than not, the source of the
                         exception is elsewhere. For example, dividing a number by zero will result in a <i>DivideByZeroException,</i> but the place where the denominator
-                        became zero may be prior to this point. To solve this, you can place a breakpoint prior to where you suspect this may be occurring, then by stepping
-                        through one line at a time and inspecting each variable's value as it changes, you can determine the defective statement. To set a breakpoint, you
-                        click in the left margin next to the required location and a <span class="nowrap">red dot <span class="red-dot"></span></span> will
-                        appear indicating the breakpoint and the accompanying line of code will be highlighted in red. When the program is rerun, it will break at the
-                        selected line with all code prior to the line having been executed but not the line itself. To remove a breakpoint, click on its
+                        became zero may be prior to this point. To solve this, you can place a breakpoint prior to where you suspect this may be occurring, then by
+                        stepping through one line at a time and inspecting each variable's value as it changes, you can determine the defective statement. To set a
+                        breakpoint, you click in the left margin next to the required location and a <span class="nowrap">red dot <span class="red-dot"></span></span>
+                        will appear indicating the breakpoint and the accompanying line of code will be highlighted in red. When the program is rerun, it will break at
+                        the selected line with all code prior to the line having been executed but not the line itself. To remove a breakpoint, click on its
                         <span class="nowrap">red dot <span class="red-dot"></span></span>. An alternative way to add or remove a breakpoint is to place the cursor on the
                         required line of code and press <b>F9.</b></p>
                     <p>In the example, with the debugger still in break mode at the <span class="nowrap"><code>var c = a / b</code></span> statement, set a breakpoint
                         on it and restart the debugger. This time the program will break at the statement, highlighting it but having not yet executed it, no exception is
                         thrown. When the mouse is hovered over each of the variables <code>a,</code> <code>b,</code> and <code>c</code> in the statement, a popup dialog
                         is shown indicating their values which are 6, 0 and 0 respectively. As denominator <code>b</code> is 0, this is producing the exception. Stop the
-                        debugger, close the console and change <code>var b = 0;</code> to
-                        <code>var b = 2;</code>. Next, remove the breakpoint and set a new on <code>Console.WriteLine($"c = {c}").</code> When the program is rerun
-                        <code>var c = a / b</code> is executed without an exception being thrown and the program breaks at
-                        <span class="nowrap"><code>Console.WriteLine($"c = {c}").</code></span> Inspecting the variables <code>a,</code> <code>b,</code> and
-                        <code>c</code> show their values are now 6, 2 and 3. Also, by hovering over the <a href="#Expressions_and_Operators">expression</a>
-                        <code>a / b,</code> we see its value is 3. To do this, you may need to move the mouse away from the variables and then back over the division
-                        <code>/</code> <a href="#Expressions_and_Operators">operator</a>. When <b>F5</b> is next pressed, the program continues,
+                        debugger, close the console and change <code>var b = 0;</code> to <code>var b = 2;</code> in the code editor. Next, remove the breakpoint and set
+                        a new on <code>Console.WriteLine($"c = {c}").</code> When the program is rerun <code>var c = a / b</code> is executed without an exception being
+                        thrown and the program breaks at <span class="nowrap"><code>Console.WriteLine($"c = {c}").</code></span> Inspecting the variables <code>a,</code>
+                        <code>b,</code> and <code>c,</code> show their values are now 6, 2 and 3. Also, by hovering over the
+                        <a href="#Expressions_and_Operators">expression</a> <code>a / b,</code> we see its value is 3. To do this, you may need to move the mouse away
+                        from the variables and then back over the division <code>/</code> <a href="#Expressions_and_Operators">operator</a>. There is also a parameter and
+                        another variable that can be observed. The parameter <code>args</code> is passed in through
+                        <span class="nowrap"><code>Main(string[] args),</code></span> which is a an <a href="#Array">array</a> of type <a href="#string">string</a> and
+                        like a variable, its value can be observed by hovering over it. The popup dialog displays it to be <code>{string[0]}</code> which means that it is
+                        a <code>string</code> array with zero elements. The other variable, <code>arr</code> is an array of type <code>int.</code> As the statement that
+                        declares and assigns values to it has not yet been executed, observing it now shows its value to be null, the default value for an array. We'll
+                        examine how its value changes after assignment, next in <a href="#Step_into">Step into</a>. When <b>F5</b> is next pressed, the program continues,
                         <span class="nowrap">'c = 3'</span> is written to the console and the program exits. Close the console.</p>
                     <p>There are various other options for inspecting values including the <a href="#Immediate_window">immediate</a>, <a href="#Locals_window">locals</a>
                         and <a href="#Watch_window">watch</a> windows.</p>
@@ -865,14 +869,18 @@ Represents a 32-bit signed integer.
                         through but this can be changed in Visual Studio's options.</p>
                     <p>Using the now modified code in the example, press <b>F11</b> twice. This first starts the debugger with the program in break mode at the first
                         brace after <code>static void Main(string[] args),</code> then advances it to <code>var a = 6</code>. Checking the variables <code>a,</code>
-                        <code>b,</code> and <code>c</code> reveals their values to all be 0. This shows that even though the
+                        <code>b,</code> and <code>c,</code> reveals their values to all be 0. This shows that even though the
                         <a href="#Variable_declaration_and_assignment">declaration and assignment</a> statements for these variables have yet to be executed, the compiler
                         has already looked at the code and having seen the <code>var</code> keyword, implicitly declared them to be of type <code>int</code> and assigned
                         them 0, being the default value for an <code>int</code>. Pressing <b>F11</b> twice more first executes <code>var a = 6</code> then
                         <code>var b = 2,</code> changing a and b's values to 6 and 2 respectively. As the program is now in break mode on <code>var c = a / b</code>,
                         again pressing <b>F11</b> twice first executes the statement assigning 3 to <code>c</code>, then executes
-                        <code>Console.WriteLine($"c = {c}")</code> which writes <span class="nowrap">'c = 3'</span> to the console. One more press of F11 advances the
-                        program to the end where it exits and the console can now be closed.</p>
+                        <code>Console.WriteLine($"c = {c}")</code> which writes <span class="nowrap">'c = 3'</span> to the console. At this point,
+                        <code>int[] arr = { 1, 2, 3, 4 }</code> has not yet been executed so the value of <code>arr</code> is still null. Press <b>F11</b> to step into
+                        and execute the statement. Observing <code>arr</code> now shows its value has changed to <span class="nowrap">{int[4]}</span> indicating it is an
+                        array of type <code>int</code> with 4 elements. Additionally, an arrow has appeared at the left side of the dialog. Hovering over this reveals a
+                        list of the elements, which as an array is zero based, are numbered [0] to [3], and their values, 1 to 4. One more press of <b>F11</b> advances
+                        the program to the end where it exits and the console can now be closed.</p>
                     <!-- !SECTION Step into -->
 <pre><code>namespace Debugger1
 {
@@ -1058,8 +1066,8 @@ Represents a 32-bit signed integer.
                         <span class="nowrap"><i>Start without debugging</i> button <span class="play-button"><span class="play-button-light-fill"></span></span></span>
                         or by pressing <span class="nowrap"><b>Ctrl + F5.</b></span> The program will then run and any breakpoints are ignored.</p>
                     <p>When a program is built with the release configuration, the optimizations used by the compiler to improve performance, can on occasion produce
-                        problems. It is important then that, once you have completed debugging the program, you should build and test the program in release configuration
-                        to ensure it is functioning correctly, prior to deployment. To do this, change the configuration in the
+                        problems. It is important that, once you have completed debugging the program, you should build and test the program in release configuration to
+                        ensure it is functioning correctly, prior to deployment. To do this, change the configuration in the
                         <a href="#Debugger_and_breakpoints">Solution Configurations</a> dropdown list in the toolbar to <i>Release</i> and click on the
                         <span class="nowrap">Start Debugging button <span class="play-button"></span></span> or press <b>F5.</b> A release version of the program will be
                         built and run, which you can then test as you did with the debug version.</p>
@@ -1104,9 +1112,8 @@ Represents a 32-bit signed integer.
 5
 </code></pre>
                     <p>Now type <code>a=5</code> in the immediate window and press return. The following will be displayed indicating that the value of the variable has
-                         changed. Hovering over
-                        <code>a</code> in the code editor, you can see that its value has changed to 5 there also. Press <b>F5</b> to allow the program to continue and 'The square of 5 is 25' is
-                        written to the console. Stop the debugger and close the console.</p>
+                        changed. Hovering over <code>a</code> in the code editor, you can see that its value has changed to 5 there also. Press <b>F5</b> to allow the
+                        program to continue and 'The square of 5 is 25' is written to the console. Stop the debugger and close the console.</p>
                     <p><em>Note:</em> <i>It can take several seconds for the console to close when using the immediate window giving the impression it is not
                         responding.</i></p>
 <pre><code>?a
@@ -1131,7 +1138,7 @@ Expression has been evaluated and has no value
                     <!-- SECTION Locals window -->
                     <h4 id="Locals_window">Locals window</h4>
                     <p>The <i>Locals window</i> is only available while the program is running with the debugger attached. It provides a list of all variable, parameters
-                        and  </p>
+                        and type properties that are within the local scope  </p>
                     <p>CodeExample</p>
 <pre><code>namespace Namespace
 {
