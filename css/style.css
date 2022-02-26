@@ -272,6 +272,12 @@ pre {
     font-weight: var(--code-font-weight);
 }
 
+.value-changed {
+    font-size: 14px;
+    font-family: var(--code-font-family);
+    color: #F00;
+}
+
 #main-doc {
     max-width: 90%;
     overflow: auto;
@@ -415,6 +421,18 @@ pre {
     z-index: 5;
 }
 
+.node-arrow {
+    display: inline-block;
+    position: relative;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 4px solid #414141;
+    vertical-align: middle;
+    margin-left: -10px;
+    margin-right: 5px;
+    margin-bottom: 2px;
+    transform: rotate(45deg);
+}
 
 /* project requirement - technical Documentation page should use at least one media query */
 @media only screen and (min-width: 800px) {

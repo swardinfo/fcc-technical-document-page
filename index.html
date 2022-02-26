@@ -139,7 +139,8 @@
                         organizations is subject to conditions which can be found though the Visual Studio web page.</p>
                     <p><em>Note 1:</em> <i>This guide assumes that Visual Studio has already been installed, updated and the default settings have not been
                         changed. In particular it is assumed that the color theme is set to 'Light'. This can be set in the Options dialog under <b>Environment</b> &gt;
-                        <b>General</b> &gt; <b>Visual Experience</b>. The Options dialog can be opened by clicking on <b>Options</b> in the <b>Tools</b> menu.</i></p>
+                        <b>General</b> &gt; <b>Visual Experience</b>. The Options dialog can be opened by selecting <b>Tools</b> &gt; <b>Options</b> in the main
+                        menu.</i></p>
                     <p><em>Note 2:</em> <i>Whilst the code editor in Visual Studio provides color coding for different code elements, only the
                         <u class="error">red wavy underline</u> used to indicate <a href="#Syntax_errors">syntax errors</a> and
                         <u class="warning">green wavy underline</u> to indicate warnings will be shown in the code examples in this guide.</i></p>
@@ -206,10 +207,10 @@ Console.WriteLine("Hello, World!");
                         other projects or an executable (.exe) file that can be started and run directly. An application may consist of one or more of these.</p>
                     <p>In Visual Studio when a C# project is first created it creates a <i>Solution</i> that includes the project and other files required by the compiler
                         to build the assembly. These can be viewed in the <i>Solution Explorer</i> window which can be accessed via the <i>Solution Explorer</i> tab on
-                        the right side of Visual Studio. If the tab is not visible, click on <b>View</b> &gt; <b>Solution Explorer</b> in the menu. The Solution Explorer
-                        appears similar to that of tree view of the File Explorer. Under the Solution root node is listed each project and under these each of the folders
-                        and files they contain. To a large extent, you can customize the folder and file locations to suit your own requirements. When the compiler first
-                        builds a project, several other files are generated and then updated with each rebuild.</p>
+                        the right side of Visual Studio. If the tab is not visible, select <b>View</b> &gt; <b>Solution Explorer</b> in the main menu. The Solution
+                        Explorer appears similar to that of tree view of the File Explorer. Under the Solution root node is listed each project and under these each of
+                        the folders and files they contain. To a large extent, you can customize the folder and file locations to suit your own requirements. When the
+                        compiler first builds a project, several other files are generated and then updated with each rebuild.</p>
                     <p>A C# source code file is a text file with the extension <i>.cs</i> and can be opened and edited in a code editor or even a basic text file editor.
                         A code editor is normally preferred as it can provide tools for displaying and formatting the code text with the correct program structure and
                         syntax. Whilst it is possible to create a program in which all code is contained in a single file, except for the simplest program, most consist
@@ -268,8 +269,8 @@ namespace ProgramStructure
                         then <span class="nowrap">press <b>u</b></span></p>
                     <p>The comment, <code>// TODO: This comment will be added to the tasks list</code>, is interpreted by the code editor as a task to
                         be added to the Task List. There are four predefined task tokens, <code>HACK</code>, <code>TODO</code>, <code>UNDONE</code>,
-                        <code>UnresolvedMergeConflict</code> and custom tokens can also be added. Task tokens are not case sensitive. To see the task list, in the menu
-                        click <b>View</b> &gt; <span class="nowrap"><b>Task List</b></span></p>
+                        <code>UnresolvedMergeConflict</code> and custom tokens can also be added. Task tokens are not case sensitive. To see the task list, select
+                        <span class="nowrap"><b>View</b> &gt; <b>Task List</b></span> in the main menu.</p>
                     <p><i>Documentation comments</i> provide information that is displayed by IntelliSense when entering code and can be applied to
                         <a href="#User_defined_types">user defined types</a> or the <a href="#Members">members</a> they contain. They are similar to single line comments
                         but instead start with three forward slashes <code>///</code> and can contain XML tags that provide special meaning to IntelliSense. Visual Studio
@@ -701,7 +702,7 @@ Represents text as a sequence of UTF-16 code units.
                         page on the <a href="#References">Microsoft C# reference documentation</a> website. Double clicking an entry or by selecting it and pressing
                         <b>Enter</b> will move the cursor to the associated statement, opening its containing code file if necessary. The error list also provides various
                         filters, sorting and search ability to narrow down specific entries. To view the error list, you may need to click on the  <b>Error List</b> tab
-                        or if it is not displayed, open it by clicking on <span class="nowrap"><b>View</b> &gt; <b>Error List</b></span> in the menu.</p>
+                        or if it is not displayed, open it by select <span class="nowrap"><b>View</b> &gt; <b>Error List</b></span> in the main menu.</p>
                     <p>In the following example, the identifier <code>WriteLine</code> has been misspelt in the statement <code>Console.WriteLin("Hello World!")</code>
                         resulting in the syntax error as shown. The statement <code>int x = 1</code> results in two warnings with both <code>int</code> and <code>i</code>
                         being underlined, due to the statement appearing after a return statement and the variable <code>x</code> not being used.</p>
@@ -913,8 +914,8 @@ Represents a 32-bit signed integer.
                         in the code, only <code>a</code> and <code>b</code> produce a popup dialog indicating their current values of 4 and 2 respectively. Step through
                         to <span class="nowrap"><code>var c = a / b</code></span> and now <code>c</code> can also be observed as program execution has entered the code
                         block of <span class="nowrap"><code>if (b != 0).</code></span> The value of <code>c</code> which is 0, changes to 2 when stepping into to the next
-                        line. Stepping once
-                        more exits the <code>if (b != 0)</code> code block and having left its local scope, <code>c</code> is no longer observable.</p>
+                        line. Stepping once more exits the <code>if (b != 0)</code> code block and having left its local scope, <code>c</code> is no longer observable.
+                    </p>
                     <p>Step through until you are at <span class="nowrap"><code>var sum = x + y</code></span> in <code>Method2.</code> Only parameters <code>x,</code>
                         <code>y</code> and variable <code>sum</code> can be observed which are 3, 5 and 0 respectively. As you hover over the
                         <a href="#Expressions_and_Operators">expression</a> <code>x + y</code>, if the mouse is not exactly over the <code>x</code> and <code>y</code>
@@ -1080,9 +1081,9 @@ Represents a 32-bit signed integer.
                     <p>The <i>Immediate window</i> allows you to read and change the value of a <a href="#Variables,_Constants,_Types_and_Literals">variable</a> when the
                         <a href="#Debugger_and_breakpoints">debugger</a> is running. It also allows you to call any <a href="#Methods">method</a>
                         allowing you to evaluate it, even if the debugger is not running. If not visible, the immediate window can be opened by selecting
-                        <span class="nowrap"><b>Debug</b> &gt; <b>Windows</b> &gt; <b>Immediate</b></span> from the menu bar or by pressing
+                        <span class="nowrap"><b>Debug</b> &gt; <b>Windows</b> &gt; <b>Immediate</b></span> in the main menu or by pressing
                         <span class="nowrap"><b>Ctrl + Alt + I.</b></span></p>
-                    <p>To see how it works, paste the following code into a ConsoleApp.</p>
+                    <p>To see how the immediate window works, paste the following code into a ConsoleApp.</p>
 <pre><code>namespace ImmediateWindow
 {
     class Program
@@ -1134,23 +1135,96 @@ PrintSquare(6)
 Expression has been evaluated and has no value
 </code></pre>
                     <!-- !SECTION Immediate window -->
-                    <!-- TODO complete Locals window -->
                     <!-- SECTION Locals window -->
                     <h4 id="Locals_window">Locals window</h4>
-                    <p>The <i>Locals window</i> is only available while the program is running with the debugger attached. It provides a list of all variable, parameters
-                        and type properties that are within the local scope  </p>
-                    <p>CodeExample</p>
-<pre><code>namespace Namespace
+                    <p>The <i>Locals window</i> is only available while the debugger is running. It provides a list of all variables, parameters and type properties that
+                        are within the local scope of the current program execution location, along with their types and values. As with the immediate window, it also
+                        allows you to change the values. To view the Locals window, while the debugger is running select
+                        <span class="nowrap"><b>Debug</b> &gt; <b>Windows</b> &gt; <b>Locals</b></span> in the main menu.</p>
+                    <p>To see how the locals window works, create a ConsoleApp and replace the code with the following.</p>
+<pre><code>namespace LocalsWindow
 {
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
-
+            var a = 4;
+            PrintSquare(a);
+            var b = 2;
+            if (b != 0)
+            {
+                var c = a / b;
+                Console.WriteLine($"{a} / {b} = {c}");
+            }
+            int[] arr = { 1, 2, 3, 4 };
+            MyClass myClass = new();
+            myClass.Property1 = 10;
         }
+
+        static void PrintSquare(int x)
+        {
+            var square = x * x;
+            Console.WriteLine($"The square of {x} is {square}");
+        }
+    }
+
+    class MyClass
+    {
+        public int Property1 { get; set; }
+
+        public double Property2 { get; set; }
     }
 }
 </code></pre>
+                    <p>Place a breakpoint on the <code>PrintSquare</code> method call and start the debugger. The program starts and breaks at the method call. If the
+                        locals window is not in view, open it now. It lists all variables that are in the current scope, along with their types and values as follows.</p>
+<pre><code> Name        Value           Type
+ args        {string[0]}     string[]
+ a           4               int
+ b           0               int
+ arr         null            int[]
+ myClass     null            LocalsWindow.MyClass
+</code></pre>
+                    <p>Press <b>F11</b> twice to step through to <code>var square = x * x</code> in the <code>PrintSquare</code> method. As program execution has left the
+                        local scope of the <code>Main</code> method and entered that of <code>PrintSquare,</code> only the parameter <code>x</code> and variable
+                        <code>square</code> are listed.</p>
+<pre><code> Name        Value           Type
+ x           4               int
+ square      0               int
+</code></pre>
+                    <p>Step into <code>var square = x * x</code> to execute it. The value of <code>square</code> has changed from 0 to 16 and its color
+                        has changed from black to red to indicate that the value has changed since it was last checked.</p>
+<pre><code> Name        Value           Type
+ x           4               int
+ square      <span class="value-changed">16</span>              int
+</code></pre>
+                    <p>Step through again so that the program is located at the closing brace of <code>PrintSquare.</code> 'The square of 4 is 16' has been written to the
+                        console and the color of the <code>square</code> value has reverted back to black, indicating that it hasn't changed since last checked. Step
+                        though until you get to <code>var c = a / b</code> and the following is listed.</p>
+<pre><code> Name        Value           Type
+ args        {string[0]}     string[]
+ a           4               int
+ b           0               int
+ arr         null            int[]
+ myClass     null            LocalsWindow.MyClass
+ c           0               int
+</code></pre>
+                    <p>As program execution has now entered the local scope of the if statement code block, in addition to the variables that were initially listed at the
+                        start of the exercise, variable <code>c</code> has also been included. Inspecting the locals window, the values for <code>a</code> and
+                        <code>b</code> are 4 and 2 respectively and hovering over the expression <code>a / b</code> shows it equates to 2. As the statement has not been
+                        executed, the value of <code>c</code> is 0. You can change the value of a variable in the locals window by double clicking on the value displayed,
+                        then enter the new value. In the example, double click <code>a's</code> value in the locals window and change it to 16, then click away from it to
+                        accept the change. Its color will change to red to indicate that it has changed since it was last checked and hovering over <code>a / b</code>
+                        shows that the expression now equates to 8. Stepping into <code>var c = a / b</code> executes the statement, the value of <code>c</code> changes
+                        to 8, its color to red and the color of <code>a</code> back to black. Stepping into the next statement writes '16 / 2 = 8' to the console and the
+                        color of <code>c</code> changes back to black.</p>
+                    <p> Stepping though to <code>myClass.Property1 = 10,</code> variable <code>c</code> is no longer listed as it is no longer in scope. Variables
+                         <code>arr</code> and
+                        <code>myClass</code> have been assigned values, so these appear in the list and are {int[4]} and {LocalsWindows.MyClass} respectively.
+                        As <code>arr</code> is an array with multiple elements and <code>myClass</code> is a class with multiple properties, each have an arrow to the
+                        left that when clicked, expands the nodes in the locals window to reveal them. Step into <code>myClass.Property1 = 10</code> to execute it. The
+                        value of <code>Property1</code> in the locals window changes from 0 to 10 and its color changes to red. Pressing <b>F11</b> once more exits the
+                        program and the locals window closes. You can now close the console.</p>
                     <!-- !SECTION Locals window -->
                     <!-- TODO complete Watch window -->
                     <!-- SECTION Watch window -->
