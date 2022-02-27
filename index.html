@@ -1138,8 +1138,8 @@ Expression has been evaluated and has no value
                     <!-- SECTION Locals window -->
                     <h4 id="Locals_window">Locals window</h4>
                     <p>The <i>Locals window</i> is only available while the debugger is running. It provides a list of all variables, parameters and type properties that
-                        are within the local scope of the current program execution location, along with their types and values. As with the immediate window, it also
-                        allows you to change the values. To view the Locals window, while the debugger is running select
+                        are within the local scope of the current program execution location, along with their names, values and types. As with the immediate window, it
+                        also allows you to change the values. To view the Locals window, while the debugger is running select
                         <span class="nowrap"><b>Debug</b> &gt; <b>Windows</b> &gt; <b>Locals</b></span> in the main menu.</p>
                     <p>To see how the locals window works, create a ConsoleApp and replace the code with the following.</p>
 <pre><code>namespace LocalsWindow
@@ -1229,7 +1229,16 @@ Expression has been evaluated and has no value
                     <!-- TODO complete Watch window -->
                     <!-- SECTION Watch window -->
                     <h4 id="Watch_window">Watch window</h4>
-                    <p>Description</p>
+                    <p>The <i>Watch window</i>, like the locals window, is only available while you are debugging. It allows you to create a list of variables, parameters
+                        and type properties you are interested in observing, displaying their names, values and types. It also allows you to enter expressions for
+                        observation. You can have up to four watch windows labelled Watch 1 through Watch 4. For example, to open Watch 1, with the debugger running,
+                        select <span class="nowrap"><b>Debug</b> &gt; <b>Windows</b> &gt; <b>Watch</b> &gt; <b>Watch1</b></span> from the main menu. To enter an item,
+                        click on <i>Add item to watch</i> on an empty row and enter its name or an equatable expression.
+
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+                    </p>
                     <p>CodeExample</p>
 <pre><code>namespace Namespace
 {
@@ -8859,6 +8868,6 @@ var c = '\u0123' \\ the <i>g</i> character
 
         </main>
 <!-- TODO Uncomment FreeCodeCamp script-->
-        <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+        <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
     </body>
 </html>
