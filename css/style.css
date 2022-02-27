@@ -172,10 +172,6 @@ u {
     margin: 10px 30px;
 }
 
-/* .nobull-li {
-    list-style-type: none;
-} */
-
 u.error, u.warning {
     display: inline-block;
     position: relative;
