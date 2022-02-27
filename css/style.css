@@ -370,10 +370,6 @@ pre {
     margin-bottom: 2px;
 }
 
-.white-cross {
-    color: #FFF;
-}
-
 .yellow-arrow-point {
     display: inline-block;
     position: relative;
@@ -417,19 +413,6 @@ pre {
     z-index: 5;
 }
 
-.node-arrow {
-    display: inline-block;
-    position: relative;
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    border-left: 4px solid #414141;
-    vertical-align: middle;
-    margin-left: -10px;
-    margin-right: 5px;
-    margin-bottom: 2px;
-    transform: rotate(45deg);
-}
-
 /* project requirement - technical Documentation page should use at least one media query */
 @media only screen and (min-width: 800px) {
 
@@ -445,18 +428,14 @@ pre {
         top: 0;
         left: 0;
         height: 100%;
-        max-height: 100%;
         width: 300px;
         z-index: 99;
         border-right: 3px solid #aaa;
     }
 
     #navbar ul {
-        max-height: 90%;
-        overflow: auto;
-        height: 100%;
-        margin-bottom: 120px;
-        border: 1px solid #ccc;
+        max-height: 100%;
+        border: none;
     }
 
     .nav-link {
