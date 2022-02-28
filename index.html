@@ -799,7 +799,7 @@ Represents a 32-bit signed integer.
                         <li>Step over (<b>F10</b>)</li>
                         <li>Step out (<span class="nowrap"><b>Shift + F11</b></span>)</li>
                         <li>Run to cursor (<span class="nowrap"><b>Ctrl + F10</b></span>)</li>
-                        <li><span class="nowrap">Run to <span class="next-button-triangle"><span class="next-button-bar"></span></span></span></li>
+                        <li><span class="nowrap">Run to <span class="next-button"></span></span></li>
                         <li>Start without debugging (<span class="nowrap"><b>Ctrl + F5</b></span>)</li>
                     </ul>
                     <p>In the first code example we'll look at the <span class="nowrap"><i>Start debugging</i>,</span> <span class="nowrap"><i>Stop debugging</i>,</span>
@@ -1015,17 +1015,17 @@ Represents a 32-bit signed integer.
                     <h4 id="Run_to">Run to</h4>
                     <p><i>Run to</i> allows you to advance the program to a specific line of code, but unlike run to cursor, Run to is only available while the program is
                         running or in break mode. To use Run to, when the mouse is hovered over a line of code, the
-                        <span class="nowrap">Run to button <span class="next-button-triangle"><span class="next-button-bar"></span></span></span> will appear to the left.
-                        Clicking it will advance the program to that point. In the example, press <b>F11</b> to start the debugger and place the program in break mode at
-                        the opening brace of the <code>Main</code> method. With the mouse hovering over the <code>PrintCube</code> method call, click the
-                        <span class="nowrap">Run to button <span class="next-button-triangle"><span class="next-button-bar"></span></span></span> that appears to the
-                        left. The program advances to <code>PrintCube</code>, with all code between it and the previous position executed without being stepped through,
-                        resulting in 'The square of 4 is 16' being written to the console. Hover over <code>if (b != 0)</code> and click the
-                        <span class="nowrap">Run to button <span class="next-button-triangle"><span class="next-button-bar"></span></span></span>. The program enters
-                        the <code>PrintCube</code> method and breaks at the breakpoint. Now hover over the closing brace of the <code>Main</code> method and again click
-                        the <span class="nowrap">Run to button <span class="next-button-triangle"><span class="next-button-bar"></span></span></span>. The remaining code
-                        between the breakpoint and the end of the program is executed resulting in both 'The cube of 2 is 8' and <span class="nowrap">'4 / 2 = 2'</span>
-                        being written to the console. Stop the debugger and close the console.</p>
+                        <span class="nowrap">Run to button <span class="next-button"></span></span> will appear to the left. Clicking it will advance the program to that
+                        point. In the example, press <b>F11</b> to start the debugger and place the program in break mode at the opening brace of the <code>Main</code>
+                        method. With the mouse hovering over the <code>PrintCube</code> method call, click the
+                        <span class="nowrap">Run to button <span class="next-button"></span></span> that appears to the left. The program advances to
+                        <code>PrintCube</code>, with all code between it and the previous position executed without being stepped through, resulting in 'The square of 4
+                        is 16' being written to the console. Hover over <code>if (b != 0)</code> and click the
+                        <span class="nowrap">Run to button <span class="next-button"></span></span>. The program enters the <code>PrintCube</code> method and breaks at
+                        the breakpoint. Now hover over the closing brace of the <code>Main</code> method and again click the
+                        <span class="nowrap">Run to button <span class="next-button"></span></span>. The remaining code between the breakpoint and the end of the program
+                        is executed resulting in both 'The cube of 2 is 8' and <span class="nowrap">'4 / 2 = 2'</span> being written to the console. Stop the debugger and
+                        close the console.</p>
                     <!-- !SECTION Run to -->
 <pre><code>namespace Debugger3
 {
@@ -1232,14 +1232,8 @@ Expression has been evaluated and has no value
                     <p>The <i>Watch window</i>, like the locals window, is only available while you are debugging. It allows you to create a list of variables, parameters
                         and properties you are interested in observing, displaying their names, values and types. It also allows you to enter expressions. You can
                         have up to four watch windows labelled Watch 1 through Watch 4, each with their own list of items. For example, to open Watch 1, with the debugger
-                        running, select <span class="nowrap"><b>Debug</b> &gt; <b>Windows</b> &gt; <b>Watch</b> &gt; <b>Watch1</b></span> from the main menu. To enter an
-                        item, click on <i>Add item to watch</i> on an empty row and enter its name or an equatable expression.
-
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-                    </p>
-                    <p>CodeExample</p>
+                        running, select <span class="nowrap"><b>Debug</b> &gt; <b>Windows</b> &gt; <b>Watch</b> &gt; <b>Watch1</b></span> from the main menu.</p>
+                    <p>To see how the watch window works, paste the following code into a <a href="#Create_a_Hello_World_Project">Console App.</a></p>
 <pre><code>namespace Namespace
 {
     class Program
@@ -1251,6 +1245,45 @@ Expression has been evaluated and has no value
     }
 }
 </code></pre>
+                    <p>To enter an item, click on <i>Add item to watch</i> on an empty row and enter its name or the expression you wish to examine. As with the code editor, the
+                        syntax of an expression is evaluated and if an error has occurred, this will be displayed in the <i>Value</i> column.  As with the locals window, as
+                        you step through the program, the items will update to show the current values, with the last item change colored red. </p>
+
+
+                    <p>Place a breakpoint on the <code>PrintSquare</code> method call and start the debugger. To enter an item, click on <i>Add item to watch</i> on an
+                        empty row and enter its name or the expression you wish to examine. As you start to type, IntelliSense displays a list that includes the objects
+                        that are within the local scope of the current execution. You can still enter an item outside the current local scope, however it won't be listed
+                        in the list and an error <span class="error-circle"></span>  may be displayed   In the example,
+
+
+
+                        The program starts and breaks at the method call. If the
+                        Watch1 window is not in view, open it now. It lists all variables that are in the current scope, along with their types and values as follows.</p>
+    <pre><code> Name        Value           Type
+     args        {string[0]}     string[]
+     a           4               int
+     b           0               int
+     arr         null            int[]
+     myClass     null            LocalsWindow.MyClass
+    </code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     <!-- !SECTION Watch window -->
                     <!-- TODO complete Call stack window -->
                     <!-- SECTION Call stack window -->

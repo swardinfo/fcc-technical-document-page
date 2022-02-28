@@ -335,7 +335,7 @@ pre {
     margin-bottom: -1px;
 }
 
-.next-button-triangle {
+.next-button {
     display: inline-block;
     position: relative;
     border-top: 6px solid transparent;
@@ -347,8 +347,8 @@ pre {
     margin-bottom: 2px;
 }
 
-.next-button-bar {
-    display: inline-block;
+.next-button::after {
+    content: "";
     position: absolute;
     top: -6px;
     left: 2px;
@@ -361,15 +361,48 @@ pre {
 .red-dot {
     display: inline-block;
     position: relative;
-    height: 12px;
-    width: 12px;
+    height: 13px;
+    width: 13px;
     background-color: #C55159;
     border: 1px solid #F05A64;
-    border-radius: 6px;
+    border-radius: 100%;
     vertical-align: middle;
     margin-left: 3px;
     margin-right: 2px;
     margin-bottom: 2px;
+}
+
+.error-circle {
+    display: inline-block;
+    position: relative;
+    border-radius: 100%;
+    background-color: #C55159;
+    height: 15px;
+    width: 15px;
+    color: #FFF;
+    vertical-align: middle;
+}
+
+.error-circle::before,
+.error-circle::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 1px;
+    height: 11px;
+    margin: auto;
+    background-color: #FFF;
+}
+
+.error-circle::before {
+    transform: rotate(45deg);
+}
+
+.error-circle::after {
+    transform: rotate(-45deg);
 }
 
 .yellow-arrow-point {
