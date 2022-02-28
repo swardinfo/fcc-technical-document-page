@@ -111,7 +111,7 @@
                         <!-- project requirement -.main-section elements should contain at least 5 li items total, not each -->
                         <li><a href="#Code_editor">Code editor</a></li>
                         <li>Compiler</li>
-                        <li><a href="Debugger_and_breakpoints">Debugger</a></li>
+                        <li><a href="#Debugger_and_breakpoints">Debugger</a></li>
                     </ul>
                     <p>The <a href="#Code_editor">code editor</a>, like a word processor, provides many tools that help in writing code. These include indication of
                         <a href="#Syntax_errors">syntax errors</a> shown with a <u class="error">red wavy underline</u> that may prevent the program from running, and
@@ -380,15 +380,15 @@ namespace ProgramStructure
                         <code>void</code> declares that the method does not return a value. Following the method's identifier <code>Main</code>,
                         <code>(string[] args)</code> defines a <a href="#string">string</a> type <a href="#Parameters,_signatures_and_overloading">parameter</a> with the
                         identifier <code>args</code> that is passed into the method. The <a href="#Index_operator">index operator</a> <code>[]</code> declares that the
-                        parameter is an <a href="Array">array</a> which can contain multiple values of the same type. A method can have multiple parameters in the form of
-                        a comma separated list and a class can have multiple methods, known as <a href="#Parameters,_signatures_and_overloading">overloads</a>, that have
-                        the same identifier but differ by the number and/or type of parameters.</p>
+                        parameter is an <a href="#Array">array</a> which can contain multiple values of the same type. A method can have multiple parameters in the form
+                        of a comma separated list and a class can have multiple methods, known as <a href="#Parameters,_signatures_and_overloading">overloads</a>, that
+                        have the same identifier but differ by the number and/or type of parameters.</p>
                     <p>In addition to the naming rules above, there are various naming conventions that can be followed and you are encouraged to research these.
                         Ultimately it is up to you or the company you work for to define these but of most importance is that you are consistent throughout your
                         applications. One note, avoid having a class with the same identifier as a namespace as this can lead to confusion and possible
                         <i>naming conflicts</i>.</p>
                     <p>There may also be situations where using a specific identifier may result in a naming conflict with an identifier of a built-in type. In
-                        particular all types, even those you define yourself, are provided by .NET with a number of standard <a href="Members">members.</a> Unless these
+                        particular all types, even those you define yourself, are provided by .NET with a number of standard <a href="#Members">members.</a> Unless these
                         are specifically being <a href="#override">overridden</a> the identifiers, <code>Equals</code>, <code>GetHashCode</code>, <code>GetType</code> and
                         <code>ToString</code> should be avoided.</p>
 <pre><code>// using directive.
@@ -409,10 +409,10 @@ namespace CodeSyntaxExample1
 </code></pre>
                     <p>New to .NET 6 are <a href="#Importing_system_types">implicit global usings.</a> This option adds a number of
                         <a href="#using_and_importing_types">global using</a> directives to import various namespaces appropriate to the type of project. It is turned on
-                        by default in the .NET 6 Console App new project template. As with top level statements, implicit global usings are in a hidden file and are
-                        unavailable in the code editor. Throughout the remainder of this guide, it will be assumed that implicit global usings is enabled and unless
-                        pertinent to a code example, the hidden using statements will not be shown. For a list of all the hidden using statements for the
-                        .NET 6 Console App, please see <a href="#Importing_system_types">importing system types.</a></p>
+                        by default in the .NET 6 <a href="#Create_a_Hello_World_Project">Console App</a> new project template. As with top level statements, implicit
+                        global usings are in a hidden file and are unavailable in the code editor. Throughout the remainder of this guide, it will be assumed that
+                        implicit global usings is enabled and unless pertinent to a code example, the hidden using statements will not be shown. For a list of all the
+                        hidden using statements for the .NET 6 Console App, please see <a href="#Importing_system_types">importing system types.</a></p>
                     <p>In the next example, <code>Console.WriteLine("Hello World!");</code> , a single line statement, is the first in the
                         Main method code block. In this context, the dot <code>.</code> between <code>Console</code> and
                         <code>WriteLine ("Hello World")</code> is called the <a href="#Member_access_operator">member access operator.</a> It allows access to a
@@ -420,7 +420,7 @@ namespace CodeSyntaxExample1
                         <span class="nowrap"><code>Console</code>.</span> The round brackets <code>( )</code> allow
                         <a href="#Parameters,_signatures_and_overloading">arguments</a> to be passed to the parameters of a
                         <a href="#Program_execution">called method</a>. Here the
-                        <a href="#string">string</a> <a href="Variables,_Constants,_Types_and_Literals">literal</a> <code>"Hello World!"</code> is being passed into the
+                        <a href="#string">string</a> <a href="#Variables,_Constants,_Types_and_Literals">literal</a> <code>"Hello World!"</code> is being passed into the
                         <a href="#null">nullable</a> <code>string?</code> parameter <span class="nowrap"><code>value</code>.</span> All single line statements must end
                         with a semicolon <code>;</code></p>
                     <p>When writing the code for <a href="#Program_execution">calling a method</a>, IntelliSense will provide <a href="#Code_editor">assistance in the
@@ -490,11 +490,11 @@ namespace CodeSyntaxExample1
 // The example writes the following to the console
 // Hello World!
 </code></pre>
-                    <p>The following example contains two <a href="#class">class</a> declarations within the CodeSyntaxExample3 namespace. The first is called MyClass followed by Program.
-                        MyClass contains declarations for several <a href="#Members">members</a> including an empty <a href="#Constructors">constructor</a>, an
-                        <a href="Variables,_Constants,_Types_and_Literals">int</a> type <a href="#Properties">property</a> called Property, a
-                        <a href="Methods">method</a> called Square and a second method called Cube that employs an
-                        <a href="The_lambda_and_expression-body_definition_operator">expression body.</a></p>
+                    <p>The following example contains two <a href="#class">class</a> declarations within the CodeSyntaxExample3 namespace. The first is called MyClass
+                        followed by Program. MyClass contains declarations for several <a href="#Members">members</a> including an empty
+                        <a href="#Constructors">constructor</a>, an <a href="#Variables,_Constants,_Types_and_Literals">int</a> type <a href="#Properties">property</a>
+                        called Property, a <a href="#Methods">method</a> called Square and a second method called Cube that employs an
+                        <a href="#The_lambda_and_expression-body_definition_operator">expression body.</a></p>
                     <p>The compiler ignores line breaks, tabs and whitespace, so a statement can span multiple lines as it's the semicolon that instructs the compiler
                         where the end of the statement is. In the Program class, the <code>Console.WriteLine ("Hello World");</code> statement has been rearranged to span
                         five lines but is still valid code. The result however is quite poor for human readability and coding format conventions should be followed to
@@ -632,9 +632,9 @@ World!");
                         <a href="#try-catch">catch block</a> to handle the exception is reached. If one is not found, the program will exit resulting in an unhandled
                         exception. If a call to an <code>Exit</code> method is encountered the program exits immediately without returning to the caller.
                         <code>Exit</code> can be used in a conditional statement that tests if the program has an error that has put it into a non-recoverable state. This
-                        way, along with other code, <code>Exit</code> can allow for the program to exit gracefully. For a console application <code>Exit</code> is in
-                        the <code>Environment</code> <a href="#Namespaces">namespace</a> so the <a href="#Namespaces">fully qualified</a> name is
-                         <span class="nowrap"><code>Environment.Exit</code>.</span></p>
+                        way, along with other code, <code>Exit</code> can allow for the program to exit gracefully. For a
+                        <a href="#Create_a_Hello_World_Project">Console App</a> <code>Exit</code> is in the <code>Environment</code> <a href="#Namespaces">namespace</a> so
+                        the <a href="#Namespaces">fully qualified</a> name is <span class="nowrap"><code>Environment.Exit</code>.</span></p>
                     <p>Without intervention a program will simply run its course and exit. To prevent this and allow for user input, a pattern often employed is to use an
                         infinite loop containing a conditional statement that upon detecting a specific character, breaks out of the loop then executes the remaining
                         statements as normal. Care must be taken however, because if the condition cannot be met, the loop cannot be broken and the program will become
@@ -826,8 +826,8 @@ Represents a 32-bit signed integer.
                         Clicking it or pressing <span class="nowrap"><b>Shift + F5</b></span> will stop the debugger. An alternative to stopping and starting the debugger
                         is to use the restart function by pressing <span class="nowrap"><b>Ctrl + Shift + F5.</b></span>
                     <p><em>Note:</em> <i>When using the debugger, the program being tested may have been made the active window and you may need to click on the Visual
-                        Studio IDE to regain focus. Also, if the program type is a ConsoleApp, after the program has ended or been stopped, you may also need to manually
-                        close the console window.</i></p>
+                        Studio IDE to regain focus. Also, if the program type is a <a href="#Create_a_Hello_World_Project">Console App</a>, after the program has ended or
+                        been stopped, you may also need to manually close the console window.</i></p>
                     <!-- !SECTION Controlling the debugger -->
                     <!-- SECTION Setting breakpoints and inspecting values -->
                     <h4 id="Setting_breakpoints_and_inspecting_values">Setting breakpoints and inspecting values</h4>
@@ -1083,7 +1083,7 @@ Represents a 32-bit signed integer.
                         allowing you to evaluate it, even if the debugger is not running. If not visible, the immediate window can be opened by selecting
                         <span class="nowrap"><b>Debug</b> &gt; <b>Windows</b> &gt; <b>Immediate</b></span> in the main menu or by pressing
                         <span class="nowrap"><b>Ctrl + Alt + I.</b></span></p>
-                    <p>To see how the immediate window works, paste the following code into a ConsoleApp.</p>
+                    <p>To see how the immediate window works, paste the following code into a <a href="#Create_a_Hello_World_Project">Console App.</a></p>
 <pre><code>namespace ImmediateWindow
 {
     class Program
@@ -1137,11 +1137,12 @@ Expression has been evaluated and has no value
                     <!-- !SECTION Immediate window -->
                     <!-- SECTION Locals window -->
                     <h4 id="Locals_window">Locals window</h4>
-                    <p>The <i>Locals window</i> is only available while the debugger is running. It provides a list of all variables, parameters and type properties that
-                        are within the local scope of the current program execution location, along with their names, values and types. As with the immediate window, it
-                        also allows you to change the values. To view the Locals window, while the debugger is running select
-                        <span class="nowrap"><b>Debug</b> &gt; <b>Windows</b> &gt; <b>Locals</b></span> in the main menu.</p>
-                    <p>To see how the locals window works, create a ConsoleApp and replace the code with the following.</p>
+                    <p>The <i>Locals window</i> is only available while the <a href="#Debugger_and_breakpoints">debugger</a> is running. It provides a list of all
+                        <a href="#Variables,_Constants,_Types_and_Literals">variables</a>, <a href="#Parameters,_signatures_and_overloading">parameters</a> and
+                        <a href="#Properties">properties</a> that are within the <a href="#Scope">local scope</a> of the current program execution location, along with
+                        their names, values and types. As with the immediate window, it also allows you to change the values. To view the Locals window, while the
+                        debugger is running select <span class="nowrap"><b>Debug</b> &gt; <b>Windows</b> &gt; <b>Locals</b></span> in the main menu.</p>
+                    <p>To see how the locals window works, create a <a href="#Create_a_Hello_World_Project">Console App</a> and replace the code with the following.</p>
 <pre><code>namespace LocalsWindow
 {
     class Program
@@ -1218,22 +1219,21 @@ Expression has been evaluated and has no value
                         shows that the expression now equates to 8. Stepping into <code>var c = a / b</code> executes the statement, the value of <code>c</code> changes
                         to 8, its color to red and the color of <code>a</code> back to black. Stepping into the next statement writes '16 / 2 = 8' to the console and the
                         color of <code>c</code> changes back to black.</p>
-                    <p> Stepping though to <code>myClass.Property1 = 10,</code> variable <code>c</code> is no longer listed as it is no longer in scope. Variables
-                         <code>arr</code> and
-                        <code>myClass</code> have been assigned values, so these appear in the list and are {int[4]} and {LocalsWindows.MyClass} respectively.
-                        As <code>arr</code> is an array with multiple elements and <code>myClass</code> is a class with multiple properties, each have an arrow to the
-                        left that when clicked, expands the nodes in the locals window to reveal them. Step into <code>myClass.Property1 = 10</code> to execute it. The
-                        value of <code>Property1</code> in the locals window changes from 0 to 10 and its color changes to red. Pressing <b>F11</b> once more exits the
-                        program and the locals window closes. You can now close the console.</p>
+                    <p>Stepping though to <code>myClass.Property1 = 10,</code> variable <code>c</code> is no longer listed as it is no longer in scope. Variables
+                        <code>arr</code> and <code>myClass</code> have been assigned values, so these appear in the list and are {int[4]} and {LocalsWindows.MyClass}
+                        respectively. As <code>arr</code> is an array with multiple elements and <code>myClass</code> is a class with multiple properties, each have an
+                        arrow to the left that when clicked, expands the nodes in the locals window to reveal them. Step into <code>myClass.Property1 = 10</code> to
+                        execute it. The value of <code>Property1</code> in the locals window changes from 0 to 10 and its color changes to red. Pressing <b>F11</b> once
+                        more exits the program and the locals window closes. You can now close the console.</p>
                     <!-- !SECTION Locals window -->
                     <!-- TODO complete Watch window -->
                     <!-- SECTION Watch window -->
                     <h4 id="Watch_window">Watch window</h4>
                     <p>The <i>Watch window</i>, like the locals window, is only available while you are debugging. It allows you to create a list of variables, parameters
-                        and type properties you are interested in observing, displaying their names, values and types. It also allows you to enter expressions for
-                        observation. You can have up to four watch windows labelled Watch 1 through Watch 4. For example, to open Watch 1, with the debugger running,
-                        select <span class="nowrap"><b>Debug</b> &gt; <b>Windows</b> &gt; <b>Watch</b> &gt; <b>Watch1</b></span> from the main menu. To enter an item,
-                        click on <i>Add item to watch</i> on an empty row and enter its name or an equatable expression.
+                        and properties you are interested in observing, displaying their names, values and types. It also allows you to enter expressions. You can
+                        have up to four watch windows labelled Watch 1 through Watch 4, each with their own list of items. For example, to open Watch 1, with the debugger
+                        running, select <span class="nowrap"><b>Debug</b> &gt; <b>Windows</b> &gt; <b>Watch</b> &gt; <b>Watch1</b></span> from the main menu. To enter an
+                        item, click on <i>Add item to watch</i> on an empty row and enter its name or an equatable expression.
 
                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1526,7 +1526,7 @@ Expression has been evaluated and has no value
                         contact in an address book. The value type is like the person that has a name and physical body whereas the reference type is like the contact
                         that only stores the name of the person and the address to where they live.</p>
                     <p>C# has a number of built-in types within these two categories of which each has a dedicated <a href="#C_Sharp_Specifications">keyword</a> and you
-                        can also create your own <a href="User_defined_types">user defined types.</a></p>
+                        can also create your own <a href="#User_defined_types">user defined types.</a></p>
                     <p>C# allocates memory based on the smallest size unit of an 8-bit byte. For efficiency reasons, each value type uses a fixed number of bytes. For an
                         integer, C# provides a number of options based on size and whether negative values are allowed. The most commonly used is the <i>int</i> which has
                         a memory allocation of 4 bytes, or 32 bits, and can have negative values. It has a range from -2147483648 to 2147483647. When you write
@@ -2461,7 +2461,7 @@ namespace StringBuilderExample
                     <!-- !SECTION Boolean logic operators -->
                     <!-- SECTION Bitwise and shift operators -->
                     <h3 id="Bitwise_and_shift_operators">Bitwise and shift operators</h3>
-                    <p>Applies operations on the individual bits of an integral numeric or <a href="Characters">character</a> type</p>
+                    <p>Applies operations on the individual bits of an integral numeric or <a href="#Characters">character</a> type</p>
 <pre><code>namespace BitwiseAndShiftOperators
 {
     class Program
@@ -2742,8 +2742,8 @@ namespace MyNameSpace
                     <!-- !SECTION Member access operator . -->
                     <!-- SECTION Index operator [] -->
                     <h3 id="Index_operator">Index operator []</h3>
-                    <p>The index operator <code>[]</code> is used to access the element of an <a href="#Array">array</a>, <a href="Indexers">indexer</a> or pointer. Array
-                        indices must be of type <code>int</code>and are zero based. Attempting to access an array with an index that is not within the bounds of the
+                    <p>The index operator <code>[]</code> is used to access the element of an <a href="#Array">array</a>, <a href="#Indexers">indexer</a> or pointer.
+                        Array indices must be of type <code>int</code>and are zero based. Attempting to access an array with an index that is not within the bounds of the
                         array's indices will result in an <a href="#Exception_handling">IndexOutOfRangeException</a> being thrown. Indexer indices can be any user defined
                         type.</p>
                     <p>In this example, as a <a href="#Dictionary_TKey_TValue">dictionary</a> type uses a <a href="#string">string</a> as its key, it can be used as
@@ -2781,7 +2781,7 @@ namespace MyNameSpace
                     <!-- SECTION Null-conditional operators ?. and ?[] -->
                     <h3 id="Null-conditional_operators">Null-conditional operators ?. and ?[]</h3>
                     <p>The null-conditional operator <code>?.</code> is used to access a <a href="#User_defined_types">type</a> <a href="#Memebers">member</a> and
-                        <code>?[]</code> to access an element of an <a href="#Array">array</a> or <a href="Indexers">indexer.</a> Providing the operand to which they
+                        <code>?[]</code> to access an element of an <a href="#Array">array</a> or <a href="#Indexers">indexer.</a> Providing the operand to which they
                         are applied is not <a href="#null">null</a> the member or element is returned otherwise the operator returns null.</p>
 <pre><code>namespace NullConditionalOperators
 {
@@ -4071,7 +4071,7 @@ namespace Dictionaries
 <!-- TODO add brief about polymorphism -->
                     <!-- SECTION class -->
                     <h3 id="class">class</h3>
-                    <p>A class is a used to define a type that can be instantiated into an <a href="Object-oriented_Programming">object.</a> It does this by acting as a
+                    <p>A class is a used to define a type that can be instantiated into an <a href="#Object-oriented_Programming">object.</a> It does this by acting as a
                         container to encapsulate <a href="#Members">members</a> that define its state and behavior. It is a <a href="#Reference_type">reference type</a>
                         which when declared at run-time contains <a href="#null">null</a> until an instance is created using the <code>new</code> keyword. At this time
                         its members can be called to define its initial state. <a href="#Modifiers">Modifier keywords</a> can be applied to a class and its members to
@@ -4296,7 +4296,7 @@ namespace Dictionaries
                         <li><a href="#Constructors">constructors</a> which initialize the state of an object</li>
                         <li><a href="#Fields">fields</a> that store data about the object and can be changed at runtime</li>
                         <li><a href="#Constant_fields">constant fields</a> that store data when declared, cannot be changed at runtime and are inherently
-                            <a href="static">static</a></li>
+                            <a href="#static">static</a></li>
                         <li><a href="#Properties">properties</a> that provide controlled access to an object's data</li>
                         <li><a href="#Indexers">indexers</a> that allow an object to be indexed like an array</li>
                         <li><a href="#Events">events</a> that communicate changes in the object's state to other objects or to itself</li>
@@ -4763,7 +4763,7 @@ namespace Dictionaries
                         <code>get</code> accessor so it cannot be write-only.</p>
                     <p>Whilst the order of getters and setters in both manually-implemented or auto-implemented properties doesn't matter, by convention getters are
                         normally declared first. Access to a property by code external to the type is in the form of <code>instance.Property</code> for an instance of a
-                        type and <code>TypeName.Property</code> for a <a href="static">static</a> type.</p>
+                        type and <code>TypeName.Property</code> for a <a href="#static">static</a> type.</p>
                     <p>The following example demonstrates property declaration and use.</p>
 <pre><code>namespace Properties
 {
@@ -5821,7 +5821,7 @@ namespace CancelEvent
                     <!-- SECTION delegate -->
                     <h3 id="delegate">delegate</h3>
                     <p>A delegate allows you to create a reference to a method that can then be passed as a parameter. It does this by declaring the
-                        <a href="Parameters,_signatures_and_overloading">signature</a> of the method which in this case includes the return type. It is declared using an
+                        <a href="#Parameters,_signatures_and_overloading">signature</a> of the method which in this case includes the return type. It is declared using an
                         optional <a href="#Access_modifiers">access modifier</a>, followed by the <code>delegate</code> keyword, then the <i>return type</i>, then an
                         identifier that is unique within the <a href="#Dependencies_and_Namespaces">namespace</a>, followed by a pair of round brackets that can
                         optionally contain <a href="#Parameters,_signatures_and_overloading">parameters.</a> Delegates are created using the delegate's identifier,
@@ -6467,14 +6467,14 @@ namespace CancelEvent
                 <article>
                     <p>An anonymous function allows you to create a <a href="#delegate">delegate</a> and assign it a method in one line of code(<i>in-line</i>), without
                         the need for a separate named method. They can be declared with one of two basic syntaxes, <a href="#Anonymous_methods">anonymous methods</a> and
-                        <a href="Lambda_expressions">lambda expressions</a> with the latter replacing the former. C# also provides two types of built-in delegates,
+                        <a href="#Lambda_expressions">lambda expressions</a> with the latter replacing the former. C# also provides two types of built-in delegates,
                         <a href="#Action_and_Func">Action</a> and  <a href="#Action_and_Func">Func</a>, that allow the in-line declaration of an anonymous function
                         without the need for the separate declaration of a delegate or a named method. </p>
                     <!-- SECTION Anonymous methods -->
                     <h3 id="Anonymous_methods">Anonymous methods</h3>
                     <p>Whilst anonymous methods have largely been replaced by lambda expressions, they remain in the C# language for backwards compatibility so are
                         presented here for reference. As with a <a href="#delegate">named method</a> a delegate is first declared with the required return type and
-                        <a href="Parameters,_signatures_and_overloading">signature.</a> The delegate instance is then declared and assigned an anonymous method by using
+                        <a href="#Parameters,_signatures_and_overloading">signature.</a> The delegate instance is then declared and assigned an anonymous method by using
                         the <code>delegate</code> keyword, followed by the same signature as the delegate, followed by a code block.</p>
                     <p>The following example demonstrates anonymous method declaration and use.</p>
 <pre><code>namespace AnonymousMethods
@@ -6504,7 +6504,7 @@ namespace CancelEvent
                     <!-- SECTION Lambda expressions -->
                     <h3 id="Lambda_expressions">Lambda expressions</h3>
                     <p>Lambda expressions allow for a more concise in-line syntax than anonymous methods. As with a <a href="#delegate">named method</a> a delegate is
-                        first declared with the required <a href="Parameters,_signatures_and_overloading">signature.</a> The delegate instance is then
+                        first declared with the required <a href="#Parameters,_signatures_and_overloading">signature.</a> The delegate instance is then
                         declared and assigned an anonymous method by using a pair of round brackets containing the same signature as the delegate, followed by the lambda
                         operator <code>=&gt;</code>, followed by the lambda body. In most cases both the parameter types and the return type are inferred by the compiler.
                         This means that declaration of parameter types is usually not required but can be included if needed. In any case,
@@ -7226,7 +7226,7 @@ namespace Aliases
                     <p>The <code>System</code> namespace and the namespaces nested within it, contain most of the C# built-in types that are part of the
                         .NetCore library. These include primitive value types such as <code>System.Int32</code> and reference types such as <code>System.String</code> and
                         access to these without a fully qualified name requires a <code>using System;</code> directive. Some of the C#
-                        <a href="Keywords">keywords</a> are special built-in <a href="#Aliases">aliases</a> for these types but unlike other aliases, don't require an
+                        <a href="#Keywords">keywords</a> are special built-in <a href="#Aliases">aliases</a> for these types but unlike other aliases, don't require an
                         explicit <code>using</code> directive. For example, the <code>int</code> keyword can be used anywhere in code and is the alias for
                         <code>System.Int32</code>, both of which can be used interchangeably. Other system types such as <code>DateTime</code> which provides many tools
                         to access and manipulate dates and times and <code>Console</code> which has been used extensively throughout this guide, do require an explicit
@@ -7235,13 +7235,13 @@ namespace Aliases
                         <a href="#List_T">List&lt;T&gt;</a> and <a href="#Dictionary_TKey_TValue">Dictionary&lt;TKey, TValue&gt;</a> types, <code>System.IO</code> that
                         contains types that allow you to access and manipulate files and <code>System.Threading</code> that provides tools for creating multi-threaded
                         programs. All the namespaces available in the .NetCore library can be viewed under the <a href="#Dependencies">dependencies</a> node in the
-                        solution explorer and information about them and the types they contain can be found on the <a href="References">Microsoft C# reference
+                        solution explorer and information about them and the types they contain can be found on the <a href="#References">Microsoft C# reference
                         documentation</a> website.</p>
                     <p>Starting with Visual Studio 2022 and .NET 6.0, an option called <i>Implicit global usings</i> is available in most of the project templates but not
                         all have this enabled by default when a new project is created. This adds a number of <a href="#using_and_importing_types">global using</a>
                         directives to import various namespaces appropriate to the type of project. These are automatically generated in a file not accessible by the code
                         editor, each time the project is built. This is important as there is currently no easy way to see which using directives are added and this can
-                        result in an ambiguous reference error. At the time of this writing the namespaces that are added to a <i>Console app</i> with
+                        result in an ambiguous reference error. At the time of this writing the namespaces that are added to a <i>Console App</i> with
                         <i>Implicit global usings</i>
                         enabled are</p>
                     <ul>
@@ -7630,7 +7630,7 @@ namespace Abstract
                     <!-- !SECTION async -->
                     <!-- SECTION const -->
                     <h3 id="const">const</h3>
-                    <p>A field or local <a href="Variables,_Constants,_Types_and_Literals">variable</a> marked with the <code>const</code> keyword causes it to become a
+                    <p>A field or local <a href="#Variables,_Constants,_Types_and_Literals">variable</a> marked with the <code>const</code> keyword causes it to become a
                         constant which can only be initialized when declared and then can't be changed later. A field marked this way is called a
                         <a href="#Constant_fields">constant field.</a></p>
                     <!-- !SECTION const -->
@@ -7638,7 +7638,7 @@ namespace Abstract
                     <h3 id="extern">extern</h3>
                     <p>The <code>extern</code> modifier allows a C# program to run code that is implemented in an external library. This could be one of the native code
                         libraries that contain many of the common functions used by the operating system and which may be in another programming language such as C or
-                        C++. Similar to the <a href="abstract">abstract</a> modifier, <code>extern</code> allows you to create the declaration only, which points to the
+                        C++. Similar to the <a href="#abstract">abstract</a> modifier, <code>extern</code> allows you to create the declaration only, which points to the
                         implementation in the external library. The <code>extern</code> modifier is often used with the <code>DllImport</code> attribute which in turn is
                         used to import the external library.</p>
                     <p>In the following example a <a href="#Access_modifiers">private</a> method called <code>MessageBox</code> is declared with the <code>extern</code>
