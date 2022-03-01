@@ -1178,10 +1178,11 @@ Expression has been evaluated and has no value
 </code></pre>
                     <p>Place a breakpoint on the <code>PrintSquare</code> <a href="#Program_structure">method call</a> and start the debugger. The program starts and
                         breaks at the method call. If the locals window is not in view, open it now. It lists all items that are in the current scope, along with their
-                        values and types. Press <b>F11</b> twice to step through to <code>var square = x * x</code> in the <code>PrintSquare</code> method. As program
-                        execution has left the local scope of the <code>Main</code> method and entered that of <code>PrintSquare,</code> only the parameter <code>x</code>
-                        and variable <code>square</code> are listed. Step into <code>var square = x * x</code> to execute it. The value of <code>square</code> has changed
-                        from 0 to 16 and its color has changed from black to red to indicate that the value has changed since it was last checked.</p>
+                        values and types. Press <b>F11</b> twice to <a href="#Step_into">step through</a> to <code>var square = x * x</code> in the
+                        <code>PrintSquare</code> method. As <a href="#Program_execution">program execution</a> has left the local scope of the <code>Main</code> method and
+                        entered that of <code>PrintSquare,</code> only the parameter <code>x</code> and variable <code>square</code> are listed.
+                        <a href="#Step_into">Step into</a> <code>var square = x * x</code> to execute it. The value of <code>square</code> has changed from 0 to 16 and
+                        its color has changed from black to red to indicate that the value has changed since it was last checked.</p>
                     <p><em>Note:</em> <i>If <code>square's</code> row is currently selected, the red color won't be apparent so select another item or click outside the
                         locals window.</i></p>
                     <p>Step through again so that the program is located at the closing brace of <code>PrintSquare.</code> 'The square of 4 is 16' has been written to the
@@ -1216,17 +1217,20 @@ c           0               int
                     <!-- TODO complete Watch window -->
                     <!-- SECTION Watch window -->
                     <h4 id="Watch_window">Watch window</h4>
-                    <p>The <i>Watch window</i>, like the locals window, is only available while you are debugging. It allows you to create a list of variables, parameters
-                        and properties you are interested in observing, displaying their names, values and types. It also allows you to enter expressions. You can have up
-                        to four watch windows labelled Watch 1 through Watch 4, each with their own list of items. For example, to open Watch 1, start the
-                        debugger then select <span class="nowrap"><b>Debug</b> &gt; <b>Windows</b> &gt; <b>Watch</b> &gt; <b>Watch1</b></span> from the main menu. As with
-                        the locals window, as you step through the program, the items will update to show the current values, with those that last changed colored red. If
-                        the program exits or the debugger is stopped, when the program is rerun, the items and expressions that were last listed in the watch window will
-                        still be there.</p>
-                    <p>Using the code from the locals example, we'll now see how the watch window works.</p>
-                    <p>Place a breakpoint on the <code>PrintSquare</code> <a href="#Program_structure">method call</a>, start the debugger and open the Watch1 window if
-                        it's not already open. To enter an item, click <b>Add item to watch</b> in an empty row and enter its name. As you start to type, IntelliSense
-                        displays a list that includes the objects that are within the local scope of the current execution.  You can still enter an item outside the
+                    <p>The <i>Watch window</i>, like the <a href="#Locals_window">locals window</a>, is only available while you are debugging. It allows you to create a
+                        list of <a href="#Variables,_Constants,_Types_and_Literals">variables</a>, <a href="#Parameters,_signatures_and_overloading">parameters</a> and
+                        <a href="#Properties">properties</a> you are interested in observing, displaying their names, values and types. It also allows you to enter
+                        <a href="#Expressions_and_Operators">expressions</a>. You can have up to four watch windows labelled Watch 1 through Watch 4, each with their own
+                        list of items. For example, to open Watch 1, start the <a href="#Debugger_and_breakpoints">debugger</a> then select
+                        <span class="nowrap"><b>Debug</b> &gt; <b>Windows</b> &gt; <b>Watch</b> &gt; <b>Watch1</b></span> from the main menu. As with the locals window,
+                        as you <a href="#Step_into">step through</a> the program, the items will update to show the current values, with those that last changed colored
+                        red. If the program exits or the debugger is stopped, when the program is rerun, the items and expressions that were last listed in the watch
+                        window will still be there.</p>
+                    <p>Using the code from the locals example to see how the watch window works.</p>
+                    <p>Place a <a href="#Debugger_and_breakpoints">breakpoint</a> on the <code>PrintSquare</code> <a href="#Program_structure">method call</a>, start the
+                        debugger and open the Watch1 window if it's not already open. To enter an item, click <span class="nowrap"><b>Add item to watch</b></span> in an
+                        empty row and enter its name. As you start to type, IntelliSense displays a list that includes the objects that are within the
+                        <a href="#Scope">local scope</a> of the current <a href="#Program_execution">program execution</a>. You can still enter an item outside the
                         current local scope, however it won't be listed by IntelliSense and an error <span class="error-circle"></span> may be displayed with an error
                         message in the Value column in the form of, <i>error CS0103: The name 'item' does not exist in the current context.</i> If the item does exist in
                         the code, this message can safely be ignored as it will be resolved when program enters the item's local scope. To remove an item, select it and
@@ -1237,34 +1241,34 @@ c           0               int
                     <p>As with an item, an expression can directly entered. Add the following two expressions, <code>2 * a</code> and <code>a / b</code> to Watch1. As
                         <code>a</code> and <code>b</code> are within scope, both expressions are evaluated and the first displays the value 8. When the second is
                         evaluated, as the value of <code>b</code> is 0, the result is a <a href="#Exceptions">DivideByZeroException</a> which is indicated in the value
-                        column. The watch window will indicate most syntax errors that are normally produced by the compiler and shown in
+                        column. The watch window will indicate most <a href="#Error_types">syntax errors</a> that are normally produced by the compiler and shown in
                         <a href="#Code_editor">the code editor</a>. For instance, if you were to enter <code>(a / b</code>, this would result in
                         <span class="nowrap"><code>error CS1026: ) expected.</code></span></p>
-                    <p>Step into <code>PrintSquare.</code> All the items so far entered have now been greyed out and a refresh button (a circular arrow) has been added to
-                        each item at the end of the Value column. As the current execution has left their local scope, they can no longer be evaluated and hovering over
-                        the refresh button produces a popup dialog that indicates this. Clicking on the refresh button makes the watch window reevaluate the item, which
-                        in this case results in each being reported with an error. Now that the program has entered the local scope of <code>PrintSquare,</code> add the
-                        variable <code>square</code> to the watch window, where it is evaluated and shown to be 0. Stepping through the next two statements,
-                        <code>square's</code> value is first shown to be 16 and colored red, then its color changes back to black and 'The square of 4 is 16' is written
-                        to the console.</p>
+                    <p><a href="#Step_into">Step into</a> <code>PrintSquare.</code> All the items so far entered have now been greyed out and a refresh button
+                        (a circular arrow) has been added to each item at the end of the Value column. As the current execution has left their local scope, they can no
+                        longer be evaluated and hovering over the refresh button produces a popup dialog that indicates this. Clicking on the refresh button makes the
+                        watch window reevaluate the item, which in this case results in each being reported with an error. Now that the program has entered the local
+                        scope of <code>PrintSquare,</code> add the variable <code>square</code> to the watch window, where it is evaluated and shown to be 0. Stepping
+                        through the next two statements, <code>square's</code> value is first shown to be 16 and colored red, then its color changes back to black and
+                        'The square of 4 is 16' is written to the console.</p>
                     <p><em>Note:</em> <i>If the item's row is selected while the watch window is active, the red color won't be apparent. Select another item, or
                         click outside the watch window to see the color change.</i></p>
-                    <p>Step through to the if statement. Now only <code>square</code> and <code>c</code> can't be evaluated, as they are out of the current executions
-                        local scope. Also, as <code>b</code> is now 2, the expression <code>a / b</code> displays a value of 2 instead of DivideByZeroException. Step
-                        through to <code>var c = a / b</code> and <code>c</code> can now be evaluated with a value of 0. As with the locals window, you can change the
-                        value of an item by double clicking on the value displayed, then enter the new value. The value of an expression can't be changed. In the example,
-                        double click <code>a's</code> value in the locals window and change it to 16, then press enter to accept the change. It's color changes to red to
-                        indicate the change and additionally, both <code>2 * a</code> and <code>a / b</code> are reevaluated, their values now being 32 and 8 respectively
-                        and their colors are both now red. Stepping through to the closing brace of the if statement evaluates <code>c</code> and writes
-                        <span class="nowrap">'16 / 2 = 8'</span> to the console. Stepping into the next statement, <code>c</code> is greyed out and when refreshed results
-                        in an error.</p>
+                    <p>Step through to the <a href="#if_else_statements">if statement</a>. Now only <code>square</code> and <code>c</code> can't be evaluated, as they are
+                        out of the current executions local scope. Also, as <code>b</code> is now 2, the expression <code>a / b</code> displays a value of 2 instead of
+                        DivideByZeroException. Step through to <code>var c = a / b</code> and <code>c</code> can now be evaluated with a value of 0. As with the locals
+                        window, you can change the value of an item by double clicking on the value displayed, then enter the new value. The value of an expression can't
+                        be changed. In the example, double click <code>a's</code> value in the locals window and change it to 16, then press enter to accept the change.
+                        It's color changes to red to indicate the change and additionally, both <code>2 * a</code> and <code>a / b</code> are reevaluated, their values
+                        now being 32 and 8 respectively and their colors are both now red. Stepping through to the closing brace of the if statement evaluates
+                        <code>c</code> and writes <span class="nowrap">'16 / 2 = 8'</span> to the console. Stepping into the next statement, <code>c</code> is greyed out
+                        and when refreshed results in an error.</p>
                     <p>Clear all the existing items and expressions, then add the items <code>arr,</code> <code>myClass</code> and <code>myClass.Property1</code> which
-                        will all be listed by IntelliSense. The values of <code>arr</code> and <code>myClass</code> will both be null and due to the latter,
-                        <code>Property1's</code> value will indicate that a NullReferenceException was thrown. Stepping though to the closing brace of the
+                        will all be listed by IntelliSense. The values of <code>arr</code> and <code>myClass</code> will both be <a href="#null">null</a> and due to the
+                        latter, <code>Property1's</code> value will indicate that a NullReferenceException was thrown. Stepping though to the closing brace of the
                         <code>Main</code> method, the values of <code>arr</code>, <code>myClass</code> and <code>myClass.Property1</code> are updated, the latter being 10
                         and its color red. Both <code>arr</code> and <code>myClass</code> have an arrow to the left indicating a node that can opened revealing.
                         <code>arr's</code> elements and <code>myClass's</code> properties, all of which, the values can be changed, even if the properties are marked
-                        private or init. Stop the debugger and Watch 1 closes. You can now close the console.</p>
+                        <a href="#Properties">private or init</a>. Stop the debugger and Watch 1 closes. You can now close the console.</p>
                     <!-- !SECTION Watch window -->
                     <!-- TODO complete Call stack window -->
                     <!-- SECTION Call stack window -->
