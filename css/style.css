@@ -301,7 +301,8 @@ pre {
     transform: rotate(-3deg);
 }
 
-.play-button {
+.play-button,
+.play-button-light-fill {
     display: inline-block;
     position: relative;
     border-top: 8px solid transparent;
@@ -313,7 +314,8 @@ pre {
     margin-bottom: 2px;
 }
 
-.play-button-light-fill {
+.play-button-light-fill::after {
+    content: "";
     display: inline-block;
     position: absolute;
     top: -6px;
