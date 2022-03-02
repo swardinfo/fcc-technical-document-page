@@ -612,10 +612,10 @@ World!");
                         <a href="#delegate">delegate</a> to a method that acts as the event handler.</p>
                     <p>The <a href="#dot_NET">CLR</a> handles method calls by using a <i>stack</i> which in this context is known as the
                         <span class="nowrap"><i>call stack</i>.</span> This can be thought of as a stack of paper where each sheet represents a method. When a method is
-                        called it is placed on top, known as <i>pushed</i>, and its statements are executed until returned to the caller. The returning method is then
-                        removed, known as <i>popped</i>, and execution resumes with the method call. In computer science a stack is implemented using a
-                        <i>Last In First Out</i> memory structure or <span class="nowrap"><i>LIFO</i>.</span> How the return from a called method is treated depends on
-                        whether the method returns a value and which of the following is encountered.</p>
+                        called it is placed on top, known as <i>pushed</i>, and its statements are executed until either another method is called and pushed onto the
+                        stack or execution is returned to the caller. The returning method is then removed, known as <i>popped</i>, and execution resumes with the method
+                        call. In computer science a stack is implemented using a <i>Last In First Out</i> memory structure or <span class="nowrap"><i>LIFO</i>.</span> How
+                        the return from a called method is treated depends on whether the method returns a value and which of the following is encountered.</p>
                     <ul>
                         <li>A return statement is executed.</li>
                         <li>The end of the method is reached.</li>
@@ -672,7 +672,7 @@ World!");
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
                     <!-- SECTION Code editor -->
-                    <h4 id="Code_editor">Code editor</h4>
+                    <h3 id="Code_editor">Code editor</h3>
                     <p>The <a href="#Program_structure">program structure</a> of a C# application consists of one or more code files that can be browsed in the
                         <a href="#Program_structure">Solution Explorer.</a> These can be opened in the <i>Code Editor</i> which provides many tools to assist in writing
                         and <a href="#Debugging">debugging</a> code such as code formatting and <i>IntelliSense,</i> which provides autocompletion options you can choose
@@ -804,7 +804,7 @@ Represents a 32-bit signed integer.
                     </ul>
                     <p>In the first code example we'll look at the <span class="nowrap"><i>Start debugging</i>,</span> <span class="nowrap"><i>Stop debugging</i>,</span>
                         <span class="nowrap"><i>Restart debugging</i>,</span> and <span class="nowrap"><i>Step into</i></span> functions.</p>
-                    <>With debug configuration selected, the debugger can be started in <i>debug mode</i> by clicking on the <span class="nowrap"><i>Start Debugging</i>
+                    <p>With debug configuration selected, the debugger can be started in <i>debug mode</i> by clicking on the <span class="nowrap"><i>Start Debugging</i>
                         button <span class="play-button"></span></span> in the toolbar or by pressing <b>F5</b> In the example, press <b>F5</b> now. The debugger starts
                         and pauses or <i>breaks</i> the program at the statement <span class="nowrap"><code>var c = a / b</code>.</span> Next to it, a dialog is displayed
                         indicating that an <a href="#Exceptions">exception</a> has been <a href="#throw">thrown</a> with the name of the exception, in this case
@@ -824,7 +824,7 @@ Represents a 32-bit signed integer.
                         program if an exception was thrown. If multiple breakpoints have been set, the debugger will break at each one it encounters. Also while running
                         or in break mode, a <span class="nowrap"><i>Stop Debugging</i> button <span class="stop-button"></span></span> will appear in the toolbar.
                         Clicking it or pressing <span class="nowrap"><b>Shift + F5</b></span> will stop the debugger. An alternative to stopping and starting the debugger
-                        is to use the restart function by pressing <span class="nowrap"><b>Ctrl + Shift + F5.</b></span>
+                        is to use the restart function by pressing <span class="nowrap"><b>Ctrl + Shift + F5.</b></span></p>
                     <p><em>Note:</em> <i>When using the debugger, the program being tested may have been made the active window and you may need to click on the Visual
                         Studio IDE to regain focus. Also, if the program type is a <a href="#Create_a_Hello_World_Project">Console App</a>, after the program has ended or
                         been stopped, you may also need to manually close the console window.</i></p>
@@ -835,11 +835,16 @@ Represents a 32-bit signed integer.
                         exception is elsewhere. For example, dividing a number by zero will result in a <i>DivideByZeroException,</i> but the place where the denominator
                         became zero may be prior to this point. To solve this, you can place a breakpoint prior to where you suspect this may be occurring, then by
                         stepping through one line at a time and inspecting each variable's value as it changes, you can determine the defective statement. To set a
-                        breakpoint, you click in the left margin next to the required location and a <span class="nowrap">red dot <span class="red-dot"></span></span>
+                        breakpoint, you click in the left margin next to the required location and a <span class="nowrap">red dot <span class="breakpoint"></span></span>
                         will appear indicating the breakpoint and the accompanying line of code will be highlighted in red. When the program is rerun, it will break at
                         the selected line with all code prior to the line having been executed but not the line itself. To remove a breakpoint, click on its
-                        <span class="nowrap">red dot <span class="red-dot"></span></span>. An alternative way to add or remove a breakpoint is to place the cursor on the
-                        required line of code and press <b>F9.</b></p>
+                        <span class="nowrap">red dot <span class="breakpoint"></span></span>. An alternative way to add or remove a breakpoint is to place the cursor on
+                        the required line of code and press <b>F9.</b> To move a breakpoint, click it and while holding the mouse down, drag the breakpoint up or down to
+                        the required line, then release the mouse button. You can disable and enable an existing breakpoint and there are a number of ways to do this.
+                        Right click the breakpoint and select <b>Disable Breakpoint</b> or <b>Enable Breakpoint</b> from the context menu. Hover over the breakpoint and
+                        click the Enable/Disable button <span class="disabled-breakpoint-button"></span> that appears. Select the line it is on and press
+                         <span class="nowrap"><b>Ctrl + F9.</b></span> The disabled
+                        breakpoint appears as a red circle <span class="disabled-breakpoint"></span>.</p>
                     <p>In the example, with the debugger still in break mode at the <span class="nowrap"><code>var c = a / b</code></span> statement, set a breakpoint
                         on it and restart the debugger. This time the program will break at the statement, highlighting it but having not yet executed it, no exception is
                         thrown. When the mouse is hovered over each of the variables <code>a,</code> <code>b,</code> and <code>c</code> in the statement, a popup dialog
@@ -849,7 +854,7 @@ Represents a 32-bit signed integer.
                         thrown and the program breaks at <span class="nowrap"><code>Console.WriteLine($"c = {c}").</code></span> Inspecting the variables <code>a,</code>
                         <code>b,</code> and <code>c,</code> show their values are now 6, 2 and 3. Also, by hovering over the
                         <a href="#Expressions_and_Operators">expression</a> <code>a / b,</code> we see its value is 3. To do this, you may need to move the mouse away
-                        from the variables and then back over the division <code>/</code> <a href="#Expressions_and_Operators">operator</a>. There is also a parameter and
+                        from the variables and then back over the division <code>/</code> <a href="#Arithmetic_operators">operator</a>. There is also a parameter and
                         another variable that can be observed. The parameter <code>args</code> is passed in through
                         <span class="nowrap"><code>Main(string[] args),</code></span> which is a an <a href="#Array">array</a> of type <a href="#string">string</a> and
                         like a variable, its value can be observed by hovering over it. The popup dialog displays it to be <code>{string[0]}</code> which means that it is
@@ -897,6 +902,55 @@ Represents a 32-bit signed integer.
     }
 }
 </code></pre>
+                    <!-- SECTION Conditional breakpoints -->
+                    <h4 id="Conditional_breakpoints">Conditional breakpoints</h4>
+                    <p>A <i>Conditional breakpoint</i> allows you to set various conditions under which a <a href="#Debugger_and_breakpoints">breakpoint</a> will break
+                        the <a href="#Program_execution">program execution</a>. These can include <a href="#Expressions_and_Operators">expressions</a>, hit counts,
+                        filters and more. This is particularly useful with <a href="#Iteration_Statements">iteration statements</a> that involve a high number of
+                        iterations, as you can set a condition that breaks on a specific iteration. There are a number of ways in which a conditional breakpoint can be
+                        set. If a normal breakpoint exists, right click it and in the context menu that opens, select <b>Conditions</b> or hover over it and click the
+                        settings cog. Alternatively, where no breakpoint exists, right click the left margin adjacent to the required line and select
+                        <b>Insert Conditional Breakpoint.</b> Any of these methods will open the <i>Breakpoint Settings</i> dialog which provides a number of options.
+                        Once the options have been set and the dialog closed, the conditional breakpoint, a red dot with a white cross
+                        <span class="nowrap"></span><span class="conditional-breakpoint"></span> will appear. When disabled, it appears as a red circle with a red cross
+                        <span class="disabled-conditional-breakpoint"></span></p>
+                    <p>To see how it works, create a <a href="#Create_a_Hello_World_Project">Console App</a> and replace the code with the following.</p>
+<pre><code>namespace ConditionalBreakpoints
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int sum = 0;
+            for (var i = 0; i &lt; 100; i++)
+            {
+                sum += i;
+                Console.WriteLine($"{i}: {sum}");
+            }
+        }
+    }
+}
+</code></pre>
+                    <p>Set a conditional breakpoint on <code>sum += i</code> then right click the breakpoint and click conditions, to open the breakpoint settings dialog
+                        if it isn't already open. Of the four checkboxes, make sure only <b>Conditions</b> is checked. In the condition listed, confirm that the the first
+                        dropdown selector has <b>Conditional Expression</b> selected, the second has <b>Is true</b> selected and then enter <code>i == 5</code> in the
+                        expression textbox and close the dialog. Start the <a href="#Controlling_the_debugger">debugger</a> and the program breaks on
+                        <code>sum += i.</code> When <code>i</code> is <a href="#Setting_breakpoints_and_inspecting_values">inspected</a> its value is found to be 5, as
+                        per the expression set in the breakpoint settings dialog. Press <b>F5</b> to continue and the program exits. Close the console.</p>
+                    <p><em>Note:</em> <i>When entering a conditional expression, don't end the statement with a semicolon as you would normally do in code.</i></p>
+                    <p>Open the breakpoint settings dialog, change the expression to <code>i % 5 == 0</code> and close the dialog. Start the debugger and when the program
+                        breaks on <code>sum += i</code>, inspecting <code>i</code> reveals its value to be 0. Press <b>F5</b> to continue and the program again breaks on
+                        <code>sum += i</code> and its value is now 5. Pressing <b>F5</b> another 2 times shows that, due to the use of the remainder <code>%</code>
+                        <a href="#Arithmetic_operators">operator</a> the program is breaking in steps of 5 and the value of <code>i</code> is now 15. You can change the
+                        breakpoint settings while the debugger is running so open the dialog, change the expression to <code>sum &gt; 2400</code> then close the dialog
+                        and press <b>F5.</b> The program breaks with <code>sum</code> having a value of 2400 and <code>i</code> a value of 70. Stop the program and close
+                        the console.</p>
+                    <p>Open breakpoint settings and change the expression back to <code>i % 5 == 0</code> then click on <b>Add condition.</b> You may have to click it
+                        twice for this to happen. Confirm that <b>Hit Count</b> is selected in the first dropdown selector and <b>=</b> in the second. In the expression
+                        textbox enter 10 then close the dialog. This results in the debugger passing though the breakpoint 9 times before breaking on the 10th and due to
+                        the conditional expression, in multiples of 5. Start the debugger and when the program breaks, inspecting <code>i</code> finds its value to be 45,
+                        having hit the breakpoint the first time when <code>i</code> was 0. You can now stop the debugger and close the console.</p>
+                    <!-- !SECTION Conditional breakpoints -->
                     <!-- SECTION Effect of local scope -->
                     <h4 id="Effect_of_local_scope">Effect of local scope</h4>
                     <p>In the next example we'll first look at how the values of <a href="#Variables,_Constants,_Types_and_Literals">variables</a>,
@@ -930,7 +984,7 @@ Represents a 32-bit signed integer.
                         dropdown list in the dialog that allows you to examine the members it contains, which in this case, is only the property <code>Number</code> with
                         a value of 0. Stepping forward once more assigns 10 to <code>Number</code> as now observed. You can now stop the debugger an close the console.
                     </p>
-<pre><code>namespace Debugger2
+<pre><code>namespace LocalScopeEffect
 {
     class Program
     {
@@ -1027,7 +1081,7 @@ Represents a 32-bit signed integer.
                         is executed resulting in both 'The cube of 2 is 8' and <span class="nowrap">'4 / 2 = 2'</span> being written to the console. Stop the debugger and
                         close the console.</p>
                     <!-- !SECTION Run to -->
-<pre><code>namespace Debugger3
+<pre><code>namespace Debugger2
 {
     class Program
     {
@@ -1134,7 +1188,7 @@ Expression has been evaluated and has no value
 </code></pre>
                     <!-- !SECTION Immediate window -->
                     <!-- SECTION Locals window -->
-                    <h4 id="Locals_window">Locals window</h4>
+                    <h3 id="Locals_window">Locals window</h3>
                     <p>The <i>Locals window</i> is only available while the <a href="#Debugger_and_breakpoints">debugger</a> is running. It provides a list of all
                         <a href="#Variables,_Constants,_Types_and_Literals">variables</a>, <a href="#Parameters,_signatures_and_overloading">parameters</a> and
                         <a href="#Properties">properties</a> that are within the <a href="#Scope">local scope</a> of the current <a href="#Program_execution">program
@@ -1214,9 +1268,8 @@ c           0               int
                         value of <code>Property1</code> in the locals window changes from 0 to 10 and its color changes to red. Pressing <b>F11</b> once more exits the
                         program and the locals window closes. You can now close the console.</p>
                     <!-- !SECTION Locals window -->
-                    <!-- TODO complete Watch window -->
                     <!-- SECTION Watch window -->
-                    <h4 id="Watch_window">Watch window</h4>
+                    <h3 id="Watch_window">Watch window</h3>
                     <p>The <i>Watch window</i>, like the <a href="#Locals_window">locals window</a>, is only available while you are debugging. It allows you to create a
                         list of <a href="#Variables,_Constants,_Types_and_Literals">variables</a>, <a href="#Parameters,_signatures_and_overloading">parameters</a> and
                         <a href="#Properties">properties</a> you are interested in observing, displaying their names, values and types. It also allows you to enter
@@ -1231,13 +1284,13 @@ c           0               int
                         debugger and open the Watch1 window if it's not already open. To enter an item, click <span class="nowrap"><b>Add item to watch</b></span> in an
                         empty row and enter its name. As you start to type, IntelliSense displays a list that includes the objects that are within the
                         <a href="#Scope">local scope</a> of the current <a href="#Program_execution">program execution</a>. You can still enter an item outside the
-                        current local scope, however it won't be listed by IntelliSense and an error <span class="error-circle"></span> may be displayed with an error
-                        message in the Value column in the form of, <i>error CS0103: The name 'item' does not exist in the current context.</i> If the item does exist in
-                        the code, this message can safely be ignored as it will be resolved when program enters the item's local scope. To remove an item, select it and
-                        press <b>delete.</b> To clear all items, right click the watch window, then in the context menu that opens select <b>Clear All.</b> In the
-                        example, add the variables <code>a,</code> <code>b,</code> and <code>c</code> to Watch1. Variables <code>a</code> and <code>b</code> will be
-                        listed without error, along with their respective values 4 and 0 and their types. Variable <code>c</code> will be listed but with an error as it
-                        is out of scope.</p>
+                        current local scope, however it won't be listed by IntelliSense and an <span class="nowrap">error <span class="inline-error"></span></span> may be
+                        displayed with an error message in the Value column in the form of, <i>error CS0103: The name 'item' does not exist in the current context.</i> If
+                        the item does exist in the code, this message can safely be ignored as it will be resolved when program enters the item's local scope. To remove
+                        an item, select it and press <b>delete.</b> To clear all items, right click the watch window, then in the context menu that opens select
+                        <span class="nowrap"><b>Clear All.</b></span> In the example, add the variables <code>a,</code> <code>b,</code> and <code>c</code> to Watch1.
+                        Variables <code>a</code> and <code>b</code> will be listed without error, along with their respective values 4 and 0 and their types. Variable
+                        <code>c</code> will be listed but with an error as it is out of scope.</p>
                     <p>As with an item, an expression can directly entered. Add the following two expressions, <code>2 * a</code> and <code>a / b</code> to Watch1. As
                         <code>a</code> and <code>b</code> are within scope, both expressions are evaluated and the first displays the value 8. When the second is
                         evaluated, as the value of <code>b</code> is 0, the result is a <a href="#Exceptions">DivideByZeroException</a> which is indicated in the value
@@ -1272,8 +1325,11 @@ c           0               int
                     <!-- !SECTION Watch window -->
                     <!-- TODO complete Call stack window -->
                     <!-- SECTION Call stack window -->
-                    <h4 id="Call_stack_window">Call stack window</h4>
-                    <p>Description</p>
+                    <h3 id="Call_stack_window">Call stack window</h3>
+                    <p>The <i>Call stack window</i> displays the current <a href="#Program_execution">method calls</a> on the <a href="#Program_execution">call stack.</a>
+                        When ever a method is called it is be placed on top of the list and when it returns execution to its caller it is removed. This means that the
+                        method with the current program execution and thus the current local scope is always on top, and the history of the caller chain is listed below
+                        it. </p>
                     <p>CodeExample</p>
 <pre><code>namespace Namespace
 {
