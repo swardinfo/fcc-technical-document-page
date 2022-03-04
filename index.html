@@ -652,7 +652,6 @@ World!");
                 </article>
             </section>
             <!-- !SECTION Code Syntax and Program Execution -->
-            <!-- TODO complete Code Writing and Debugging -->
             <!-- SECTION Code Writing and Debugging -->
             <section class="main-section" id="Code_Writing_and_Debugging">
                 <header><h2>Code Writing and Debugging</h2></header>
@@ -774,8 +773,9 @@ Represents a 32-bit signed integer.
                         list in the Visual Studio toolbar. There are also two ways in which to run the program in Visual Studio; <i>With the Debugger Attached</i> and
                         <i>Without the Debugger Attached</i>. To run a program in <i>Debug Mode</i> the program must be run, both with the debugger attached and with
                         debug configuration selected.</p>
+                    <!-- !SECTION Debugger and breakpoints -->
                     <!-- SECTION Controlling the debugger -->
-                    <h4 id="Controlling_the_debugger">Controlling the debugger</h4>
+                    <h3 id="Controlling_the_debugger">Controlling the debugger</h3>
                     <p> There are a number of ways in which you can control the debugger.</p>
                     <ul>
                         <li><span class="nowrap">Start debugging <span class="play-button"></span></span> (<b>F5</b>)</li>
@@ -789,14 +789,32 @@ Represents a 32-bit signed integer.
                         <li><span class="nowrap">Run to <span class="next-button"></span></span></li>
                         <li>Start without debugging (<span class="nowrap"><b>Ctrl + F5</b></span>)</li>
                     </ul>
-                    <p>In the first code example we'll look at the <span class="nowrap"><i>Start debugging</i>,</span> <span class="nowrap"><i>Stop debugging</i>,</span>
-                        <span class="nowrap"><i>Restart debugging</i>,</span> and <span class="nowrap"><i>Step into</i></span> functions.</p>
+                    <p>With the first code example we'll look at starting, stopping and restarting the debugger, as well as when and why the debugger pauses or
+                        <i>breaks</i> <a href="#Program_execution">program execution</a> and how to continue afterwards. Also we'll see how to
+                        <a href="#Setting_breakpoints_and_inspecting_values">set a breakpoint and inspect values</a> and how to step through the code using the
+                        <a href="#Step_into">step into</a> function.</p>
+                    <p>Create a <a href="#Create_a_Hello_World_Project">Console App</a> called <i>Debugger1</i> and replace the code with the following.</p>
+<pre><code>namespace Debugger1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var a = 6;
+            var b = 0;
+            var c = a / b;
+            Console.WriteLine($"c = {c}");
+        }
+    }
+}
+</code></pre>
                     <p>With debug configuration selected, the debugger can be started in <i>debug mode</i> by clicking on the <span class="nowrap"><i>Start Debugging</i>
-                        button <span class="play-button"></span></span> in the toolbar or by pressing <b>F5</b> In the example, press <b>F5</b> now. The debugger starts
-                        and pauses or <i>breaks</i> the program at the statement <span class="nowrap"><code>var c = a / b</code>.</span> Next to it, a dialog is displayed
-                        indicating that an <a href="#Exceptions">exception</a> has been <a href="#throw">thrown</a> with the name of the exception, in this case
-                        DivideByZeroException, along with other information pertaining to it. When an exception is thrown or a breakpoint encountered, the debugger breaks
-                        the program at the line in the code where this occurs, known as being in <i>break mode,</i> highlighting it in yellow and placing a
+                        button <span class="play-button"></span></span> in the toolbar or by pressing <b>F5.</b></p>
+                    <p>In the example, press <b>F5</b> and the debugger starts then <i>breaks</i> the program at the statement
+                        <span class="nowrap"><code>var c = a / b</code>.</span> Next to it, a dialog is displayed indicating that an <a href="#Exceptions">exception</a>
+                        has been <a href="#throw">thrown</a> with the name of the exception, in this case DivideByZeroException, along with other information pertaining
+                        to it. When an exception is thrown or a breakpoint encountered, the debugger breaks the program at the line in the code where this occurs, known
+                        as being in <i>break mode,</i> highlighting it in yellow and placing a
                         <span class="nowrap">yellow arrow
                             <span class="yellow-arrow-point">
                                 <span class="yellow-arrow-point-fill">
@@ -812,25 +830,28 @@ Represents a 32-bit signed integer.
                         or in break mode, a <span class="nowrap"><i>Stop Debugging</i> button <span class="stop-button"></span></span> will appear in the toolbar.
                         Clicking it or pressing <span class="nowrap"><b>Shift + F5</b></span> will stop the debugger. An alternative to stopping and starting the debugger
                         is to use the restart function by pressing <span class="nowrap"><b>Ctrl + Shift + F5.</b></span></p>
+                    <p>The program can also be run normally by clicking the <span class="nowrap"><i>Start without debugging</i> button
+                        <span class="play-button-light-fill"></span></span> or by pressing <span class="nowrap"><b>Ctrl + F5.</b></span> The program will then run and any
+                        breakpoints are ignored.</p>
                     <p><em>Note:</em> <i>When using the debugger, the program being tested may have been made the active window and you may need to click on the Visual
                         Studio IDE to regain focus. Also, if the program type is a <a href="#Create_a_Hello_World_Project">Console App</a>, after the program has ended or
                         been stopped, you may also need to manually close the console window.</i></p>
-                    <!-- !SECTION Controlling the debugger -->
                     <!-- SECTION Setting breakpoints and inspecting values -->
                     <h4 id="Setting_breakpoints_and_inspecting_values">Setting breakpoints and inspecting values</h4>
                     <p>If the statement is the true source of an exception, then it can be corrected and the program rerun. More often than not, the source of the
                         exception is elsewhere. For example, dividing a number by zero will result in a <i>DivideByZeroException,</i> but the place where the denominator
                         became zero may be prior to this point. To solve this, you can place a breakpoint prior to where you suspect this may be occurring, then by
-                        stepping through one line at a time and inspecting each variable's value as it changes, you can determine the defective statement. To set a
-                        breakpoint, you click in the left margin next to the required location and a <span class="nowrap">red dot <span class="breakpoint"></span></span>
-                        will appear indicating the breakpoint and the accompanying line of code will be highlighted in red. When the program is rerun, it will break at
-                        the selected line with all code prior to the line having been executed but not the line itself. To remove a breakpoint, click on its
-                        <span class="nowrap">red dot <span class="breakpoint"></span></span>. An alternative way to add or remove a breakpoint is to place the cursor on
-                        the required line of code and press <b>F9.</b> To move a breakpoint, click it and while holding the mouse down, drag the breakpoint up or down to
-                        the required line, then release the mouse button. You can disable and enable an existing breakpoint and there are a number of ways to do this.
-                        Right click the breakpoint and select <b>Disable Breakpoint</b> or <b>Enable Breakpoint</b> from the context menu. Hover over the breakpoint and
-                        click the Enable/Disable button <span class="disabled-breakpoint-button"></span> that appears. Select the line it is on and press
-                        <span class="nowrap"><b>Ctrl + F9.</b></span> The disabled breakpoint appears as a red circle <span class="disabled-breakpoint"></span>.</p>
+                        <a href="#Step_into">stepping through</a> one line at a time and inspecting each variable's value as it changes, you can determine the defective
+                        statement. To set a breakpoint, you click in the left margin next to the required location and a
+                        <span class="nowrap">red dot <span class="breakpoint"></span></span> will appear indicating the breakpoint and the accompanying line of code will
+                        be highlighted in red. When the program is rerun, it will break at the selected line with all code prior to the line having been executed but not
+                        the line itself. To remove a breakpoint, click on its <span class="nowrap">red dot <span class="breakpoint"></span></span>. An alternative way to
+                        add or remove a breakpoint is to place the cursor on the required line of code and press <b>F9.</b> To move a breakpoint, click it and while
+                        holding the mouse down, drag the breakpoint up or down to the required line, then release the mouse button. You can disable and enable an existing
+                        breakpoint and there are a number of ways to do this. Right click the breakpoint and select <b>Disable Breakpoint</b> or <b>Enable Breakpoint</b>
+                        from the context menu. Hover over the breakpoint and click the Enable/Disable button <span class="disabled-breakpoint-button"></span> that
+                        appears. Select the line it is on and press <span class="nowrap"><b>Ctrl + F9.</b></span> The disabled breakpoint appears as a red circle
+                        <span class="disabled-breakpoint"></span>.</p>
                     <p>In the example, with the debugger still in break mode at the <span class="nowrap"><code>var c = a / b</code></span> statement, set a breakpoint
                         on it and restart the debugger. This time the program will break at the statement, highlighting it but having not yet executed it, no exception is
                         thrown.</p>
@@ -884,22 +905,9 @@ Represents a 32-bit signed integer.
                         list of the elements, which as an array is zero based, are numbered [0] to [3], and their values, 1 to 4. One more press of <b>F11</b> advances
                         the program to the end where it exits and the console can now be closed.</p>
                     <!-- !SECTION Step into -->
-<pre><code>namespace Debugger1
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            var a = 6;
-            var b = 0;
-            var c = a / b;
-            Console.WriteLine($"c = {c}");
-        }
-    }
-}
-</code></pre>
+                    <!-- !SECTION Controlling the debugger -->
                     <!-- SECTION Conditional breakpoints -->
-                    <h4 id="Conditional_breakpoints">Conditional breakpoints</h4>
+                    <h3 id="Conditional_breakpoints">Conditional breakpoints</h3>
                     <p>A <i>Conditional breakpoint</i> allows you to set various conditions under which a <a href="#Debugger_and_breakpoints">breakpoint</a> will break
                         the <a href="#Program_execution">program execution</a>. These can include <a href="#Expressions_and_Operators">expressions</a>, hit counts,
                         filters and more. This is particularly useful with <a href="#Iteration_Statements">iteration statements</a> that involve a high number of
@@ -949,7 +957,7 @@ Represents a 32-bit signed integer.
                         having hit the breakpoint the first time when <code>i</code> was 0. You can now stop the debugger and close the console.</p>
                     <!-- !SECTION Conditional breakpoints -->
                     <!-- SECTION Effect of local scope -->
-                    <h4 id="Effect_of_local_scope">Effect of local scope</h4>
+                    <h3 id="Effect_of_local_scope">Effect of local scope</h3>
                     <p>When using the debugger, the values of <a href="#Variables,_Constants,_Types_and_Literals">variables</a>,
                         <a href="#Parameters,_signatures_and_overloading">parameters</a> and type <a href="#Members">members</a> can only be observed when
                         <a href="#Program_execution">program execution</a> has entered the <a href="#Scope">local scope</a> in which they reside. For example, if MethodA
@@ -1022,6 +1030,8 @@ Represents a 32-bit signed integer.
                         a value of 0. Stepping forward once more assigns 10 to <code>Number</code> as now observed. You can now stop the debugger an close the console.
                     </p>
                     <!-- !SECTION Effect of local scope -->
+                    <!-- SECTION More ways to control the debugger -->
+                    <h3 id="More_ways_to_control_the_debugger">More ways to control the debugger</h3>
                     <p>In the last example we'll look at the behavior of <span class="nowrap"><i>Step over</i>,</span> <span><i>Step out</i>,</span>
                         <span class="nowrap"><i>Run to cursor</i></span> and <span class="nowrap"><i>Run to</i></span>. These each provide different ways to execute
                         sections of code without having to step through individual lines, so that you can quickly get to locations of interest. Note though that when
@@ -1117,10 +1127,9 @@ Represents a 32-bit signed integer.
                         is executed resulting in both 'The cube of 2 is 8' and <span class="nowrap">'4 / 2 = 2'</span> being written to the console. Stop the debugger and
                         close the console.</p>
                     <!-- !SECTION Run to -->
-
-                    <p>The program can also be run normally by clicking the <span class="nowrap"><i>Start without debugging</i> button
-                        <span class="play-button-light-fill"></span></span> or by pressing <span class="nowrap"><b>Ctrl + F5.</b></span> The program will then run and any
-                        breakpoints are ignored.</p>
+                    <!-- !SECTION More ways to control the debugger -->
+                    <!-- SECTION Testing the program for release -->
+                    <h3 id="Testing_the_program_for_release">Testing the program for release</h3>
                     <p>When a program is built with the release configuration, the optimizations used by the compiler to improve performance, can on occasion produce
                         problems. It is important that, once you have completed debugging the program, you should build and test the program in release configuration to
                         ensure it is functioning correctly, prior to deployment. To do this, change the configuration in the
@@ -1130,7 +1139,7 @@ Represents a 32-bit signed integer.
                     <p>By default, Visual Studio creates the following folders to store the two program versions when they are built.</p>
                     <p>SolutionFolder\ProjectFolder\bin\Debug</p>
                     <p>SolutionFolder\ProjectFolder\bin\Release</p>
-                    <!-- !SECTION Debugger and breakpoints -->
+                    <!-- !SECTION Testing the program for release -->
                     <!-- SECTION Immediate window -->
                     <h3 id="Immediate_window">Immediate window</h3>
                     <p>The <i>Immediate window</i> allows you to read and change the value of a <a href="#Variables,_Constants,_Types_and_Literals">variable</a> when the
@@ -1326,7 +1335,6 @@ c           0               int
                         <code>arr's</code> elements and <code>myClass's</code> properties, all of which, the values can be changed, even if the properties are marked
                         <a href="#Properties">private or init</a>. Stop the debugger and Watch 1 closes. You can now close the console.</p>
                     <!-- !SECTION Watch window -->
-                    <!-- TODO complete Call stack window -->
                     <!-- SECTION Call stack window -->
                     <h3 id="Call_stack_window">Call stack window</h3>
                     <p>The <i>Call stack window</i> lists the current <a href="#Program_execution">method calls</a> on the <a href="#Program_execution">call stack</a>
