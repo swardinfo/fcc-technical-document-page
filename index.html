@@ -125,9 +125,9 @@
                         <a href="https://visualstudio.microsoft.com/" rel="external nofollow noopener noreferrer" target="_blank"> Visual Studio</a> web page. Use by
                         organizations is subject to conditions which can be found though the Visual Studio web page.</p>
                     <p><em>Note 1:</em> <i>This guide assumes that Visual Studio has already been installed, updated and the default settings have not been
-                        changed. In particular it is assumed that the color theme is set to 'Light'. This can be set in the Options dialog under <b>Environment</b> &gt;
-                        <b>General</b> &gt; <b>Visual Experience</b>. The Options dialog can be opened by selecting <b>Tools</b> &gt; <b>Options</b> in the main
-                        menu.</i></p>
+                        changed. In particular it is assumed that the color theme is set to 'Light'. This can be set in the Options dialog under
+                        <span class="nowrap"><b>Environment</b> &gt; <b>General</b> &gt; <b>Visual Experience</b>.</span> The Options dialog can be opened by selecting
+                        <span class="nowrap"><b>Tools</b> &gt; <b>Options</b></span> in the main menu.</i></p>
                     <p><em>Note 2:</em> <i>Whilst the code editor in Visual Studio provides color coding for different code elements, only the
                         <u class="error">red wavy underline</u> used to indicate <a href="#Syntax_errors">syntax errors</a> and
                         <u class="warning">green wavy underline</u> to indicate warnings will be shown in the code examples in this guide.</i></p>
@@ -194,10 +194,10 @@ Console.WriteLine("Hello, World!");
                         other projects or an executable (.exe) file that can be started and run directly. An application may consist of one or more of these.</p>
                     <p>In Visual Studio when a C# project is first created it creates a <i>Solution</i> that includes the project and other files required by the compiler
                         to build the assembly. These can be viewed in the <i>Solution Explorer</i> window which can be accessed via the <i>Solution Explorer</i> tab on
-                        the right side of Visual Studio. If the tab is not visible, select <b>View</b> &gt; <b>Solution Explorer</b> in the main menu. The Solution
-                        Explorer appears similar to that of tree view of the File Explorer. Under the Solution root node is listed each project and under these each of
-                        the folders and files they contain. To a large extent, you can customize the folder and file locations to suit your own requirements. When the
-                        compiler first builds a project, several other files are generated and then updated with each rebuild.</p>
+                        the right side of Visual Studio. If the tab is not visible, select <span class="nowrap"><b>View</b> &gt; <b>Solution Explorer</b></span> in the
+                        main menu. The Solution Explorer appears similar to that of tree view of the File Explorer. Under the Solution root node is listed each project
+                        and under these each of the folders and files they contain. To a large extent, you can customize the folder and file locations to suit your own
+                        requirements. When the compiler first builds a project, several other files are generated and then updated with each rebuild.</p>
                     <p>A C# source code file is a text file with the extension <i>.cs</i> and can be opened and edited in a code editor or even a basic text file editor.
                         A code editor is normally preferred as it can provide tools for displaying and formatting the code text with the correct program structure and
                         syntax. Whilst it is possible to create a program in which all code is contained in a single file, except for the simplest program, most consist
@@ -849,10 +849,10 @@ Represents a 32-bit signed integer.
                         the line itself. To remove a breakpoint, click on its <span class="nowrap">red dot <span class="breakpoint"></span></span>. An alternative way to
                         add or remove a breakpoint is to place the cursor on the required line of code and press <b>F9.</b> To move a breakpoint, click it and while
                         holding the mouse down, drag the breakpoint up or down to the required line, then release the mouse button. You can disable and enable an existing
-                        breakpoint and there are a number of ways to do this. Right click the breakpoint and select <b>Disable Breakpoint</b> or <b>Enable Breakpoint</b>
-                        from the context menu. Hover over the breakpoint and click the Enable/Disable button <span class="disabled-breakpoint-button"></span> that
-                        appears. Select the line it is on and press <span class="nowrap"><b>Ctrl + F9.</b></span> The disabled breakpoint appears as a red circle
-                        <span class="disabled-breakpoint"></span>.</p>
+                        breakpoint and there are a number of ways to do this. Right click the breakpoint and select <span class="nowrap"><b>Disable Breakpoint</b></span>
+                        or <span class="nowrap"><b>Enable Breakpoint</b></span> from the context menu. Hover over the breakpoint and click the Enable/Disable button
+                        <span class="disabled-breakpoint-button"></span> that appears. Select the line it is on and press
+                        <span class="nowrap"><b>Ctrl + F9.</b></span> The disabled breakpoint appears as a red circle <span class="disabled-breakpoint"></span>.</p>
                     <p>In the example, with the debugger still in break mode at the <span class="nowrap"><code>var c = a / b</code></span> statement, set a breakpoint
                         on it and restart the debugger. This time the program will break at the statement, highlighting it but having not yet executed it, no exception is
                         thrown.</p>
@@ -915,8 +915,8 @@ Represents a 32-bit signed integer.
                         iterations, as you can set a condition that breaks on a specific iteration. There are a number of ways in which a conditional breakpoint can be
                         set. If a normal breakpoint exists, right click it and in the context menu that opens, select <b>Conditions</b> or hover over it and click the
                         settings cog. Alternatively, where no breakpoint exists, right click the left margin adjacent to the required line and select
-                        <b>Insert Conditional Breakpoint.</b> Any of these methods will open the <i>Breakpoint Settings</i> dialog which provides a number of options.
-                        Once the options have been set and the dialog closed, the conditional breakpoint, a red dot with a white cross
+                        <span class="nowrap"><b>Insert Conditional Breakpoint.</b></span> Any of these methods will open the <i>Breakpoint Settings</i> dialog which
+                        provides a number of options. Once the options have been set and the dialog closed, the conditional breakpoint, a red dot with a white cross
                         <span class="nowrap"></span><span class="conditional-breakpoint"></span> will appear. When disabled, it appears as a red circle with a red cross
                         <span class="disabled-conditional-breakpoint"></span></p>
                     <p>To see how it works, create a <a href="#Create_a_Hello_World_Project">Console App</a> called <i>ConditionalBreakpoints</i> and replace the code
@@ -939,10 +939,11 @@ Represents a 32-bit signed integer.
 </code></pre>
                     <p>Set a conditional breakpoint on <code>sum += i</code> then right click the breakpoint and click conditions, to open the breakpoint settings dialog
                         if it isn't already open. Of the four checkboxes, make sure only <b>Conditions</b> is checked. In the condition listed, confirm that the first
-                        dropdown selector has <b>Conditional Expression</b> selected, the second has <b>Is true</b> selected and then enter <code>i == 5</code> in the
-                        expression textbox and close the dialog. Start the <a href="#Controlling_the_debugger">debugger</a> and the program breaks on
-                        <code>sum += i.</code> When <code>i</code> is <a href="#Setting_breakpoints_and_inspecting_values">inspected</a> its value is found to be 5, as
-                        per the expression set in the breakpoint settings dialog. Press <b>F5</b> to continue and the program exits. Close the console.</p>
+                        dropdown selector has <span class="nowrap"><b>Conditional Expression</b></span> selected, the second has
+                        <span class="nowrap"><b>Is true</b></span> selected and then enter <code>i == 5</code> in the expression textbox and close the dialog. Start the
+                        <a href="#Controlling_the_debugger">debugger</a> and the program breaks on <code>sum += i.</code> When <code>i</code> is
+                        <a href="#Setting_breakpoints_and_inspecting_values">inspected</a> its value is found to be 5, as per the expression set in the breakpoint
+                        settings dialog. Press <b>F5</b> to continue and the program exits. Close the console.</p>
                     <p><em>Note:</em> <i>When entering a conditional expression, don't end the statement with a semicolon as you would normally do in code.</i></p>
                     <p>Open the breakpoint settings dialog, change the expression to <code>i % 5 == 0</code> and close the dialog. Start the debugger and when the program
                         breaks on <code>sum += i</code>, inspecting <code>i</code> reveals its value to be 0. Press <b>F5</b> to continue and the program again breaks on
@@ -951,11 +952,12 @@ Represents a 32-bit signed integer.
                         breakpoint settings while the debugger is running so open the dialog, change the expression to <code>sum &gt; 2400</code> then close the dialog
                         and press <b>F5.</b> The program breaks with <code>sum</code> having a value of 2400 and <code>i</code> a value of 70. Stop the program and close
                         the console.</p>
-                    <p>Open breakpoint settings and change the expression back to <code>i % 5 == 0</code> then click on <b>Add condition.</b> You may have to click it
-                        twice for this to happen. Confirm that <b>Hit Count</b> is selected in the first dropdown selector and <b>=</b> in the second. In the expression
-                        textbox enter 10 then close the dialog. This results in the debugger passing though the breakpoint 9 times before breaking on the 10th and due to
-                        the conditional expression, in multiples of 5. Start the debugger and when the program breaks, inspecting <code>i</code> finds its value to be 45,
-                        having hit the breakpoint the first time when <code>i</code> was 0. You can now stop the debugger and close the console.</p>
+                    <p>Open breakpoint settings and change the expression back to <code>i % 5 == 0</code> then click on <span class="nowrap"><b>Add condition.</b></span>
+                        You may have to click it twice for this to happen. Confirm that <span class="nowrap"><b>Hit Count</b></span> is selected in the first dropdown
+                        selector and <b>=</b> in the second. In the expression textbox enter 10 then close the dialog. This results in the debugger passing though the
+                        breakpoint 9 times before breaking on the 10th and due to the conditional expression, in multiples of 5. Start the debugger and when the program
+                        breaks, inspecting <code>i</code> finds its value to be 45, having hit the breakpoint the first time when <code>i</code> was 0. You can now stop
+                        the debugger and close the console.</p>
                     <!-- !SECTION Conditional breakpoints -->
                     <!-- SECTION Effect of local scope -->
                     <h3 id="Effect_of_local_scope">Effect of local scope</h3>
@@ -1392,12 +1394,12 @@ CallStackWindow.dll!CallStackWindow.Program.Main(string[] args) Line 6
                         part, <code>Program.Main(string[] args) Line 6</code> is the name of the <a href="#class">class,</a> <code>Program,</code> followed by the
                         <code>Main</code> method <a href="#Parameters,_signatures_and_overloading">signature</a> and the current line that is being executed, line 6. You
                         can choose which parts to show through options in the context menu, that is opened when you right click the call stack window. For example, you
-                        can show or hide the line number by checking or unchecking <b>Show Line Numbers.</b> To quickly navigate to the source of any method call listed
-                        in the call stack, right click the call and select <b>Go To Source Code</b> in the context menu. Stepping into the line advances the program to
-                        the method call for Method1 on line 7, which is also indicated in the call stack window. When <code>Method1</code> is stepped into, it is added to
-                        the top of the call stack and the current line is now 13. It has an empty <a href="#Methods">implementation</a>, so stepping into the line
-                        advances to the closing brace on line 14. The method in which <code>Method1</code> was called is now listed below it and line 7 indicates the
-                        position of the method call statement.</p>
+                        can show or hide the line number by checking or unchecking <span class="nowrap"><b>Show Line Numbers.</b></span> To quickly navigate to the source
+                        of any method call listed in the call stack, right click the call and select <span class="nowrap"><b>Go To Source Code</b></span> in the context
+                        menu. Stepping into the line advances the program to the method call for Method1 on line 7, which is also indicated in the call stack window. When
+                        <code>Method1</code> is stepped into, it is added to the top of the call stack and the current line is now 13. It has an empty
+                        <a href="#Methods">implementation</a>, so stepping into the line advances to the closing brace on line 14. The method in which
+                        <code>Method1</code> was called is now listed below it and line 7 indicates the position of the method call statement.</p>
 <pre class="ide-window">Name
 CallStackWindow.dll!CallStackWindow.Program.Method1() Line 14
 CallStackWindow.dll!CallStackWindow.Program.Main(string[] args) Line 7
@@ -4293,8 +4295,8 @@ namespace Dictionaries
                     <p>To add a class file in Visual Studio</p>
                     <ol>
                         <li>In the <b>Solution Explorer</b> right click the project or a folder within it that you wish to add the class to.</li>
-                        <li>In the context menu hover the mouse over <b>Add</b> then in the new context menu that opens, click <b>Class</b> and the <b>Add New Item</b>
-                            dialog will open.</li>
+                        <li>In the context menu hover the mouse over <b>Add</b> then in the new context menu that opens, click <b>Class</b> and the
+                            <span class="nowrap"><b>Add New Item</b></span> dialog will open.</li>
                         <li><b>Class</b> should be selected at the top of the list but if it isn't, type <i>class</i> in the search bar in the top right of the dialog and
                             then select <i>class</i> in the list.</li>
                         <li>At the bottom of the dialog in the name text box type the name of the class then click <b>Add</b> and the new class file will be added to the
@@ -6859,12 +6861,13 @@ namespace CancelEvent
                     <p>The following example demonstrates how to create a new project, add a second project to the solution of the first and then create a reference of
                         the second project to the first.</p>
                     <ol>
-                        <li>Start the IDE then click <b>Create a new project</b></li>
+                        <li>Start the IDE then click <span class="nowrap"><b>Create a new project</b></span></li>
                         <li> On the <span class="nowrap"><b>Create a new project</b></span> page in the search box at the top type
                             <span class="nowrap"><b>'console core'</b></span>.</li>
                         <li>A project template titled <span class="nowrap"><b>Console App</b></span> should appear at the top of the list. It has an icon that looks like
                             a document with C# in the top right corner. Select <span class="nowrap"><b>Console App</b></span> then choose <b>Next</b>
-                            (Hint: if <span class="nowrap"><b>Console App</b></span> is not at the top, click <b>Clear all</b> and search again)</li>
+                            (Hint: if <span class="nowrap"><b>Console App</b></span> is not at the top, click <span class="nowrap"><b>Clear all</b></span> and search
+                            again)</li>
                         <li>On the <span class="nowrap"><b>Configure your new project</b></span> page type <b>'ProjectA'</b> in the
                             <span class="nowrap"><b>Project name</b></span> box. Leave the <b>Location</b> and <span class="nowrap"><b>Solution name</b></span> as filled
                             in by the IDE and choose <b>Next</b></li>
@@ -6875,11 +6878,12 @@ namespace CancelEvent
                         <li>A project template called <b>ClassLibrary</b> : <i>A project for creating a class library that targets .NET Standard or .NET Core</i> should be
                             at the top of the list. If not, scroll down till you find the template then click on it to highlight it then click <b>Next</b></li>
                         <li>Repeat steps 4 and 5 using the project name <b>ProjectB</b></li>
-                        <li>In <i>Solution Explorer</i> right click the <b>Dependencies</b> node under <b>ProjectA</b> and click <b>Add Project Reference</b> in the
-                            context menu.</li>
-                        <li>In the <b>Reference Manager - ProjectA</b> dialog box select the <b>Projects</b> node on the left pane.</li>
+                        <li>In <i>Solution Explorer</i> right click the <b>Dependencies</b> node under <b>ProjectA</b> and click
+                            <span class="nowrap"><b>Add Project Reference</b></span> in the context menu.</li>
+                        <li>In the <span class="nowrap"><b>Reference Manager - ProjectA</b></span> dialog box select the <b>Projects</b> node on the left pane.</li>
                         <li>In the middle section select <b>ProjectB</b> and mark its check box then click <b>OK</b> to add the reference</li>
-                        <li>Under the <b>ProjectA</b> node in <b>Solution Explorer</b> expand the <b>Dependencies</b> node then the <b>Projects</b> node</li>
+                        <li>Under the <b>ProjectA</b> node in <span class="nowrap"><b>Solution Explorer</b></span> expand the <b>Dependencies</b> node then the
+                            <b>Projects</b> node</li>
                         <li><b>ProjectB</b> should now be listed under this node confirming that <b>ProjectA</b> now has a reference to <b>ProjectB</b></li>
                     </ol>
                     <!-- !SECTION Dependencies -->
@@ -7172,10 +7176,12 @@ namespace NamespaceExample
                         types to be imported into all code files within the same assembly. A global using directive can only be placed in the global namespace and must
                         precede all non-global using directives.</p>
                     <p>If you know a type's identifier but don't know its namespace, Visual Studio provides a shortcut for adding this. After entering the type's
-                        identifier, with the mouse hovering over it, press <b><kbd>Ctrl</kbd> + <kbd>.</kbd></b> and IntelliSense will suggest the correct using
-                        directive, most likely at the top of the list. Click on the suggestion and it will be added to the code. Please note that the full identifier must
-                        be entered with the correct case and the project must have a <a href="#Dependencies">reference</a> to the project containing the type.</p>
-                    <p>To remove unused <i>using</i> directives, right click anywhere in the code editor and click <b>Remove and Sort Usings</b></p>
+                        identifier, with the mouse hovering over it, press <span class="nowrap"><b><kbd>Ctrl</kbd> + <kbd>.</kbd></b></span> and IntelliSense will suggest
+                        the correct using directive, most likely at the top of the list. Click on the suggestion and it will be added to the code. Please note that the
+                        full identifier must be entered with the correct case and the project must have a <a href="#Dependencies">reference</a> to the project containing
+                        the type.</p>
+                    <p>To remove unused <i>using</i> directives, right click anywhere in the code editor and click
+                        <span class="nowrap"><b>Remove and Sort Usings</b></span></p>
                     <p>The following example demonstrate importing types with the <code>using</code> directive.</p>
 <pre><code>// Class5.cs
 namespace NameSpace5
@@ -8867,8 +8873,8 @@ namespace AccessModifiers
                         <li>IEEE binary floating-point: <b>float</b>, <b>double</b></li>
                         <li>Decimal floating-point: <b>decimal</b></li>
                         <li>Unicode characters: <b>char</b></li>
-                        <li>User-defined type of form <b>enum E {...}</b></li>
-                        <li>User defined type of form <b>struct S {...}</b></li>
+                        <li>User-defined type of form <span class="nowrap"><b>enum E {...}</b></span></li>
+                        <li>User defined type of form <span class="nowrap"><b>struct S {...}</b></span></li>
                         <li>Nullable value type: Extension of all other value types with a null value of the form <b>T?</b></li>
                     </ul>
                     <!-- !SECTION C# Value type keywords -->
@@ -8898,16 +8904,16 @@ namespace AccessModifiers
                         <li>Ultimate base class of all other types: <b>object</b></li>
                         <li>Unicode strings: <b>string</b></li>
                         <li>Array types: Single dimensional <b>int[]</b>, multi-dimensional <b>int[,]</b></li>
-                        <li>dynamic of the form <b>dynamic T</b></li>
+                        <li>dynamic of the form <span class="nowrap"><b>dynamic T</b></span></li>
                     </ul>
                     <!-- !SECTION C# Built-in reference types -->
                     <!-- SECTION C# User defined reference types -->
                     <h4 id="User_defined_reference_types">User defined reference types</h4>
                     <ul>
-                        <li>User defined type of form <b>class C {...}</b></li>
-                        <li>User defined type of form <b>interface I {...}</b></li>
-                        <li>User-defined type of form <b>delegate T D(...)</b></li>
-                        <li>User-defined type of form <b>record T R(...)</b></li>
+                        <li>User defined type of form <span class="nowrap"><b>class C {...}</b></span></li>
+                        <li>User defined type of form <span class="nowrap"><b>interface I {...}</b></span></li>
+                        <li>User-defined type of form <span class="nowrap"><b>delegate T D(...)</b></span></li>
+                        <li>User-defined type of form <span class="nowrap"><b>record T R(...)</b></span></li>
                     </ul>
                     <!-- !SECTION C# User defined reference types -->
                     <!-- SECTION Literals -->
