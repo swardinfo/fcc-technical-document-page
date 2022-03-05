@@ -584,14 +584,13 @@ World!");
                         unresponsive.</p>
                     <p>Within a code block, statements are executed from top to bottom. If the statement is a <a href="#Conditional_Statements">conditional statement</a>,
                         alternate paths will be introduced in which one will be chosen dependent on the condition for that path being true. If an
-                        <a href="#Iteration_Statements">iterative statement</a>, the statements it contains will be repeatedly executed until a condition is met that
-                        allows execution to <a href="#break">break</a> out of the loop. A statement can also pass execution on to another
-                        <a href="#Methods">method</a> known as <i>calling</i> or <i>invoking</i>, with the statement known as a <i>method call</i> and the method that
-                        contains it known as the <i>calling method</i> or simply the <i>caller</i>. The <i>invoked</i> or <i>called</i> method is said to be <i>nested</i>
-                        within the caller. In normal circumstances, execution is returned to the method call through a return statement if the method returns a value or
-                        if the called method returns <code>void</code>, a return statement or the end of the method is reached. Program execution can continually call and
-                        be returned from methods until the last statement in the Main method has been executed where, assuming there have been no errors, the program
-                        exits normally.</p>
+                        <a href="#Iteration_Statements">iterative statement</a>, the code it contains will be repeatedly executed until a condition is met that allows
+                        execution to <a href="#break">break</a> out of the loop. A statement can also pass execution on to another <a href="#Methods">method</a>
+                        known as <i>calling</i> or <i>invoking</i>, with the statement known as a <i>method call</i> and the method that contains it known as the
+                        <i>calling method</i> or simply the <i>caller</i>. The <i>invoked</i> or <i>called</i> method is said to be <i>nested</i> within the caller. In
+                        normal circumstances, execution is returned to the method call through a return statement if the method returns a value or if the called method
+                        returns <code>void</code>, a return statement or the end of the method is reached. Program execution can continually call and be returned from
+                        methods until the last statement in the Main method has been executed where, assuming there have been no errors, the program exits normally.</p>
                     <p>A method call is in the form of <code>instance.Method(parameters)</code> for an instance of a type and <code>TypeName.Method(parameters)</code>
                         for a <a href="#static">static</a> type. To call an instance method an object must first be instantiated from the type that contains it. All
                         <a href="">statements</a> in C# programs are executed with respect to a <a href="#Methods">method.</a> For example, a
@@ -601,8 +600,10 @@ World!");
                         <span class="nowrap"><i>call stack</i>.</span> This can be thought of as a stack of paper where each sheet represents a method. When a method is
                         called it is placed on top, known as <i>pushed</i>, and its statements are executed until either another method is called and pushed onto the
                         stack or execution is returned to the caller. The returning method is then removed, known as <i>popped</i>, and execution resumes with the method
-                        call. In computer science a stack is implemented using a <i>Last In First Out</i> memory structure or <span class="nowrap"><i>LIFO</i>.</span> How
-                        the return from a called method is treated depends on whether the method returns a value and which of the following is encountered.</p>
+                        call. In computer science a stack is implemented using a <i>Last In First Out</i> memory structure or <span class="nowrap"><i>LIFO</i>. To examine
+                        method calls, Visual Studio provides the <a href="#Call_stack_window">call stack window</a>.</span></p>
+                    <p></p>
+                    <p>How the return from a called method is treated depends on whether the method returns a value and which of the following is encountered.</p>
                     <ul>
                         <li>A return statement is executed.</li>
                         <li>The end of the method is reached.</li>
@@ -619,7 +620,7 @@ World!");
                         <a href="#try-catch">catch block</a> to handle the exception is reached. If one is not found, the program will exit resulting in an unhandled
                         exception. If a call to an <code>Exit</code> method is encountered the program exits immediately without returning to the caller.
                         <code>Exit</code> can be used in a conditional statement that tests if the program has an error that has put it into a non-recoverable state. This
-                        way, along with other code, <code>Exit</code> can allow for the program to exit gracefully. For a
+                        way, along with other code, <code>Exit</code> can allow for the program to end gracefully. For a
                         <a href="#Create_a_Hello_World_Project">Console App</a> <code>Exit</code> is in the <code>Environment</code> <a href="#Namespaces">namespace</a> so
                         the <a href="#Namespaces">fully qualified</a> name is <span class="nowrap"><code>Environment.Exit</code>.</span></p>
                     <p>Without intervention a program will simply run its course and exit. To prevent this and allow for user input, a pattern often employed is to use an
@@ -632,8 +633,8 @@ World!");
                         returned to the caller with a <a href="#string">string</a> value containing the characters entered.</p>
                     <p>A computer has a finite amount of memory and if totally consumed this could result in the operating system crashing. As this could occur from too
                         many nested method calls, the CLR will protect the system by throwing a <span class="nowrap"><code>StackOverflowException</code>.</span> One
-                        notable cause for this is a pattern called a recursive algorithm where a method calls itself. If no safeguards are put in place the stack is
-                        filled with calls to the method until it overflows.</p>
+                        notable cause for this is a pattern called a recursive algorithm which is implemented using a method that repetitively creates and then calls a
+                        new instance of itself. If no safeguards are put in place, the stack is filled with calls to the method until it overflows.</p>
                     <p><em>Note:</em> <i> A <code>StackOverflowException</code> can't be caught in a try-catch so it is important that careful consideration be made when
                         utilizing such patterns.</i></p>
                     <p>CodeExample</p>
@@ -1425,8 +1426,8 @@ CallStackWindow.dll!CallStackWindow.Program.Main(string[] args) Line 7
                         3 times, the program is back at the <code>Method2</code> method call on line 8 and both <code>Method2</code> and <code>Method3</code> have been
                         removed from the stack.</p>
                     <p>The method <code>Factorial(int number)</code> calculates the factorial of a number using a recursive function, which is implemented using a method
-                        that repetitively calls and creates a new instance of itself, until a control causes it to return. The call stack is particularly useful in such
-                        situations as each call instance is separately listed. As the method will be called a number of times, place a
+                        that repetitively creates and then calls a new instance of itself, until a control causes it to return. The call stack is particularly useful in
+                        such situations as each call instance is separately listed. As the method will be called a number of times, place a
                         <a href="#Setting_breakpoints_and_inspecting_values">breakpoint</a> on <code>if (number == 0)</code> so that we can
                         <a href="#Controlling_the_debugger">continue</a> the debugger rather than stepping through each statement. Press <b>F5</b> and the program breaks
                         on the if statement. Hovering over the  <code>number</code> <a href="#Parameters,_signatures_and_overloading">parameter</a> indicates its value is
@@ -3218,7 +3219,6 @@ namespace AliasQualifier
             </section>
             <!-- !SECTION Conditional Statements -->
 <!-- TODO Add yield statement -->
-<!-- TODO Add infinite while loop -->
             <!-- SECTION Iteration Statements -->
             <section class="main-section" id="Iteration_Statements">
                 <header><h2>Iteration Statements</h2></header>
@@ -3373,6 +3373,31 @@ namespace AliasQualifier
 // 13579
 </code></pre>
                     <!-- !SECTION continue -->
+                    <!-- SECTION Infinite loop -->
+                    <h3 id="Infinite loop">Infinite loop</h3>
+                    <p>A program normally runs from start to finish, executing the statements in the order they are given, so to allow input from the user an infinite
+                        loop is often used. In order to break out of the loop, a branching statement reads what the user types to detect a specific string or character.
+                    </p>
+                    <p>The following is an example of how to implement such a loop using a <a href="#do_statement">do statement</a>. Until the <b>Escape</b> key is
+                        pressed, each time any other key is pressed, the code loops writing the current time to the console.</p>
+<pre><code>namespace InfiniteLoop
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            do
+            {
+                Console.Clear();
+                Console.WriteLine($"The current time is {DateTime.Now:T}");
+                Console.WriteLine("Press any key to update the time or");
+                Console.WriteLine("Press Escape (Esc) to end the program");
+            } while (Console.ReadKey().Key != ConsoleKey.Escape);
+        }
+    }
+}
+</code></pre>
+                    <!-- !SECTION Infinite loop -->
                 </article>
             </section>
             <!-- !SECTION Iteration Statements -->
