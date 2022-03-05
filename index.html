@@ -1254,14 +1254,14 @@ Expression has been evaluated and has no value
                     <p>Step through again so that the program is located at the closing brace of <code>PrintSquare.</code> 'The square of 4 is 16' has been written to the
                         console and the color of the <code>square</code> value has reverted back to black, indicating that it hasn't changed since last checked. Step
                         though until you get to <code>var c = a / b</code> and the following is listed.</p>
-<pre><code>Name        Value           Type
+<pre><div class="ide-window">Name        Value           Type
 args        {string[0]}     string[]
 a           4               int
 b           0               int
 arr         null            int[]
 myClass     null            LocalsWindow.MyClass
 c           0               int
-</code></pre>
+</div></pre>
                     <p>As program execution has now entered the local scope of the <a href="#if_else_statements">if statement</a> code block, in addition to the variables
                         that were initially listed at the start of the exercise, variable <code>c</code> has also been included. Inspecting the locals window, the values
                         for <code>a</code> and <code>b</code> are 4 and 2 respectively and hovering over the expression <code>a / b</code> shows it equates to 2. As the
@@ -1383,9 +1383,9 @@ c           0               int
                     <p>Press <b>F11</b> to use <a href="#Step_into">step into</a> to start the debugger. The program breaks at the opening brace of the <code>Main</code>
                         method. If the call stack window is not visible, select <span class="nowrap"><b>Debug</b> &gt; <b>Windows</b> &gt; <b>Call Stack</b></span> from
                         the main menu or press <span class="nowrap"><b>Ctrl + Alt + c</b></span> and it will appear as follows.</p>
-<pre><code>Name
+<pre><div class="ide-window">Name
 CallStackWindow.dll!CallStackWindow.Program.Main(string[] args) Line 6
-</code></pre>
+</div></pre>
                     <p>Displayed is the current method which is the <a href="#Program_structure">entry point</a> to the program, <code>Main</code> method. The first part,
                         <code>CallStackWindow.dll!CallStackWindow</code> is the name of the application followed by the <a href="#Namespaces">namespace</a>. The second
                         part, <code>Program.Main(string[] args) Line 6</code> is the name of the <a href="#class">class,</a> <code>Program,</code> followed by the
@@ -1397,28 +1397,28 @@ CallStackWindow.dll!CallStackWindow.Program.Main(string[] args) Line 6
                         the top of the call stack and the current line is now 13. It has an empty <a href="#Methods">implementation</a>, so stepping into the line
                         advances to the closing brace on line 14. The method in which <code>Method1</code> was called is now listed below it and line 7 indicates the
                         position of the method call statement.</p>
-<pre><code>Name
+<pre><div class="ide-window">Name
 CallStackWindow.dll!CallStackWindow.Program.Method1() Line 14
 CallStackWindow.dll!CallStackWindow.Program.Main(string[] args) Line 7
-</code></pre>
+</div></pre>
                     <p>Stepping twice, execution returns to the method call on line 7 and removes Method1 from the stack. As <code>main</code> is once again the current
                         method, it is on top of the stack. Stepping another 3 times first calls <code>Method2</code> and from there <code>Method3,</code> with both being
                         placed on the stack in that order. Execution is now at the the opening brace of <code>Method3</code> on line 18.</p>
-<pre><code>Name
+<pre><div class="ide-window">Name
 CallStackWindow.dll!CallStackWindow.Program.Method3() Line 18
 CallStackWindow.dll!CallStackWindow.Program.Method2() Line 15
 CallStackWindow.dll!CallStackWindow.Program.Main(string[] args) Line 8
-</code></pre>
+</div></pre>
                     <p>Stepping twice creates an instance of <code>MyClass</code> called <code>myClass</code> and as it has a <a href="#Constructors">constructor</a>,
                         places execution within it on line 32 and places the constructor on top of the stack. The constructor has an empty implementation so stepping into
                         it twice, first places execution at the opening brace, then the closing brace. Unlike <code>Method1,</code> <code>MyClass's</code> constructor is
                         a one line statement, so execution remains on the line number 32 as indicated in the call stack window.</p>
-<pre><code>Name
+<pre><div class="ide-window">Name
 CallStackWindow.dll!CallStackWindow.MyClass.MyClass() Line 32
 CallStackWindow.dll!CallStackWindow.Program.Method3() Line 19
 CallStackWindow.dll!CallStackWindow.Program.Method2() Line 16
 CallStackWindow.dll!CallStackWindow.Program.Main(string[] args) Line 7
-</code></pre>
+</div></pre>
                     <p>Stepping through 3 more times, first the <code>MyClass</code> constructor is removed from the stack, then <code>MyClass.MyMethod</code> is called,
                         placing it on top with execution at line 33. As with the constructor, it is a one line statement, so when the code is stepped through twice more,
                         back to the method call for <code>MyMethod</code>, the line number does not change before the method is removed from the stack. Stepping another
@@ -1438,13 +1438,13 @@ CallStackWindow.dll!CallStackWindow.Program.Main(string[] args) Line 7
                         here is <code>return number * Factorial(number - 1)</code> with the actual method call being <code>Factorial(number - 1).</code> The method call
                         also passed along the parameter <code>number</code> less 1, as observed in the pinned value which is now 2 and colored red to indicate the change.
                         Pressing <b>F5</b> twice more results in 4 instances being listed, with each previous one hosting the method call for the latter.</p>
-<pre><code>Name
+<pre><div class="ide-window">Name
 CallStackWindow.dll!CallStackWindow.Program.Factorial(int number) Line 25
 CallStackWindow.dll!CallStackWindow.Program.Factorial(int number) Line 27
 CallStackWindow.dll!CallStackWindow.Program.Factorial(int number) Line 27
 CallStackWindow.dll!CallStackWindow.Program.Factorial(int number) Line 27
 CallStackWindow.dll!CallStackWindow.Program.Main(string[] args) Line 9
-</code></pre>
+</div></pre>
                     <p>As the value of the <code>number</code> parameter in the last call was 0, continuing the program would result in it exiting so instead, press
                         <span class="nowrap"><b>Shift + F11</b></span> to <a href="#Step_out">step out</a>. The current <code>Factorial</code> method has returned 1 and
                         has been removed from the stack. The value of <code>number</code> has increased to 1 as this was its value when it was passed into this instance

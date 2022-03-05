@@ -196,7 +196,8 @@ u.warning::after {
     background: var(--code-warning-url);
 }
 
-code {
+code,
+.ide-window  {
     display: inline-block;
     color: var(--code-color);
     background-color: var(--code-bg-color);
@@ -213,6 +214,10 @@ code u.error::after, code u.warning::after {
     top: 17px;
 }
 
+.ide-window {
+    font-size: 14px;
+}
+
 pre {
     display: block;
     max-height: 200px;
@@ -224,6 +229,8 @@ pre {
     text-align: left;
     padding: 0 3px;
 }
+
+
 
 .four-column p{
     margin-bottom: 0px;
