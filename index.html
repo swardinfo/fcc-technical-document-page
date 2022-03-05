@@ -790,7 +790,7 @@ Represents a 32-bit signed integer.
                         <li>Start without debugging (<span class="nowrap"><b>Ctrl + F5</b></span>)</li>
                     </ul>
                     <p>With the first code example we'll look at starting, stopping and restarting the debugger, as well as when and why the debugger pauses or
-                        <i>breaks</i> <a href="#Program_execution">program execution</a> and how to continue afterwards. Also we'll see how to
+                        <i>breaks</i> <a href="#Program_execution">program execution</a> and how to continue afterwards. Also, we'll see how to
                         <a href="#Setting_breakpoints_and_inspecting_values">set a breakpoint and inspect values</a> and how to step through the code using the
                         <a href="#Step_into">step into</a> function.</p>
                     <p>Create a <a href="#Create_a_Hello_World_Project">Console App</a> called <i>Debugger1</i> and replace the code with the following.</p>
@@ -937,7 +937,7 @@ Represents a 32-bit signed integer.
 }
 </code></pre>
                     <p>Set a conditional breakpoint on <code>sum += i</code> then right click the breakpoint and click conditions, to open the breakpoint settings dialog
-                        if it isn't already open. Of the four checkboxes, make sure only <b>Conditions</b> is checked. In the condition listed, confirm that the the first
+                        if it isn't already open. Of the four checkboxes, make sure only <b>Conditions</b> is checked. In the condition listed, confirm that the first
                         dropdown selector has <b>Conditional Expression</b> selected, the second has <b>Is true</b> selected and then enter <code>i == 5</code> in the
                         expression textbox and close the dialog. Start the <a href="#Controlling_the_debugger">debugger</a> and the program breaks on
                         <code>sum += i.</code> When <code>i</code> is <a href="#Setting_breakpoints_and_inspecting_values">inspected</a> its value is found to be 5, as
@@ -960,8 +960,8 @@ Represents a 32-bit signed integer.
                     <h3 id="Effect_of_local_scope">Effect of local scope</h3>
                     <p>When using the debugger, the values of <a href="#Variables,_Constants,_Types_and_Literals">variables</a>,
                         <a href="#Parameters,_signatures_and_overloading">parameters</a> and type <a href="#Members">members</a> can only be observed when
-                        <a href="#Program_execution">program execution</a> has entered the <a href="#Scope">local scope</a> in which they reside. For example, if MethodA
-                        calls MethodB and the program is in break mode within MethodB, only the values of the variables and parameters in MethodB's code block can be
+                        <a href="#Program_execution">program execution</a> has entered the <a href="#Scope">local scope</a> in which they reside. For example, if Method A
+                        calls Method B and the program is in break mode within Method B, only the values of the variables and parameters in Method B's code block can be
                         observed. Similarly, if the program is in break mode inside a <a href="#Methods">method</a> but outside of an
                         <span class="nowrap"><a href="#if_else_statements">if statement</a></span> it contains, the values of the variables
                         <a href="#Variable_declaration_and_assignment">declared</a> within the <code>if</code> statement's code block can't be observed until program
@@ -1027,7 +1027,7 @@ Represents a 32-bit signed integer.
                         suggests an <a href="#Exceptions">exception</a> has been thrown. This not an actual exception and is only due to the current state of
                         <code>myClass</code> which changes when stepping to the next line and <code>myClass</code> is created. Observing it now shows an additional
                         dropdown list in the dialog that allows you to examine the members it contains, which in this case, is only the property <code>Number</code> with
-                        a value of 0. Stepping forward once more assigns 10 to <code>Number</code> as now observed. You can now stop the debugger an close the console.
+                        a value of 0. Stepping forward once more assigns 10 to <code>Number</code> as now observed. You can now stop the debugger and close the console.
                     </p>
                     <!-- !SECTION Effect of local scope -->
                     <!-- SECTION More ways to control the debugger -->
@@ -1296,7 +1296,7 @@ c           0               int
                         debugger and open the Watch1 window if it's not already open. To enter an item, click <span class="nowrap"><b>Add item to watch</b></span> in an
                         empty row and enter its name. As you start to type, IntelliSense displays a list that includes the objects that are within the
                         <a href="#Scope">local scope</a> of the current <a href="#Program_execution">program execution</a>. You can still enter an item outside the
-                        current local scope, however it won't be listed by IntelliSense and an <span class="nowrap">error <span class="inline-error"></span></span> may be
+                        current local scope however it won't be listed by IntelliSense and an <span class="nowrap">error<span class="inline-error"></span></span> may be
                         displayed with an error message in the Value column in the form of, <i>error CS0103: The name 'item' does not exist in the current context.</i> If
                         the item does exist in the code, this message can safely be ignored as it will be resolved when program enters the item's local scope. To remove
                         an item, select it and press <b>delete.</b> To clear all items, right click the watch window, then in the context menu that opens select
@@ -1338,10 +1338,10 @@ c           0               int
                     <!-- SECTION Call stack window -->
                     <h3 id="Call_stack_window">Call stack window</h3>
                     <p>The <i>Call stack window</i> lists the current <a href="#Program_execution">method calls</a> on the <a href="#Program_execution">call stack</a>
-                        and is only available when the <a href="#Debugger_and_breakpoints">debugger</a> is running. When ever a <a href="#Methods">method</a> is called,
-                        it is be placed on top of the list and when it <a href="#Program_execution">returns execution</a> to its caller, it is removed. This means that
-                        the method with the current program execution and thus the current <a href="#Scope">local scope</a>, is always on top and the history of the
-                        caller chain is listed below it.</p>
+                        and is only available when the <a href="#Debugger_and_breakpoints">debugger</a> is running. Whenever a <a href="#Methods">method</a> is called, it
+                        is be placed on top of the list and when it <a href="#Program_execution">returns execution</a> to its caller, it is removed. This means that the
+                        method with the current program execution and thus the current <a href="#Scope">local scope</a>, is always on top and the history of the caller
+                        chain is listed below it.</p>
                     <p>To see how the call stack window works, create a <a href="#Create_a_Hello_World_Project">Console App</a> called <i>CallStackWindow</i> and replace
                         the code with the following.</p>
 <pre><code>namespace CallStackWindow
@@ -1403,7 +1403,7 @@ CallStackWindow.dll!CallStackWindow.Program.Main(string[] args) Line 7
 </pre>
                     <p>Stepping twice, execution returns to the method call on line 7 and removes Method1 from the stack. As <code>main</code> is once again the current
                         method, it is on top of the stack. Stepping another 3 times first calls <code>Method2</code> and from there <code>Method3,</code> with both being
-                        placed on the stack in that order. Execution is now at the the opening brace of <code>Method3</code> on line 18.</p>
+                        placed on the stack in that order. Execution is now at the opening brace of <code>Method3</code> on line 18.</p>
 <pre class="ide-window">Name
 CallStackWindow.dll!CallStackWindow.Program.Method3() Line 18
 CallStackWindow.dll!CallStackWindow.Program.Method2() Line 15
@@ -1412,7 +1412,7 @@ CallStackWindow.dll!CallStackWindow.Program.Main(string[] args) Line 8
                     <p>Stepping twice creates an instance of <code>MyClass</code> called <code>myClass</code> and as it has a <a href="#Constructors">constructor</a>,
                         places execution within it on line 32 and places the constructor on top of the stack. The constructor has an empty implementation so stepping into
                         it twice, first places execution at the opening brace, then the closing brace. Unlike <code>Method1,</code> <code>MyClass's</code> constructor is
-                        a one line statement, so execution remains on the line number 32 as indicated in the call stack window.</p>
+                        a one-line statement, so execution remains on the line number 32 as indicated in the call stack window.</p>
 <pre class="ide-window">Name
 CallStackWindow.dll!CallStackWindow.MyClass.MyClass() Line 32
 CallStackWindow.dll!CallStackWindow.Program.Method3() Line 19
@@ -1420,7 +1420,7 @@ CallStackWindow.dll!CallStackWindow.Program.Method2() Line 16
 CallStackWindow.dll!CallStackWindow.Program.Main(string[] args) Line 7
 </pre>
                     <p>Stepping through 3 more times, first the <code>MyClass</code> constructor is removed from the stack, then <code>MyClass.MyMethod</code> is called,
-                        placing it on top with execution at line 33. As with the constructor, it is a one line statement, so when the code is stepped through twice more,
+                        placing it on top with execution at line 33. As with the constructor, it is a one-line statement, so when the code is stepped through twice more,
                         back to the method call for <code>MyMethod</code>, the line number does not change before the method is removed from the stack. Stepping another
                         3 times, the program is back at the <code>Method2</code> method call on line 8 and both <code>Method2</code> and <code>Method3</code> have been
                         removed from the stack.</p>
