@@ -196,8 +196,7 @@ u.warning::after {
     background: var(--code-warning-url);
 }
 
-code,
-.ide-window  {
+code {
     display: inline-block;
     color: var(--code-color);
     background-color: var(--code-bg-color);
@@ -214,11 +213,8 @@ code u.error::after, code u.warning::after {
     top: 17px;
 }
 
+pre,
 .ide-window {
-    font-size: 14px;
-}
-
-pre {
     display: block;
     max-height: 200px;
     margin: 20px 0px;
@@ -230,7 +226,19 @@ pre {
     padding: 0 3px;
 }
 
+.ide-window p {
+    color: var(--code-color);
+    font-family: var(--code-font-family);
+    font-size: 14px;
+    line-height: 100%;
+}
 
+.ide-window {
+    color: var(--code-color);
+    font-family: var(--code-font-family);
+    font-size: 14px;
+    line-height: 18px;
+}
 
 .four-column p{
     margin-bottom: 0px;
@@ -290,6 +298,7 @@ pre {
     margin-right: auto;
 }
 
+/* TODO Remove when project completed */
 .under-construction {
     border: 3px solid black;
     background-color: #FED934;
@@ -554,7 +563,8 @@ pre {
         display: none;
     }
 
-    pre {
+    pre,
+    .ide-window {
         padding: 10px 15px;
         max-height: 800px;
         margin-right: 20px;
@@ -567,7 +577,8 @@ pre {
         max-width: 10px;
     }
 
-    code {
+    code,
+    .ide-window p {
         font-size: 14px;
     }
 
@@ -598,7 +609,8 @@ pre {
         font-weight: normal;
     }
 
-    pre {
+    pre,
+    .ide-window {
         max-width: 860px;
     }
 
