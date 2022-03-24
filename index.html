@@ -2179,21 +2179,90 @@ CallStackWindow.dll!CallStackWindow.Program.Main(string[] args) Line 9
 // o = 1
 </code></pre>
                     <!-- !SECTION Boxing and unboxing -->
-                    <!-- TODO complete Generics -->
                     <!-- SECTION Generics -->
                     <h3 id="Generics">Generics</h3>
-                    <p>Description</p>
-                    <p>CodeExample</p>
-<pre><code>namespace Namespace
+                    <p>Generics allow you use a placeholder to represent the type of a parameter that is used or stored by a class, structure, interface or method. This
+                        allows you to defer the assignment of the parameter's type until the object is instantiated or method is called. For example, when creating a new
+                        <a href="#List_T"><code>List&lt;T&gt;</code></a> the place holder <code>T</code> is replaced with the required type such as in
+                        <span class="nowrap"><code>List&lt;string&gt; names = new();</code></span> When declared, the place holders or <i>type parameters,</i> are
+                        represented by a comma separated list within a pair of angle brackets.</p>
+                    <p><em>Note:</em><i> Because the type of <code>T</code> is unknown, its value could be null so if nullable context is enabled this may indicate a
+                        warning.</i></p>
+                    <p>The following demonstrates the declaration and use of a generic class. The use of <code>?</code> in the following indicates that the T is a
+                        a nullable-reference removing the warning <i>Non-nullable property 'Property' must contain a non-null value when exiting constructor. Consider
+                            declaring the property as nullable.</i></p>
+<pre><code>namespace Generic
+    {
+        class Generic&lt;T&gt;
+        {
+            public T? Property { get; set; }
+        }
+
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                Generic&lt;string&gt; g = new();
+                g.Property = "Property";
+                Console.WriteLine($"{g.Property} type is {g.Property.GetType().FullName}");
+            }
+        }
+    }
+
+    // The example writes the following to the console
+    // Property type is System.String
+</code></pre>
+                    <p>A generic method has two lists of parameters, type parameters contained within angle brackets directly after the method identifier followed by
+                        formal parameters within round brackets. Any of the formal parameters passed in and the return type can be marked as generic.</p>
+                    <p>The following example demonstrates the declaration and use of generic methods.</p>
+<pre><code>namespace GenericMethod
 {
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
+            int x = Method&lt;int&gt;(5);
+            Console.WriteLine($"x has a value of {x} and is type {x.GetType().FullName}");
+        }
 
+        private static T Method&lt;T&gt;(T value)
+        {
+            return value;
         }
     }
 }
+
+// The example writes the following to the console
+// x has a value of 5 and is type System.Int32
+</code></pre>
+                    <p>Constraints can be added to a generic type or generic method declaration to limit which type parameters are allowed. They take the form of
+                        <code>where T : constraint</code> and are placed after the type parameter list in the case of a type or after the formal list for a method. For
+                        example by declaring a struct constraint, <code>where T : struct</code>, only value types such as <code>int</code> can be declared and attempting to use a reference type, such as
+                        a <code>string,</code> will result in a syntax error, preventing the code from compiling.</p>
+                    <p>The following example demonstrates the use of constraints. Incidentally, with nullable context enabled and without the <code>struct</code>
+                        constraint, in this case the warning, <i>Dereference of a possibly null reference,</i> would have been present on <code>arg.GetType(),</code>
+                        indicating that if <code>arg</code> is null, when <code>arg.GetType()</code> is called, a <code>NullReferenceException</code> will be thrown.</p>
+<pre><code>namespace GenericConstraints
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            DisplayValueAndType&lt;int&gt;(3);
+
+            // Uncommenting the following results in a syntax error
+            //DisplayType&lt;string&gt;("Some value");
+        }
+
+        private static void DisplayValueAndType&lt;T&gt;(T arg) where T : struct
+        {
+            Console.WriteLine($"arg has a value of {arg} and is type {arg.GetType().FullName}");
+        }
+    }
+}
+
+// The example writes the following to the console
+// arg has a value of 3 and is type System.Int32
 </code></pre>
                     <!-- !SECTION Generics -->
                 </article>
