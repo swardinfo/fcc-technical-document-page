@@ -1695,6 +1695,7 @@ CallStackWindow.dll!CallStackWindow.Program.Main(string[] args) Line 9
             <!-- !SECTION Errors and Exception Handling -->
             <!-- TODO complete variable lifetime -->
             <!-- TODO add something about generics -->
+            <!-- TODO rewrite null to take into account nullable context -->
             <!-- SECTION Variables, Constants, Types and Literals -->
             <section class="main-section" id="Variables,_Constants,_Types_and_Literals">
                 <header><h2>Variables, Constants, Types and Literals</h2></header>
@@ -1760,7 +1761,6 @@ CallStackWindow.dll!CallStackWindow.Program.Main(string[] args) Line 9
                             <li>It can't be used as an object's initialization.</li>
                             <li>It can't be used as part of type testing or be the type of a member access expression.</li>
                         </ul>
-
                         <p>Nullable aware context can be applied to each code file as required through use of nullable annotation or globally to the project as a whole in
                             the project's properties. There are four levels nullable aware context, <code>disable</code>, <code>enable</code>, <code>warnings</code> and
                             <code>annotations</code>, details of which are in the <a href="#References">Microsoft C# reference documentation</a> along with examples of
@@ -2132,7 +2132,7 @@ CallStackWindow.dll!CallStackWindow.Program.Main(string[] args) Line 9
 </code></pre>
                     <!-- !SECTION Type conversion -->
                     <!-- SECTION Boxing and unboxing -->
-                    <h3 id="#Boxing_and_unboxing">Boxing and unboxing</h3>
+                    <h3 id="Boxing_and_unboxing">Boxing and unboxing</h3>
                     <p>Boxing is the converting of a value type to an <code>object</code> type and unboxing is the converting from an <code>object</code> type to a value
                         type. This is possible as <a href="#Polymorphism">polymorphism</a>, the ability to substitute any <a href="#Inheriting_types">inherited</a>
                         derived type with a base type, is a core principle of C# and the <code>object</code> type is the ultimate base type for all other types. Boxing is
@@ -2181,16 +2181,19 @@ CallStackWindow.dll!CallStackWindow.Program.Main(string[] args) Line 9
                     <!-- !SECTION Boxing and unboxing -->
                     <!-- SECTION Generics -->
                     <h3 id="Generics">Generics</h3>
-                    <p>Generics allow you use a placeholder to represent the type of a parameter that is used or stored by a class, structure, interface or method. This
-                        allows you to defer the assignment of the parameter's type until the object is instantiated or method is called. For example, when creating a new
-                        <a href="#List_T"><code>List&lt;T&gt;</code></a> the place holder <code>T</code> is replaced with the required type such as in
-                        <span class="nowrap"><code>List&lt;string&gt; names = new();</code></span> When declared, the place holders or <i>type parameters,</i> are
-                        represented by a comma separated list within a pair of angle brackets.</p>
-                    <p><em>Note:</em><i> Because the type of <code>T</code> is unknown, its value could be null so if nullable context is enabled this may indicate a
-                        warning.</i></p>
-                    <p>The following demonstrates the declaration and use of a generic class. The use of <code>?</code> in the following indicates that the T is a
-                        a nullable-reference removing the warning <i>Non-nullable property 'Property' must contain a non-null value when exiting constructor. Consider
-                            declaring the property as nullable.</i></p>
+                    <p>Generics allow you use a placeholder or <i>type parameter,</i> to represent the type of a
+                        <a href="#Parameters,_signatures_and_overloading">parameter</a> so that you can defer the assignment of the type until an object is instantiated
+                        or a <a href="#Program_execution">method is called</a>. To indicate that a <a href="#class">class</a>, <a href="#struct">structure</a>,
+                        <a href="#interface">interface</a> or <a href="#Methods">method</a> is generic, a pair of angle brackets containing a comma separated list of type
+                        parameters is placed after its identifier such as <code>class MyClass&lt;T, U&gt;</code>. When instantiated or called, each type parameter is
+                        replaced with the required type. For example, when creating a new list of <a href="#string">strings</a> called <code>names</code> using a generic
+                        <a href="#List_T"><code>List&lt;T&gt;,</code></a> the place holder <code>T</code> is replaced with <code>string</code> as in
+                        <span class="nowrap"><code>List&lt;string&gt; names = new();</code></span></p>
+                    <p><em>Note:</em><i> Because the type of <code>T</code> is unknown, its value could be <a href="#null">null</a> so if <a href="#null">nullable aware
+                        context</a> is enabled this may indicate a warning depending on its use.</i></p>
+                    <p>The following demonstrates the declaration and use of a generic class. The use of <code>?</code> in the following indicates that the <code>T</code>
+                        is a nullable-reference type removing the warning <i>Non-nullable property 'Property' must contain a non-null value when exiting constructor.
+                        Consider declaring the property as nullable.</i></p>
 <pre><code>namespace Generic
     {
         class Generic&lt;T&gt;
@@ -2213,7 +2216,7 @@ CallStackWindow.dll!CallStackWindow.Program.Main(string[] args) Line 9
     // Property type is System.String
 </code></pre>
                     <p>A generic method has two lists of parameters, type parameters contained within angle brackets directly after the method identifier followed by
-                        formal parameters within round brackets. Any of the formal parameters passed in and the return type can be marked as generic.</p>
+                        formal parameters within round brackets. Any of the formal parameters passed in and/or the method's return type can be marked as generic.</p>
                     <p>The following example demonstrates the declaration and use of generic methods.</p>
 <pre><code>namespace GenericMethod
 {
@@ -2235,34 +2238,66 @@ CallStackWindow.dll!CallStackWindow.Program.Main(string[] args) Line 9
 // The example writes the following to the console
 // x has a value of 5 and is type System.Int32
 </code></pre>
-                    <p>Constraints can be added to a generic type or generic method declaration to limit which type parameters are allowed. They take the form of
-                        <code>where T : constraint</code> and are placed after the type parameter list in the case of a type or after the formal list for a method. For
-                        example by declaring a struct constraint, <code>where T : struct</code>, only value types such as <code>int</code> can be declared and attempting to use a reference type, such as
-                        a <code>string,</code> will result in a syntax error, preventing the code from compiling.</p>
-                    <p>The following example demonstrates the use of constraints. Incidentally, with nullable context enabled and without the <code>struct</code>
-                        constraint, in this case the warning, <i>Dereference of a possibly null reference,</i> would have been present on <code>arg.GetType(),</code>
-                        indicating that if <code>arg</code> is null, when <code>arg.GetType()</code> is called, a <code>NullReferenceException</code> will be thrown.</p>
+                    <p>Constraints can be added to a generic type or generic method declaration to limit which types later can to be assigned. They take the form of
+                        <code>where T : constraint</code> and are placed at the end of a type or method declaration, prior to any code block. For example, by declaring a
+                        struct constraint, <code>where T : struct</code>, only <a href="#Variables,_Constants,_Types_and_Literals">value types</a> such as
+                        <code>int</code> can be assigned and attempting to use a <a href="#Variables,_Constants,_Types_and_Literals">reference type</a>, such as a
+                        <code>string,</code> will result in a <a href="#Syntax_errors">syntax error</a>, preventing the code from compiling. For a list of the constraints
+                        that can be applied, please see the <a href="#References">Microsoft C# reference documentation.</a></p>
+                    <p>The following example demonstrates the use of constraints. For a type declaration, the constraint must be placed after the inclusion of any
+                        <a href="#Inheriting_types">base class inheritance</a> or <a href="#interface">interface implementation</a> as shown with
+                        <code>GenericClass.</code> For a method to be generic it must include a type parameter list so only <code>GenericMethod</code> is generic here
+                        whereas the type <code>T</code> for <code>arg</code> in <code>NormalMethod</code> is taken from the class declaration. If the compiler can infer
+                        the type parameter from the argument passed in to a method, specifying the type is not required. In the first two method calls to
+                        <code>GenericMethod</code> the type is inferred but in the third, had <code>double</code> not been specified, the type would have been inferred as
+                        an <code>int.</code> As the type parameter for <code>GenericClass</code> has been constrained to a class type, assigning it an <code>int</code>
+                        would result in a syntax error. Likewise, passing in a <code>string</code> to <code>GenericMethod</code> or an <code>int</code> to
+                        <code>NormalMethod.</code></p>
+                    <p>Incidentally, without the constraints in place <code>T</code> is interpreted by the compiler as possibly being null so with nullable aware context
+                        enabled, the call to <code>arg.GetType()</code> in both methods would have resulted in the warning <i>Dereference of a possibly null
+                        reference.</i></p>
 <pre><code>namespace GenericConstraints
 {
+    class Base { }
+
+    class GenericClass&lt;T&gt; : Base where T : class
+    {
+        public void GenericMethod&lt;U&gt;(U arg) where U : struct
+        {
+            Console.WriteLine($"arg has a value of {arg} and is type {arg.GetType().FullName}");
+        }
+
+        public void NormalMethod(T arg)
+        {
+            Console.WriteLine($"arg has a value of {arg} and is type {arg.GetType().FullName}");
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
-            DisplayValueAndType&lt;int&gt;(3);
+            GenericClass&lt;string&gt; genericClass = new();
+            genericClass.NormalMethod("'some text'");
 
-            // Uncommenting the following results in a syntax error
-            //DisplayType&lt;string&gt;("Some value");
-        }
+            // The parameter type can be inferred from the type passed in
+            // so specifying it is not required in the next two method calls
+            genericClass.GenericMethod(5);
+            genericClass.GenericMethod(5.0);
+            genericClass.GenericMethod&lt;double&gt;(3);
 
-        private static void DisplayValueAndType&lt;T&gt;(T arg) where T : struct
-        {
-            Console.WriteLine($"arg has a value of {arg} and is type {arg.GetType().FullName}");
+            // Uncommenting either of the following results in a syntax error
+            //GenericClass&lt;int&gt; someClass = new();
+            //genericClass.GenericMethod&lt;string?&gt;("test");
         }
     }
 }
 
 // The example writes the following to the console
-// arg has a value of 3 and is type System.Int32
+// arg has a value of 'some text' and is type System.String
+// arg has a value of 3 and is type System.Double
+// arg has a value of 5 and is type System.Int32
+// arg has a value of 5 and is type System.Double
 </code></pre>
                     <!-- !SECTION Generics -->
                 </article>
@@ -3445,7 +3480,7 @@ namespace AliasQualifier
 </code></pre>
                     <!-- !SECTION continue -->
                     <!-- SECTION Infinite loop -->
-                    <h3 id="Infinite loop">Infinite loop</h3>
+                    <h3 id="Infinite_loop">Infinite loop</h3>
                     <p>A program normally runs from start to finish, executing the statements in the order they are given, so to allow input from the user an infinite
                         loop is often used. In order to break out of the loop, a branching statement reads what the user types to detect a specific string or character.
                     </p>
