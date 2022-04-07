@@ -738,6 +738,14 @@ Represents a 32-bit signed integer.
                         code, warnings like these will be frequent and can be temporarily safely ignored as your program evolves. Then, as you complete the various
                         sections of code containing such variables, if such warnings persist you should access whether a <a href="#Logical_errors">logical error</a> has
                         been introduced or remove the variable if in the end it was not required.</p>
+                    <p>Lastly, C# is a constantly evolving programming language. As new versions are released, new ways of writing code are introduced that allows you to
+                        produce more concise, readable code that is easier to maintain without changing its behavior. Making changes to existing code is known as
+                        refactoring and the code editor assists you by indicating where refactoring can be applied by highlighting it with a
+                        <span class="refactor">do</span>tted underline under the first two letters. By hovering over the marked code a popup will be displayed indicating
+                        the refactoring that can be applied and by pressing <span class="nowrap"><b>Alt + Enter</b></span> a number of optional fixes are displayed that
+                        you can choose from if you wish. It should be noted though, whilst the behavior may not change, when working with a team, refactoring code should
+                        always be consistent the coding conventions that are in place.
+                    </p>
                     <!-- !SECTION Code editor -->
                     <!-- SECTION Debugging -->
                     <h3 id="Debugging">Debugging</h3>
@@ -1694,7 +1702,6 @@ CallStackWindow.dll!CallStackWindow.Program.Main(string[] args) Line 9
             </section>
             <!-- !SECTION Errors and Exception Handling -->
             <!-- TODO complete variable lifetime -->
-            <!-- TODO add something about generics -->
             <!-- TODO rewrite null to take into account nullable context -->
             <!-- SECTION Variables, Constants, Types and Literals -->
             <section class="main-section" id="Variables,_Constants,_Types_and_Literals">
@@ -1820,7 +1827,7 @@ CallStackWindow.dll!CallStackWindow.Program.Main(string[] args) Line 9
                         <code>=</code> <a href="#Assignment_operator">operator</a> assigns the literal value 1 to it. In <code>double j = 2.4</code> both the floating
                         point type <code>double j</code> is declared and the value 2.4 is assigned to it. In <code>int k = i + 3;</code> first the
                         <a href="#Expressions_and_Operators">expression</a> <code>i + 3</code> is evaluated then the resultant value 4 is assigned
-                        <span>to <code>k</code>.</span> In <code>const double pi = 3.1415;</code> the constant <code>pi</code> is declared as a type <code>double</code>
+                        <span>to <code>k</code>.</span> In <code>const double PI = 3.1415;</code> the constant <code>PI</code> is declared as a type <code>double</code>
                         and is assigned the value 3.1415.</p>
                     <p>C# also allows for <i>implicit</i> declaration through the use of the <code>var</code> keyword. This tells the compiler to determine the type of
                         variable to store based on the expression on the right side of the <code>=</code> operator. In the statement <code>var n = 3;</code> the compiler
@@ -1856,9 +1863,9 @@ CallStackWindow.dll!CallStackWindow.Program.Main(string[] args) Line 9
             // Evaluate the expression i + 3 right and assign it to k
             int k = i + 3;
 
-            // Declare a double type constant pi
+            // Declare a double type constant PI
             // and assigns it the value 3.1415
-            const double pi = 3.1415;
+            const double PI = 3.1415;
 
             // In the following the 'var' keyword tells the compiler to
             // select the type dependent on the operand being assigned
@@ -1882,7 +1889,7 @@ CallStackWindow.dll!CallStackWindow.Program.Main(string[] args) Line 9
             Console.WriteLine(j);
             Console.WriteLine(k);
 
-            // Writes the value of const double pi to the console
+            // Writes the value of const double PI to the console
             Console.WriteLine(pi);
 
             // Writes the value of variables n, d, x and y to the console
@@ -2024,13 +2031,13 @@ CallStackWindow.dll!CallStackWindow.Program.Main(string[] args) Line 9
             // This is allowed as there is no loss of information
             d = i;
 
-            const double pi = 3.1415;
+            const double PI = 3.1415;
 
             // The left-hand side of an assignment must be a variable, property or indexer
-            <u class="error">pi</u> = 4;
+            <u class="error">PI</u> = 4;
 
             // The expression assigned to 'area' must be constant
-            const double area = <u class="error">i * 3 * 3</u>;
+            const double Area = <u class="error">i * 3 * 3</u>;
 
             bool t = true;
 
@@ -2194,7 +2201,7 @@ CallStackWindow.dll!CallStackWindow.Program.Main(string[] args) Line 9
                     <p>The following demonstrates the declaration and use of a generic class. The use of <code>?</code> in the following indicates that the <code>T</code>
                         is a nullable-reference type removing the warning <i>Non-nullable property 'Property' must contain a non-null value when exiting constructor.
                         Consider declaring the property as nullable.</i></p>
-<pre><code>namespace Generic
+<pre><code>namespace GenericClass
     {
         class Generic&lt;T&gt;
         {
@@ -4356,13 +4363,13 @@ namespace Dictionaries
                     <p>The types that can be used to define an object with a state include</p>
                     <ul>
                         <li><a href="#class">classes</a> are reference types used to define complex objects and usually account for the majority of types in an
-                            assembly</li>
-                        <li><a href="#struct">struct (structures)</a> are value types used to define simple data focused objects with little behavior
+                            assembly.</li>
+                        <li><a href="#struct">struct (structures)</a> are value types used to define simple data focused objects with little behavior.
                         </li>
-                        <li><a href="#record">records</a> are reference types that can behave like a value type and are used mostly with immutable data</li>
-                        <li><a href="#delegate">delegates</a> are a type used to represent a reference to a method that can be passed as an argument to another method
+                        <li><a href="#record">records</a> are reference types that can behave like a value type and are used mostly with immutable data.</li>
+                        <li><a href="#delegate">delegates</a> are a type used to represent a reference to a method that can be passed as an argument to another method.
                         </li>
-                        <li><a href="#interface">interfaces</a> can't be instantiated but instead are used to define behaviors that can be implemented by other types
+                        <li><a href="#interface">interfaces</a> can't be instantiated but instead are used to define behaviors that can be implemented by other types.
                         </li>
                     </ul>
                     <p>A type can contain <a href="#Members">members</a> which include <a href="#Methods">methods</a>, <a href="#Constructors">constructors</a>,
@@ -4412,37 +4419,48 @@ namespace Dictionaries
                         <a href="#Dependencies_and_Namespaces">namespace</a> of the form
                         <span class="nowrap"><code>namespace ProjectName.FolderName</code>.</span></i></p>
                     <p>The following example demonstrates ways in which a class can be declared. </p>
-<pre><code>namespace ClassDeclaration
+<pre><code>namespace ConsoleApp
 {
-    // The syntax for declaring a class is first
-    // an optional access modifier followed by
-    // the keyword class then a unique identifier
-    // followed by a pair of braces within
-    // which are the classes members
-
-    // Public class declaration. This class can be
-    // accessed both by the assembly that
-    // contains it and any assembly that references it
-    public class PublicClass
+    namespace ClassDeclaration
     {
+        // The syntax for declaring a class is first
+        // an optional access modifier followed by
+        // the keyword class then a unique identifier
+        // followed by a pair of braces within
+        // which are the classes members
 
+        // Public class declaration. This class can be
+        // accessed both by the assembly that
+        // contains it and any assembly that references it
+        public class PublicClass
+        {
+
+        }
+
+        // internal class declaration.  This class can
+        // only be accessed both by the assembly that
+        // contains it
+        internal class InternalClass
+        {
+
+        }
+
+        // Without the optional access modifier this
+        // class is internal by default
+        class DefaultClass
+        {
+            // Without an access modifier this
+            // class is private by default
+            class NestedClass
+            {
+
+            }
+        }
     }
 
-    // internal class declaration.  This class can
-    // only be accessed both by the assembly that
-    // contains it
-    internal class InternalClass
+    class Program
     {
-
-    }
-
-    // Without the optional access modifier this
-    // class is internal by default
-    class DefaultClass
-    {
-        // Without an access modifier this
-        // class is private by default
-        class NestedClass
+        static void Main(string[] args)
         {
 
         }
@@ -4987,20 +5005,18 @@ namespace Dictionaries
                     <h3 id="Constant_fields">Constant fields</h3>
                     <p>Like a variable field, a constant field is declared inside a type but outside any other member. They are declared using an optional
                         <a href="#Access_modifiers">access modifier</a>, followed by the <code>const</code> keyword, followed by the constant field's type, followed by an
-                        identifier that is unique within the constant field's containing type. A constant field can only and <em>must have</em> its value initialized when
-                        it is declared. As with variable fields, constant fields are normally declared at the top of the type. By convention a constant field's identifier
-                        is written in all capitals such as <span class="nowrap"><code>CONSTANT</code>.</span></p>
-                        <p>A constant field is already effectively <a href="#static">static</a> so the <code>static</code> keyword cannot be applied to it. Like static
-                            members, a constant field cannot be accessed by code through an instance of the type but through the type itself.</p>
-                        <p>Access to a property by code external to the type is in the form of <span class="nowrap"><code>Type.CONSTANT</code>.</span></p>
-                        <p>The following example demonstrates constant field declaration and use.</p>
+                        identifier that is unique within the constant field's containing type. A constant field <em>must have</em> its value initialized when
+                        it is declared. As with variable fields, constant fields are normally declared at the top of the type.</p>
+                    <p>A constant field is already effectively <a href="#static">static</a> so the <code>static</code> keyword cannot be applied to it. Like static
+                        members, a constant field cannot be accessed by code through an instance of the type but through the type itself.</p>
+                    <p>Access to a property by code external to the type is in the form of <span class="nowrap"><code>Type.Constant</code>.</span></p>
+                    <p>The following example demonstrates constant field declaration and use.</p>
 <pre><code>    namespace ConstantFields
     {
         public class MathConstants
         {
             // A public constant of type double. Its value must be
             // initialized within the declaration and cannot be changed
-            // Convention for naming constants is to use all capitals
             public const double PI = 3.1415;
 
             // A member within an instance of MathConstants can access
@@ -5022,7 +5038,7 @@ namespace Dictionaries
                 MathConstants mathConstants = new();
 
                 // Syntax error, a constant field cannot be accessed through an instance
-                //var pi = mathConstants.PI;
+                //var PI = mathConstants.PI;
 
                 var area2 = mathConstants.Area(3);
                 Console.WriteLine($"The area of circle 2 with a radius of 3 is {area2}");
@@ -6919,8 +6935,8 @@ namespace CancelEvent
             // in one int and that has a statement lambda body
             Action&lt;int&gt; printCircleArea = r =&gt;
             {
-                const double pi = 3.1415;
-                var area = pi * r * r;
+                const double PI = 3.1415;
+                var area = PI * r * r;
                 Console.WriteLine($"Circle area with radius {r} = {area}");
             };
 
@@ -7144,11 +7160,11 @@ namespace NamespaceExample
             // enums, constants, static members and nested
             // types can be accessed without an instance
             NameSpace1.Class2.Days day = NameSpace1.Class2.Days.Sun;
-            var pi = NameSpace1.Class2.PI;
+            var PI = NameSpace1.Class2.PI;
             var circleArea = NameSpace1.Class2.Area(5.1);
             NameSpace1.Class2.Employer employer = new();
             Console.WriteLine($"The day is {day}");
-            Console.WriteLine($"PI = {pi}");
+            Console.WriteLine($"PI = {PI}");
             Console.WriteLine($"The area of a circle with a radius of 5.1 is {circleArea}");
 
             // The 'Month' property of Class2 and Month

@@ -196,6 +196,11 @@ u.warning::after {
     background: var(--code-warning-url);
 }
 
+.refactor {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+}
+
 code {
     display: inline-block;
     color: var(--code-color);
