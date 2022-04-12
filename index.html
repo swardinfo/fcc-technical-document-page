@@ -744,9 +744,73 @@ Represents a 32-bit signed integer.
                         <span class="refactor">do</span>tted underline under the first two letters. By hovering over the marked code a popup will be displayed indicating
                         the refactoring that can be applied and by pressing <span class="nowrap"><b>Alt + Enter</b></span> a number of optional fixes are displayed that
                         you can choose from if you wish. It should be noted though, whilst the behavior may not change, when working with a team, refactoring code should
-                        always be consistent the coding conventions that are in place.
-                    </p>
+                        always be consistent the coding conventions that are in place.</p>
                     <!-- !SECTION Code editor -->
+                    <!-- SECTION Preprocessor directives -->
+                    <h3 id="Preprocessor_directives">Preprocessor directives</h3>
+                    <p>Preprocessor directives, while not part of the code itself, provide the compiler with instructions on how to compile and run the code. They are
+                        similar to C# keywords but are prepended with the <code>#</code> symbol. For example regions can be created that allow you to collapse or expand
+                        sections of code so that you can focus on the code you are currently working on. To do so, the <code>#region</code> directive is used with a
+                        name for the region the form <code>#region MyRegion</code> followed by the <code>#endregion</code> directive. Any code that is placed
+                        between the two directives can be collapsed by clicking on the minus symbol (-) that appears to the left of the <code>#region</code> directive. To
+                        expand the region, press the (+) sign that now appears. Alternatively, when the cursor is on the <code>#region</code> directive, the code can be
+                         collapsed
+                        or expanded by holding down the <b>Ctrl</b> key and pressing the <b>M</b> key twice. When a project is closed and reopened, some of the regions within a
+                        code file may be collapsed. A shortcut to open all collapsed regions is to first press <b>Ctrl+A</b> to select all code then, while still
+                        holding down the <b>Ctrl</b> key, press the <b>M</b> key twice to first collapse all the code, then press <b>M</b> twice more to expand it all.</p>
+                    <p><em>Note: <i>A region can't span another directive but can be nested in or be used to nest one.</i></em></p>
+                    <p>The following example demonstrates implementation and use of the <code>#region</code> directive.</p>
+<pre><code>namespace PreprocessorDirectives
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Method1();
+            Method2();
+        }
+
+        // Click the '-' symbol to the left of #region Section1
+        // to collapse it and the '+' symbol  expand it
+        #region Section1
+
+        /// &lt;summary&gt;
+        /// Writes this is method 1 to the console
+        /// &lt;summary&gt;
+        private static void Method1()
+        {
+            Console.WriteLine("This is method 1");
+        }
+
+        /// &lt;summary&gt;
+        /// Writes this is method 2 to the console
+        /// &lt;summary&gt;
+        private static void Method2()
+        {
+            Console.WriteLine("This is method 2");
+        }
+
+        #endregion
+    }
+}
+
+// The example writes the following to the console
+// This is method 2
+// This is method 1
+</code></pre>
+                    <p>There are several preprocessor directives available, details of which can be found on the <a href="#References">Microsoft C# reference
+                        documentation</a> website. Of particular use are the the conditional directives
+                        <ul>
+                            <li><code>#if</code></li>
+                            <li><code>#elif</code></li>
+                            <li><code>#else</code></li>
+                            <li><code>#endif</code></li>
+                        </ul>
+                        <p>The use of these is similar to the <code>if,</code> <code>else if,</code> and <code>else</code> keywords which can be found in the
+                            <a href="#Conditional_Statements">Conditional Statements</a> section and are combined with symbols to determine how the compiler runs the code.
+                            Using the <code>DEBUG</code> symbol lets you determine in which mode the code will be debugged, examples of which examples are shown in the
+                            <a href="#Conditional_debugging">conditional debugging</a> section.</p>
+                    <!-- !SECTION Preprocessor directives -->
                     <!-- SECTION Debugging -->
                     <h3 id="Debugging">Debugging</h3>
                     <p>Unlike computers, we humans make mistakes and as developers these can create problems, or <i>bugs,</i> that prevent our programs from operating
@@ -967,6 +1031,33 @@ Represents a 32-bit signed integer.
                         breaks, inspecting <code>i</code> finds its value to be 45, having hit the breakpoint the first time when <code>i</code> was 0. You can now stop
                         the debugger and close the console.</p>
                     <!-- !SECTION Conditional breakpoints -->
+                    <!-- SECTION Conditional debugging -->
+                    <h3 id="Conditional_debugging">Conditional debugging</h3>
+                    <p>Conditional debugging allows you to define sections of code that are only to be run in either debug or release mode. To do so, conditional
+                        <a href="#Preprocessor_directives">preprocessor directives</a>
+                        <code>#if DEBUG,</code> <code>#else</code> and <code>#endif</code> are used.</p>
+                    <p>In the following example, all code that appears between <code>#if DEBUG</code> and <code>#else</code> will only be executed when the debugger is
+                        set to <a href="#Debugger_and_breakpoints">Debug mode</a> and code that appears between <code>#else</code> and <code>#endif</code> will only run
+                        when it is set to <a href="#Debugger_and_breakpoints">Release mode</a>. Code located outside these will run in both modes. Visual Studio indicates
+                        inactive code by coloring it grey.</p>
+<pre><code>namespace ConditionalDebugging
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+#if DEBUG
+            Console.WriteLine("This code only runs in debug mode");
+
+#else
+            Console.WriteLine("This code only runs in release mode");
+#endif
+            Console.WriteLine("This code runs in both modes");
+        }
+    }
+}
+</code></pre>
+                    <!-- !SECTION Conditional debugging -->
                     <!-- SECTION Effect of local scope -->
                     <h3 id="Effect_of_local_scope">Effect of local scope</h3>
                     <p>When using the debugger, the values of <a href="#Variables,_Constants,_Types_and_Literals">variables</a>,
@@ -1546,11 +1637,10 @@ CallStackWindow.dll!CallStackWindow.Program.Main(string[] args) Line 9
                         the form of a <a href="#try-catch">try-catch</a> statement is reached, or the program exits in which case the operating system may report the
                         program has exited with an unhandled exception. C# has a number of built-in exceptions that are thrown for various error conditions. You can also
                         create your own custom exceptions though the built-in types should be used where possible. Following is an example that shows the result of
-                        attempting to divide by zero. By clicking on the <i>Start Debugging</i> button <span class="play-button"></span> in the toolbar or by pressing
-                        <b>F5</b> the program will run with the debugger attached and then stop and highlight the statement
-                        <code>var z = x / y;</code> and display an <i>Exception Unhandled</i> dialog box with the message <i>System.DivideByZeroException: 'Attempted to
-                        divide by zero.'</i> of which <code>DivideByZeroException</code> is the exception. To stop the program and clear the exception click the
-                        <i>Stop Debugging</i> <span class="stop-button"></span> button in the toolbar or press <span class="nowrap"><b>Shift + F5</b></span></p>
+                        attempting to divide by zero. When the<a href="#Controlling_the_debugger"> debugger is started</a>, the program first runs and then stops
+                        highlighting the statement <code>var z = x / y;</code> while displaying an <i>Exception Unhandled</i> dialog box with the message
+                        <i>System.DivideByZeroException: 'Attempted to divide by zero.'</i> of which <code>DivideByZeroException</code> is the exception.
+                        <a href="Controlling_the_debugger">Stopping the debugger</a> clears the message and the faulty statement corrected.</p>
 <pre><code>namespace Exception
 {
     class Program
@@ -1588,7 +1678,8 @@ CallStackWindow.dll!CallStackWindow.Program.Main(string[] args) Line 9
 // System.ArgumentException: 'y cannot be zero'
 </code></pre>
                     <p> As the name suggests, an exception should only be used for exceptional circumstances and should not be used to control program execution. Instead,
-                        conditional statements should always be employed to look for potential errors.</p>
+                        conditional statements should always be employed to look for potential errors before they occur. A common use is to validate arguments that are
+                        passed into methods to confirm they are within the required range.</p>
                     <!-- !SECTION throw -->
                     <!-- SECTION try-catch -->
                     <h3 id="try-catch">try-catch</h3>
@@ -3266,15 +3357,17 @@ namespace AliasQualifier
                 </article>
             </section>
             <!-- !SECTION Expressions and Operators -->
+            <!-- TODO add else if -->
             <!-- SECTION Conditional Statements -->
             <section class="main-section" id="Conditional_Statements">
                 <header><h2>Conditional Statements</h2></header>
                 <p>Conditional statements change program execution by providing alternate paths, one of which will be chosen dependent on a condition.</p>
                 <a class="back-to-top" href="#">Back to top</a>
                 <article>
-                    <!-- SECTION if else statements -->
-                    <h3 id="if_else_statements">if else statements</h3>
-                    <p>The <code>if</code> and <code>else</code> statements allow the program execution to branch in one of two directions based on a condition.</p>
+                    <!-- SECTION if, else if, else statements -->
+                    <h3 id="if,_else_if,_else_statements">if, else if, else statements</h3>
+                    <p>The <code>if,</code> <code>else if</code> and <code>else</code> statements allow the program execution to branch in one of two directions based on
+                        a condition.</p>
 <pre><code>namespace IfElse
 {
     class Program
@@ -4375,13 +4468,15 @@ namespace Dictionaries
                     <p>A type can contain <a href="#Members">members</a> which include <a href="#Methods">methods</a>, <a href="#Constructors">constructors</a>,
                         <a href="#Fields">fields</a>, <a href="#Constant_fields">constant fields</a>, <a href="#Properties">properties</a>,
                         <a href="#Indexers">indexers</a>, <a href="#Events">events</a>, <a href="#Finalizers">finalizers</a> and other
-                        nested types. Combined these are used to define an object through encapsulation and storage of its data and by providing the object's behavior. A
-                        type can contain multiple members with the same identifier, known as <a href="#Parameters,_signatures_and_overloading">overloading</a>, provided
-                        that each has a unique <a href="#Parameters,_signatures_and_overloading">signature.</a> Accessibility to a type from code outside of the assembly,
-                        and to members both from outside the assembly and from other types within the assembly, is controlled through the use of
+                        nested types. Combined these are used to define an object's state through encapsulation and storage of its data and by providing the object's
+                        behavior. A type can contain multiple members with the same identifier, known as
+                        <a href="#Parameters,_signatures_and_overloading">overloading</a>, provided that each has a unique
+                        <a href="#Parameters,_signatures_and_overloading">signature.</a> Accessibility to a type from code outside of the assembly and to its members both
+                        from outside the assembly and from other types within the assembly, is controlled through the use of
                         <a href="#Access_Modifiers">access modifier</a> keywords.</p>
-                    <p></p>
-                    <p>Classes, structs and records can be instantiated with use of the <code>new</code> keyword. That is multiple instances of these types can be
+
+                    <p>VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV</p>
+                    <p> To create an instance of a class, struct or record the <code>new</code> keyword is used in the form <code>MyClass mcClass = new()</code>. During
                         created, each with its own state. A class can also be made <a href="#static">static</a> in which case it cannot be instantiated using the
                         <code>new</code> keyword but instead a single instance of the class is automatically created at runtime and is shared throughout the assembly. A
                         child class, record or interface can <a href="#Inheriting_types">inherit</a> from a parent class, record or interface respectively. In
@@ -9164,7 +9259,23 @@ var c = '\u0123' \\ the <i>g</i> character
                 </article>
             </section>
             <!-- !SECTION Keywords -->
-            <!-- Completed -->
+            <!-- TODO complete Further Reading -->
+            <!-- SECTION Further Reading -->
+            <section class="main-section" id="Further_Reading">
+                <header><h2>Further Reading</h2></header>
+                <a class="back-to-top" href="#">Back to top</a>
+                <article>
+                    <p>Whilst this guide has explored the basics of C# and .NET, the information that can be gained here is the equivalent of knowing where to put a
+                        verb or noun in a sentence. It doesn't and was never meant to tell you how to create a real world application. The following is a list of further
+                        reading you are encouraged to research. It is but is by no means exhaustive and is presented in no particular order of importance. It should also
+                        be noted that there have been many changes in what is perceived to be good and bad practice in application development and many arguments can be
+                        found on line about this.</p>
+                    <ul>
+                        <li>ASP.NET</li>
+                    </ul>
+                </article>
+            </section>
+            <!-- !SECTION Further Reading -->
             <!-- SECTION References -->
             <section class="main-section" id="References">
                 <header><h2>References</h2></header>
