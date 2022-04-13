@@ -174,6 +174,49 @@ Console.WriteLine("Hello, World!");
                         remaining code examples guide will include the boiler plate code as demonstrated in the <a href="#Program_structure">Program structure</a>
                         section.</p>
                     <!-- !SECTION Create a Hello World Project -->
+                    <!-- SECTION Reading and writing to the console -->
+                    <h3 id="Reading_and_writing_to_the_console">Reading and writing to the console</h3>
+                    <p>All examples in this guide are Console applications. In C#, text is stored in the string type and as reading a string from and writing it to
+                        the console is of fundamental importance, its best to see how that is done before delving any further. As already seen in the
+                        <a href="#Create_a_Hello_World_Project">Hello World</a> project, the <code>Console.WriteLine()</code> <a href="#methods">method</a> is used to to
+                        write to the console with the string placed within the round brackets. To read from the console the <code>Console.ReadLine()</code> method can be
+                        used which causes the program to loop reading one character at a time and displaying it to the console. When the return key is pressed, the loop
+                        ends and the string of characters is returned from the method, which can then be optionally stored in a variable to be used elsewhere in the code.
+                        If another type such as a number is required, it will need to be converted. Since it's possible that the user may enter a value that can't be
+                        converted the value may need to be validated first.</p>
+                    <p>When run within Visual Studio there is an option to keep the console window open after the program exits. This is turned on by default but as the
+                        normal behavior is for the program to close, other means must be employed. One such method is to place a <code>Consol.ReadLine()</code> statement
+                        as the last line of code in the program which will then require the user to press enter. As the return value won't be used there is no need to
+                        store its value. Alternatively, to allow the program to exit when any key is pressed, the <code>Console.ReadKey()</code> method can be used. To
+                        see the normal behavior of the console, click <b>Tools</b> in the main menu then select <b>Options</b>. In search, enter <b>close</b> and the
+                    <b>Automatically close the console when debugging stops</b> option should be listed. Checking this will allow the console to close as it normally
+                        would when the program exits.</p>
+                    <p>In addition to writing a string literal to the console a variable can be used. There are a number of ways to do this and the one most commonly used
+                        in this guide is an interpolated string. This takes the form of a literal string prefixed with <code>$</code> and the variable placed within a
+                        pair of curly brackets such as <code>Console.WriteLine($"My number is {variable}");</code></p>
+                    <p>The following example demonstrates reading and writing to the console.</p>
+<pre><code>namespace ConsoleReadingWriting
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Please type your name then press enter");
+            string? name = Console.ReadLine();
+            Console.WriteLine($"My name is {name}");
+            Console.WriteLine("Press any key to close the program");
+            Console.ReadKey();
+        }
+    }
+}
+
+// The example writes
+// Please type your name then press enter
+// to the console, waits for it to be
+// entered then writes it to the console.
+// The program then exits when the user presses any key.
+</code></pre>
+                    <!-- !SECTION Reading and writing to the console -->
                 </article>
             </section>
             <!-- !SECTION Introduction -->
@@ -3366,7 +3409,7 @@ namespace AliasQualifier
                 <article>
                     <!-- SECTION if, else if, else statements -->
                     <h3 id="if,_else_if,_else_statements">if, else if, else statements</h3>
-                    <p>The <code>if,</code> <code>else if</code> and <code>else</code> statements allow the program execution to branch in one of two directions based on
+                    <p>The <code>if,</code> <code>else if</code> and <code>else</code> statements allow the program execution to branch in one or more directions based on
                         a condition.</p>
 <pre><code>namespace IfElse
 {
