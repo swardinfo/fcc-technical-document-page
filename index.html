@@ -3400,7 +3400,6 @@ namespace AliasQualifier
                 </article>
             </section>
             <!-- !SECTION Expressions and Operators -->
-            <!-- TODO add else if -->
             <!-- SECTION Conditional Statements -->
             <section class="main-section" id="Conditional_Statements">
                 <header><h2>Conditional Statements</h2></header>
@@ -3409,59 +3408,86 @@ namespace AliasQualifier
                 <article>
                     <!-- SECTION if, else if, else statements -->
                     <h3 id="if,_else_if,_else_statements">if, else if, else statements</h3>
-                    <p>The <code>if,</code> <code>else if</code> and <code>else</code> statements allow the program execution to branch in one or more directions based on
-                        a condition.</p>
-<pre><code>namespace IfElse
+                    <p>The <code>if</code> statement evaluates a condition and if true, executes any statements within its code block. The <code>else if</code>
+                        statement also executes statements if a condition evaluates true. Multiple <code>if else</code> statements can follow an <code>if</code> statement
+                        with each only being executed if the statement's condition immediately preceding it evaluates to false. Each <code>else if</code> statement test
+                        condition need not be related or use the same test variables as previous <code>if</code> or
+                        <code>else if</code> statements. The <code>else</code> statement does not
+                        evaluate a condition and must be placed after an <code>if</code> statement or any existing <code>else if</code> statements. It is also only
+                        executed if the preceding statement's condition evaluates to false. An <code>if</code> statement can also be nested within another <code>if</code>
+                        statement.</p>
+                    <p>The following example demonstrates use of <code>if,</code> <code>else is,</code> and <code>else</code> statements. When the user enters a value, the
+                        first <code>if</code>
+                        statement uses <code>int.TryParse</code> to determine if the value entered by the user is an integer. If true execution enters its code block
+                        which nests an inner <code>if</code> statement, other wise it enters the else statement which writes 'Not a number' to the console. The inner
+                        <code>if</code> statement tests whether the number is between 1 and 5 inclusive. The <code>else if</code> statement tests if the number is between
+                        6 and 10 inclusive. As the two previous statements combined have accounted for all numbers between 1 and 10, the <code>else</code> statement
+                        effectively captures the condition where the number if less than 1 and more than 10.</p>
+<pre><code>namespace IfStatements
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int a = 1;
-            if (a == 1)
+            Console.WriteLine("Type a number between 1 and 10 then press enter");
+            var input = Console.ReadLine();
+            if (int.TryParse(input, out int number))
             {
-                Console.WriteLine("a equals 1");
+                if (number &gt;= 1 && number &lt;= 5)
+                {
+                    Console.WriteLine($"{number} is between 1 and 5");
+                }
+                else if (number &gt;= 6 && number &lt;== 10)
+                {
+                    Console.WriteLine($"{number} is between 6 and 10");
+                }
+                else
+                {
+                    Console.WriteLine($"{number} is not between 1 and 10");
+                }
             }
             else
             {
-                Console.WriteLine("a does not equal 1");
+                Console.WriteLine("Not a number");
             }
         }
     }
 }
-
-// The example prints the following to the console
-// a equals 1
 </code></pre>
                     <!-- !SECTION if else statements -->
                     <!-- SECTION switch statement -->
                     <h3 id="switch_statement">switch statement</h3>
-                    <p>The <code>switch</code> statement allows for program execution to branch in one of multiple directions based on a condition.</p>
+                    <p>The <code>switch</code> statement allows for program execution to branch in one of multiple directions based on the various conditions of a single
+                        common variable. A <code>case</code> statement is used to check for each required value. After the last <code>case</code> statement the <code>default</code>
+                        statement can be used to capture all other conditions.</p>
+                    <p>In the example the user is asked if they wish continue. The switch statement checks for the cases if either 'y' or 'n' is pressed and responds by
+                        replying with the users' response. If the user presses any other key, the switch captures this in its default statement and responds with
+                        <span class="nowrap">'invalid entry'.</span>
+                    </p>
 <pre><code>namespace Switch
 {
     class Program
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Do you want to continue?");
+            var key = Console.ReadKey().Key.ToString().ToLower();
             int a = 5;
-            switch (a)
+            switch (key)
             {
-                case 0:
-                    Console.WriteLine("none");
+                case "y" :
+                    Console.WriteLine("\nThe user pressed 'y'");
                     break;
-                case 1:
-                    Console.WriteLine("one");
+                case "n":
+                    Console.WriteLine("\nThe user pressed 'n'");
                     break;
                 default:
-                    Console.WriteLine("many");
+                    Console.WriteLine("\nInvalid entry");
                     break;
             }
         }
     }
 }
-
-// The example prints the following to the console
-// many
 </code></pre>
                     <!-- !SECTION switch statement -->
                 </article>
