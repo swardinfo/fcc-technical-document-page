@@ -4519,8 +4519,6 @@ namespace Dictionaries
             <!-- TODO complete User defined types rewrite -->
             <!-- TODO add brief about overriding and virtual -->
             <!-- TODO add brief about polymorphism -->
-            <!-- TODO complete class -->
-            <!-- TODO complete Full class example -->
             <!-- TODO add inheriting interfaces and records -->
             <!-- TODO change to refer to types and that only applicable to classes and records -->
             <!-- TODO add code example description -->
@@ -4559,6 +4557,9 @@ namespace Dictionaries
                         <a href="#Parameters,_signatures_and_overloading">signature.</a> Accessibility to a type from code outside of the assembly and to its members both
                         from outside the assembly and from other types within the assembly, is controlled through the use of
                         <a href="#Access_Modifiers">access modifier</a> keywords.</p>
+                    <p>Types are normally declared within a namespace with each requiring a unique name. Namespaces allow multiple types with the same name to exist
+                        within an assembly reducing the possibility of a naming collision. They can then be accessed in the form <code>MyNameSpace.MyType</code> or
+                        through the type name directly if a using directive is added to the file that contains it.</p>
 
                     <p>VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV</p>
                     <p> To create an instance of a class, struct or record the <code>new</code> keyword is used in the form <code>MyClass mcClass = new()</code>. During
@@ -4575,40 +4576,39 @@ namespace Dictionaries
                     <!-- SECTION class -->
                     <h3 id="class">class</h3>
                     <p>A class is a used to define a type that can be instantiated into an <a href="#Object-oriented_Programming">object.</a> It does this by acting as a
-                        container to encapsulate <a href="#Members">members</a> that define its state and behavior. It is a <a href="#Reference_type">reference type</a>
+                        container to encapsulate <a href="#Members">members</a> that define its state and behavior. It is a
+                        <a href="#Variables,_Constants,_Types_and_Literals">reference type</a>
                         which when declared at run-time contains <a href="#null">null</a> until an instance is created using the <code>new</code> keyword. At this time
                         its members can be called to define its initial state. <a href="#Modifiers">Modifier keywords</a> can be applied to a class and its members to
                         alter its behavior and accessibility.</p>
-                    <p>A class within a namespace is declared by specifying an optional <a href="#Access_Modifiers">access modifier</a> keyword, followed by the
-                        <code>class</code> keyword, followed by an identifier that is unique within the same <a href="#Dependencies_and_Namespaces">namespace</a>,
-                        followed by a code block defined by a pair of braces. If the access modifier keyword is omitted the default access is internal. Whilst multiple
-                        classes can be added to a single file, unless a class is nested within another, the convention is that one file should contain one class.</p>
+                    <p>A class within a <a href="#Dependencies_and_Namespaces">namespace</a> is declared by specifying an optional <a href="#Access_modifiers">access
+                        modifier</a> keyword, followed by the <code>class</code> keyword, followed by an identifier that is unique within the same namespace followed by a
+                        code block defined by a pair of braces. If the access modifier keyword is omitted the default access is internal. Whilst multiple classes can be
+                        added to a single file, unless a class is nested within another, the convention is that one file should contain one class. Access to a nested
+                        class and the access modifiers that can be applied to it are the same as that for other members.</p>
                     <p>To add a class file in Visual Studio</p>
                     <ol>
-                        <li>In the <b>Solution Explorer</b> right click a project or a folder within it.</li>
+                        <li>In the <b>Solution Explorer,</b> right click a project or folder node in which to add the class.</li>
                         <li>In the context menu hover the mouse over <b>Add</b> then in the new context menu that opens, click <b>Class</b> and the
                             <span class="nowrap"><b>Add New Item</b></span> dialog will open.</li>
                         <li><b>Class</b> should be selected at the top of the list but if it isn't, type <i>class</i> in the search bar in the top right of the dialog and
                             then select <i>class</i> in the list.</li>
-                        <li>At the bottom of the dialog in the name text box type the name of the class then click <b>Add</b> and the new class file will be added to the
-                            project and then opened in the code editor.</li>
+                        <li>At the bottom of the dialog in the name text box type the name of the class then click <b>Add.</b> The new class file will be added and then
+                            opened in the code editor.</li>
                     </ol>
-                    <p></p>
-                    <p><em>Note:</em><i> The Class template provided by Visual Studio in the Add New Item dialog creates a file with a class without an access modifier.
-                        The file will also include using directives for various namespaces dependent on the project's type. Adding a class to a folder will result in a
-                        <a href="#Dependencies_and_Namespaces">namespace</a> of the form
-                        <span class="nowrap"><code>namespace ProjectName.FolderName</code>.</span></i></p>
-                    <p>The following example demonstrates ways in which a class can be declared. </p>
+                    <p>The Class template provided by Visual Studio, by default creates a file with the class marked with the internal access modifier. It will also be
+                        wrapped in a namespace, which if added directly to the project node, will be in the form
+                        <span class="nowrap"><code>namespace ProjectName</code></span> or if added to a folder node
+                        <span class="nowrap"><code>namespace ProjectName.FolderName.</code></span>Dependent on the project's type, the file may also include
+                        <a href="#using_and_importing_types">using directives</a> for various namespaces. If in the project properties 'Enable implicit global usings to
+                        be declared by the project SDK' is checked then the using directives may be greyed out and you will have the option to remove them from the file.
+                        If required, they will be added by the compiler at runtime.</p>
+                    <p>The following example demonstrates ways in which a class can be declared. A <a href="#Full_class_example">full class example</a> is shown following
+                        the various member sections.</p>
 <pre><code>namespace ConsoleApp
 {
     namespace ClassDeclaration
     {
-        // The syntax for declaring a class is first
-        // an optional access modifier followed by
-        // the keyword class then a unique identifier
-        // followed by a pair of braces within
-        // which are the classes members
-
         // Public class declaration. This class can be
         // accessed both by the assembly that
         // contains it and any assembly that references it
@@ -4646,158 +4646,6 @@ namespace Dictionaries
         }
     }
 }
-</code></pre>
-                    <p>The following example defines a <code>Square</code> class with <a href="#Constructors">constructors</a>, <a href="#Methods">methods</a>,
-                        <a href="#Fields">fields</a>,
-                        <a href="#Properties">properties</a> and <a href="#Events">events.</a> There are two constructors, the first has a
-                        <a href="#Parameters_signatures_and_overloading">signature</a> with one parameter and the second with three in which the third parameter is
-                        optional. The <code>Program</code> class creates three instances of the <code>Square</code> class. The first uses the first constructor, the
-                        second the second constructor without passing an argument to the third parameter. The third also uses the second constructor but does pass an
-                        argument. It also adds the <code>Square_AreaChanged</code> event handler to handle the <code>AreaChanged</code> event of both the
-                        <code>square2</code> and <code>square3</code> instances. When the program is run, after writing the initial area values to the console it then
-                        changes the <code>Width</code> property directly on the <code>square2</code> instance and <code>Height</code> on <code>square3</code> through the
-                        <code>SetHeight</code> method. This triggers the <code>AreaChanged</code> event in each which then calls the <code>Square_AreaChanged</code> event
-                        handler which in turn writes the updated values to the console.</p>
-<pre><code>namespace ClassExample
-{
-    class Square
-    {
-        // Declare 2 fields a constant to initialize the width and a
-        // variable to use as a backing field for the Width property
-        const int DEFAULT_VALUE = 1;
-        private int _Width;
-
-        // A constructor that sets the Height
-        // and Width to the default value internally
-        // The name and height must be set
-        public Square(string name)
-        {
-            Name = name;
-            Height = DEFAULT_VALUE;
-            Width = DEFAULT_VALUE;
-        }
-
-        // A constructor that allows the Width to optionally be set
-        // if a value is not provided it is set to the default value
-        // The name and height must be set
-        public Square(string name, int height, int width = DEFAULT_VALUE)
-        {
-            Name = name;
-            Height = height;
-            Width = width;
-        }
-
-        // An event that fires when there are changes
-        // This uses the Expression-bodied member syntax
-        public event EventHandler AreaChanged = (sender, e) =&gt; { };
-
-        // The name property has a private setter
-        // It can only be set from within the class
-        // This is an Auto Property as the compiler
-        // automatically creates a hidden private
-        // backing field
-        public string Name { get; private set; }
-
-        // The Height property can be set both from inside
-        // and from outside the class but does not trigger
-        // the AreaChanged event. This is also an
-        // Auto Property
-        public int Height { get; set; }
-
-        // The Width property can be set both from inside
-        // and from outside the class and triggers
-        // the AreaChanged event by calling the
-        // OnAreaChanged method
-        public int Width
-        {
-            get =&gt; _Width;
-            set
-            {
-                if (_Width == value)
-                    return;
-                _Width = value;
-                OnAreaChanged();
-            }
-        }
-
-        // The SetHeight method changes the height and
-        // triggers the area changed event by calling the
-        // OnAreaChanged method. This method's return
-        // type is set to void which means that it does
-        // not return a value. It accepts a parameter
-        // of type int called height
-        public void SetHeight(int height)
-        {
-            Height = height;
-            OnAreaChanged();
-        }
-
-        // The GetArea method calculates the area from the
-        // Height and Width values and returns the result
-        // as an int
-        public int GetArea()
-        {
-            return Height * Width;
-        }
-
-        // This is the expression-bodied member syntax for the GetArea method
-        // and performs the same function. It is useful when only one line
-        // of code is to be entered within the braces
-        public int GetArea2() =&gt; Height * Width;
-
-        // An overloaded GetArea2 method. When selecting this method
-        // IntelliSense will show there are two versions of this
-        // method to choose from
-        public int GetArea2(int doesNothing) =&gt; Height * Width;
-
-        // The OnAreaChanged method first checks if an event handler exists
-        // and if so calls the event through the invoke command passing on
-        // the arguments in this case this class instance by using the this
-        // keyword and an empty EventArgs
-        // This method also uses Expression-bodied member syntax
-        private void OnAreaChanged() =&gt; AreaChanged?.Invoke(this, EventArgs.Empty);
-    }
-
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            // Three squares are created using the new keyword and alternative
-            // constructors
-            Square square1 = new("Square 1");
-            Square square2 = new("Square 2", 5);
-            Square square3 = new("Square 3", 5, 10);
-            // The Square_AreaChanged event handler is added to both the
-            // square2 and square3 AreaChanged events
-            square2.AreaChanged += Square_AreaChanged;
-            square3.AreaChanged += Square_AreaChanged;
-            // The initial area values are written to the console
-            Console.WriteLine($"{square1.Name} area is {square1.GetArea().ToString()}");
-            Console.WriteLine($"{square2.Name} area is {square2.GetArea().ToString()}");
-            Console.WriteLine($"{square3.Name} area is {square3.GetArea().ToString()}");
-            // Changing the width triggers the square2 AreaChanged event
-            square2.Width = 3;
-            // Changing the height triggers the square3 AreaChanged event
-            square3.SetHeight(10);
-
-        }
-
-        // This is the Square_AreaChanged event handler which has been added to both the
-        // square1 and square2 AreaChanged events
-        private static void Square_AreaChanged(object sender, EventArgs e)
-        {
-            var square = sender as Square;
-            Console.WriteLine($"{square.Name} area changed and is now {square.GetArea().ToString()}");
-        }
-    }
-}
-
-// The example writes the following to the console
-// Square 1 area is 1
-// Square 2 area is 5
-// Square 3 area is 50
-// Square 2 area changed and is now 15
-// Square 3 area changed and is now 100
 </code></pre>
                     <!-- !SECTION class -->
                     <!-- SECTION Members -->
@@ -5770,21 +5618,159 @@ namespace CancelEvent
                         class that is created. As implementing a finalizer is a rare and complex subject it won't be discussed in this guide.</p>
                     <p><em>Note:</em> <i>In earlier versions of the C# standard a 'finalizer' was called a 'destructor'.</i></p>
                     <!-- !SECTION Finalizers -->
-                    <!-- TODO complete Full class example -->
                     <!-- SECTION Full class example -->
                     <h3 id="Full_class_example">Full class example</h3>
-                    <p>Description</p>
-                    <p>CodeExample</p>
-<pre><code>namespace Namespace
+                    <p>The following example defines a <code>Square</code> class with <a href="#Constructors">constructors</a>, <a href="#Methods">methods</a>,
+                        <a href="#Fields">fields</a>,
+                        <a href="#Properties">properties</a> and <a href="#Events">events.</a> There are two constructors, the first has a
+                        <a href="#Parameters_signatures_and_overloading">signature</a> with one parameter and the second with three in which the third parameter is
+                        optional. The <code>Program</code> class creates three instances of the <code>Square</code> class. The first uses the first constructor, the
+                        second the second constructor without passing an argument to the third parameter. The third also uses the second constructor but does pass an
+                        argument. It also adds the <code>Square_AreaChanged</code> event handler to handle the <code>AreaChanged</code> event of both the
+                        <code>square2</code> and <code>square3</code> instances. When the program is run, after writing the initial area values to the console it then
+                        changes the <code>Width</code> property directly on the <code>square2</code> instance and <code>Height</code> on <code>square3</code> through the
+                        <code>SetHeight</code> method. This triggers the <code>AreaChanged</code> event in each which then calls the <code>Square_AreaChanged</code> event
+                        handler which in turn writes the updated values to the console.</p>
+<pre><code>namespace ClassExample
 {
+    class Square
+    {
+        // Declare 2 fields a constant to initialize the width and a
+        // variable to use as a backing field for the Width property
+        const int DEFAULT_VALUE = 1;
+        private int _Width;
+
+        // A constructor that sets the Height
+        // and Width to the default value internally
+        // The name and height must be set
+        public Square(string name)
+        {
+            Name = name;
+            Height = DEFAULT_VALUE;
+            Width = DEFAULT_VALUE;
+        }
+
+        // A constructor that allows the Width to optionally be set
+        // if a value is not provided it is set to the default value
+        // The name and height must be set
+        public Square(string name, int height, int width = DEFAULT_VALUE)
+        {
+            Name = name;
+            Height = height;
+            Width = width;
+        }
+
+        // An event that fires when there are changes
+        // This uses the Expression-bodied member syntax
+        public event EventHandler AreaChanged = (sender, e) =&gt; { };
+
+        // The name property has a private setter
+        // It can only be set from within the class
+        // This is an Auto Property as the compiler
+        // automatically creates a hidden private
+        // backing field
+        public string Name { get; private set; }
+
+        // The Height property can be set both from inside
+        // and from outside the class but does not trigger
+        // the AreaChanged event. This is also an
+        // Auto Property
+        public int Height { get; set; }
+
+        // The Width property can be set both from inside
+        // and from outside the class and triggers
+        // the AreaChanged event by calling the
+        // OnAreaChanged method
+        public int Width
+        {
+            get =&gt; _Width;
+            set
+            {
+                if (_Width == value)
+                    return;
+                _Width = value;
+                OnAreaChanged();
+            }
+        }
+
+        // The SetHeight method changes the height and
+        // triggers the area changed event by calling the
+        // OnAreaChanged method. This method's return
+        // type is set to void which means that it does
+        // not return a value. It accepts a parameter
+        // of type int called height
+        public void SetHeight(int height)
+        {
+            Height = height;
+            OnAreaChanged();
+        }
+
+        // The GetArea method calculates the area from the
+        // Height and Width values and returns the result
+        // as an int
+        public int GetArea()
+        {
+            return Height * Width;
+        }
+
+        // This is the expression-bodied member syntax for the GetArea method
+        // and performs the same function. It is useful when only one line
+        // of code is to be entered within the braces
+        public int GetArea2() =&gt; Height * Width;
+
+        // An overloaded GetArea2 method. When selecting this method
+        // IntelliSense will show there are two versions of this
+        // method to choose from
+        public int GetArea2(int doesNothing) =&gt; Height * Width;
+
+        // The OnAreaChanged method first checks if an event handler exists
+        // and if so calls the event through the invoke command passing on
+        // the arguments in this case this class instance by using the this
+        // keyword and an empty EventArgs
+        // This method also uses Expression-bodied member syntax
+        private void OnAreaChanged() =&gt; AreaChanged?.Invoke(this, EventArgs.Empty);
+    }
+
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
+            // Three squares are created using the new keyword and alternative
+            // constructors
+            Square square1 = new("Square 1");
+            Square square2 = new("Square 2", 5);
+            Square square3 = new("Square 3", 5, 10);
+            // The Square_AreaChanged event handler is added to both the
+            // square2 and square3 AreaChanged events
+            square2.AreaChanged += Square_AreaChanged;
+            square3.AreaChanged += Square_AreaChanged;
+            // The initial area values are written to the console
+            Console.WriteLine($"{square1.Name} area is {square1.GetArea().ToString()}");
+            Console.WriteLine($"{square2.Name} area is {square2.GetArea().ToString()}");
+            Console.WriteLine($"{square3.Name} area is {square3.GetArea().ToString()}");
+            // Changing the width triggers the square2 AreaChanged event
+            square2.Width = 3;
+            // Changing the height triggers the square3 AreaChanged event
+            square3.SetHeight(10);
 
+        }
+
+        // This is the Square_AreaChanged event handler which has been added to both the
+        // square1 and square2 AreaChanged events
+        private static void Square_AreaChanged(object sender, EventArgs e)
+        {
+            var square = sender as Square;
+            Console.WriteLine($"{square.Name} area changed and is now {square.GetArea().ToString()}");
         }
     }
 }
+
+// The example writes the following to the console
+// Square 1 area is 1
+// Square 2 area is 5
+// Square 3 area is 50
+// Square 2 area changed and is now 15
+// Square 3 area changed and is now 100
 </code></pre>
                     <!-- !SECTION Full class example -->
                     <!-- SECTION Local functions -->
