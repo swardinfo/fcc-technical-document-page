@@ -114,6 +114,9 @@
                         it from functioning correctly are known as bugs. If all you could do were to write, compile and run the program, then you would not have much to
                         go on. The debugger allows you to step through the code one line at a time to find the problem. This is known as running the program with the
                         debugger attached.</p>
+                    <p>Visual Studio also provides the <a href="#Program_structure">Solution Explorer</a> which allows you to view the
+                        <a href="#Program_structure">projects</a> along with their <a href="#Dependencies_and_Namespaces">dependencies</a>, folders and files that make
+                        up your application.</p>
                     <p>At the time of this writing there are three versions of Visual Studio.</p>
                     <ul>
                         <li>Community</li>
@@ -1604,6 +1607,7 @@ CallStackWindow.dll!CallStackWindow.Program.Main(string[] args) Line 9
             <!-- !SECTION Code Writing and Debugging -->
 <!-- TODO Add custom exceptions and using in built preferred. Custom exceptions should end with exception -->
 <!-- TODO add info about source of exception, .NET, runtime, third-party -->
+<!-- TODO complete Filtered_exceptions -->
             <!-- SECTION Errors and Exception Handling -->
             <section class="main-section" id="Errors_and_Exception_Handling">
                 <header><h2>Errors and Exception Handling</h2></header>
@@ -2617,6 +2621,8 @@ namespace StringBuilderExample
                 </article>
             </section>
             <!-- !SECTION Characters and Strings -->
+            <!-- TODO complete Null-conditional operators ?. and ?[] -->
+            <!-- TODO complete Null-forgiving operator -->
             <!-- SECTION Expressions and Operators -->
             <section class="main-section" id="Expressions_and_Operators">
                 <header><h2>Expressions and Operators</h2></header>
@@ -4510,6 +4516,16 @@ namespace Dictionaries
                 </article>
             </section>
             <!-- !SECTION Enumerators and Tuples -->
+            <!-- TODO complete User defined types rewrite -->
+            <!-- TODO add brief about overriding and virtual -->
+            <!-- TODO add brief about polymorphism -->
+            <!-- TODO complete class -->
+            <!-- TODO complete Full class example -->
+            <!-- TODO add inheriting interfaces and records -->
+            <!-- TODO change to refer to types and that only applicable to classes and records -->
+            <!-- TODO add code example description -->
+            <!-- TODO Rewrite the following -->
+            <!-- TODO using base in override -->
             <!-- SECTION Classes and Other User Defined Types -->
             <section class="main-section" id="Classes_and_Other_User_Defined_Types">
                 <header><h2>Classes and Other User Defined Types</h2></header>
@@ -4553,7 +4569,7 @@ namespace Dictionaries
                         a derived class for instantiation or <a href="#sealed">sealed</a> to prevent inheritance. Use of the static, abstract and sealed keywords is
                         mutually exclusive. As well as inheritance a class, struct or record can implement an interface.</p>
                     <!-- !SECTION User defined types -->
-<!-- TODO finish the following -->
+<!-- TODO complete class -->
 <!-- TODO add brief about overriding and virtual -->
 <!-- TODO add brief about polymorphism -->
                     <!-- SECTION class -->
@@ -4566,10 +4582,10 @@ namespace Dictionaries
                     <p>A class within a namespace is declared by specifying an optional <a href="#Access_Modifiers">access modifier</a> keyword, followed by the
                         <code>class</code> keyword, followed by an identifier that is unique within the same <a href="#Dependencies_and_Namespaces">namespace</a>,
                         followed by a code block defined by a pair of braces. If the access modifier keyword is omitted the default access is internal. Whilst multiple
-                        classes can be added to a single file, unless a class is nested, the convention is that each should occupy its own file.</p>
+                        classes can be added to a single file, unless a class is nested within another, the convention is that one file should contain one class.</p>
                     <p>To add a class file in Visual Studio</p>
                     <ol>
-                        <li>In the <b>Solution Explorer</b> right click the project or a folder within it that you wish to add the class to.</li>
+                        <li>In the <b>Solution Explorer</b> right click a project or a folder within it.</li>
                         <li>In the context menu hover the mouse over <b>Add</b> then in the new context menu that opens, click <b>Class</b> and the
                             <span class="nowrap"><b>Add New Item</b></span> dialog will open.</li>
                         <li><b>Class</b> should be selected at the top of the list but if it isn't, type <i>class</i> in the search bar in the top right of the dialog and
@@ -5754,6 +5770,23 @@ namespace CancelEvent
                         class that is created. As implementing a finalizer is a rare and complex subject it won't be discussed in this guide.</p>
                     <p><em>Note:</em> <i>In earlier versions of the C# standard a 'finalizer' was called a 'destructor'.</i></p>
                     <!-- !SECTION Finalizers -->
+                    <!-- TODO complete Full class example -->
+                    <!-- SECTION Full class example -->
+                    <h3 id="Full_class_example">Full class example</h3>
+                    <p>Description</p>
+                    <p>CodeExample</p>
+<pre><code>namespace Namespace
+{
+    class Program
+    {
+        static void Main()
+        {
+
+        }
+    }
+}
+</code></pre>
+                    <!-- !SECTION Full class example -->
                     <!-- SECTION Local functions -->
                     <h3 id="Local_functions">Local functions</h3>
                     <p>A local function is a private <a href="#Methods">method</a> that can be nested and can only be called from within another member. They can be
